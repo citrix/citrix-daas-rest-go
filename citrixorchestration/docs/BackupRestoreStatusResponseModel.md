@@ -1,0 +1,556 @@
+# BackupRestoreStatusResponseModel
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Action** | [**BackupRestoreActions**](BackupRestoreActions.md) |  | 
+**ExecutionId** | **string** | Execution ID of operation | 
+**Duration** | **int32** | Current operational duration in seconds | 
+**Status** | [**BackupRestoreStatus**](BackupRestoreStatus.md) |  | 
+**BackupName** | Pointer to **string** | Backup name being created by backup operation or backup name being restored from | [optional] 
+**ScheduleName** | Pointer to **string** | Schedule Name | [optional] 
+**Notes** | Pointer to **string** | Backup name being created by backup operation or backup name being restored from | [optional] 
+**ContinueAction** | Pointer to **bool** | Continue Action: True &#x3D; Continue Action, False &#x3D; Stop action | [optional] 
+**StartTime** | Pointer to **time.Time** | Action Start UTC Time              | [optional] 
+**CurrentTime** | Pointer to **time.Time** | Action Current UTC Time | [optional] 
+**ActivityCount** | Pointer to **int32** | Activity count for stall testing | [optional] 
+**CurrentComponent** | Pointer to [**BckRstrAutoConfigComponents**](BckRstrAutoConfigComponents.md) |  | [optional] 
+**CurrentMemberName** | Pointer to **string** | Current component member being restored | [optional] 
+**MemberCount** | Pointer to **int32** | Member Count | [optional] 
+**ComponentProgress** | Pointer to [**BackupRestorePlaybookActionState**](BackupRestorePlaybookActionState.md) |  | [optional] 
+**CheckMode** | Pointer to **bool** | Check Mode restore from backup | [optional] 
+**Filters** | Pointer to **string** | Filters used by restore from backup | [optional] 
+**AdministratrName** | Pointer to **string** | AdministratorName | [optional] 
+**BackupDetails** | Pointer to **map[string]string** | Backup Status Details | [optional] 
+**RestoreDetails** | Pointer to [**[]BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) | Restore Status Details | [optional] 
+**SimpleResults** | Pointer to **[]string** | Simple Results (such as Get backed up member names) | [optional] 
+
+## Methods
+
+### NewBackupRestoreStatusResponseModel
+
+`func NewBackupRestoreStatusResponseModel(action BackupRestoreActions, executionId string, duration int32, status BackupRestoreStatus, ) *BackupRestoreStatusResponseModel`
+
+NewBackupRestoreStatusResponseModel instantiates a new BackupRestoreStatusResponseModel object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewBackupRestoreStatusResponseModelWithDefaults
+
+`func NewBackupRestoreStatusResponseModelWithDefaults() *BackupRestoreStatusResponseModel`
+
+NewBackupRestoreStatusResponseModelWithDefaults instantiates a new BackupRestoreStatusResponseModel object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetAction
+
+`func (o *BackupRestoreStatusResponseModel) GetAction() BackupRestoreActions`
+
+GetAction returns the Action field if non-nil, zero value otherwise.
+
+### GetActionOk
+
+`func (o *BackupRestoreStatusResponseModel) GetActionOk() (*BackupRestoreActions, bool)`
+
+GetActionOk returns a tuple with the Action field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAction
+
+`func (o *BackupRestoreStatusResponseModel) SetAction(v BackupRestoreActions)`
+
+SetAction sets Action field to given value.
+
+
+### GetExecutionId
+
+`func (o *BackupRestoreStatusResponseModel) GetExecutionId() string`
+
+GetExecutionId returns the ExecutionId field if non-nil, zero value otherwise.
+
+### GetExecutionIdOk
+
+`func (o *BackupRestoreStatusResponseModel) GetExecutionIdOk() (*string, bool)`
+
+GetExecutionIdOk returns a tuple with the ExecutionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExecutionId
+
+`func (o *BackupRestoreStatusResponseModel) SetExecutionId(v string)`
+
+SetExecutionId sets ExecutionId field to given value.
+
+
+### GetDuration
+
+`func (o *BackupRestoreStatusResponseModel) GetDuration() int32`
+
+GetDuration returns the Duration field if non-nil, zero value otherwise.
+
+### GetDurationOk
+
+`func (o *BackupRestoreStatusResponseModel) GetDurationOk() (*int32, bool)`
+
+GetDurationOk returns a tuple with the Duration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDuration
+
+`func (o *BackupRestoreStatusResponseModel) SetDuration(v int32)`
+
+SetDuration sets Duration field to given value.
+
+
+### GetStatus
+
+`func (o *BackupRestoreStatusResponseModel) GetStatus() BackupRestoreStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *BackupRestoreStatusResponseModel) GetStatusOk() (*BackupRestoreStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *BackupRestoreStatusResponseModel) SetStatus(v BackupRestoreStatus)`
+
+SetStatus sets Status field to given value.
+
+
+### GetBackupName
+
+`func (o *BackupRestoreStatusResponseModel) GetBackupName() string`
+
+GetBackupName returns the BackupName field if non-nil, zero value otherwise.
+
+### GetBackupNameOk
+
+`func (o *BackupRestoreStatusResponseModel) GetBackupNameOk() (*string, bool)`
+
+GetBackupNameOk returns a tuple with the BackupName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupName
+
+`func (o *BackupRestoreStatusResponseModel) SetBackupName(v string)`
+
+SetBackupName sets BackupName field to given value.
+
+### HasBackupName
+
+`func (o *BackupRestoreStatusResponseModel) HasBackupName() bool`
+
+HasBackupName returns a boolean if a field has been set.
+
+### GetScheduleName
+
+`func (o *BackupRestoreStatusResponseModel) GetScheduleName() string`
+
+GetScheduleName returns the ScheduleName field if non-nil, zero value otherwise.
+
+### GetScheduleNameOk
+
+`func (o *BackupRestoreStatusResponseModel) GetScheduleNameOk() (*string, bool)`
+
+GetScheduleNameOk returns a tuple with the ScheduleName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScheduleName
+
+`func (o *BackupRestoreStatusResponseModel) SetScheduleName(v string)`
+
+SetScheduleName sets ScheduleName field to given value.
+
+### HasScheduleName
+
+`func (o *BackupRestoreStatusResponseModel) HasScheduleName() bool`
+
+HasScheduleName returns a boolean if a field has been set.
+
+### GetNotes
+
+`func (o *BackupRestoreStatusResponseModel) GetNotes() string`
+
+GetNotes returns the Notes field if non-nil, zero value otherwise.
+
+### GetNotesOk
+
+`func (o *BackupRestoreStatusResponseModel) GetNotesOk() (*string, bool)`
+
+GetNotesOk returns a tuple with the Notes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotes
+
+`func (o *BackupRestoreStatusResponseModel) SetNotes(v string)`
+
+SetNotes sets Notes field to given value.
+
+### HasNotes
+
+`func (o *BackupRestoreStatusResponseModel) HasNotes() bool`
+
+HasNotes returns a boolean if a field has been set.
+
+### GetContinueAction
+
+`func (o *BackupRestoreStatusResponseModel) GetContinueAction() bool`
+
+GetContinueAction returns the ContinueAction field if non-nil, zero value otherwise.
+
+### GetContinueActionOk
+
+`func (o *BackupRestoreStatusResponseModel) GetContinueActionOk() (*bool, bool)`
+
+GetContinueActionOk returns a tuple with the ContinueAction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContinueAction
+
+`func (o *BackupRestoreStatusResponseModel) SetContinueAction(v bool)`
+
+SetContinueAction sets ContinueAction field to given value.
+
+### HasContinueAction
+
+`func (o *BackupRestoreStatusResponseModel) HasContinueAction() bool`
+
+HasContinueAction returns a boolean if a field has been set.
+
+### GetStartTime
+
+`func (o *BackupRestoreStatusResponseModel) GetStartTime() time.Time`
+
+GetStartTime returns the StartTime field if non-nil, zero value otherwise.
+
+### GetStartTimeOk
+
+`func (o *BackupRestoreStatusResponseModel) GetStartTimeOk() (*time.Time, bool)`
+
+GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartTime
+
+`func (o *BackupRestoreStatusResponseModel) SetStartTime(v time.Time)`
+
+SetStartTime sets StartTime field to given value.
+
+### HasStartTime
+
+`func (o *BackupRestoreStatusResponseModel) HasStartTime() bool`
+
+HasStartTime returns a boolean if a field has been set.
+
+### GetCurrentTime
+
+`func (o *BackupRestoreStatusResponseModel) GetCurrentTime() time.Time`
+
+GetCurrentTime returns the CurrentTime field if non-nil, zero value otherwise.
+
+### GetCurrentTimeOk
+
+`func (o *BackupRestoreStatusResponseModel) GetCurrentTimeOk() (*time.Time, bool)`
+
+GetCurrentTimeOk returns a tuple with the CurrentTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentTime
+
+`func (o *BackupRestoreStatusResponseModel) SetCurrentTime(v time.Time)`
+
+SetCurrentTime sets CurrentTime field to given value.
+
+### HasCurrentTime
+
+`func (o *BackupRestoreStatusResponseModel) HasCurrentTime() bool`
+
+HasCurrentTime returns a boolean if a field has been set.
+
+### GetActivityCount
+
+`func (o *BackupRestoreStatusResponseModel) GetActivityCount() int32`
+
+GetActivityCount returns the ActivityCount field if non-nil, zero value otherwise.
+
+### GetActivityCountOk
+
+`func (o *BackupRestoreStatusResponseModel) GetActivityCountOk() (*int32, bool)`
+
+GetActivityCountOk returns a tuple with the ActivityCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActivityCount
+
+`func (o *BackupRestoreStatusResponseModel) SetActivityCount(v int32)`
+
+SetActivityCount sets ActivityCount field to given value.
+
+### HasActivityCount
+
+`func (o *BackupRestoreStatusResponseModel) HasActivityCount() bool`
+
+HasActivityCount returns a boolean if a field has been set.
+
+### GetCurrentComponent
+
+`func (o *BackupRestoreStatusResponseModel) GetCurrentComponent() BckRstrAutoConfigComponents`
+
+GetCurrentComponent returns the CurrentComponent field if non-nil, zero value otherwise.
+
+### GetCurrentComponentOk
+
+`func (o *BackupRestoreStatusResponseModel) GetCurrentComponentOk() (*BckRstrAutoConfigComponents, bool)`
+
+GetCurrentComponentOk returns a tuple with the CurrentComponent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentComponent
+
+`func (o *BackupRestoreStatusResponseModel) SetCurrentComponent(v BckRstrAutoConfigComponents)`
+
+SetCurrentComponent sets CurrentComponent field to given value.
+
+### HasCurrentComponent
+
+`func (o *BackupRestoreStatusResponseModel) HasCurrentComponent() bool`
+
+HasCurrentComponent returns a boolean if a field has been set.
+
+### GetCurrentMemberName
+
+`func (o *BackupRestoreStatusResponseModel) GetCurrentMemberName() string`
+
+GetCurrentMemberName returns the CurrentMemberName field if non-nil, zero value otherwise.
+
+### GetCurrentMemberNameOk
+
+`func (o *BackupRestoreStatusResponseModel) GetCurrentMemberNameOk() (*string, bool)`
+
+GetCurrentMemberNameOk returns a tuple with the CurrentMemberName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentMemberName
+
+`func (o *BackupRestoreStatusResponseModel) SetCurrentMemberName(v string)`
+
+SetCurrentMemberName sets CurrentMemberName field to given value.
+
+### HasCurrentMemberName
+
+`func (o *BackupRestoreStatusResponseModel) HasCurrentMemberName() bool`
+
+HasCurrentMemberName returns a boolean if a field has been set.
+
+### GetMemberCount
+
+`func (o *BackupRestoreStatusResponseModel) GetMemberCount() int32`
+
+GetMemberCount returns the MemberCount field if non-nil, zero value otherwise.
+
+### GetMemberCountOk
+
+`func (o *BackupRestoreStatusResponseModel) GetMemberCountOk() (*int32, bool)`
+
+GetMemberCountOk returns a tuple with the MemberCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemberCount
+
+`func (o *BackupRestoreStatusResponseModel) SetMemberCount(v int32)`
+
+SetMemberCount sets MemberCount field to given value.
+
+### HasMemberCount
+
+`func (o *BackupRestoreStatusResponseModel) HasMemberCount() bool`
+
+HasMemberCount returns a boolean if a field has been set.
+
+### GetComponentProgress
+
+`func (o *BackupRestoreStatusResponseModel) GetComponentProgress() BackupRestorePlaybookActionState`
+
+GetComponentProgress returns the ComponentProgress field if non-nil, zero value otherwise.
+
+### GetComponentProgressOk
+
+`func (o *BackupRestoreStatusResponseModel) GetComponentProgressOk() (*BackupRestorePlaybookActionState, bool)`
+
+GetComponentProgressOk returns a tuple with the ComponentProgress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComponentProgress
+
+`func (o *BackupRestoreStatusResponseModel) SetComponentProgress(v BackupRestorePlaybookActionState)`
+
+SetComponentProgress sets ComponentProgress field to given value.
+
+### HasComponentProgress
+
+`func (o *BackupRestoreStatusResponseModel) HasComponentProgress() bool`
+
+HasComponentProgress returns a boolean if a field has been set.
+
+### GetCheckMode
+
+`func (o *BackupRestoreStatusResponseModel) GetCheckMode() bool`
+
+GetCheckMode returns the CheckMode field if non-nil, zero value otherwise.
+
+### GetCheckModeOk
+
+`func (o *BackupRestoreStatusResponseModel) GetCheckModeOk() (*bool, bool)`
+
+GetCheckModeOk returns a tuple with the CheckMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCheckMode
+
+`func (o *BackupRestoreStatusResponseModel) SetCheckMode(v bool)`
+
+SetCheckMode sets CheckMode field to given value.
+
+### HasCheckMode
+
+`func (o *BackupRestoreStatusResponseModel) HasCheckMode() bool`
+
+HasCheckMode returns a boolean if a field has been set.
+
+### GetFilters
+
+`func (o *BackupRestoreStatusResponseModel) GetFilters() string`
+
+GetFilters returns the Filters field if non-nil, zero value otherwise.
+
+### GetFiltersOk
+
+`func (o *BackupRestoreStatusResponseModel) GetFiltersOk() (*string, bool)`
+
+GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilters
+
+`func (o *BackupRestoreStatusResponseModel) SetFilters(v string)`
+
+SetFilters sets Filters field to given value.
+
+### HasFilters
+
+`func (o *BackupRestoreStatusResponseModel) HasFilters() bool`
+
+HasFilters returns a boolean if a field has been set.
+
+### GetAdministratrName
+
+`func (o *BackupRestoreStatusResponseModel) GetAdministratrName() string`
+
+GetAdministratrName returns the AdministratrName field if non-nil, zero value otherwise.
+
+### GetAdministratrNameOk
+
+`func (o *BackupRestoreStatusResponseModel) GetAdministratrNameOk() (*string, bool)`
+
+GetAdministratrNameOk returns a tuple with the AdministratrName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdministratrName
+
+`func (o *BackupRestoreStatusResponseModel) SetAdministratrName(v string)`
+
+SetAdministratrName sets AdministratrName field to given value.
+
+### HasAdministratrName
+
+`func (o *BackupRestoreStatusResponseModel) HasAdministratrName() bool`
+
+HasAdministratrName returns a boolean if a field has been set.
+
+### GetBackupDetails
+
+`func (o *BackupRestoreStatusResponseModel) GetBackupDetails() map[string]string`
+
+GetBackupDetails returns the BackupDetails field if non-nil, zero value otherwise.
+
+### GetBackupDetailsOk
+
+`func (o *BackupRestoreStatusResponseModel) GetBackupDetailsOk() (*map[string]string, bool)`
+
+GetBackupDetailsOk returns a tuple with the BackupDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupDetails
+
+`func (o *BackupRestoreStatusResponseModel) SetBackupDetails(v map[string]string)`
+
+SetBackupDetails sets BackupDetails field to given value.
+
+### HasBackupDetails
+
+`func (o *BackupRestoreStatusResponseModel) HasBackupDetails() bool`
+
+HasBackupDetails returns a boolean if a field has been set.
+
+### GetRestoreDetails
+
+`func (o *BackupRestoreStatusResponseModel) GetRestoreDetails() []BackupRestoreRestoreSingleMemberModel`
+
+GetRestoreDetails returns the RestoreDetails field if non-nil, zero value otherwise.
+
+### GetRestoreDetailsOk
+
+`func (o *BackupRestoreStatusResponseModel) GetRestoreDetailsOk() (*[]BackupRestoreRestoreSingleMemberModel, bool)`
+
+GetRestoreDetailsOk returns a tuple with the RestoreDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestoreDetails
+
+`func (o *BackupRestoreStatusResponseModel) SetRestoreDetails(v []BackupRestoreRestoreSingleMemberModel)`
+
+SetRestoreDetails sets RestoreDetails field to given value.
+
+### HasRestoreDetails
+
+`func (o *BackupRestoreStatusResponseModel) HasRestoreDetails() bool`
+
+HasRestoreDetails returns a boolean if a field has been set.
+
+### GetSimpleResults
+
+`func (o *BackupRestoreStatusResponseModel) GetSimpleResults() []string`
+
+GetSimpleResults returns the SimpleResults field if non-nil, zero value otherwise.
+
+### GetSimpleResultsOk
+
+`func (o *BackupRestoreStatusResponseModel) GetSimpleResultsOk() (*[]string, bool)`
+
+GetSimpleResultsOk returns a tuple with the SimpleResults field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSimpleResults
+
+`func (o *BackupRestoreStatusResponseModel) SetSimpleResults(v []string)`
+
+SetSimpleResults sets SimpleResults field to given value.
+
+### HasSimpleResults
+
+`func (o *BackupRestoreStatusResponseModel) HasSimpleResults() bool`
+
+HasSimpleResults returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
