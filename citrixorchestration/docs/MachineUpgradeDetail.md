@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uuid** | Pointer to **string** | Uuid of this upgrade status object. | [optional] 
+**Uuid** | Pointer to **NullableString** | Uuid of this upgrade status object. | [optional] 
 **ScheduleStatus** | Pointer to [**VdaUpgradeMachineScheduleStatus**](VdaUpgradeMachineScheduleStatus.md) |  | [optional] 
-**StatusMessage** | Pointer to **string** | Status message resulted from the action of this upgrade status object. | [optional] 
-**LastStateChangeTimeUtc** | Pointer to **string** | UTC time when this upgrade status object changed status for the last time. | [optional] 
-**ScheduledTimeUtc** | Pointer to **string** | UTC time when this VDA upgrade is scheduled to start. | [optional] 
-**DurationInHours** | Pointer to **int32** | Timeout duration in hours, of the current VDA upgrade schdeule. | [optional] 
-**TargetPackageVersion** | Pointer to **string** | Target package version of the current VDA upgrade schdeule. | [optional] 
+**StatusMessage** | Pointer to **NullableString** | Status message resulted from the action of this upgrade status object. | [optional] 
+**LastStateChangeTimeUtc** | Pointer to **NullableString** | UTC time when this upgrade status object changed status for the last time. | [optional] 
+**ScheduledTimeUtc** | Pointer to **NullableString** | UTC time when this VDA upgrade is scheduled to start. | [optional] 
+**DurationInHours** | Pointer to **NullableInt32** | Timeout duration in hours, of the current VDA upgrade schdeule. | [optional] 
+**TargetPackageVersion** | Pointer to **NullableString** | Target package version of the current VDA upgrade schdeule. | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetUuid sets Uuid field to given value.
 
 HasUuid returns a boolean if a field has been set.
 
+### SetUuidNil
+
+`func (o *MachineUpgradeDetail) SetUuidNil(b bool)`
+
+ SetUuidNil sets the value for Uuid to be an explicit nil
+
+### UnsetUuid
+`func (o *MachineUpgradeDetail) UnsetUuid()`
+
+UnsetUuid ensures that no value is present for Uuid, not even an explicit nil
 ### GetScheduleStatus
 
 `func (o *MachineUpgradeDetail) GetScheduleStatus() VdaUpgradeMachineScheduleStatus`
@@ -106,6 +116,16 @@ SetStatusMessage sets StatusMessage field to given value.
 
 HasStatusMessage returns a boolean if a field has been set.
 
+### SetStatusMessageNil
+
+`func (o *MachineUpgradeDetail) SetStatusMessageNil(b bool)`
+
+ SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+
+### UnsetStatusMessage
+`func (o *MachineUpgradeDetail) UnsetStatusMessage()`
+
+UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
 ### GetLastStateChangeTimeUtc
 
 `func (o *MachineUpgradeDetail) GetLastStateChangeTimeUtc() string`
@@ -131,6 +151,16 @@ SetLastStateChangeTimeUtc sets LastStateChangeTimeUtc field to given value.
 
 HasLastStateChangeTimeUtc returns a boolean if a field has been set.
 
+### SetLastStateChangeTimeUtcNil
+
+`func (o *MachineUpgradeDetail) SetLastStateChangeTimeUtcNil(b bool)`
+
+ SetLastStateChangeTimeUtcNil sets the value for LastStateChangeTimeUtc to be an explicit nil
+
+### UnsetLastStateChangeTimeUtc
+`func (o *MachineUpgradeDetail) UnsetLastStateChangeTimeUtc()`
+
+UnsetLastStateChangeTimeUtc ensures that no value is present for LastStateChangeTimeUtc, not even an explicit nil
 ### GetScheduledTimeUtc
 
 `func (o *MachineUpgradeDetail) GetScheduledTimeUtc() string`
@@ -156,6 +186,16 @@ SetScheduledTimeUtc sets ScheduledTimeUtc field to given value.
 
 HasScheduledTimeUtc returns a boolean if a field has been set.
 
+### SetScheduledTimeUtcNil
+
+`func (o *MachineUpgradeDetail) SetScheduledTimeUtcNil(b bool)`
+
+ SetScheduledTimeUtcNil sets the value for ScheduledTimeUtc to be an explicit nil
+
+### UnsetScheduledTimeUtc
+`func (o *MachineUpgradeDetail) UnsetScheduledTimeUtc()`
+
+UnsetScheduledTimeUtc ensures that no value is present for ScheduledTimeUtc, not even an explicit nil
 ### GetDurationInHours
 
 `func (o *MachineUpgradeDetail) GetDurationInHours() int32`
@@ -181,6 +221,16 @@ SetDurationInHours sets DurationInHours field to given value.
 
 HasDurationInHours returns a boolean if a field has been set.
 
+### SetDurationInHoursNil
+
+`func (o *MachineUpgradeDetail) SetDurationInHoursNil(b bool)`
+
+ SetDurationInHoursNil sets the value for DurationInHours to be an explicit nil
+
+### UnsetDurationInHours
+`func (o *MachineUpgradeDetail) UnsetDurationInHours()`
+
+UnsetDurationInHours ensures that no value is present for DurationInHours, not even an explicit nil
 ### GetTargetPackageVersion
 
 `func (o *MachineUpgradeDetail) GetTargetPackageVersion() string`
@@ -206,6 +256,16 @@ SetTargetPackageVersion sets TargetPackageVersion field to given value.
 
 HasTargetPackageVersion returns a boolean if a field has been set.
 
+### SetTargetPackageVersionNil
+
+`func (o *MachineUpgradeDetail) SetTargetPackageVersionNil(b bool)`
+
+ SetTargetPackageVersionNil sets the value for TargetPackageVersion to be an explicit nil
+
+### UnsetTargetPackageVersion
+`func (o *MachineUpgradeDetail) UnsetTargetPackageVersion()`
+
+UnsetTargetPackageVersion ensures that no value is present for TargetPackageVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

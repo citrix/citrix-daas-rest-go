@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of IsolationGroup | [optional] 
-**Description** | Pointer to **string** | Description of IsolationGroup | [optional] 
+**Name** | Pointer to **NullableString** | Name of IsolationGroup | [optional] 
+**Description** | Pointer to **NullableString** | Description of IsolationGroup | [optional] 
 **IncludedAppVPackages** | Pointer to [**[]AppVIsolationGroupPackageRequestModel**](AppVIsolationGroupPackageRequestModel.md) | Included AppV packages | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *UpdateAppVIsolationGroupRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *UpdateAppVIsolationGroupRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *UpdateAppVIsolationGroupRequestModel) GetDescription() string`
@@ -77,6 +87,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *UpdateAppVIsolationGroupRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *UpdateAppVIsolationGroupRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIncludedAppVPackages
 
 `func (o *UpdateAppVIsolationGroupRequestModel) GetIncludedAppVPackages() []AppVIsolationGroupPackageRequestModel`
@@ -102,6 +122,16 @@ SetIncludedAppVPackages sets IncludedAppVPackages field to given value.
 
 HasIncludedAppVPackages returns a boolean if a field has been set.
 
+### SetIncludedAppVPackagesNil
+
+`func (o *UpdateAppVIsolationGroupRequestModel) SetIncludedAppVPackagesNil(b bool)`
+
+ SetIncludedAppVPackagesNil sets the value for IncludedAppVPackages to be an explicit nil
+
+### UnsetIncludedAppVPackages
+`func (o *UpdateAppVIsolationGroupRequestModel) UnsetIncludedAppVPackages()`
+
+UnsetIncludedAppVPackages ensures that no value is present for IncludedAppVPackages, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

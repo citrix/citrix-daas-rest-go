@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceName** | Pointer to **string** | The name for the network.  This is for display only and may not be populated. | [optional] 
+**DeviceName** | Pointer to **NullableString** | The name for the network.  This is for display only and may not be populated. | [optional] 
 **DeviceId** | **string** | Network device ID.  Zero indicates the primary network device. | 
-**Network** | [**NetworkMapResponseModelNetwork**](NetworkMapResponseModelNetwork.md) |  | 
+**Network** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
 **IsCardEnabled** | Pointer to **bool** | Gets or sets a value indicating whether IsCardEnabled. | [optional] 
 
 ## Methods
 
 ### NewNetworkMapResponseModel
 
-`func NewNetworkMapResponseModel(deviceId string, network NetworkMapResponseModelNetwork, ) *NetworkMapResponseModel`
+`func NewNetworkMapResponseModel(deviceId string, network HypervisorResourceRefResponseModel, ) *NetworkMapResponseModel`
 
 NewNetworkMapResponseModel instantiates a new NetworkMapResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +53,16 @@ SetDeviceName sets DeviceName field to given value.
 
 HasDeviceName returns a boolean if a field has been set.
 
+### SetDeviceNameNil
+
+`func (o *NetworkMapResponseModel) SetDeviceNameNil(b bool)`
+
+ SetDeviceNameNil sets the value for DeviceName to be an explicit nil
+
+### UnsetDeviceName
+`func (o *NetworkMapResponseModel) UnsetDeviceName()`
+
+UnsetDeviceName ensures that no value is present for DeviceName, not even an explicit nil
 ### GetDeviceId
 
 `func (o *NetworkMapResponseModel) GetDeviceId() string`
@@ -75,20 +85,20 @@ SetDeviceId sets DeviceId field to given value.
 
 ### GetNetwork
 
-`func (o *NetworkMapResponseModel) GetNetwork() NetworkMapResponseModelNetwork`
+`func (o *NetworkMapResponseModel) GetNetwork() HypervisorResourceRefResponseModel`
 
 GetNetwork returns the Network field if non-nil, zero value otherwise.
 
 ### GetNetworkOk
 
-`func (o *NetworkMapResponseModel) GetNetworkOk() (*NetworkMapResponseModelNetwork, bool)`
+`func (o *NetworkMapResponseModel) GetNetworkOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetNetworkOk returns a tuple with the Network field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNetwork
 
-`func (o *NetworkMapResponseModel) SetNetwork(v NetworkMapResponseModelNetwork)`
+`func (o *NetworkMapResponseModel) SetNetwork(v HypervisorResourceRefResponseModel)`
 
 SetNetwork sets Network field to given value.
 

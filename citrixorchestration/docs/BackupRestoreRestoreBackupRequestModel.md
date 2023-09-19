@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **BackupName** | **string** | Name of backup to restore  | 
 **HistoryUid** | **int32** | Hisotry Uid | 
 **Component** | [**BckRstrAutoConfigComponents**](BckRstrAutoConfigComponents.md) |  | 
-**Filters** | Pointer to **string** | Comma delimted component member names to restore; may include wildcards | [optional] 
+**Filters** | Pointer to **NullableString** | Comma delimted component member names to restore; may include wildcards | [optional] 
 **WithPrereq** | Pointer to **bool** | Restore component prerequisites as necessary | [optional] 
 **Checkmode** | Pointer to **bool** | Determine what should be restored but to not do the actual restore; report only              | [optional] 
-**Notes** | Pointer to **string** | Admin entered notes | [optional] 
+**Notes** | Pointer to **NullableString** | Admin entered notes | [optional] 
 **RestoreType** | Pointer to [**BackupRestoreRestoreTypes**](BackupRestoreRestoreTypes.md) |  | [optional] 
 
 ## Methods
@@ -117,6 +117,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *BackupRestoreRestoreBackupRequestModel) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *BackupRestoreRestoreBackupRequestModel) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 ### GetWithPrereq
 
 `func (o *BackupRestoreRestoreBackupRequestModel) GetWithPrereq() bool`
@@ -192,6 +202,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *BackupRestoreRestoreBackupRequestModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *BackupRestoreRestoreBackupRequestModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetRestoreType
 
 `func (o *BackupRestoreRestoreBackupRequestModel) GetRestoreType() BackupRestoreRestoreTypes`

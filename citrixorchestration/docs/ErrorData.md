@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ErrorMessage** | Pointer to **string** | The message that describes the current exception. | [optional] 
+**ErrorMessage** | Pointer to **NullableString** | The message that describes the current exception. | [optional] 
 **SdkErrorId** | **string** | The developer-defined identifier of the error. | 
-**ErrorType** | Pointer to **string** | The runtime type of the current exception. | [optional] 
-**ErrorDetails** | Pointer to **string** | The additional details. | [optional] 
-**SupportLink** | Pointer to **string** | The support url. | [optional] 
-**ErrorReportXml** | Pointer to **string** | Represents a citrix.com error report. | [optional] 
-**ErrorReport** | Pointer to [**ErrorDataErrorReport**](ErrorDataErrorReport.md) |  | [optional] 
+**ErrorType** | Pointer to **NullableString** | The runtime type of the current exception. | [optional] 
+**ErrorDetails** | Pointer to **NullableString** | The additional details. | [optional] 
+**SupportLink** | Pointer to **NullableString** | The support url. | [optional] 
+**ErrorReportXml** | Pointer to **NullableString** | Represents a citrix.com error report. | [optional] 
+**ErrorReport** | Pointer to [**ErrorReport**](ErrorReport.md) |  | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetErrorMessage sets ErrorMessage field to given value.
 
 HasErrorMessage returns a boolean if a field has been set.
 
+### SetErrorMessageNil
+
+`func (o *ErrorData) SetErrorMessageNil(b bool)`
+
+ SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+
+### UnsetErrorMessage
+`func (o *ErrorData) UnsetErrorMessage()`
+
+UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
 ### GetSdkErrorId
 
 `func (o *ErrorData) GetSdkErrorId() string`
@@ -101,6 +111,16 @@ SetErrorType sets ErrorType field to given value.
 
 HasErrorType returns a boolean if a field has been set.
 
+### SetErrorTypeNil
+
+`func (o *ErrorData) SetErrorTypeNil(b bool)`
+
+ SetErrorTypeNil sets the value for ErrorType to be an explicit nil
+
+### UnsetErrorType
+`func (o *ErrorData) UnsetErrorType()`
+
+UnsetErrorType ensures that no value is present for ErrorType, not even an explicit nil
 ### GetErrorDetails
 
 `func (o *ErrorData) GetErrorDetails() string`
@@ -126,6 +146,16 @@ SetErrorDetails sets ErrorDetails field to given value.
 
 HasErrorDetails returns a boolean if a field has been set.
 
+### SetErrorDetailsNil
+
+`func (o *ErrorData) SetErrorDetailsNil(b bool)`
+
+ SetErrorDetailsNil sets the value for ErrorDetails to be an explicit nil
+
+### UnsetErrorDetails
+`func (o *ErrorData) UnsetErrorDetails()`
+
+UnsetErrorDetails ensures that no value is present for ErrorDetails, not even an explicit nil
 ### GetSupportLink
 
 `func (o *ErrorData) GetSupportLink() string`
@@ -151,6 +181,16 @@ SetSupportLink sets SupportLink field to given value.
 
 HasSupportLink returns a boolean if a field has been set.
 
+### SetSupportLinkNil
+
+`func (o *ErrorData) SetSupportLinkNil(b bool)`
+
+ SetSupportLinkNil sets the value for SupportLink to be an explicit nil
+
+### UnsetSupportLink
+`func (o *ErrorData) UnsetSupportLink()`
+
+UnsetSupportLink ensures that no value is present for SupportLink, not even an explicit nil
 ### GetErrorReportXml
 
 `func (o *ErrorData) GetErrorReportXml() string`
@@ -176,22 +216,32 @@ SetErrorReportXml sets ErrorReportXml field to given value.
 
 HasErrorReportXml returns a boolean if a field has been set.
 
+### SetErrorReportXmlNil
+
+`func (o *ErrorData) SetErrorReportXmlNil(b bool)`
+
+ SetErrorReportXmlNil sets the value for ErrorReportXml to be an explicit nil
+
+### UnsetErrorReportXml
+`func (o *ErrorData) UnsetErrorReportXml()`
+
+UnsetErrorReportXml ensures that no value is present for ErrorReportXml, not even an explicit nil
 ### GetErrorReport
 
-`func (o *ErrorData) GetErrorReport() ErrorDataErrorReport`
+`func (o *ErrorData) GetErrorReport() ErrorReport`
 
 GetErrorReport returns the ErrorReport field if non-nil, zero value otherwise.
 
 ### GetErrorReportOk
 
-`func (o *ErrorData) GetErrorReportOk() (*ErrorDataErrorReport, bool)`
+`func (o *ErrorData) GetErrorReportOk() (*ErrorReport, bool)`
 
 GetErrorReportOk returns a tuple with the ErrorReport field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetErrorReport
 
-`func (o *ErrorData) SetErrorReport(v ErrorDataErrorReport)`
+`func (o *ErrorData) SetErrorReport(v ErrorReport)`
 
 SetErrorReport sets ErrorReport field to given value.
 

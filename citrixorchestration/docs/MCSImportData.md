@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityPool** | Pointer to **string** |  | [optional] 
-**ProvisioningScheme** | Pointer to **string** |  | [optional] 
+**IdentityPool** | Pointer to **NullableString** |  | [optional] 
+**ProvisioningScheme** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetIdentityPool sets IdentityPool field to given value.
 
 HasIdentityPool returns a boolean if a field has been set.
 
+### SetIdentityPoolNil
+
+`func (o *MCSImportData) SetIdentityPoolNil(b bool)`
+
+ SetIdentityPoolNil sets the value for IdentityPool to be an explicit nil
+
+### UnsetIdentityPool
+`func (o *MCSImportData) UnsetIdentityPool()`
+
+UnsetIdentityPool ensures that no value is present for IdentityPool, not even an explicit nil
 ### GetProvisioningScheme
 
 `func (o *MCSImportData) GetProvisioningScheme() string`
@@ -76,6 +86,16 @@ SetProvisioningScheme sets ProvisioningScheme field to given value.
 
 HasProvisioningScheme returns a boolean if a field has been set.
 
+### SetProvisioningSchemeNil
+
+`func (o *MCSImportData) SetProvisioningSchemeNil(b bool)`
+
+ SetProvisioningSchemeNil sets the value for ProvisioningScheme to be an explicit nil
+
+### UnsetProvisioningScheme
+`func (o *MCSImportData) UnsetProvisioningScheme()`
+
+UnsetProvisioningScheme ensures that no value is present for ProvisioningScheme, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

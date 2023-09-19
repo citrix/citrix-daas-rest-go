@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LicensingAdministrator** | Pointer to **string** | The administrator  for the license server | [optional] 
+**LicensingAdministrator** | Pointer to **NullableString** | The administrator  for the license server | [optional] 
 **LicensingPermissionLevel** | Pointer to [**LicensingPermissionLevel**](LicensingPermissionLevel.md) |  | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetLicensingAdministrator sets LicensingAdministrator field to given value.
 
 HasLicensingAdministrator returns a boolean if a field has been set.
 
+### SetLicensingAdministratorNil
+
+`func (o *LicensePermissionResponseModel) SetLicensingAdministratorNil(b bool)`
+
+ SetLicensingAdministratorNil sets the value for LicensingAdministrator to be an explicit nil
+
+### UnsetLicensingAdministrator
+`func (o *LicensePermissionResponseModel) UnsetLicensingAdministrator()`
+
+UnsetLicensingAdministrator ensures that no value is present for LicensingAdministrator, not even an explicit nil
 ### GetLicensingPermissionLevel
 
 `func (o *LicensePermissionResponseModel) GetLicensingPermissionLevel() LicensingPermissionLevel`

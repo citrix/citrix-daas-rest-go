@@ -6,31 +6,31 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the reboot schedule. needs to be globally unique | 
 **Name** | **string** | A friendly name for the reboot schedule. | 
-**DeliveryGroup** | [**RebootScheduleResponseModelDeliveryGroup**](RebootScheduleResponseModelDeliveryGroup.md) |  | 
+**DeliveryGroup** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **RebootDurationMinutes** | **int32** | Approximate maximum number of minutes over which the scheduled reboot cycle runs. | 
 **Day** | Pointer to [**RebootScheduleDays**](RebootScheduleDays.md) |  | [optional] 
 **DaysInWeek** | Pointer to [**[]RebootScheduleDays**](RebootScheduleDays.md) | For weekly cycles, days of the week on which the scheduled reboot cycle starts. | [optional] 
 **WeekInMonth** | Pointer to [**RebootScheduleWeeks**](RebootScheduleWeeks.md) |  | [optional] 
 **DayInMonth** | Pointer to [**RebootScheduleDays**](RebootScheduleDays.md) |  | [optional] 
-**Description** | Pointer to **string** | An optional description for the reboot schedule. | [optional] 
+**Description** | Pointer to **NullableString** | An optional description for the reboot schedule. | [optional] 
 **Enabled** | **bool** | Indicates whether the reboot schedule is enabled. | 
 **IgnoreMaintenanceMode** | **bool** | Indicates whether the reboot schedule is active for maintained machines. | 
-**UseNaturalReboot** | Pointer to **bool** | Indicates whether the reboot will be a natural reboot, where the machines will be rebooted when they have no sessions. | [optional] 
+**UseNaturalReboot** | Pointer to **NullableBool** | Indicates whether the reboot will be a natural reboot, where the machines will be rebooted when they have no sessions. | [optional] 
 **Frequency** | [**RebootScheduleFrequency**](RebootScheduleFrequency.md) |  | 
-**FrequencyFactor** | Pointer to **int32** | The frequency factor for the schedule. | [optional] 
-**RestrictToTag** | Pointer to [**RebootScheduleResponseModelRestrictToTag**](RebootScheduleResponseModelRestrictToTag.md) |  | [optional] 
-**StartDate** | Pointer to **string** | The date on which the schedule is expected to firstly run. RFC 3339 compatible format. | [optional] 
+**FrequencyFactor** | Pointer to **NullableInt32** | The frequency factor for the schedule. | [optional] 
+**RestrictToTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**StartDate** | Pointer to **NullableString** | The date on which the schedule is expected to firstly run. RFC 3339 compatible format. | [optional] 
 **StartTime** | **string** | Time of day at which the scheduled reboot cycle starts. RFC 3339 compatible format. | 
 **WarningDurationMinutes** | **int32** | Time prior to the start of a machine reboot at which a warning message is displayed to all the users on the machine. | 
-**WarningMessage** | Pointer to **string** | Warning message displayed in user sessions on a machine scheduled for reboot. | [optional] 
+**WarningMessage** | Pointer to **NullableString** | Warning message displayed in user sessions on a machine scheduled for reboot. | [optional] 
 **WarningRepeatIntervalMinutes** | **int32** | Time to wait after the previous reboot warning before displaying the warning message in all user sessions on that machine again. | 
-**WarningTitle** | Pointer to **string** | The window title used when showing the warning message in user sessions on a machine scheduled for reboot. | [optional] 
+**WarningTitle** | Pointer to **NullableString** | The window title used when showing the warning message in user sessions on a machine scheduled for reboot. | [optional] 
 
 ## Methods
 
 ### NewRebootScheduleResponseModel
 
-`func NewRebootScheduleResponseModel(id string, name string, deliveryGroup RebootScheduleResponseModelDeliveryGroup, rebootDurationMinutes int32, enabled bool, ignoreMaintenanceMode bool, frequency RebootScheduleFrequency, startTime string, warningDurationMinutes int32, warningRepeatIntervalMinutes int32, ) *RebootScheduleResponseModel`
+`func NewRebootScheduleResponseModel(id string, name string, deliveryGroup RefResponseModel, rebootDurationMinutes int32, enabled bool, ignoreMaintenanceMode bool, frequency RebootScheduleFrequency, startTime string, warningDurationMinutes int32, warningRepeatIntervalMinutes int32, ) *RebootScheduleResponseModel`
 
 NewRebootScheduleResponseModel instantiates a new RebootScheduleResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,20 +87,20 @@ SetName sets Name field to given value.
 
 ### GetDeliveryGroup
 
-`func (o *RebootScheduleResponseModel) GetDeliveryGroup() RebootScheduleResponseModelDeliveryGroup`
+`func (o *RebootScheduleResponseModel) GetDeliveryGroup() RefResponseModel`
 
 GetDeliveryGroup returns the DeliveryGroup field if non-nil, zero value otherwise.
 
 ### GetDeliveryGroupOk
 
-`func (o *RebootScheduleResponseModel) GetDeliveryGroupOk() (*RebootScheduleResponseModelDeliveryGroup, bool)`
+`func (o *RebootScheduleResponseModel) GetDeliveryGroupOk() (*RefResponseModel, bool)`
 
 GetDeliveryGroupOk returns a tuple with the DeliveryGroup field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeliveryGroup
 
-`func (o *RebootScheduleResponseModel) SetDeliveryGroup(v RebootScheduleResponseModelDeliveryGroup)`
+`func (o *RebootScheduleResponseModel) SetDeliveryGroup(v RefResponseModel)`
 
 SetDeliveryGroup sets DeliveryGroup field to given value.
 
@@ -175,6 +175,16 @@ SetDaysInWeek sets DaysInWeek field to given value.
 
 HasDaysInWeek returns a boolean if a field has been set.
 
+### SetDaysInWeekNil
+
+`func (o *RebootScheduleResponseModel) SetDaysInWeekNil(b bool)`
+
+ SetDaysInWeekNil sets the value for DaysInWeek to be an explicit nil
+
+### UnsetDaysInWeek
+`func (o *RebootScheduleResponseModel) UnsetDaysInWeek()`
+
+UnsetDaysInWeek ensures that no value is present for DaysInWeek, not even an explicit nil
 ### GetWeekInMonth
 
 `func (o *RebootScheduleResponseModel) GetWeekInMonth() RebootScheduleWeeks`
@@ -250,6 +260,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *RebootScheduleResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *RebootScheduleResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *RebootScheduleResponseModel) GetEnabled() bool`
@@ -315,6 +335,16 @@ SetUseNaturalReboot sets UseNaturalReboot field to given value.
 
 HasUseNaturalReboot returns a boolean if a field has been set.
 
+### SetUseNaturalRebootNil
+
+`func (o *RebootScheduleResponseModel) SetUseNaturalRebootNil(b bool)`
+
+ SetUseNaturalRebootNil sets the value for UseNaturalReboot to be an explicit nil
+
+### UnsetUseNaturalReboot
+`func (o *RebootScheduleResponseModel) UnsetUseNaturalReboot()`
+
+UnsetUseNaturalReboot ensures that no value is present for UseNaturalReboot, not even an explicit nil
 ### GetFrequency
 
 `func (o *RebootScheduleResponseModel) GetFrequency() RebootScheduleFrequency`
@@ -360,22 +390,32 @@ SetFrequencyFactor sets FrequencyFactor field to given value.
 
 HasFrequencyFactor returns a boolean if a field has been set.
 
+### SetFrequencyFactorNil
+
+`func (o *RebootScheduleResponseModel) SetFrequencyFactorNil(b bool)`
+
+ SetFrequencyFactorNil sets the value for FrequencyFactor to be an explicit nil
+
+### UnsetFrequencyFactor
+`func (o *RebootScheduleResponseModel) UnsetFrequencyFactor()`
+
+UnsetFrequencyFactor ensures that no value is present for FrequencyFactor, not even an explicit nil
 ### GetRestrictToTag
 
-`func (o *RebootScheduleResponseModel) GetRestrictToTag() RebootScheduleResponseModelRestrictToTag`
+`func (o *RebootScheduleResponseModel) GetRestrictToTag() RefResponseModel`
 
 GetRestrictToTag returns the RestrictToTag field if non-nil, zero value otherwise.
 
 ### GetRestrictToTagOk
 
-`func (o *RebootScheduleResponseModel) GetRestrictToTagOk() (*RebootScheduleResponseModelRestrictToTag, bool)`
+`func (o *RebootScheduleResponseModel) GetRestrictToTagOk() (*RefResponseModel, bool)`
 
 GetRestrictToTagOk returns a tuple with the RestrictToTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRestrictToTag
 
-`func (o *RebootScheduleResponseModel) SetRestrictToTag(v RebootScheduleResponseModelRestrictToTag)`
+`func (o *RebootScheduleResponseModel) SetRestrictToTag(v RefResponseModel)`
 
 SetRestrictToTag sets RestrictToTag field to given value.
 
@@ -410,6 +450,16 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### SetStartDateNil
+
+`func (o *RebootScheduleResponseModel) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *RebootScheduleResponseModel) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetStartTime
 
 `func (o *RebootScheduleResponseModel) GetStartTime() string`
@@ -475,6 +525,16 @@ SetWarningMessage sets WarningMessage field to given value.
 
 HasWarningMessage returns a boolean if a field has been set.
 
+### SetWarningMessageNil
+
+`func (o *RebootScheduleResponseModel) SetWarningMessageNil(b bool)`
+
+ SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
+
+### UnsetWarningMessage
+`func (o *RebootScheduleResponseModel) UnsetWarningMessage()`
+
+UnsetWarningMessage ensures that no value is present for WarningMessage, not even an explicit nil
 ### GetWarningRepeatIntervalMinutes
 
 `func (o *RebootScheduleResponseModel) GetWarningRepeatIntervalMinutes() int32`
@@ -520,6 +580,16 @@ SetWarningTitle sets WarningTitle field to given value.
 
 HasWarningTitle returns a boolean if a field has been set.
 
+### SetWarningTitleNil
+
+`func (o *RebootScheduleResponseModel) SetWarningTitleNil(b bool)`
+
+ SetWarningTitleNil sets the value for WarningTitle to be an explicit nil
+
+### UnsetWarningTitle
+`func (o *RebootScheduleResponseModel) UnsetWarningTitle()`
+
+UnsetWarningTitle ensures that no value is present for WarningTitle, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the resource pool to create.  Required. | 
-**VmTagging** | Pointer to **bool** | Indicates whether VMs created by Virtual Apps &amp; Desktops provisioning operations should be tagged.  Tagged VMs are filtered out of queries by default. Optional.  Default is &#x60;true&#x60;. | [optional] [default to true]
+**VmTagging** | Pointer to **NullableBool** | Indicates whether VMs created by Virtual Apps &amp; Desktops provisioning operations should be tagged.  Tagged VMs are filtered out of queries by default. Optional.  Default is &#x60;true&#x60;. | [optional] [default to true]
 **GpuTypes** | Pointer to **[]string** | Path to the GPU type resource(s) that are available for provisioning operations in this resource pool.  Optional.  Not supported by all hypervisor types. | [optional] 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata of the resource pool. Optional.  | [optional] 
@@ -15,12 +15,12 @@ Name | Type | Description | Notes
 **Region** | Pointer to **string** | Azure region which the resource pool is connected to.  Required. | [optional] 
 **VirtualNetwork** | Pointer to **string** | Azure virtual network which the resource pool is connected to. Required. | [optional] 
 **Subnets** | Pointer to **[]string** | Path to the subnet(s) that are available for provisioning operations in this resource pool.  At least one is required. | [optional] 
-**RootPath** | Pointer to **string** | Root path of the resources on the hypervisor which should be included in the resource pool.  Required. | [optional] 
-**UseLocalStorageCaching** | Pointer to **bool** | Indicates whether local storage on the hypervisor will be used for caching purposes. Not all hypervisor types support this.  Defaults to &#x60;false&#x60;. | [optional] [default to false]
+**RootPath** | Pointer to **NullableString** | Root path of the resources on the hypervisor which should be included in the resource pool.  Required. | [optional] 
+**UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether local storage on the hypervisor will be used for caching purposes. Not all hypervisor types support this.  Defaults to &#x60;false&#x60;. | [optional] [default to false]
 **Storage** | Pointer to **[]string** | Path to the storage resource(s) that are available for provisioning operations in this resource pool.  Required for some hypervisor types. | [optional] 
 **PersonalvDiskStorage** | Pointer to **[]string** | Path to the storage resource(s) that are available for provisioning operations in this resource pool.  Required for some hypervisor types. | [optional] 
 **TemporaryStorage** | Pointer to **[]string** | Path to the storage resource(s) that are used for temporary operations in this resource pool.  Required for some hypervisor types. | [optional] 
-**CustomProperties** | Pointer to **string** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 
 ## Methods
 
@@ -86,6 +86,16 @@ SetVmTagging sets VmTagging field to given value.
 
 HasVmTagging returns a boolean if a field has been set.
 
+### SetVmTaggingNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetVmTaggingNil(b bool)`
+
+ SetVmTaggingNil sets the value for VmTagging to be an explicit nil
+
+### UnsetVmTagging
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetVmTagging()`
+
+UnsetVmTagging ensures that no value is present for VmTagging, not even an explicit nil
 ### GetGpuTypes
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetGpuTypes() []string`
@@ -111,6 +121,16 @@ SetGpuTypes sets GpuTypes field to given value.
 
 HasGpuTypes returns a boolean if a field has been set.
 
+### SetGpuTypesNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetGpuTypesNil(b bool)`
+
+ SetGpuTypesNil sets the value for GpuTypes to be an explicit nil
+
+### UnsetGpuTypes
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetGpuTypes()`
+
+UnsetGpuTypes ensures that no value is present for GpuTypes, not even an explicit nil
 ### GetConnectionType
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetConnectionType() HypervisorConnectionType`
@@ -156,6 +176,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetVirtualPrivateCloud
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetVirtualPrivateCloud() string`
@@ -316,6 +346,16 @@ SetRootPath sets RootPath field to given value.
 
 HasRootPath returns a boolean if a field has been set.
 
+### SetRootPathNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetRootPathNil(b bool)`
+
+ SetRootPathNil sets the value for RootPath to be an explicit nil
+
+### UnsetRootPath
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetRootPath()`
+
+UnsetRootPath ensures that no value is present for RootPath, not even an explicit nil
 ### GetUseLocalStorageCaching
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetUseLocalStorageCaching() bool`
@@ -341,6 +381,16 @@ SetUseLocalStorageCaching sets UseLocalStorageCaching field to given value.
 
 HasUseLocalStorageCaching returns a boolean if a field has been set.
 
+### SetUseLocalStorageCachingNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetUseLocalStorageCachingNil(b bool)`
+
+ SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
+
+### UnsetUseLocalStorageCaching
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetUseLocalStorageCaching()`
+
+UnsetUseLocalStorageCaching ensures that no value is present for UseLocalStorageCaching, not even an explicit nil
 ### GetStorage
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetStorage() []string`
@@ -366,6 +416,16 @@ SetStorage sets Storage field to given value.
 
 HasStorage returns a boolean if a field has been set.
 
+### SetStorageNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetStorageNil(b bool)`
+
+ SetStorageNil sets the value for Storage to be an explicit nil
+
+### UnsetStorage
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetStorage()`
+
+UnsetStorage ensures that no value is present for Storage, not even an explicit nil
 ### GetPersonalvDiskStorage
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetPersonalvDiskStorage() []string`
@@ -391,6 +451,16 @@ SetPersonalvDiskStorage sets PersonalvDiskStorage field to given value.
 
 HasPersonalvDiskStorage returns a boolean if a field has been set.
 
+### SetPersonalvDiskStorageNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetPersonalvDiskStorageNil(b bool)`
+
+ SetPersonalvDiskStorageNil sets the value for PersonalvDiskStorage to be an explicit nil
+
+### UnsetPersonalvDiskStorage
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetPersonalvDiskStorage()`
+
+UnsetPersonalvDiskStorage ensures that no value is present for PersonalvDiskStorage, not even an explicit nil
 ### GetTemporaryStorage
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetTemporaryStorage() []string`
@@ -416,6 +486,16 @@ SetTemporaryStorage sets TemporaryStorage field to given value.
 
 HasTemporaryStorage returns a boolean if a field has been set.
 
+### SetTemporaryStorageNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetTemporaryStorageNil(b bool)`
+
+ SetTemporaryStorageNil sets the value for TemporaryStorage to be an explicit nil
+
+### UnsetTemporaryStorage
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetTemporaryStorage()`
+
+UnsetTemporaryStorage ensures that no value is present for TemporaryStorage, not even an explicit nil
 ### GetCustomProperties
 
 `func (o *CreateHypervisorResourcePoolAWSRequestModel) GetCustomProperties() string`
@@ -441,6 +521,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *CreateHypervisorResourcePoolAWSRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | New name for machine configuration. This may have the form \&quot;ConfigurationSlotName\\MachineConfigurationName\&quot; or \&quot;MachineConfigurationName\&quot;. If the \&quot;ConfigurationSlotName\&quot; is provided it must match the name of the configuration slot that the machine configuration is associated with. | [optional] 
-**Policy** | Pointer to **string** | New binary array of encoded settings data. Policy settings data created with the SDK snap-in that matches the SettingsGroup of the configuration slot. Base64 encrypted. | [optional] 
-**Description** | Pointer to **string** | New description for the machine configuration.  | [optional] 
+**Name** | Pointer to **NullableString** | New name for machine configuration. This may have the form \&quot;ConfigurationSlotName\\MachineConfigurationName\&quot; or \&quot;MachineConfigurationName\&quot;. If the \&quot;ConfigurationSlotName\&quot; is provided it must match the name of the configuration slot that the machine configuration is associated with. | [optional] 
+**Policy** | Pointer to **NullableString** | New binary array of encoded settings data. Policy settings data created with the SDK snap-in that matches the SettingsGroup of the configuration slot. Base64 encrypted. | [optional] 
+**Description** | Pointer to **NullableString** | New description for the machine configuration.  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *UpdateMachineConfigurationRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *UpdateMachineConfigurationRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPolicy
 
 `func (o *UpdateMachineConfigurationRequestModel) GetPolicy() string`
@@ -77,6 +87,16 @@ SetPolicy sets Policy field to given value.
 
 HasPolicy returns a boolean if a field has been set.
 
+### SetPolicyNil
+
+`func (o *UpdateMachineConfigurationRequestModel) SetPolicyNil(b bool)`
+
+ SetPolicyNil sets the value for Policy to be an explicit nil
+
+### UnsetPolicy
+`func (o *UpdateMachineConfigurationRequestModel) UnsetPolicy()`
+
+UnsetPolicy ensures that no value is present for Policy, not even an explicit nil
 ### GetDescription
 
 `func (o *UpdateMachineConfigurationRequestModel) GetDescription() string`
@@ -102,6 +122,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *UpdateMachineConfigurationRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *UpdateMachineConfigurationRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

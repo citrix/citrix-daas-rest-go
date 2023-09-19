@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | Pointer to **string** | The JSON schema version of image runtime info file. | [optional] 
-**OperatingSystemInfo** | Pointer to [**ImageRuntimeInfoResponseModelOperatingSystemInfo**](ImageRuntimeInfoResponseModelOperatingSystemInfo.md) |  | [optional] 
+**Version** | Pointer to **NullableString** | The JSON schema version of image runtime info file. | [optional] 
+**OperatingSystemInfo** | Pointer to [**OperatingSystemInfoResponseModel**](OperatingSystemInfoResponseModel.md) |  | [optional] 
 **VdaComponents** | Pointer to [**[]VdaComponentResponseModel**](VdaComponentResponseModel.md) | Installed VDA components information | [optional] 
-**SystemManagementInfo** | Pointer to [**ImageRuntimeInfoResponseModelSystemManagementInfo**](ImageRuntimeInfoResponseModelSystemManagementInfo.md) |  | [optional] 
+**SystemManagementInfo** | Pointer to [**SystemManagementInfoResponseModel**](SystemManagementInfoResponseModel.md) |  | [optional] 
 
 ## Methods
 
@@ -53,22 +53,32 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *ImageRuntimeInfoResponseModel) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *ImageRuntimeInfoResponseModel) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetOperatingSystemInfo
 
-`func (o *ImageRuntimeInfoResponseModel) GetOperatingSystemInfo() ImageRuntimeInfoResponseModelOperatingSystemInfo`
+`func (o *ImageRuntimeInfoResponseModel) GetOperatingSystemInfo() OperatingSystemInfoResponseModel`
 
 GetOperatingSystemInfo returns the OperatingSystemInfo field if non-nil, zero value otherwise.
 
 ### GetOperatingSystemInfoOk
 
-`func (o *ImageRuntimeInfoResponseModel) GetOperatingSystemInfoOk() (*ImageRuntimeInfoResponseModelOperatingSystemInfo, bool)`
+`func (o *ImageRuntimeInfoResponseModel) GetOperatingSystemInfoOk() (*OperatingSystemInfoResponseModel, bool)`
 
 GetOperatingSystemInfoOk returns a tuple with the OperatingSystemInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOperatingSystemInfo
 
-`func (o *ImageRuntimeInfoResponseModel) SetOperatingSystemInfo(v ImageRuntimeInfoResponseModelOperatingSystemInfo)`
+`func (o *ImageRuntimeInfoResponseModel) SetOperatingSystemInfo(v OperatingSystemInfoResponseModel)`
 
 SetOperatingSystemInfo sets OperatingSystemInfo field to given value.
 
@@ -103,22 +113,32 @@ SetVdaComponents sets VdaComponents field to given value.
 
 HasVdaComponents returns a boolean if a field has been set.
 
+### SetVdaComponentsNil
+
+`func (o *ImageRuntimeInfoResponseModel) SetVdaComponentsNil(b bool)`
+
+ SetVdaComponentsNil sets the value for VdaComponents to be an explicit nil
+
+### UnsetVdaComponents
+`func (o *ImageRuntimeInfoResponseModel) UnsetVdaComponents()`
+
+UnsetVdaComponents ensures that no value is present for VdaComponents, not even an explicit nil
 ### GetSystemManagementInfo
 
-`func (o *ImageRuntimeInfoResponseModel) GetSystemManagementInfo() ImageRuntimeInfoResponseModelSystemManagementInfo`
+`func (o *ImageRuntimeInfoResponseModel) GetSystemManagementInfo() SystemManagementInfoResponseModel`
 
 GetSystemManagementInfo returns the SystemManagementInfo field if non-nil, zero value otherwise.
 
 ### GetSystemManagementInfoOk
 
-`func (o *ImageRuntimeInfoResponseModel) GetSystemManagementInfoOk() (*ImageRuntimeInfoResponseModelSystemManagementInfo, bool)`
+`func (o *ImageRuntimeInfoResponseModel) GetSystemManagementInfoOk() (*SystemManagementInfoResponseModel, bool)`
 
 GetSystemManagementInfoOk returns a tuple with the SystemManagementInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSystemManagementInfo
 
-`func (o *ImageRuntimeInfoResponseModel) SetSystemManagementInfo(v ImageRuntimeInfoResponseModelSystemManagementInfo)`
+`func (o *ImageRuntimeInfoResponseModel) SetSystemManagementInfo(v SystemManagementInfoResponseModel)`
 
 SetSystemManagementInfo sets SystemManagementInfo field to given value.
 

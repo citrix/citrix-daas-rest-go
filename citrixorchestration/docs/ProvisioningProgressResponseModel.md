@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IsRunning** | **bool** | Indicates whether the provisioning task is running. | 
 **Progress** | **int32** | Specifies the current progress of the provisioning task. | 
-**ProgressMessage** | Pointer to **string** | Specifies the message of current provisioning task. | [optional] 
+**ProgressMessage** | Pointer to **NullableString** | Specifies the message of current provisioning task. | [optional] 
 **ProgressMessageList** | Pointer to **[][]string** |  | [optional] 
 
 ## Methods
@@ -93,6 +93,16 @@ SetProgressMessage sets ProgressMessage field to given value.
 
 HasProgressMessage returns a boolean if a field has been set.
 
+### SetProgressMessageNil
+
+`func (o *ProvisioningProgressResponseModel) SetProgressMessageNil(b bool)`
+
+ SetProgressMessageNil sets the value for ProgressMessage to be an explicit nil
+
+### UnsetProgressMessage
+`func (o *ProvisioningProgressResponseModel) UnsetProgressMessage()`
+
+UnsetProgressMessage ensures that no value is present for ProgressMessage, not even an explicit nil
 ### GetProgressMessageList
 
 `func (o *ProvisioningProgressResponseModel) GetProgressMessageList() [][]string`
@@ -118,6 +128,16 @@ SetProgressMessageList sets ProgressMessageList field to given value.
 
 HasProgressMessageList returns a boolean if a field has been set.
 
+### SetProgressMessageListNil
+
+`func (o *ProvisioningProgressResponseModel) SetProgressMessageListNil(b bool)`
+
+ SetProgressMessageListNil sets the value for ProgressMessageList to be an explicit nil
+
+### UnsetProgressMessageList
+`func (o *ProvisioningProgressResponseModel) UnsetProgressMessageList()`
+
+UnsetProgressMessageList ensures that no value is present for ProgressMessageList, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

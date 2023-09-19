@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyName** | Pointer to **string** | Policy name as identifier, translated. | [optional] 
+**PolicyName** | Pointer to **NullableString** | Policy name as identifier, translated. | [optional] 
 **Priority** | Pointer to **int32** | Policy priority | [optional] 
 **IsEnabled** | Pointer to **bool** | Is policy enabled | [optional] 
-**Description** | Pointer to **string** | Policy description | [optional] 
+**Description** | Pointer to **NullableString** | Policy description | [optional] 
 **IsUnfiltered** | Pointer to **bool** | Is unfiltered is true only for the &#39;Unfiltered&#39; policy. | [optional] 
 **Settings** | Pointer to [**[]SettingResponseContract**](SettingResponseContract.md) | Policy settings | [optional] 
 **Filters** | Pointer to [**[]FilterResponseContract**](FilterResponseContract.md) | Policy filters | [optional] 
@@ -56,6 +56,16 @@ SetPolicyName sets PolicyName field to given value.
 
 HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *PolicyResponseContract) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *PolicyResponseContract) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
 ### GetPriority
 
 `func (o *PolicyResponseContract) GetPriority() int32`
@@ -131,6 +141,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PolicyResponseContract) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PolicyResponseContract) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsUnfiltered
 
 `func (o *PolicyResponseContract) GetIsUnfiltered() bool`
@@ -181,6 +201,16 @@ SetSettings sets Settings field to given value.
 
 HasSettings returns a boolean if a field has been set.
 
+### SetSettingsNil
+
+`func (o *PolicyResponseContract) SetSettingsNil(b bool)`
+
+ SetSettingsNil sets the value for Settings to be an explicit nil
+
+### UnsetSettings
+`func (o *PolicyResponseContract) UnsetSettings()`
+
+UnsetSettings ensures that no value is present for Settings, not even an explicit nil
 ### GetFilters
 
 `func (o *PolicyResponseContract) GetFilters() []FilterResponseContract`
@@ -206,6 +236,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *PolicyResponseContract) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *PolicyResponseContract) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

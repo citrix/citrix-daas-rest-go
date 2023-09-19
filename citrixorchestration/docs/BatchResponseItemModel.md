@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Reference** | **string** | Reference that allows connecting the response item to the corresponding request item. | 
 **Code** | **int32** | HTTP status code as a result of the request. | 
 **Headers** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Response headers. | [optional] 
-**Body** | Pointer to **string** | Response body, if one was present. | [optional] 
+**Body** | Pointer to **NullableString** | Response body, if one was present. | [optional] 
 
 ## Methods
 
@@ -93,6 +93,16 @@ SetHeaders sets Headers field to given value.
 
 HasHeaders returns a boolean if a field has been set.
 
+### SetHeadersNil
+
+`func (o *BatchResponseItemModel) SetHeadersNil(b bool)`
+
+ SetHeadersNil sets the value for Headers to be an explicit nil
+
+### UnsetHeaders
+`func (o *BatchResponseItemModel) UnsetHeaders()`
+
+UnsetHeaders ensures that no value is present for Headers, not even an explicit nil
 ### GetBody
 
 `func (o *BatchResponseItemModel) GetBody() string`
@@ -118,6 +128,16 @@ SetBody sets Body field to given value.
 
 HasBody returns a boolean if a field has been set.
 
+### SetBodyNil
+
+`func (o *BatchResponseItemModel) SetBodyNil(b bool)`
+
+ SetBodyNil sets the value for Body to be an explicit nil
+
+### UnsetBody
+`func (o *BatchResponseItemModel) UnsetBody()`
+
+UnsetBody ensures that no value is present for Body, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

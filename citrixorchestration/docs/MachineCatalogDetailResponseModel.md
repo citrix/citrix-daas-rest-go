@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs. | 
-**FullName** | Pointer to **string** | Unique administrative name of catalog. | [optional] 
+**FullName** | Pointer to **NullableString** | Unique administrative name of catalog. | [optional] 
 **Id** | **string** | Id of the machine catalog. | 
 **Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED.  Use Id. | [optional] 
 **AllocationType** | [**AllocationType**](AllocationType.md) |  | 
-**AssignedCount** | Pointer to **int32** | The number of assigned machines (machines that have been assigned to a user/users or a client name/address). | [optional] 
-**AvailableAssignedCount** | Pointer to **int32** | The number of available machines (not in a delivery group), that are also assigned to users. | [optional] 
+**AssignedCount** | Pointer to **NullableInt32** | The number of assigned machines (machines that have been assigned to a user/users or a client name/address). | [optional] 
+**AvailableAssignedCount** | Pointer to **NullableInt32** | The number of available machines (not in a delivery group), that are also assigned to users. | [optional] 
 **AvailableCount** | **int32** | The number of available machines (those not in any delivery group). | 
-**AvailableUnassignedCount** | Pointer to **int32** | The number of available machines (those not in any delivery group) that are not assigned to users. | [optional] 
-**Description** | Pointer to **string** | Description of the machine catalog. | [optional] 
+**AvailableUnassignedCount** | Pointer to **NullableInt32** | The number of available machines (those not in any delivery group) that are not assigned to users. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the machine catalog. | [optional] 
 **IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the catalog are power-managed. | [optional] 
 **IsRemotePC** | **bool** | Indicates whether or not the catalog is a RemotePC catalog. Remote PC catalogs automatically configure appropriate machines without the need for manual configuration. CHANGE: was public bool RemotePC { get; set; } | 
 **JobsInProgress** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | List of jobs currently in progress that affect the machine catalog. | [optional] 
@@ -25,11 +25,11 @@ Name | Type | Description | Notes
 **CanRollbackVMImage** | **bool** | Whether the machine catalog can roll back VM image. | 
 **CanRecreateCatalog** | **bool** | Whether the machine catalog can recreate. | 
 **PersistChanges** | [**PersistChanges**](PersistChanges.md) |  | 
-**ProvisioningScheme** | Pointer to [**MachineCatalogResponseModelProvisioningScheme**](MachineCatalogResponseModelProvisioningScheme.md) |  | [optional] 
+**ProvisioningScheme** | Pointer to [**ProvisioningSchemeResponseModel**](ProvisioningSchemeResponseModel.md) |  | [optional] 
 **ProvisioningType** | [**ProvisioningType**](ProvisioningType.md) |  | 
-**ProvisioningProgress** | Pointer to [**MachineCatalogResponseModelProvisioningProgress**](MachineCatalogResponseModelProvisioningProgress.md) |  | [optional] 
-**PvsAddress** | Pointer to **string** | IP address of the PVS server to be used. This only applies if the ProvisioningType is . | [optional] 
-**PvsDomain** | Pointer to **string** | The domain of the PVS server to be used. | [optional] 
+**ProvisioningProgress** | Pointer to [**ProvisioningProgressResponseModel**](ProvisioningProgressResponseModel.md) |  | [optional] 
+**PvsAddress** | Pointer to **NullableString** | IP address of the PVS server to be used. This only applies if the ProvisioningType is . | [optional] 
+**PvsDomain** | Pointer to **NullableString** | The domain of the PVS server to be used. | [optional] 
 **RemotePCEnrollmentScopes** | Pointer to [**[]RemotePCEnrollmentScopeResponseModel**](RemotePCEnrollmentScopeResponseModel.md) | List of one or more remote PC enrollment scopes. | [optional] 
 **Scopes** | Pointer to [**[]ScopeResponseModel**](ScopeResponseModel.md) | Administrative scopes which the machine catalog is part of. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the machine catalog is assigned to.  If &#x60;null&#x60;, the machine catalog is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
@@ -37,26 +37,26 @@ Name | Type | Description | Notes
 **SharingKind** | [**SharingKind**](SharingKind.md) |  | 
 **TotalCount** | **int32** | The total number of machines in the catalog. | 
 **IsBroken** | **bool** | Whether the machine catalog is currently in a \&quot;Broken\&quot; state. | 
-**IsMasterImageAssociated** | Pointer to **bool** | Whether the machine catalog is associated with a master image. | [optional] 
+**IsMasterImageAssociated** | Pointer to **NullableBool** | Whether the machine catalog is associated with a master image. | [optional] 
 **Errors** | Pointer to **[]string** | Gets the Errors of machines in this catalog | [optional] 
 **Warnings** | Pointer to [**[]MachineCatalogWarningResponseModel**](MachineCatalogWarningResponseModel.md) | List of warnings that are currently active on the machine catalog, if any.  If there are no warnings this will not be specified. | [optional] 
 **UnassignedCount** | **int32** | The number of unassigned machines (machines not assigned to users). | 
 **UsedCount** | **int32** | The number of machines in the catalog that are in a delivery group. | 
-**UpgradeInfo** | Pointer to [**MachineCatalogResponseModelUpgradeInfo**](MachineCatalogResponseModelUpgradeInfo.md) |  | [optional] 
-**Zone** | [**MachineCatalogResponseModelZone**](MachineCatalogResponseModelZone.md) |  | 
-**AdminFolder** | Pointer to [**CatalogSearchResponseModelAdminFolder**](CatalogSearchResponseModelAdminFolder.md) |  | [optional] 
-**AgentVersion** | Pointer to **string** | Version of the Citrix Virtual Delivery Agent (VDA) installed on the machine. | [optional] 
-**HypervisorConnection** | Pointer to [**MachineCatalogDetailResponseModelAllOfHypervisorConnection**](MachineCatalogDetailResponseModelAllOfHypervisorConnection.md) |  | [optional] 
-**OSType** | Pointer to **string** | A string that can be used to identify the operating system that is running on machines in the catalog. | [optional] 
-**OSVersion** | Pointer to **string** | A string that can be used to identify the version of the operating system running on the machine, if known. | [optional] 
+**UpgradeInfo** | Pointer to [**MachineCatalogUpgradeInfo**](MachineCatalogUpgradeInfo.md) |  | [optional] 
+**Zone** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**AgentVersion** | Pointer to **NullableString** | Version of the Citrix Virtual Delivery Agent (VDA) installed on the machine. | [optional] 
+**HypervisorConnection** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**OSType** | Pointer to **NullableString** | A string that can be used to identify the operating system that is running on machines in the catalog. | [optional] 
+**OSVersion** | Pointer to **NullableString** | A string that can be used to identify the version of the operating system running on the machine, if known. | [optional] 
 **DeliveryGroups** | [**[]MachineCatalogDeliveryGroupRefResponseModel**](MachineCatalogDeliveryGroupRefResponseModel.md) | Delivery groups associated with this catalog. | 
-**UpgradeDetail** | Pointer to [**MachineCatalogDetailResponseModelAllOfUpgradeDetail**](MachineCatalogDetailResponseModelAllOfUpgradeDetail.md) |  | [optional] 
+**UpgradeDetail** | Pointer to [**MachineCatalogUpgradeDetail**](MachineCatalogUpgradeDetail.md) |  | [optional] 
 
 ## Methods
 
 ### NewMachineCatalogDetailResponseModel
 
-`func NewMachineCatalogDetailResponseModel(name string, id string, allocationType AllocationType, availableCount int32, isRemotePC bool, machineType MachineType, minimumFunctionalLevel FunctionalLevel, hasBeenPromoted bool, canRollbackVMImage bool, canRecreateCatalog bool, persistChanges PersistChanges, provisioningType ProvisioningType, sessionSupport SessionSupport, sharingKind SharingKind, totalCount int32, isBroken bool, unassignedCount int32, usedCount int32, zone MachineCatalogResponseModelZone, deliveryGroups []MachineCatalogDeliveryGroupRefResponseModel, ) *MachineCatalogDetailResponseModel`
+`func NewMachineCatalogDetailResponseModel(name string, id string, allocationType AllocationType, availableCount int32, isRemotePC bool, machineType MachineType, minimumFunctionalLevel FunctionalLevel, hasBeenPromoted bool, canRollbackVMImage bool, canRecreateCatalog bool, persistChanges PersistChanges, provisioningType ProvisioningType, sessionSupport SessionSupport, sharingKind SharingKind, totalCount int32, isBroken bool, unassignedCount int32, usedCount int32, zone RefResponseModel, deliveryGroups []MachineCatalogDeliveryGroupRefResponseModel, ) *MachineCatalogDetailResponseModel`
 
 NewMachineCatalogDetailResponseModel instantiates a new MachineCatalogDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -116,6 +116,16 @@ SetFullName sets FullName field to given value.
 
 HasFullName returns a boolean if a field has been set.
 
+### SetFullNameNil
+
+`func (o *MachineCatalogDetailResponseModel) SetFullNameNil(b bool)`
+
+ SetFullNameNil sets the value for FullName to be an explicit nil
+
+### UnsetFullName
+`func (o *MachineCatalogDetailResponseModel) UnsetFullName()`
+
+UnsetFullName ensures that no value is present for FullName, not even an explicit nil
 ### GetId
 
 `func (o *MachineCatalogDetailResponseModel) GetId() string`
@@ -206,6 +216,16 @@ SetAssignedCount sets AssignedCount field to given value.
 
 HasAssignedCount returns a boolean if a field has been set.
 
+### SetAssignedCountNil
+
+`func (o *MachineCatalogDetailResponseModel) SetAssignedCountNil(b bool)`
+
+ SetAssignedCountNil sets the value for AssignedCount to be an explicit nil
+
+### UnsetAssignedCount
+`func (o *MachineCatalogDetailResponseModel) UnsetAssignedCount()`
+
+UnsetAssignedCount ensures that no value is present for AssignedCount, not even an explicit nil
 ### GetAvailableAssignedCount
 
 `func (o *MachineCatalogDetailResponseModel) GetAvailableAssignedCount() int32`
@@ -231,6 +251,16 @@ SetAvailableAssignedCount sets AvailableAssignedCount field to given value.
 
 HasAvailableAssignedCount returns a boolean if a field has been set.
 
+### SetAvailableAssignedCountNil
+
+`func (o *MachineCatalogDetailResponseModel) SetAvailableAssignedCountNil(b bool)`
+
+ SetAvailableAssignedCountNil sets the value for AvailableAssignedCount to be an explicit nil
+
+### UnsetAvailableAssignedCount
+`func (o *MachineCatalogDetailResponseModel) UnsetAvailableAssignedCount()`
+
+UnsetAvailableAssignedCount ensures that no value is present for AvailableAssignedCount, not even an explicit nil
 ### GetAvailableCount
 
 `func (o *MachineCatalogDetailResponseModel) GetAvailableCount() int32`
@@ -276,6 +306,16 @@ SetAvailableUnassignedCount sets AvailableUnassignedCount field to given value.
 
 HasAvailableUnassignedCount returns a boolean if a field has been set.
 
+### SetAvailableUnassignedCountNil
+
+`func (o *MachineCatalogDetailResponseModel) SetAvailableUnassignedCountNil(b bool)`
+
+ SetAvailableUnassignedCountNil sets the value for AvailableUnassignedCount to be an explicit nil
+
+### UnsetAvailableUnassignedCount
+`func (o *MachineCatalogDetailResponseModel) UnsetAvailableUnassignedCount()`
+
+UnsetAvailableUnassignedCount ensures that no value is present for AvailableUnassignedCount, not even an explicit nil
 ### GetDescription
 
 `func (o *MachineCatalogDetailResponseModel) GetDescription() string`
@@ -301,6 +341,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *MachineCatalogDetailResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *MachineCatalogDetailResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsPowerManaged
 
 `func (o *MachineCatalogDetailResponseModel) GetIsPowerManaged() bool`
@@ -371,6 +421,16 @@ SetJobsInProgress sets JobsInProgress field to given value.
 
 HasJobsInProgress returns a boolean if a field has been set.
 
+### SetJobsInProgressNil
+
+`func (o *MachineCatalogDetailResponseModel) SetJobsInProgressNil(b bool)`
+
+ SetJobsInProgressNil sets the value for JobsInProgress to be an explicit nil
+
+### UnsetJobsInProgress
+`func (o *MachineCatalogDetailResponseModel) UnsetJobsInProgress()`
+
+UnsetJobsInProgress ensures that no value is present for JobsInProgress, not even an explicit nil
 ### GetMachineType
 
 `func (o *MachineCatalogDetailResponseModel) GetMachineType() MachineType`
@@ -416,6 +476,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *MachineCatalogDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *MachineCatalogDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetMinimumFunctionalLevel
 
 `func (o *MachineCatalogDetailResponseModel) GetMinimumFunctionalLevel() FunctionalLevel`
@@ -543,20 +613,20 @@ SetPersistChanges sets PersistChanges field to given value.
 
 ### GetProvisioningScheme
 
-`func (o *MachineCatalogDetailResponseModel) GetProvisioningScheme() MachineCatalogResponseModelProvisioningScheme`
+`func (o *MachineCatalogDetailResponseModel) GetProvisioningScheme() ProvisioningSchemeResponseModel`
 
 GetProvisioningScheme returns the ProvisioningScheme field if non-nil, zero value otherwise.
 
 ### GetProvisioningSchemeOk
 
-`func (o *MachineCatalogDetailResponseModel) GetProvisioningSchemeOk() (*MachineCatalogResponseModelProvisioningScheme, bool)`
+`func (o *MachineCatalogDetailResponseModel) GetProvisioningSchemeOk() (*ProvisioningSchemeResponseModel, bool)`
 
 GetProvisioningSchemeOk returns a tuple with the ProvisioningScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProvisioningScheme
 
-`func (o *MachineCatalogDetailResponseModel) SetProvisioningScheme(v MachineCatalogResponseModelProvisioningScheme)`
+`func (o *MachineCatalogDetailResponseModel) SetProvisioningScheme(v ProvisioningSchemeResponseModel)`
 
 SetProvisioningScheme sets ProvisioningScheme field to given value.
 
@@ -588,20 +658,20 @@ SetProvisioningType sets ProvisioningType field to given value.
 
 ### GetProvisioningProgress
 
-`func (o *MachineCatalogDetailResponseModel) GetProvisioningProgress() MachineCatalogResponseModelProvisioningProgress`
+`func (o *MachineCatalogDetailResponseModel) GetProvisioningProgress() ProvisioningProgressResponseModel`
 
 GetProvisioningProgress returns the ProvisioningProgress field if non-nil, zero value otherwise.
 
 ### GetProvisioningProgressOk
 
-`func (o *MachineCatalogDetailResponseModel) GetProvisioningProgressOk() (*MachineCatalogResponseModelProvisioningProgress, bool)`
+`func (o *MachineCatalogDetailResponseModel) GetProvisioningProgressOk() (*ProvisioningProgressResponseModel, bool)`
 
 GetProvisioningProgressOk returns a tuple with the ProvisioningProgress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProvisioningProgress
 
-`func (o *MachineCatalogDetailResponseModel) SetProvisioningProgress(v MachineCatalogResponseModelProvisioningProgress)`
+`func (o *MachineCatalogDetailResponseModel) SetProvisioningProgress(v ProvisioningProgressResponseModel)`
 
 SetProvisioningProgress sets ProvisioningProgress field to given value.
 
@@ -636,6 +706,16 @@ SetPvsAddress sets PvsAddress field to given value.
 
 HasPvsAddress returns a boolean if a field has been set.
 
+### SetPvsAddressNil
+
+`func (o *MachineCatalogDetailResponseModel) SetPvsAddressNil(b bool)`
+
+ SetPvsAddressNil sets the value for PvsAddress to be an explicit nil
+
+### UnsetPvsAddress
+`func (o *MachineCatalogDetailResponseModel) UnsetPvsAddress()`
+
+UnsetPvsAddress ensures that no value is present for PvsAddress, not even an explicit nil
 ### GetPvsDomain
 
 `func (o *MachineCatalogDetailResponseModel) GetPvsDomain() string`
@@ -661,6 +741,16 @@ SetPvsDomain sets PvsDomain field to given value.
 
 HasPvsDomain returns a boolean if a field has been set.
 
+### SetPvsDomainNil
+
+`func (o *MachineCatalogDetailResponseModel) SetPvsDomainNil(b bool)`
+
+ SetPvsDomainNil sets the value for PvsDomain to be an explicit nil
+
+### UnsetPvsDomain
+`func (o *MachineCatalogDetailResponseModel) UnsetPvsDomain()`
+
+UnsetPvsDomain ensures that no value is present for PvsDomain, not even an explicit nil
 ### GetRemotePCEnrollmentScopes
 
 `func (o *MachineCatalogDetailResponseModel) GetRemotePCEnrollmentScopes() []RemotePCEnrollmentScopeResponseModel`
@@ -686,6 +776,16 @@ SetRemotePCEnrollmentScopes sets RemotePCEnrollmentScopes field to given value.
 
 HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 
+### SetRemotePCEnrollmentScopesNil
+
+`func (o *MachineCatalogDetailResponseModel) SetRemotePCEnrollmentScopesNil(b bool)`
+
+ SetRemotePCEnrollmentScopesNil sets the value for RemotePCEnrollmentScopes to be an explicit nil
+
+### UnsetRemotePCEnrollmentScopes
+`func (o *MachineCatalogDetailResponseModel) UnsetRemotePCEnrollmentScopes()`
+
+UnsetRemotePCEnrollmentScopes ensures that no value is present for RemotePCEnrollmentScopes, not even an explicit nil
 ### GetScopes
 
 `func (o *MachineCatalogDetailResponseModel) GetScopes() []ScopeResponseModel`
@@ -711,6 +811,16 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
+### SetScopesNil
+
+`func (o *MachineCatalogDetailResponseModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *MachineCatalogDetailResponseModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetTenants
 
 `func (o *MachineCatalogDetailResponseModel) GetTenants() []RefResponseModel`
@@ -736,6 +846,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *MachineCatalogDetailResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *MachineCatalogDetailResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetSessionSupport
 
 `func (o *MachineCatalogDetailResponseModel) GetSessionSupport() SessionSupport`
@@ -841,6 +961,16 @@ SetIsMasterImageAssociated sets IsMasterImageAssociated field to given value.
 
 HasIsMasterImageAssociated returns a boolean if a field has been set.
 
+### SetIsMasterImageAssociatedNil
+
+`func (o *MachineCatalogDetailResponseModel) SetIsMasterImageAssociatedNil(b bool)`
+
+ SetIsMasterImageAssociatedNil sets the value for IsMasterImageAssociated to be an explicit nil
+
+### UnsetIsMasterImageAssociated
+`func (o *MachineCatalogDetailResponseModel) UnsetIsMasterImageAssociated()`
+
+UnsetIsMasterImageAssociated ensures that no value is present for IsMasterImageAssociated, not even an explicit nil
 ### GetErrors
 
 `func (o *MachineCatalogDetailResponseModel) GetErrors() []string`
@@ -866,6 +996,16 @@ SetErrors sets Errors field to given value.
 
 HasErrors returns a boolean if a field has been set.
 
+### SetErrorsNil
+
+`func (o *MachineCatalogDetailResponseModel) SetErrorsNil(b bool)`
+
+ SetErrorsNil sets the value for Errors to be an explicit nil
+
+### UnsetErrors
+`func (o *MachineCatalogDetailResponseModel) UnsetErrors()`
+
+UnsetErrors ensures that no value is present for Errors, not even an explicit nil
 ### GetWarnings
 
 `func (o *MachineCatalogDetailResponseModel) GetWarnings() []MachineCatalogWarningResponseModel`
@@ -891,6 +1031,16 @@ SetWarnings sets Warnings field to given value.
 
 HasWarnings returns a boolean if a field has been set.
 
+### SetWarningsNil
+
+`func (o *MachineCatalogDetailResponseModel) SetWarningsNil(b bool)`
+
+ SetWarningsNil sets the value for Warnings to be an explicit nil
+
+### UnsetWarnings
+`func (o *MachineCatalogDetailResponseModel) UnsetWarnings()`
+
+UnsetWarnings ensures that no value is present for Warnings, not even an explicit nil
 ### GetUnassignedCount
 
 `func (o *MachineCatalogDetailResponseModel) GetUnassignedCount() int32`
@@ -933,20 +1083,20 @@ SetUsedCount sets UsedCount field to given value.
 
 ### GetUpgradeInfo
 
-`func (o *MachineCatalogDetailResponseModel) GetUpgradeInfo() MachineCatalogResponseModelUpgradeInfo`
+`func (o *MachineCatalogDetailResponseModel) GetUpgradeInfo() MachineCatalogUpgradeInfo`
 
 GetUpgradeInfo returns the UpgradeInfo field if non-nil, zero value otherwise.
 
 ### GetUpgradeInfoOk
 
-`func (o *MachineCatalogDetailResponseModel) GetUpgradeInfoOk() (*MachineCatalogResponseModelUpgradeInfo, bool)`
+`func (o *MachineCatalogDetailResponseModel) GetUpgradeInfoOk() (*MachineCatalogUpgradeInfo, bool)`
 
 GetUpgradeInfoOk returns a tuple with the UpgradeInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpgradeInfo
 
-`func (o *MachineCatalogDetailResponseModel) SetUpgradeInfo(v MachineCatalogResponseModelUpgradeInfo)`
+`func (o *MachineCatalogDetailResponseModel) SetUpgradeInfo(v MachineCatalogUpgradeInfo)`
 
 SetUpgradeInfo sets UpgradeInfo field to given value.
 
@@ -958,40 +1108,40 @@ HasUpgradeInfo returns a boolean if a field has been set.
 
 ### GetZone
 
-`func (o *MachineCatalogDetailResponseModel) GetZone() MachineCatalogResponseModelZone`
+`func (o *MachineCatalogDetailResponseModel) GetZone() RefResponseModel`
 
 GetZone returns the Zone field if non-nil, zero value otherwise.
 
 ### GetZoneOk
 
-`func (o *MachineCatalogDetailResponseModel) GetZoneOk() (*MachineCatalogResponseModelZone, bool)`
+`func (o *MachineCatalogDetailResponseModel) GetZoneOk() (*RefResponseModel, bool)`
 
 GetZoneOk returns a tuple with the Zone field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetZone
 
-`func (o *MachineCatalogDetailResponseModel) SetZone(v MachineCatalogResponseModelZone)`
+`func (o *MachineCatalogDetailResponseModel) SetZone(v RefResponseModel)`
 
 SetZone sets Zone field to given value.
 
 
 ### GetAdminFolder
 
-`func (o *MachineCatalogDetailResponseModel) GetAdminFolder() CatalogSearchResponseModelAdminFolder`
+`func (o *MachineCatalogDetailResponseModel) GetAdminFolder() RefResponseModel`
 
 GetAdminFolder returns the AdminFolder field if non-nil, zero value otherwise.
 
 ### GetAdminFolderOk
 
-`func (o *MachineCatalogDetailResponseModel) GetAdminFolderOk() (*CatalogSearchResponseModelAdminFolder, bool)`
+`func (o *MachineCatalogDetailResponseModel) GetAdminFolderOk() (*RefResponseModel, bool)`
 
 GetAdminFolderOk returns a tuple with the AdminFolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdminFolder
 
-`func (o *MachineCatalogDetailResponseModel) SetAdminFolder(v CatalogSearchResponseModelAdminFolder)`
+`func (o *MachineCatalogDetailResponseModel) SetAdminFolder(v RefResponseModel)`
 
 SetAdminFolder sets AdminFolder field to given value.
 
@@ -1026,22 +1176,32 @@ SetAgentVersion sets AgentVersion field to given value.
 
 HasAgentVersion returns a boolean if a field has been set.
 
+### SetAgentVersionNil
+
+`func (o *MachineCatalogDetailResponseModel) SetAgentVersionNil(b bool)`
+
+ SetAgentVersionNil sets the value for AgentVersion to be an explicit nil
+
+### UnsetAgentVersion
+`func (o *MachineCatalogDetailResponseModel) UnsetAgentVersion()`
+
+UnsetAgentVersion ensures that no value is present for AgentVersion, not even an explicit nil
 ### GetHypervisorConnection
 
-`func (o *MachineCatalogDetailResponseModel) GetHypervisorConnection() MachineCatalogDetailResponseModelAllOfHypervisorConnection`
+`func (o *MachineCatalogDetailResponseModel) GetHypervisorConnection() RefResponseModel`
 
 GetHypervisorConnection returns the HypervisorConnection field if non-nil, zero value otherwise.
 
 ### GetHypervisorConnectionOk
 
-`func (o *MachineCatalogDetailResponseModel) GetHypervisorConnectionOk() (*MachineCatalogDetailResponseModelAllOfHypervisorConnection, bool)`
+`func (o *MachineCatalogDetailResponseModel) GetHypervisorConnectionOk() (*RefResponseModel, bool)`
 
 GetHypervisorConnectionOk returns a tuple with the HypervisorConnection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisorConnection
 
-`func (o *MachineCatalogDetailResponseModel) SetHypervisorConnection(v MachineCatalogDetailResponseModelAllOfHypervisorConnection)`
+`func (o *MachineCatalogDetailResponseModel) SetHypervisorConnection(v RefResponseModel)`
 
 SetHypervisorConnection sets HypervisorConnection field to given value.
 
@@ -1076,6 +1236,16 @@ SetOSType sets OSType field to given value.
 
 HasOSType returns a boolean if a field has been set.
 
+### SetOSTypeNil
+
+`func (o *MachineCatalogDetailResponseModel) SetOSTypeNil(b bool)`
+
+ SetOSTypeNil sets the value for OSType to be an explicit nil
+
+### UnsetOSType
+`func (o *MachineCatalogDetailResponseModel) UnsetOSType()`
+
+UnsetOSType ensures that no value is present for OSType, not even an explicit nil
 ### GetOSVersion
 
 `func (o *MachineCatalogDetailResponseModel) GetOSVersion() string`
@@ -1101,6 +1271,16 @@ SetOSVersion sets OSVersion field to given value.
 
 HasOSVersion returns a boolean if a field has been set.
 
+### SetOSVersionNil
+
+`func (o *MachineCatalogDetailResponseModel) SetOSVersionNil(b bool)`
+
+ SetOSVersionNil sets the value for OSVersion to be an explicit nil
+
+### UnsetOSVersion
+`func (o *MachineCatalogDetailResponseModel) UnsetOSVersion()`
+
+UnsetOSVersion ensures that no value is present for OSVersion, not even an explicit nil
 ### GetDeliveryGroups
 
 `func (o *MachineCatalogDetailResponseModel) GetDeliveryGroups() []MachineCatalogDeliveryGroupRefResponseModel`
@@ -1123,20 +1303,20 @@ SetDeliveryGroups sets DeliveryGroups field to given value.
 
 ### GetUpgradeDetail
 
-`func (o *MachineCatalogDetailResponseModel) GetUpgradeDetail() MachineCatalogDetailResponseModelAllOfUpgradeDetail`
+`func (o *MachineCatalogDetailResponseModel) GetUpgradeDetail() MachineCatalogUpgradeDetail`
 
 GetUpgradeDetail returns the UpgradeDetail field if non-nil, zero value otherwise.
 
 ### GetUpgradeDetailOk
 
-`func (o *MachineCatalogDetailResponseModel) GetUpgradeDetailOk() (*MachineCatalogDetailResponseModelAllOfUpgradeDetail, bool)`
+`func (o *MachineCatalogDetailResponseModel) GetUpgradeDetailOk() (*MachineCatalogUpgradeDetail, bool)`
 
 GetUpgradeDetailOk returns a tuple with the UpgradeDetail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpgradeDetail
 
-`func (o *MachineCatalogDetailResponseModel) SetUpgradeDetail(v MachineCatalogDetailResponseModelAllOfUpgradeDetail)`
+`func (o *MachineCatalogDetailResponseModel) SetUpgradeDetail(v MachineCatalogUpgradeDetail)`
 
 SetUpgradeDetail sets UpgradeDetail field to given value.
 

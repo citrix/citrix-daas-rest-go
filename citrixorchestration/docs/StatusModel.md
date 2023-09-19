@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrchServiceVersion** | Pointer to **string** | The Orchestration service version. | [optional] 
-**ProductInternalVersion** | Pointer to **string** | The Product internal version. | [optional] 
-**ProductExternalVersion** | Pointer to **string** | The product external version. | [optional] 
+**OrchServiceVersion** | Pointer to **NullableString** | The Orchestration service version. | [optional] 
+**ProductInternalVersion** | Pointer to **NullableString** | The Product internal version. | [optional] 
+**ProductExternalVersion** | Pointer to **NullableString** | The product external version. | [optional] 
 **OrchServiceStatus** | Pointer to [**ServiceStatus**](ServiceStatus.md) |  | [optional] 
 **OrchRESTFulApiStatus** | Pointer to [**RestApiStatus**](RestApiStatus.md) |  | [optional] 
+**SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
 
 ## Methods
 
@@ -54,6 +55,16 @@ SetOrchServiceVersion sets OrchServiceVersion field to given value.
 
 HasOrchServiceVersion returns a boolean if a field has been set.
 
+### SetOrchServiceVersionNil
+
+`func (o *StatusModel) SetOrchServiceVersionNil(b bool)`
+
+ SetOrchServiceVersionNil sets the value for OrchServiceVersion to be an explicit nil
+
+### UnsetOrchServiceVersion
+`func (o *StatusModel) UnsetOrchServiceVersion()`
+
+UnsetOrchServiceVersion ensures that no value is present for OrchServiceVersion, not even an explicit nil
 ### GetProductInternalVersion
 
 `func (o *StatusModel) GetProductInternalVersion() string`
@@ -79,6 +90,16 @@ SetProductInternalVersion sets ProductInternalVersion field to given value.
 
 HasProductInternalVersion returns a boolean if a field has been set.
 
+### SetProductInternalVersionNil
+
+`func (o *StatusModel) SetProductInternalVersionNil(b bool)`
+
+ SetProductInternalVersionNil sets the value for ProductInternalVersion to be an explicit nil
+
+### UnsetProductInternalVersion
+`func (o *StatusModel) UnsetProductInternalVersion()`
+
+UnsetProductInternalVersion ensures that no value is present for ProductInternalVersion, not even an explicit nil
 ### GetProductExternalVersion
 
 `func (o *StatusModel) GetProductExternalVersion() string`
@@ -104,6 +125,16 @@ SetProductExternalVersion sets ProductExternalVersion field to given value.
 
 HasProductExternalVersion returns a boolean if a field has been set.
 
+### SetProductExternalVersionNil
+
+`func (o *StatusModel) SetProductExternalVersionNil(b bool)`
+
+ SetProductExternalVersionNil sets the value for ProductExternalVersion to be an explicit nil
+
+### UnsetProductExternalVersion
+`func (o *StatusModel) UnsetProductExternalVersion()`
+
+UnsetProductExternalVersion ensures that no value is present for ProductExternalVersion, not even an explicit nil
 ### GetOrchServiceStatus
 
 `func (o *StatusModel) GetOrchServiceStatus() ServiceStatus`
@@ -153,6 +184,31 @@ SetOrchRESTFulApiStatus sets OrchRESTFulApiStatus field to given value.
 `func (o *StatusModel) HasOrchRESTFulApiStatus() bool`
 
 HasOrchRESTFulApiStatus returns a boolean if a field has been set.
+
+### GetSupportedAuthenticators
+
+`func (o *StatusModel) GetSupportedAuthenticators() Authenticator`
+
+GetSupportedAuthenticators returns the SupportedAuthenticators field if non-nil, zero value otherwise.
+
+### GetSupportedAuthenticatorsOk
+
+`func (o *StatusModel) GetSupportedAuthenticatorsOk() (*Authenticator, bool)`
+
+GetSupportedAuthenticatorsOk returns a tuple with the SupportedAuthenticators field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedAuthenticators
+
+`func (o *StatusModel) SetSupportedAuthenticators(v Authenticator)`
+
+SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
+
+### HasSupportedAuthenticators
+
+`func (o *StatusModel) HasSupportedAuthenticators() bool`
+
+HasSupportedAuthenticators returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

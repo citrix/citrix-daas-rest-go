@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Oid** | Pointer to **string** | Oid claim of the identity. | [optional] 
-**Sid** | Pointer to **string** | Sid claim of the identity. | [optional] 
-**Upn** | Pointer to **string** | Upn claim of the identity. | [optional] 
-**Email** | Pointer to **string** | Email claim of the identity. | [optional] 
+**Oid** | Pointer to **NullableString** | Oid claim of the identity. | [optional] 
+**Sid** | Pointer to **NullableString** | Sid claim of the identity. | [optional] 
+**Upn** | Pointer to **NullableString** | Upn claim of the identity. | [optional] 
+**Email** | Pointer to **NullableString** | Email claim of the identity. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetOid sets Oid field to given value.
 
 HasOid returns a boolean if a field has been set.
 
+### SetOidNil
+
+`func (o *IdentityClaimsResponseModel) SetOidNil(b bool)`
+
+ SetOidNil sets the value for Oid to be an explicit nil
+
+### UnsetOid
+`func (o *IdentityClaimsResponseModel) UnsetOid()`
+
+UnsetOid ensures that no value is present for Oid, not even an explicit nil
 ### GetSid
 
 `func (o *IdentityClaimsResponseModel) GetSid() string`
@@ -78,6 +88,16 @@ SetSid sets Sid field to given value.
 
 HasSid returns a boolean if a field has been set.
 
+### SetSidNil
+
+`func (o *IdentityClaimsResponseModel) SetSidNil(b bool)`
+
+ SetSidNil sets the value for Sid to be an explicit nil
+
+### UnsetSid
+`func (o *IdentityClaimsResponseModel) UnsetSid()`
+
+UnsetSid ensures that no value is present for Sid, not even an explicit nil
 ### GetUpn
 
 `func (o *IdentityClaimsResponseModel) GetUpn() string`
@@ -103,6 +123,16 @@ SetUpn sets Upn field to given value.
 
 HasUpn returns a boolean if a field has been set.
 
+### SetUpnNil
+
+`func (o *IdentityClaimsResponseModel) SetUpnNil(b bool)`
+
+ SetUpnNil sets the value for Upn to be an explicit nil
+
+### UnsetUpn
+`func (o *IdentityClaimsResponseModel) UnsetUpn()`
+
+UnsetUpn ensures that no value is present for Upn, not even an explicit nil
 ### GetEmail
 
 `func (o *IdentityClaimsResponseModel) GetEmail() string`
@@ -128,6 +158,16 @@ SetEmail sets Email field to given value.
 
 HasEmail returns a boolean if a field has been set.
 
+### SetEmailNil
+
+`func (o *IdentityClaimsResponseModel) SetEmailNil(b bool)`
+
+ SetEmailNil sets the value for Email to be an explicit nil
+
+### UnsetEmail
+`func (o *IdentityClaimsResponseModel) UnsetEmail()`
+
+UnsetEmail ensures that no value is present for Email, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

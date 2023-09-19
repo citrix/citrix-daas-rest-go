@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ScopeId** | Pointer to **string** |  | [optional] 
-**ScopeName** | Pointer to **string** |  | [optional] 
+**ScopeName** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -76,6 +76,16 @@ SetScopeName sets ScopeName field to given value.
 
 HasScopeName returns a boolean if a field has been set.
 
+### SetScopeNameNil
+
+`func (o *ScopeReferenceModel) SetScopeNameNil(b bool)`
+
+ SetScopeNameNil sets the value for ScopeName to be an explicit nil
+
+### UnsetScopeName
+`func (o *ScopeReferenceModel) UnsetScopeName()`
+
+UnsetScopeName ensures that no value is present for ScopeName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

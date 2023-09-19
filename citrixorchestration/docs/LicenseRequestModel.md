@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProductCode** | Pointer to **string** | The product code. | [optional] 
-**ProductEdition** | Pointer to **string** | The product edition. | [optional] 
+**ProductCode** | Pointer to **NullableString** | The product code. | [optional] 
+**ProductEdition** | Pointer to **NullableString** | The product edition. | [optional] 
 **LicenseModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetProductCode sets ProductCode field to given value.
 
 HasProductCode returns a boolean if a field has been set.
 
+### SetProductCodeNil
+
+`func (o *LicenseRequestModel) SetProductCodeNil(b bool)`
+
+ SetProductCodeNil sets the value for ProductCode to be an explicit nil
+
+### UnsetProductCode
+`func (o *LicenseRequestModel) UnsetProductCode()`
+
+UnsetProductCode ensures that no value is present for ProductCode, not even an explicit nil
 ### GetProductEdition
 
 `func (o *LicenseRequestModel) GetProductEdition() string`
@@ -77,6 +87,16 @@ SetProductEdition sets ProductEdition field to given value.
 
 HasProductEdition returns a boolean if a field has been set.
 
+### SetProductEditionNil
+
+`func (o *LicenseRequestModel) SetProductEditionNil(b bool)`
+
+ SetProductEditionNil sets the value for ProductEdition to be an explicit nil
+
+### UnsetProductEdition
+`func (o *LicenseRequestModel) UnsetProductEdition()`
+
+UnsetProductEdition ensures that no value is present for ProductEdition, not even an explicit nil
 ### GetLicenseModel
 
 `func (o *LicenseRequestModel) GetLicenseModel() LicenseModel`

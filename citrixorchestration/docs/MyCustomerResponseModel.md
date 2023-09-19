@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the customer. internally: the CC customer id / short-name, or for on-prem this could be any generated guid. | 
-**Name** | Pointer to **string** | Human-readable name of the customer.  Not necessarily unique. internally: the CC customer full name, or for on-prem this can be something hardcoded. | [optional] 
+**Name** | Pointer to **NullableString** | Human-readable name of the customer.  Not necessarily unique. internally: the CC customer full name, or for on-prem this can be something hardcoded. | [optional] 
 **Sites** | [**[]MySiteResponseModel**](MySiteResponseModel.md) | Sites which the admin has access to within the customer. | 
 
 ## Methods
@@ -72,6 +72,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *MyCustomerResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MyCustomerResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSites
 
 `func (o *MyCustomerResponseModel) GetSites() []MySiteResponseModel`

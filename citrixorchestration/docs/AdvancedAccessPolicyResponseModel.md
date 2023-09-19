@@ -4,16 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id | [optional] 
-**Uid** | Pointer to **int32** | &#x60;DEPRECATED&#x60; DEPRECATED. Use Id. | [optional] 
-**Name** | Pointer to **string** | Name of the advanced access policy. | [optional] 
+**Id** | Pointer to **NullableString** | Id | [optional] 
+**Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED&#x60; DEPRECATED. Use Id. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the advanced access policy. | [optional] 
 **AllowHdxAccess** | Pointer to **bool** | Whether HDX connections are allowed to the delivery group. CHANGE: was: public bool AllowsHdxAccess { get; set; } | [optional] 
 **AllowMachineRestart** | Pointer to **bool** | Whether users are allowed to self-service restart machines. | [optional] 
 **AllowRdpAccess** | Pointer to **bool** | Whether RDP connections are allowed to the delivery group. CHANGE: was: public bool AllowsRdpAccess { get; set; } | [optional] 
 **AllowedConnection** | Pointer to [**AllowedConnection**](AllowedConnection.md) |  | [optional] 
 **AllowedUsers** | Pointer to [**AllowedUser**](AllowedUser.md) |  | [optional] 
-**Description** | Pointer to **string** | Description. | [optional] 
+**Description** | Pointer to **NullableString** | Description. | [optional] 
 **Enabled** | **bool** | Whether the advanced access policy is enabled.  If a policy is disabled it is not considered when evaluating whether a user may access the delivery group. | 
+**IsBuiltIn** | Pointer to **bool** | Whether the access policy is a built-in policy.  If true , the policy is not allowed to remove or rename. | [optional] 
+**IsBroken** | Pointer to **bool** | Whether the access policy is broken. | [optional] 
 **ExcludedClientIPFilterEnabled** | Pointer to **bool** | Indicates whether the ExcludedClientIPs filter is enabled.  If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] 
 **ExcludedClientIPs** | Pointer to **[]string** | The client IPs which will be denied access to the delivery group. | [optional] 
 **ExcludedClientNameFilterEnabled** | Pointer to **bool** | Indicates whether the ExcludedClientNames filter is enabled.  If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] 
@@ -75,6 +77,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AdvancedAccessPolicyResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *AdvancedAccessPolicyResponseModel) GetUid() int32`
@@ -100,6 +112,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *AdvancedAccessPolicyResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetName
 
 `func (o *AdvancedAccessPolicyResponseModel) GetName() string`
@@ -125,6 +147,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AdvancedAccessPolicyResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAllowHdxAccess
 
 `func (o *AdvancedAccessPolicyResponseModel) GetAllowHdxAccess() bool`
@@ -275,6 +307,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AdvancedAccessPolicyResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetEnabled() bool`
@@ -294,6 +336,56 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
+
+### GetIsBuiltIn
+
+`func (o *AdvancedAccessPolicyResponseModel) GetIsBuiltIn() bool`
+
+GetIsBuiltIn returns the IsBuiltIn field if non-nil, zero value otherwise.
+
+### GetIsBuiltInOk
+
+`func (o *AdvancedAccessPolicyResponseModel) GetIsBuiltInOk() (*bool, bool)`
+
+GetIsBuiltInOk returns a tuple with the IsBuiltIn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsBuiltIn
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIsBuiltIn(v bool)`
+
+SetIsBuiltIn sets IsBuiltIn field to given value.
+
+### HasIsBuiltIn
+
+`func (o *AdvancedAccessPolicyResponseModel) HasIsBuiltIn() bool`
+
+HasIsBuiltIn returns a boolean if a field has been set.
+
+### GetIsBroken
+
+`func (o *AdvancedAccessPolicyResponseModel) GetIsBroken() bool`
+
+GetIsBroken returns the IsBroken field if non-nil, zero value otherwise.
+
+### GetIsBrokenOk
+
+`func (o *AdvancedAccessPolicyResponseModel) GetIsBrokenOk() (*bool, bool)`
+
+GetIsBrokenOk returns a tuple with the IsBroken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsBroken
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIsBroken(v bool)`
+
+SetIsBroken sets IsBroken field to given value.
+
+### HasIsBroken
+
+`func (o *AdvancedAccessPolicyResponseModel) HasIsBroken() bool`
+
+HasIsBroken returns a boolean if a field has been set.
 
 ### GetExcludedClientIPFilterEnabled
 
@@ -345,6 +437,16 @@ SetExcludedClientIPs sets ExcludedClientIPs field to given value.
 
 HasExcludedClientIPs returns a boolean if a field has been set.
 
+### SetExcludedClientIPsNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetExcludedClientIPsNil(b bool)`
+
+ SetExcludedClientIPsNil sets the value for ExcludedClientIPs to be an explicit nil
+
+### UnsetExcludedClientIPs
+`func (o *AdvancedAccessPolicyResponseModel) UnsetExcludedClientIPs()`
+
+UnsetExcludedClientIPs ensures that no value is present for ExcludedClientIPs, not even an explicit nil
 ### GetExcludedClientNameFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetExcludedClientNameFilterEnabled() bool`
@@ -395,6 +497,16 @@ SetExcludedClientNames sets ExcludedClientNames field to given value.
 
 HasExcludedClientNames returns a boolean if a field has been set.
 
+### SetExcludedClientNamesNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetExcludedClientNamesNil(b bool)`
+
+ SetExcludedClientNamesNil sets the value for ExcludedClientNames to be an explicit nil
+
+### UnsetExcludedClientNames
+`func (o *AdvancedAccessPolicyResponseModel) UnsetExcludedClientNames()`
+
+UnsetExcludedClientNames ensures that no value is present for ExcludedClientNames, not even an explicit nil
 ### GetExcludedSmartAccessFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetExcludedSmartAccessFilterEnabled() bool`
@@ -445,6 +557,16 @@ SetExcludedSmartAccessTags sets ExcludedSmartAccessTags field to given value.
 
 HasExcludedSmartAccessTags returns a boolean if a field has been set.
 
+### SetExcludedSmartAccessTagsNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetExcludedSmartAccessTagsNil(b bool)`
+
+ SetExcludedSmartAccessTagsNil sets the value for ExcludedSmartAccessTags to be an explicit nil
+
+### UnsetExcludedSmartAccessTags
+`func (o *AdvancedAccessPolicyResponseModel) UnsetExcludedSmartAccessTags()`
+
+UnsetExcludedSmartAccessTags ensures that no value is present for ExcludedSmartAccessTags, not even an explicit nil
 ### GetExcludedUserFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetExcludedUserFilterEnabled() bool`
@@ -495,6 +617,16 @@ SetExcludedUsers sets ExcludedUsers field to given value.
 
 HasExcludedUsers returns a boolean if a field has been set.
 
+### SetExcludedUsersNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetExcludedUsersNil(b bool)`
+
+ SetExcludedUsersNil sets the value for ExcludedUsers to be an explicit nil
+
+### UnsetExcludedUsers
+`func (o *AdvancedAccessPolicyResponseModel) UnsetExcludedUsers()`
+
+UnsetExcludedUsers ensures that no value is present for ExcludedUsers, not even an explicit nil
 ### GetIncludedClientIPFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetIncludedClientIPFilterEnabled() bool`
@@ -545,6 +677,16 @@ SetIncludedClientIPs sets IncludedClientIPs field to given value.
 
 HasIncludedClientIPs returns a boolean if a field has been set.
 
+### SetIncludedClientIPsNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIncludedClientIPsNil(b bool)`
+
+ SetIncludedClientIPsNil sets the value for IncludedClientIPs to be an explicit nil
+
+### UnsetIncludedClientIPs
+`func (o *AdvancedAccessPolicyResponseModel) UnsetIncludedClientIPs()`
+
+UnsetIncludedClientIPs ensures that no value is present for IncludedClientIPs, not even an explicit nil
 ### GetIncludedClientNameFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetIncludedClientNameFilterEnabled() bool`
@@ -595,6 +737,16 @@ SetIncludedClientNames sets IncludedClientNames field to given value.
 
 HasIncludedClientNames returns a boolean if a field has been set.
 
+### SetIncludedClientNamesNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIncludedClientNamesNil(b bool)`
+
+ SetIncludedClientNamesNil sets the value for IncludedClientNames to be an explicit nil
+
+### UnsetIncludedClientNames
+`func (o *AdvancedAccessPolicyResponseModel) UnsetIncludedClientNames()`
+
+UnsetIncludedClientNames ensures that no value is present for IncludedClientNames, not even an explicit nil
 ### GetIncludedSmartAccessFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetIncludedSmartAccessFilterEnabled() bool`
@@ -645,6 +797,16 @@ SetIncludedSmartAccessTags sets IncludedSmartAccessTags field to given value.
 
 HasIncludedSmartAccessTags returns a boolean if a field has been set.
 
+### SetIncludedSmartAccessTagsNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIncludedSmartAccessTagsNil(b bool)`
+
+ SetIncludedSmartAccessTagsNil sets the value for IncludedSmartAccessTags to be an explicit nil
+
+### UnsetIncludedSmartAccessTags
+`func (o *AdvancedAccessPolicyResponseModel) UnsetIncludedSmartAccessTags()`
+
+UnsetIncludedSmartAccessTags ensures that no value is present for IncludedSmartAccessTags, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetIncludedUserFilterEnabled() bool`
@@ -695,6 +857,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *AdvancedAccessPolicyResponseModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

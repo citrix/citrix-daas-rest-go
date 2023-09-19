@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CatalogUid** | Pointer to **string** | catalog uid | [optional] 
-**CatalogName** | Pointer to **string** | catalog name | [optional] 
+**CatalogName** | Pointer to **NullableString** | catalog name | [optional] 
 
 ## Methods
 
@@ -76,6 +76,16 @@ SetCatalogName sets CatalogName field to given value.
 
 HasCatalogName returns a boolean if a field has been set.
 
+### SetCatalogNameNil
+
+`func (o *ImageVersionCatalogResponseModel) SetCatalogNameNil(b bool)`
+
+ SetCatalogNameNil sets the value for CatalogName to be an explicit nil
+
+### UnsetCatalogName
+`func (o *ImageVersionCatalogResponseModel) UnsetCatalogName()`
+
+UnsetCatalogName ensures that no value is present for CatalogName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

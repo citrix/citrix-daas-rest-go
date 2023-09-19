@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ConnectedViaHostName** | Pointer to **string** | The host name of the incoming connection. This is usually a gateway, router or client. | [optional] 
-**ConnectedViaIP** | Pointer to **string** | The IP address of the incoming connection This is usually a gateway, router or client. | [optional] 
+**ConnectedViaHostName** | Pointer to **NullableString** | The host name of the incoming connection. This is usually a gateway, router or client. | [optional] 
+**ConnectedViaIP** | Pointer to **NullableString** | The IP address of the incoming connection This is usually a gateway, router or client. | [optional] 
 **ConnectionMode** | Pointer to [**ConnectionMode**](ConnectionMode.md) |  | [optional] 
-**LaunchedViaHostName** | Pointer to **string** | The host name of the StoreFront server used to launch the session. | [optional] 
-**LaunchedViaIP** | Pointer to **string** | The IP address of the StoreFront server used to launch the session. | [optional] 
+**LaunchedViaHostName** | Pointer to **NullableString** | The host name of the StoreFront server used to launch the session. | [optional] 
+**LaunchedViaIP** | Pointer to **NullableString** | The IP address of the StoreFront server used to launch the session. | [optional] 
 **Protocol** | Pointer to [**ProtocolType**](ProtocolType.md) |  | [optional] 
-**SecureIcaActive** | Pointer to **bool** | Indicates whether SecureICA is active on the session. | [optional] 
+**SecureIcaActive** | Pointer to **NullableBool** | Indicates whether SecureICA is active on the session. | [optional] 
 **SmartAccessTags** | Pointer to [**[]SmartAccessTagResponseModel**](SmartAccessTagResponseModel.md) | The Smart Access tags for this session. | [optional] 
 
 ## Methods
@@ -57,6 +57,16 @@ SetConnectedViaHostName sets ConnectedViaHostName field to given value.
 
 HasConnectedViaHostName returns a boolean if a field has been set.
 
+### SetConnectedViaHostNameNil
+
+`func (o *SessionConnectionResponseModel) SetConnectedViaHostNameNil(b bool)`
+
+ SetConnectedViaHostNameNil sets the value for ConnectedViaHostName to be an explicit nil
+
+### UnsetConnectedViaHostName
+`func (o *SessionConnectionResponseModel) UnsetConnectedViaHostName()`
+
+UnsetConnectedViaHostName ensures that no value is present for ConnectedViaHostName, not even an explicit nil
 ### GetConnectedViaIP
 
 `func (o *SessionConnectionResponseModel) GetConnectedViaIP() string`
@@ -82,6 +92,16 @@ SetConnectedViaIP sets ConnectedViaIP field to given value.
 
 HasConnectedViaIP returns a boolean if a field has been set.
 
+### SetConnectedViaIPNil
+
+`func (o *SessionConnectionResponseModel) SetConnectedViaIPNil(b bool)`
+
+ SetConnectedViaIPNil sets the value for ConnectedViaIP to be an explicit nil
+
+### UnsetConnectedViaIP
+`func (o *SessionConnectionResponseModel) UnsetConnectedViaIP()`
+
+UnsetConnectedViaIP ensures that no value is present for ConnectedViaIP, not even an explicit nil
 ### GetConnectionMode
 
 `func (o *SessionConnectionResponseModel) GetConnectionMode() ConnectionMode`
@@ -132,6 +152,16 @@ SetLaunchedViaHostName sets LaunchedViaHostName field to given value.
 
 HasLaunchedViaHostName returns a boolean if a field has been set.
 
+### SetLaunchedViaHostNameNil
+
+`func (o *SessionConnectionResponseModel) SetLaunchedViaHostNameNil(b bool)`
+
+ SetLaunchedViaHostNameNil sets the value for LaunchedViaHostName to be an explicit nil
+
+### UnsetLaunchedViaHostName
+`func (o *SessionConnectionResponseModel) UnsetLaunchedViaHostName()`
+
+UnsetLaunchedViaHostName ensures that no value is present for LaunchedViaHostName, not even an explicit nil
 ### GetLaunchedViaIP
 
 `func (o *SessionConnectionResponseModel) GetLaunchedViaIP() string`
@@ -157,6 +187,16 @@ SetLaunchedViaIP sets LaunchedViaIP field to given value.
 
 HasLaunchedViaIP returns a boolean if a field has been set.
 
+### SetLaunchedViaIPNil
+
+`func (o *SessionConnectionResponseModel) SetLaunchedViaIPNil(b bool)`
+
+ SetLaunchedViaIPNil sets the value for LaunchedViaIP to be an explicit nil
+
+### UnsetLaunchedViaIP
+`func (o *SessionConnectionResponseModel) UnsetLaunchedViaIP()`
+
+UnsetLaunchedViaIP ensures that no value is present for LaunchedViaIP, not even an explicit nil
 ### GetProtocol
 
 `func (o *SessionConnectionResponseModel) GetProtocol() ProtocolType`
@@ -207,6 +247,16 @@ SetSecureIcaActive sets SecureIcaActive field to given value.
 
 HasSecureIcaActive returns a boolean if a field has been set.
 
+### SetSecureIcaActiveNil
+
+`func (o *SessionConnectionResponseModel) SetSecureIcaActiveNil(b bool)`
+
+ SetSecureIcaActiveNil sets the value for SecureIcaActive to be an explicit nil
+
+### UnsetSecureIcaActive
+`func (o *SessionConnectionResponseModel) UnsetSecureIcaActive()`
+
+UnsetSecureIcaActive ensures that no value is present for SecureIcaActive, not even an explicit nil
 ### GetSmartAccessTags
 
 `func (o *SessionConnectionResponseModel) GetSmartAccessTags() []SmartAccessTagResponseModel`
@@ -232,6 +282,16 @@ SetSmartAccessTags sets SmartAccessTags field to given value.
 
 HasSmartAccessTags returns a boolean if a field has been set.
 
+### SetSmartAccessTagsNil
+
+`func (o *SessionConnectionResponseModel) SetSmartAccessTagsNil(b bool)`
+
+ SetSmartAccessTagsNil sets the value for SmartAccessTags to be an explicit nil
+
+### UnsetSmartAccessTags
+`func (o *SessionConnectionResponseModel) UnsetSmartAccessTags()`
+
+UnsetSmartAccessTags ensures that no value is present for SmartAccessTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

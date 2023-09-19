@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ConfigurationSlotId** | **int32** | Id of the configuration slot to associate with this machine configuration. | 
 **LeafName** | **string** | Name of the new machine configuration. | 
 **Policy** | **string** | Policy settings data created with the SDK snap-in that matches the SettingsGroup of the configuration slot. Base64 encrypted. | 
-**Description** | Pointer to **string** | Description of the new machine configuration. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the new machine configuration. | [optional] 
 
 ## Methods
 
@@ -113,6 +113,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateMachineConfigurationRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateMachineConfigurationRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

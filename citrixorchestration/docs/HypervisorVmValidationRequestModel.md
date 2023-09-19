@@ -50,6 +50,16 @@ SetVmPaths sets VmPaths field to given value.
 
 HasVmPaths returns a boolean if a field has been set.
 
+### SetVmPathsNil
+
+`func (o *HypervisorVmValidationRequestModel) SetVmPathsNil(b bool)`
+
+ SetVmPathsNil sets the value for VmPaths to be an explicit nil
+
+### UnsetVmPaths
+`func (o *HypervisorVmValidationRequestModel) UnsetVmPaths()`
+
+UnsetVmPaths ensures that no value is present for VmPaths, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

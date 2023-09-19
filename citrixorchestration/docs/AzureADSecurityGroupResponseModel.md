@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectId** | Pointer to **string** | The objectId of SecurityGroup | [optional] 
-**Name** | Pointer to **string** | The Name of AzureAdSecurityGroup | [optional] 
-**Type** | Pointer to **string** | The Type of AzureAdSecurityGroup | [optional] 
-**MembershipRule** | Pointer to **string** | The MembershipRule of AzureAdSecurityGroup | [optional] 
+**ObjectId** | Pointer to **NullableString** | The objectId of SecurityGroup | [optional] 
+**Name** | Pointer to **NullableString** | The Name of AzureAdSecurityGroup | [optional] 
+**Type** | Pointer to **NullableString** | The Type of AzureAdSecurityGroup | [optional] 
+**MembershipRule** | Pointer to **NullableString** | The MembershipRule of AzureAdSecurityGroup | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetObjectId sets ObjectId field to given value.
 
 HasObjectId returns a boolean if a field has been set.
 
+### SetObjectIdNil
+
+`func (o *AzureADSecurityGroupResponseModel) SetObjectIdNil(b bool)`
+
+ SetObjectIdNil sets the value for ObjectId to be an explicit nil
+
+### UnsetObjectId
+`func (o *AzureADSecurityGroupResponseModel) UnsetObjectId()`
+
+UnsetObjectId ensures that no value is present for ObjectId, not even an explicit nil
 ### GetName
 
 `func (o *AzureADSecurityGroupResponseModel) GetName() string`
@@ -78,6 +88,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AzureADSecurityGroupResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AzureADSecurityGroupResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetType
 
 `func (o *AzureADSecurityGroupResponseModel) GetType() string`
@@ -103,6 +123,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *AzureADSecurityGroupResponseModel) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *AzureADSecurityGroupResponseModel) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetMembershipRule
 
 `func (o *AzureADSecurityGroupResponseModel) GetMembershipRule() string`
@@ -128,6 +158,16 @@ SetMembershipRule sets MembershipRule field to given value.
 
 HasMembershipRule returns a boolean if a field has been set.
 
+### SetMembershipRuleNil
+
+`func (o *AzureADSecurityGroupResponseModel) SetMembershipRuleNil(b bool)`
+
+ SetMembershipRuleNil sets the value for MembershipRule to be an explicit nil
+
+### UnsetMembershipRule
+`func (o *AzureADSecurityGroupResponseModel) UnsetMembershipRule()`
+
+UnsetMembershipRule ensures that no value is present for MembershipRule, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilterType** | [**FilterType**](FilterType.md) |  | 
-**FilterName** | Pointer to **string** | Localized filter name | [optional] 
-**Explanation** | Pointer to **string** | Localized explanation | [optional] 
-**IsUserFilter** | **bool** | True &#x3D; user filter, False &#x3D; machine filter | 
-**IsSingleton** | **bool** | Is filter a singleton, only the NetScaler SD-Wan filter is singleton. | 
+**FilterType** | Pointer to [**FilterType**](FilterType.md) |  | [optional] 
+**FilterName** | Pointer to **NullableString** | Localized filter name | [optional] 
+**Explanation** | Pointer to **NullableString** | Localized explanation | [optional] 
+**IsUserFilter** | Pointer to **bool** | True &#x3D; user filter, False &#x3D; machine filter | [optional] 
+**IsSingleton** | Pointer to **bool** | Is filter a singleton, only the NetScaler SD-Wan filter is singleton. | [optional] 
 
 ## Methods
 
 ### NewFilterDefinition
 
-`func NewFilterDefinition(filterType FilterType, isUserFilter bool, isSingleton bool, ) *FilterDefinition`
+`func NewFilterDefinition() *FilterDefinition`
 
 NewFilterDefinition instantiates a new FilterDefinition object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +48,11 @@ and a boolean to check if the value has been set.
 
 SetFilterType sets FilterType field to given value.
 
+### HasFilterType
+
+`func (o *FilterDefinition) HasFilterType() bool`
+
+HasFilterType returns a boolean if a field has been set.
 
 ### GetFilterName
 
@@ -74,6 +79,16 @@ SetFilterName sets FilterName field to given value.
 
 HasFilterName returns a boolean if a field has been set.
 
+### SetFilterNameNil
+
+`func (o *FilterDefinition) SetFilterNameNil(b bool)`
+
+ SetFilterNameNil sets the value for FilterName to be an explicit nil
+
+### UnsetFilterName
+`func (o *FilterDefinition) UnsetFilterName()`
+
+UnsetFilterName ensures that no value is present for FilterName, not even an explicit nil
 ### GetExplanation
 
 `func (o *FilterDefinition) GetExplanation() string`
@@ -99,6 +114,16 @@ SetExplanation sets Explanation field to given value.
 
 HasExplanation returns a boolean if a field has been set.
 
+### SetExplanationNil
+
+`func (o *FilterDefinition) SetExplanationNil(b bool)`
+
+ SetExplanationNil sets the value for Explanation to be an explicit nil
+
+### UnsetExplanation
+`func (o *FilterDefinition) UnsetExplanation()`
+
+UnsetExplanation ensures that no value is present for Explanation, not even an explicit nil
 ### GetIsUserFilter
 
 `func (o *FilterDefinition) GetIsUserFilter() bool`
@@ -118,6 +143,11 @@ and a boolean to check if the value has been set.
 
 SetIsUserFilter sets IsUserFilter field to given value.
 
+### HasIsUserFilter
+
+`func (o *FilterDefinition) HasIsUserFilter() bool`
+
+HasIsUserFilter returns a boolean if a field has been set.
 
 ### GetIsSingleton
 
@@ -138,6 +168,11 @@ and a boolean to check if the value has been set.
 
 SetIsSingleton sets IsSingleton field to given value.
 
+### HasIsSingleton
+
+`func (o *FilterDefinition) HasIsSingleton() bool`
+
+HasIsSingleton returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

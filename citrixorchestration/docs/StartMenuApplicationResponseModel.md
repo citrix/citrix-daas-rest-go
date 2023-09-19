@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CommandLineArguments** | Pointer to **string** | Command line arguments. | [optional] 
+**CommandLineArguments** | Pointer to **NullableString** | Command line arguments. | [optional] 
 **CommandLineExecutable** | **string** | Command line executable. | 
-**Description** | Pointer to **string** | Description. | [optional] 
+**Description** | Pointer to **NullableString** | Description. | [optional] 
 **DisplayName** | **string** | Display name. | 
 **ShortcutPath** | **string** | Path to the shortcut within the start menu. | 
-**WorkingDirectory** | Pointer to **string** | Working directory. | [optional] 
-**Machine** | [**StartMenuApplicationResponseModelMachine**](StartMenuApplicationResponseModelMachine.md) |  | 
+**WorkingDirectory** | Pointer to **NullableString** | Working directory. | [optional] 
+**Machine** | [**RefResponseModel**](RefResponseModel.md) |  | 
 
 ## Methods
 
 ### NewStartMenuApplicationResponseModel
 
-`func NewStartMenuApplicationResponseModel(commandLineExecutable string, displayName string, shortcutPath string, machine StartMenuApplicationResponseModelMachine, ) *StartMenuApplicationResponseModel`
+`func NewStartMenuApplicationResponseModel(commandLineExecutable string, displayName string, shortcutPath string, machine RefResponseModel, ) *StartMenuApplicationResponseModel`
 
 NewStartMenuApplicationResponseModel instantiates a new StartMenuApplicationResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -56,6 +56,16 @@ SetCommandLineArguments sets CommandLineArguments field to given value.
 
 HasCommandLineArguments returns a boolean if a field has been set.
 
+### SetCommandLineArgumentsNil
+
+`func (o *StartMenuApplicationResponseModel) SetCommandLineArgumentsNil(b bool)`
+
+ SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
+
+### UnsetCommandLineArguments
+`func (o *StartMenuApplicationResponseModel) UnsetCommandLineArguments()`
+
+UnsetCommandLineArguments ensures that no value is present for CommandLineArguments, not even an explicit nil
 ### GetCommandLineExecutable
 
 `func (o *StartMenuApplicationResponseModel) GetCommandLineExecutable() string`
@@ -101,6 +111,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *StartMenuApplicationResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *StartMenuApplicationResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDisplayName
 
 `func (o *StartMenuApplicationResponseModel) GetDisplayName() string`
@@ -166,22 +186,32 @@ SetWorkingDirectory sets WorkingDirectory field to given value.
 
 HasWorkingDirectory returns a boolean if a field has been set.
 
+### SetWorkingDirectoryNil
+
+`func (o *StartMenuApplicationResponseModel) SetWorkingDirectoryNil(b bool)`
+
+ SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+
+### UnsetWorkingDirectory
+`func (o *StartMenuApplicationResponseModel) UnsetWorkingDirectory()`
+
+UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
 ### GetMachine
 
-`func (o *StartMenuApplicationResponseModel) GetMachine() StartMenuApplicationResponseModelMachine`
+`func (o *StartMenuApplicationResponseModel) GetMachine() RefResponseModel`
 
 GetMachine returns the Machine field if non-nil, zero value otherwise.
 
 ### GetMachineOk
 
-`func (o *StartMenuApplicationResponseModel) GetMachineOk() (*StartMenuApplicationResponseModelMachine, bool)`
+`func (o *StartMenuApplicationResponseModel) GetMachineOk() (*RefResponseModel, bool)`
 
 GetMachineOk returns a tuple with the Machine field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachine
 
-`func (o *StartMenuApplicationResponseModel) SetMachine(v StartMenuApplicationResponseModelMachine)`
+`func (o *StartMenuApplicationResponseModel) SetMachine(v RefResponseModel)`
 
 SetMachine sets Machine field to given value.
 

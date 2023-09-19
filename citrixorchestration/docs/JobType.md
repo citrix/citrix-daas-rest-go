@@ -213,6 +213,8 @@
 
 * `GET_HYPERVISOR_RESOURCE_POOL_RESOURCES` (value: `"GetHypervisorResourcePoolResources"`)
 
+* `SEARCH_HYPERVISOR_RESOURCE_POOL_RESOURCES` (value: `"SearchHypervisorResourcePoolResources"`)
+
 * `GET_HYPERVISOR_ALL_RESOURCES` (value: `"GetHypervisorAllResources"`)
 
 * `GET_HYPERVISOR_ALL_RESOURCES_WITHOUT_CONNECTION` (value: `"GetHypervisorAllResourcesWithoutConnection"`)
@@ -444,6 +446,8 @@
 * `GET_BACKUP_HISTORY` (value: `"GetBackupHistory"`)
 
 * `GET_BACKUP_MEMBERS` (value: `"GetBackupMembers"`)
+
+* `PIN_BACKUP` (value: `"PinBackup"`)
 
 * `GET_PVS_SITE` (value: `"GetPvsSite"`)
 

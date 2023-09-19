@@ -105,6 +105,16 @@ SetAppliedSettings sets AppliedSettings field to given value.
 
 HasAppliedSettings returns a boolean if a field has been set.
 
+### SetAppliedSettingsNil
+
+`func (o *ModelingResultContract) SetAppliedSettingsNil(b bool)`
+
+ SetAppliedSettingsNil sets the value for AppliedSettings to be an explicit nil
+
+### UnsetAppliedSettings
+`func (o *ModelingResultContract) UnsetAppliedSettings()`
+
+UnsetAppliedSettings ensures that no value is present for AppliedSettings, not even an explicit nil
 ### GetAppliedPolicies
 
 `func (o *ModelingResultContract) GetAppliedPolicies() []AppliedPolicy`
@@ -130,6 +140,16 @@ SetAppliedPolicies sets AppliedPolicies field to given value.
 
 HasAppliedPolicies returns a boolean if a field has been set.
 
+### SetAppliedPoliciesNil
+
+`func (o *ModelingResultContract) SetAppliedPoliciesNil(b bool)`
+
+ SetAppliedPoliciesNil sets the value for AppliedPolicies to be an explicit nil
+
+### UnsetAppliedPolicies
+`func (o *ModelingResultContract) UnsetAppliedPolicies()`
+
+UnsetAppliedPolicies ensures that no value is present for AppliedPolicies, not even an explicit nil
 ### GetFilterEvidence
 
 `func (o *ModelingResultContract) GetFilterEvidence() map[string]string`
@@ -155,6 +175,16 @@ SetFilterEvidence sets FilterEvidence field to given value.
 
 HasFilterEvidence returns a boolean if a field has been set.
 
+### SetFilterEvidenceNil
+
+`func (o *ModelingResultContract) SetFilterEvidenceNil(b bool)`
+
+ SetFilterEvidenceNil sets the value for FilterEvidence to be an explicit nil
+
+### UnsetFilterEvidence
+`func (o *ModelingResultContract) UnsetFilterEvidence()`
+
+UnsetFilterEvidence ensures that no value is present for FilterEvidence, not even an explicit nil
 ### GetLosingSettings
 
 `func (o *ModelingResultContract) GetLosingSettings() []LosingSetting`
@@ -180,6 +210,16 @@ SetLosingSettings sets LosingSettings field to given value.
 
 HasLosingSettings returns a boolean if a field has been set.
 
+### SetLosingSettingsNil
+
+`func (o *ModelingResultContract) SetLosingSettingsNil(b bool)`
+
+ SetLosingSettingsNil sets the value for LosingSettings to be an explicit nil
+
+### UnsetLosingSettings
+`func (o *ModelingResultContract) UnsetLosingSettings()`
+
+UnsetLosingSettings ensures that no value is present for LosingSettings, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

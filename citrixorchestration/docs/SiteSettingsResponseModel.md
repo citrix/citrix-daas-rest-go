@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UseVerticalScalingForRdsLaunches** | Pointer to **bool** |  | [optional] 
-**DnsResolutionEnabled** | Pointer to **bool** |  | [optional] 
-**TrustRequestsSentToTheXmlServicePortEnabled** | Pointer to **bool** |  | [optional] 
-**WebUiPolicySetEnabled** | Pointer to **bool** | The policy set in web UI is enabled or not | [optional] 
+**UseVerticalScalingForRdsLaunches** | Pointer to **NullableBool** |  | [optional] 
+**DnsResolutionEnabled** | Pointer to **NullableBool** |  | [optional] 
+**TrustRequestsSentToTheXmlServicePortEnabled** | Pointer to **NullableBool** |  | [optional] 
+**WebUiPolicySetEnabled** | Pointer to **NullableBool** | The policy set in web UI is enabled or not | [optional] 
+**SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
 
 ## Methods
 
@@ -53,6 +54,16 @@ SetUseVerticalScalingForRdsLaunches sets UseVerticalScalingForRdsLaunches field 
 
 HasUseVerticalScalingForRdsLaunches returns a boolean if a field has been set.
 
+### SetUseVerticalScalingForRdsLaunchesNil
+
+`func (o *SiteSettingsResponseModel) SetUseVerticalScalingForRdsLaunchesNil(b bool)`
+
+ SetUseVerticalScalingForRdsLaunchesNil sets the value for UseVerticalScalingForRdsLaunches to be an explicit nil
+
+### UnsetUseVerticalScalingForRdsLaunches
+`func (o *SiteSettingsResponseModel) UnsetUseVerticalScalingForRdsLaunches()`
+
+UnsetUseVerticalScalingForRdsLaunches ensures that no value is present for UseVerticalScalingForRdsLaunches, not even an explicit nil
 ### GetDnsResolutionEnabled
 
 `func (o *SiteSettingsResponseModel) GetDnsResolutionEnabled() bool`
@@ -78,6 +89,16 @@ SetDnsResolutionEnabled sets DnsResolutionEnabled field to given value.
 
 HasDnsResolutionEnabled returns a boolean if a field has been set.
 
+### SetDnsResolutionEnabledNil
+
+`func (o *SiteSettingsResponseModel) SetDnsResolutionEnabledNil(b bool)`
+
+ SetDnsResolutionEnabledNil sets the value for DnsResolutionEnabled to be an explicit nil
+
+### UnsetDnsResolutionEnabled
+`func (o *SiteSettingsResponseModel) UnsetDnsResolutionEnabled()`
+
+UnsetDnsResolutionEnabled ensures that no value is present for DnsResolutionEnabled, not even an explicit nil
 ### GetTrustRequestsSentToTheXmlServicePortEnabled
 
 `func (o *SiteSettingsResponseModel) GetTrustRequestsSentToTheXmlServicePortEnabled() bool`
@@ -103,6 +124,16 @@ SetTrustRequestsSentToTheXmlServicePortEnabled sets TrustRequestsSentToTheXmlSer
 
 HasTrustRequestsSentToTheXmlServicePortEnabled returns a boolean if a field has been set.
 
+### SetTrustRequestsSentToTheXmlServicePortEnabledNil
+
+`func (o *SiteSettingsResponseModel) SetTrustRequestsSentToTheXmlServicePortEnabledNil(b bool)`
+
+ SetTrustRequestsSentToTheXmlServicePortEnabledNil sets the value for TrustRequestsSentToTheXmlServicePortEnabled to be an explicit nil
+
+### UnsetTrustRequestsSentToTheXmlServicePortEnabled
+`func (o *SiteSettingsResponseModel) UnsetTrustRequestsSentToTheXmlServicePortEnabled()`
+
+UnsetTrustRequestsSentToTheXmlServicePortEnabled ensures that no value is present for TrustRequestsSentToTheXmlServicePortEnabled, not even an explicit nil
 ### GetWebUiPolicySetEnabled
 
 `func (o *SiteSettingsResponseModel) GetWebUiPolicySetEnabled() bool`
@@ -127,6 +158,41 @@ SetWebUiPolicySetEnabled sets WebUiPolicySetEnabled field to given value.
 `func (o *SiteSettingsResponseModel) HasWebUiPolicySetEnabled() bool`
 
 HasWebUiPolicySetEnabled returns a boolean if a field has been set.
+
+### SetWebUiPolicySetEnabledNil
+
+`func (o *SiteSettingsResponseModel) SetWebUiPolicySetEnabledNil(b bool)`
+
+ SetWebUiPolicySetEnabledNil sets the value for WebUiPolicySetEnabled to be an explicit nil
+
+### UnsetWebUiPolicySetEnabled
+`func (o *SiteSettingsResponseModel) UnsetWebUiPolicySetEnabled()`
+
+UnsetWebUiPolicySetEnabled ensures that no value is present for WebUiPolicySetEnabled, not even an explicit nil
+### GetSupportedAuthenticators
+
+`func (o *SiteSettingsResponseModel) GetSupportedAuthenticators() Authenticator`
+
+GetSupportedAuthenticators returns the SupportedAuthenticators field if non-nil, zero value otherwise.
+
+### GetSupportedAuthenticatorsOk
+
+`func (o *SiteSettingsResponseModel) GetSupportedAuthenticatorsOk() (*Authenticator, bool)`
+
+GetSupportedAuthenticatorsOk returns a tuple with the SupportedAuthenticators field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedAuthenticators
+
+`func (o *SiteSettingsResponseModel) SetSupportedAuthenticators(v Authenticator)`
+
+SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
+
+### HasSupportedAuthenticators
+
+`func (o *SiteSettingsResponseModel) HasSupportedAuthenticators() bool`
+
+HasSupportedAuthenticators returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

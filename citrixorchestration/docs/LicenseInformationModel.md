@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LicenseServerWslAddress** | Pointer to **string** | The WSL Address of the license server, the format is https://[FQDN:Port] | [optional] 
-**LicenseServerLicensingAddress** | Pointer to **string** | The address of License Address | [optional] 
-**LicenseServer** | Pointer to **string** | The address of license server without the schema | [optional] 
+**LicenseServerWslAddress** | Pointer to **NullableString** | The WSL Address of the license server, the format is https://[FQDN:Port] | [optional] 
+**LicenseServerLicensingAddress** | Pointer to **NullableString** | The address of License Address | [optional] 
+**LicenseServer** | Pointer to **NullableString** | The address of license server without the schema | [optional] 
 **LicensePort** | Pointer to **int32** | The port of license server | [optional] 
-**LicensingBurnInDate** | Pointer to **string** | The subscription advantage date of the license | [optional] 
+**LicensingBurnInDate** | Pointer to **NullableString** | The subscription advantage date of the license | [optional] 
 **LicenseProduct** | Pointer to [**LicenseProduct**](LicenseProduct.md) |  | [optional] 
 **ProductEdition** | Pointer to [**ProductEdition**](ProductEdition.md) |  | [optional] 
 **LicenseModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 **OutOfBoxGracePeriodActive** | Pointer to **bool** | Indicate if trial license is used | [optional] 
-**OutOfBoxGracePeriodHoursLeft** | Pointer to **int32** | Indicate remaining hours for the trial period | [optional] 
+**OutOfBoxGracePeriodHoursLeft** | Pointer to **NullableInt32** | Indicate remaining hours for the trial period | [optional] 
 
 ## Methods
 
@@ -59,6 +59,16 @@ SetLicenseServerWslAddress sets LicenseServerWslAddress field to given value.
 
 HasLicenseServerWslAddress returns a boolean if a field has been set.
 
+### SetLicenseServerWslAddressNil
+
+`func (o *LicenseInformationModel) SetLicenseServerWslAddressNil(b bool)`
+
+ SetLicenseServerWslAddressNil sets the value for LicenseServerWslAddress to be an explicit nil
+
+### UnsetLicenseServerWslAddress
+`func (o *LicenseInformationModel) UnsetLicenseServerWslAddress()`
+
+UnsetLicenseServerWslAddress ensures that no value is present for LicenseServerWslAddress, not even an explicit nil
 ### GetLicenseServerLicensingAddress
 
 `func (o *LicenseInformationModel) GetLicenseServerLicensingAddress() string`
@@ -84,6 +94,16 @@ SetLicenseServerLicensingAddress sets LicenseServerLicensingAddress field to giv
 
 HasLicenseServerLicensingAddress returns a boolean if a field has been set.
 
+### SetLicenseServerLicensingAddressNil
+
+`func (o *LicenseInformationModel) SetLicenseServerLicensingAddressNil(b bool)`
+
+ SetLicenseServerLicensingAddressNil sets the value for LicenseServerLicensingAddress to be an explicit nil
+
+### UnsetLicenseServerLicensingAddress
+`func (o *LicenseInformationModel) UnsetLicenseServerLicensingAddress()`
+
+UnsetLicenseServerLicensingAddress ensures that no value is present for LicenseServerLicensingAddress, not even an explicit nil
 ### GetLicenseServer
 
 `func (o *LicenseInformationModel) GetLicenseServer() string`
@@ -109,6 +129,16 @@ SetLicenseServer sets LicenseServer field to given value.
 
 HasLicenseServer returns a boolean if a field has been set.
 
+### SetLicenseServerNil
+
+`func (o *LicenseInformationModel) SetLicenseServerNil(b bool)`
+
+ SetLicenseServerNil sets the value for LicenseServer to be an explicit nil
+
+### UnsetLicenseServer
+`func (o *LicenseInformationModel) UnsetLicenseServer()`
+
+UnsetLicenseServer ensures that no value is present for LicenseServer, not even an explicit nil
 ### GetLicensePort
 
 `func (o *LicenseInformationModel) GetLicensePort() int32`
@@ -159,6 +189,16 @@ SetLicensingBurnInDate sets LicensingBurnInDate field to given value.
 
 HasLicensingBurnInDate returns a boolean if a field has been set.
 
+### SetLicensingBurnInDateNil
+
+`func (o *LicenseInformationModel) SetLicensingBurnInDateNil(b bool)`
+
+ SetLicensingBurnInDateNil sets the value for LicensingBurnInDate to be an explicit nil
+
+### UnsetLicensingBurnInDate
+`func (o *LicenseInformationModel) UnsetLicensingBurnInDate()`
+
+UnsetLicensingBurnInDate ensures that no value is present for LicensingBurnInDate, not even an explicit nil
 ### GetLicenseProduct
 
 `func (o *LicenseInformationModel) GetLicenseProduct() LicenseProduct`
@@ -284,6 +324,16 @@ SetOutOfBoxGracePeriodHoursLeft sets OutOfBoxGracePeriodHoursLeft field to given
 
 HasOutOfBoxGracePeriodHoursLeft returns a boolean if a field has been set.
 
+### SetOutOfBoxGracePeriodHoursLeftNil
+
+`func (o *LicenseInformationModel) SetOutOfBoxGracePeriodHoursLeftNil(b bool)`
+
+ SetOutOfBoxGracePeriodHoursLeftNil sets the value for OutOfBoxGracePeriodHoursLeft to be an explicit nil
+
+### UnsetOutOfBoxGracePeriodHoursLeft
+`func (o *LicenseInformationModel) UnsetOutOfBoxGracePeriodHoursLeft()`
+
+UnsetOutOfBoxGracePeriodHoursLeft ensures that no value is present for OutOfBoxGracePeriodHoursLeft, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

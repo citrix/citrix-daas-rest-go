@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdminFolder** | Pointer to **string** | The folder in which the application group resides. If not specified, the value will not be changed. May be specified as either the folder Id or Path. If specified as a path, and the path does not exist, it will be automatically created. | [optional] 
-**Name** | Pointer to **string** | Name of the application group.   If not specified, will not be changed. | [optional] 
-**Description** | Pointer to **string** | Description of the application group.   If not specified, will not be changed.  To remove a previously set description, use the empty string (\&quot;\&quot;). | [optional] 
-**Enabled** | Pointer to **bool** | Whether the application group&#39;s applications can be launched by end users.   If not specified, will not be changed. | [optional] 
-**RestrictToTag** | Pointer to **string** | Optional tag that may be used further to restrict which machines may be used for launching the application group&#39;s applications.   A machine may be used by an application group if either the application group has no tag restriction or the application group does have a tag restriction and the machine is tagged with the same tag.   If not specified, will not be changed.  To remove a previously set tag restriction, use the empty string (\&quot;\&quot;). | [optional] 
+**AdminFolder** | Pointer to **NullableString** | The folder in which the application group resides. If not specified, the value will not be changed. May be specified as either the folder Id or Path. If specified as a path, and the path does not exist, it will be automatically created. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the application group.   If not specified, will not be changed. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the application group.   If not specified, will not be changed.  To remove a previously set description, use the empty string (\&quot;\&quot;). | [optional] 
+**Enabled** | Pointer to **NullableBool** | Whether the application group&#39;s applications can be launched by end users.   If not specified, will not be changed. | [optional] 
+**RestrictToTag** | Pointer to **NullableString** | Optional tag that may be used further to restrict which machines may be used for launching the application group&#39;s applications.   A machine may be used by an application group if either the application group has no tag restriction or the application group does have a tag restriction and the machine is tagged with the same tag.   If not specified, will not be changed.  To remove a previously set tag restriction, use the empty string (\&quot;\&quot;). | [optional] 
 **Scopes** | Pointer to **[]string** | Administrative scopes which the application group should be a part of.   If not specified, will not be changed.   The \&quot;All\&quot; scope, and any tenant scopes, are implicit.  To remove from all non-implicit scopes, specify an empty array ([]).   Specifying tenant scopes is equivalent to specifying the  property and is subject to the same constraints. | [optional] 
 **Tenants** | Pointer to **[]string** | Tenants to associate with the application group. | [optional] 
-**SessionSharingEnabled** | Pointer to **bool** | Whether the application group&#39;s applications can share sessions with applications that are not a member of this application group.   If not specified, will not be changed. | [optional] 
-**IncludedUserFilterEnabled** | Pointer to **bool** | Specifies whether the  filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery groups&#39; access polic(ies) is implicitly granted access to the applications within the application group.   If not specified, will not be changed. | [optional] 
+**SessionSharingEnabled** | Pointer to **NullableBool** | Whether the application group&#39;s applications can share sessions with applications that are not a member of this application group.   If not specified, will not be changed. | [optional] 
+**IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the  filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery groups&#39; access polic(ies) is implicitly granted access to the applications within the application group.   If not specified, will not be changed. | [optional] 
 **IncludedUsers** | Pointer to **[]string** | Specifies the included users filter of the application group; that is, the users and groups who are explicitly granted access to the applications in the application group.   If not specified, will not be changed.   If specified, all desired users must be listed.  To remove all users, specify an empty array ([]). | [optional] 
 **DeliveryGroups** | Pointer to [**[]PriorityRefRequestModel**](PriorityRefRequestModel.md) | List of delivery groups to associate with the application group.   If not specified, will not be changed.   If specified, all desired delivery groups must be listed.  The application group must be associated with at least one delivery group. | [optional] 
 
@@ -60,6 +60,16 @@ SetAdminFolder sets AdminFolder field to given value.
 
 HasAdminFolder returns a boolean if a field has been set.
 
+### SetAdminFolderNil
+
+`func (o *EditApplicationGroupRequestModel) SetAdminFolderNil(b bool)`
+
+ SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
+
+### UnsetAdminFolder
+`func (o *EditApplicationGroupRequestModel) UnsetAdminFolder()`
+
+UnsetAdminFolder ensures that no value is present for AdminFolder, not even an explicit nil
 ### GetName
 
 `func (o *EditApplicationGroupRequestModel) GetName() string`
@@ -85,6 +95,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EditApplicationGroupRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditApplicationGroupRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *EditApplicationGroupRequestModel) GetDescription() string`
@@ -110,6 +130,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *EditApplicationGroupRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *EditApplicationGroupRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *EditApplicationGroupRequestModel) GetEnabled() bool`
@@ -135,6 +165,16 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### SetEnabledNil
+
+`func (o *EditApplicationGroupRequestModel) SetEnabledNil(b bool)`
+
+ SetEnabledNil sets the value for Enabled to be an explicit nil
+
+### UnsetEnabled
+`func (o *EditApplicationGroupRequestModel) UnsetEnabled()`
+
+UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetRestrictToTag
 
 `func (o *EditApplicationGroupRequestModel) GetRestrictToTag() string`
@@ -160,6 +200,16 @@ SetRestrictToTag sets RestrictToTag field to given value.
 
 HasRestrictToTag returns a boolean if a field has been set.
 
+### SetRestrictToTagNil
+
+`func (o *EditApplicationGroupRequestModel) SetRestrictToTagNil(b bool)`
+
+ SetRestrictToTagNil sets the value for RestrictToTag to be an explicit nil
+
+### UnsetRestrictToTag
+`func (o *EditApplicationGroupRequestModel) UnsetRestrictToTag()`
+
+UnsetRestrictToTag ensures that no value is present for RestrictToTag, not even an explicit nil
 ### GetScopes
 
 `func (o *EditApplicationGroupRequestModel) GetScopes() []string`
@@ -185,6 +235,16 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
+### SetScopesNil
+
+`func (o *EditApplicationGroupRequestModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *EditApplicationGroupRequestModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetTenants
 
 `func (o *EditApplicationGroupRequestModel) GetTenants() []string`
@@ -210,6 +270,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *EditApplicationGroupRequestModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *EditApplicationGroupRequestModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetSessionSharingEnabled
 
 `func (o *EditApplicationGroupRequestModel) GetSessionSharingEnabled() bool`
@@ -235,6 +305,16 @@ SetSessionSharingEnabled sets SessionSharingEnabled field to given value.
 
 HasSessionSharingEnabled returns a boolean if a field has been set.
 
+### SetSessionSharingEnabledNil
+
+`func (o *EditApplicationGroupRequestModel) SetSessionSharingEnabledNil(b bool)`
+
+ SetSessionSharingEnabledNil sets the value for SessionSharingEnabled to be an explicit nil
+
+### UnsetSessionSharingEnabled
+`func (o *EditApplicationGroupRequestModel) UnsetSessionSharingEnabled()`
+
+UnsetSessionSharingEnabled ensures that no value is present for SessionSharingEnabled, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *EditApplicationGroupRequestModel) GetIncludedUserFilterEnabled() bool`
@@ -260,6 +340,16 @@ SetIncludedUserFilterEnabled sets IncludedUserFilterEnabled field to given value
 
 HasIncludedUserFilterEnabled returns a boolean if a field has been set.
 
+### SetIncludedUserFilterEnabledNil
+
+`func (o *EditApplicationGroupRequestModel) SetIncludedUserFilterEnabledNil(b bool)`
+
+ SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
+
+### UnsetIncludedUserFilterEnabled
+`func (o *EditApplicationGroupRequestModel) UnsetIncludedUserFilterEnabled()`
+
+UnsetIncludedUserFilterEnabled ensures that no value is present for IncludedUserFilterEnabled, not even an explicit nil
 ### GetIncludedUsers
 
 `func (o *EditApplicationGroupRequestModel) GetIncludedUsers() []string`
@@ -285,6 +375,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *EditApplicationGroupRequestModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *EditApplicationGroupRequestModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 ### GetDeliveryGroups
 
 `func (o *EditApplicationGroupRequestModel) GetDeliveryGroups() []PriorityRefRequestModel`
@@ -310,6 +410,16 @@ SetDeliveryGroups sets DeliveryGroups field to given value.
 
 HasDeliveryGroups returns a boolean if a field has been set.
 
+### SetDeliveryGroupsNil
+
+`func (o *EditApplicationGroupRequestModel) SetDeliveryGroupsNil(b bool)`
+
+ SetDeliveryGroupsNil sets the value for DeliveryGroups to be an explicit nil
+
+### UnsetDeliveryGroups
+`func (o *EditApplicationGroupRequestModel) UnsetDeliveryGroups()`
+
+UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

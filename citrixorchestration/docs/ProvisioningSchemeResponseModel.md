@@ -10,53 +10,53 @@ Name | Type | Description | Notes
 **ControllerAddresses** | **[]string** | The DNS names of the controllers associated with this provisioning scheme for Quick Deploy purposes. | 
 **CpuCount** | **int32** | The number of processors that VMs will be created with when using this scheme. | 
 **CoresPerCpuCount** | Pointer to **int32** | The number of cores per processor that VMs will be created with when using this scheme. This property only applies when hypervisor connection is Nutanix. | [optional] 
-**CurrentDiskImage** | Pointer to [**ProvisioningSchemeResponseModelCurrentDiskImage**](ProvisioningSchemeResponseModelCurrentDiskImage.md) |  | [optional] 
+**CurrentDiskImage** | Pointer to [**VMImageResponseModel**](VMImageResponseModel.md) |  | [optional] 
 **HistoricalDiskImages** | Pointer to [**[]VMImageResponseModel**](VMImageResponseModel.md) | The historical disk images including current image used to provision new machines in the machine catalog. | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
-**ImageRuntimeInfo** | Pointer to [**ProvisioningSchemeResponseModelImageRuntimeInfo**](ProvisioningSchemeResponseModelImageRuntimeInfo.md) |  | [optional] 
-**Warning** | Pointer to **string** | The warning message if parsing CustomProperties with error. | [optional] 
+**ImageRuntimeInfo** | Pointer to [**ImageRuntimeInfoResponseModel**](ImageRuntimeInfoResponseModel.md) |  | [optional] 
+**Warning** | Pointer to **NullableString** | The warning message if parsing CustomProperties with error. | [optional] 
 **Warnings** | Pointer to [**[]ProvisioningSchemeWarningReponseModel**](ProvisioningSchemeWarningReponseModel.md) | The warning. | [optional] 
-**CustomPropertiesInString** | Pointer to **string** | The properties of the provisioning scheme that are specific to the target hosting infrastructure in string format. | [optional] 
+**CustomPropertiesInString** | Pointer to **NullableString** | The properties of the provisioning scheme that are specific to the target hosting infrastructure in string format. | [optional] 
 **DedicatedTenancy** | **bool** | Whether to use dedicated tenancy when creating machines in Cloud Hypervisors. | 
-**TenancyType** | Pointer to **string** | Indicates whether to use tenancy type Shared, Instance or Host when creating machines in Cloud Hypervisors. | [optional] 
-**AzureAdJoinType** | Pointer to **string** | Indicates whether to use azure AD join type. | [optional] 
-**AzureADTenantId** | Pointer to **string** | AzureAD Tenant Id associates with this catalog | [optional] 
-**AzureAdSecurityGroupName** | Pointer to **string** | AzureAd dynamic security group associates with this catalog | [optional] 
+**TenancyType** | Pointer to **NullableString** | Indicates whether to use tenancy type Shared, Instance or Host when creating machines in Cloud Hypervisors. | [optional] 
+**AzureAdJoinType** | Pointer to **NullableString** | Indicates whether to use azure AD join type. | [optional] 
+**AzureADTenantId** | Pointer to **NullableString** | AzureAD Tenant Id associates with this catalog | [optional] 
+**AzureAdSecurityGroupName** | Pointer to **NullableString** | AzureAd dynamic security group associates with this catalog | [optional] 
 **IdentityType** | Pointer to [**IdentityType**](IdentityType.md) |  | [optional] 
 **DeviceManagementType** | Pointer to [**DeviceManagementType**](DeviceManagementType.md) |  | [optional] 
-**IdentityContent** | Pointer to **string** | The identity content of identity pool. | [optional] 
+**IdentityContent** | Pointer to **NullableString** | The identity content of identity pool. | [optional] 
 **DiskSizeGB** | **int32** | Size of the VM&#39;s OS disk, in GB. | 
-**GpuTypeId** | Pointer to **string** | Type of GPU used for VMs, if any. | [optional] 
-**ResourcePool** | [**ProvisioningSchemeResponseModelResourcePool**](ProvisioningSchemeResponseModelResourcePool.md) |  | 
-**IdentityPool** | [**ProvisioningSchemeResponseModelIdentityPool**](ProvisioningSchemeResponseModelIdentityPool.md) |  | 
+**GpuTypeId** | Pointer to **NullableString** | Type of GPU used for VMs, if any. | [optional] 
+**ResourcePool** | [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | 
+**IdentityPool** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **MachineCount** | **int32** | Number of machines provisioned from this provisioning scheme. | 
-**MasterImage** | [**ProvisioningSchemeResponseModelMasterImage**](ProvisioningSchemeResponseModelMasterImage.md) |  | 
-**MachineProfile** | Pointer to [**ImageSchemeResponseModelMachineProfile**](ImageSchemeResponseModelMachineProfile.md) |  | [optional] 
+**MasterImage** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**MachineProfile** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
 **MemoryMB** | **int32** | The maximum amount of memory that VMs will be created with when using this scheme. | 
 **NetworkMaps** | [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Networks used by provisioned VMs. | 
-**NutanixContainer** | Pointer to **string** | Nutanix container that the scheme uses. | [optional] 
+**NutanixContainer** | Pointer to **NullableString** | Nutanix container that the scheme uses. | [optional] 
 **ResetAdministratorPasswords** | **bool** | Indicates whether administrator passwords are reset automatically to a random password each time machines are provisioned. | 
 **SecurityGroups** | Pointer to **[]string** | Network security groups used by Cloud provisioned VMs. | [optional] 
-**ServiceOffering** | Pointer to **string** | Service offering used by Cloud provisioned VMs. | [optional] 
+**ServiceOffering** | Pointer to **NullableString** | Service offering used by Cloud provisioned VMs. | [optional] 
 **UseFullDiskCloneProvisioning** | **bool** | Indicates whether the machines are provisioned using the dedicated full disk clone feature. | 
 **UseWriteBackCache** | **bool** | True if the scheme will use the write back cache feature. | 
-**VMMetadata** | Pointer to [**ImageVersionDetailResponseModelAllOfVMMetadata**](ImageVersionDetailResponseModelAllOfVMMetadata.md) |  | [optional] 
+**VMMetadata** | Pointer to [**ProvisioningSchemeVmMetadataResponseModel**](ProvisioningSchemeVmMetadataResponseModel.md) |  | [optional] 
 **WorkgroupMachines** | Pointer to **bool** | True if the provisioned machines are non-domain joined | [optional] 
-**WriteBackCacheDiskIndex** | Pointer to **int32** | The disk on which to place the write back cache.  &#x60;0&#x60; indicates the OS disk. | [optional] 
-**WriteBackCacheDiskSizeGB** | Pointer to **int32** | The size of the write back cache disk if specified in GB. | [optional] 
-**WriteBackCacheMemorySizeMB** | Pointer to **int32** | The size of the in-memory write back cache if specified in MB. | [optional] 
+**WriteBackCacheDiskIndex** | Pointer to **NullableInt32** | The disk on which to place the write back cache.  &#x60;0&#x60; indicates the OS disk. | [optional] 
+**WriteBackCacheDiskSizeGB** | Pointer to **NullableInt32** | The size of the write back cache disk if specified in GB. | [optional] 
+**WriteBackCacheMemorySizeMB** | Pointer to **NullableInt32** | The size of the in-memory write back cache if specified in MB. | [optional] 
 **IsPreviousImageLegacyVda** | **bool** | True if the previous image is installed with a legacy VDA. | 
-**MachineAccountCreationRules** | Pointer to [**ProvisioningSchemeResponseModelMachineAccountCreationRules**](ProvisioningSchemeResponseModelMachineAccountCreationRules.md) |  | [optional] 
+**MachineAccountCreationRules** | Pointer to [**MachineAccountCreationRulesResponseModel**](MachineAccountCreationRulesResponseModel.md) |  | [optional] 
 **NumAvailableMachineAccounts** | **int32** | Number of machine accounts available to be used by machines that will be provisioned in the machine catalog.  This will be the identities associated with the machine catalog where State is Available. | 
-**PVSSite** | Pointer to **string** | PVS Site. | [optional] 
-**PVSVDisk** | Pointer to **string** | PVS vDisk. | [optional] 
-**ProvisioningSchemeType** | Pointer to **string** | Provisioning scheme type. | [optional] 
+**PVSSite** | Pointer to **NullableString** | PVS Site. | [optional] 
+**PVSVDisk** | Pointer to **NullableString** | PVS vDisk. | [optional] 
+**ProvisioningSchemeType** | Pointer to **NullableString** | Provisioning scheme type. | [optional] 
 
 ## Methods
 
 ### NewProvisioningSchemeResponseModel
 
-`func NewProvisioningSchemeResponseModel(id string, name string, cleanOnBoot bool, controllerAddresses []string, cpuCount int32, dedicatedTenancy bool, diskSizeGB int32, resourcePool ProvisioningSchemeResponseModelResourcePool, identityPool ProvisioningSchemeResponseModelIdentityPool, machineCount int32, masterImage ProvisioningSchemeResponseModelMasterImage, memoryMB int32, networkMaps []NetworkMapResponseModel, resetAdministratorPasswords bool, useFullDiskCloneProvisioning bool, useWriteBackCache bool, isPreviousImageLegacyVda bool, numAvailableMachineAccounts int32, ) *ProvisioningSchemeResponseModel`
+`func NewProvisioningSchemeResponseModel(id string, name string, cleanOnBoot bool, controllerAddresses []string, cpuCount int32, dedicatedTenancy bool, diskSizeGB int32, resourcePool HypervisorResourcePoolRefResponseModel, identityPool RefResponseModel, machineCount int32, masterImage HypervisorResourceRefResponseModel, memoryMB int32, networkMaps []NetworkMapResponseModel, resetAdministratorPasswords bool, useFullDiskCloneProvisioning bool, useWriteBackCache bool, isPreviousImageLegacyVda bool, numAvailableMachineAccounts int32, ) *ProvisioningSchemeResponseModel`
 
 NewProvisioningSchemeResponseModel instantiates a new ProvisioningSchemeResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -198,20 +198,20 @@ HasCoresPerCpuCount returns a boolean if a field has been set.
 
 ### GetCurrentDiskImage
 
-`func (o *ProvisioningSchemeResponseModel) GetCurrentDiskImage() ProvisioningSchemeResponseModelCurrentDiskImage`
+`func (o *ProvisioningSchemeResponseModel) GetCurrentDiskImage() VMImageResponseModel`
 
 GetCurrentDiskImage returns the CurrentDiskImage field if non-nil, zero value otherwise.
 
 ### GetCurrentDiskImageOk
 
-`func (o *ProvisioningSchemeResponseModel) GetCurrentDiskImageOk() (*ProvisioningSchemeResponseModelCurrentDiskImage, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetCurrentDiskImageOk() (*VMImageResponseModel, bool)`
 
 GetCurrentDiskImageOk returns a tuple with the CurrentDiskImage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCurrentDiskImage
 
-`func (o *ProvisioningSchemeResponseModel) SetCurrentDiskImage(v ProvisioningSchemeResponseModelCurrentDiskImage)`
+`func (o *ProvisioningSchemeResponseModel) SetCurrentDiskImage(v VMImageResponseModel)`
 
 SetCurrentDiskImage sets CurrentDiskImage field to given value.
 
@@ -246,6 +246,16 @@ SetHistoricalDiskImages sets HistoricalDiskImages field to given value.
 
 HasHistoricalDiskImages returns a boolean if a field has been set.
 
+### SetHistoricalDiskImagesNil
+
+`func (o *ProvisioningSchemeResponseModel) SetHistoricalDiskImagesNil(b bool)`
+
+ SetHistoricalDiskImagesNil sets the value for HistoricalDiskImages to be an explicit nil
+
+### UnsetHistoricalDiskImages
+`func (o *ProvisioningSchemeResponseModel) UnsetHistoricalDiskImages()`
+
+UnsetHistoricalDiskImages ensures that no value is present for HistoricalDiskImages, not even an explicit nil
 ### GetCustomProperties
 
 `func (o *ProvisioningSchemeResponseModel) GetCustomProperties() []NameValueStringPairModel`
@@ -271,22 +281,32 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *ProvisioningSchemeResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *ProvisioningSchemeResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetImageRuntimeInfo
 
-`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeInfo() ProvisioningSchemeResponseModelImageRuntimeInfo`
+`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeInfo() ImageRuntimeInfoResponseModel`
 
 GetImageRuntimeInfo returns the ImageRuntimeInfo field if non-nil, zero value otherwise.
 
 ### GetImageRuntimeInfoOk
 
-`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeInfoOk() (*ProvisioningSchemeResponseModelImageRuntimeInfo, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeInfoOk() (*ImageRuntimeInfoResponseModel, bool)`
 
 GetImageRuntimeInfoOk returns a tuple with the ImageRuntimeInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageRuntimeInfo
 
-`func (o *ProvisioningSchemeResponseModel) SetImageRuntimeInfo(v ProvisioningSchemeResponseModelImageRuntimeInfo)`
+`func (o *ProvisioningSchemeResponseModel) SetImageRuntimeInfo(v ImageRuntimeInfoResponseModel)`
 
 SetImageRuntimeInfo sets ImageRuntimeInfo field to given value.
 
@@ -321,6 +341,16 @@ SetWarning sets Warning field to given value.
 
 HasWarning returns a boolean if a field has been set.
 
+### SetWarningNil
+
+`func (o *ProvisioningSchemeResponseModel) SetWarningNil(b bool)`
+
+ SetWarningNil sets the value for Warning to be an explicit nil
+
+### UnsetWarning
+`func (o *ProvisioningSchemeResponseModel) UnsetWarning()`
+
+UnsetWarning ensures that no value is present for Warning, not even an explicit nil
 ### GetWarnings
 
 `func (o *ProvisioningSchemeResponseModel) GetWarnings() []ProvisioningSchemeWarningReponseModel`
@@ -346,6 +376,16 @@ SetWarnings sets Warnings field to given value.
 
 HasWarnings returns a boolean if a field has been set.
 
+### SetWarningsNil
+
+`func (o *ProvisioningSchemeResponseModel) SetWarningsNil(b bool)`
+
+ SetWarningsNil sets the value for Warnings to be an explicit nil
+
+### UnsetWarnings
+`func (o *ProvisioningSchemeResponseModel) UnsetWarnings()`
+
+UnsetWarnings ensures that no value is present for Warnings, not even an explicit nil
 ### GetCustomPropertiesInString
 
 `func (o *ProvisioningSchemeResponseModel) GetCustomPropertiesInString() string`
@@ -371,6 +411,16 @@ SetCustomPropertiesInString sets CustomPropertiesInString field to given value.
 
 HasCustomPropertiesInString returns a boolean if a field has been set.
 
+### SetCustomPropertiesInStringNil
+
+`func (o *ProvisioningSchemeResponseModel) SetCustomPropertiesInStringNil(b bool)`
+
+ SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
+
+### UnsetCustomPropertiesInString
+`func (o *ProvisioningSchemeResponseModel) UnsetCustomPropertiesInString()`
+
+UnsetCustomPropertiesInString ensures that no value is present for CustomPropertiesInString, not even an explicit nil
 ### GetDedicatedTenancy
 
 `func (o *ProvisioningSchemeResponseModel) GetDedicatedTenancy() bool`
@@ -416,6 +466,16 @@ SetTenancyType sets TenancyType field to given value.
 
 HasTenancyType returns a boolean if a field has been set.
 
+### SetTenancyTypeNil
+
+`func (o *ProvisioningSchemeResponseModel) SetTenancyTypeNil(b bool)`
+
+ SetTenancyTypeNil sets the value for TenancyType to be an explicit nil
+
+### UnsetTenancyType
+`func (o *ProvisioningSchemeResponseModel) UnsetTenancyType()`
+
+UnsetTenancyType ensures that no value is present for TenancyType, not even an explicit nil
 ### GetAzureAdJoinType
 
 `func (o *ProvisioningSchemeResponseModel) GetAzureAdJoinType() string`
@@ -441,6 +501,16 @@ SetAzureAdJoinType sets AzureAdJoinType field to given value.
 
 HasAzureAdJoinType returns a boolean if a field has been set.
 
+### SetAzureAdJoinTypeNil
+
+`func (o *ProvisioningSchemeResponseModel) SetAzureAdJoinTypeNil(b bool)`
+
+ SetAzureAdJoinTypeNil sets the value for AzureAdJoinType to be an explicit nil
+
+### UnsetAzureAdJoinType
+`func (o *ProvisioningSchemeResponseModel) UnsetAzureAdJoinType()`
+
+UnsetAzureAdJoinType ensures that no value is present for AzureAdJoinType, not even an explicit nil
 ### GetAzureADTenantId
 
 `func (o *ProvisioningSchemeResponseModel) GetAzureADTenantId() string`
@@ -466,6 +536,16 @@ SetAzureADTenantId sets AzureADTenantId field to given value.
 
 HasAzureADTenantId returns a boolean if a field has been set.
 
+### SetAzureADTenantIdNil
+
+`func (o *ProvisioningSchemeResponseModel) SetAzureADTenantIdNil(b bool)`
+
+ SetAzureADTenantIdNil sets the value for AzureADTenantId to be an explicit nil
+
+### UnsetAzureADTenantId
+`func (o *ProvisioningSchemeResponseModel) UnsetAzureADTenantId()`
+
+UnsetAzureADTenantId ensures that no value is present for AzureADTenantId, not even an explicit nil
 ### GetAzureAdSecurityGroupName
 
 `func (o *ProvisioningSchemeResponseModel) GetAzureAdSecurityGroupName() string`
@@ -491,6 +571,16 @@ SetAzureAdSecurityGroupName sets AzureAdSecurityGroupName field to given value.
 
 HasAzureAdSecurityGroupName returns a boolean if a field has been set.
 
+### SetAzureAdSecurityGroupNameNil
+
+`func (o *ProvisioningSchemeResponseModel) SetAzureAdSecurityGroupNameNil(b bool)`
+
+ SetAzureAdSecurityGroupNameNil sets the value for AzureAdSecurityGroupName to be an explicit nil
+
+### UnsetAzureAdSecurityGroupName
+`func (o *ProvisioningSchemeResponseModel) UnsetAzureAdSecurityGroupName()`
+
+UnsetAzureAdSecurityGroupName ensures that no value is present for AzureAdSecurityGroupName, not even an explicit nil
 ### GetIdentityType
 
 `func (o *ProvisioningSchemeResponseModel) GetIdentityType() IdentityType`
@@ -566,6 +656,16 @@ SetIdentityContent sets IdentityContent field to given value.
 
 HasIdentityContent returns a boolean if a field has been set.
 
+### SetIdentityContentNil
+
+`func (o *ProvisioningSchemeResponseModel) SetIdentityContentNil(b bool)`
+
+ SetIdentityContentNil sets the value for IdentityContent to be an explicit nil
+
+### UnsetIdentityContent
+`func (o *ProvisioningSchemeResponseModel) UnsetIdentityContent()`
+
+UnsetIdentityContent ensures that no value is present for IdentityContent, not even an explicit nil
 ### GetDiskSizeGB
 
 `func (o *ProvisioningSchemeResponseModel) GetDiskSizeGB() int32`
@@ -611,42 +711,52 @@ SetGpuTypeId sets GpuTypeId field to given value.
 
 HasGpuTypeId returns a boolean if a field has been set.
 
+### SetGpuTypeIdNil
+
+`func (o *ProvisioningSchemeResponseModel) SetGpuTypeIdNil(b bool)`
+
+ SetGpuTypeIdNil sets the value for GpuTypeId to be an explicit nil
+
+### UnsetGpuTypeId
+`func (o *ProvisioningSchemeResponseModel) UnsetGpuTypeId()`
+
+UnsetGpuTypeId ensures that no value is present for GpuTypeId, not even an explicit nil
 ### GetResourcePool
 
-`func (o *ProvisioningSchemeResponseModel) GetResourcePool() ProvisioningSchemeResponseModelResourcePool`
+`func (o *ProvisioningSchemeResponseModel) GetResourcePool() HypervisorResourcePoolRefResponseModel`
 
 GetResourcePool returns the ResourcePool field if non-nil, zero value otherwise.
 
 ### GetResourcePoolOk
 
-`func (o *ProvisioningSchemeResponseModel) GetResourcePoolOk() (*ProvisioningSchemeResponseModelResourcePool, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolRefResponseModel, bool)`
 
 GetResourcePoolOk returns a tuple with the ResourcePool field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourcePool
 
-`func (o *ProvisioningSchemeResponseModel) SetResourcePool(v ProvisioningSchemeResponseModelResourcePool)`
+`func (o *ProvisioningSchemeResponseModel) SetResourcePool(v HypervisorResourcePoolRefResponseModel)`
 
 SetResourcePool sets ResourcePool field to given value.
 
 
 ### GetIdentityPool
 
-`func (o *ProvisioningSchemeResponseModel) GetIdentityPool() ProvisioningSchemeResponseModelIdentityPool`
+`func (o *ProvisioningSchemeResponseModel) GetIdentityPool() RefResponseModel`
 
 GetIdentityPool returns the IdentityPool field if non-nil, zero value otherwise.
 
 ### GetIdentityPoolOk
 
-`func (o *ProvisioningSchemeResponseModel) GetIdentityPoolOk() (*ProvisioningSchemeResponseModelIdentityPool, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetIdentityPoolOk() (*RefResponseModel, bool)`
 
 GetIdentityPoolOk returns a tuple with the IdentityPool field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIdentityPool
 
-`func (o *ProvisioningSchemeResponseModel) SetIdentityPool(v ProvisioningSchemeResponseModelIdentityPool)`
+`func (o *ProvisioningSchemeResponseModel) SetIdentityPool(v RefResponseModel)`
 
 SetIdentityPool sets IdentityPool field to given value.
 
@@ -673,40 +783,40 @@ SetMachineCount sets MachineCount field to given value.
 
 ### GetMasterImage
 
-`func (o *ProvisioningSchemeResponseModel) GetMasterImage() ProvisioningSchemeResponseModelMasterImage`
+`func (o *ProvisioningSchemeResponseModel) GetMasterImage() HypervisorResourceRefResponseModel`
 
 GetMasterImage returns the MasterImage field if non-nil, zero value otherwise.
 
 ### GetMasterImageOk
 
-`func (o *ProvisioningSchemeResponseModel) GetMasterImageOk() (*ProvisioningSchemeResponseModelMasterImage, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetMasterImageOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetMasterImageOk returns a tuple with the MasterImage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasterImage
 
-`func (o *ProvisioningSchemeResponseModel) SetMasterImage(v ProvisioningSchemeResponseModelMasterImage)`
+`func (o *ProvisioningSchemeResponseModel) SetMasterImage(v HypervisorResourceRefResponseModel)`
 
 SetMasterImage sets MasterImage field to given value.
 
 
 ### GetMachineProfile
 
-`func (o *ProvisioningSchemeResponseModel) GetMachineProfile() ImageSchemeResponseModelMachineProfile`
+`func (o *ProvisioningSchemeResponseModel) GetMachineProfile() HypervisorResourceRefResponseModel`
 
 GetMachineProfile returns the MachineProfile field if non-nil, zero value otherwise.
 
 ### GetMachineProfileOk
 
-`func (o *ProvisioningSchemeResponseModel) GetMachineProfileOk() (*ImageSchemeResponseModelMachineProfile, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetMachineProfileOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetMachineProfileOk returns a tuple with the MachineProfile field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineProfile
 
-`func (o *ProvisioningSchemeResponseModel) SetMachineProfile(v ImageSchemeResponseModelMachineProfile)`
+`func (o *ProvisioningSchemeResponseModel) SetMachineProfile(v HypervisorResourceRefResponseModel)`
 
 SetMachineProfile sets MachineProfile field to given value.
 
@@ -781,6 +891,16 @@ SetNutanixContainer sets NutanixContainer field to given value.
 
 HasNutanixContainer returns a boolean if a field has been set.
 
+### SetNutanixContainerNil
+
+`func (o *ProvisioningSchemeResponseModel) SetNutanixContainerNil(b bool)`
+
+ SetNutanixContainerNil sets the value for NutanixContainer to be an explicit nil
+
+### UnsetNutanixContainer
+`func (o *ProvisioningSchemeResponseModel) UnsetNutanixContainer()`
+
+UnsetNutanixContainer ensures that no value is present for NutanixContainer, not even an explicit nil
 ### GetResetAdministratorPasswords
 
 `func (o *ProvisioningSchemeResponseModel) GetResetAdministratorPasswords() bool`
@@ -826,6 +946,16 @@ SetSecurityGroups sets SecurityGroups field to given value.
 
 HasSecurityGroups returns a boolean if a field has been set.
 
+### SetSecurityGroupsNil
+
+`func (o *ProvisioningSchemeResponseModel) SetSecurityGroupsNil(b bool)`
+
+ SetSecurityGroupsNil sets the value for SecurityGroups to be an explicit nil
+
+### UnsetSecurityGroups
+`func (o *ProvisioningSchemeResponseModel) UnsetSecurityGroups()`
+
+UnsetSecurityGroups ensures that no value is present for SecurityGroups, not even an explicit nil
 ### GetServiceOffering
 
 `func (o *ProvisioningSchemeResponseModel) GetServiceOffering() string`
@@ -851,6 +981,16 @@ SetServiceOffering sets ServiceOffering field to given value.
 
 HasServiceOffering returns a boolean if a field has been set.
 
+### SetServiceOfferingNil
+
+`func (o *ProvisioningSchemeResponseModel) SetServiceOfferingNil(b bool)`
+
+ SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
+
+### UnsetServiceOffering
+`func (o *ProvisioningSchemeResponseModel) UnsetServiceOffering()`
+
+UnsetServiceOffering ensures that no value is present for ServiceOffering, not even an explicit nil
 ### GetUseFullDiskCloneProvisioning
 
 `func (o *ProvisioningSchemeResponseModel) GetUseFullDiskCloneProvisioning() bool`
@@ -893,20 +1033,20 @@ SetUseWriteBackCache sets UseWriteBackCache field to given value.
 
 ### GetVMMetadata
 
-`func (o *ProvisioningSchemeResponseModel) GetVMMetadata() ImageVersionDetailResponseModelAllOfVMMetadata`
+`func (o *ProvisioningSchemeResponseModel) GetVMMetadata() ProvisioningSchemeVmMetadataResponseModel`
 
 GetVMMetadata returns the VMMetadata field if non-nil, zero value otherwise.
 
 ### GetVMMetadataOk
 
-`func (o *ProvisioningSchemeResponseModel) GetVMMetadataOk() (*ImageVersionDetailResponseModelAllOfVMMetadata, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetVMMetadataOk() (*ProvisioningSchemeVmMetadataResponseModel, bool)`
 
 GetVMMetadataOk returns a tuple with the VMMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVMMetadata
 
-`func (o *ProvisioningSchemeResponseModel) SetVMMetadata(v ImageVersionDetailResponseModelAllOfVMMetadata)`
+`func (o *ProvisioningSchemeResponseModel) SetVMMetadata(v ProvisioningSchemeVmMetadataResponseModel)`
 
 SetVMMetadata sets VMMetadata field to given value.
 
@@ -966,6 +1106,16 @@ SetWriteBackCacheDiskIndex sets WriteBackCacheDiskIndex field to given value.
 
 HasWriteBackCacheDiskIndex returns a boolean if a field has been set.
 
+### SetWriteBackCacheDiskIndexNil
+
+`func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDiskIndexNil(b bool)`
+
+ SetWriteBackCacheDiskIndexNil sets the value for WriteBackCacheDiskIndex to be an explicit nil
+
+### UnsetWriteBackCacheDiskIndex
+`func (o *ProvisioningSchemeResponseModel) UnsetWriteBackCacheDiskIndex()`
+
+UnsetWriteBackCacheDiskIndex ensures that no value is present for WriteBackCacheDiskIndex, not even an explicit nil
 ### GetWriteBackCacheDiskSizeGB
 
 `func (o *ProvisioningSchemeResponseModel) GetWriteBackCacheDiskSizeGB() int32`
@@ -991,6 +1141,16 @@ SetWriteBackCacheDiskSizeGB sets WriteBackCacheDiskSizeGB field to given value.
 
 HasWriteBackCacheDiskSizeGB returns a boolean if a field has been set.
 
+### SetWriteBackCacheDiskSizeGBNil
+
+`func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDiskSizeGBNil(b bool)`
+
+ SetWriteBackCacheDiskSizeGBNil sets the value for WriteBackCacheDiskSizeGB to be an explicit nil
+
+### UnsetWriteBackCacheDiskSizeGB
+`func (o *ProvisioningSchemeResponseModel) UnsetWriteBackCacheDiskSizeGB()`
+
+UnsetWriteBackCacheDiskSizeGB ensures that no value is present for WriteBackCacheDiskSizeGB, not even an explicit nil
 ### GetWriteBackCacheMemorySizeMB
 
 `func (o *ProvisioningSchemeResponseModel) GetWriteBackCacheMemorySizeMB() int32`
@@ -1016,6 +1176,16 @@ SetWriteBackCacheMemorySizeMB sets WriteBackCacheMemorySizeMB field to given val
 
 HasWriteBackCacheMemorySizeMB returns a boolean if a field has been set.
 
+### SetWriteBackCacheMemorySizeMBNil
+
+`func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheMemorySizeMBNil(b bool)`
+
+ SetWriteBackCacheMemorySizeMBNil sets the value for WriteBackCacheMemorySizeMB to be an explicit nil
+
+### UnsetWriteBackCacheMemorySizeMB
+`func (o *ProvisioningSchemeResponseModel) UnsetWriteBackCacheMemorySizeMB()`
+
+UnsetWriteBackCacheMemorySizeMB ensures that no value is present for WriteBackCacheMemorySizeMB, not even an explicit nil
 ### GetIsPreviousImageLegacyVda
 
 `func (o *ProvisioningSchemeResponseModel) GetIsPreviousImageLegacyVda() bool`
@@ -1038,20 +1208,20 @@ SetIsPreviousImageLegacyVda sets IsPreviousImageLegacyVda field to given value.
 
 ### GetMachineAccountCreationRules
 
-`func (o *ProvisioningSchemeResponseModel) GetMachineAccountCreationRules() ProvisioningSchemeResponseModelMachineAccountCreationRules`
+`func (o *ProvisioningSchemeResponseModel) GetMachineAccountCreationRules() MachineAccountCreationRulesResponseModel`
 
 GetMachineAccountCreationRules returns the MachineAccountCreationRules field if non-nil, zero value otherwise.
 
 ### GetMachineAccountCreationRulesOk
 
-`func (o *ProvisioningSchemeResponseModel) GetMachineAccountCreationRulesOk() (*ProvisioningSchemeResponseModelMachineAccountCreationRules, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetMachineAccountCreationRulesOk() (*MachineAccountCreationRulesResponseModel, bool)`
 
 GetMachineAccountCreationRulesOk returns a tuple with the MachineAccountCreationRules field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineAccountCreationRules
 
-`func (o *ProvisioningSchemeResponseModel) SetMachineAccountCreationRules(v ProvisioningSchemeResponseModelMachineAccountCreationRules)`
+`func (o *ProvisioningSchemeResponseModel) SetMachineAccountCreationRules(v MachineAccountCreationRulesResponseModel)`
 
 SetMachineAccountCreationRules sets MachineAccountCreationRules field to given value.
 
@@ -1106,6 +1276,16 @@ SetPVSSite sets PVSSite field to given value.
 
 HasPVSSite returns a boolean if a field has been set.
 
+### SetPVSSiteNil
+
+`func (o *ProvisioningSchemeResponseModel) SetPVSSiteNil(b bool)`
+
+ SetPVSSiteNil sets the value for PVSSite to be an explicit nil
+
+### UnsetPVSSite
+`func (o *ProvisioningSchemeResponseModel) UnsetPVSSite()`
+
+UnsetPVSSite ensures that no value is present for PVSSite, not even an explicit nil
 ### GetPVSVDisk
 
 `func (o *ProvisioningSchemeResponseModel) GetPVSVDisk() string`
@@ -1131,6 +1311,16 @@ SetPVSVDisk sets PVSVDisk field to given value.
 
 HasPVSVDisk returns a boolean if a field has been set.
 
+### SetPVSVDiskNil
+
+`func (o *ProvisioningSchemeResponseModel) SetPVSVDiskNil(b bool)`
+
+ SetPVSVDiskNil sets the value for PVSVDisk to be an explicit nil
+
+### UnsetPVSVDisk
+`func (o *ProvisioningSchemeResponseModel) UnsetPVSVDisk()`
+
+UnsetPVSVDisk ensures that no value is present for PVSVDisk, not even an explicit nil
 ### GetProvisioningSchemeType
 
 `func (o *ProvisioningSchemeResponseModel) GetProvisioningSchemeType() string`
@@ -1156,6 +1346,16 @@ SetProvisioningSchemeType sets ProvisioningSchemeType field to given value.
 
 HasProvisioningSchemeType returns a boolean if a field has been set.
 
+### SetProvisioningSchemeTypeNil
+
+`func (o *ProvisioningSchemeResponseModel) SetProvisioningSchemeTypeNil(b bool)`
+
+ SetProvisioningSchemeTypeNil sets the value for ProvisioningSchemeType to be an explicit nil
+
+### UnsetProvisioningSchemeType
+`func (o *ProvisioningSchemeResponseModel) UnsetProvisioningSchemeType()`
+
+UnsetProvisioningSchemeType ensures that no value is present for ProvisioningSchemeType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

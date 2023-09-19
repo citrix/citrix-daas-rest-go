@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
-**HypervisorConnection** | [**HypervisorResourcePoolResponseModelAllOfHypervisorConnection**](HypervisorResourcePoolResponseModelAllOfHypervisorConnection.md) |  | 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**HypervisorConnection** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
-**DefaultNetwork** | [**HypervisorResourcePoolResponseModelAllOfDefaultNetwork**](HypervisorResourcePoolResponseModelAllOfDefaultNetwork.md) |  | 
+**DefaultNetwork** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
 **VMTaggingEnabled** | **bool** | Indicates whether new virtual machines are tagged with metadata from the hypervisor. | 
-**ResourcePoolRootPath** | Pointer to **string** | Hypervisor resourcePool RootPath. | [optional] 
-**ResourcePoolRootId** | Pointer to **string** | Hypervisor resourcePool RootId. | [optional] 
+**ResourcePoolRootPath** | Pointer to **NullableString** | Hypervisor resourcePool RootPath. | [optional] 
+**ResourcePoolRootId** | Pointer to **NullableString** | Hypervisor resourcePool RootId. | [optional] 
 
 ## Methods
 
 ### NewHypervisorResourcePoolResponseModel
 
-`func NewHypervisorResourcePoolResponseModel(hypervisorConnection HypervisorResourcePoolResponseModelAllOfHypervisorConnection, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourcePoolResponseModelAllOfDefaultNetwork, vMTaggingEnabled bool, ) *HypervisorResourcePoolResponseModel`
+`func NewHypervisorResourcePoolResponseModel(hypervisorConnection RefResponseModel, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool, ) *HypervisorResourcePoolResponseModel`
 
 NewHypervisorResourcePoolResponseModel instantiates a new HypervisorResourcePoolResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -58,6 +58,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorResourcePoolResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorResourcePoolResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorResourcePoolResponseModel) GetName() string`
@@ -83,6 +93,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorResourcePoolResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorResourcePoolResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorResourcePoolResponseModel) GetXDPath() string`
@@ -108,22 +128,32 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorResourcePoolResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorResourcePoolResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetHypervisorConnection
 
-`func (o *HypervisorResourcePoolResponseModel) GetHypervisorConnection() HypervisorResourcePoolResponseModelAllOfHypervisorConnection`
+`func (o *HypervisorResourcePoolResponseModel) GetHypervisorConnection() RefResponseModel`
 
 GetHypervisorConnection returns the HypervisorConnection field if non-nil, zero value otherwise.
 
 ### GetHypervisorConnectionOk
 
-`func (o *HypervisorResourcePoolResponseModel) GetHypervisorConnectionOk() (*HypervisorResourcePoolResponseModelAllOfHypervisorConnection, bool)`
+`func (o *HypervisorResourcePoolResponseModel) GetHypervisorConnectionOk() (*RefResponseModel, bool)`
 
 GetHypervisorConnectionOk returns a tuple with the HypervisorConnection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisorConnection
 
-`func (o *HypervisorResourcePoolResponseModel) SetHypervisorConnection(v HypervisorResourcePoolResponseModelAllOfHypervisorConnection)`
+`func (o *HypervisorResourcePoolResponseModel) SetHypervisorConnection(v RefResponseModel)`
 
 SetHypervisorConnection sets HypervisorConnection field to given value.
 
@@ -150,20 +180,20 @@ SetConnectionType sets ConnectionType field to given value.
 
 ### GetDefaultNetwork
 
-`func (o *HypervisorResourcePoolResponseModel) GetDefaultNetwork() HypervisorResourcePoolResponseModelAllOfDefaultNetwork`
+`func (o *HypervisorResourcePoolResponseModel) GetDefaultNetwork() HypervisorResourceRefResponseModel`
 
 GetDefaultNetwork returns the DefaultNetwork field if non-nil, zero value otherwise.
 
 ### GetDefaultNetworkOk
 
-`func (o *HypervisorResourcePoolResponseModel) GetDefaultNetworkOk() (*HypervisorResourcePoolResponseModelAllOfDefaultNetwork, bool)`
+`func (o *HypervisorResourcePoolResponseModel) GetDefaultNetworkOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetDefaultNetworkOk returns a tuple with the DefaultNetwork field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultNetwork
 
-`func (o *HypervisorResourcePoolResponseModel) SetDefaultNetwork(v HypervisorResourcePoolResponseModelAllOfDefaultNetwork)`
+`func (o *HypervisorResourcePoolResponseModel) SetDefaultNetwork(v HypervisorResourceRefResponseModel)`
 
 SetDefaultNetwork sets DefaultNetwork field to given value.
 
@@ -213,6 +243,16 @@ SetResourcePoolRootPath sets ResourcePoolRootPath field to given value.
 
 HasResourcePoolRootPath returns a boolean if a field has been set.
 
+### SetResourcePoolRootPathNil
+
+`func (o *HypervisorResourcePoolResponseModel) SetResourcePoolRootPathNil(b bool)`
+
+ SetResourcePoolRootPathNil sets the value for ResourcePoolRootPath to be an explicit nil
+
+### UnsetResourcePoolRootPath
+`func (o *HypervisorResourcePoolResponseModel) UnsetResourcePoolRootPath()`
+
+UnsetResourcePoolRootPath ensures that no value is present for ResourcePoolRootPath, not even an explicit nil
 ### GetResourcePoolRootId
 
 `func (o *HypervisorResourcePoolResponseModel) GetResourcePoolRootId() string`
@@ -238,6 +278,16 @@ SetResourcePoolRootId sets ResourcePoolRootId field to given value.
 
 HasResourcePoolRootId returns a boolean if a field has been set.
 
+### SetResourcePoolRootIdNil
+
+`func (o *HypervisorResourcePoolResponseModel) SetResourcePoolRootIdNil(b bool)`
+
+ SetResourcePoolRootIdNil sets the value for ResourcePoolRootId to be an explicit nil
+
+### UnsetResourcePoolRootId
+`func (o *HypervisorResourcePoolResponseModel) UnsetResourcePoolRootId()`
+
+UnsetResourcePoolRootId ensures that no value is present for ResourcePoolRootId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of the zone. | 
 **Name** | **string** | Name of the zone. | 
-**Description** | Pointer to **string** | Description of the zone. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the zone. | [optional] 
 **IsPrimary** | **bool** | Indicates whether the zone is the primary zone for the site.  Resources in the site default to the primary zone if not set otherwise. | 
 **IsHealthy** | Pointer to **bool** | The flag to indicate whether the zone is healthy. | [optional] 
-**LastStateChangeTimeInUtc** | Pointer to **string** | The LastStateChangeTimeInUtc of the zone. | [optional] 
+**LastStateChangeTimeInUtc** | Pointer to **NullableString** | The LastStateChangeTimeInUtc of the zone. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of Zone. | [optional] 
-**ResourceLocation** | Pointer to [**ZoneResponseModelResourceLocation**](ZoneResponseModelResourceLocation.md) |  | [optional] 
+**ResourceLocation** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 
 ## Methods
 
@@ -97,6 +97,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ZoneResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ZoneResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsPrimary
 
 `func (o *ZoneResponseModel) GetIsPrimary() bool`
@@ -167,6 +177,16 @@ SetLastStateChangeTimeInUtc sets LastStateChangeTimeInUtc field to given value.
 
 HasLastStateChangeTimeInUtc returns a boolean if a field has been set.
 
+### SetLastStateChangeTimeInUtcNil
+
+`func (o *ZoneResponseModel) SetLastStateChangeTimeInUtcNil(b bool)`
+
+ SetLastStateChangeTimeInUtcNil sets the value for LastStateChangeTimeInUtc to be an explicit nil
+
+### UnsetLastStateChangeTimeInUtc
+`func (o *ZoneResponseModel) UnsetLastStateChangeTimeInUtc()`
+
+UnsetLastStateChangeTimeInUtc ensures that no value is present for LastStateChangeTimeInUtc, not even an explicit nil
 ### GetMetadata
 
 `func (o *ZoneResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -192,22 +212,32 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *ZoneResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ZoneResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetResourceLocation
 
-`func (o *ZoneResponseModel) GetResourceLocation() ZoneResponseModelResourceLocation`
+`func (o *ZoneResponseModel) GetResourceLocation() RefResponseModel`
 
 GetResourceLocation returns the ResourceLocation field if non-nil, zero value otherwise.
 
 ### GetResourceLocationOk
 
-`func (o *ZoneResponseModel) GetResourceLocationOk() (*ZoneResponseModelResourceLocation, bool)`
+`func (o *ZoneResponseModel) GetResourceLocationOk() (*RefResponseModel, bool)`
 
 GetResourceLocationOk returns a tuple with the ResourceLocation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceLocation
 
-`func (o *ZoneResponseModel) SetResourceLocation(v ZoneResponseModelResourceLocation)`
+`func (o *ZoneResponseModel) SetResourceLocation(v RefResponseModel)`
 
 SetResourceLocation sets ResourceLocation field to given value.
 

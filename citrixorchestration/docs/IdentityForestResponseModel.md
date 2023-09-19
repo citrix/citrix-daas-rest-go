@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The name associated with the forest object. | [optional] 
-**RootDomain** | Pointer to **string** | The root domain of the forest. | [optional] 
+**Name** | Pointer to **NullableString** | The name associated with the forest object. | [optional] 
+**RootDomain** | Pointer to **NullableString** | The root domain of the forest. | [optional] 
 **Domains** | Pointer to **[]string** | The domains under the forest. | [optional] 
 **Sites** | Pointer to **[]string** | The sites under the forest. | [optional] 
 **TrustedForests** | Pointer to **[]string** | Other forests that have trust with this forest. | [optional] 
@@ -56,6 +56,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *IdentityForestResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *IdentityForestResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetRootDomain
 
 `func (o *IdentityForestResponseModel) GetRootDomain() string`
@@ -81,6 +91,16 @@ SetRootDomain sets RootDomain field to given value.
 
 HasRootDomain returns a boolean if a field has been set.
 
+### SetRootDomainNil
+
+`func (o *IdentityForestResponseModel) SetRootDomainNil(b bool)`
+
+ SetRootDomainNil sets the value for RootDomain to be an explicit nil
+
+### UnsetRootDomain
+`func (o *IdentityForestResponseModel) UnsetRootDomain()`
+
+UnsetRootDomain ensures that no value is present for RootDomain, not even an explicit nil
 ### GetDomains
 
 `func (o *IdentityForestResponseModel) GetDomains() []string`
@@ -106,6 +126,16 @@ SetDomains sets Domains field to given value.
 
 HasDomains returns a boolean if a field has been set.
 
+### SetDomainsNil
+
+`func (o *IdentityForestResponseModel) SetDomainsNil(b bool)`
+
+ SetDomainsNil sets the value for Domains to be an explicit nil
+
+### UnsetDomains
+`func (o *IdentityForestResponseModel) UnsetDomains()`
+
+UnsetDomains ensures that no value is present for Domains, not even an explicit nil
 ### GetSites
 
 `func (o *IdentityForestResponseModel) GetSites() []string`
@@ -131,6 +161,16 @@ SetSites sets Sites field to given value.
 
 HasSites returns a boolean if a field has been set.
 
+### SetSitesNil
+
+`func (o *IdentityForestResponseModel) SetSitesNil(b bool)`
+
+ SetSitesNil sets the value for Sites to be an explicit nil
+
+### UnsetSites
+`func (o *IdentityForestResponseModel) UnsetSites()`
+
+UnsetSites ensures that no value is present for Sites, not even an explicit nil
 ### GetTrustedForests
 
 `func (o *IdentityForestResponseModel) GetTrustedForests() []string`
@@ -156,6 +196,16 @@ SetTrustedForests sets TrustedForests field to given value.
 
 HasTrustedForests returns a boolean if a field has been set.
 
+### SetTrustedForestsNil
+
+`func (o *IdentityForestResponseModel) SetTrustedForestsNil(b bool)`
+
+ SetTrustedForestsNil sets the value for TrustedForests to be an explicit nil
+
+### UnsetTrustedForests
+`func (o *IdentityForestResponseModel) UnsetTrustedForests()`
+
+UnsetTrustedForests ensures that no value is present for TrustedForests, not even an explicit nil
 ### GetPossibleLookupFailure
 
 `func (o *IdentityForestResponseModel) GetPossibleLookupFailure() bool`

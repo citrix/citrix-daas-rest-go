@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Location** | Pointer to **string** | Paging file location like: ?:\\pagefile.sys, C:\\pagefile.sys | [optional] 
+**Location** | Pointer to **NullableString** | Paging file location like: ?:\\pagefile.sys, C:\\pagefile.sys | [optional] 
 **MinSize** | Pointer to **int32** | Paging file minimum size in MB. | [optional] 
 **MaxSize** | Pointer to **int32** | Paging file maximum size in MB. | [optional] 
 
@@ -52,6 +52,16 @@ SetLocation sets Location field to given value.
 
 HasLocation returns a boolean if a field has been set.
 
+### SetLocationNil
+
+`func (o *PagingFileSettingResponseModel) SetLocationNil(b bool)`
+
+ SetLocationNil sets the value for Location to be an explicit nil
+
+### UnsetLocation
+`func (o *PagingFileSettingResponseModel) UnsetLocation()`
+
+UnsetLocation ensures that no value is present for Location, not even an explicit nil
 ### GetMinSize
 
 `func (o *PagingFileSettingResponseModel) GetMinSize() int32`

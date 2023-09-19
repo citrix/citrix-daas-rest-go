@@ -13,9 +13,11 @@ import (
 
 // AuthResponse -
 type CCAuthResponse struct {
-	TokenType  string `json:"token_type"`
-	Token      string `json:"access_token"`
-	Expiration string `json:"expires_in"`
+	TokenType        string `json:"token_type"`
+	Token            string `json:"access_token"`
+	Expiration       string `json:"expires_in"`
+	Error            string `json:"error"`
+	ErrorDescription string `json:"error_description"`
 }
 
 // AuthResponse -
@@ -62,6 +64,10 @@ func (c *CitrixDaasClient) SignIn() (string, error) {
 			return "", err
 		}
 
+		if resp.StatusCode > 200 {
+			return "", fmt.Errorf("Could not sign into DDC, %s", string(body))
+		}
+
 		ar := TrustAuthResponse{}
 		err = json.Unmarshal(body, &ar)
 		if err != nil {
@@ -84,10 +90,18 @@ func (c *CitrixDaasClient) SignIn() (string, error) {
 			return "", err
 		}
 
+		if resp.StatusCode > 200 {
+			return "", fmt.Errorf("Could not sign into Citrix Cloud, %s", string(body))
+		}
+
 		ar := CCAuthResponse{}
 		err = json.Unmarshal(body, &ar)
 		if err != nil {
 			return "", err
+		}
+
+		if ar.Error != "" {
+			return "", fmt.Errorf("Could not sign into Citrix Cloud, %s: %s", ar.Error, ar.ErrorDescription)
 		}
 
 		token = fmt.Sprintf("CWSAuth bearer=%s", ar.Token)

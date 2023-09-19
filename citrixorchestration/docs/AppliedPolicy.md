@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IsApplied** | Pointer to **bool** | Is policy applied | [optional] 
-**PolicyName** | Pointer to **string** | Policy name | [optional] 
-**GpoName** | Pointer to **string** | GPO name | [optional] 
+**PolicyName** | Pointer to **NullableString** | Policy name | [optional] 
+**GpoName** | Pointer to **NullableString** | GPO name | [optional] 
 **Reasons** | Pointer to **map[string][]string** | Reasons why the policy is or is not applied | [optional] 
 **Details** | Pointer to [**map[string][]FilterDetail**](array.md) | Reasons why the policy is or is not applied. | [optional] 
 
@@ -79,6 +79,16 @@ SetPolicyName sets PolicyName field to given value.
 
 HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *AppliedPolicy) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *AppliedPolicy) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
 ### GetGpoName
 
 `func (o *AppliedPolicy) GetGpoName() string`
@@ -104,6 +114,16 @@ SetGpoName sets GpoName field to given value.
 
 HasGpoName returns a boolean if a field has been set.
 
+### SetGpoNameNil
+
+`func (o *AppliedPolicy) SetGpoNameNil(b bool)`
+
+ SetGpoNameNil sets the value for GpoName to be an explicit nil
+
+### UnsetGpoName
+`func (o *AppliedPolicy) UnsetGpoName()`
+
+UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
 ### GetReasons
 
 `func (o *AppliedPolicy) GetReasons() map[string][]string`
@@ -129,6 +149,16 @@ SetReasons sets Reasons field to given value.
 
 HasReasons returns a boolean if a field has been set.
 
+### SetReasonsNil
+
+`func (o *AppliedPolicy) SetReasonsNil(b bool)`
+
+ SetReasonsNil sets the value for Reasons to be an explicit nil
+
+### UnsetReasons
+`func (o *AppliedPolicy) UnsetReasons()`
+
+UnsetReasons ensures that no value is present for Reasons, not even an explicit nil
 ### GetDetails
 
 `func (o *AppliedPolicy) GetDetails() map[string][]FilterDetail`
@@ -154,6 +184,16 @@ SetDetails sets Details field to given value.
 
 HasDetails returns a boolean if a field has been set.
 
+### SetDetailsNil
+
+`func (o *AppliedPolicy) SetDetailsNil(b bool)`
+
+ SetDetailsNil sets the value for Details to be an explicit nil
+
+### UnsetDetails
+`func (o *AppliedPolicy) UnsetDetails()`
+
+UnsetDetails ensures that no value is present for Details, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

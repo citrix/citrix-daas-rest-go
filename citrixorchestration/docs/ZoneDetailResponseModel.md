@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of the zone. | 
 **Name** | **string** | Name of the zone. | 
-**Description** | Pointer to **string** | Description of the zone. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the zone. | [optional] 
 **IsPrimary** | **bool** | Indicates whether the zone is the primary zone for the site.  Resources in the site default to the primary zone if not set otherwise. | 
 **IsHealthy** | Pointer to **bool** | The flag to indicate whether the zone is healthy. | [optional] 
-**LastStateChangeTimeInUtc** | Pointer to **string** | The LastStateChangeTimeInUtc of the zone. | [optional] 
+**LastStateChangeTimeInUtc** | Pointer to **NullableString** | The LastStateChangeTimeInUtc of the zone. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of Zone. | [optional] 
-**ResourceLocation** | Pointer to [**ZoneResponseModelResourceLocation**](ZoneResponseModelResourceLocation.md) |  | [optional] 
+**ResourceLocation** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **Controllers** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | List of controllers in the zone. | [optional] 
 
 ## Methods
@@ -98,6 +98,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ZoneDetailResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ZoneDetailResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsPrimary
 
 `func (o *ZoneDetailResponseModel) GetIsPrimary() bool`
@@ -168,6 +178,16 @@ SetLastStateChangeTimeInUtc sets LastStateChangeTimeInUtc field to given value.
 
 HasLastStateChangeTimeInUtc returns a boolean if a field has been set.
 
+### SetLastStateChangeTimeInUtcNil
+
+`func (o *ZoneDetailResponseModel) SetLastStateChangeTimeInUtcNil(b bool)`
+
+ SetLastStateChangeTimeInUtcNil sets the value for LastStateChangeTimeInUtc to be an explicit nil
+
+### UnsetLastStateChangeTimeInUtc
+`func (o *ZoneDetailResponseModel) UnsetLastStateChangeTimeInUtc()`
+
+UnsetLastStateChangeTimeInUtc ensures that no value is present for LastStateChangeTimeInUtc, not even an explicit nil
 ### GetMetadata
 
 `func (o *ZoneDetailResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -193,22 +213,32 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *ZoneDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ZoneDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetResourceLocation
 
-`func (o *ZoneDetailResponseModel) GetResourceLocation() ZoneResponseModelResourceLocation`
+`func (o *ZoneDetailResponseModel) GetResourceLocation() RefResponseModel`
 
 GetResourceLocation returns the ResourceLocation field if non-nil, zero value otherwise.
 
 ### GetResourceLocationOk
 
-`func (o *ZoneDetailResponseModel) GetResourceLocationOk() (*ZoneResponseModelResourceLocation, bool)`
+`func (o *ZoneDetailResponseModel) GetResourceLocationOk() (*RefResponseModel, bool)`
 
 GetResourceLocationOk returns a tuple with the ResourceLocation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceLocation
 
-`func (o *ZoneDetailResponseModel) SetResourceLocation(v ZoneResponseModelResourceLocation)`
+`func (o *ZoneDetailResponseModel) SetResourceLocation(v RefResponseModel)`
 
 SetResourceLocation sets ResourceLocation field to given value.
 
@@ -243,6 +273,16 @@ SetControllers sets Controllers field to given value.
 
 HasControllers returns a boolean if a field has been set.
 
+### SetControllersNil
+
+`func (o *ZoneDetailResponseModel) SetControllersNil(b bool)`
+
+ SetControllersNil sets the value for Controllers to be an explicit nil
+
+### UnsetControllers
+`func (o *ZoneDetailResponseModel) UnsetControllers()`
+
+UnsetControllers ensures that no value is present for Controllers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

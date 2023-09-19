@@ -11,21 +11,21 @@ Name | Type | Description | Notes
 **Duration** | Pointer to **int32** | Duration in seconds | [optional] 
 **TimeZoneOffset** | Pointer to **int32** | TimeZone offset from UTC | [optional] 
 **DateTime** | Pointer to **time.Time** | Date and time the action was started | [optional] 
-**Notes** | Pointer to **string** | Notes about the action | [optional] 
+**Notes** | Pointer to **NullableString** | Notes about the action | [optional] 
 **RestoreType** | Pointer to [**BackupRestoreRestoreTypes**](BackupRestoreRestoreTypes.md) |  | [optional] 
-**Filters** | Pointer to **string** | Filters used (applicable only when the action was restore) | [optional] 
+**Filters** | Pointer to **NullableString** | Filters used (applicable only when the action was restore) | [optional] 
 **WithPrerequisites** | Pointer to **bool** | With Prerequisites (applicable only when the action was restore) | [optional] 
 **CheckMode** | Pointer to **bool** | Check mode (applicable only when the action was restore) | [optional] 
-**ScheduleName** | Pointer to **string** | Name of schedule to perform backup (applicable only when the action was backup) | [optional] 
+**ScheduleName** | Pointer to **NullableString** | Name of schedule to perform backup (applicable only when the action was backup) | [optional] 
 **Component** | Pointer to [**BckRstrAutoConfigComponents**](BckRstrAutoConfigComponents.md) |  | [optional] 
-**ExecutionId** | Pointer to **string** | Execution Id | [optional] 
-**BackupName** | Pointer to **string** | Backup name | [optional] 
-**BackupFileSpec** | Pointer to **string** | Backup File Specification | [optional] 
+**ExecutionId** | Pointer to **NullableString** | Execution Id | [optional] 
+**BackupName** | Pointer to **NullableString** | Backup name | [optional] 
+**BackupFileSpec** | Pointer to **NullableString** | Backup File Specification | [optional] 
 **RelatedUid** | Pointer to **int32** | Related History UID for restore with checkmode set to true | [optional] 
 **RelatedDate** | Pointer to **time.Time** | Related History date for restore with checkmode set to true | [optional] 
 **RelatedIsCheckMode** | Pointer to **bool** | Related is run as check mode | [optional] 
 **Pinned** | Pointer to **bool** | Backup is pinned | [optional] 
-**AdministratorName** | Pointer to **string** | Administrator Name | [optional] 
+**AdministratorName** | Pointer to **NullableString** | Administrator Name | [optional] 
 **BackupDetails** | Pointer to **map[string]string** | Backup Status Details | [optional] 
 **RestoreDetails** | Pointer to [**[]BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) | Restore Status Details | [optional] 
 **SimpleResults** | Pointer to **[]string** | Simple Results (such as Get backed up member names) | [optional] 
@@ -234,6 +234,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *BackupRestoreHistoryInformation) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *BackupRestoreHistoryInformation) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetRestoreType
 
 `func (o *BackupRestoreHistoryInformation) GetRestoreType() BackupRestoreRestoreTypes`
@@ -284,6 +294,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *BackupRestoreHistoryInformation) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *BackupRestoreHistoryInformation) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 ### GetWithPrerequisites
 
 `func (o *BackupRestoreHistoryInformation) GetWithPrerequisites() bool`
@@ -359,6 +379,16 @@ SetScheduleName sets ScheduleName field to given value.
 
 HasScheduleName returns a boolean if a field has been set.
 
+### SetScheduleNameNil
+
+`func (o *BackupRestoreHistoryInformation) SetScheduleNameNil(b bool)`
+
+ SetScheduleNameNil sets the value for ScheduleName to be an explicit nil
+
+### UnsetScheduleName
+`func (o *BackupRestoreHistoryInformation) UnsetScheduleName()`
+
+UnsetScheduleName ensures that no value is present for ScheduleName, not even an explicit nil
 ### GetComponent
 
 `func (o *BackupRestoreHistoryInformation) GetComponent() BckRstrAutoConfigComponents`
@@ -409,6 +439,16 @@ SetExecutionId sets ExecutionId field to given value.
 
 HasExecutionId returns a boolean if a field has been set.
 
+### SetExecutionIdNil
+
+`func (o *BackupRestoreHistoryInformation) SetExecutionIdNil(b bool)`
+
+ SetExecutionIdNil sets the value for ExecutionId to be an explicit nil
+
+### UnsetExecutionId
+`func (o *BackupRestoreHistoryInformation) UnsetExecutionId()`
+
+UnsetExecutionId ensures that no value is present for ExecutionId, not even an explicit nil
 ### GetBackupName
 
 `func (o *BackupRestoreHistoryInformation) GetBackupName() string`
@@ -434,6 +474,16 @@ SetBackupName sets BackupName field to given value.
 
 HasBackupName returns a boolean if a field has been set.
 
+### SetBackupNameNil
+
+`func (o *BackupRestoreHistoryInformation) SetBackupNameNil(b bool)`
+
+ SetBackupNameNil sets the value for BackupName to be an explicit nil
+
+### UnsetBackupName
+`func (o *BackupRestoreHistoryInformation) UnsetBackupName()`
+
+UnsetBackupName ensures that no value is present for BackupName, not even an explicit nil
 ### GetBackupFileSpec
 
 `func (o *BackupRestoreHistoryInformation) GetBackupFileSpec() string`
@@ -459,6 +509,16 @@ SetBackupFileSpec sets BackupFileSpec field to given value.
 
 HasBackupFileSpec returns a boolean if a field has been set.
 
+### SetBackupFileSpecNil
+
+`func (o *BackupRestoreHistoryInformation) SetBackupFileSpecNil(b bool)`
+
+ SetBackupFileSpecNil sets the value for BackupFileSpec to be an explicit nil
+
+### UnsetBackupFileSpec
+`func (o *BackupRestoreHistoryInformation) UnsetBackupFileSpec()`
+
+UnsetBackupFileSpec ensures that no value is present for BackupFileSpec, not even an explicit nil
 ### GetRelatedUid
 
 `func (o *BackupRestoreHistoryInformation) GetRelatedUid() int32`
@@ -584,6 +644,16 @@ SetAdministratorName sets AdministratorName field to given value.
 
 HasAdministratorName returns a boolean if a field has been set.
 
+### SetAdministratorNameNil
+
+`func (o *BackupRestoreHistoryInformation) SetAdministratorNameNil(b bool)`
+
+ SetAdministratorNameNil sets the value for AdministratorName to be an explicit nil
+
+### UnsetAdministratorName
+`func (o *BackupRestoreHistoryInformation) UnsetAdministratorName()`
+
+UnsetAdministratorName ensures that no value is present for AdministratorName, not even an explicit nil
 ### GetBackupDetails
 
 `func (o *BackupRestoreHistoryInformation) GetBackupDetails() map[string]string`
@@ -609,6 +679,16 @@ SetBackupDetails sets BackupDetails field to given value.
 
 HasBackupDetails returns a boolean if a field has been set.
 
+### SetBackupDetailsNil
+
+`func (o *BackupRestoreHistoryInformation) SetBackupDetailsNil(b bool)`
+
+ SetBackupDetailsNil sets the value for BackupDetails to be an explicit nil
+
+### UnsetBackupDetails
+`func (o *BackupRestoreHistoryInformation) UnsetBackupDetails()`
+
+UnsetBackupDetails ensures that no value is present for BackupDetails, not even an explicit nil
 ### GetRestoreDetails
 
 `func (o *BackupRestoreHistoryInformation) GetRestoreDetails() []BackupRestoreRestoreSingleMemberModel`
@@ -634,6 +714,16 @@ SetRestoreDetails sets RestoreDetails field to given value.
 
 HasRestoreDetails returns a boolean if a field has been set.
 
+### SetRestoreDetailsNil
+
+`func (o *BackupRestoreHistoryInformation) SetRestoreDetailsNil(b bool)`
+
+ SetRestoreDetailsNil sets the value for RestoreDetails to be an explicit nil
+
+### UnsetRestoreDetails
+`func (o *BackupRestoreHistoryInformation) UnsetRestoreDetails()`
+
+UnsetRestoreDetails ensures that no value is present for RestoreDetails, not even an explicit nil
 ### GetSimpleResults
 
 `func (o *BackupRestoreHistoryInformation) GetSimpleResults() []string`
@@ -659,6 +749,16 @@ SetSimpleResults sets SimpleResults field to given value.
 
 HasSimpleResults returns a boolean if a field has been set.
 
+### SetSimpleResultsNil
+
+`func (o *BackupRestoreHistoryInformation) SetSimpleResultsNil(b bool)`
+
+ SetSimpleResultsNil sets the value for SimpleResults to be an explicit nil
+
+### UnsetSimpleResults
+`func (o *BackupRestoreHistoryInformation) UnsetSimpleResults()`
+
+UnsetSimpleResults ensures that no value is present for SimpleResults, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

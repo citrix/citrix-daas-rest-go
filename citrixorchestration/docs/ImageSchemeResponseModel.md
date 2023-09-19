@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The name associated with the image scheme. | [optional] 
+**Name** | Pointer to **NullableString** | The name associated with the image scheme. | [optional] 
 **Id** | Pointer to **string** | The Id of the image scheme. | [optional] 
 **ResourcePool** | Pointer to [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | [optional] 
-**HostingUnitName** | Pointer to **string** | The name of HostingUnit where image preparing happens | [optional] 
+**HostingUnitName** | Pointer to **NullableString** | The name of HostingUnit where image preparing happens | [optional] 
 **HostingUnitId** | Pointer to **string** | The ID of HostingUnit where image preparing happens | [optional] 
 **CpuCount** | Pointer to **int32** | The number of processors that VMs will be created with when using this scheme. | [optional] 
 **MemoryMB** | Pointer to **int32** | The maximum amount of memory that VMs will be created with when using this scheme. | [optional] 
-**ServiceOffering** | Pointer to **string** | Service offering used by Cloud provisioned VMs. | [optional] 
+**ServiceOffering** | Pointer to **NullableString** | Service offering used by Cloud provisioned VMs. | [optional] 
 **NetworkMaps** | Pointer to [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Networks used by image scheme. | [optional] 
-**MachineProfile** | Pointer to [**ImageSchemeResponseModelMachineProfile**](ImageSchemeResponseModelMachineProfile.md) |  | [optional] 
+**MachineProfile** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the image scheme that are specific to the target hosting infrastructure. | [optional] 
-**CustomPropertiesInString** | Pointer to **string** | The properties of the image scheme that are specific to the target hosting infrastructure in string format. | [optional] 
+**CustomPropertiesInString** | Pointer to **NullableString** | The properties of the image scheme that are specific to the target hosting infrastructure in string format. | [optional] 
 
 ## Methods
 
@@ -61,6 +61,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ImageSchemeResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ImageSchemeResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *ImageSchemeResponseModel) GetId() string`
@@ -136,6 +146,16 @@ SetHostingUnitName sets HostingUnitName field to given value.
 
 HasHostingUnitName returns a boolean if a field has been set.
 
+### SetHostingUnitNameNil
+
+`func (o *ImageSchemeResponseModel) SetHostingUnitNameNil(b bool)`
+
+ SetHostingUnitNameNil sets the value for HostingUnitName to be an explicit nil
+
+### UnsetHostingUnitName
+`func (o *ImageSchemeResponseModel) UnsetHostingUnitName()`
+
+UnsetHostingUnitName ensures that no value is present for HostingUnitName, not even an explicit nil
 ### GetHostingUnitId
 
 `func (o *ImageSchemeResponseModel) GetHostingUnitId() string`
@@ -236,6 +256,16 @@ SetServiceOffering sets ServiceOffering field to given value.
 
 HasServiceOffering returns a boolean if a field has been set.
 
+### SetServiceOfferingNil
+
+`func (o *ImageSchemeResponseModel) SetServiceOfferingNil(b bool)`
+
+ SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
+
+### UnsetServiceOffering
+`func (o *ImageSchemeResponseModel) UnsetServiceOffering()`
+
+UnsetServiceOffering ensures that no value is present for ServiceOffering, not even an explicit nil
 ### GetNetworkMaps
 
 `func (o *ImageSchemeResponseModel) GetNetworkMaps() []NetworkMapResponseModel`
@@ -261,22 +291,32 @@ SetNetworkMaps sets NetworkMaps field to given value.
 
 HasNetworkMaps returns a boolean if a field has been set.
 
+### SetNetworkMapsNil
+
+`func (o *ImageSchemeResponseModel) SetNetworkMapsNil(b bool)`
+
+ SetNetworkMapsNil sets the value for NetworkMaps to be an explicit nil
+
+### UnsetNetworkMaps
+`func (o *ImageSchemeResponseModel) UnsetNetworkMaps()`
+
+UnsetNetworkMaps ensures that no value is present for NetworkMaps, not even an explicit nil
 ### GetMachineProfile
 
-`func (o *ImageSchemeResponseModel) GetMachineProfile() ImageSchemeResponseModelMachineProfile`
+`func (o *ImageSchemeResponseModel) GetMachineProfile() HypervisorResourceRefResponseModel`
 
 GetMachineProfile returns the MachineProfile field if non-nil, zero value otherwise.
 
 ### GetMachineProfileOk
 
-`func (o *ImageSchemeResponseModel) GetMachineProfileOk() (*ImageSchemeResponseModelMachineProfile, bool)`
+`func (o *ImageSchemeResponseModel) GetMachineProfileOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetMachineProfileOk returns a tuple with the MachineProfile field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineProfile
 
-`func (o *ImageSchemeResponseModel) SetMachineProfile(v ImageSchemeResponseModelMachineProfile)`
+`func (o *ImageSchemeResponseModel) SetMachineProfile(v HypervisorResourceRefResponseModel)`
 
 SetMachineProfile sets MachineProfile field to given value.
 
@@ -311,6 +351,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *ImageSchemeResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *ImageSchemeResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetCustomPropertiesInString
 
 `func (o *ImageSchemeResponseModel) GetCustomPropertiesInString() string`
@@ -336,6 +386,16 @@ SetCustomPropertiesInString sets CustomPropertiesInString field to given value.
 
 HasCustomPropertiesInString returns a boolean if a field has been set.
 
+### SetCustomPropertiesInStringNil
+
+`func (o *ImageSchemeResponseModel) SetCustomPropertiesInStringNil(b bool)`
+
+ SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
+
+### UnsetCustomPropertiesInString
+`func (o *ImageSchemeResponseModel) UnsetCustomPropertiesInString()`
+
+UnsetCustomPropertiesInString ensures that no value is present for CustomPropertiesInString, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

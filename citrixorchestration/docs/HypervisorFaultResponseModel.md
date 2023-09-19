@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | Pointer to **string** | Fault state associated with connection, or &#39;None&#39; if OK. | [optional] 
-**Reason** | Pointer to **string** | Exception error text associated with any fault state. | [optional] 
-**TimeEntered** | Pointer to **string** | Time at which the hypervisor entered fault state | [optional] 
-**DurationInSeconds** | Pointer to **float64** | Period for which the hypervisor has been in fault state | [optional] 
+**State** | Pointer to **NullableString** | Fault state associated with connection, or &#39;None&#39; if OK. | [optional] 
+**Reason** | Pointer to **NullableString** | Exception error text associated with any fault state. | [optional] 
+**TimeEntered** | Pointer to **NullableString** | Time at which the hypervisor entered fault state | [optional] 
+**DurationInSeconds** | Pointer to **NullableFloat64** | Period for which the hypervisor has been in fault state | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
+### SetStateNil
+
+`func (o *HypervisorFaultResponseModel) SetStateNil(b bool)`
+
+ SetStateNil sets the value for State to be an explicit nil
+
+### UnsetState
+`func (o *HypervisorFaultResponseModel) UnsetState()`
+
+UnsetState ensures that no value is present for State, not even an explicit nil
 ### GetReason
 
 `func (o *HypervisorFaultResponseModel) GetReason() string`
@@ -78,6 +88,16 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
+### SetReasonNil
+
+`func (o *HypervisorFaultResponseModel) SetReasonNil(b bool)`
+
+ SetReasonNil sets the value for Reason to be an explicit nil
+
+### UnsetReason
+`func (o *HypervisorFaultResponseModel) UnsetReason()`
+
+UnsetReason ensures that no value is present for Reason, not even an explicit nil
 ### GetTimeEntered
 
 `func (o *HypervisorFaultResponseModel) GetTimeEntered() string`
@@ -103,6 +123,16 @@ SetTimeEntered sets TimeEntered field to given value.
 
 HasTimeEntered returns a boolean if a field has been set.
 
+### SetTimeEnteredNil
+
+`func (o *HypervisorFaultResponseModel) SetTimeEnteredNil(b bool)`
+
+ SetTimeEnteredNil sets the value for TimeEntered to be an explicit nil
+
+### UnsetTimeEntered
+`func (o *HypervisorFaultResponseModel) UnsetTimeEntered()`
+
+UnsetTimeEntered ensures that no value is present for TimeEntered, not even an explicit nil
 ### GetDurationInSeconds
 
 `func (o *HypervisorFaultResponseModel) GetDurationInSeconds() float64`
@@ -128,6 +158,16 @@ SetDurationInSeconds sets DurationInSeconds field to given value.
 
 HasDurationInSeconds returns a boolean if a field has been set.
 
+### SetDurationInSecondsNil
+
+`func (o *HypervisorFaultResponseModel) SetDurationInSecondsNil(b bool)`
+
+ SetDurationInSecondsNil sets the value for DurationInSeconds to be an explicit nil
+
+### UnsetDurationInSeconds
+`func (o *HypervisorFaultResponseModel) UnsetDurationInSeconds()`
+
+UnsetDurationInSeconds ensures that no value is present for DurationInSeconds, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

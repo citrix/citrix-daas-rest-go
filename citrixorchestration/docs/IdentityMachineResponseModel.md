@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Domain** | Pointer to **string** | The Domain the object belongs to. NOTE: When doing a forest level search, the domain property is populated only if the object contains a SID and the SID was requested as property to be fetched. | [optional] 
-**Forest** | Pointer to **string** | The forest the object belongs to. | [optional] 
-**Guid** | Pointer to **string** | The GUID of the object, the GUID is unique across the enterprise and anywhere else. | [optional] 
-**DistinguishedName** | Pointer to **string** | The Distinguished name of the object. Distinguished names (DNs) are unique and they unambiguously identify objects in the directory. | [optional] 
-**CanonicalName** | Pointer to **string** | The unique distinguished name of the object in canonical format. | [optional] 
+**Domain** | Pointer to **NullableString** | The Domain the object belongs to. NOTE: When doing a forest level search, the domain property is populated only if the object contains a SID and the SID was requested as property to be fetched. | [optional] 
+**Forest** | Pointer to **NullableString** | The forest the object belongs to. | [optional] 
+**Guid** | Pointer to **NullableString** | The GUID of the object, the GUID is unique across the enterprise and anywhere else. | [optional] 
+**DistinguishedName** | Pointer to **NullableString** | The Distinguished name of the object. Distinguished names (DNs) are unique and they unambiguously identify objects in the directory. | [optional] 
+**CanonicalName** | Pointer to **NullableString** | The unique distinguished name of the object in canonical format. | [optional] 
 **PossibleLookupFailure** | Pointer to **bool** | Set to True during a bulk identity lookup operation. For individual identity lookup, usually an exception will be thrown. | [optional] 
-**DirectoryServer** | Pointer to **string** | Domain controller that performed the add/update operation on this object | [optional] 
-**SamName** | Pointer to **string** | Fully qualified sAMAccountName of the Machine object (including domain). | [optional] 
-**SamAccountName** | Pointer to **string** | Unqualified SAM name (Directory property) of the Machine object.  Does not include the domain. The sAMAccountName is unique within a domain. | [optional] 
-**DnsName** | Pointer to **string** | The full qualified domain name associated with the Machine object. | [optional] 
-**Sid** | Pointer to **string** | The Security Identifier associated with the Machine object. | [optional] 
+**DirectoryServer** | Pointer to **NullableString** | Domain controller that performed the add/update operation on this object | [optional] 
+**SamName** | Pointer to **NullableString** | Fully qualified sAMAccountName of the Machine object (including domain). | [optional] 
+**SamAccountName** | Pointer to **NullableString** | Unqualified SAM name (Directory property) of the Machine object.  Does not include the domain. The sAMAccountName is unique within a domain. | [optional] 
+**DnsName** | Pointer to **NullableString** | The full qualified domain name associated with the Machine object. | [optional] 
+**Sid** | Pointer to **NullableString** | The Security Identifier associated with the Machine object. | [optional] 
 **ServicePrincipalNames** | Pointer to **[]string** | The service principal names (SPN) associated with the Machine object. | [optional] 
 **IPAddress** | Pointer to **[]string** | The IP addresses associated with the Machine object. | [optional] 
 **IPAddressResolveMethod** | Pointer to [**IdentityMachineIPAddressResolveMethod**](IdentityMachineIPAddressResolveMethod.md) |  | [optional] 
@@ -66,6 +66,16 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *IdentityMachineResponseModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *IdentityMachineResponseModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetForest
 
 `func (o *IdentityMachineResponseModel) GetForest() string`
@@ -91,6 +101,16 @@ SetForest sets Forest field to given value.
 
 HasForest returns a boolean if a field has been set.
 
+### SetForestNil
+
+`func (o *IdentityMachineResponseModel) SetForestNil(b bool)`
+
+ SetForestNil sets the value for Forest to be an explicit nil
+
+### UnsetForest
+`func (o *IdentityMachineResponseModel) UnsetForest()`
+
+UnsetForest ensures that no value is present for Forest, not even an explicit nil
 ### GetGuid
 
 `func (o *IdentityMachineResponseModel) GetGuid() string`
@@ -116,6 +136,16 @@ SetGuid sets Guid field to given value.
 
 HasGuid returns a boolean if a field has been set.
 
+### SetGuidNil
+
+`func (o *IdentityMachineResponseModel) SetGuidNil(b bool)`
+
+ SetGuidNil sets the value for Guid to be an explicit nil
+
+### UnsetGuid
+`func (o *IdentityMachineResponseModel) UnsetGuid()`
+
+UnsetGuid ensures that no value is present for Guid, not even an explicit nil
 ### GetDistinguishedName
 
 `func (o *IdentityMachineResponseModel) GetDistinguishedName() string`
@@ -141,6 +171,16 @@ SetDistinguishedName sets DistinguishedName field to given value.
 
 HasDistinguishedName returns a boolean if a field has been set.
 
+### SetDistinguishedNameNil
+
+`func (o *IdentityMachineResponseModel) SetDistinguishedNameNil(b bool)`
+
+ SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+
+### UnsetDistinguishedName
+`func (o *IdentityMachineResponseModel) UnsetDistinguishedName()`
+
+UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
 ### GetCanonicalName
 
 `func (o *IdentityMachineResponseModel) GetCanonicalName() string`
@@ -166,6 +206,16 @@ SetCanonicalName sets CanonicalName field to given value.
 
 HasCanonicalName returns a boolean if a field has been set.
 
+### SetCanonicalNameNil
+
+`func (o *IdentityMachineResponseModel) SetCanonicalNameNil(b bool)`
+
+ SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
+
+### UnsetCanonicalName
+`func (o *IdentityMachineResponseModel) UnsetCanonicalName()`
+
+UnsetCanonicalName ensures that no value is present for CanonicalName, not even an explicit nil
 ### GetPossibleLookupFailure
 
 `func (o *IdentityMachineResponseModel) GetPossibleLookupFailure() bool`
@@ -216,6 +266,16 @@ SetDirectoryServer sets DirectoryServer field to given value.
 
 HasDirectoryServer returns a boolean if a field has been set.
 
+### SetDirectoryServerNil
+
+`func (o *IdentityMachineResponseModel) SetDirectoryServerNil(b bool)`
+
+ SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
+
+### UnsetDirectoryServer
+`func (o *IdentityMachineResponseModel) UnsetDirectoryServer()`
+
+UnsetDirectoryServer ensures that no value is present for DirectoryServer, not even an explicit nil
 ### GetSamName
 
 `func (o *IdentityMachineResponseModel) GetSamName() string`
@@ -241,6 +301,16 @@ SetSamName sets SamName field to given value.
 
 HasSamName returns a boolean if a field has been set.
 
+### SetSamNameNil
+
+`func (o *IdentityMachineResponseModel) SetSamNameNil(b bool)`
+
+ SetSamNameNil sets the value for SamName to be an explicit nil
+
+### UnsetSamName
+`func (o *IdentityMachineResponseModel) UnsetSamName()`
+
+UnsetSamName ensures that no value is present for SamName, not even an explicit nil
 ### GetSamAccountName
 
 `func (o *IdentityMachineResponseModel) GetSamAccountName() string`
@@ -266,6 +336,16 @@ SetSamAccountName sets SamAccountName field to given value.
 
 HasSamAccountName returns a boolean if a field has been set.
 
+### SetSamAccountNameNil
+
+`func (o *IdentityMachineResponseModel) SetSamAccountNameNil(b bool)`
+
+ SetSamAccountNameNil sets the value for SamAccountName to be an explicit nil
+
+### UnsetSamAccountName
+`func (o *IdentityMachineResponseModel) UnsetSamAccountName()`
+
+UnsetSamAccountName ensures that no value is present for SamAccountName, not even an explicit nil
 ### GetDnsName
 
 `func (o *IdentityMachineResponseModel) GetDnsName() string`
@@ -291,6 +371,16 @@ SetDnsName sets DnsName field to given value.
 
 HasDnsName returns a boolean if a field has been set.
 
+### SetDnsNameNil
+
+`func (o *IdentityMachineResponseModel) SetDnsNameNil(b bool)`
+
+ SetDnsNameNil sets the value for DnsName to be an explicit nil
+
+### UnsetDnsName
+`func (o *IdentityMachineResponseModel) UnsetDnsName()`
+
+UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
 ### GetSid
 
 `func (o *IdentityMachineResponseModel) GetSid() string`
@@ -316,6 +406,16 @@ SetSid sets Sid field to given value.
 
 HasSid returns a boolean if a field has been set.
 
+### SetSidNil
+
+`func (o *IdentityMachineResponseModel) SetSidNil(b bool)`
+
+ SetSidNil sets the value for Sid to be an explicit nil
+
+### UnsetSid
+`func (o *IdentityMachineResponseModel) UnsetSid()`
+
+UnsetSid ensures that no value is present for Sid, not even an explicit nil
 ### GetServicePrincipalNames
 
 `func (o *IdentityMachineResponseModel) GetServicePrincipalNames() []string`
@@ -341,6 +441,16 @@ SetServicePrincipalNames sets ServicePrincipalNames field to given value.
 
 HasServicePrincipalNames returns a boolean if a field has been set.
 
+### SetServicePrincipalNamesNil
+
+`func (o *IdentityMachineResponseModel) SetServicePrincipalNamesNil(b bool)`
+
+ SetServicePrincipalNamesNil sets the value for ServicePrincipalNames to be an explicit nil
+
+### UnsetServicePrincipalNames
+`func (o *IdentityMachineResponseModel) UnsetServicePrincipalNames()`
+
+UnsetServicePrincipalNames ensures that no value is present for ServicePrincipalNames, not even an explicit nil
 ### GetIPAddress
 
 `func (o *IdentityMachineResponseModel) GetIPAddress() []string`
@@ -366,6 +476,16 @@ SetIPAddress sets IPAddress field to given value.
 
 HasIPAddress returns a boolean if a field has been set.
 
+### SetIPAddressNil
+
+`func (o *IdentityMachineResponseModel) SetIPAddressNil(b bool)`
+
+ SetIPAddressNil sets the value for IPAddress to be an explicit nil
+
+### UnsetIPAddress
+`func (o *IdentityMachineResponseModel) UnsetIPAddress()`
+
+UnsetIPAddress ensures that no value is present for IPAddress, not even an explicit nil
 ### GetIPAddressResolveMethod
 
 `func (o *IdentityMachineResponseModel) GetIPAddressResolveMethod() IdentityMachineIPAddressResolveMethod`

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Domain** | Pointer to **string** | The Domain the object belongs to. NOTE: When doing a forest level search, the domain property is populated only if the object contains a SID and the SID was requested as property to be fetched. | [optional] 
-**Forest** | Pointer to **string** | The forest the object belongs to. | [optional] 
-**Guid** | Pointer to **string** | The GUID of the object, the GUID is unique across the enterprise and anywhere else. | [optional] 
-**DistinguishedName** | Pointer to **string** | The Distinguished name of the object. Distinguished names (DNs) are unique and they unambiguously identify objects in the directory. | [optional] 
-**CanonicalName** | Pointer to **string** | The unique distinguished name of the object in canonical format. | [optional] 
+**Domain** | Pointer to **NullableString** | The Domain the object belongs to. NOTE: When doing a forest level search, the domain property is populated only if the object contains a SID and the SID was requested as property to be fetched. | [optional] 
+**Forest** | Pointer to **NullableString** | The forest the object belongs to. | [optional] 
+**Guid** | Pointer to **NullableString** | The GUID of the object, the GUID is unique across the enterprise and anywhere else. | [optional] 
+**DistinguishedName** | Pointer to **NullableString** | The Distinguished name of the object. Distinguished names (DNs) are unique and they unambiguously identify objects in the directory. | [optional] 
+**CanonicalName** | Pointer to **NullableString** | The unique distinguished name of the object in canonical format. | [optional] 
 **PossibleLookupFailure** | Pointer to **bool** | Set to True during a bulk identity lookup operation. For individual identity lookup, usually an exception will be thrown. | [optional] 
-**DirectoryServer** | Pointer to **string** | Domain controller that performed the add/update operation on this object | [optional] 
-**Name** | Pointer to **string** | The name of the container. | [optional] 
+**DirectoryServer** | Pointer to **NullableString** | Domain controller that performed the add/update operation on this object | [optional] 
+**Name** | Pointer to **NullableString** | The name of the container. | [optional] 
 **Type** | Pointer to [**IdentityContainerType**](IdentityContainerType.md) |  | [optional] 
 **PropertiesFetched** | **int32** | Properties fetched and populated in the Container object.  This is a bitfield indicating the fetched properties. | 
 
@@ -59,6 +59,16 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *IdentityContainerResponseModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *IdentityContainerResponseModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetForest
 
 `func (o *IdentityContainerResponseModel) GetForest() string`
@@ -84,6 +94,16 @@ SetForest sets Forest field to given value.
 
 HasForest returns a boolean if a field has been set.
 
+### SetForestNil
+
+`func (o *IdentityContainerResponseModel) SetForestNil(b bool)`
+
+ SetForestNil sets the value for Forest to be an explicit nil
+
+### UnsetForest
+`func (o *IdentityContainerResponseModel) UnsetForest()`
+
+UnsetForest ensures that no value is present for Forest, not even an explicit nil
 ### GetGuid
 
 `func (o *IdentityContainerResponseModel) GetGuid() string`
@@ -109,6 +129,16 @@ SetGuid sets Guid field to given value.
 
 HasGuid returns a boolean if a field has been set.
 
+### SetGuidNil
+
+`func (o *IdentityContainerResponseModel) SetGuidNil(b bool)`
+
+ SetGuidNil sets the value for Guid to be an explicit nil
+
+### UnsetGuid
+`func (o *IdentityContainerResponseModel) UnsetGuid()`
+
+UnsetGuid ensures that no value is present for Guid, not even an explicit nil
 ### GetDistinguishedName
 
 `func (o *IdentityContainerResponseModel) GetDistinguishedName() string`
@@ -134,6 +164,16 @@ SetDistinguishedName sets DistinguishedName field to given value.
 
 HasDistinguishedName returns a boolean if a field has been set.
 
+### SetDistinguishedNameNil
+
+`func (o *IdentityContainerResponseModel) SetDistinguishedNameNil(b bool)`
+
+ SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+
+### UnsetDistinguishedName
+`func (o *IdentityContainerResponseModel) UnsetDistinguishedName()`
+
+UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
 ### GetCanonicalName
 
 `func (o *IdentityContainerResponseModel) GetCanonicalName() string`
@@ -159,6 +199,16 @@ SetCanonicalName sets CanonicalName field to given value.
 
 HasCanonicalName returns a boolean if a field has been set.
 
+### SetCanonicalNameNil
+
+`func (o *IdentityContainerResponseModel) SetCanonicalNameNil(b bool)`
+
+ SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
+
+### UnsetCanonicalName
+`func (o *IdentityContainerResponseModel) UnsetCanonicalName()`
+
+UnsetCanonicalName ensures that no value is present for CanonicalName, not even an explicit nil
 ### GetPossibleLookupFailure
 
 `func (o *IdentityContainerResponseModel) GetPossibleLookupFailure() bool`
@@ -209,6 +259,16 @@ SetDirectoryServer sets DirectoryServer field to given value.
 
 HasDirectoryServer returns a boolean if a field has been set.
 
+### SetDirectoryServerNil
+
+`func (o *IdentityContainerResponseModel) SetDirectoryServerNil(b bool)`
+
+ SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
+
+### UnsetDirectoryServer
+`func (o *IdentityContainerResponseModel) UnsetDirectoryServer()`
+
+UnsetDirectoryServer ensures that no value is present for DirectoryServer, not even an explicit nil
 ### GetName
 
 `func (o *IdentityContainerResponseModel) GetName() string`
@@ -234,6 +294,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *IdentityContainerResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *IdentityContainerResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetType
 
 `func (o *IdentityContainerResponseModel) GetType() IdentityContainerType`

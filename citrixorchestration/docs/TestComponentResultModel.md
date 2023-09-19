@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TestComponentTarget** | Pointer to **string** | Gets or sets the test component target, usually the machine the test was run on. | [optional] 
-**TestComponentStartTime** | Pointer to **string** | Gets or sets the test component start time. If the test has not yet been run, this may be null. | [optional] 
-**FormattedTestComponentStartTime** | Pointer to **string** | Gets or sets the formatted test component start time. If the test has not yet been run, this may be null. RFC 3339 compatible format. | [optional] 
-**TestComponentEndTime** | Pointer to **string** | Gets or sets the test component end time. If the test has not yet been run, this may be null. | [optional] 
-**FormattedTestComponentEndTime** | Pointer to **string** | Gets or sets the formatted test component end time. If the test has not yet been run, this may be null. RFC 3339 compatible format. | [optional] 
+**TestComponentTarget** | Pointer to **NullableString** | Gets or sets the test component target, usually the machine the test was run on. | [optional] 
+**TestComponentStartTime** | Pointer to **NullableString** | Gets or sets the test component start time. If the test has not yet been run, this may be null. | [optional] 
+**FormattedTestComponentStartTime** | Pointer to **NullableString** | Gets or sets the formatted test component start time. If the test has not yet been run, this may be null. RFC 3339 compatible format. | [optional] 
+**TestComponentEndTime** | Pointer to **NullableString** | Gets or sets the test component end time. If the test has not yet been run, this may be null. | [optional] 
+**FormattedTestComponentEndTime** | Pointer to **NullableString** | Gets or sets the formatted test component end time. If the test has not yet been run, this may be null. RFC 3339 compatible format. | [optional] 
 **TestComponentStatus** | Pointer to [**TestStatus**](TestStatus.md) |  | [optional] 
 **ResultDetails** | Pointer to [**[]TestComponentResultDetailModel**](TestComponentResultDetailModel.md) | Gets or sets the result details, which is a list of additional information about the state of a machine when a test succeeds, but has warnings, or fails.  There may be more than one value for each severity, for example, multiple warnings about the state of the License server. The values must be localized. | [optional] 
 
@@ -56,6 +56,16 @@ SetTestComponentTarget sets TestComponentTarget field to given value.
 
 HasTestComponentTarget returns a boolean if a field has been set.
 
+### SetTestComponentTargetNil
+
+`func (o *TestComponentResultModel) SetTestComponentTargetNil(b bool)`
+
+ SetTestComponentTargetNil sets the value for TestComponentTarget to be an explicit nil
+
+### UnsetTestComponentTarget
+`func (o *TestComponentResultModel) UnsetTestComponentTarget()`
+
+UnsetTestComponentTarget ensures that no value is present for TestComponentTarget, not even an explicit nil
 ### GetTestComponentStartTime
 
 `func (o *TestComponentResultModel) GetTestComponentStartTime() string`
@@ -81,6 +91,16 @@ SetTestComponentStartTime sets TestComponentStartTime field to given value.
 
 HasTestComponentStartTime returns a boolean if a field has been set.
 
+### SetTestComponentStartTimeNil
+
+`func (o *TestComponentResultModel) SetTestComponentStartTimeNil(b bool)`
+
+ SetTestComponentStartTimeNil sets the value for TestComponentStartTime to be an explicit nil
+
+### UnsetTestComponentStartTime
+`func (o *TestComponentResultModel) UnsetTestComponentStartTime()`
+
+UnsetTestComponentStartTime ensures that no value is present for TestComponentStartTime, not even an explicit nil
 ### GetFormattedTestComponentStartTime
 
 `func (o *TestComponentResultModel) GetFormattedTestComponentStartTime() string`
@@ -106,6 +126,16 @@ SetFormattedTestComponentStartTime sets FormattedTestComponentStartTime field to
 
 HasFormattedTestComponentStartTime returns a boolean if a field has been set.
 
+### SetFormattedTestComponentStartTimeNil
+
+`func (o *TestComponentResultModel) SetFormattedTestComponentStartTimeNil(b bool)`
+
+ SetFormattedTestComponentStartTimeNil sets the value for FormattedTestComponentStartTime to be an explicit nil
+
+### UnsetFormattedTestComponentStartTime
+`func (o *TestComponentResultModel) UnsetFormattedTestComponentStartTime()`
+
+UnsetFormattedTestComponentStartTime ensures that no value is present for FormattedTestComponentStartTime, not even an explicit nil
 ### GetTestComponentEndTime
 
 `func (o *TestComponentResultModel) GetTestComponentEndTime() string`
@@ -131,6 +161,16 @@ SetTestComponentEndTime sets TestComponentEndTime field to given value.
 
 HasTestComponentEndTime returns a boolean if a field has been set.
 
+### SetTestComponentEndTimeNil
+
+`func (o *TestComponentResultModel) SetTestComponentEndTimeNil(b bool)`
+
+ SetTestComponentEndTimeNil sets the value for TestComponentEndTime to be an explicit nil
+
+### UnsetTestComponentEndTime
+`func (o *TestComponentResultModel) UnsetTestComponentEndTime()`
+
+UnsetTestComponentEndTime ensures that no value is present for TestComponentEndTime, not even an explicit nil
 ### GetFormattedTestComponentEndTime
 
 `func (o *TestComponentResultModel) GetFormattedTestComponentEndTime() string`
@@ -156,6 +196,16 @@ SetFormattedTestComponentEndTime sets FormattedTestComponentEndTime field to giv
 
 HasFormattedTestComponentEndTime returns a boolean if a field has been set.
 
+### SetFormattedTestComponentEndTimeNil
+
+`func (o *TestComponentResultModel) SetFormattedTestComponentEndTimeNil(b bool)`
+
+ SetFormattedTestComponentEndTimeNil sets the value for FormattedTestComponentEndTime to be an explicit nil
+
+### UnsetFormattedTestComponentEndTime
+`func (o *TestComponentResultModel) UnsetFormattedTestComponentEndTime()`
+
+UnsetFormattedTestComponentEndTime ensures that no value is present for FormattedTestComponentEndTime, not even an explicit nil
 ### GetTestComponentStatus
 
 `func (o *TestComponentResultModel) GetTestComponentStatus() TestStatus`
@@ -206,6 +256,16 @@ SetResultDetails sets ResultDetails field to given value.
 
 HasResultDetails returns a boolean if a field has been set.
 
+### SetResultDetailsNil
+
+`func (o *TestComponentResultModel) SetResultDetailsNil(b bool)`
+
+ SetResultDetailsNil sets the value for ResultDetails to be an explicit nil
+
+### UnsetResultDetails
+`func (o *TestComponentResultModel) UnsetResultDetails()`
+
+UnsetResultDetails ensures that no value is present for ResultDetails, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

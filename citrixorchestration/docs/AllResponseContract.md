@@ -53,6 +53,16 @@ SetPolicies sets Policies field to given value.
 
 HasPolicies returns a boolean if a field has been set.
 
+### SetPoliciesNil
+
+`func (o *AllResponseContract) SetPoliciesNil(b bool)`
+
+ SetPoliciesNil sets the value for Policies to be an explicit nil
+
+### UnsetPolicies
+`func (o *AllResponseContract) UnsetPolicies()`
+
+UnsetPolicies ensures that no value is present for Policies, not even an explicit nil
 ### GetTemplates
 
 `func (o *AllResponseContract) GetTemplates() []TemplateResponseContract`
@@ -78,6 +88,16 @@ SetTemplates sets Templates field to given value.
 
 HasTemplates returns a boolean if a field has been set.
 
+### SetTemplatesNil
+
+`func (o *AllResponseContract) SetTemplatesNil(b bool)`
+
+ SetTemplatesNil sets the value for Templates to be an explicit nil
+
+### UnsetTemplates
+`func (o *AllResponseContract) UnsetTemplates()`
+
+UnsetTemplates ensures that no value is present for Templates, not even an explicit nil
 ### GetSettingDefinitions
 
 `func (o *AllResponseContract) GetSettingDefinitions() []SettingDefinitionContract`
@@ -103,6 +123,16 @@ SetSettingDefinitions sets SettingDefinitions field to given value.
 
 HasSettingDefinitions returns a boolean if a field has been set.
 
+### SetSettingDefinitionsNil
+
+`func (o *AllResponseContract) SetSettingDefinitionsNil(b bool)`
+
+ SetSettingDefinitionsNil sets the value for SettingDefinitions to be an explicit nil
+
+### UnsetSettingDefinitions
+`func (o *AllResponseContract) UnsetSettingDefinitions()`
+
+UnsetSettingDefinitions ensures that no value is present for SettingDefinitions, not even an explicit nil
 ### GetFilterDefinitions
 
 `func (o *AllResponseContract) GetFilterDefinitions() []FilterDefinitionContract`
@@ -128,6 +158,16 @@ SetFilterDefinitions sets FilterDefinitions field to given value.
 
 HasFilterDefinitions returns a boolean if a field has been set.
 
+### SetFilterDefinitionsNil
+
+`func (o *AllResponseContract) SetFilterDefinitionsNil(b bool)`
+
+ SetFilterDefinitionsNil sets the value for FilterDefinitions to be an explicit nil
+
+### UnsetFilterDefinitions
+`func (o *AllResponseContract) UnsetFilterDefinitions()`
+
+UnsetFilterDefinitions ensures that no value is present for FilterDefinitions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ApplicationGroups** | Pointer to **[]string** | The machines associated with Application Groups will be browsed. | [optional] 
 **DeliveryGroups** | Pointer to **[]string** | The machines associated with Delivery Groups will be browsed. | [optional] 
 **MachineCatalogs** | Pointer to **[]string** | The machines in the catalogs will be browsed. | [optional] 
-**ServerOrPath** | Pointer to **string** | Specify machine IP or DNS to get machine shares; Specify local path to get directory/files. | [optional] 
+**ServerOrPath** | Pointer to **NullableString** | Specify machine IP or DNS to get machine shares; Specify local path to get directory/files. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetApplicationGroups sets ApplicationGroups field to given value.
 
 HasApplicationGroups returns a boolean if a field has been set.
 
+### SetApplicationGroupsNil
+
+`func (o *ApplicationDiscoveryRequestModel) SetApplicationGroupsNil(b bool)`
+
+ SetApplicationGroupsNil sets the value for ApplicationGroups to be an explicit nil
+
+### UnsetApplicationGroups
+`func (o *ApplicationDiscoveryRequestModel) UnsetApplicationGroups()`
+
+UnsetApplicationGroups ensures that no value is present for ApplicationGroups, not even an explicit nil
 ### GetDeliveryGroups
 
 `func (o *ApplicationDiscoveryRequestModel) GetDeliveryGroups() []string`
@@ -78,6 +88,16 @@ SetDeliveryGroups sets DeliveryGroups field to given value.
 
 HasDeliveryGroups returns a boolean if a field has been set.
 
+### SetDeliveryGroupsNil
+
+`func (o *ApplicationDiscoveryRequestModel) SetDeliveryGroupsNil(b bool)`
+
+ SetDeliveryGroupsNil sets the value for DeliveryGroups to be an explicit nil
+
+### UnsetDeliveryGroups
+`func (o *ApplicationDiscoveryRequestModel) UnsetDeliveryGroups()`
+
+UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
 ### GetMachineCatalogs
 
 `func (o *ApplicationDiscoveryRequestModel) GetMachineCatalogs() []string`
@@ -103,6 +123,16 @@ SetMachineCatalogs sets MachineCatalogs field to given value.
 
 HasMachineCatalogs returns a boolean if a field has been set.
 
+### SetMachineCatalogsNil
+
+`func (o *ApplicationDiscoveryRequestModel) SetMachineCatalogsNil(b bool)`
+
+ SetMachineCatalogsNil sets the value for MachineCatalogs to be an explicit nil
+
+### UnsetMachineCatalogs
+`func (o *ApplicationDiscoveryRequestModel) UnsetMachineCatalogs()`
+
+UnsetMachineCatalogs ensures that no value is present for MachineCatalogs, not even an explicit nil
 ### GetServerOrPath
 
 `func (o *ApplicationDiscoveryRequestModel) GetServerOrPath() string`
@@ -128,6 +158,16 @@ SetServerOrPath sets ServerOrPath field to given value.
 
 HasServerOrPath returns a boolean if a field has been set.
 
+### SetServerOrPathNil
+
+`func (o *ApplicationDiscoveryRequestModel) SetServerOrPathNil(b bool)`
+
+ SetServerOrPathNil sets the value for ServerOrPath to be an explicit nil
+
+### UnsetServerOrPath
+`func (o *ApplicationDiscoveryRequestModel) UnsetServerOrPath()`
+
+UnsetServerOrPath ensures that no value is present for ServerOrPath, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

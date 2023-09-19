@@ -5,88 +5,89 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of machine. Used to be: DesktopUid (and wasn&#39;t globally unique) OR UUID, depending on context Needs to be globally unique Might be constructed from site ID + internal Uid?  or use uuid | 
-**MachineCatalog** | Pointer to [**MachineBaseResponseModelMachineCatalog**](MachineBaseResponseModelMachineCatalog.md) |  | [optional] 
-**Name** | Pointer to **string** | DNS host name of the machine. Used to be: MachineName | [optional] 
-**Uid** | Pointer to **int32** | DEPRECATED. Use Id. Used to be: DesktopUid | [optional] 
-**AgentVersion** | Pointer to **string** | Version of the Citrix Virtual Delivery Agent (VDA) installed on the machine. | [optional] 
+**MachineCatalog** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**Name** | Pointer to **NullableString** | DNS host name of the machine. Used to be: MachineName | [optional] 
+**Uid** | Pointer to **NullableInt32** | DEPRECATED. Use Id. Used to be: DesktopUid | [optional] 
+**AgentVersion** | Pointer to **NullableString** | Version of the Citrix Virtual Delivery Agent (VDA) installed on the machine. | [optional] 
 **AllocationType** | Pointer to [**AllocationType**](AllocationType.md) |  | [optional] 
 **ApplicationsInUse** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | List of applications in use in the session. | [optional] 
 **AssignedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | List of one or more users to whom the machine is assigned. Only used when AllocationType is equal to Static. | [optional] 
 **AssociatedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | The current user(s) for shared machines and the assigned users for private machines. | [optional] 
 **AzureAdJoinedMode** | Pointer to [**AzureAdJoinedMode**](AzureAdJoinedMode.md) |  | [optional] 
 **ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the machine reside. | [optional] 
-**ControllerDnsName** | Pointer to **string** | The DNS host name of the controller that the machine is registered to. | [optional] 
-**DeliveryGroup** | Pointer to [**MachineResponseModelAllOfDeliveryGroup**](MachineResponseModelAllOfDeliveryGroup.md) |  | [optional] 
+**ControllerDnsName** | Pointer to **NullableString** | The DNS host name of the controller that the machine is registered to. | [optional] 
+**DeliveryGroup** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **DeliveryType** | Pointer to [**DeliveryKind**](DeliveryKind.md) |  | [optional] 
-**Description** | Pointer to **string** | Description of the machine. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the machine. | [optional] 
 **DesktopConditions** | Pointer to [**[]DesktopCondition**](DesktopCondition.md) | List of outstanding desktop conditions for the machine. | [optional] 
-**DnsName** | Pointer to **string** | The DNS host name of the machine. | [optional] 
+**DnsName** | Pointer to **NullableString** | The DNS host name of the machine. | [optional] 
 **FunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
-**Hosting** | Pointer to [**MachineResponseModelAllOfHosting**](MachineResponseModelAllOfHosting.md) |  | [optional] 
+**Hosting** | Pointer to [**MachineHostingResponseModel**](MachineHostingResponseModel.md) |  | [optional] 
 **InMaintenanceMode** | **bool** | Denotes if the machine is in maintenance mode. Machines in maintenance mode will not accept new sessions. | 
+**MaintenanceModeReason** | Pointer to [**MaintenanceModeReason**](MaintenanceModeReason.md) |  | [optional] 
 **DrainingUntilShutdown** | **bool** | Denotes if the machine is placed to drain until shutdown | 
-**IPAddress** | Pointer to **string** | The IP address of the machine. | [optional] 
-**IsAssigned** | Pointer to **bool** | Denotes whether a private desktop has been assigned to a user/users, or a client name/address. Users can be assigned explicitly or by assigning on first use of the machine. Only relevant for privately assigned machines. | [optional] 
+**IPAddress** | Pointer to **NullableString** | The IP address of the machine. | [optional] 
+**IsAssigned** | Pointer to **NullableBool** | Denotes whether a private desktop has been assigned to a user/users, or a client name/address. Users can be assigned explicitly or by assigning on first use of the machine. Only relevant for privately assigned machines. | [optional] 
 **MachineType** | [**MachineType**](MachineType.md) |  | 
 **LastConnectionFailure** | Pointer to [**ConnectionFailureReason**](ConnectionFailureReason.md) |  | [optional] 
-**LastConnectionTime** | Pointer to **string** | Time of the last detected connection attempt that either failed or succeeded. | [optional] 
-**FormattedLastConnectionTime** | Pointer to **string** | Formatted time of the last detected connection attempt that either failed or succeeded. RFC 3339 compatible format. | [optional] 
-**LastConnectionUser** | Pointer to [**MachineResponseModelAllOfLastConnectionUser**](MachineResponseModelAllOfLastConnectionUser.md) |  | [optional] 
+**LastConnectionTime** | Pointer to **NullableString** | Time of the last detected connection attempt that either failed or succeeded. | [optional] 
+**FormattedLastConnectionTime** | Pointer to **NullableString** | Formatted time of the last detected connection attempt that either failed or succeeded. RFC 3339 compatible format. | [optional] 
+**LastConnectionUser** | Pointer to [**IdentityUserResponseModel**](IdentityUserResponseModel.md) |  | [optional] 
 **LastDeregistrationReason** | Pointer to [**DeregistrationReason**](DeregistrationReason.md) |  | [optional] 
-**LastDeregistrationTime** | Pointer to **string** | Time of the last deregistration of the machine from the controller. | [optional] 
-**FormattedLastDeregistrationTime** | Pointer to **string** | Formatted time of the last deregistration of the machine from the controller. RFC 3339 compatible format. | [optional] 
-**LastErrorReason** | Pointer to **string** | The reason for the last error detected in the machine. | [optional] 
-**LastErrorTime** | Pointer to **string** | The time of the last detected error. | [optional] 
-**FormattedLastErrorTime** | Pointer to **string** | The formatted time of the last detected error. RFC 3339 compatible format. | [optional] 
-**LoadIndex** | Pointer to **int32** | Gives current effective load index. Only used when SessionSupport is equal to MultiSession. | [optional] 
+**LastDeregistrationTime** | Pointer to **NullableString** | Time of the last deregistration of the machine from the controller. | [optional] 
+**FormattedLastDeregistrationTime** | Pointer to **NullableString** | Formatted time of the last deregistration of the machine from the controller. RFC 3339 compatible format. | [optional] 
+**LastErrorReason** | Pointer to **NullableString** | The reason for the last error detected in the machine. | [optional] 
+**LastErrorTime** | Pointer to **NullableString** | The time of the last detected error. | [optional] 
+**FormattedLastErrorTime** | Pointer to **NullableString** | The formatted time of the last detected error. RFC 3339 compatible format. | [optional] 
+**LoadIndex** | Pointer to **NullableInt32** | Gives current effective load index. Only used when SessionSupport is equal to MultiSession. | [optional] 
 **MachineUnavailableReason** | Pointer to [**MachineUnavailableReason**](MachineUnavailableReason.md) |  | [optional] 
-**OSType** | Pointer to **string** | A string that can be used to identify the operating system that is running on the machine. | [optional] 
-**OSVersion** | Pointer to **string** | A string that can be used to identify the version of the operating system running on the machine, if known. | [optional] 
+**OSType** | Pointer to **NullableString** | A string that can be used to identify the operating system that is running on the machine. | [optional] 
+**OSVersion** | Pointer to **NullableString** | A string that can be used to identify the version of the operating system running on the machine, if known. | [optional] 
 **PersistUserChanges** | Pointer to [**PersistChanges**](PersistChanges.md) |  | [optional] 
-**PowerActionPending** | Pointer to **bool** | Indicates if there are any pending power actions for the machine. Only relevant for power-managed machines. | [optional] 
+**PowerActionPending** | Pointer to **NullableBool** | Indicates if there are any pending power actions for the machine. Only relevant for power-managed machines. | [optional] 
 **PowerState** | [**PowerState**](PowerState.md) |  | 
 **ProvisioningType** | [**ProvisioningType**](ProvisioningType.md) |  | 
 **PublishedApplications** | Pointer to **[]string** | Indicates the published applications. | [optional] 
-**PublishedName** | Pointer to **string** | The name of the machine that is displayed in Receiver, if the machine has been published. | [optional] 
+**PublishedName** | Pointer to **NullableString** | The name of the machine that is displayed in Receiver, if the machine has been published. | [optional] 
 **RegistrationState** | Pointer to [**RegistrationState**](RegistrationState.md) |  | [optional] 
 **ScheduledReboot** | Pointer to [**ScheduledReboot**](ScheduledReboot.md) |  | [optional] 
-**SessionClientAddress** | Pointer to **string** | The IP address of the client connected to the session. | [optional] 
-**SessionClientName** | Pointer to **string** | The host name of the client connected to the session. | [optional] 
-**SessionClientVersion** | Pointer to **string** | The version of the Citrix Receiver running on the client connected to the session. | [optional] 
-**SessionConnectedViaHostName** | Pointer to **string** | The host name of the incoming connection. This is usually a gateway, router or client. | [optional] 
-**SessionConnectedViaIP** | Pointer to **string** | The IP address of the incoming connection This is usually a gateway, router or client. | [optional] 
-**SessionCount** | Pointer to **int32** | Number of sessions running on the machine. | [optional] 
-**SessionLaunchedViaHostName** | Pointer to **string** | The host name of the StoreFront server used to launch the session. | [optional] 
-**SessionLaunchedViaIP** | Pointer to **string** | The IP address of the StoreFront server used to launch the session. | [optional] 
+**SessionClientAddress** | Pointer to **NullableString** | The IP address of the client connected to the session. | [optional] 
+**SessionClientName** | Pointer to **NullableString** | The host name of the client connected to the session. | [optional] 
+**SessionClientVersion** | Pointer to **NullableString** | The version of the Citrix Receiver running on the client connected to the session. | [optional] 
+**SessionConnectedViaHostName** | Pointer to **NullableString** | The host name of the incoming connection. This is usually a gateway, router or client. | [optional] 
+**SessionConnectedViaIP** | Pointer to **NullableString** | The IP address of the incoming connection This is usually a gateway, router or client. | [optional] 
+**SessionCount** | Pointer to **NullableInt32** | Number of sessions running on the machine. | [optional] 
+**SessionLaunchedViaHostName** | Pointer to **NullableString** | The host name of the StoreFront server used to launch the session. | [optional] 
+**SessionLaunchedViaIP** | Pointer to **NullableString** | The IP address of the StoreFront server used to launch the session. | [optional] 
 **SessionProtocol** | Pointer to [**ProtocolType**](ProtocolType.md) |  | [optional] 
-**SessionSecureIcaActive** | Pointer to **bool** | Indicates whether SecureICA is active on the session. | [optional] 
+**SessionSecureIcaActive** | Pointer to **NullableBool** | Indicates whether SecureICA is active on the session. | [optional] 
 **SessionSmartAccessTags** | Pointer to **[]string** | The Smart Access tags for this session. | [optional] 
-**SessionStartTime** | Pointer to **string** | The time indicates when the session was started. | [optional] 
-**FormattedSessionStartTime** | Pointer to **string** | The formatted time indicates when the session was started. RFC 3339 compatible format. | [optional] 
+**SessionStartTime** | Pointer to **NullableString** | The time indicates when the session was started. | [optional] 
+**FormattedSessionStartTime** | Pointer to **NullableString** | The formatted time indicates when the session was started. RFC 3339 compatible format. | [optional] 
 **SessionState** | Pointer to [**SessionState**](SessionState.md) |  | [optional] 
-**SessionStateChangeTime** | Pointer to **string** | The time of the most recent state change for the session. | [optional] 
-**FormattedSessionStateChangeTime** | Pointer to **string** | The formatted time of the most recent state change for the session. RFC 3339 compatible format. | [optional] 
+**SessionStateChangeTime** | Pointer to **NullableString** | The time of the most recent state change for the session. | [optional] 
+**FormattedSessionStateChangeTime** | Pointer to **NullableString** | The formatted time of the most recent state change for the session. RFC 3339 compatible format. | [optional] 
 **SessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
-**SessionUserName** | Pointer to **string** | The session user name. | [optional] 
+**SessionUserName** | Pointer to **NullableString** | The session user name. | [optional] 
 **Sid** | **string** | The SID of the machine. Used to be: DesktopSid or SID (based on the context) | 
 **SummaryState** | [**SummaryState**](SummaryState.md) |  | 
-**WillShutdownAfterUse** | Pointer to **bool** | Flag indicating if this machine is tainted and will be shut down after all sessions on the machine have ended. This flag is only ever non-null on power-managed, single-session machines. | [optional] 
+**WillShutdownAfterUse** | Pointer to **NullableBool** | Flag indicating if this machine is tainted and will be shut down after all sessions on the machine have ended. This flag is only ever non-null on power-managed, single-session machines. | [optional] 
 **WindowsConnectionSetting** | Pointer to [**WindowsConnectionSetting**](WindowsConnectionSetting.md) |  | [optional] 
-**Zone** | [**MachineResponseModelAllOfZone**](MachineResponseModelAllOfZone.md) |  | 
+**Zone** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **SupportedPowerActions** | Pointer to [**[]SupportedPowerAction**](SupportedPowerAction.md) | A list of power actions supported by this machine. | [optional] 
 **FaultState** | [**FaultState**](FaultState.md) |  | 
-**ContainerMetadata** | Pointer to [**MachineResponseModelAllOfContainerMetadata**](MachineResponseModelAllOfContainerMetadata.md) |  | [optional] 
+**ContainerMetadata** | Pointer to [**ContainerMetadataModel**](ContainerMetadataModel.md) |  | [optional] 
 **Tags** | Pointer to **[]string** | The tags for this machine. | [optional] 
 **UpgradeType** | Pointer to [**VdaUpgradeType**](VdaUpgradeType.md) |  | [optional] 
 **UpgradeState** | Pointer to [**VdaUpgradeState**](VdaUpgradeState.md) |  | [optional] 
-**MachineConfigurationOutOfSync** | Pointer to **bool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
-**UpgradeDetail** | Pointer to [**MachineResponseModelAllOfUpgradeDetail**](MachineResponseModelAllOfUpgradeDetail.md) |  | [optional] 
+**MachineConfigurationOutOfSync** | Pointer to **NullableBool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
+**UpgradeDetail** | Pointer to [**MachineUpgradeDetail**](MachineUpgradeDetail.md) |  | [optional] 
 
 ## Methods
 
 ### NewMachineResponseModel
 
-`func NewMachineResponseModel(id string, inMaintenanceMode bool, drainingUntilShutdown bool, machineType MachineType, powerState PowerState, provisioningType ProvisioningType, sessionSupport SessionSupport, sid string, summaryState SummaryState, zone MachineResponseModelAllOfZone, faultState FaultState, ) *MachineResponseModel`
+`func NewMachineResponseModel(id string, inMaintenanceMode bool, drainingUntilShutdown bool, machineType MachineType, powerState PowerState, provisioningType ProvisioningType, sessionSupport SessionSupport, sid string, summaryState SummaryState, zone RefResponseModel, faultState FaultState, ) *MachineResponseModel`
 
 NewMachineResponseModel instantiates a new MachineResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -123,20 +124,20 @@ SetId sets Id field to given value.
 
 ### GetMachineCatalog
 
-`func (o *MachineResponseModel) GetMachineCatalog() MachineBaseResponseModelMachineCatalog`
+`func (o *MachineResponseModel) GetMachineCatalog() RefResponseModel`
 
 GetMachineCatalog returns the MachineCatalog field if non-nil, zero value otherwise.
 
 ### GetMachineCatalogOk
 
-`func (o *MachineResponseModel) GetMachineCatalogOk() (*MachineBaseResponseModelMachineCatalog, bool)`
+`func (o *MachineResponseModel) GetMachineCatalogOk() (*RefResponseModel, bool)`
 
 GetMachineCatalogOk returns a tuple with the MachineCatalog field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineCatalog
 
-`func (o *MachineResponseModel) SetMachineCatalog(v MachineBaseResponseModelMachineCatalog)`
+`func (o *MachineResponseModel) SetMachineCatalog(v RefResponseModel)`
 
 SetMachineCatalog sets MachineCatalog field to given value.
 
@@ -171,6 +172,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *MachineResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MachineResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUid
 
 `func (o *MachineResponseModel) GetUid() int32`
@@ -196,6 +207,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *MachineResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *MachineResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetAgentVersion
 
 `func (o *MachineResponseModel) GetAgentVersion() string`
@@ -221,6 +242,16 @@ SetAgentVersion sets AgentVersion field to given value.
 
 HasAgentVersion returns a boolean if a field has been set.
 
+### SetAgentVersionNil
+
+`func (o *MachineResponseModel) SetAgentVersionNil(b bool)`
+
+ SetAgentVersionNil sets the value for AgentVersion to be an explicit nil
+
+### UnsetAgentVersion
+`func (o *MachineResponseModel) UnsetAgentVersion()`
+
+UnsetAgentVersion ensures that no value is present for AgentVersion, not even an explicit nil
 ### GetAllocationType
 
 `func (o *MachineResponseModel) GetAllocationType() AllocationType`
@@ -271,6 +302,16 @@ SetApplicationsInUse sets ApplicationsInUse field to given value.
 
 HasApplicationsInUse returns a boolean if a field has been set.
 
+### SetApplicationsInUseNil
+
+`func (o *MachineResponseModel) SetApplicationsInUseNil(b bool)`
+
+ SetApplicationsInUseNil sets the value for ApplicationsInUse to be an explicit nil
+
+### UnsetApplicationsInUse
+`func (o *MachineResponseModel) UnsetApplicationsInUse()`
+
+UnsetApplicationsInUse ensures that no value is present for ApplicationsInUse, not even an explicit nil
 ### GetAssignedUsers
 
 `func (o *MachineResponseModel) GetAssignedUsers() []IdentityUserResponseModel`
@@ -296,6 +337,16 @@ SetAssignedUsers sets AssignedUsers field to given value.
 
 HasAssignedUsers returns a boolean if a field has been set.
 
+### SetAssignedUsersNil
+
+`func (o *MachineResponseModel) SetAssignedUsersNil(b bool)`
+
+ SetAssignedUsersNil sets the value for AssignedUsers to be an explicit nil
+
+### UnsetAssignedUsers
+`func (o *MachineResponseModel) UnsetAssignedUsers()`
+
+UnsetAssignedUsers ensures that no value is present for AssignedUsers, not even an explicit nil
 ### GetAssociatedUsers
 
 `func (o *MachineResponseModel) GetAssociatedUsers() []IdentityUserResponseModel`
@@ -321,6 +372,16 @@ SetAssociatedUsers sets AssociatedUsers field to given value.
 
 HasAssociatedUsers returns a boolean if a field has been set.
 
+### SetAssociatedUsersNil
+
+`func (o *MachineResponseModel) SetAssociatedUsersNil(b bool)`
+
+ SetAssociatedUsersNil sets the value for AssociatedUsers to be an explicit nil
+
+### UnsetAssociatedUsers
+`func (o *MachineResponseModel) UnsetAssociatedUsers()`
+
+UnsetAssociatedUsers ensures that no value is present for AssociatedUsers, not even an explicit nil
 ### GetAzureAdJoinedMode
 
 `func (o *MachineResponseModel) GetAzureAdJoinedMode() AzureAdJoinedMode`
@@ -371,6 +432,16 @@ SetContainerScopes sets ContainerScopes field to given value.
 
 HasContainerScopes returns a boolean if a field has been set.
 
+### SetContainerScopesNil
+
+`func (o *MachineResponseModel) SetContainerScopesNil(b bool)`
+
+ SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
+
+### UnsetContainerScopes
+`func (o *MachineResponseModel) UnsetContainerScopes()`
+
+UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 ### GetControllerDnsName
 
 `func (o *MachineResponseModel) GetControllerDnsName() string`
@@ -396,22 +467,32 @@ SetControllerDnsName sets ControllerDnsName field to given value.
 
 HasControllerDnsName returns a boolean if a field has been set.
 
+### SetControllerDnsNameNil
+
+`func (o *MachineResponseModel) SetControllerDnsNameNil(b bool)`
+
+ SetControllerDnsNameNil sets the value for ControllerDnsName to be an explicit nil
+
+### UnsetControllerDnsName
+`func (o *MachineResponseModel) UnsetControllerDnsName()`
+
+UnsetControllerDnsName ensures that no value is present for ControllerDnsName, not even an explicit nil
 ### GetDeliveryGroup
 
-`func (o *MachineResponseModel) GetDeliveryGroup() MachineResponseModelAllOfDeliveryGroup`
+`func (o *MachineResponseModel) GetDeliveryGroup() RefResponseModel`
 
 GetDeliveryGroup returns the DeliveryGroup field if non-nil, zero value otherwise.
 
 ### GetDeliveryGroupOk
 
-`func (o *MachineResponseModel) GetDeliveryGroupOk() (*MachineResponseModelAllOfDeliveryGroup, bool)`
+`func (o *MachineResponseModel) GetDeliveryGroupOk() (*RefResponseModel, bool)`
 
 GetDeliveryGroupOk returns a tuple with the DeliveryGroup field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeliveryGroup
 
-`func (o *MachineResponseModel) SetDeliveryGroup(v MachineResponseModelAllOfDeliveryGroup)`
+`func (o *MachineResponseModel) SetDeliveryGroup(v RefResponseModel)`
 
 SetDeliveryGroup sets DeliveryGroup field to given value.
 
@@ -471,6 +552,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *MachineResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *MachineResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDesktopConditions
 
 `func (o *MachineResponseModel) GetDesktopConditions() []DesktopCondition`
@@ -496,6 +587,16 @@ SetDesktopConditions sets DesktopConditions field to given value.
 
 HasDesktopConditions returns a boolean if a field has been set.
 
+### SetDesktopConditionsNil
+
+`func (o *MachineResponseModel) SetDesktopConditionsNil(b bool)`
+
+ SetDesktopConditionsNil sets the value for DesktopConditions to be an explicit nil
+
+### UnsetDesktopConditions
+`func (o *MachineResponseModel) UnsetDesktopConditions()`
+
+UnsetDesktopConditions ensures that no value is present for DesktopConditions, not even an explicit nil
 ### GetDnsName
 
 `func (o *MachineResponseModel) GetDnsName() string`
@@ -521,6 +622,16 @@ SetDnsName sets DnsName field to given value.
 
 HasDnsName returns a boolean if a field has been set.
 
+### SetDnsNameNil
+
+`func (o *MachineResponseModel) SetDnsNameNil(b bool)`
+
+ SetDnsNameNil sets the value for DnsName to be an explicit nil
+
+### UnsetDnsName
+`func (o *MachineResponseModel) UnsetDnsName()`
+
+UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
 ### GetFunctionalLevel
 
 `func (o *MachineResponseModel) GetFunctionalLevel() FunctionalLevel`
@@ -548,20 +659,20 @@ HasFunctionalLevel returns a boolean if a field has been set.
 
 ### GetHosting
 
-`func (o *MachineResponseModel) GetHosting() MachineResponseModelAllOfHosting`
+`func (o *MachineResponseModel) GetHosting() MachineHostingResponseModel`
 
 GetHosting returns the Hosting field if non-nil, zero value otherwise.
 
 ### GetHostingOk
 
-`func (o *MachineResponseModel) GetHostingOk() (*MachineResponseModelAllOfHosting, bool)`
+`func (o *MachineResponseModel) GetHostingOk() (*MachineHostingResponseModel, bool)`
 
 GetHostingOk returns a tuple with the Hosting field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHosting
 
-`func (o *MachineResponseModel) SetHosting(v MachineResponseModelAllOfHosting)`
+`func (o *MachineResponseModel) SetHosting(v MachineHostingResponseModel)`
 
 SetHosting sets Hosting field to given value.
 
@@ -590,6 +701,31 @@ and a boolean to check if the value has been set.
 
 SetInMaintenanceMode sets InMaintenanceMode field to given value.
 
+
+### GetMaintenanceModeReason
+
+`func (o *MachineResponseModel) GetMaintenanceModeReason() MaintenanceModeReason`
+
+GetMaintenanceModeReason returns the MaintenanceModeReason field if non-nil, zero value otherwise.
+
+### GetMaintenanceModeReasonOk
+
+`func (o *MachineResponseModel) GetMaintenanceModeReasonOk() (*MaintenanceModeReason, bool)`
+
+GetMaintenanceModeReasonOk returns a tuple with the MaintenanceModeReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintenanceModeReason
+
+`func (o *MachineResponseModel) SetMaintenanceModeReason(v MaintenanceModeReason)`
+
+SetMaintenanceModeReason sets MaintenanceModeReason field to given value.
+
+### HasMaintenanceModeReason
+
+`func (o *MachineResponseModel) HasMaintenanceModeReason() bool`
+
+HasMaintenanceModeReason returns a boolean if a field has been set.
 
 ### GetDrainingUntilShutdown
 
@@ -636,6 +772,16 @@ SetIPAddress sets IPAddress field to given value.
 
 HasIPAddress returns a boolean if a field has been set.
 
+### SetIPAddressNil
+
+`func (o *MachineResponseModel) SetIPAddressNil(b bool)`
+
+ SetIPAddressNil sets the value for IPAddress to be an explicit nil
+
+### UnsetIPAddress
+`func (o *MachineResponseModel) UnsetIPAddress()`
+
+UnsetIPAddress ensures that no value is present for IPAddress, not even an explicit nil
 ### GetIsAssigned
 
 `func (o *MachineResponseModel) GetIsAssigned() bool`
@@ -661,6 +807,16 @@ SetIsAssigned sets IsAssigned field to given value.
 
 HasIsAssigned returns a boolean if a field has been set.
 
+### SetIsAssignedNil
+
+`func (o *MachineResponseModel) SetIsAssignedNil(b bool)`
+
+ SetIsAssignedNil sets the value for IsAssigned to be an explicit nil
+
+### UnsetIsAssigned
+`func (o *MachineResponseModel) UnsetIsAssigned()`
+
+UnsetIsAssigned ensures that no value is present for IsAssigned, not even an explicit nil
 ### GetMachineType
 
 `func (o *MachineResponseModel) GetMachineType() MachineType`
@@ -731,6 +887,16 @@ SetLastConnectionTime sets LastConnectionTime field to given value.
 
 HasLastConnectionTime returns a boolean if a field has been set.
 
+### SetLastConnectionTimeNil
+
+`func (o *MachineResponseModel) SetLastConnectionTimeNil(b bool)`
+
+ SetLastConnectionTimeNil sets the value for LastConnectionTime to be an explicit nil
+
+### UnsetLastConnectionTime
+`func (o *MachineResponseModel) UnsetLastConnectionTime()`
+
+UnsetLastConnectionTime ensures that no value is present for LastConnectionTime, not even an explicit nil
 ### GetFormattedLastConnectionTime
 
 `func (o *MachineResponseModel) GetFormattedLastConnectionTime() string`
@@ -756,22 +922,32 @@ SetFormattedLastConnectionTime sets FormattedLastConnectionTime field to given v
 
 HasFormattedLastConnectionTime returns a boolean if a field has been set.
 
+### SetFormattedLastConnectionTimeNil
+
+`func (o *MachineResponseModel) SetFormattedLastConnectionTimeNil(b bool)`
+
+ SetFormattedLastConnectionTimeNil sets the value for FormattedLastConnectionTime to be an explicit nil
+
+### UnsetFormattedLastConnectionTime
+`func (o *MachineResponseModel) UnsetFormattedLastConnectionTime()`
+
+UnsetFormattedLastConnectionTime ensures that no value is present for FormattedLastConnectionTime, not even an explicit nil
 ### GetLastConnectionUser
 
-`func (o *MachineResponseModel) GetLastConnectionUser() MachineResponseModelAllOfLastConnectionUser`
+`func (o *MachineResponseModel) GetLastConnectionUser() IdentityUserResponseModel`
 
 GetLastConnectionUser returns the LastConnectionUser field if non-nil, zero value otherwise.
 
 ### GetLastConnectionUserOk
 
-`func (o *MachineResponseModel) GetLastConnectionUserOk() (*MachineResponseModelAllOfLastConnectionUser, bool)`
+`func (o *MachineResponseModel) GetLastConnectionUserOk() (*IdentityUserResponseModel, bool)`
 
 GetLastConnectionUserOk returns a tuple with the LastConnectionUser field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastConnectionUser
 
-`func (o *MachineResponseModel) SetLastConnectionUser(v MachineResponseModelAllOfLastConnectionUser)`
+`func (o *MachineResponseModel) SetLastConnectionUser(v IdentityUserResponseModel)`
 
 SetLastConnectionUser sets LastConnectionUser field to given value.
 
@@ -831,6 +1007,16 @@ SetLastDeregistrationTime sets LastDeregistrationTime field to given value.
 
 HasLastDeregistrationTime returns a boolean if a field has been set.
 
+### SetLastDeregistrationTimeNil
+
+`func (o *MachineResponseModel) SetLastDeregistrationTimeNil(b bool)`
+
+ SetLastDeregistrationTimeNil sets the value for LastDeregistrationTime to be an explicit nil
+
+### UnsetLastDeregistrationTime
+`func (o *MachineResponseModel) UnsetLastDeregistrationTime()`
+
+UnsetLastDeregistrationTime ensures that no value is present for LastDeregistrationTime, not even an explicit nil
 ### GetFormattedLastDeregistrationTime
 
 `func (o *MachineResponseModel) GetFormattedLastDeregistrationTime() string`
@@ -856,6 +1042,16 @@ SetFormattedLastDeregistrationTime sets FormattedLastDeregistrationTime field to
 
 HasFormattedLastDeregistrationTime returns a boolean if a field has been set.
 
+### SetFormattedLastDeregistrationTimeNil
+
+`func (o *MachineResponseModel) SetFormattedLastDeregistrationTimeNil(b bool)`
+
+ SetFormattedLastDeregistrationTimeNil sets the value for FormattedLastDeregistrationTime to be an explicit nil
+
+### UnsetFormattedLastDeregistrationTime
+`func (o *MachineResponseModel) UnsetFormattedLastDeregistrationTime()`
+
+UnsetFormattedLastDeregistrationTime ensures that no value is present for FormattedLastDeregistrationTime, not even an explicit nil
 ### GetLastErrorReason
 
 `func (o *MachineResponseModel) GetLastErrorReason() string`
@@ -881,6 +1077,16 @@ SetLastErrorReason sets LastErrorReason field to given value.
 
 HasLastErrorReason returns a boolean if a field has been set.
 
+### SetLastErrorReasonNil
+
+`func (o *MachineResponseModel) SetLastErrorReasonNil(b bool)`
+
+ SetLastErrorReasonNil sets the value for LastErrorReason to be an explicit nil
+
+### UnsetLastErrorReason
+`func (o *MachineResponseModel) UnsetLastErrorReason()`
+
+UnsetLastErrorReason ensures that no value is present for LastErrorReason, not even an explicit nil
 ### GetLastErrorTime
 
 `func (o *MachineResponseModel) GetLastErrorTime() string`
@@ -906,6 +1112,16 @@ SetLastErrorTime sets LastErrorTime field to given value.
 
 HasLastErrorTime returns a boolean if a field has been set.
 
+### SetLastErrorTimeNil
+
+`func (o *MachineResponseModel) SetLastErrorTimeNil(b bool)`
+
+ SetLastErrorTimeNil sets the value for LastErrorTime to be an explicit nil
+
+### UnsetLastErrorTime
+`func (o *MachineResponseModel) UnsetLastErrorTime()`
+
+UnsetLastErrorTime ensures that no value is present for LastErrorTime, not even an explicit nil
 ### GetFormattedLastErrorTime
 
 `func (o *MachineResponseModel) GetFormattedLastErrorTime() string`
@@ -931,6 +1147,16 @@ SetFormattedLastErrorTime sets FormattedLastErrorTime field to given value.
 
 HasFormattedLastErrorTime returns a boolean if a field has been set.
 
+### SetFormattedLastErrorTimeNil
+
+`func (o *MachineResponseModel) SetFormattedLastErrorTimeNil(b bool)`
+
+ SetFormattedLastErrorTimeNil sets the value for FormattedLastErrorTime to be an explicit nil
+
+### UnsetFormattedLastErrorTime
+`func (o *MachineResponseModel) UnsetFormattedLastErrorTime()`
+
+UnsetFormattedLastErrorTime ensures that no value is present for FormattedLastErrorTime, not even an explicit nil
 ### GetLoadIndex
 
 `func (o *MachineResponseModel) GetLoadIndex() int32`
@@ -956,6 +1182,16 @@ SetLoadIndex sets LoadIndex field to given value.
 
 HasLoadIndex returns a boolean if a field has been set.
 
+### SetLoadIndexNil
+
+`func (o *MachineResponseModel) SetLoadIndexNil(b bool)`
+
+ SetLoadIndexNil sets the value for LoadIndex to be an explicit nil
+
+### UnsetLoadIndex
+`func (o *MachineResponseModel) UnsetLoadIndex()`
+
+UnsetLoadIndex ensures that no value is present for LoadIndex, not even an explicit nil
 ### GetMachineUnavailableReason
 
 `func (o *MachineResponseModel) GetMachineUnavailableReason() MachineUnavailableReason`
@@ -1006,6 +1242,16 @@ SetOSType sets OSType field to given value.
 
 HasOSType returns a boolean if a field has been set.
 
+### SetOSTypeNil
+
+`func (o *MachineResponseModel) SetOSTypeNil(b bool)`
+
+ SetOSTypeNil sets the value for OSType to be an explicit nil
+
+### UnsetOSType
+`func (o *MachineResponseModel) UnsetOSType()`
+
+UnsetOSType ensures that no value is present for OSType, not even an explicit nil
 ### GetOSVersion
 
 `func (o *MachineResponseModel) GetOSVersion() string`
@@ -1031,6 +1277,16 @@ SetOSVersion sets OSVersion field to given value.
 
 HasOSVersion returns a boolean if a field has been set.
 
+### SetOSVersionNil
+
+`func (o *MachineResponseModel) SetOSVersionNil(b bool)`
+
+ SetOSVersionNil sets the value for OSVersion to be an explicit nil
+
+### UnsetOSVersion
+`func (o *MachineResponseModel) UnsetOSVersion()`
+
+UnsetOSVersion ensures that no value is present for OSVersion, not even an explicit nil
 ### GetPersistUserChanges
 
 `func (o *MachineResponseModel) GetPersistUserChanges() PersistChanges`
@@ -1081,6 +1337,16 @@ SetPowerActionPending sets PowerActionPending field to given value.
 
 HasPowerActionPending returns a boolean if a field has been set.
 
+### SetPowerActionPendingNil
+
+`func (o *MachineResponseModel) SetPowerActionPendingNil(b bool)`
+
+ SetPowerActionPendingNil sets the value for PowerActionPending to be an explicit nil
+
+### UnsetPowerActionPending
+`func (o *MachineResponseModel) UnsetPowerActionPending()`
+
+UnsetPowerActionPending ensures that no value is present for PowerActionPending, not even an explicit nil
 ### GetPowerState
 
 `func (o *MachineResponseModel) GetPowerState() PowerState`
@@ -1146,6 +1412,16 @@ SetPublishedApplications sets PublishedApplications field to given value.
 
 HasPublishedApplications returns a boolean if a field has been set.
 
+### SetPublishedApplicationsNil
+
+`func (o *MachineResponseModel) SetPublishedApplicationsNil(b bool)`
+
+ SetPublishedApplicationsNil sets the value for PublishedApplications to be an explicit nil
+
+### UnsetPublishedApplications
+`func (o *MachineResponseModel) UnsetPublishedApplications()`
+
+UnsetPublishedApplications ensures that no value is present for PublishedApplications, not even an explicit nil
 ### GetPublishedName
 
 `func (o *MachineResponseModel) GetPublishedName() string`
@@ -1171,6 +1447,16 @@ SetPublishedName sets PublishedName field to given value.
 
 HasPublishedName returns a boolean if a field has been set.
 
+### SetPublishedNameNil
+
+`func (o *MachineResponseModel) SetPublishedNameNil(b bool)`
+
+ SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+
+### UnsetPublishedName
+`func (o *MachineResponseModel) UnsetPublishedName()`
+
+UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 ### GetRegistrationState
 
 `func (o *MachineResponseModel) GetRegistrationState() RegistrationState`
@@ -1246,6 +1532,16 @@ SetSessionClientAddress sets SessionClientAddress field to given value.
 
 HasSessionClientAddress returns a boolean if a field has been set.
 
+### SetSessionClientAddressNil
+
+`func (o *MachineResponseModel) SetSessionClientAddressNil(b bool)`
+
+ SetSessionClientAddressNil sets the value for SessionClientAddress to be an explicit nil
+
+### UnsetSessionClientAddress
+`func (o *MachineResponseModel) UnsetSessionClientAddress()`
+
+UnsetSessionClientAddress ensures that no value is present for SessionClientAddress, not even an explicit nil
 ### GetSessionClientName
 
 `func (o *MachineResponseModel) GetSessionClientName() string`
@@ -1271,6 +1567,16 @@ SetSessionClientName sets SessionClientName field to given value.
 
 HasSessionClientName returns a boolean if a field has been set.
 
+### SetSessionClientNameNil
+
+`func (o *MachineResponseModel) SetSessionClientNameNil(b bool)`
+
+ SetSessionClientNameNil sets the value for SessionClientName to be an explicit nil
+
+### UnsetSessionClientName
+`func (o *MachineResponseModel) UnsetSessionClientName()`
+
+UnsetSessionClientName ensures that no value is present for SessionClientName, not even an explicit nil
 ### GetSessionClientVersion
 
 `func (o *MachineResponseModel) GetSessionClientVersion() string`
@@ -1296,6 +1602,16 @@ SetSessionClientVersion sets SessionClientVersion field to given value.
 
 HasSessionClientVersion returns a boolean if a field has been set.
 
+### SetSessionClientVersionNil
+
+`func (o *MachineResponseModel) SetSessionClientVersionNil(b bool)`
+
+ SetSessionClientVersionNil sets the value for SessionClientVersion to be an explicit nil
+
+### UnsetSessionClientVersion
+`func (o *MachineResponseModel) UnsetSessionClientVersion()`
+
+UnsetSessionClientVersion ensures that no value is present for SessionClientVersion, not even an explicit nil
 ### GetSessionConnectedViaHostName
 
 `func (o *MachineResponseModel) GetSessionConnectedViaHostName() string`
@@ -1321,6 +1637,16 @@ SetSessionConnectedViaHostName sets SessionConnectedViaHostName field to given v
 
 HasSessionConnectedViaHostName returns a boolean if a field has been set.
 
+### SetSessionConnectedViaHostNameNil
+
+`func (o *MachineResponseModel) SetSessionConnectedViaHostNameNil(b bool)`
+
+ SetSessionConnectedViaHostNameNil sets the value for SessionConnectedViaHostName to be an explicit nil
+
+### UnsetSessionConnectedViaHostName
+`func (o *MachineResponseModel) UnsetSessionConnectedViaHostName()`
+
+UnsetSessionConnectedViaHostName ensures that no value is present for SessionConnectedViaHostName, not even an explicit nil
 ### GetSessionConnectedViaIP
 
 `func (o *MachineResponseModel) GetSessionConnectedViaIP() string`
@@ -1346,6 +1672,16 @@ SetSessionConnectedViaIP sets SessionConnectedViaIP field to given value.
 
 HasSessionConnectedViaIP returns a boolean if a field has been set.
 
+### SetSessionConnectedViaIPNil
+
+`func (o *MachineResponseModel) SetSessionConnectedViaIPNil(b bool)`
+
+ SetSessionConnectedViaIPNil sets the value for SessionConnectedViaIP to be an explicit nil
+
+### UnsetSessionConnectedViaIP
+`func (o *MachineResponseModel) UnsetSessionConnectedViaIP()`
+
+UnsetSessionConnectedViaIP ensures that no value is present for SessionConnectedViaIP, not even an explicit nil
 ### GetSessionCount
 
 `func (o *MachineResponseModel) GetSessionCount() int32`
@@ -1371,6 +1707,16 @@ SetSessionCount sets SessionCount field to given value.
 
 HasSessionCount returns a boolean if a field has been set.
 
+### SetSessionCountNil
+
+`func (o *MachineResponseModel) SetSessionCountNil(b bool)`
+
+ SetSessionCountNil sets the value for SessionCount to be an explicit nil
+
+### UnsetSessionCount
+`func (o *MachineResponseModel) UnsetSessionCount()`
+
+UnsetSessionCount ensures that no value is present for SessionCount, not even an explicit nil
 ### GetSessionLaunchedViaHostName
 
 `func (o *MachineResponseModel) GetSessionLaunchedViaHostName() string`
@@ -1396,6 +1742,16 @@ SetSessionLaunchedViaHostName sets SessionLaunchedViaHostName field to given val
 
 HasSessionLaunchedViaHostName returns a boolean if a field has been set.
 
+### SetSessionLaunchedViaHostNameNil
+
+`func (o *MachineResponseModel) SetSessionLaunchedViaHostNameNil(b bool)`
+
+ SetSessionLaunchedViaHostNameNil sets the value for SessionLaunchedViaHostName to be an explicit nil
+
+### UnsetSessionLaunchedViaHostName
+`func (o *MachineResponseModel) UnsetSessionLaunchedViaHostName()`
+
+UnsetSessionLaunchedViaHostName ensures that no value is present for SessionLaunchedViaHostName, not even an explicit nil
 ### GetSessionLaunchedViaIP
 
 `func (o *MachineResponseModel) GetSessionLaunchedViaIP() string`
@@ -1421,6 +1777,16 @@ SetSessionLaunchedViaIP sets SessionLaunchedViaIP field to given value.
 
 HasSessionLaunchedViaIP returns a boolean if a field has been set.
 
+### SetSessionLaunchedViaIPNil
+
+`func (o *MachineResponseModel) SetSessionLaunchedViaIPNil(b bool)`
+
+ SetSessionLaunchedViaIPNil sets the value for SessionLaunchedViaIP to be an explicit nil
+
+### UnsetSessionLaunchedViaIP
+`func (o *MachineResponseModel) UnsetSessionLaunchedViaIP()`
+
+UnsetSessionLaunchedViaIP ensures that no value is present for SessionLaunchedViaIP, not even an explicit nil
 ### GetSessionProtocol
 
 `func (o *MachineResponseModel) GetSessionProtocol() ProtocolType`
@@ -1471,6 +1837,16 @@ SetSessionSecureIcaActive sets SessionSecureIcaActive field to given value.
 
 HasSessionSecureIcaActive returns a boolean if a field has been set.
 
+### SetSessionSecureIcaActiveNil
+
+`func (o *MachineResponseModel) SetSessionSecureIcaActiveNil(b bool)`
+
+ SetSessionSecureIcaActiveNil sets the value for SessionSecureIcaActive to be an explicit nil
+
+### UnsetSessionSecureIcaActive
+`func (o *MachineResponseModel) UnsetSessionSecureIcaActive()`
+
+UnsetSessionSecureIcaActive ensures that no value is present for SessionSecureIcaActive, not even an explicit nil
 ### GetSessionSmartAccessTags
 
 `func (o *MachineResponseModel) GetSessionSmartAccessTags() []string`
@@ -1496,6 +1872,16 @@ SetSessionSmartAccessTags sets SessionSmartAccessTags field to given value.
 
 HasSessionSmartAccessTags returns a boolean if a field has been set.
 
+### SetSessionSmartAccessTagsNil
+
+`func (o *MachineResponseModel) SetSessionSmartAccessTagsNil(b bool)`
+
+ SetSessionSmartAccessTagsNil sets the value for SessionSmartAccessTags to be an explicit nil
+
+### UnsetSessionSmartAccessTags
+`func (o *MachineResponseModel) UnsetSessionSmartAccessTags()`
+
+UnsetSessionSmartAccessTags ensures that no value is present for SessionSmartAccessTags, not even an explicit nil
 ### GetSessionStartTime
 
 `func (o *MachineResponseModel) GetSessionStartTime() string`
@@ -1521,6 +1907,16 @@ SetSessionStartTime sets SessionStartTime field to given value.
 
 HasSessionStartTime returns a boolean if a field has been set.
 
+### SetSessionStartTimeNil
+
+`func (o *MachineResponseModel) SetSessionStartTimeNil(b bool)`
+
+ SetSessionStartTimeNil sets the value for SessionStartTime to be an explicit nil
+
+### UnsetSessionStartTime
+`func (o *MachineResponseModel) UnsetSessionStartTime()`
+
+UnsetSessionStartTime ensures that no value is present for SessionStartTime, not even an explicit nil
 ### GetFormattedSessionStartTime
 
 `func (o *MachineResponseModel) GetFormattedSessionStartTime() string`
@@ -1546,6 +1942,16 @@ SetFormattedSessionStartTime sets FormattedSessionStartTime field to given value
 
 HasFormattedSessionStartTime returns a boolean if a field has been set.
 
+### SetFormattedSessionStartTimeNil
+
+`func (o *MachineResponseModel) SetFormattedSessionStartTimeNil(b bool)`
+
+ SetFormattedSessionStartTimeNil sets the value for FormattedSessionStartTime to be an explicit nil
+
+### UnsetFormattedSessionStartTime
+`func (o *MachineResponseModel) UnsetFormattedSessionStartTime()`
+
+UnsetFormattedSessionStartTime ensures that no value is present for FormattedSessionStartTime, not even an explicit nil
 ### GetSessionState
 
 `func (o *MachineResponseModel) GetSessionState() SessionState`
@@ -1596,6 +2002,16 @@ SetSessionStateChangeTime sets SessionStateChangeTime field to given value.
 
 HasSessionStateChangeTime returns a boolean if a field has been set.
 
+### SetSessionStateChangeTimeNil
+
+`func (o *MachineResponseModel) SetSessionStateChangeTimeNil(b bool)`
+
+ SetSessionStateChangeTimeNil sets the value for SessionStateChangeTime to be an explicit nil
+
+### UnsetSessionStateChangeTime
+`func (o *MachineResponseModel) UnsetSessionStateChangeTime()`
+
+UnsetSessionStateChangeTime ensures that no value is present for SessionStateChangeTime, not even an explicit nil
 ### GetFormattedSessionStateChangeTime
 
 `func (o *MachineResponseModel) GetFormattedSessionStateChangeTime() string`
@@ -1621,6 +2037,16 @@ SetFormattedSessionStateChangeTime sets FormattedSessionStateChangeTime field to
 
 HasFormattedSessionStateChangeTime returns a boolean if a field has been set.
 
+### SetFormattedSessionStateChangeTimeNil
+
+`func (o *MachineResponseModel) SetFormattedSessionStateChangeTimeNil(b bool)`
+
+ SetFormattedSessionStateChangeTimeNil sets the value for FormattedSessionStateChangeTime to be an explicit nil
+
+### UnsetFormattedSessionStateChangeTime
+`func (o *MachineResponseModel) UnsetFormattedSessionStateChangeTime()`
+
+UnsetFormattedSessionStateChangeTime ensures that no value is present for FormattedSessionStateChangeTime, not even an explicit nil
 ### GetSessionSupport
 
 `func (o *MachineResponseModel) GetSessionSupport() SessionSupport`
@@ -1666,6 +2092,16 @@ SetSessionUserName sets SessionUserName field to given value.
 
 HasSessionUserName returns a boolean if a field has been set.
 
+### SetSessionUserNameNil
+
+`func (o *MachineResponseModel) SetSessionUserNameNil(b bool)`
+
+ SetSessionUserNameNil sets the value for SessionUserName to be an explicit nil
+
+### UnsetSessionUserName
+`func (o *MachineResponseModel) UnsetSessionUserName()`
+
+UnsetSessionUserName ensures that no value is present for SessionUserName, not even an explicit nil
 ### GetSid
 
 `func (o *MachineResponseModel) GetSid() string`
@@ -1731,6 +2167,16 @@ SetWillShutdownAfterUse sets WillShutdownAfterUse field to given value.
 
 HasWillShutdownAfterUse returns a boolean if a field has been set.
 
+### SetWillShutdownAfterUseNil
+
+`func (o *MachineResponseModel) SetWillShutdownAfterUseNil(b bool)`
+
+ SetWillShutdownAfterUseNil sets the value for WillShutdownAfterUse to be an explicit nil
+
+### UnsetWillShutdownAfterUse
+`func (o *MachineResponseModel) UnsetWillShutdownAfterUse()`
+
+UnsetWillShutdownAfterUse ensures that no value is present for WillShutdownAfterUse, not even an explicit nil
 ### GetWindowsConnectionSetting
 
 `func (o *MachineResponseModel) GetWindowsConnectionSetting() WindowsConnectionSetting`
@@ -1758,20 +2204,20 @@ HasWindowsConnectionSetting returns a boolean if a field has been set.
 
 ### GetZone
 
-`func (o *MachineResponseModel) GetZone() MachineResponseModelAllOfZone`
+`func (o *MachineResponseModel) GetZone() RefResponseModel`
 
 GetZone returns the Zone field if non-nil, zero value otherwise.
 
 ### GetZoneOk
 
-`func (o *MachineResponseModel) GetZoneOk() (*MachineResponseModelAllOfZone, bool)`
+`func (o *MachineResponseModel) GetZoneOk() (*RefResponseModel, bool)`
 
 GetZoneOk returns a tuple with the Zone field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetZone
 
-`func (o *MachineResponseModel) SetZone(v MachineResponseModelAllOfZone)`
+`func (o *MachineResponseModel) SetZone(v RefResponseModel)`
 
 SetZone sets Zone field to given value.
 
@@ -1801,6 +2247,16 @@ SetSupportedPowerActions sets SupportedPowerActions field to given value.
 
 HasSupportedPowerActions returns a boolean if a field has been set.
 
+### SetSupportedPowerActionsNil
+
+`func (o *MachineResponseModel) SetSupportedPowerActionsNil(b bool)`
+
+ SetSupportedPowerActionsNil sets the value for SupportedPowerActions to be an explicit nil
+
+### UnsetSupportedPowerActions
+`func (o *MachineResponseModel) UnsetSupportedPowerActions()`
+
+UnsetSupportedPowerActions ensures that no value is present for SupportedPowerActions, not even an explicit nil
 ### GetFaultState
 
 `func (o *MachineResponseModel) GetFaultState() FaultState`
@@ -1823,20 +2279,20 @@ SetFaultState sets FaultState field to given value.
 
 ### GetContainerMetadata
 
-`func (o *MachineResponseModel) GetContainerMetadata() MachineResponseModelAllOfContainerMetadata`
+`func (o *MachineResponseModel) GetContainerMetadata() ContainerMetadataModel`
 
 GetContainerMetadata returns the ContainerMetadata field if non-nil, zero value otherwise.
 
 ### GetContainerMetadataOk
 
-`func (o *MachineResponseModel) GetContainerMetadataOk() (*MachineResponseModelAllOfContainerMetadata, bool)`
+`func (o *MachineResponseModel) GetContainerMetadataOk() (*ContainerMetadataModel, bool)`
 
 GetContainerMetadataOk returns a tuple with the ContainerMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContainerMetadata
 
-`func (o *MachineResponseModel) SetContainerMetadata(v MachineResponseModelAllOfContainerMetadata)`
+`func (o *MachineResponseModel) SetContainerMetadata(v ContainerMetadataModel)`
 
 SetContainerMetadata sets ContainerMetadata field to given value.
 
@@ -1871,6 +2327,16 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *MachineResponseModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *MachineResponseModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetUpgradeType
 
 `func (o *MachineResponseModel) GetUpgradeType() VdaUpgradeType`
@@ -1946,22 +2412,32 @@ SetMachineConfigurationOutOfSync sets MachineConfigurationOutOfSync field to giv
 
 HasMachineConfigurationOutOfSync returns a boolean if a field has been set.
 
+### SetMachineConfigurationOutOfSyncNil
+
+`func (o *MachineResponseModel) SetMachineConfigurationOutOfSyncNil(b bool)`
+
+ SetMachineConfigurationOutOfSyncNil sets the value for MachineConfigurationOutOfSync to be an explicit nil
+
+### UnsetMachineConfigurationOutOfSync
+`func (o *MachineResponseModel) UnsetMachineConfigurationOutOfSync()`
+
+UnsetMachineConfigurationOutOfSync ensures that no value is present for MachineConfigurationOutOfSync, not even an explicit nil
 ### GetUpgradeDetail
 
-`func (o *MachineResponseModel) GetUpgradeDetail() MachineResponseModelAllOfUpgradeDetail`
+`func (o *MachineResponseModel) GetUpgradeDetail() MachineUpgradeDetail`
 
 GetUpgradeDetail returns the UpgradeDetail field if non-nil, zero value otherwise.
 
 ### GetUpgradeDetailOk
 
-`func (o *MachineResponseModel) GetUpgradeDetailOk() (*MachineResponseModelAllOfUpgradeDetail, bool)`
+`func (o *MachineResponseModel) GetUpgradeDetailOk() (*MachineUpgradeDetail, bool)`
 
 GetUpgradeDetailOk returns a tuple with the UpgradeDetail field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpgradeDetail
 
-`func (o *MachineResponseModel) SetUpgradeDetail(v MachineResponseModelAllOfUpgradeDetail)`
+`func (o *MachineResponseModel) SetUpgradeDetail(v MachineUpgradeDetail)`
 
 SetUpgradeDetail sets UpgradeDetail field to given value.
 

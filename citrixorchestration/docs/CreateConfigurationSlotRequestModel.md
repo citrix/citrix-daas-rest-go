@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the configuration slot to create. | 
 **SettingsGroup** | **string** | Settings group of configuration slot to create. | 
-**Description** | Pointer to **string** | Description of configuration slot to create. | [optional] 
+**Description** | Pointer to **NullableString** | Description of configuration slot to create. | [optional] 
 
 ## Methods
 
@@ -92,6 +92,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateConfigurationSlotRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateConfigurationSlotRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

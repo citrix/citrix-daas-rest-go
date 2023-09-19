@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Commit** | Pointer to **string** | The commit hash when building.              | [optional] 
+**Commit** | Pointer to **NullableString** | The commit hash when building.              | [optional] 
 **IsCloud** | Pointer to **bool** | Indicates if the  current environment is cloud. | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetCommit sets Commit field to given value.
 
 HasCommit returns a boolean if a field has been set.
 
+### SetCommitNil
+
+`func (o *AboutModel) SetCommitNil(b bool)`
+
+ SetCommitNil sets the value for Commit to be an explicit nil
+
+### UnsetCommit
+`func (o *AboutModel) UnsetCommit()`
+
+UnsetCommit ensures that no value is present for Commit, not even an explicit nil
 ### GetIsCloud
 
 `func (o *AboutModel) GetIsCloud() bool`

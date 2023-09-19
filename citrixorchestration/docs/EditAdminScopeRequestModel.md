@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The name of the scope. Name is globally unique. | [optional] 
-**Description** | Pointer to **string** | The description of the admin scope. | [optional] 
+**Name** | Pointer to **NullableString** | The name of the scope. Name is globally unique. | [optional] 
+**Description** | Pointer to **NullableString** | The description of the admin scope. | [optional] 
 **ScopedObjects** | Pointer to [**[]ScopedObjectRequestModel**](ScopedObjectRequestModel.md) | Scoped objects associated with the scope object. | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EditAdminScopeRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditAdminScopeRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *EditAdminScopeRequestModel) GetDescription() string`
@@ -77,6 +87,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *EditAdminScopeRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *EditAdminScopeRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetScopedObjects
 
 `func (o *EditAdminScopeRequestModel) GetScopedObjects() []ScopedObjectRequestModel`
@@ -102,6 +122,16 @@ SetScopedObjects sets ScopedObjects field to given value.
 
 HasScopedObjects returns a boolean if a field has been set.
 
+### SetScopedObjectsNil
+
+`func (o *EditAdminScopeRequestModel) SetScopedObjectsNil(b bool)`
+
+ SetScopedObjectsNil sets the value for ScopedObjects to be an explicit nil
+
+### UnsetScopedObjects
+`func (o *EditAdminScopeRequestModel) UnsetScopedObjects()`
+
+UnsetScopedObjects ensures that no value is present for ScopedObjects, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

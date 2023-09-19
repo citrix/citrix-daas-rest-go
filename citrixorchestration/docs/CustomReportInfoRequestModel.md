@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDate** | Pointer to **string** | End date of the report. When CustomReportDateRangeType is Custom, start date should be provided. | [optional] 
-**EndDate** | Pointer to **string** | End date of the report. When CustomReportDateRangeType is Custom, end date should be provided. | [optional] 
+**StartDate** | Pointer to **NullableString** | End date of the report. When CustomReportDateRangeType is Custom, start date should be provided. | [optional] 
+**EndDate** | Pointer to **NullableString** | End date of the report. When CustomReportDateRangeType is Custom, end date should be provided. | [optional] 
 **CustomReportFormat** | [**CustomReportFormatType**](CustomReportFormatType.md) |  | 
 **CustomReportDateRange** | [**CustomReportDateRangeType**](CustomReportDateRangeType.md) |  | 
 
@@ -53,6 +53,16 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### SetStartDateNil
+
+`func (o *CustomReportInfoRequestModel) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *CustomReportInfoRequestModel) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetEndDate
 
 `func (o *CustomReportInfoRequestModel) GetEndDate() string`
@@ -78,6 +88,16 @@ SetEndDate sets EndDate field to given value.
 
 HasEndDate returns a boolean if a field has been set.
 
+### SetEndDateNil
+
+`func (o *CustomReportInfoRequestModel) SetEndDateNil(b bool)`
+
+ SetEndDateNil sets the value for EndDate to be an explicit nil
+
+### UnsetEndDate
+`func (o *CustomReportInfoRequestModel) UnsetEndDate()`
+
+UnsetEndDate ensures that no value is present for EndDate, not even an explicit nil
 ### GetCustomReportFormat
 
 `func (o *CustomReportInfoRequestModel) GetCustomReportFormat() CustomReportFormatType`

@@ -6,21 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the job in progress. | 
 **Type** | [**JobType**](JobType.md) |  | 
-**OverallProgressPercent** | Pointer to **int32** | Overall progress percent; 0..100. May be null if the job does not support progress reporting. | [optional] 
-**IsCancellable** | Pointer to **bool** | Indicates whether the job may be cancelled. DeleteJob | [optional] 
+**OverallProgressPercent** | Pointer to **NullableInt32** | Overall progress percent; 0..100. May be null if the job does not support progress reporting. | [optional] 
+**IsCancellable** | Pointer to **NullableBool** | Indicates whether the job may be cancelled. DeleteJob | [optional] 
 **Parameters** | [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Indicators to the caller about what object(s) the job is affecting.  Consult the documentation for APIs that initiate jobs to see the properties expected to be present. | 
 **SubJobs** | Pointer to [**[]JobResponseModel**](JobResponseModel.md) | List of sub-jobs contained within the job. | [optional] 
 **Status** | [**JobStatus**](JobStatus.md) |  | 
-**ResultLocation** | Pointer to **string** | URL where the job results can be obtained. | [optional] 
-**ErrorString** | Pointer to **string** | If a job or subjob failed, this will be the reason why the failure occurred, presented in a human-readable format. | [optional] 
+**ResultLocation** | Pointer to **NullableString** | URL where the job results can be obtained. | [optional] 
+**ErrorString** | Pointer to **NullableString** | If a job or subjob failed, this will be the reason why the failure occurred, presented in a human-readable format. | [optional] 
 **ErrorCode** | Pointer to [**JobErrorCode**](JobErrorCode.md) |  | [optional] 
 **ErrorParameters** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | If a job or subjob failed, this will be information about related objects that were involved in the failure. | [optional] 
 **CreationTime** | **string** | Time when the job was created. | 
 **FormattedCreationTime** | **string** | Formatted time when the job was created. RFC 3339 compatible format. | 
-**StartTime** | Pointer to **string** | Time when the job was started. Will be null if the job has not yet started. | [optional] 
-**FormattedStartTime** | Pointer to **string** | Formatted time when the job was started. Will be null if the job has not yet started. RFC 3339 compatible format. | [optional] 
-**EndTime** | Pointer to **string** | Time when the job was completed. Will be null if the job has not yet completed. | [optional] 
-**FormattedEndTime** | Pointer to **string** | Formatted time when the job was completed. Will be null if the job has not yet completed. RFC 3339 compatible format. | [optional] 
+**StartTime** | Pointer to **NullableString** | Time when the job was started. Will be null if the job has not yet started. | [optional] 
+**FormattedStartTime** | Pointer to **NullableString** | Formatted time when the job was started. Will be null if the job has not yet started. RFC 3339 compatible format. | [optional] 
+**EndTime** | Pointer to **NullableString** | Time when the job was completed. Will be null if the job has not yet completed. | [optional] 
+**FormattedEndTime** | Pointer to **NullableString** | Formatted time when the job was completed. Will be null if the job has not yet completed. RFC 3339 compatible format. | [optional] 
 
 ## Methods
 
@@ -106,6 +106,16 @@ SetOverallProgressPercent sets OverallProgressPercent field to given value.
 
 HasOverallProgressPercent returns a boolean if a field has been set.
 
+### SetOverallProgressPercentNil
+
+`func (o *JobResponseModel) SetOverallProgressPercentNil(b bool)`
+
+ SetOverallProgressPercentNil sets the value for OverallProgressPercent to be an explicit nil
+
+### UnsetOverallProgressPercent
+`func (o *JobResponseModel) UnsetOverallProgressPercent()`
+
+UnsetOverallProgressPercent ensures that no value is present for OverallProgressPercent, not even an explicit nil
 ### GetIsCancellable
 
 `func (o *JobResponseModel) GetIsCancellable() bool`
@@ -131,6 +141,16 @@ SetIsCancellable sets IsCancellable field to given value.
 
 HasIsCancellable returns a boolean if a field has been set.
 
+### SetIsCancellableNil
+
+`func (o *JobResponseModel) SetIsCancellableNil(b bool)`
+
+ SetIsCancellableNil sets the value for IsCancellable to be an explicit nil
+
+### UnsetIsCancellable
+`func (o *JobResponseModel) UnsetIsCancellable()`
+
+UnsetIsCancellable ensures that no value is present for IsCancellable, not even an explicit nil
 ### GetParameters
 
 `func (o *JobResponseModel) GetParameters() []NameValueStringPairModel`
@@ -176,6 +196,16 @@ SetSubJobs sets SubJobs field to given value.
 
 HasSubJobs returns a boolean if a field has been set.
 
+### SetSubJobsNil
+
+`func (o *JobResponseModel) SetSubJobsNil(b bool)`
+
+ SetSubJobsNil sets the value for SubJobs to be an explicit nil
+
+### UnsetSubJobs
+`func (o *JobResponseModel) UnsetSubJobs()`
+
+UnsetSubJobs ensures that no value is present for SubJobs, not even an explicit nil
 ### GetStatus
 
 `func (o *JobResponseModel) GetStatus() JobStatus`
@@ -221,6 +251,16 @@ SetResultLocation sets ResultLocation field to given value.
 
 HasResultLocation returns a boolean if a field has been set.
 
+### SetResultLocationNil
+
+`func (o *JobResponseModel) SetResultLocationNil(b bool)`
+
+ SetResultLocationNil sets the value for ResultLocation to be an explicit nil
+
+### UnsetResultLocation
+`func (o *JobResponseModel) UnsetResultLocation()`
+
+UnsetResultLocation ensures that no value is present for ResultLocation, not even an explicit nil
 ### GetErrorString
 
 `func (o *JobResponseModel) GetErrorString() string`
@@ -246,6 +286,16 @@ SetErrorString sets ErrorString field to given value.
 
 HasErrorString returns a boolean if a field has been set.
 
+### SetErrorStringNil
+
+`func (o *JobResponseModel) SetErrorStringNil(b bool)`
+
+ SetErrorStringNil sets the value for ErrorString to be an explicit nil
+
+### UnsetErrorString
+`func (o *JobResponseModel) UnsetErrorString()`
+
+UnsetErrorString ensures that no value is present for ErrorString, not even an explicit nil
 ### GetErrorCode
 
 `func (o *JobResponseModel) GetErrorCode() JobErrorCode`
@@ -296,6 +346,16 @@ SetErrorParameters sets ErrorParameters field to given value.
 
 HasErrorParameters returns a boolean if a field has been set.
 
+### SetErrorParametersNil
+
+`func (o *JobResponseModel) SetErrorParametersNil(b bool)`
+
+ SetErrorParametersNil sets the value for ErrorParameters to be an explicit nil
+
+### UnsetErrorParameters
+`func (o *JobResponseModel) UnsetErrorParameters()`
+
+UnsetErrorParameters ensures that no value is present for ErrorParameters, not even an explicit nil
 ### GetCreationTime
 
 `func (o *JobResponseModel) GetCreationTime() string`
@@ -361,6 +421,16 @@ SetStartTime sets StartTime field to given value.
 
 HasStartTime returns a boolean if a field has been set.
 
+### SetStartTimeNil
+
+`func (o *JobResponseModel) SetStartTimeNil(b bool)`
+
+ SetStartTimeNil sets the value for StartTime to be an explicit nil
+
+### UnsetStartTime
+`func (o *JobResponseModel) UnsetStartTime()`
+
+UnsetStartTime ensures that no value is present for StartTime, not even an explicit nil
 ### GetFormattedStartTime
 
 `func (o *JobResponseModel) GetFormattedStartTime() string`
@@ -386,6 +456,16 @@ SetFormattedStartTime sets FormattedStartTime field to given value.
 
 HasFormattedStartTime returns a boolean if a field has been set.
 
+### SetFormattedStartTimeNil
+
+`func (o *JobResponseModel) SetFormattedStartTimeNil(b bool)`
+
+ SetFormattedStartTimeNil sets the value for FormattedStartTime to be an explicit nil
+
+### UnsetFormattedStartTime
+`func (o *JobResponseModel) UnsetFormattedStartTime()`
+
+UnsetFormattedStartTime ensures that no value is present for FormattedStartTime, not even an explicit nil
 ### GetEndTime
 
 `func (o *JobResponseModel) GetEndTime() string`
@@ -411,6 +491,16 @@ SetEndTime sets EndTime field to given value.
 
 HasEndTime returns a boolean if a field has been set.
 
+### SetEndTimeNil
+
+`func (o *JobResponseModel) SetEndTimeNil(b bool)`
+
+ SetEndTimeNil sets the value for EndTime to be an explicit nil
+
+### UnsetEndTime
+`func (o *JobResponseModel) UnsetEndTime()`
+
+UnsetEndTime ensures that no value is present for EndTime, not even an explicit nil
 ### GetFormattedEndTime
 
 `func (o *JobResponseModel) GetFormattedEndTime() string`
@@ -436,6 +526,16 @@ SetFormattedEndTime sets FormattedEndTime field to given value.
 
 HasFormattedEndTime returns a boolean if a field has been set.
 
+### SetFormattedEndTimeNil
+
+`func (o *JobResponseModel) SetFormattedEndTimeNil(b bool)`
+
+ SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
+
+### UnsetFormattedEndTime
+`func (o *JobResponseModel) UnsetFormattedEndTime()`
+
+UnsetFormattedEndTime ensures that no value is present for FormattedEndTime, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LicenseInformation** | Pointer to [**LicenseSummaryResponseModelLicenseInformation**](LicenseSummaryResponseModelLicenseInformation.md) |  | [optional] 
+**LicenseInformation** | Pointer to [**LicenseInformationModel**](LicenseInformationModel.md) |  | [optional] 
 **LicenseInventories** | Pointer to [**[]LicenseInventoryModel**](LicenseInventoryModel.md) | Get license inventory list | [optional] 
-**NormalLicenses** | Pointer to **int32** | The number of the available licenses | [optional] 
-**OverdraftLicenses** | Pointer to **int32** | The number of the overdraft licenses | [optional] 
-**LicensesUsage** | Pointer to **int32** | The usage of the licenses | [optional] 
-**CertAccepted** | Pointer to **bool** | Indicates if the certificate is verified | [optional] 
+**NormalLicenses** | Pointer to **NullableInt32** | The number of the available licenses | [optional] 
+**OverdraftLicenses** | Pointer to **NullableInt32** | The number of the overdraft licenses | [optional] 
+**LicensesUsage** | Pointer to **NullableInt32** | The usage of the licenses | [optional] 
+**CertAccepted** | Pointer to **NullableBool** | Indicates if the certificate is verified | [optional] 
 
 ## Methods
 
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLicenseInformation
 
-`func (o *LicenseSummaryResponseModel) GetLicenseInformation() LicenseSummaryResponseModelLicenseInformation`
+`func (o *LicenseSummaryResponseModel) GetLicenseInformation() LicenseInformationModel`
 
 GetLicenseInformation returns the LicenseInformation field if non-nil, zero value otherwise.
 
 ### GetLicenseInformationOk
 
-`func (o *LicenseSummaryResponseModel) GetLicenseInformationOk() (*LicenseSummaryResponseModelLicenseInformation, bool)`
+`func (o *LicenseSummaryResponseModel) GetLicenseInformationOk() (*LicenseInformationModel, bool)`
 
 GetLicenseInformationOk returns a tuple with the LicenseInformation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLicenseInformation
 
-`func (o *LicenseSummaryResponseModel) SetLicenseInformation(v LicenseSummaryResponseModelLicenseInformation)`
+`func (o *LicenseSummaryResponseModel) SetLicenseInformation(v LicenseInformationModel)`
 
 SetLicenseInformation sets LicenseInformation field to given value.
 
@@ -80,6 +80,16 @@ SetLicenseInventories sets LicenseInventories field to given value.
 
 HasLicenseInventories returns a boolean if a field has been set.
 
+### SetLicenseInventoriesNil
+
+`func (o *LicenseSummaryResponseModel) SetLicenseInventoriesNil(b bool)`
+
+ SetLicenseInventoriesNil sets the value for LicenseInventories to be an explicit nil
+
+### UnsetLicenseInventories
+`func (o *LicenseSummaryResponseModel) UnsetLicenseInventories()`
+
+UnsetLicenseInventories ensures that no value is present for LicenseInventories, not even an explicit nil
 ### GetNormalLicenses
 
 `func (o *LicenseSummaryResponseModel) GetNormalLicenses() int32`
@@ -105,6 +115,16 @@ SetNormalLicenses sets NormalLicenses field to given value.
 
 HasNormalLicenses returns a boolean if a field has been set.
 
+### SetNormalLicensesNil
+
+`func (o *LicenseSummaryResponseModel) SetNormalLicensesNil(b bool)`
+
+ SetNormalLicensesNil sets the value for NormalLicenses to be an explicit nil
+
+### UnsetNormalLicenses
+`func (o *LicenseSummaryResponseModel) UnsetNormalLicenses()`
+
+UnsetNormalLicenses ensures that no value is present for NormalLicenses, not even an explicit nil
 ### GetOverdraftLicenses
 
 `func (o *LicenseSummaryResponseModel) GetOverdraftLicenses() int32`
@@ -130,6 +150,16 @@ SetOverdraftLicenses sets OverdraftLicenses field to given value.
 
 HasOverdraftLicenses returns a boolean if a field has been set.
 
+### SetOverdraftLicensesNil
+
+`func (o *LicenseSummaryResponseModel) SetOverdraftLicensesNil(b bool)`
+
+ SetOverdraftLicensesNil sets the value for OverdraftLicenses to be an explicit nil
+
+### UnsetOverdraftLicenses
+`func (o *LicenseSummaryResponseModel) UnsetOverdraftLicenses()`
+
+UnsetOverdraftLicenses ensures that no value is present for OverdraftLicenses, not even an explicit nil
 ### GetLicensesUsage
 
 `func (o *LicenseSummaryResponseModel) GetLicensesUsage() int32`
@@ -155,6 +185,16 @@ SetLicensesUsage sets LicensesUsage field to given value.
 
 HasLicensesUsage returns a boolean if a field has been set.
 
+### SetLicensesUsageNil
+
+`func (o *LicenseSummaryResponseModel) SetLicensesUsageNil(b bool)`
+
+ SetLicensesUsageNil sets the value for LicensesUsage to be an explicit nil
+
+### UnsetLicensesUsage
+`func (o *LicenseSummaryResponseModel) UnsetLicensesUsage()`
+
+UnsetLicensesUsage ensures that no value is present for LicensesUsage, not even an explicit nil
 ### GetCertAccepted
 
 `func (o *LicenseSummaryResponseModel) GetCertAccepted() bool`
@@ -180,6 +220,16 @@ SetCertAccepted sets CertAccepted field to given value.
 
 HasCertAccepted returns a boolean if a field has been set.
 
+### SetCertAcceptedNil
+
+`func (o *LicenseSummaryResponseModel) SetCertAcceptedNil(b bool)`
+
+ SetCertAcceptedNil sets the value for CertAccepted to be an explicit nil
+
+### UnsetCertAccepted
+`func (o *LicenseSummaryResponseModel) UnsetCertAccepted()`
+
+UnsetCertAccepted ensures that no value is present for CertAccepted, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

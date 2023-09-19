@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LicenseServer** | **string** | License server address | 
-**Thumbprint** | Pointer to **string** | The certificate thumbprint of the license server | [optional] 
+**Thumbprint** | Pointer to **NullableString** | The certificate thumbprint of the license server | [optional] 
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetThumbprint sets Thumbprint field to given value.
 
 HasThumbprint returns a boolean if a field has been set.
 
+### SetThumbprintNil
+
+`func (o *EditLicenseServerRequestModel) SetThumbprintNil(b bool)`
+
+ SetThumbprintNil sets the value for Thumbprint to be an explicit nil
+
+### UnsetThumbprint
+`func (o *EditLicenseServerRequestModel) UnsetThumbprint()`
+
+UnsetThumbprint ensures that no value is present for Thumbprint, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

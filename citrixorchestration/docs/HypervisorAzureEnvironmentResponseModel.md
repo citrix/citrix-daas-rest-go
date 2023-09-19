@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EnvironmentDisplayName** | Pointer to **string** | Environment display name which used to show on the front end. e.g. Azure Global, Azure China and Azure US Government. | [optional] 
+**EnvironmentDisplayName** | Pointer to **NullableString** | Environment display name which used to show on the front end. e.g. Azure Global, Azure China and Azure US Government. | [optional] 
 **EnvironmentName** | Pointer to [**AzureEnvironment**](AzureEnvironment.md) |  | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetEnvironmentDisplayName sets EnvironmentDisplayName field to given value.
 
 HasEnvironmentDisplayName returns a boolean if a field has been set.
 
+### SetEnvironmentDisplayNameNil
+
+`func (o *HypervisorAzureEnvironmentResponseModel) SetEnvironmentDisplayNameNil(b bool)`
+
+ SetEnvironmentDisplayNameNil sets the value for EnvironmentDisplayName to be an explicit nil
+
+### UnsetEnvironmentDisplayName
+`func (o *HypervisorAzureEnvironmentResponseModel) UnsetEnvironmentDisplayName()`
+
+UnsetEnvironmentDisplayName ensures that no value is present for EnvironmentDisplayName, not even an explicit nil
 ### GetEnvironmentName
 
 `func (o *HypervisorAzureEnvironmentResponseModel) GetEnvironmentName() AzureEnvironment`

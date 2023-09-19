@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MachineNameOrIds** | **[]string** | Machine list to create VDA upgrade schedules for. Item can be machine name or Id. | 
-**StartDateTimeUtc** | Pointer to **time.Time** | UTC time to start the Vda upgrade. Must be a future time. If set to null, the upgrade should be started at once. | [optional] 
+**StartDateTimeUtc** | Pointer to **NullableTime** | UTC time to start the Vda upgrade. Must be a future time. If set to null, the upgrade should be started at once. | [optional] 
 **DurationInHours** | **int32** | Timeout duration in hours. Valid range is 1 to 24. | 
 
 ## Methods
@@ -72,6 +72,16 @@ SetStartDateTimeUtc sets StartDateTimeUtc field to given value.
 
 HasStartDateTimeUtc returns a boolean if a field has been set.
 
+### SetStartDateTimeUtcNil
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) SetStartDateTimeUtcNil(b bool)`
+
+ SetStartDateTimeUtcNil sets the value for StartDateTimeUtc to be an explicit nil
+
+### UnsetStartDateTimeUtc
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetStartDateTimeUtc()`
+
+UnsetStartDateTimeUtc ensures that no value is present for StartDateTimeUtc, not even an explicit nil
 ### GetDurationInHours
 
 `func (o *CreateUpgradeScheduleForMachinesRequestModel) GetDurationInHours() int32`

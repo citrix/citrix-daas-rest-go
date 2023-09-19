@@ -4,30 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EditorName** | Pointer to **string** | The setting editor name. | [optional] 
-**SettingName** | Pointer to **string** | Setting name; Is globally unique | [optional] 
-**SettingType** | Pointer to **string** | The setting type as defined by its value. | [optional] 
-**DisplayName** | Pointer to **string** | Translated setting name. Is globally unique. | [optional] 
-**Category** | Pointer to **string** | Setting category, e.g., ICA\\Printing. | [optional] 
-**Explanation** | Pointer to **string** | Setting detailed description | [optional] 
+**EditorName** | Pointer to **NullableString** | The setting editor name. | [optional] 
+**SettingName** | Pointer to **NullableString** | Setting name; Is globally unique | [optional] 
+**SettingType** | Pointer to **NullableString** | The setting type as defined by its value. | [optional] 
+**DisplayName** | Pointer to **NullableString** | Translated setting name. Is globally unique. | [optional] 
+**Category** | Pointer to **NullableString** | Setting category, e.g., ICA\\Printing. | [optional] 
+**Explanation** | Pointer to **NullableString** | Setting detailed description | [optional] 
 **IsUserSetting** | Pointer to **bool** | true &#x3D; user, false &#x3D; machine | [optional] 
-**ValueType** | Pointer to **string** | Type of setting value | [optional] 
+**ValueType** | Pointer to **NullableString** | Type of setting value | [optional] 
 **IsEnableDisable** | Pointer to **bool** | Label test for a boolean setting, display enable/disable if true, otherwise allow/prohibit | [optional] 
-**DefaultValue** | Pointer to **string** | Setting default value | [optional] 
-**DisabledValue** | Pointer to **string** | Disabled value for toggled settings | [optional] 
-**InitialValue** | Pointer to **string** | Initial value for taggled settings when value is not disabled. | [optional] 
-**ValueMinimum** | Pointer to **string** | Minimal value for integer setting | [optional] 
-**ValueMaximum** | Pointer to **string** | Maximal value for integer settin | [optional] 
-**ValueValidator** | Pointer to **string** | An expression executed to validate the value | [optional] 
-**ValidatorError** | Pointer to **string** | Warning message issued when validator fails (throws exception) | [optional] 
+**DefaultValue** | Pointer to **NullableString** | Setting default value | [optional] 
+**DisabledValue** | Pointer to **NullableString** | Disabled value for toggled settings | [optional] 
+**InitialValue** | Pointer to **NullableString** | Initial value for toggled settings when value is not disabled. | [optional] 
+**ValueMinimum** | Pointer to **NullableString** | Minimal value for integer setting | [optional] 
+**ValueMaximum** | Pointer to **NullableString** | Maximal value for integer setting | [optional] 
+**ValueValidator** | Pointer to **NullableString** | An expression executed to validate the value | [optional] 
+**ValidatorError** | Pointer to **NullableString** | Warning message issued when validator fails (throws exception) | [optional] 
 **RelatedSettings** | Pointer to **map[string]string** | Related settings. | [optional] 
-**ValueUnit** | Pointer to **string** | Unit of value in translated text | [optional] 
-**AllowedText** | Pointer to **string** | Custom text for the allowed explanation for some boolean settings. | [optional] 
-**DeniedText** | Pointer to **string** | Custom text for the denied explaination for some boolean settings. | [optional] 
-**EnumType** | Pointer to [**SettingDefinitionContractEnumType**](SettingDefinitionContractEnumType.md) |  | [optional] 
+**ValueUnit** | Pointer to **NullableString** | Unit of value in translated text | [optional] 
+**AllowedText** | Pointer to **NullableString** | Custom text for the allowed explanation for some boolean settings. | [optional] 
+**DeniedText** | Pointer to **NullableString** | Custom text for the denied explanation for some boolean settings. | [optional] 
+**EnumType** | Pointer to [**EnumerationTypeContract**](EnumerationTypeContract.md) |  | [optional] 
 **VdaVersions** | Pointer to [**[]VdaVersionContract**](VdaVersionContract.md) | VDA versions honoring this setting. | [optional] 
-**GpoScope** | Pointer to **string** | Scope, e.g. ConfigSlot | [optional] 
-**ProductGroup** | Pointer to **string** | Group, e.g., UPM. | [optional] 
+**GpoScope** | Pointer to **NullableString** | Scope, e.g. ConfigSlot | [optional] 
+**ProductGroup** | Pointer to **NullableString** | Group, e.g., UPM. | [optional] 
 
 ## Methods
 
@@ -73,6 +73,16 @@ SetEditorName sets EditorName field to given value.
 
 HasEditorName returns a boolean if a field has been set.
 
+### SetEditorNameNil
+
+`func (o *SettingDefinitionContract) SetEditorNameNil(b bool)`
+
+ SetEditorNameNil sets the value for EditorName to be an explicit nil
+
+### UnsetEditorName
+`func (o *SettingDefinitionContract) UnsetEditorName()`
+
+UnsetEditorName ensures that no value is present for EditorName, not even an explicit nil
 ### GetSettingName
 
 `func (o *SettingDefinitionContract) GetSettingName() string`
@@ -98,6 +108,16 @@ SetSettingName sets SettingName field to given value.
 
 HasSettingName returns a boolean if a field has been set.
 
+### SetSettingNameNil
+
+`func (o *SettingDefinitionContract) SetSettingNameNil(b bool)`
+
+ SetSettingNameNil sets the value for SettingName to be an explicit nil
+
+### UnsetSettingName
+`func (o *SettingDefinitionContract) UnsetSettingName()`
+
+UnsetSettingName ensures that no value is present for SettingName, not even an explicit nil
 ### GetSettingType
 
 `func (o *SettingDefinitionContract) GetSettingType() string`
@@ -123,6 +143,16 @@ SetSettingType sets SettingType field to given value.
 
 HasSettingType returns a boolean if a field has been set.
 
+### SetSettingTypeNil
+
+`func (o *SettingDefinitionContract) SetSettingTypeNil(b bool)`
+
+ SetSettingTypeNil sets the value for SettingType to be an explicit nil
+
+### UnsetSettingType
+`func (o *SettingDefinitionContract) UnsetSettingType()`
+
+UnsetSettingType ensures that no value is present for SettingType, not even an explicit nil
 ### GetDisplayName
 
 `func (o *SettingDefinitionContract) GetDisplayName() string`
@@ -148,6 +178,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *SettingDefinitionContract) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *SettingDefinitionContract) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetCategory
 
 `func (o *SettingDefinitionContract) GetCategory() string`
@@ -173,6 +213,16 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
+### SetCategoryNil
+
+`func (o *SettingDefinitionContract) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *SettingDefinitionContract) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetExplanation
 
 `func (o *SettingDefinitionContract) GetExplanation() string`
@@ -198,6 +248,16 @@ SetExplanation sets Explanation field to given value.
 
 HasExplanation returns a boolean if a field has been set.
 
+### SetExplanationNil
+
+`func (o *SettingDefinitionContract) SetExplanationNil(b bool)`
+
+ SetExplanationNil sets the value for Explanation to be an explicit nil
+
+### UnsetExplanation
+`func (o *SettingDefinitionContract) UnsetExplanation()`
+
+UnsetExplanation ensures that no value is present for Explanation, not even an explicit nil
 ### GetIsUserSetting
 
 `func (o *SettingDefinitionContract) GetIsUserSetting() bool`
@@ -248,6 +308,16 @@ SetValueType sets ValueType field to given value.
 
 HasValueType returns a boolean if a field has been set.
 
+### SetValueTypeNil
+
+`func (o *SettingDefinitionContract) SetValueTypeNil(b bool)`
+
+ SetValueTypeNil sets the value for ValueType to be an explicit nil
+
+### UnsetValueType
+`func (o *SettingDefinitionContract) UnsetValueType()`
+
+UnsetValueType ensures that no value is present for ValueType, not even an explicit nil
 ### GetIsEnableDisable
 
 `func (o *SettingDefinitionContract) GetIsEnableDisable() bool`
@@ -298,6 +368,16 @@ SetDefaultValue sets DefaultValue field to given value.
 
 HasDefaultValue returns a boolean if a field has been set.
 
+### SetDefaultValueNil
+
+`func (o *SettingDefinitionContract) SetDefaultValueNil(b bool)`
+
+ SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
+
+### UnsetDefaultValue
+`func (o *SettingDefinitionContract) UnsetDefaultValue()`
+
+UnsetDefaultValue ensures that no value is present for DefaultValue, not even an explicit nil
 ### GetDisabledValue
 
 `func (o *SettingDefinitionContract) GetDisabledValue() string`
@@ -323,6 +403,16 @@ SetDisabledValue sets DisabledValue field to given value.
 
 HasDisabledValue returns a boolean if a field has been set.
 
+### SetDisabledValueNil
+
+`func (o *SettingDefinitionContract) SetDisabledValueNil(b bool)`
+
+ SetDisabledValueNil sets the value for DisabledValue to be an explicit nil
+
+### UnsetDisabledValue
+`func (o *SettingDefinitionContract) UnsetDisabledValue()`
+
+UnsetDisabledValue ensures that no value is present for DisabledValue, not even an explicit nil
 ### GetInitialValue
 
 `func (o *SettingDefinitionContract) GetInitialValue() string`
@@ -348,6 +438,16 @@ SetInitialValue sets InitialValue field to given value.
 
 HasInitialValue returns a boolean if a field has been set.
 
+### SetInitialValueNil
+
+`func (o *SettingDefinitionContract) SetInitialValueNil(b bool)`
+
+ SetInitialValueNil sets the value for InitialValue to be an explicit nil
+
+### UnsetInitialValue
+`func (o *SettingDefinitionContract) UnsetInitialValue()`
+
+UnsetInitialValue ensures that no value is present for InitialValue, not even an explicit nil
 ### GetValueMinimum
 
 `func (o *SettingDefinitionContract) GetValueMinimum() string`
@@ -373,6 +473,16 @@ SetValueMinimum sets ValueMinimum field to given value.
 
 HasValueMinimum returns a boolean if a field has been set.
 
+### SetValueMinimumNil
+
+`func (o *SettingDefinitionContract) SetValueMinimumNil(b bool)`
+
+ SetValueMinimumNil sets the value for ValueMinimum to be an explicit nil
+
+### UnsetValueMinimum
+`func (o *SettingDefinitionContract) UnsetValueMinimum()`
+
+UnsetValueMinimum ensures that no value is present for ValueMinimum, not even an explicit nil
 ### GetValueMaximum
 
 `func (o *SettingDefinitionContract) GetValueMaximum() string`
@@ -398,6 +508,16 @@ SetValueMaximum sets ValueMaximum field to given value.
 
 HasValueMaximum returns a boolean if a field has been set.
 
+### SetValueMaximumNil
+
+`func (o *SettingDefinitionContract) SetValueMaximumNil(b bool)`
+
+ SetValueMaximumNil sets the value for ValueMaximum to be an explicit nil
+
+### UnsetValueMaximum
+`func (o *SettingDefinitionContract) UnsetValueMaximum()`
+
+UnsetValueMaximum ensures that no value is present for ValueMaximum, not even an explicit nil
 ### GetValueValidator
 
 `func (o *SettingDefinitionContract) GetValueValidator() string`
@@ -423,6 +543,16 @@ SetValueValidator sets ValueValidator field to given value.
 
 HasValueValidator returns a boolean if a field has been set.
 
+### SetValueValidatorNil
+
+`func (o *SettingDefinitionContract) SetValueValidatorNil(b bool)`
+
+ SetValueValidatorNil sets the value for ValueValidator to be an explicit nil
+
+### UnsetValueValidator
+`func (o *SettingDefinitionContract) UnsetValueValidator()`
+
+UnsetValueValidator ensures that no value is present for ValueValidator, not even an explicit nil
 ### GetValidatorError
 
 `func (o *SettingDefinitionContract) GetValidatorError() string`
@@ -448,6 +578,16 @@ SetValidatorError sets ValidatorError field to given value.
 
 HasValidatorError returns a boolean if a field has been set.
 
+### SetValidatorErrorNil
+
+`func (o *SettingDefinitionContract) SetValidatorErrorNil(b bool)`
+
+ SetValidatorErrorNil sets the value for ValidatorError to be an explicit nil
+
+### UnsetValidatorError
+`func (o *SettingDefinitionContract) UnsetValidatorError()`
+
+UnsetValidatorError ensures that no value is present for ValidatorError, not even an explicit nil
 ### GetRelatedSettings
 
 `func (o *SettingDefinitionContract) GetRelatedSettings() map[string]string`
@@ -473,6 +613,16 @@ SetRelatedSettings sets RelatedSettings field to given value.
 
 HasRelatedSettings returns a boolean if a field has been set.
 
+### SetRelatedSettingsNil
+
+`func (o *SettingDefinitionContract) SetRelatedSettingsNil(b bool)`
+
+ SetRelatedSettingsNil sets the value for RelatedSettings to be an explicit nil
+
+### UnsetRelatedSettings
+`func (o *SettingDefinitionContract) UnsetRelatedSettings()`
+
+UnsetRelatedSettings ensures that no value is present for RelatedSettings, not even an explicit nil
 ### GetValueUnit
 
 `func (o *SettingDefinitionContract) GetValueUnit() string`
@@ -498,6 +648,16 @@ SetValueUnit sets ValueUnit field to given value.
 
 HasValueUnit returns a boolean if a field has been set.
 
+### SetValueUnitNil
+
+`func (o *SettingDefinitionContract) SetValueUnitNil(b bool)`
+
+ SetValueUnitNil sets the value for ValueUnit to be an explicit nil
+
+### UnsetValueUnit
+`func (o *SettingDefinitionContract) UnsetValueUnit()`
+
+UnsetValueUnit ensures that no value is present for ValueUnit, not even an explicit nil
 ### GetAllowedText
 
 `func (o *SettingDefinitionContract) GetAllowedText() string`
@@ -523,6 +683,16 @@ SetAllowedText sets AllowedText field to given value.
 
 HasAllowedText returns a boolean if a field has been set.
 
+### SetAllowedTextNil
+
+`func (o *SettingDefinitionContract) SetAllowedTextNil(b bool)`
+
+ SetAllowedTextNil sets the value for AllowedText to be an explicit nil
+
+### UnsetAllowedText
+`func (o *SettingDefinitionContract) UnsetAllowedText()`
+
+UnsetAllowedText ensures that no value is present for AllowedText, not even an explicit nil
 ### GetDeniedText
 
 `func (o *SettingDefinitionContract) GetDeniedText() string`
@@ -548,22 +718,32 @@ SetDeniedText sets DeniedText field to given value.
 
 HasDeniedText returns a boolean if a field has been set.
 
+### SetDeniedTextNil
+
+`func (o *SettingDefinitionContract) SetDeniedTextNil(b bool)`
+
+ SetDeniedTextNil sets the value for DeniedText to be an explicit nil
+
+### UnsetDeniedText
+`func (o *SettingDefinitionContract) UnsetDeniedText()`
+
+UnsetDeniedText ensures that no value is present for DeniedText, not even an explicit nil
 ### GetEnumType
 
-`func (o *SettingDefinitionContract) GetEnumType() SettingDefinitionContractEnumType`
+`func (o *SettingDefinitionContract) GetEnumType() EnumerationTypeContract`
 
 GetEnumType returns the EnumType field if non-nil, zero value otherwise.
 
 ### GetEnumTypeOk
 
-`func (o *SettingDefinitionContract) GetEnumTypeOk() (*SettingDefinitionContractEnumType, bool)`
+`func (o *SettingDefinitionContract) GetEnumTypeOk() (*EnumerationTypeContract, bool)`
 
 GetEnumTypeOk returns a tuple with the EnumType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnumType
 
-`func (o *SettingDefinitionContract) SetEnumType(v SettingDefinitionContractEnumType)`
+`func (o *SettingDefinitionContract) SetEnumType(v EnumerationTypeContract)`
 
 SetEnumType sets EnumType field to given value.
 
@@ -598,6 +778,16 @@ SetVdaVersions sets VdaVersions field to given value.
 
 HasVdaVersions returns a boolean if a field has been set.
 
+### SetVdaVersionsNil
+
+`func (o *SettingDefinitionContract) SetVdaVersionsNil(b bool)`
+
+ SetVdaVersionsNil sets the value for VdaVersions to be an explicit nil
+
+### UnsetVdaVersions
+`func (o *SettingDefinitionContract) UnsetVdaVersions()`
+
+UnsetVdaVersions ensures that no value is present for VdaVersions, not even an explicit nil
 ### GetGpoScope
 
 `func (o *SettingDefinitionContract) GetGpoScope() string`
@@ -623,6 +813,16 @@ SetGpoScope sets GpoScope field to given value.
 
 HasGpoScope returns a boolean if a field has been set.
 
+### SetGpoScopeNil
+
+`func (o *SettingDefinitionContract) SetGpoScopeNil(b bool)`
+
+ SetGpoScopeNil sets the value for GpoScope to be an explicit nil
+
+### UnsetGpoScope
+`func (o *SettingDefinitionContract) UnsetGpoScope()`
+
+UnsetGpoScope ensures that no value is present for GpoScope, not even an explicit nil
 ### GetProductGroup
 
 `func (o *SettingDefinitionContract) GetProductGroup() string`
@@ -648,6 +848,16 @@ SetProductGroup sets ProductGroup field to given value.
 
 HasProductGroup returns a boolean if a field has been set.
 
+### SetProductGroupNil
+
+`func (o *SettingDefinitionContract) SetProductGroupNil(b bool)`
+
+ SetProductGroupNil sets the value for ProductGroup to be an explicit nil
+
+### UnsetProductGroup
+`func (o *SettingDefinitionContract) UnsetProductGroup()`
+
+UnsetProductGroup ensures that no value is present for ProductGroup, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name | [optional] 
+**Name** | Pointer to **NullableString** | Name | [optional] 
 **Uid** | Pointer to **int32** | Id | [optional] 
 **Day** | Pointer to [**BackupRestoreScheduleDays**](BackupRestoreScheduleDays.md) |  | [optional] 
 **DaysInWeek** | Pointer to [**[]BackupRestoreScheduleDays**](BackupRestoreScheduleDays.md) | Days in Week | [optional] 
 **DayInMonth** | Pointer to [**BackupRestoreScheduleDays**](BackupRestoreScheduleDays.md) |  | [optional] 
 **WeekInMonth** | Pointer to [**BackupRestoreScheduleWeeks**](BackupRestoreScheduleWeeks.md) |  | [optional] 
-**StartDate** | Pointer to **string** | Start Date | [optional] 
+**StartDate** | Pointer to **NullableString** | Start Date | [optional] 
 **FrequencyFactor** | Pointer to **int32** | Frequency Factor | [optional] 
-**Description** | Pointer to **string** | Description | [optional] 
+**Description** | Pointer to **NullableString** | Description | [optional] 
 **Enabled** | Pointer to **bool** | Enabled              | [optional] 
 **Frequency** | Pointer to [**BackupRestoreScheduleFrequency**](BackupRestoreScheduleFrequency.md) |  | [optional] 
-**StartTime** | Pointer to **string** | Start Time | [optional] 
-**TimeZone** | Pointer to **string** | Time Zone              | [optional] 
+**StartTime** | Pointer to **NullableString** | Start Time | [optional] 
+**TimeZoneId** | Pointer to **NullableString** | Time Zone Id              | [optional] 
 
 ## Methods
 
@@ -62,6 +62,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *BackupRestoreScheduleResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *BackupRestoreScheduleResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUid
 
 `func (o *BackupRestoreScheduleResponseModel) GetUid() int32`
@@ -137,6 +147,16 @@ SetDaysInWeek sets DaysInWeek field to given value.
 
 HasDaysInWeek returns a boolean if a field has been set.
 
+### SetDaysInWeekNil
+
+`func (o *BackupRestoreScheduleResponseModel) SetDaysInWeekNil(b bool)`
+
+ SetDaysInWeekNil sets the value for DaysInWeek to be an explicit nil
+
+### UnsetDaysInWeek
+`func (o *BackupRestoreScheduleResponseModel) UnsetDaysInWeek()`
+
+UnsetDaysInWeek ensures that no value is present for DaysInWeek, not even an explicit nil
 ### GetDayInMonth
 
 `func (o *BackupRestoreScheduleResponseModel) GetDayInMonth() BackupRestoreScheduleDays`
@@ -212,6 +232,16 @@ SetStartDate sets StartDate field to given value.
 
 HasStartDate returns a boolean if a field has been set.
 
+### SetStartDateNil
+
+`func (o *BackupRestoreScheduleResponseModel) SetStartDateNil(b bool)`
+
+ SetStartDateNil sets the value for StartDate to be an explicit nil
+
+### UnsetStartDate
+`func (o *BackupRestoreScheduleResponseModel) UnsetStartDate()`
+
+UnsetStartDate ensures that no value is present for StartDate, not even an explicit nil
 ### GetFrequencyFactor
 
 `func (o *BackupRestoreScheduleResponseModel) GetFrequencyFactor() int32`
@@ -262,6 +292,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *BackupRestoreScheduleResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *BackupRestoreScheduleResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *BackupRestoreScheduleResponseModel) GetEnabled() bool`
@@ -337,31 +377,51 @@ SetStartTime sets StartTime field to given value.
 
 HasStartTime returns a boolean if a field has been set.
 
-### GetTimeZone
+### SetStartTimeNil
 
-`func (o *BackupRestoreScheduleResponseModel) GetTimeZone() string`
+`func (o *BackupRestoreScheduleResponseModel) SetStartTimeNil(b bool)`
 
-GetTimeZone returns the TimeZone field if non-nil, zero value otherwise.
+ SetStartTimeNil sets the value for StartTime to be an explicit nil
 
-### GetTimeZoneOk
+### UnsetStartTime
+`func (o *BackupRestoreScheduleResponseModel) UnsetStartTime()`
 
-`func (o *BackupRestoreScheduleResponseModel) GetTimeZoneOk() (*string, bool)`
+UnsetStartTime ensures that no value is present for StartTime, not even an explicit nil
+### GetTimeZoneId
 
-GetTimeZoneOk returns a tuple with the TimeZone field if it's non-nil, zero value otherwise
+`func (o *BackupRestoreScheduleResponseModel) GetTimeZoneId() string`
+
+GetTimeZoneId returns the TimeZoneId field if non-nil, zero value otherwise.
+
+### GetTimeZoneIdOk
+
+`func (o *BackupRestoreScheduleResponseModel) GetTimeZoneIdOk() (*string, bool)`
+
+GetTimeZoneIdOk returns a tuple with the TimeZoneId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTimeZone
+### SetTimeZoneId
 
-`func (o *BackupRestoreScheduleResponseModel) SetTimeZone(v string)`
+`func (o *BackupRestoreScheduleResponseModel) SetTimeZoneId(v string)`
 
-SetTimeZone sets TimeZone field to given value.
+SetTimeZoneId sets TimeZoneId field to given value.
 
-### HasTimeZone
+### HasTimeZoneId
 
-`func (o *BackupRestoreScheduleResponseModel) HasTimeZone() bool`
+`func (o *BackupRestoreScheduleResponseModel) HasTimeZoneId() bool`
 
-HasTimeZone returns a boolean if a field has been set.
+HasTimeZoneId returns a boolean if a field has been set.
 
+### SetTimeZoneIdNil
+
+`func (o *BackupRestoreScheduleResponseModel) SetTimeZoneIdNil(b bool)`
+
+ SetTimeZoneIdNil sets the value for TimeZoneId to be an explicit nil
+
+### UnsetTimeZoneId
+`func (o *BackupRestoreScheduleResponseModel) UnsetTimeZoneId()`
+
+UnsetTimeZoneId ensures that no value is present for TimeZoneId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

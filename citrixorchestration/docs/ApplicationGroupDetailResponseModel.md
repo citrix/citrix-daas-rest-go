@@ -5,21 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the application group. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | 
-**Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
+**Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
 **ContainerScopes** | [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application group reside. | 
-**Description** | Pointer to **string** | Description of the application group. As with other facets of application groups, the description is not visible to end users. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the application group. As with other facets of application groups, the description is not visible to end users. | [optional] 
 **Enabled** | **bool** | Indicates whether or not the applications in this application group can be launched. | 
-**Name** | Pointer to **string** | Simple administrative name of application group within parent admin folder (if any). This property  is not guaranteed unique across all application groups. | [optional] 
-**FullName** | Pointer to **string** | Name of this application group. The name uniquely identifies the application group within the site. As with other facets of application groups, the name is not visible to end users. | [optional] 
+**Name** | Pointer to **NullableString** | Simple administrative name of application group within parent admin folder (if any). This property  is not guaranteed unique across all application groups. | [optional] 
+**FullName** | Pointer to **NullableString** | Name of this application group. The name uniquely identifies the application group within the site. As with other facets of application groups, the name is not visible to end users. | [optional] 
 **Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | The list of the delegated admin scopes to which the application group belongs. | 
 **Tags** | Pointer to **[]string** | Tags associated with this application group. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the application group is assigned to.  If &#x60;null&#x60;, the application group is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
 **NumApplications** | **int32** | Number of applications present in the application group. | 
 **NumMachines** | **int32** | Number of machines capable of hosting the applications in the application group. | 
 **NumMachinesWithTag** | Pointer to **int32** | Total number of machines across all desktop groups on  which the application group is published, and which are tagged with the tag given by the RestrictToTag property. | [optional] 
-**RestrictToTag** | Pointer to [**ApplicationGroupResponseModelRestrictToTag**](ApplicationGroupResponseModelRestrictToTag.md) |  | [optional] 
+**RestrictToTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **DeliveryGroups** | [**[]ApplicationGroupDeliveryGroupRefResponseModel**](ApplicationGroupDeliveryGroupRefResponseModel.md) | Delivery groups associated with the application group. | 
-**AdminFolder** | Pointer to [**ApplicationGroupResponseModelAdminFolder**](ApplicationGroupResponseModelAdminFolder.md) |  | [optional] 
+**AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **ApplicationCount** | **int32** | Number of applications in the group. | 
 **IncludedUsersFilterEnabled** | **bool** | Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access polic(ies) is implicitly granted access to the applications in the application group. | 
 **IncludedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | The included users filter of the application group; that is, the users and groups who are explicitly granted access to the applications in the application group. | [optional] 
@@ -90,6 +90,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *ApplicationGroupDetailResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetContainerScopes
 
 `func (o *ApplicationGroupDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel`
@@ -135,6 +145,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ApplicationGroupDetailResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *ApplicationGroupDetailResponseModel) GetEnabled() bool`
@@ -180,6 +200,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ApplicationGroupDetailResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFullName
 
 `func (o *ApplicationGroupDetailResponseModel) GetFullName() string`
@@ -205,6 +235,16 @@ SetFullName sets FullName field to given value.
 
 HasFullName returns a boolean if a field has been set.
 
+### SetFullNameNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetFullNameNil(b bool)`
+
+ SetFullNameNil sets the value for FullName to be an explicit nil
+
+### UnsetFullName
+`func (o *ApplicationGroupDetailResponseModel) UnsetFullName()`
+
+UnsetFullName ensures that no value is present for FullName, not even an explicit nil
 ### GetScopes
 
 `func (o *ApplicationGroupDetailResponseModel) GetScopes() []ScopeResponseModel`
@@ -250,6 +290,16 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *ApplicationGroupDetailResponseModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetTenants
 
 `func (o *ApplicationGroupDetailResponseModel) GetTenants() []RefResponseModel`
@@ -275,6 +325,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *ApplicationGroupDetailResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetNumApplications
 
 `func (o *ApplicationGroupDetailResponseModel) GetNumApplications() int32`
@@ -342,20 +402,20 @@ HasNumMachinesWithTag returns a boolean if a field has been set.
 
 ### GetRestrictToTag
 
-`func (o *ApplicationGroupDetailResponseModel) GetRestrictToTag() ApplicationGroupResponseModelRestrictToTag`
+`func (o *ApplicationGroupDetailResponseModel) GetRestrictToTag() RefResponseModel`
 
 GetRestrictToTag returns the RestrictToTag field if non-nil, zero value otherwise.
 
 ### GetRestrictToTagOk
 
-`func (o *ApplicationGroupDetailResponseModel) GetRestrictToTagOk() (*ApplicationGroupResponseModelRestrictToTag, bool)`
+`func (o *ApplicationGroupDetailResponseModel) GetRestrictToTagOk() (*RefResponseModel, bool)`
 
 GetRestrictToTagOk returns a tuple with the RestrictToTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRestrictToTag
 
-`func (o *ApplicationGroupDetailResponseModel) SetRestrictToTag(v ApplicationGroupResponseModelRestrictToTag)`
+`func (o *ApplicationGroupDetailResponseModel) SetRestrictToTag(v RefResponseModel)`
 
 SetRestrictToTag sets RestrictToTag field to given value.
 
@@ -387,20 +447,20 @@ SetDeliveryGroups sets DeliveryGroups field to given value.
 
 ### GetAdminFolder
 
-`func (o *ApplicationGroupDetailResponseModel) GetAdminFolder() ApplicationGroupResponseModelAdminFolder`
+`func (o *ApplicationGroupDetailResponseModel) GetAdminFolder() RefResponseModel`
 
 GetAdminFolder returns the AdminFolder field if non-nil, zero value otherwise.
 
 ### GetAdminFolderOk
 
-`func (o *ApplicationGroupDetailResponseModel) GetAdminFolderOk() (*ApplicationGroupResponseModelAdminFolder, bool)`
+`func (o *ApplicationGroupDetailResponseModel) GetAdminFolderOk() (*RefResponseModel, bool)`
 
 GetAdminFolderOk returns a tuple with the AdminFolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdminFolder
 
-`func (o *ApplicationGroupDetailResponseModel) SetAdminFolder(v ApplicationGroupResponseModelAdminFolder)`
+`func (o *ApplicationGroupDetailResponseModel) SetAdminFolder(v RefResponseModel)`
 
 SetAdminFolder sets AdminFolder field to given value.
 
@@ -475,6 +535,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *ApplicationGroupDetailResponseModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 ### GetSessionSharingEnabled
 
 `func (o *ApplicationGroupDetailResponseModel) GetSessionSharingEnabled() bool`

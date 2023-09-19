@@ -5,18 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | 
-**Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
-**ApplicationFolder** | [**ApplicationResponseModelApplicationFolder**](ApplicationResponseModelApplicationFolder.md) |  | 
+**Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
+**ApplicationFolder** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **ApplicationType** | [**ApplicationType**](ApplicationType.md) |  | 
-**ClientFolder** | Pointer to **string** | The folder that the application belongs to as the user sees it. | [optional] 
+**ClientFolder** | Pointer to **NullableString** | The folder that the application belongs to as the user sees it. | [optional] 
 **ContainerScopes** | [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application reside. | 
-**Description** | Pointer to **string** | The description of the application. | [optional] 
+**Description** | Pointer to **NullableString** | The description of the application. | [optional] 
 **DoNotEnumerate** | Pointer to **bool** | Indicates whether or not this application is enumerable | [optional] 
 **Enabled** | **bool** | Indicates whether or not this application can be launched. | 
 **IconId** | **string** | Id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid | 
-**InstalledAppProperties** | Pointer to [**ApplicationResponseModelInstalledAppProperties**](ApplicationResponseModelInstalledAppProperties.md) |  | [optional] 
-**AppVAppProperties** | Pointer to [**ApplicationResponseModelAppVAppProperties**](ApplicationResponseModelAppVAppProperties.md) |  | [optional] 
-**ContentLocation** | Pointer to **string** | Location of published content. | [optional] 
+**InstalledAppProperties** | Pointer to [**InstalledAppResponseModel**](InstalledAppResponseModel.md) |  | [optional] 
+**AppVAppProperties** | Pointer to [**AppVAppResponseModel**](AppVAppResponseModel.md) |  | [optional] 
+**ContentLocation** | Pointer to **NullableString** | Location of published content. | [optional] 
 **Name** | **string** | Name of the application.  Only seen by administrators. | 
 **PublishedName** | **string** | The name seen by end users who have access to the application. | 
 **Visible** | **bool** | Indicates whether or not this application is visible to users. | 
@@ -28,13 +28,13 @@ Name | Type | Description | Notes
 **NumAssociatedApplicationGroups** | Pointer to **int32** | Number of application groups that the application is associated with. | [optional] 
 **AssociatedDeliveryGroupUuids** | Pointer to **[]string** | Delivery group Uuids that the application is associated with. | [optional] 
 **AssociatedApplicationGroupUuids** | Pointer to **[]string** | Application group Uuids that the application is associated with. | [optional] 
-**ZoneId** | Pointer to **string** | Application Zone info. | [optional] 
+**ZoneId** | Pointer to **NullableString** | Application Zone info. | [optional] 
 
 ## Methods
 
 ### NewApplicationResponseModel
 
-`func NewApplicationResponseModel(id string, applicationFolder ApplicationResponseModelApplicationFolder, applicationType ApplicationType, containerScopes []ContainerScopeResponseModel, enabled bool, iconId string, name string, publishedName string, visible bool, sharingKind SharingKind, ) *ApplicationResponseModel`
+`func NewApplicationResponseModel(id string, applicationFolder RefResponseModel, applicationType ApplicationType, containerScopes []ContainerScopeResponseModel, enabled bool, iconId string, name string, publishedName string, visible bool, sharingKind SharingKind, ) *ApplicationResponseModel`
 
 NewApplicationResponseModel instantiates a new ApplicationResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -94,22 +94,32 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *ApplicationResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *ApplicationResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetApplicationFolder
 
-`func (o *ApplicationResponseModel) GetApplicationFolder() ApplicationResponseModelApplicationFolder`
+`func (o *ApplicationResponseModel) GetApplicationFolder() RefResponseModel`
 
 GetApplicationFolder returns the ApplicationFolder field if non-nil, zero value otherwise.
 
 ### GetApplicationFolderOk
 
-`func (o *ApplicationResponseModel) GetApplicationFolderOk() (*ApplicationResponseModelApplicationFolder, bool)`
+`func (o *ApplicationResponseModel) GetApplicationFolderOk() (*RefResponseModel, bool)`
 
 GetApplicationFolderOk returns a tuple with the ApplicationFolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApplicationFolder
 
-`func (o *ApplicationResponseModel) SetApplicationFolder(v ApplicationResponseModelApplicationFolder)`
+`func (o *ApplicationResponseModel) SetApplicationFolder(v RefResponseModel)`
 
 SetApplicationFolder sets ApplicationFolder field to given value.
 
@@ -159,6 +169,16 @@ SetClientFolder sets ClientFolder field to given value.
 
 HasClientFolder returns a boolean if a field has been set.
 
+### SetClientFolderNil
+
+`func (o *ApplicationResponseModel) SetClientFolderNil(b bool)`
+
+ SetClientFolderNil sets the value for ClientFolder to be an explicit nil
+
+### UnsetClientFolder
+`func (o *ApplicationResponseModel) UnsetClientFolder()`
+
+UnsetClientFolder ensures that no value is present for ClientFolder, not even an explicit nil
 ### GetContainerScopes
 
 `func (o *ApplicationResponseModel) GetContainerScopes() []ContainerScopeResponseModel`
@@ -204,6 +224,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ApplicationResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ApplicationResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDoNotEnumerate
 
 `func (o *ApplicationResponseModel) GetDoNotEnumerate() bool`
@@ -271,20 +301,20 @@ SetIconId sets IconId field to given value.
 
 ### GetInstalledAppProperties
 
-`func (o *ApplicationResponseModel) GetInstalledAppProperties() ApplicationResponseModelInstalledAppProperties`
+`func (o *ApplicationResponseModel) GetInstalledAppProperties() InstalledAppResponseModel`
 
 GetInstalledAppProperties returns the InstalledAppProperties field if non-nil, zero value otherwise.
 
 ### GetInstalledAppPropertiesOk
 
-`func (o *ApplicationResponseModel) GetInstalledAppPropertiesOk() (*ApplicationResponseModelInstalledAppProperties, bool)`
+`func (o *ApplicationResponseModel) GetInstalledAppPropertiesOk() (*InstalledAppResponseModel, bool)`
 
 GetInstalledAppPropertiesOk returns a tuple with the InstalledAppProperties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInstalledAppProperties
 
-`func (o *ApplicationResponseModel) SetInstalledAppProperties(v ApplicationResponseModelInstalledAppProperties)`
+`func (o *ApplicationResponseModel) SetInstalledAppProperties(v InstalledAppResponseModel)`
 
 SetInstalledAppProperties sets InstalledAppProperties field to given value.
 
@@ -296,20 +326,20 @@ HasInstalledAppProperties returns a boolean if a field has been set.
 
 ### GetAppVAppProperties
 
-`func (o *ApplicationResponseModel) GetAppVAppProperties() ApplicationResponseModelAppVAppProperties`
+`func (o *ApplicationResponseModel) GetAppVAppProperties() AppVAppResponseModel`
 
 GetAppVAppProperties returns the AppVAppProperties field if non-nil, zero value otherwise.
 
 ### GetAppVAppPropertiesOk
 
-`func (o *ApplicationResponseModel) GetAppVAppPropertiesOk() (*ApplicationResponseModelAppVAppProperties, bool)`
+`func (o *ApplicationResponseModel) GetAppVAppPropertiesOk() (*AppVAppResponseModel, bool)`
 
 GetAppVAppPropertiesOk returns a tuple with the AppVAppProperties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppVAppProperties
 
-`func (o *ApplicationResponseModel) SetAppVAppProperties(v ApplicationResponseModelAppVAppProperties)`
+`func (o *ApplicationResponseModel) SetAppVAppProperties(v AppVAppResponseModel)`
 
 SetAppVAppProperties sets AppVAppProperties field to given value.
 
@@ -344,6 +374,16 @@ SetContentLocation sets ContentLocation field to given value.
 
 HasContentLocation returns a boolean if a field has been set.
 
+### SetContentLocationNil
+
+`func (o *ApplicationResponseModel) SetContentLocationNil(b bool)`
+
+ SetContentLocationNil sets the value for ContentLocation to be an explicit nil
+
+### UnsetContentLocation
+`func (o *ApplicationResponseModel) UnsetContentLocation()`
+
+UnsetContentLocation ensures that no value is present for ContentLocation, not even an explicit nil
 ### GetName
 
 `func (o *ApplicationResponseModel) GetName() string`
@@ -449,6 +489,16 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *ApplicationResponseModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *ApplicationResponseModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetTenants
 
 `func (o *ApplicationResponseModel) GetTenants() []RefResponseModel`
@@ -474,6 +524,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *ApplicationResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *ApplicationResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetCloudWorkspaceManaged
 
 `func (o *ApplicationResponseModel) GetCloudWorkspaceManaged() bool`
@@ -574,6 +634,16 @@ SetAssociatedDeliveryGroupUuids sets AssociatedDeliveryGroupUuids field to given
 
 HasAssociatedDeliveryGroupUuids returns a boolean if a field has been set.
 
+### SetAssociatedDeliveryGroupUuidsNil
+
+`func (o *ApplicationResponseModel) SetAssociatedDeliveryGroupUuidsNil(b bool)`
+
+ SetAssociatedDeliveryGroupUuidsNil sets the value for AssociatedDeliveryGroupUuids to be an explicit nil
+
+### UnsetAssociatedDeliveryGroupUuids
+`func (o *ApplicationResponseModel) UnsetAssociatedDeliveryGroupUuids()`
+
+UnsetAssociatedDeliveryGroupUuids ensures that no value is present for AssociatedDeliveryGroupUuids, not even an explicit nil
 ### GetAssociatedApplicationGroupUuids
 
 `func (o *ApplicationResponseModel) GetAssociatedApplicationGroupUuids() []string`
@@ -599,6 +669,16 @@ SetAssociatedApplicationGroupUuids sets AssociatedApplicationGroupUuids field to
 
 HasAssociatedApplicationGroupUuids returns a boolean if a field has been set.
 
+### SetAssociatedApplicationGroupUuidsNil
+
+`func (o *ApplicationResponseModel) SetAssociatedApplicationGroupUuidsNil(b bool)`
+
+ SetAssociatedApplicationGroupUuidsNil sets the value for AssociatedApplicationGroupUuids to be an explicit nil
+
+### UnsetAssociatedApplicationGroupUuids
+`func (o *ApplicationResponseModel) UnsetAssociatedApplicationGroupUuids()`
+
+UnsetAssociatedApplicationGroupUuids ensures that no value is present for AssociatedApplicationGroupUuids, not even an explicit nil
 ### GetZoneId
 
 `func (o *ApplicationResponseModel) GetZoneId() string`
@@ -624,6 +704,16 @@ SetZoneId sets ZoneId field to given value.
 
 HasZoneId returns a boolean if a field has been set.
 
+### SetZoneIdNil
+
+`func (o *ApplicationResponseModel) SetZoneIdNil(b bool)`
+
+ SetZoneIdNil sets the value for ZoneId to be an explicit nil
+
+### UnsetZoneId
+`func (o *ApplicationResponseModel) UnsetZoneId()`
+
+UnsetZoneId ensures that no value is present for ZoneId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

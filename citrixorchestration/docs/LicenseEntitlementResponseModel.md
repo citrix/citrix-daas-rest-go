@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The license entitlement id | [optional] 
-**ProductName** | Pointer to **string** | The product name of the license | [optional] 
+**Id** | Pointer to **NullableString** | The license entitlement id | [optional] 
+**ProductName** | Pointer to **NullableString** | The product name of the license | [optional] 
 **LicenseTotal** | Pointer to **int32** | The total quantity of the license | [optional] 
 **LicenseAvailable** | Pointer to **int32** | The quantity of the available license | [optional] 
 
@@ -53,6 +53,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *LicenseEntitlementResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *LicenseEntitlementResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetProductName
 
 `func (o *LicenseEntitlementResponseModel) GetProductName() string`
@@ -78,6 +88,16 @@ SetProductName sets ProductName field to given value.
 
 HasProductName returns a boolean if a field has been set.
 
+### SetProductNameNil
+
+`func (o *LicenseEntitlementResponseModel) SetProductNameNil(b bool)`
+
+ SetProductNameNil sets the value for ProductName to be an explicit nil
+
+### UnsetProductName
+`func (o *LicenseEntitlementResponseModel) UnsetProductName()`
+
+UnsetProductName ensures that no value is present for ProductName, not even an explicit nil
 ### GetLicenseTotal
 
 `func (o *LicenseEntitlementResponseModel) GetLicenseTotal() int32`

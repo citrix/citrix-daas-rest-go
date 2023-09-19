@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Get or set a unique persistent identifier for the PackageDiscoverySession. | [optional] 
+**Id** | Pointer to **NullableString** | Get or set a unique persistent identifier for the PackageDiscoverySession. | [optional] 
 **DiscoveryProfileUid** | Pointer to **int32** | Get or set a unique persistent identifier for the PackageDiscoveryProfile. | [optional] 
 **DesktopGroupUid** | Pointer to **int32** | The UID of the DesktopGroup from which the broker will select a VDA to run the discovery. | [optional] 
 **BrokerMachineUid** | Pointer to **int32** | Get or set a unique persistent identifier for the BrokderMachine. | [optional] 
-**BrokerMachineSID** | Pointer to **string** | Gets or sets the SID of the broker machine that was chosen to run the discovery. | [optional] 
-**Path** | Pointer to **string** | The path to the root directory where the discovery will run. | [optional] 
-**ManagementServer** | Pointer to **string** | The url of the App-V Management server that packages will be discovered from. | [optional] 
-**PublishingServer** | Pointer to **string** | The url of the App-V server that packages wil be discovered from. | [optional] 
+**BrokerMachineSID** | Pointer to **NullableString** | Gets or sets the SID of the broker machine that was chosen to run the discovery. | [optional] 
+**Path** | Pointer to **NullableString** | The path to the root directory where the discovery will run. | [optional] 
+**ManagementServer** | Pointer to **NullableString** | The url of the App-V Management server that packages will be discovered from. | [optional] 
+**PublishingServer** | Pointer to **NullableString** | The url of the App-V server that packages wil be discovered from. | [optional] 
 **Status** | Pointer to [**AppLibPackageDiscoveryStatus**](AppLibPackageDiscoveryStatus.md) |  | [optional] 
-**StatusMessage** | Pointer to **string** | The status message of PackageDiscoverySession | [optional] 
+**StatusMessage** | Pointer to **NullableString** | The status message of PackageDiscoverySession | [optional] 
 **ImportedPackages** | Pointer to **int32** | the number of the imported packages | [optional] 
 **ImportProgress** | Pointer to **int32** | the progress of package import | [optional] 
 **DiscoveredPackages** | Pointer to **int32** | the number of discovered packages | [optional] 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ExpectedPackages** | Pointer to **int32** | the number of the expected packages | [optional] 
 **ReportingProgress** | Pointer to **int32** | Gets the percentage value of the reporting progress. | [optional] 
 **ReportedPackages** | Pointer to **int32** | Gets or sets the number of packages that have reported so far.              | [optional] 
-**DiscoverySessionTime** | Pointer to **string** | Get the discovery session time | [optional] 
+**DiscoverySessionTime** | Pointer to **NullableString** | Get the discovery session time | [optional] 
 
 ## Methods
 
@@ -67,6 +67,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AppLibPackageDiscoveryResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AppLibPackageDiscoveryResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetDiscoveryProfileUid
 
 `func (o *AppLibPackageDiscoveryResponseModel) GetDiscoveryProfileUid() int32`
@@ -167,6 +177,16 @@ SetBrokerMachineSID sets BrokerMachineSID field to given value.
 
 HasBrokerMachineSID returns a boolean if a field has been set.
 
+### SetBrokerMachineSIDNil
+
+`func (o *AppLibPackageDiscoveryResponseModel) SetBrokerMachineSIDNil(b bool)`
+
+ SetBrokerMachineSIDNil sets the value for BrokerMachineSID to be an explicit nil
+
+### UnsetBrokerMachineSID
+`func (o *AppLibPackageDiscoveryResponseModel) UnsetBrokerMachineSID()`
+
+UnsetBrokerMachineSID ensures that no value is present for BrokerMachineSID, not even an explicit nil
 ### GetPath
 
 `func (o *AppLibPackageDiscoveryResponseModel) GetPath() string`
@@ -192,6 +212,16 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
+### SetPathNil
+
+`func (o *AppLibPackageDiscoveryResponseModel) SetPathNil(b bool)`
+
+ SetPathNil sets the value for Path to be an explicit nil
+
+### UnsetPath
+`func (o *AppLibPackageDiscoveryResponseModel) UnsetPath()`
+
+UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetManagementServer
 
 `func (o *AppLibPackageDiscoveryResponseModel) GetManagementServer() string`
@@ -217,6 +247,16 @@ SetManagementServer sets ManagementServer field to given value.
 
 HasManagementServer returns a boolean if a field has been set.
 
+### SetManagementServerNil
+
+`func (o *AppLibPackageDiscoveryResponseModel) SetManagementServerNil(b bool)`
+
+ SetManagementServerNil sets the value for ManagementServer to be an explicit nil
+
+### UnsetManagementServer
+`func (o *AppLibPackageDiscoveryResponseModel) UnsetManagementServer()`
+
+UnsetManagementServer ensures that no value is present for ManagementServer, not even an explicit nil
 ### GetPublishingServer
 
 `func (o *AppLibPackageDiscoveryResponseModel) GetPublishingServer() string`
@@ -242,6 +282,16 @@ SetPublishingServer sets PublishingServer field to given value.
 
 HasPublishingServer returns a boolean if a field has been set.
 
+### SetPublishingServerNil
+
+`func (o *AppLibPackageDiscoveryResponseModel) SetPublishingServerNil(b bool)`
+
+ SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
+
+### UnsetPublishingServer
+`func (o *AppLibPackageDiscoveryResponseModel) UnsetPublishingServer()`
+
+UnsetPublishingServer ensures that no value is present for PublishingServer, not even an explicit nil
 ### GetStatus
 
 `func (o *AppLibPackageDiscoveryResponseModel) GetStatus() AppLibPackageDiscoveryStatus`
@@ -292,6 +342,16 @@ SetStatusMessage sets StatusMessage field to given value.
 
 HasStatusMessage returns a boolean if a field has been set.
 
+### SetStatusMessageNil
+
+`func (o *AppLibPackageDiscoveryResponseModel) SetStatusMessageNil(b bool)`
+
+ SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
+
+### UnsetStatusMessage
+`func (o *AppLibPackageDiscoveryResponseModel) UnsetStatusMessage()`
+
+UnsetStatusMessage ensures that no value is present for StatusMessage, not even an explicit nil
 ### GetImportedPackages
 
 `func (o *AppLibPackageDiscoveryResponseModel) GetImportedPackages() int32`
@@ -492,6 +552,16 @@ SetDiscoverySessionTime sets DiscoverySessionTime field to given value.
 
 HasDiscoverySessionTime returns a boolean if a field has been set.
 
+### SetDiscoverySessionTimeNil
+
+`func (o *AppLibPackageDiscoveryResponseModel) SetDiscoverySessionTimeNil(b bool)`
+
+ SetDiscoverySessionTimeNil sets the value for DiscoverySessionTime to be an explicit nil
+
+### UnsetDiscoverySessionTime
+`func (o *AppLibPackageDiscoveryResponseModel) UnsetDiscoverySessionTime()`
+
+UnsetDiscoverySessionTime ensures that no value is present for DiscoverySessionTime, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

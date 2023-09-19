@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | [**AdministratorResponseModelUser**](AdministratorResponseModelUser.md) |  | 
+**User** | [**IdentityUserResponseModel**](IdentityUserResponseModel.md) |  | 
 **ScopesAndRoles** | [**[]AdministratorRightResponseModel**](AdministratorRightResponseModel.md) | Rights associated with the administrator. CHANGE: was public ScopeRolePair[] ScopesAndRoles { get; set; } | 
 **Enabled** | **bool** | Indicates whether the administrator is enabled. Disabled administrators cannot administer the site UNLESS they are a member of a different user group which is granted access by a different administrator record. | 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewAdministratorResponseModel
 
-`func NewAdministratorResponseModel(user AdministratorResponseModelUser, scopesAndRoles []AdministratorRightResponseModel, enabled bool, ) *AdministratorResponseModel`
+`func NewAdministratorResponseModel(user IdentityUserResponseModel, scopesAndRoles []AdministratorRightResponseModel, enabled bool, ) *AdministratorResponseModel`
 
 NewAdministratorResponseModel instantiates a new AdministratorResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetUser
 
-`func (o *AdministratorResponseModel) GetUser() AdministratorResponseModelUser`
+`func (o *AdministratorResponseModel) GetUser() IdentityUserResponseModel`
 
 GetUser returns the User field if non-nil, zero value otherwise.
 
 ### GetUserOk
 
-`func (o *AdministratorResponseModel) GetUserOk() (*AdministratorResponseModelUser, bool)`
+`func (o *AdministratorResponseModel) GetUserOk() (*IdentityUserResponseModel, bool)`
 
 GetUserOk returns a tuple with the User field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUser
 
-`func (o *AdministratorResponseModel) SetUser(v AdministratorResponseModelUser)`
+`func (o *AdministratorResponseModel) SetUser(v IdentityUserResponseModel)`
 
 SetUser sets User field to given value.
 

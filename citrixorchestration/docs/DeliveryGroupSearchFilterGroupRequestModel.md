@@ -78,6 +78,16 @@ SetSearchFilters sets SearchFilters field to given value.
 
 HasSearchFilters returns a boolean if a field has been set.
 
+### SetSearchFiltersNil
+
+`func (o *DeliveryGroupSearchFilterGroupRequestModel) SetSearchFiltersNil(b bool)`
+
+ SetSearchFiltersNil sets the value for SearchFilters to be an explicit nil
+
+### UnsetSearchFilters
+`func (o *DeliveryGroupSearchFilterGroupRequestModel) UnsetSearchFilters()`
+
+UnsetSearchFilters ensures that no value is present for SearchFilters, not even an explicit nil
 ### GetSearchFilterGroupsType
 
 `func (o *DeliveryGroupSearchFilterGroupRequestModel) GetSearchFilterGroupsType() DeliveryGroupSearchFilterGroupsType`
@@ -128,6 +138,16 @@ SetSearchFilterGroups sets SearchFilterGroups field to given value.
 
 HasSearchFilterGroups returns a boolean if a field has been set.
 
+### SetSearchFilterGroupsNil
+
+`func (o *DeliveryGroupSearchFilterGroupRequestModel) SetSearchFilterGroupsNil(b bool)`
+
+ SetSearchFilterGroupsNil sets the value for SearchFilterGroups to be an explicit nil
+
+### UnsetSearchFilterGroups
+`func (o *DeliveryGroupSearchFilterGroupRequestModel) UnsetSearchFilterGroups()`
+
+UnsetSearchFilterGroups ensures that no value is present for SearchFilterGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

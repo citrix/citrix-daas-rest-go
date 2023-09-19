@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Hypervisor** | [**HypervisorTestResponseModelHypervisor**](HypervisorTestResponseModelHypervisor.md) |  | 
+**Hypervisor** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **NumPassed** | **int32** | The number of tests that passed. | 
 **NumWarnings** | **int32** | The number of warnings that were found. | 
 **NumFailures** | **int32** | The number of tests that failed. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewHypervisorTestResponseModel
 
-`func NewHypervisorTestResponseModel(hypervisor HypervisorTestResponseModelHypervisor, numPassed int32, numWarnings int32, numFailures int32, ) *HypervisorTestResponseModel`
+`func NewHypervisorTestResponseModel(hypervisor RefResponseModel, numPassed int32, numWarnings int32, numFailures int32, ) *HypervisorTestResponseModel`
 
 NewHypervisorTestResponseModel instantiates a new HypervisorTestResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetHypervisor
 
-`func (o *HypervisorTestResponseModel) GetHypervisor() HypervisorTestResponseModelHypervisor`
+`func (o *HypervisorTestResponseModel) GetHypervisor() RefResponseModel`
 
 GetHypervisor returns the Hypervisor field if non-nil, zero value otherwise.
 
 ### GetHypervisorOk
 
-`func (o *HypervisorTestResponseModel) GetHypervisorOk() (*HypervisorTestResponseModelHypervisor, bool)`
+`func (o *HypervisorTestResponseModel) GetHypervisorOk() (*RefResponseModel, bool)`
 
 GetHypervisorOk returns a tuple with the Hypervisor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisor
 
-`func (o *HypervisorTestResponseModel) SetHypervisor(v HypervisorTestResponseModelHypervisor)`
+`func (o *HypervisorTestResponseModel) SetHypervisor(v RefResponseModel)`
 
 SetHypervisor sets Hypervisor field to given value.
 

@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdminMachineIP** | Pointer to **string** | IP address of the admin machine from which the operation was performed.              | [optional] 
+**AdminMachineIP** | Pointer to **NullableString** | IP address of the admin machine from which the operation was performed.              | [optional] 
 **Details** | Pointer to [**[]LowLevelOperationDetailResponseModel**](LowLevelOperationDetailResponseModel.md) | Details.              | [optional] 
-**EndTime** | Pointer to **string** | Time when the operation ended. If the operation is incomplete, will be null.              | [optional] 
-**FormattedEndTime** | Pointer to **string** | Formatted time when the operation ended. RFC 3339 compatible format. If the operation is incomplete, will be null.              | [optional] 
+**EndTime** | Pointer to **NullableString** | Time when the operation ended. If the operation is incomplete, will be null.              | [optional] 
+**FormattedEndTime** | Pointer to **NullableString** | Formatted time when the operation ended. RFC 3339 compatible format. If the operation is incomplete, will be null.              | [optional] 
 **Id** | **string** | ID of the logged operation.              | 
-**IsSuccessful** | Pointer to **bool** | Indicates whether the operation completed successfully.  If the operation is incomplete, will be null.              | [optional] 
+**IsSuccessful** | Pointer to **NullableBool** | Indicates whether the operation completed successfully.  If the operation is incomplete, will be null.              | [optional] 
 **OperationId** | **string** | The id of the (high level) operation.              | 
 **OperationType** | [**LogOperationType**](LogOperationType.md) |  | 
 **Parameters** | [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Operation parameters.              | 
 **Source** | **string** | Source of the operation.              | 
-**SourceSdk** | Pointer to **string** | The source SDK.              | [optional] 
+**SourceSdk** | Pointer to **NullableString** | The source SDK.              | [optional] 
 **StartTime** | **string** | Time when the operation started.              | 
 **FormattedStartTime** | **string** | Formatted time when the operation started. RFC 3339 compatible format.              | 
 **TargetTypes** | **[]string** | The type(s) of object which were the target of the configuration change. For example, \&quot;Session\&quot; or \&quot;Machine\&quot;.              | 
 **Text** | **string** | Human-readable description of the change.              | 
-**User** | Pointer to **string** | User who performed the change.              | [optional] 
+**User** | Pointer to **NullableString** | User who performed the change.              | [optional] 
 
 ## Methods
 
@@ -65,6 +65,16 @@ SetAdminMachineIP sets AdminMachineIP field to given value.
 
 HasAdminMachineIP returns a boolean if a field has been set.
 
+### SetAdminMachineIPNil
+
+`func (o *LowLevelOperationResponseModel) SetAdminMachineIPNil(b bool)`
+
+ SetAdminMachineIPNil sets the value for AdminMachineIP to be an explicit nil
+
+### UnsetAdminMachineIP
+`func (o *LowLevelOperationResponseModel) UnsetAdminMachineIP()`
+
+UnsetAdminMachineIP ensures that no value is present for AdminMachineIP, not even an explicit nil
 ### GetDetails
 
 `func (o *LowLevelOperationResponseModel) GetDetails() []LowLevelOperationDetailResponseModel`
@@ -90,6 +100,16 @@ SetDetails sets Details field to given value.
 
 HasDetails returns a boolean if a field has been set.
 
+### SetDetailsNil
+
+`func (o *LowLevelOperationResponseModel) SetDetailsNil(b bool)`
+
+ SetDetailsNil sets the value for Details to be an explicit nil
+
+### UnsetDetails
+`func (o *LowLevelOperationResponseModel) UnsetDetails()`
+
+UnsetDetails ensures that no value is present for Details, not even an explicit nil
 ### GetEndTime
 
 `func (o *LowLevelOperationResponseModel) GetEndTime() string`
@@ -115,6 +135,16 @@ SetEndTime sets EndTime field to given value.
 
 HasEndTime returns a boolean if a field has been set.
 
+### SetEndTimeNil
+
+`func (o *LowLevelOperationResponseModel) SetEndTimeNil(b bool)`
+
+ SetEndTimeNil sets the value for EndTime to be an explicit nil
+
+### UnsetEndTime
+`func (o *LowLevelOperationResponseModel) UnsetEndTime()`
+
+UnsetEndTime ensures that no value is present for EndTime, not even an explicit nil
 ### GetFormattedEndTime
 
 `func (o *LowLevelOperationResponseModel) GetFormattedEndTime() string`
@@ -140,6 +170,16 @@ SetFormattedEndTime sets FormattedEndTime field to given value.
 
 HasFormattedEndTime returns a boolean if a field has been set.
 
+### SetFormattedEndTimeNil
+
+`func (o *LowLevelOperationResponseModel) SetFormattedEndTimeNil(b bool)`
+
+ SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
+
+### UnsetFormattedEndTime
+`func (o *LowLevelOperationResponseModel) UnsetFormattedEndTime()`
+
+UnsetFormattedEndTime ensures that no value is present for FormattedEndTime, not even an explicit nil
 ### GetId
 
 `func (o *LowLevelOperationResponseModel) GetId() string`
@@ -185,6 +225,16 @@ SetIsSuccessful sets IsSuccessful field to given value.
 
 HasIsSuccessful returns a boolean if a field has been set.
 
+### SetIsSuccessfulNil
+
+`func (o *LowLevelOperationResponseModel) SetIsSuccessfulNil(b bool)`
+
+ SetIsSuccessfulNil sets the value for IsSuccessful to be an explicit nil
+
+### UnsetIsSuccessful
+`func (o *LowLevelOperationResponseModel) UnsetIsSuccessful()`
+
+UnsetIsSuccessful ensures that no value is present for IsSuccessful, not even an explicit nil
 ### GetOperationId
 
 `func (o *LowLevelOperationResponseModel) GetOperationId() string`
@@ -290,6 +340,16 @@ SetSourceSdk sets SourceSdk field to given value.
 
 HasSourceSdk returns a boolean if a field has been set.
 
+### SetSourceSdkNil
+
+`func (o *LowLevelOperationResponseModel) SetSourceSdkNil(b bool)`
+
+ SetSourceSdkNil sets the value for SourceSdk to be an explicit nil
+
+### UnsetSourceSdk
+`func (o *LowLevelOperationResponseModel) UnsetSourceSdk()`
+
+UnsetSourceSdk ensures that no value is present for SourceSdk, not even an explicit nil
 ### GetStartTime
 
 `func (o *LowLevelOperationResponseModel) GetStartTime() string`
@@ -395,6 +455,16 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
+### SetUserNil
+
+`func (o *LowLevelOperationResponseModel) SetUserNil(b bool)`
+
+ SetUserNil sets the value for User to be an explicit nil
+
+### UnsetUser
+`func (o *LowLevelOperationResponseModel) UnsetUser()`
+
+UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

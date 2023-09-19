@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountSamName** | **string** | The same name of the account | 
-**AccountSid** | Pointer to **string** | The sid of the account | [optional] 
+**AccountSid** | Pointer to **NullableString** | The sid of the account | [optional] 
 **Permissions** | Pointer to [**LicensingPermissionLevel**](LicensingPermissionLevel.md) |  | [optional] 
 **IsGroup** | Pointer to **bool** | Whether this account is a group account | [optional] 
 
@@ -73,6 +73,16 @@ SetAccountSid sets AccountSid field to given value.
 
 HasAccountSid returns a boolean if a field has been set.
 
+### SetAccountSidNil
+
+`func (o *CreateLicensingAdminRequestModel) SetAccountSidNil(b bool)`
+
+ SetAccountSidNil sets the value for AccountSid to be an explicit nil
+
+### UnsetAccountSid
+`func (o *CreateLicensingAdminRequestModel) UnsetAccountSid()`
+
+UnsetAccountSid ensures that no value is present for AccountSid, not even an explicit nil
 ### GetPermissions
 
 `func (o *CreateLicensingAdminRequestModel) GetPermissions() LicensingPermissionLevel`

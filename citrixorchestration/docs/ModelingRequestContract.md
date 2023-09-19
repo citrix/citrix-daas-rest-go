@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DomainController** | Pointer to **string** | The domain controller | [optional] 
-**ComputerIdentity** | Pointer to **string** | The computer | [optional] 
-**UserIdentity** | Pointer to **string** | The user | [optional] 
-**SiteName** | Pointer to **string** | The site name | [optional] 
-**Computer** | Pointer to **string** | The selected computer | [optional] 
-**ComputerContainer** | Pointer to **string** | Selected computer container | [optional] 
-**User** | Pointer to **string** | Selected user | [optional] 
-**UserSid** | Pointer to **string** | SID of the selected user. | [optional] 
-**DistinguishedName** | Pointer to **string** | User distinguished name. | [optional] 
+**DomainController** | Pointer to **NullableString** | The domain controller | [optional] 
+**ComputerIdentity** | Pointer to **NullableString** | The computer | [optional] 
+**UserIdentity** | Pointer to **NullableString** | The user | [optional] 
+**SiteName** | Pointer to **NullableString** | The site name | [optional] 
+**Computer** | Pointer to **NullableString** | The selected computer | [optional] 
+**ComputerContainer** | Pointer to **NullableString** | Selected computer container | [optional] 
+**User** | Pointer to **NullableString** | Selected user | [optional] 
+**UserSid** | Pointer to **NullableString** | SID of the selected user. | [optional] 
+**DistinguishedName** | Pointer to **NullableString** | User distinguished name. | [optional] 
 **GroupSids** | Pointer to **[]string** | SIDs of the groups to which the user belongs. | [optional] 
-**UserContainer** | Pointer to **string** | Selected user container | [optional] 
-**ClientIPAddress** | Pointer to **string** | Client IP address | [optional] 
-**ClientName** | Pointer to **string** | Client name | [optional] 
-**DeliveryGroup** | Pointer to **string** | Delivery group | [optional] 
-**DeliveryGroupType** | Pointer to **string** | Delivery group type, values are members of enum DesktopKind. | [optional] 
+**UserContainer** | Pointer to **NullableString** | Selected user container | [optional] 
+**ClientIPAddress** | Pointer to **NullableString** | Client IP address | [optional] 
+**ClientName** | Pointer to **NullableString** | Client name | [optional] 
+**DeliveryGroup** | Pointer to **NullableString** | Delivery group | [optional] 
+**DeliveryGroupType** | Pointer to **NullableString** | Delivery group type, values are members of enum DesktopKind. | [optional] 
 **DeliveryGroupTags** | Pointer to **[]string** | Delivery group tags | [optional] 
 **IsUsingAccessGateway** | Pointer to **bool** | Using Access Gateway | [optional] 
-**AccessGatewayFarm** | Pointer to **string** | Access Gateway farm | [optional] 
+**AccessGatewayFarm** | Pointer to **NullableString** | Access Gateway farm | [optional] 
 **AccessGatewayTags** | Pointer to **[]string** | Access Gateway tags | [optional] 
 **IsUsingWanScaler** | Pointer to **bool** | Using WanScaler (NetScaler SD-WAN) | [optional] 
 
@@ -69,6 +69,16 @@ SetDomainController sets DomainController field to given value.
 
 HasDomainController returns a boolean if a field has been set.
 
+### SetDomainControllerNil
+
+`func (o *ModelingRequestContract) SetDomainControllerNil(b bool)`
+
+ SetDomainControllerNil sets the value for DomainController to be an explicit nil
+
+### UnsetDomainController
+`func (o *ModelingRequestContract) UnsetDomainController()`
+
+UnsetDomainController ensures that no value is present for DomainController, not even an explicit nil
 ### GetComputerIdentity
 
 `func (o *ModelingRequestContract) GetComputerIdentity() string`
@@ -94,6 +104,16 @@ SetComputerIdentity sets ComputerIdentity field to given value.
 
 HasComputerIdentity returns a boolean if a field has been set.
 
+### SetComputerIdentityNil
+
+`func (o *ModelingRequestContract) SetComputerIdentityNil(b bool)`
+
+ SetComputerIdentityNil sets the value for ComputerIdentity to be an explicit nil
+
+### UnsetComputerIdentity
+`func (o *ModelingRequestContract) UnsetComputerIdentity()`
+
+UnsetComputerIdentity ensures that no value is present for ComputerIdentity, not even an explicit nil
 ### GetUserIdentity
 
 `func (o *ModelingRequestContract) GetUserIdentity() string`
@@ -119,6 +139,16 @@ SetUserIdentity sets UserIdentity field to given value.
 
 HasUserIdentity returns a boolean if a field has been set.
 
+### SetUserIdentityNil
+
+`func (o *ModelingRequestContract) SetUserIdentityNil(b bool)`
+
+ SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
+
+### UnsetUserIdentity
+`func (o *ModelingRequestContract) UnsetUserIdentity()`
+
+UnsetUserIdentity ensures that no value is present for UserIdentity, not even an explicit nil
 ### GetSiteName
 
 `func (o *ModelingRequestContract) GetSiteName() string`
@@ -144,6 +174,16 @@ SetSiteName sets SiteName field to given value.
 
 HasSiteName returns a boolean if a field has been set.
 
+### SetSiteNameNil
+
+`func (o *ModelingRequestContract) SetSiteNameNil(b bool)`
+
+ SetSiteNameNil sets the value for SiteName to be an explicit nil
+
+### UnsetSiteName
+`func (o *ModelingRequestContract) UnsetSiteName()`
+
+UnsetSiteName ensures that no value is present for SiteName, not even an explicit nil
 ### GetComputer
 
 `func (o *ModelingRequestContract) GetComputer() string`
@@ -169,6 +209,16 @@ SetComputer sets Computer field to given value.
 
 HasComputer returns a boolean if a field has been set.
 
+### SetComputerNil
+
+`func (o *ModelingRequestContract) SetComputerNil(b bool)`
+
+ SetComputerNil sets the value for Computer to be an explicit nil
+
+### UnsetComputer
+`func (o *ModelingRequestContract) UnsetComputer()`
+
+UnsetComputer ensures that no value is present for Computer, not even an explicit nil
 ### GetComputerContainer
 
 `func (o *ModelingRequestContract) GetComputerContainer() string`
@@ -194,6 +244,16 @@ SetComputerContainer sets ComputerContainer field to given value.
 
 HasComputerContainer returns a boolean if a field has been set.
 
+### SetComputerContainerNil
+
+`func (o *ModelingRequestContract) SetComputerContainerNil(b bool)`
+
+ SetComputerContainerNil sets the value for ComputerContainer to be an explicit nil
+
+### UnsetComputerContainer
+`func (o *ModelingRequestContract) UnsetComputerContainer()`
+
+UnsetComputerContainer ensures that no value is present for ComputerContainer, not even an explicit nil
 ### GetUser
 
 `func (o *ModelingRequestContract) GetUser() string`
@@ -219,6 +279,16 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
+### SetUserNil
+
+`func (o *ModelingRequestContract) SetUserNil(b bool)`
+
+ SetUserNil sets the value for User to be an explicit nil
+
+### UnsetUser
+`func (o *ModelingRequestContract) UnsetUser()`
+
+UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetUserSid
 
 `func (o *ModelingRequestContract) GetUserSid() string`
@@ -244,6 +314,16 @@ SetUserSid sets UserSid field to given value.
 
 HasUserSid returns a boolean if a field has been set.
 
+### SetUserSidNil
+
+`func (o *ModelingRequestContract) SetUserSidNil(b bool)`
+
+ SetUserSidNil sets the value for UserSid to be an explicit nil
+
+### UnsetUserSid
+`func (o *ModelingRequestContract) UnsetUserSid()`
+
+UnsetUserSid ensures that no value is present for UserSid, not even an explicit nil
 ### GetDistinguishedName
 
 `func (o *ModelingRequestContract) GetDistinguishedName() string`
@@ -269,6 +349,16 @@ SetDistinguishedName sets DistinguishedName field to given value.
 
 HasDistinguishedName returns a boolean if a field has been set.
 
+### SetDistinguishedNameNil
+
+`func (o *ModelingRequestContract) SetDistinguishedNameNil(b bool)`
+
+ SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+
+### UnsetDistinguishedName
+`func (o *ModelingRequestContract) UnsetDistinguishedName()`
+
+UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
 ### GetGroupSids
 
 `func (o *ModelingRequestContract) GetGroupSids() []string`
@@ -294,6 +384,16 @@ SetGroupSids sets GroupSids field to given value.
 
 HasGroupSids returns a boolean if a field has been set.
 
+### SetGroupSidsNil
+
+`func (o *ModelingRequestContract) SetGroupSidsNil(b bool)`
+
+ SetGroupSidsNil sets the value for GroupSids to be an explicit nil
+
+### UnsetGroupSids
+`func (o *ModelingRequestContract) UnsetGroupSids()`
+
+UnsetGroupSids ensures that no value is present for GroupSids, not even an explicit nil
 ### GetUserContainer
 
 `func (o *ModelingRequestContract) GetUserContainer() string`
@@ -319,6 +419,16 @@ SetUserContainer sets UserContainer field to given value.
 
 HasUserContainer returns a boolean if a field has been set.
 
+### SetUserContainerNil
+
+`func (o *ModelingRequestContract) SetUserContainerNil(b bool)`
+
+ SetUserContainerNil sets the value for UserContainer to be an explicit nil
+
+### UnsetUserContainer
+`func (o *ModelingRequestContract) UnsetUserContainer()`
+
+UnsetUserContainer ensures that no value is present for UserContainer, not even an explicit nil
 ### GetClientIPAddress
 
 `func (o *ModelingRequestContract) GetClientIPAddress() string`
@@ -344,6 +454,16 @@ SetClientIPAddress sets ClientIPAddress field to given value.
 
 HasClientIPAddress returns a boolean if a field has been set.
 
+### SetClientIPAddressNil
+
+`func (o *ModelingRequestContract) SetClientIPAddressNil(b bool)`
+
+ SetClientIPAddressNil sets the value for ClientIPAddress to be an explicit nil
+
+### UnsetClientIPAddress
+`func (o *ModelingRequestContract) UnsetClientIPAddress()`
+
+UnsetClientIPAddress ensures that no value is present for ClientIPAddress, not even an explicit nil
 ### GetClientName
 
 `func (o *ModelingRequestContract) GetClientName() string`
@@ -369,6 +489,16 @@ SetClientName sets ClientName field to given value.
 
 HasClientName returns a boolean if a field has been set.
 
+### SetClientNameNil
+
+`func (o *ModelingRequestContract) SetClientNameNil(b bool)`
+
+ SetClientNameNil sets the value for ClientName to be an explicit nil
+
+### UnsetClientName
+`func (o *ModelingRequestContract) UnsetClientName()`
+
+UnsetClientName ensures that no value is present for ClientName, not even an explicit nil
 ### GetDeliveryGroup
 
 `func (o *ModelingRequestContract) GetDeliveryGroup() string`
@@ -394,6 +524,16 @@ SetDeliveryGroup sets DeliveryGroup field to given value.
 
 HasDeliveryGroup returns a boolean if a field has been set.
 
+### SetDeliveryGroupNil
+
+`func (o *ModelingRequestContract) SetDeliveryGroupNil(b bool)`
+
+ SetDeliveryGroupNil sets the value for DeliveryGroup to be an explicit nil
+
+### UnsetDeliveryGroup
+`func (o *ModelingRequestContract) UnsetDeliveryGroup()`
+
+UnsetDeliveryGroup ensures that no value is present for DeliveryGroup, not even an explicit nil
 ### GetDeliveryGroupType
 
 `func (o *ModelingRequestContract) GetDeliveryGroupType() string`
@@ -419,6 +559,16 @@ SetDeliveryGroupType sets DeliveryGroupType field to given value.
 
 HasDeliveryGroupType returns a boolean if a field has been set.
 
+### SetDeliveryGroupTypeNil
+
+`func (o *ModelingRequestContract) SetDeliveryGroupTypeNil(b bool)`
+
+ SetDeliveryGroupTypeNil sets the value for DeliveryGroupType to be an explicit nil
+
+### UnsetDeliveryGroupType
+`func (o *ModelingRequestContract) UnsetDeliveryGroupType()`
+
+UnsetDeliveryGroupType ensures that no value is present for DeliveryGroupType, not even an explicit nil
 ### GetDeliveryGroupTags
 
 `func (o *ModelingRequestContract) GetDeliveryGroupTags() []string`
@@ -444,6 +594,16 @@ SetDeliveryGroupTags sets DeliveryGroupTags field to given value.
 
 HasDeliveryGroupTags returns a boolean if a field has been set.
 
+### SetDeliveryGroupTagsNil
+
+`func (o *ModelingRequestContract) SetDeliveryGroupTagsNil(b bool)`
+
+ SetDeliveryGroupTagsNil sets the value for DeliveryGroupTags to be an explicit nil
+
+### UnsetDeliveryGroupTags
+`func (o *ModelingRequestContract) UnsetDeliveryGroupTags()`
+
+UnsetDeliveryGroupTags ensures that no value is present for DeliveryGroupTags, not even an explicit nil
 ### GetIsUsingAccessGateway
 
 `func (o *ModelingRequestContract) GetIsUsingAccessGateway() bool`
@@ -494,6 +654,16 @@ SetAccessGatewayFarm sets AccessGatewayFarm field to given value.
 
 HasAccessGatewayFarm returns a boolean if a field has been set.
 
+### SetAccessGatewayFarmNil
+
+`func (o *ModelingRequestContract) SetAccessGatewayFarmNil(b bool)`
+
+ SetAccessGatewayFarmNil sets the value for AccessGatewayFarm to be an explicit nil
+
+### UnsetAccessGatewayFarm
+`func (o *ModelingRequestContract) UnsetAccessGatewayFarm()`
+
+UnsetAccessGatewayFarm ensures that no value is present for AccessGatewayFarm, not even an explicit nil
 ### GetAccessGatewayTags
 
 `func (o *ModelingRequestContract) GetAccessGatewayTags() []string`
@@ -519,6 +689,16 @@ SetAccessGatewayTags sets AccessGatewayTags field to given value.
 
 HasAccessGatewayTags returns a boolean if a field has been set.
 
+### SetAccessGatewayTagsNil
+
+`func (o *ModelingRequestContract) SetAccessGatewayTagsNil(b bool)`
+
+ SetAccessGatewayTagsNil sets the value for AccessGatewayTags to be an explicit nil
+
+### UnsetAccessGatewayTags
+`func (o *ModelingRequestContract) UnsetAccessGatewayTags()`
+
+UnsetAccessGatewayTags ensures that no value is present for AccessGatewayTags, not even an explicit nil
 ### GetIsUsingWanScaler
 
 `func (o *ModelingRequestContract) GetIsUsingWanScaler() bool`

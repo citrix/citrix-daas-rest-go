@@ -118,6 +118,16 @@ SetPeakHours sets PeakHours field to given value.
 
 HasPeakHours returns a boolean if a field has been set.
 
+### SetPeakHoursNil
+
+`func (o *PowerTimeSchemeResponseModel) SetPeakHoursNil(b bool)`
+
+ SetPeakHoursNil sets the value for PeakHours to be an explicit nil
+
+### UnsetPeakHours
+`func (o *PowerTimeSchemeResponseModel) UnsetPeakHours()`
+
+UnsetPeakHours ensures that no value is present for PeakHours, not even an explicit nil
 ### GetPeakTimeRanges
 
 `func (o *PowerTimeSchemeResponseModel) GetPeakTimeRanges() []string`
@@ -143,6 +153,16 @@ SetPeakTimeRanges sets PeakTimeRanges field to given value.
 
 HasPeakTimeRanges returns a boolean if a field has been set.
 
+### SetPeakTimeRangesNil
+
+`func (o *PowerTimeSchemeResponseModel) SetPeakTimeRangesNil(b bool)`
+
+ SetPeakTimeRangesNil sets the value for PeakTimeRanges to be an explicit nil
+
+### UnsetPeakTimeRanges
+`func (o *PowerTimeSchemeResponseModel) UnsetPeakTimeRanges()`
+
+UnsetPeakTimeRanges ensures that no value is present for PeakTimeRanges, not even an explicit nil
 ### GetPoolSize
 
 `func (o *PowerTimeSchemeResponseModel) GetPoolSize() []int32`
@@ -168,6 +188,16 @@ SetPoolSize sets PoolSize field to given value.
 
 HasPoolSize returns a boolean if a field has been set.
 
+### SetPoolSizeNil
+
+`func (o *PowerTimeSchemeResponseModel) SetPoolSizeNil(b bool)`
+
+ SetPoolSizeNil sets the value for PoolSize to be an explicit nil
+
+### UnsetPoolSize
+`func (o *PowerTimeSchemeResponseModel) UnsetPoolSize()`
+
+UnsetPoolSize ensures that no value is present for PoolSize, not even an explicit nil
 ### GetPoolSizeSchedule
 
 `func (o *PowerTimeSchemeResponseModel) GetPoolSizeSchedule() []PoolSizeScheduleResponseModel`
@@ -193,6 +223,16 @@ SetPoolSizeSchedule sets PoolSizeSchedule field to given value.
 
 HasPoolSizeSchedule returns a boolean if a field has been set.
 
+### SetPoolSizeScheduleNil
+
+`func (o *PowerTimeSchemeResponseModel) SetPoolSizeScheduleNil(b bool)`
+
+ SetPoolSizeScheduleNil sets the value for PoolSizeSchedule to be an explicit nil
+
+### UnsetPoolSizeSchedule
+`func (o *PowerTimeSchemeResponseModel) UnsetPoolSizeSchedule()`
+
+UnsetPoolSizeSchedule ensures that no value is present for PoolSizeSchedule, not even an explicit nil
 ### GetPoolUsingPercentage
 
 `func (o *PowerTimeSchemeResponseModel) GetPoolUsingPercentage() bool`

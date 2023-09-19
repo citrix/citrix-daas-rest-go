@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **UpgradeFailureCount** | Pointer to **int32** | Count of machines whose last upgrade failed during package installtion. | [optional] 
 **ScheduledTimeUtc** | Pointer to **time.Time** | UTC time when this VDA upgrade was scheduled to start. | [optional] 
 **DurationInHours** | Pointer to **int32** | Timeout duration in hours, of the current VDA upgrade schdeule. | [optional] 
-**TargetPackageVersion** | Pointer to **string** | Target package version of the current VDA upgrade schdeule. | [optional] 
+**TargetPackageVersion** | Pointer to **NullableString** | Target package version of the current VDA upgrade schdeule. | [optional] 
 **CancelledUpgradeCount** | Pointer to **int32** | Count of machines whose last upgrade canceled during package installtion. | [optional] 
 **WaitingToUpgradeCount** | Pointer to **int32** | Count of machines who is waiting to upgrade. | [optional] 
 
@@ -286,6 +286,16 @@ SetTargetPackageVersion sets TargetPackageVersion field to given value.
 
 HasTargetPackageVersion returns a boolean if a field has been set.
 
+### SetTargetPackageVersionNil
+
+`func (o *MachineCatalogUpgradeDetail) SetTargetPackageVersionNil(b bool)`
+
+ SetTargetPackageVersionNil sets the value for TargetPackageVersion to be an explicit nil
+
+### UnsetTargetPackageVersion
+`func (o *MachineCatalogUpgradeDetail) UnsetTargetPackageVersion()`
+
+UnsetTargetPackageVersion ensures that no value is present for TargetPackageVersion, not even an explicit nil
 ### GetCancelledUpgradeCount
 
 `func (o *MachineCatalogUpgradeDetail) GetCancelledUpgradeCount() int32`

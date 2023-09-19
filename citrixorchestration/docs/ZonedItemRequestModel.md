@@ -113,6 +113,16 @@ SetAdditionalPropertiesField sets AdditionalPropertiesField field to given value
 
 HasAdditionalPropertiesField returns a boolean if a field has been set.
 
+### SetAdditionalPropertiesFieldNil
+
+`func (o *ZonedItemRequestModel) SetAdditionalPropertiesFieldNil(b bool)`
+
+ SetAdditionalPropertiesFieldNil sets the value for AdditionalPropertiesField to be an explicit nil
+
+### UnsetAdditionalPropertiesField
+`func (o *ZonedItemRequestModel) UnsetAdditionalPropertiesField()`
+
+UnsetAdditionalPropertiesField ensures that no value is present for AdditionalPropertiesField, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

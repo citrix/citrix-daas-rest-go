@@ -55,6 +55,8 @@
 
 * `IN_MAINTENANCE_MODE` (value: `"InMaintenanceMode"`)
 
+* `MAINTENANCE_MODE_REASON` (value: `"MaintenanceModeReason"`)
+
 * `DRAINING_UNTIL_SHUTDOWN` (value: `"DrainingUntilShutdown"`)
 
 * `MACHINE_NAME` (value: `"MachineName"`)

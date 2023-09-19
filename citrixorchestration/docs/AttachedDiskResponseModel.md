@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of the attached disk. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the attached disk. | [optional] 
 **IsBootDisk** | Pointer to **bool** | Indicates whether the disk is the boot disk of the VM. | [optional] 
 **SizeGB** | Pointer to **int32** | Size of the disk, in whole GB. | [optional] 
-**InfrastructureUid** | Pointer to **string** | Opaque identifier used by the underlying infrastructure to identify the disk. | [optional] 
+**InfrastructureUid** | Pointer to **NullableString** | Opaque identifier used by the underlying infrastructure to identify the disk. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AttachedDiskResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AttachedDiskResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsBootDisk
 
 `func (o *AttachedDiskResponseModel) GetIsBootDisk() bool`
@@ -128,6 +138,16 @@ SetInfrastructureUid sets InfrastructureUid field to given value.
 
 HasInfrastructureUid returns a boolean if a field has been set.
 
+### SetInfrastructureUidNil
+
+`func (o *AttachedDiskResponseModel) SetInfrastructureUidNil(b bool)`
+
+ SetInfrastructureUidNil sets the value for InfrastructureUid to be an explicit nil
+
+### UnsetInfrastructureUid
+`func (o *AttachedDiskResponseModel) UnsetInfrastructureUid()`
+
+UnsetInfrastructureUid ensures that no value is present for InfrastructureUid, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

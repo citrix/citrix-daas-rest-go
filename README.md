@@ -48,7 +48,7 @@ func main() {
         clientId := "{apiKeyClientId}"
         clientSecret := "{apiKeyClientSecret}"
         onPremise := false
-        client, err := citrixclient.NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret, onPremise)
+        client, err := citrixclient.NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret, onPremise, nil, nil)
         
         // Create GET zone request with zoneId and siteId
         zoneId := "8994379b-8585-4717-9765-632992e738d3"

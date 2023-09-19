@@ -4,28 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
-**HypervisorConnection** | [**HypervisorResourcePoolResponseModelAllOfHypervisorConnection**](HypervisorResourcePoolResponseModelAllOfHypervisorConnection.md) |  | 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**HypervisorConnection** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
-**DefaultNetwork** | [**HypervisorResourcePoolResponseModelAllOfDefaultNetwork**](HypervisorResourcePoolResponseModelAllOfDefaultNetwork.md) |  | 
+**DefaultNetwork** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
 **VMTaggingEnabled** | **bool** | Indicates whether new virtual machines are tagged with metadata from the hypervisor. | 
-**ResourcePoolRootPath** | Pointer to **string** | Hypervisor resourcePool RootPath. | [optional] 
-**ResourcePoolRootId** | Pointer to **string** | Hypervisor resourcePool RootId. | [optional] 
+**ResourcePoolRootPath** | Pointer to **NullableString** | Hypervisor resourcePool RootPath. | [optional] 
+**ResourcePoolRootId** | Pointer to **NullableString** | Hypervisor resourcePool RootId. | [optional] 
 **GpuTypes** | Pointer to [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | GPU types available in the resource pool.  Only applicable to hypervisors that support GPU types. | [optional] 
 **UsesExplicitStorage** | Pointer to **bool** | If the hypervisor resource pool use ExplicitStorage. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor resource pool.  | [optional] 
-**Project** | [**HypervisorResourcePoolGcpDetailResponseModelAllOfProject**](HypervisorResourcePoolGcpDetailResponseModelAllOfProject.md) |  | 
-**Region** | [**HypervisorResourcePoolGcpDetailResponseModelAllOfRegion**](HypervisorResourcePoolGcpDetailResponseModelAllOfRegion.md) |  | 
-**VirtualPrivateCloud** | [**HypervisorResourcePoolGcpDetailResponseModelAllOfVirtualPrivateCloud**](HypervisorResourcePoolGcpDetailResponseModelAllOfVirtualPrivateCloud.md) |  | 
+**Project** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**Region** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**VirtualPrivateCloud** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
 **Networks** | [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | List of networks in the VirtualPrivateCloud that may be used within the resource pool. | 
 
 ## Methods
 
 ### NewHypervisorResourcePoolGcpDetailResponseModel
 
-`func NewHypervisorResourcePoolGcpDetailResponseModel(hypervisorConnection HypervisorResourcePoolResponseModelAllOfHypervisorConnection, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourcePoolResponseModelAllOfDefaultNetwork, vMTaggingEnabled bool, project HypervisorResourcePoolGcpDetailResponseModelAllOfProject, region HypervisorResourcePoolGcpDetailResponseModelAllOfRegion, virtualPrivateCloud HypervisorResourcePoolGcpDetailResponseModelAllOfVirtualPrivateCloud, networks []HypervisorResourceRefResponseModel, ) *HypervisorResourcePoolGcpDetailResponseModel`
+`func NewHypervisorResourcePoolGcpDetailResponseModel(hypervisorConnection RefResponseModel, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool, project HypervisorResourceRefResponseModel, region HypervisorResourceRefResponseModel, virtualPrivateCloud HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel, ) *HypervisorResourcePoolGcpDetailResponseModel`
 
 NewHypervisorResourcePoolGcpDetailResponseModel instantiates a new HypervisorResourcePoolGcpDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +65,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorResourcePoolGcpDetailResponseModel) GetName() string`
@@ -90,6 +100,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorResourcePoolGcpDetailResponseModel) GetXDPath() string`
@@ -115,22 +135,32 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetHypervisorConnection
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetHypervisorConnection() HypervisorResourcePoolResponseModelAllOfHypervisorConnection`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetHypervisorConnection() RefResponseModel`
 
 GetHypervisorConnection returns the HypervisorConnection field if non-nil, zero value otherwise.
 
 ### GetHypervisorConnectionOk
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetHypervisorConnectionOk() (*HypervisorResourcePoolResponseModelAllOfHypervisorConnection, bool)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetHypervisorConnectionOk() (*RefResponseModel, bool)`
 
 GetHypervisorConnectionOk returns a tuple with the HypervisorConnection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisorConnection
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetHypervisorConnection(v HypervisorResourcePoolResponseModelAllOfHypervisorConnection)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetHypervisorConnection(v RefResponseModel)`
 
 SetHypervisorConnection sets HypervisorConnection field to given value.
 
@@ -157,20 +187,20 @@ SetConnectionType sets ConnectionType field to given value.
 
 ### GetDefaultNetwork
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetDefaultNetwork() HypervisorResourcePoolResponseModelAllOfDefaultNetwork`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetDefaultNetwork() HypervisorResourceRefResponseModel`
 
 GetDefaultNetwork returns the DefaultNetwork field if non-nil, zero value otherwise.
 
 ### GetDefaultNetworkOk
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetDefaultNetworkOk() (*HypervisorResourcePoolResponseModelAllOfDefaultNetwork, bool)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetDefaultNetworkOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetDefaultNetworkOk returns a tuple with the DefaultNetwork field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultNetwork
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetDefaultNetwork(v HypervisorResourcePoolResponseModelAllOfDefaultNetwork)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetDefaultNetwork(v HypervisorResourceRefResponseModel)`
 
 SetDefaultNetwork sets DefaultNetwork field to given value.
 
@@ -220,6 +250,16 @@ SetResourcePoolRootPath sets ResourcePoolRootPath field to given value.
 
 HasResourcePoolRootPath returns a boolean if a field has been set.
 
+### SetResourcePoolRootPathNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetResourcePoolRootPathNil(b bool)`
+
+ SetResourcePoolRootPathNil sets the value for ResourcePoolRootPath to be an explicit nil
+
+### UnsetResourcePoolRootPath
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetResourcePoolRootPath()`
+
+UnsetResourcePoolRootPath ensures that no value is present for ResourcePoolRootPath, not even an explicit nil
 ### GetResourcePoolRootId
 
 `func (o *HypervisorResourcePoolGcpDetailResponseModel) GetResourcePoolRootId() string`
@@ -245,6 +285,16 @@ SetResourcePoolRootId sets ResourcePoolRootId field to given value.
 
 HasResourcePoolRootId returns a boolean if a field has been set.
 
+### SetResourcePoolRootIdNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetResourcePoolRootIdNil(b bool)`
+
+ SetResourcePoolRootIdNil sets the value for ResourcePoolRootId to be an explicit nil
+
+### UnsetResourcePoolRootId
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetResourcePoolRootId()`
+
+UnsetResourcePoolRootId ensures that no value is present for ResourcePoolRootId, not even an explicit nil
 ### GetGpuTypes
 
 `func (o *HypervisorResourcePoolGcpDetailResponseModel) GetGpuTypes() []HypervisorResourceRefResponseModel`
@@ -270,6 +320,16 @@ SetGpuTypes sets GpuTypes field to given value.
 
 HasGpuTypes returns a boolean if a field has been set.
 
+### SetGpuTypesNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetGpuTypesNil(b bool)`
+
+ SetGpuTypesNil sets the value for GpuTypes to be an explicit nil
+
+### UnsetGpuTypes
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetGpuTypes()`
+
+UnsetGpuTypes ensures that no value is present for GpuTypes, not even an explicit nil
 ### GetUsesExplicitStorage
 
 `func (o *HypervisorResourcePoolGcpDetailResponseModel) GetUsesExplicitStorage() bool`
@@ -320,62 +380,72 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetProject
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProject() HypervisorResourcePoolGcpDetailResponseModelAllOfProject`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProject() HypervisorResourceRefResponseModel`
 
 GetProject returns the Project field if non-nil, zero value otherwise.
 
 ### GetProjectOk
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProjectOk() (*HypervisorResourcePoolGcpDetailResponseModelAllOfProject, bool)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProjectOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetProjectOk returns a tuple with the Project field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProject
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetProject(v HypervisorResourcePoolGcpDetailResponseModelAllOfProject)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetProject(v HypervisorResourceRefResponseModel)`
 
 SetProject sets Project field to given value.
 
 
 ### GetRegion
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegion() HypervisorResourcePoolGcpDetailResponseModelAllOfRegion`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegion() HypervisorResourceRefResponseModel`
 
 GetRegion returns the Region field if non-nil, zero value otherwise.
 
 ### GetRegionOk
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegionOk() (*HypervisorResourcePoolGcpDetailResponseModelAllOfRegion, bool)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetRegionOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegion
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetRegion(v HypervisorResourcePoolGcpDetailResponseModelAllOfRegion)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetRegion(v HypervisorResourceRefResponseModel)`
 
 SetRegion sets Region field to given value.
 
 
 ### GetVirtualPrivateCloud
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloud() HypervisorResourcePoolGcpDetailResponseModelAllOfVirtualPrivateCloud`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloud() HypervisorResourceRefResponseModel`
 
 GetVirtualPrivateCloud returns the VirtualPrivateCloud field if non-nil, zero value otherwise.
 
 ### GetVirtualPrivateCloudOk
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloudOk() (*HypervisorResourcePoolGcpDetailResponseModelAllOfVirtualPrivateCloud, bool)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) GetVirtualPrivateCloudOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetVirtualPrivateCloudOk returns a tuple with the VirtualPrivateCloud field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVirtualPrivateCloud
 
-`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetVirtualPrivateCloud(v HypervisorResourcePoolGcpDetailResponseModelAllOfVirtualPrivateCloud)`
+`func (o *HypervisorResourcePoolGcpDetailResponseModel) SetVirtualPrivateCloud(v HypervisorResourceRefResponseModel)`
 
 SetVirtualPrivateCloud sets VirtualPrivateCloud field to given value.
 

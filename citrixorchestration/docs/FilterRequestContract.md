@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilterType** | Pointer to **string** | The filter name, or filter type. | [optional] 
-**FilterName** | Pointer to **string** | The filter name. | [optional] 
-**IsAllowed** | Pointer to **bool** | Allow or deny | [optional] [default to false]
-**IsEnabled** | Pointer to **bool** | Enabled or disabled | [optional] [default to false]
-**FilterValue** | Pointer to **string** | Serialized JSON string. | [optional] 
+**FilterType** | Pointer to **NullableString** | The filter name, or filter type. | [optional] 
+**FilterName** | Pointer to **NullableString** | The filter name. | [optional] 
+**IsAllowed** | Pointer to **NullableBool** | Allow or deny | [optional] [default to false]
+**IsEnabled** | Pointer to **NullableBool** | Enabled or disabled | [optional] [default to false]
+**FilterValue** | Pointer to **NullableString** | Serialized JSON string. | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetFilterType sets FilterType field to given value.
 
 HasFilterType returns a boolean if a field has been set.
 
+### SetFilterTypeNil
+
+`func (o *FilterRequestContract) SetFilterTypeNil(b bool)`
+
+ SetFilterTypeNil sets the value for FilterType to be an explicit nil
+
+### UnsetFilterType
+`func (o *FilterRequestContract) UnsetFilterType()`
+
+UnsetFilterType ensures that no value is present for FilterType, not even an explicit nil
 ### GetFilterName
 
 `func (o *FilterRequestContract) GetFilterName() string`
@@ -79,6 +89,16 @@ SetFilterName sets FilterName field to given value.
 
 HasFilterName returns a boolean if a field has been set.
 
+### SetFilterNameNil
+
+`func (o *FilterRequestContract) SetFilterNameNil(b bool)`
+
+ SetFilterNameNil sets the value for FilterName to be an explicit nil
+
+### UnsetFilterName
+`func (o *FilterRequestContract) UnsetFilterName()`
+
+UnsetFilterName ensures that no value is present for FilterName, not even an explicit nil
 ### GetIsAllowed
 
 `func (o *FilterRequestContract) GetIsAllowed() bool`
@@ -104,6 +124,16 @@ SetIsAllowed sets IsAllowed field to given value.
 
 HasIsAllowed returns a boolean if a field has been set.
 
+### SetIsAllowedNil
+
+`func (o *FilterRequestContract) SetIsAllowedNil(b bool)`
+
+ SetIsAllowedNil sets the value for IsAllowed to be an explicit nil
+
+### UnsetIsAllowed
+`func (o *FilterRequestContract) UnsetIsAllowed()`
+
+UnsetIsAllowed ensures that no value is present for IsAllowed, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *FilterRequestContract) GetIsEnabled() bool`
@@ -129,6 +159,16 @@ SetIsEnabled sets IsEnabled field to given value.
 
 HasIsEnabled returns a boolean if a field has been set.
 
+### SetIsEnabledNil
+
+`func (o *FilterRequestContract) SetIsEnabledNil(b bool)`
+
+ SetIsEnabledNil sets the value for IsEnabled to be an explicit nil
+
+### UnsetIsEnabled
+`func (o *FilterRequestContract) UnsetIsEnabled()`
+
+UnsetIsEnabled ensures that no value is present for IsEnabled, not even an explicit nil
 ### GetFilterValue
 
 `func (o *FilterRequestContract) GetFilterValue() string`
@@ -154,6 +194,16 @@ SetFilterValue sets FilterValue field to given value.
 
 HasFilterValue returns a boolean if a field has been set.
 
+### SetFilterValueNil
+
+`func (o *FilterRequestContract) SetFilterValueNil(b bool)`
+
+ SetFilterValueNil sets the value for FilterValue to be an explicit nil
+
+### UnsetFilterValue
+`func (o *FilterRequestContract) UnsetFilterValue()`
+
+UnsetFilterValue ensures that no value is present for FilterValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

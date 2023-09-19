@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | Specifies whether the app access policy is enabled. | [optional] 
-**ExcludedUserFilterEnabled** | Pointer to **bool** | Specifies whether the ExcludedUsers filter is enabled.  If the filter is disabled then any user entries in the filter are ignored when determining which applications are available for a user. | [optional] 
+**Enabled** | Pointer to **NullableBool** | Specifies whether the app access policy is enabled. | [optional] 
+**ExcludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the ExcludedUsers filter is enabled.  If the filter is disabled then any user entries in the filter are ignored when determining which applications are available for a user. | [optional] 
 **ExcludedUsers** | Pointer to **[]string** | Specifies the excluded users filter for applications published on the delivery group; that is, the users and groups who are explicitly denied access to ALL applications published on the delivery group. | [optional] 
-**IncludedUserFilterEnabled** | Pointer to **bool** | Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access policy may access applications published on the delivery group. | [optional] 
+**IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access policy may access applications published on the delivery group. | [optional] 
 **IncludedUsers** | Pointer to **[]string** | Specifies the included users filter for applications published on the delivery group; that is, the users and groups who are explicitly granted access to applications published on the delivery group. | [optional] 
 **LeasingBehavior** | Pointer to [**LeasingBehavior**](LeasingBehavior.md) |  | [optional] 
 **SessionReconnection** | Pointer to [**SessionReconnection**](SessionReconnection.md) |  | [optional] 
@@ -56,6 +56,16 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### SetEnabledNil
+
+`func (o *AppAccessPolicyRequestModel) SetEnabledNil(b bool)`
+
+ SetEnabledNil sets the value for Enabled to be an explicit nil
+
+### UnsetEnabled
+`func (o *AppAccessPolicyRequestModel) UnsetEnabled()`
+
+UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetExcludedUserFilterEnabled
 
 `func (o *AppAccessPolicyRequestModel) GetExcludedUserFilterEnabled() bool`
@@ -81,6 +91,16 @@ SetExcludedUserFilterEnabled sets ExcludedUserFilterEnabled field to given value
 
 HasExcludedUserFilterEnabled returns a boolean if a field has been set.
 
+### SetExcludedUserFilterEnabledNil
+
+`func (o *AppAccessPolicyRequestModel) SetExcludedUserFilterEnabledNil(b bool)`
+
+ SetExcludedUserFilterEnabledNil sets the value for ExcludedUserFilterEnabled to be an explicit nil
+
+### UnsetExcludedUserFilterEnabled
+`func (o *AppAccessPolicyRequestModel) UnsetExcludedUserFilterEnabled()`
+
+UnsetExcludedUserFilterEnabled ensures that no value is present for ExcludedUserFilterEnabled, not even an explicit nil
 ### GetExcludedUsers
 
 `func (o *AppAccessPolicyRequestModel) GetExcludedUsers() []string`
@@ -106,6 +126,16 @@ SetExcludedUsers sets ExcludedUsers field to given value.
 
 HasExcludedUsers returns a boolean if a field has been set.
 
+### SetExcludedUsersNil
+
+`func (o *AppAccessPolicyRequestModel) SetExcludedUsersNil(b bool)`
+
+ SetExcludedUsersNil sets the value for ExcludedUsers to be an explicit nil
+
+### UnsetExcludedUsers
+`func (o *AppAccessPolicyRequestModel) UnsetExcludedUsers()`
+
+UnsetExcludedUsers ensures that no value is present for ExcludedUsers, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *AppAccessPolicyRequestModel) GetIncludedUserFilterEnabled() bool`
@@ -131,6 +161,16 @@ SetIncludedUserFilterEnabled sets IncludedUserFilterEnabled field to given value
 
 HasIncludedUserFilterEnabled returns a boolean if a field has been set.
 
+### SetIncludedUserFilterEnabledNil
+
+`func (o *AppAccessPolicyRequestModel) SetIncludedUserFilterEnabledNil(b bool)`
+
+ SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
+
+### UnsetIncludedUserFilterEnabled
+`func (o *AppAccessPolicyRequestModel) UnsetIncludedUserFilterEnabled()`
+
+UnsetIncludedUserFilterEnabled ensures that no value is present for IncludedUserFilterEnabled, not even an explicit nil
 ### GetIncludedUsers
 
 `func (o *AppAccessPolicyRequestModel) GetIncludedUsers() []string`
@@ -156,6 +196,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *AppAccessPolicyRequestModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *AppAccessPolicyRequestModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 ### GetLeasingBehavior
 
 `func (o *AppAccessPolicyRequestModel) GetLeasingBehavior() LeasingBehavior`

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Rights** | Pointer to [**[]AdminRightRequestModel**](AdminRightRequestModel.md) | Rights associated with the administrator. | [optional] 
-**Enabled** | Pointer to **bool** | Indicates whether the administrator is enabled.  Disabled administrators cannot administer the site unless they are a member of a different user group which is granted access by a different administrator record. | [optional] 
+**Enabled** | Pointer to **NullableBool** | Indicates whether the administrator is enabled.  Disabled administrators cannot administer the site unless they are a member of a different user group which is granted access by a different administrator record. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetRights sets Rights field to given value.
 
 HasRights returns a boolean if a field has been set.
 
+### SetRightsNil
+
+`func (o *UpdateAdminAdministratorRequestModel) SetRightsNil(b bool)`
+
+ SetRightsNil sets the value for Rights to be an explicit nil
+
+### UnsetRights
+`func (o *UpdateAdminAdministratorRequestModel) UnsetRights()`
+
+UnsetRights ensures that no value is present for Rights, not even an explicit nil
 ### GetEnabled
 
 `func (o *UpdateAdminAdministratorRequestModel) GetEnabled() bool`
@@ -76,6 +86,16 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### SetEnabledNil
+
+`func (o *UpdateAdminAdministratorRequestModel) SetEnabledNil(b bool)`
+
+ SetEnabledNil sets the value for Enabled to be an explicit nil
+
+### UnsetEnabled
+`func (o *UpdateAdminAdministratorRequestModel) UnsetEnabled()`
+
+UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

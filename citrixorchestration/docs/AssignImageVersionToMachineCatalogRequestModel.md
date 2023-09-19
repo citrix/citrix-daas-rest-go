@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageDefinition** | Pointer to **string** | Name or Id of selected prepared image definition | [optional] 
-**ImageVersion** | Pointer to **string** | Name or Id of selected prepared image version | [optional] 
+**ImageDefinition** | Pointer to **NullableString** | Name or Id of selected prepared image definition | [optional] 
+**ImageVersion** | Pointer to **NullableString** | Name or Id of selected prepared image version | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetImageDefinition sets ImageDefinition field to given value.
 
 HasImageDefinition returns a boolean if a field has been set.
 
+### SetImageDefinitionNil
+
+`func (o *AssignImageVersionToMachineCatalogRequestModel) SetImageDefinitionNil(b bool)`
+
+ SetImageDefinitionNil sets the value for ImageDefinition to be an explicit nil
+
+### UnsetImageDefinition
+`func (o *AssignImageVersionToMachineCatalogRequestModel) UnsetImageDefinition()`
+
+UnsetImageDefinition ensures that no value is present for ImageDefinition, not even an explicit nil
 ### GetImageVersion
 
 `func (o *AssignImageVersionToMachineCatalogRequestModel) GetImageVersion() string`
@@ -76,6 +86,16 @@ SetImageVersion sets ImageVersion field to given value.
 
 HasImageVersion returns a boolean if a field has been set.
 
+### SetImageVersionNil
+
+`func (o *AssignImageVersionToMachineCatalogRequestModel) SetImageVersionNil(b bool)`
+
+ SetImageVersionNil sets the value for ImageVersion to be an explicit nil
+
+### UnsetImageVersion
+`func (o *AssignImageVersionToMachineCatalogRequestModel) UnsetImageVersion()`
+
+UnsetImageVersion ensures that no value is present for ImageVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageDefinition** | Pointer to [**CreateImageDefinitionRequestModelImageDefinition**](CreateImageDefinitionRequestModelImageDefinition.md) |  | [optional] 
-**ImageVersion** | Pointer to [**CreateImageDefinitionRequestModelImageVersion**](CreateImageDefinitionRequestModelImageVersion.md) |  | [optional] 
+**ImageDefinition** | Pointer to [**CreateImageDefinitionDetailRequestModel**](CreateImageDefinitionDetailRequestModel.md) |  | [optional] 
+**ImageVersion** | Pointer to [**CreateImageVersionRequestModel**](CreateImageVersionRequestModel.md) |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetImageDefinition
 
-`func (o *CreateImageDefinitionRequestModel) GetImageDefinition() CreateImageDefinitionRequestModelImageDefinition`
+`func (o *CreateImageDefinitionRequestModel) GetImageDefinition() CreateImageDefinitionDetailRequestModel`
 
 GetImageDefinition returns the ImageDefinition field if non-nil, zero value otherwise.
 
 ### GetImageDefinitionOk
 
-`func (o *CreateImageDefinitionRequestModel) GetImageDefinitionOk() (*CreateImageDefinitionRequestModelImageDefinition, bool)`
+`func (o *CreateImageDefinitionRequestModel) GetImageDefinitionOk() (*CreateImageDefinitionDetailRequestModel, bool)`
 
 GetImageDefinitionOk returns a tuple with the ImageDefinition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageDefinition
 
-`func (o *CreateImageDefinitionRequestModel) SetImageDefinition(v CreateImageDefinitionRequestModelImageDefinition)`
+`func (o *CreateImageDefinitionRequestModel) SetImageDefinition(v CreateImageDefinitionDetailRequestModel)`
 
 SetImageDefinition sets ImageDefinition field to given value.
 
@@ -53,20 +53,20 @@ HasImageDefinition returns a boolean if a field has been set.
 
 ### GetImageVersion
 
-`func (o *CreateImageDefinitionRequestModel) GetImageVersion() CreateImageDefinitionRequestModelImageVersion`
+`func (o *CreateImageDefinitionRequestModel) GetImageVersion() CreateImageVersionRequestModel`
 
 GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
 
 ### GetImageVersionOk
 
-`func (o *CreateImageDefinitionRequestModel) GetImageVersionOk() (*CreateImageDefinitionRequestModelImageVersion, bool)`
+`func (o *CreateImageDefinitionRequestModel) GetImageVersionOk() (*CreateImageVersionRequestModel, bool)`
 
 GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageVersion
 
-`func (o *CreateImageDefinitionRequestModel) SetImageVersion(v CreateImageDefinitionRequestModelImageVersion)`
+`func (o *CreateImageDefinitionRequestModel) SetImageVersion(v CreateImageVersionRequestModel)`
 
 SetImageVersion sets ImageVersion field to given value.
 

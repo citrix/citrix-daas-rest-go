@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Item** | Pointer to **string** | Serialized string that is a list of machine shares, or a list of directories, or application properties that parsed from a selected executable file. | [optional] 
+**Item** | Pointer to **NullableString** | Serialized string that is a list of machine shares, or a list of directories, or application properties that parsed from a selected executable file. | [optional] 
 **Type** | Pointer to [**ApplicationDiscoveryItemType**](ApplicationDiscoveryItemType.md) |  | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetItem sets Item field to given value.
 
 HasItem returns a boolean if a field has been set.
 
+### SetItemNil
+
+`func (o *ApplicationDiscoveryResponseModel) SetItemNil(b bool)`
+
+ SetItemNil sets the value for Item to be an explicit nil
+
+### UnsetItem
+`func (o *ApplicationDiscoveryResponseModel) UnsetItem()`
+
+UnsetItem ensures that no value is present for Item, not even an explicit nil
 ### GetType
 
 `func (o *ApplicationDiscoveryResponseModel) GetType() ApplicationDiscoveryItemType`

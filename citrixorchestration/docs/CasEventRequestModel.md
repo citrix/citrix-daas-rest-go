@@ -71,6 +71,16 @@ SetPayloads sets Payloads field to given value.
 
 HasPayloads returns a boolean if a field has been set.
 
+### SetPayloadsNil
+
+`func (o *CasEventRequestModel) SetPayloadsNil(b bool)`
+
+ SetPayloadsNil sets the value for Payloads to be an explicit nil
+
+### UnsetPayloads
+`func (o *CasEventRequestModel) UnsetPayloads()`
+
+UnsetPayloads ensures that no value is present for Payloads, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the administrative scope. Used to be: ScopeId (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid | 
-**Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED.  Use Id. | [optional] 
+**Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED.  Use Id. | [optional] 
 **Name** | **string** | Name of the administrative scope. | 
-**Description** | Pointer to **string** | Description of the administrative scope. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the administrative scope. | [optional] 
 **IsBuiltIn** | **bool** | Whether the administrative scope is built-in. | 
 **IsAllScope** | **bool** | Indicates the built-in \&quot;All\&quot; scope.  There will be exactly one scope with this property set to &#x60;true&#x60;. | 
 **IsTenantScope** | **bool** | Whether the scope is created for CSP tenant. | 
-**TenantId** | Pointer to **string** | Id of the CSP tenant. Valid when IsTenantScope is true. | [optional] 
-**TenantName** | Pointer to **string** | Name of the CSP tenant. Valid when IsTenantScope is true. | [optional] 
+**TenantId** | Pointer to **NullableString** | Id of the CSP tenant. Valid when IsTenantScope is true. | [optional] 
+**TenantName** | Pointer to **NullableString** | Name of the CSP tenant. Valid when IsTenantScope is true. | [optional] 
 
 ## Methods
 
@@ -78,6 +78,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *ScopeResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *ScopeResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetName
 
 `func (o *ScopeResponseModel) GetName() string`
@@ -123,6 +133,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ScopeResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ScopeResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsBuiltIn
 
 `func (o *ScopeResponseModel) GetIsBuiltIn() bool`
@@ -208,6 +228,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *ScopeResponseModel) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *ScopeResponseModel) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetTenantName
 
 `func (o *ScopeResponseModel) GetTenantName() string`
@@ -233,6 +263,16 @@ SetTenantName sets TenantName field to given value.
 
 HasTenantName returns a boolean if a field has been set.
 
+### SetTenantNameNil
+
+`func (o *ScopeResponseModel) SetTenantNameNil(b bool)`
+
+ SetTenantNameNil sets the value for TenantName to be an explicit nil
+
+### UnsetTenantName
+`func (o *ScopeResponseModel) UnsetTenantName()`
+
+UnsetTenantName ensures that no value is present for TenantName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

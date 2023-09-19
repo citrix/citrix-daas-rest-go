@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NewName** | Pointer to **string** | Optional name for the duplicated application.  If not specified, the system will choose a new name automatically, based on the original application name. If specified, must be unique within the site. | [optional] 
-**NewFolder** | Pointer to **string** | Optional folder in which to create the duplicated application.  If not specified, the new application will be created in the same folder as the original. May be specified as either Path or Id.  If specified as a path, and the target does not exist, it will be automatically created. | [optional] 
-**CreateDisabled** | Pointer to **bool** | Optional. If not specified, or specified as &#x60;false&#x60;, the new application will have the same visibility and enabled state as the original application.  This may be undesirable; if the original application is visible, it means the new duplicate will also be immediately visible to end users. Setting this to &#x60;true&#x60; causes the new duplicate to start out invisible and disabled, allowing it to be further modified before making it visible to end users. | [optional] [default to false]
+**NewName** | Pointer to **NullableString** | Optional name for the duplicated application.  If not specified, the system will choose a new name automatically, based on the original application name. If specified, must be unique within the site. | [optional] 
+**NewFolder** | Pointer to **NullableString** | Optional folder in which to create the duplicated application.  If not specified, the new application will be created in the same folder as the original. May be specified as either Path or Id.  If specified as a path, and the target does not exist, it will be automatically created. | [optional] 
+**CreateDisabled** | Pointer to **NullableBool** | Optional. If not specified, or specified as &#x60;false&#x60;, the new application will have the same visibility and enabled state as the original application.  This may be undesirable; if the original application is visible, it means the new duplicate will also be immediately visible to end users. Setting this to &#x60;true&#x60; causes the new duplicate to start out invisible and disabled, allowing it to be further modified before making it visible to end users. | [optional] [default to false]
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetNewName sets NewName field to given value.
 
 HasNewName returns a boolean if a field has been set.
 
+### SetNewNameNil
+
+`func (o *DuplicateApplicationRequestModel) SetNewNameNil(b bool)`
+
+ SetNewNameNil sets the value for NewName to be an explicit nil
+
+### UnsetNewName
+`func (o *DuplicateApplicationRequestModel) UnsetNewName()`
+
+UnsetNewName ensures that no value is present for NewName, not even an explicit nil
 ### GetNewFolder
 
 `func (o *DuplicateApplicationRequestModel) GetNewFolder() string`
@@ -77,6 +87,16 @@ SetNewFolder sets NewFolder field to given value.
 
 HasNewFolder returns a boolean if a field has been set.
 
+### SetNewFolderNil
+
+`func (o *DuplicateApplicationRequestModel) SetNewFolderNil(b bool)`
+
+ SetNewFolderNil sets the value for NewFolder to be an explicit nil
+
+### UnsetNewFolder
+`func (o *DuplicateApplicationRequestModel) UnsetNewFolder()`
+
+UnsetNewFolder ensures that no value is present for NewFolder, not even an explicit nil
 ### GetCreateDisabled
 
 `func (o *DuplicateApplicationRequestModel) GetCreateDisabled() bool`
@@ -102,6 +122,16 @@ SetCreateDisabled sets CreateDisabled field to given value.
 
 HasCreateDisabled returns a boolean if a field has been set.
 
+### SetCreateDisabledNil
+
+`func (o *DuplicateApplicationRequestModel) SetCreateDisabledNil(b bool)`
+
+ SetCreateDisabledNil sets the value for CreateDisabled to be an explicit nil
+
+### UnsetCreateDisabled
+`func (o *DuplicateApplicationRequestModel) UnsetCreateDisabled()`
+
+UnsetCreateDisabled ensures that no value is present for CreateDisabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

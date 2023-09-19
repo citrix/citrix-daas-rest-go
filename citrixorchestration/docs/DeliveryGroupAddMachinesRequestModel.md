@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MachineCatalog** | **string** | The machine catalog from which to add machines. May be an Id or name. | 
-**Count** | Pointer to **int32** | The number of machines to assign from the machine catalog to the delivery group. | [optional] 
+**Count** | Pointer to **NullableInt32** | The number of machines to assign from the machine catalog to the delivery group. | [optional] 
 **AssignMachinesToUsers** | Pointer to [**[]AssignMachineToUserRequestModel**](AssignMachineToUserRequestModel.md) | List of specific machine assignments to users. | [optional] 
 
 ## Methods
@@ -72,6 +72,16 @@ SetCount sets Count field to given value.
 
 HasCount returns a boolean if a field has been set.
 
+### SetCountNil
+
+`func (o *DeliveryGroupAddMachinesRequestModel) SetCountNil(b bool)`
+
+ SetCountNil sets the value for Count to be an explicit nil
+
+### UnsetCount
+`func (o *DeliveryGroupAddMachinesRequestModel) UnsetCount()`
+
+UnsetCount ensures that no value is present for Count, not even an explicit nil
 ### GetAssignMachinesToUsers
 
 `func (o *DeliveryGroupAddMachinesRequestModel) GetAssignMachinesToUsers() []AssignMachineToUserRequestModel`
@@ -97,6 +107,16 @@ SetAssignMachinesToUsers sets AssignMachinesToUsers field to given value.
 
 HasAssignMachinesToUsers returns a boolean if a field has been set.
 
+### SetAssignMachinesToUsersNil
+
+`func (o *DeliveryGroupAddMachinesRequestModel) SetAssignMachinesToUsersNil(b bool)`
+
+ SetAssignMachinesToUsersNil sets the value for AssignMachinesToUsers to be an explicit nil
+
+### UnsetAssignMachinesToUsers
+`func (o *DeliveryGroupAddMachinesRequestModel) UnsetAssignMachinesToUsers()`
+
+UnsetAssignMachinesToUsers ensures that no value is present for AssignMachinesToUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

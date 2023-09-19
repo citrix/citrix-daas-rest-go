@@ -52,6 +52,16 @@ SetIncludedAdditionalComponents sets IncludedAdditionalComponents field to given
 
 HasIncludedAdditionalComponents returns a boolean if a field has been set.
 
+### SetIncludedAdditionalComponentsNil
+
+`func (o *VDAComponentsSelectionValidationRequestModel) SetIncludedAdditionalComponentsNil(b bool)`
+
+ SetIncludedAdditionalComponentsNil sets the value for IncludedAdditionalComponents to be an explicit nil
+
+### UnsetIncludedAdditionalComponents
+`func (o *VDAComponentsSelectionValidationRequestModel) UnsetIncludedAdditionalComponents()`
+
+UnsetIncludedAdditionalComponents ensures that no value is present for IncludedAdditionalComponents, not even an explicit nil
 ### GetExcludedComponents
 
 `func (o *VDAComponentsSelectionValidationRequestModel) GetExcludedComponents() []VDAComponentRequestModel`
@@ -77,6 +87,16 @@ SetExcludedComponents sets ExcludedComponents field to given value.
 
 HasExcludedComponents returns a boolean if a field has been set.
 
+### SetExcludedComponentsNil
+
+`func (o *VDAComponentsSelectionValidationRequestModel) SetExcludedComponentsNil(b bool)`
+
+ SetExcludedComponentsNil sets the value for ExcludedComponents to be an explicit nil
+
+### UnsetExcludedComponents
+`func (o *VDAComponentsSelectionValidationRequestModel) UnsetExcludedComponents()`
+
+UnsetExcludedComponents ensures that no value is present for ExcludedComponents, not even an explicit nil
 ### GetFeatures
 
 `func (o *VDAComponentsSelectionValidationRequestModel) GetFeatures() []string`
@@ -102,6 +122,16 @@ SetFeatures sets Features field to given value.
 
 HasFeatures returns a boolean if a field has been set.
 
+### SetFeaturesNil
+
+`func (o *VDAComponentsSelectionValidationRequestModel) SetFeaturesNil(b bool)`
+
+ SetFeaturesNil sets the value for Features to be an explicit nil
+
+### UnsetFeatures
+`func (o *VDAComponentsSelectionValidationRequestModel) UnsetFeatures()`
+
+UnsetFeatures ensures that no value is present for Features, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Property** | [**CatalogSearchProperty**](CatalogSearchProperty.md) |  | 
-**Value** | Pointer to **string** | Value to match. | [optional] 
+**Value** | Pointer to **NullableString** | Value to match. | [optional] 
 **Operator** | [**SearchOperator**](SearchOperator.md) |  | 
 
 ## Methods
@@ -72,6 +72,16 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
+### SetValueNil
+
+`func (o *CatalogSearchFilterRequestModel) SetValueNil(b bool)`
+
+ SetValueNil sets the value for Value to be an explicit nil
+
+### UnsetValue
+`func (o *CatalogSearchFilterRequestModel) UnsetValue()`
+
+UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetOperator
 
 `func (o *CatalogSearchFilterRequestModel) GetOperator() SearchOperator`

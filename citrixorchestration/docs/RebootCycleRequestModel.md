@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RebootDurationMinutes** | Pointer to **int32** | Approximate maximum number of minutes over which the reboot cycle runs. | [optional] 
-**IgnoreMaintenanceMode** | Pointer to **bool** | Indicates whether the reboot cycle is active for maintained machines. | [optional] 
-**RestrictToTag** | Pointer to **string** | If set, the reboot cycle only applies to machines in the delivery group with the specified tag. | [optional] 
-**WarningTitle** | Pointer to **string** | The window title used when showing the warning message in user sessions on a machine to reboot. | [optional] 
-**WarningMessage** | Pointer to **string** | Warning message displayed in user sessions on a machine to reboot. | [optional] 
-**WarningDurationMinutes** | Pointer to **int32** | Time prior to the start of a machine reboot at which a warning message is displayed to all the users on the machine. | [optional] 
-**WarningRepeatIntervalMinutes** | Pointer to **int32** | Time to wait after the previous reboot warning before displaying the warning message in all user sessions on that machine again. | [optional] 
+**RebootDurationMinutes** | Pointer to **NullableInt32** | Approximate maximum number of minutes over which the reboot cycle runs. | [optional] 
+**IgnoreMaintenanceMode** | Pointer to **NullableBool** | Indicates whether the reboot cycle is active for maintained machines. | [optional] 
+**RestrictToTag** | Pointer to **NullableString** | If set, the reboot cycle only applies to machines in the delivery group with the specified tag. | [optional] 
+**WarningTitle** | Pointer to **NullableString** | The window title used when showing the warning message in user sessions on a machine to reboot. | [optional] 
+**WarningMessage** | Pointer to **NullableString** | Warning message displayed in user sessions on a machine to reboot. | [optional] 
+**WarningDurationMinutes** | Pointer to **NullableInt32** | Time prior to the start of a machine reboot at which a warning message is displayed to all the users on the machine. | [optional] 
+**WarningRepeatIntervalMinutes** | Pointer to **NullableInt32** | Time to wait after the previous reboot warning before displaying the warning message in all user sessions on that machine again. | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetRebootDurationMinutes sets RebootDurationMinutes field to given value.
 
 HasRebootDurationMinutes returns a boolean if a field has been set.
 
+### SetRebootDurationMinutesNil
+
+`func (o *RebootCycleRequestModel) SetRebootDurationMinutesNil(b bool)`
+
+ SetRebootDurationMinutesNil sets the value for RebootDurationMinutes to be an explicit nil
+
+### UnsetRebootDurationMinutes
+`func (o *RebootCycleRequestModel) UnsetRebootDurationMinutes()`
+
+UnsetRebootDurationMinutes ensures that no value is present for RebootDurationMinutes, not even an explicit nil
 ### GetIgnoreMaintenanceMode
 
 `func (o *RebootCycleRequestModel) GetIgnoreMaintenanceMode() bool`
@@ -81,6 +91,16 @@ SetIgnoreMaintenanceMode sets IgnoreMaintenanceMode field to given value.
 
 HasIgnoreMaintenanceMode returns a boolean if a field has been set.
 
+### SetIgnoreMaintenanceModeNil
+
+`func (o *RebootCycleRequestModel) SetIgnoreMaintenanceModeNil(b bool)`
+
+ SetIgnoreMaintenanceModeNil sets the value for IgnoreMaintenanceMode to be an explicit nil
+
+### UnsetIgnoreMaintenanceMode
+`func (o *RebootCycleRequestModel) UnsetIgnoreMaintenanceMode()`
+
+UnsetIgnoreMaintenanceMode ensures that no value is present for IgnoreMaintenanceMode, not even an explicit nil
 ### GetRestrictToTag
 
 `func (o *RebootCycleRequestModel) GetRestrictToTag() string`
@@ -106,6 +126,16 @@ SetRestrictToTag sets RestrictToTag field to given value.
 
 HasRestrictToTag returns a boolean if a field has been set.
 
+### SetRestrictToTagNil
+
+`func (o *RebootCycleRequestModel) SetRestrictToTagNil(b bool)`
+
+ SetRestrictToTagNil sets the value for RestrictToTag to be an explicit nil
+
+### UnsetRestrictToTag
+`func (o *RebootCycleRequestModel) UnsetRestrictToTag()`
+
+UnsetRestrictToTag ensures that no value is present for RestrictToTag, not even an explicit nil
 ### GetWarningTitle
 
 `func (o *RebootCycleRequestModel) GetWarningTitle() string`
@@ -131,6 +161,16 @@ SetWarningTitle sets WarningTitle field to given value.
 
 HasWarningTitle returns a boolean if a field has been set.
 
+### SetWarningTitleNil
+
+`func (o *RebootCycleRequestModel) SetWarningTitleNil(b bool)`
+
+ SetWarningTitleNil sets the value for WarningTitle to be an explicit nil
+
+### UnsetWarningTitle
+`func (o *RebootCycleRequestModel) UnsetWarningTitle()`
+
+UnsetWarningTitle ensures that no value is present for WarningTitle, not even an explicit nil
 ### GetWarningMessage
 
 `func (o *RebootCycleRequestModel) GetWarningMessage() string`
@@ -156,6 +196,16 @@ SetWarningMessage sets WarningMessage field to given value.
 
 HasWarningMessage returns a boolean if a field has been set.
 
+### SetWarningMessageNil
+
+`func (o *RebootCycleRequestModel) SetWarningMessageNil(b bool)`
+
+ SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
+
+### UnsetWarningMessage
+`func (o *RebootCycleRequestModel) UnsetWarningMessage()`
+
+UnsetWarningMessage ensures that no value is present for WarningMessage, not even an explicit nil
 ### GetWarningDurationMinutes
 
 `func (o *RebootCycleRequestModel) GetWarningDurationMinutes() int32`
@@ -181,6 +231,16 @@ SetWarningDurationMinutes sets WarningDurationMinutes field to given value.
 
 HasWarningDurationMinutes returns a boolean if a field has been set.
 
+### SetWarningDurationMinutesNil
+
+`func (o *RebootCycleRequestModel) SetWarningDurationMinutesNil(b bool)`
+
+ SetWarningDurationMinutesNil sets the value for WarningDurationMinutes to be an explicit nil
+
+### UnsetWarningDurationMinutes
+`func (o *RebootCycleRequestModel) UnsetWarningDurationMinutes()`
+
+UnsetWarningDurationMinutes ensures that no value is present for WarningDurationMinutes, not even an explicit nil
 ### GetWarningRepeatIntervalMinutes
 
 `func (o *RebootCycleRequestModel) GetWarningRepeatIntervalMinutes() int32`
@@ -206,6 +266,16 @@ SetWarningRepeatIntervalMinutes sets WarningRepeatIntervalMinutes field to given
 
 HasWarningRepeatIntervalMinutes returns a boolean if a field has been set.
 
+### SetWarningRepeatIntervalMinutesNil
+
+`func (o *RebootCycleRequestModel) SetWarningRepeatIntervalMinutesNil(b bool)`
+
+ SetWarningRepeatIntervalMinutesNil sets the value for WarningRepeatIntervalMinutes to be an explicit nil
+
+### UnsetWarningRepeatIntervalMinutes
+`func (o *RebootCycleRequestModel) UnsetWarningRepeatIntervalMinutes()`
+
+UnsetWarningRepeatIntervalMinutes ensures that no value is present for WarningRepeatIntervalMinutes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

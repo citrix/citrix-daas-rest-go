@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StoragePath** | **string** | Path to storage within the resource pool.  Required. | 
-**Superseded** | Pointer to **bool** | Indicates whether the storage has been superseded. Superseded storage may be used for existing virtual machines, but is not used when provisioning new virtual machines.  Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**Superseded** | Pointer to **NullableBool** | Indicates whether the storage has been superseded. Superseded storage may be used for existing virtual machines, but is not used when provisioning new virtual machines.  Optional; default is &#x60;false&#x60;. | [optional] [default to false]
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetSuperseded sets Superseded field to given value.
 
 HasSuperseded returns a boolean if a field has been set.
 
+### SetSupersededNil
+
+`func (o *HypervisorResourcePoolStorageRequestModel) SetSupersededNil(b bool)`
+
+ SetSupersededNil sets the value for Superseded to be an explicit nil
+
+### UnsetSuperseded
+`func (o *HypervisorResourcePoolStorageRequestModel) UnsetSuperseded()`
+
+UnsetSuperseded ensures that no value is present for Superseded, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

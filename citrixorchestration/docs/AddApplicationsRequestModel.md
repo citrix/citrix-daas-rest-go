@@ -53,6 +53,16 @@ SetExistingApplications sets ExistingApplications field to given value.
 
 HasExistingApplications returns a boolean if a field has been set.
 
+### SetExistingApplicationsNil
+
+`func (o *AddApplicationsRequestModel) SetExistingApplicationsNil(b bool)`
+
+ SetExistingApplicationsNil sets the value for ExistingApplications to be an explicit nil
+
+### UnsetExistingApplications
+`func (o *AddApplicationsRequestModel) UnsetExistingApplications()`
+
+UnsetExistingApplications ensures that no value is present for ExistingApplications, not even an explicit nil
 ### GetNewApplications
 
 `func (o *AddApplicationsRequestModel) GetNewApplications() []CreateApplicationRequestModel`
@@ -78,6 +88,16 @@ SetNewApplications sets NewApplications field to given value.
 
 HasNewApplications returns a boolean if a field has been set.
 
+### SetNewApplicationsNil
+
+`func (o *AddApplicationsRequestModel) SetNewApplicationsNil(b bool)`
+
+ SetNewApplicationsNil sets the value for NewApplications to be an explicit nil
+
+### UnsetNewApplications
+`func (o *AddApplicationsRequestModel) UnsetNewApplications()`
+
+UnsetNewApplications ensures that no value is present for NewApplications, not even an explicit nil
 ### GetApplicationGroups
 
 `func (o *AddApplicationsRequestModel) GetApplicationGroups() []string`
@@ -103,6 +123,16 @@ SetApplicationGroups sets ApplicationGroups field to given value.
 
 HasApplicationGroups returns a boolean if a field has been set.
 
+### SetApplicationGroupsNil
+
+`func (o *AddApplicationsRequestModel) SetApplicationGroupsNil(b bool)`
+
+ SetApplicationGroupsNil sets the value for ApplicationGroups to be an explicit nil
+
+### UnsetApplicationGroups
+`func (o *AddApplicationsRequestModel) UnsetApplicationGroups()`
+
+UnsetApplicationGroups ensures that no value is present for ApplicationGroups, not even an explicit nil
 ### GetDeliveryGroups
 
 `func (o *AddApplicationsRequestModel) GetDeliveryGroups() []PriorityRefRequestModel`
@@ -128,6 +158,16 @@ SetDeliveryGroups sets DeliveryGroups field to given value.
 
 HasDeliveryGroups returns a boolean if a field has been set.
 
+### SetDeliveryGroupsNil
+
+`func (o *AddApplicationsRequestModel) SetDeliveryGroupsNil(b bool)`
+
+ SetDeliveryGroupsNil sets the value for DeliveryGroups to be an explicit nil
+
+### UnsetDeliveryGroups
+`func (o *AddApplicationsRequestModel) UnsetDeliveryGroups()`
+
+UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

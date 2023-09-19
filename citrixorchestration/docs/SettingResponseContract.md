@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingName** | Pointer to **string** | Setting name. Is globally unique. | [optional] 
-**CurrentValue** | Pointer to **string** | The current setting value. * For boolean types, the returned value is \&quot;True\&quot;/\&quot;False\&quot;. The caller should assume the value is   case-insensitive. * For all other types, if the value is null, use default value, otherwise use the specified value. | [optional] 
+**SettingName** | Pointer to **NullableString** | Setting name. Is globally unique. | [optional] 
+**CurrentValue** | Pointer to **NullableString** | The current setting value. * For boolean types, the returned value is \&quot;True\&quot;/\&quot;False\&quot;. The caller should assume the value is   case-insensitive. * For all other types, if the value is null, use default value, otherwise use the specified value. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetSettingName sets SettingName field to given value.
 
 HasSettingName returns a boolean if a field has been set.
 
+### SetSettingNameNil
+
+`func (o *SettingResponseContract) SetSettingNameNil(b bool)`
+
+ SetSettingNameNil sets the value for SettingName to be an explicit nil
+
+### UnsetSettingName
+`func (o *SettingResponseContract) UnsetSettingName()`
+
+UnsetSettingName ensures that no value is present for SettingName, not even an explicit nil
 ### GetCurrentValue
 
 `func (o *SettingResponseContract) GetCurrentValue() string`
@@ -76,6 +86,16 @@ SetCurrentValue sets CurrentValue field to given value.
 
 HasCurrentValue returns a boolean if a field has been set.
 
+### SetCurrentValueNil
+
+`func (o *SettingResponseContract) SetCurrentValueNil(b bool)`
+
+ SetCurrentValueNil sets the value for CurrentValue to be an explicit nil
+
+### UnsetCurrentValue
+`func (o *SettingResponseContract) UnsetCurrentValue()`
+
+UnsetCurrentValue ensures that no value is present for CurrentValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

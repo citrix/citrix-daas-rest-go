@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ADAccountName** | **string** | The Active Directory account name to be imported. | 
-**ResetPassword** | Pointer to **bool** | Indicates whether the machine account password should be reset. | [optional] [default to true]
-**Password** | Pointer to **string** | The current password for the machine account , in the format specified by PasswordFormat. | [optional] 
+**ResetPassword** | Pointer to **NullableBool** | Indicates whether the machine account password should be reset. | [optional] [default to true]
+**Password** | Pointer to **NullableString** | The current password for the machine account , in the format specified by PasswordFormat. | [optional] 
 **PasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 
 ## Methods
@@ -73,6 +73,16 @@ SetResetPassword sets ResetPassword field to given value.
 
 HasResetPassword returns a boolean if a field has been set.
 
+### SetResetPasswordNil
+
+`func (o *MachineAccountRequestModel) SetResetPasswordNil(b bool)`
+
+ SetResetPasswordNil sets the value for ResetPassword to be an explicit nil
+
+### UnsetResetPassword
+`func (o *MachineAccountRequestModel) UnsetResetPassword()`
+
+UnsetResetPassword ensures that no value is present for ResetPassword, not even an explicit nil
 ### GetPassword
 
 `func (o *MachineAccountRequestModel) GetPassword() string`
@@ -98,6 +108,16 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
+### SetPasswordNil
+
+`func (o *MachineAccountRequestModel) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *MachineAccountRequestModel) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetPasswordFormat
 
 `func (o *MachineAccountRequestModel) GetPasswordFormat() IdentityPasswordFormat`

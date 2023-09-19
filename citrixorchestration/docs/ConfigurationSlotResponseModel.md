@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** | The Id of a configuration slot. | [optional] 
-**Name** | Pointer to **string** | The name of a configuration slot. | [optional] 
-**SettingsGroup** | Pointer to **string** | The SettingsGroup of a configuration slot. | [optional] 
-**Description** | Pointer to **string** | The Description of a configuration slot. | [optional] 
+**Name** | Pointer to **NullableString** | The name of a configuration slot. | [optional] 
+**SettingsGroup** | Pointer to **NullableString** | The SettingsGroup of a configuration slot. | [optional] 
+**Description** | Pointer to **NullableString** | The Description of a configuration slot. | [optional] 
 
 ## Methods
 
@@ -78,6 +78,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ConfigurationSlotResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ConfigurationSlotResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetSettingsGroup
 
 `func (o *ConfigurationSlotResponseModel) GetSettingsGroup() string`
@@ -103,6 +113,16 @@ SetSettingsGroup sets SettingsGroup field to given value.
 
 HasSettingsGroup returns a boolean if a field has been set.
 
+### SetSettingsGroupNil
+
+`func (o *ConfigurationSlotResponseModel) SetSettingsGroupNil(b bool)`
+
+ SetSettingsGroupNil sets the value for SettingsGroup to be an explicit nil
+
+### UnsetSettingsGroup
+`func (o *ConfigurationSlotResponseModel) UnsetSettingsGroup()`
+
+UnsetSettingsGroup ensures that no value is present for SettingsGroup, not even an explicit nil
 ### GetDescription
 
 `func (o *ConfigurationSlotResponseModel) GetDescription() string`
@@ -128,6 +148,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ConfigurationSlotResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ConfigurationSlotResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

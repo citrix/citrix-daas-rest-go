@@ -50,6 +50,16 @@ SetTypeId sets TypeId field to given value.
 
 HasTypeId returns a boolean if a field has been set.
 
+### SetTypeIdNil
+
+`func (o *EmbeddedAttribute) SetTypeIdNil(b bool)`
+
+ SetTypeIdNil sets the value for TypeId to be an explicit nil
+
+### UnsetTypeId
+`func (o *EmbeddedAttribute) UnsetTypeId()`
+
+UnsetTypeId ensures that no value is present for TypeId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

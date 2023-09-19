@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | Pointer to **string** | The path to retrieve contents from. | [optional] 
-**ResourceType** | Pointer to **string** | The type of resources to get. | [optional] 
-**ForwardDirection** | Pointer to **bool** | True if returning items which begin at the ContinuationToken, false if ending at the ContinuationToken. | [optional] 
-**NameContains** | Pointer to **string** | Only return items which contain this string in their Name. | [optional] 
+**Path** | Pointer to **NullableString** | The path to retrieve contents from. | [optional] 
+**ResourceType** | Pointer to **NullableString** | The type of resources to get. | [optional] 
+**ForwardDirection** | Pointer to **NullableBool** | True if returning items which begin at the ContinuationToken, false if ending at the ContinuationToken. | [optional] 
+**NameContains** | Pointer to **NullableString** | Only return items which contain this string in their Name. | [optional] 
 **Tags** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | A list of key-value pairs, searching by a tag lets you filter the resources by a tag key or a tag value(value is optional). For example: [{\&quot;Name\&quot;: \&quot;Priority\&quot;, \&quot;Value\&quot;: \&quot;high\&quot;}, {\&quot;Name\&quot;: \&quot;Name\&quot;, \&quot;Value\&quot;: \&quot;test\&quot;}, {\&quot;Name\&quot;: \&quot;TestMachine\&quot;, \&quot;Value\&quot;: \&quot;\&quot;}, {\&quot;Name\&quot;: \&quot;ADBackup\&quot;, \&quot;Value\&quot;: \&quot;Not tagged\&quot;}] | [optional] 
-**Id** | Pointer to **string** | Only return the item with the matching Id. | [optional] 
+**Id** | Pointer to **NullableString** | Only return the item with the matching Id. | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
+### SetPathNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetPathNil(b bool)`
+
+ SetPathNil sets the value for Path to be an explicit nil
+
+### UnsetPath
+`func (o *HypervisorResourceSearchRequestModel) UnsetPath()`
+
+UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetResourceType
 
 `func (o *HypervisorResourceSearchRequestModel) GetResourceType() string`
@@ -80,6 +90,16 @@ SetResourceType sets ResourceType field to given value.
 
 HasResourceType returns a boolean if a field has been set.
 
+### SetResourceTypeNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetResourceTypeNil(b bool)`
+
+ SetResourceTypeNil sets the value for ResourceType to be an explicit nil
+
+### UnsetResourceType
+`func (o *HypervisorResourceSearchRequestModel) UnsetResourceType()`
+
+UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil
 ### GetForwardDirection
 
 `func (o *HypervisorResourceSearchRequestModel) GetForwardDirection() bool`
@@ -105,6 +125,16 @@ SetForwardDirection sets ForwardDirection field to given value.
 
 HasForwardDirection returns a boolean if a field has been set.
 
+### SetForwardDirectionNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetForwardDirectionNil(b bool)`
+
+ SetForwardDirectionNil sets the value for ForwardDirection to be an explicit nil
+
+### UnsetForwardDirection
+`func (o *HypervisorResourceSearchRequestModel) UnsetForwardDirection()`
+
+UnsetForwardDirection ensures that no value is present for ForwardDirection, not even an explicit nil
 ### GetNameContains
 
 `func (o *HypervisorResourceSearchRequestModel) GetNameContains() string`
@@ -130,6 +160,16 @@ SetNameContains sets NameContains field to given value.
 
 HasNameContains returns a boolean if a field has been set.
 
+### SetNameContainsNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetNameContainsNil(b bool)`
+
+ SetNameContainsNil sets the value for NameContains to be an explicit nil
+
+### UnsetNameContains
+`func (o *HypervisorResourceSearchRequestModel) UnsetNameContains()`
+
+UnsetNameContains ensures that no value is present for NameContains, not even an explicit nil
 ### GetTags
 
 `func (o *HypervisorResourceSearchRequestModel) GetTags() []NameValueStringPairModel`
@@ -155,6 +195,16 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *HypervisorResourceSearchRequestModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetId
 
 `func (o *HypervisorResourceSearchRequestModel) GetId() string`
@@ -180,6 +230,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorResourceSearchRequestModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

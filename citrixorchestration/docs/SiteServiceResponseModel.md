@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ServiceName** | **string** | Name of the service. | 
 **ServiceType** | **string** | Type of the service, which will not be changed across languages. | 
-**CurrentSchemaVersion** | Pointer to **string** | Current schema version of the service. Will be &#x60;null&#x60; for XenApp &amp; XenDesktop service. | [optional] 
-**DesiredSchemaVersion** | Pointer to **string** | Desired schema version of the service. Will be &#x60;null&#x60; for XenApp &amp; XenDesktop service. | [optional] 
+**CurrentSchemaVersion** | Pointer to **NullableString** | Current schema version of the service. Will be &#x60;null&#x60; for XenApp &amp; XenDesktop service. | [optional] 
+**DesiredSchemaVersion** | Pointer to **NullableString** | Desired schema version of the service. Will be &#x60;null&#x60; for XenApp &amp; XenDesktop service. | [optional] 
 **Capabilities** | **[]string** | List of capabilities exposed by the service. | 
 
 ## Methods
@@ -94,6 +94,16 @@ SetCurrentSchemaVersion sets CurrentSchemaVersion field to given value.
 
 HasCurrentSchemaVersion returns a boolean if a field has been set.
 
+### SetCurrentSchemaVersionNil
+
+`func (o *SiteServiceResponseModel) SetCurrentSchemaVersionNil(b bool)`
+
+ SetCurrentSchemaVersionNil sets the value for CurrentSchemaVersion to be an explicit nil
+
+### UnsetCurrentSchemaVersion
+`func (o *SiteServiceResponseModel) UnsetCurrentSchemaVersion()`
+
+UnsetCurrentSchemaVersion ensures that no value is present for CurrentSchemaVersion, not even an explicit nil
 ### GetDesiredSchemaVersion
 
 `func (o *SiteServiceResponseModel) GetDesiredSchemaVersion() string`
@@ -119,6 +129,16 @@ SetDesiredSchemaVersion sets DesiredSchemaVersion field to given value.
 
 HasDesiredSchemaVersion returns a boolean if a field has been set.
 
+### SetDesiredSchemaVersionNil
+
+`func (o *SiteServiceResponseModel) SetDesiredSchemaVersionNil(b bool)`
+
+ SetDesiredSchemaVersionNil sets the value for DesiredSchemaVersion to be an explicit nil
+
+### UnsetDesiredSchemaVersion
+`func (o *SiteServiceResponseModel) UnsetDesiredSchemaVersion()`
+
+UnsetDesiredSchemaVersion ensures that no value is present for DesiredSchemaVersion, not even an explicit nil
 ### GetCapabilities
 
 `func (o *SiteServiceResponseModel) GetCapabilities() []string`

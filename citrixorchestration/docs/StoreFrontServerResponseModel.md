@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of the StoreFront server. | 
 **Name** | **string** | Name of the StoreFront server. | 
-**Description** | Pointer to **string** | Description of the StoreFront server. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the StoreFront server. | [optional] 
 **Url** | **string** | Url of the StoreFront server. | 
 **Enabled** | **bool** | Indicates whether the StoreFront server is enabled. Disabled StoreFront servers will not have their URLs added to hosted receiver. | 
 **DesktopGroupRefCount** | Pointer to **int32** | DesktopGroupRefCount | [optional] 
@@ -95,6 +95,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *StoreFrontServerResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *StoreFrontServerResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetUrl
 
 `func (o *StoreFrontServerResponseModel) GetUrl() string`

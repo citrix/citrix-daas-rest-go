@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of the admin folder.  If not set, will not be changed.  The name must be unique within the folder&#39;s parent folder. | [optional] 
-**Parent** | Pointer to **string** | Parent folder.  If not set, will not be changed.  Can be set to either Id or Path.  To move the application to the root folder, specify the empty string (\&quot;\&quot;).  If specified as a path, and the path does not exist, it will be created. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the admin folder.  If not set, will not be changed.  The name must be unique within the folder&#39;s parent folder. | [optional] 
+**Parent** | Pointer to **NullableString** | Parent folder.  If not set, will not be changed.  Can be set to either Id or Path.  To move the application to the root folder, specify the empty string (\&quot;\&quot;).  If specified as a path, and the path does not exist, it will be created. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of Admin Folder. Set the value of the NameValueStringPairModel is null will not update MetadataMap Set the value of the NameValueStringPairModel empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated. | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EditAdminFolderRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditAdminFolderRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetParent
 
 `func (o *EditAdminFolderRequestModel) GetParent() string`
@@ -77,6 +87,16 @@ SetParent sets Parent field to given value.
 
 HasParent returns a boolean if a field has been set.
 
+### SetParentNil
+
+`func (o *EditAdminFolderRequestModel) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *EditAdminFolderRequestModel) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetMetadata
 
 `func (o *EditAdminFolderRequestModel) GetMetadata() []NameValueStringPairModel`
@@ -102,6 +122,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *EditAdminFolderRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *EditAdminFolderRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **UserManagement** | Pointer to [**UserManagementModel**](UserManagementModel.md) |  | [optional] 
 **Delivering** | [**DeliveryKind**](DeliveryKind.md) |  | 
 **DeliveryType** | [**DeliveryKind**](DeliveryKind.md) |  | 
-**Description** | Pointer to **string** | A description for this delivery group useful for administrators of the site. | [optional] 
+**Description** | Pointer to **NullableString** | A description for this delivery group useful for administrators of the site. | [optional] 
 **DesktopsAvailable** | **int32** | Number of machines in the delivery group which are available to launch sessions on. | 
 **DesktopsDisconnected** | **int32** | Number of desktops in the delivery group which have disconnected sessions. | 
 **DesktopsFaulted** | **int32** | Number of desktops in the delivery group which are in a faulted state. | 
@@ -24,10 +24,10 @@ Name | Type | Description | Notes
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of delivery group. | [optional] 
 **MinimumFunctionalLevel** | [**FunctionalLevel**](FunctionalLevel.md) |  | 
 **Name** | **string** | Simple administrative name of delivery group within parent admin folder (if any). This property is not guaranteed unique across all catalogs. | 
-**FullName** | Pointer to **string** | Unique administrative name of delivery group. | [optional] 
-**PublishedName** | Pointer to **string** | The name of the desktop group as it is to appear to the user in StoreFront. | [optional] 
+**FullName** | Pointer to **NullableString** | Unique administrative name of delivery group. | [optional] 
+**PublishedName** | Pointer to **NullableString** | The name of the desktop group as it is to appear to the user in StoreFront. | [optional] 
 **PolicySetGuid** | Pointer to **string** | The Guid of the policy set that is assigned to this desktop group. If the value is Guid.Empty, there is no policy set assigned to the desktop group. | [optional] 
-**ProductCode** | Pointer to **string** | The product code of the delivery group. | [optional] 
+**ProductCode** | Pointer to **NullableString** | The product code of the delivery group. | [optional] 
 **LicenseModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 **RequireUserHomeZone** | **bool** | Whether the resources from this delivery group are required to launch within the user&#39;s home zone. | 
 **Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | Administrative scopes which the delivery group is part of. | 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **ApplicationGroupCompatibility** | [**AppGroupCompatibility**](AppGroupCompatibility.md) |  | 
 **ApplicationCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
 **DesktopCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
-**AdminFolder** | Pointer to [**CatalogSearchResponseModelAdminFolder**](CatalogSearchResponseModelAdminFolder.md) |  | [optional] 
+**AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **Priority** | **int32** | Specifies the priority of the mapping between application and delivery group where lower numbers imply higher priority with zero being highest. | 
 **NumMachines** | **int32** | Number of machines within the delivery group that are capable of hosting the applications in the application group. | 
 
@@ -198,6 +198,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ApplicationGroupDeliveryGroupResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDesktopsAvailable
 
 `func (o *ApplicationGroupDeliveryGroupResponseModel) GetDesktopsAvailable() int32`
@@ -453,6 +463,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *ApplicationGroupDeliveryGroupResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetMinimumFunctionalLevel
 
 `func (o *ApplicationGroupDeliveryGroupResponseModel) GetMinimumFunctionalLevel() FunctionalLevel`
@@ -518,6 +538,16 @@ SetFullName sets FullName field to given value.
 
 HasFullName returns a boolean if a field has been set.
 
+### SetFullNameNil
+
+`func (o *ApplicationGroupDeliveryGroupResponseModel) SetFullNameNil(b bool)`
+
+ SetFullNameNil sets the value for FullName to be an explicit nil
+
+### UnsetFullName
+`func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetFullName()`
+
+UnsetFullName ensures that no value is present for FullName, not even an explicit nil
 ### GetPublishedName
 
 `func (o *ApplicationGroupDeliveryGroupResponseModel) GetPublishedName() string`
@@ -543,6 +573,16 @@ SetPublishedName sets PublishedName field to given value.
 
 HasPublishedName returns a boolean if a field has been set.
 
+### SetPublishedNameNil
+
+`func (o *ApplicationGroupDeliveryGroupResponseModel) SetPublishedNameNil(b bool)`
+
+ SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+
+### UnsetPublishedName
+`func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetPublishedName()`
+
+UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 ### GetPolicySetGuid
 
 `func (o *ApplicationGroupDeliveryGroupResponseModel) GetPolicySetGuid() string`
@@ -593,6 +633,16 @@ SetProductCode sets ProductCode field to given value.
 
 HasProductCode returns a boolean if a field has been set.
 
+### SetProductCodeNil
+
+`func (o *ApplicationGroupDeliveryGroupResponseModel) SetProductCodeNil(b bool)`
+
+ SetProductCodeNil sets the value for ProductCode to be an explicit nil
+
+### UnsetProductCode
+`func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetProductCode()`
+
+UnsetProductCode ensures that no value is present for ProductCode, not even an explicit nil
 ### GetLicenseModel
 
 `func (o *ApplicationGroupDeliveryGroupResponseModel) GetLicenseModel() LicenseModel`
@@ -683,6 +733,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *ApplicationGroupDeliveryGroupResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetSessionCount
 
 `func (o *ApplicationGroupDeliveryGroupResponseModel) GetSessionCount() int32`
@@ -845,20 +905,20 @@ SetDesktopCompatibility sets DesktopCompatibility field to given value.
 
 ### GetAdminFolder
 
-`func (o *ApplicationGroupDeliveryGroupResponseModel) GetAdminFolder() CatalogSearchResponseModelAdminFolder`
+`func (o *ApplicationGroupDeliveryGroupResponseModel) GetAdminFolder() RefResponseModel`
 
 GetAdminFolder returns the AdminFolder field if non-nil, zero value otherwise.
 
 ### GetAdminFolderOk
 
-`func (o *ApplicationGroupDeliveryGroupResponseModel) GetAdminFolderOk() (*CatalogSearchResponseModelAdminFolder, bool)`
+`func (o *ApplicationGroupDeliveryGroupResponseModel) GetAdminFolderOk() (*RefResponseModel, bool)`
 
 GetAdminFolderOk returns a tuple with the AdminFolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdminFolder
 
-`func (o *ApplicationGroupDeliveryGroupResponseModel) SetAdminFolder(v CatalogSearchResponseModelAdminFolder)`
+`func (o *ApplicationGroupDeliveryGroupResponseModel) SetAdminFolder(v RefResponseModel)`
 
 SetAdminFolder sets AdminFolder field to given value.
 

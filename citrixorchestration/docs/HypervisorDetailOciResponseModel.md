@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
 **Addresses** | **[]string** | Addresses that can be used to contact the required hypervisor. All the addresses are considered equivalent, that is, all of the addresses provide access to the same virtual machines, snapshots, network, and storage. | 
 **InMaintenanceMode** | **bool** | Indicates whether the hypervisor is in maintenance mode, which disables all communication between XenApp &amp; XenDesktop and the Hypervisor. | 
@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | The list of administrative scopes that the connection is a part of. The scopes control which administrators are able to work with the connection. | 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the hypervisor is assigned to.  If &#x60;null&#x60;, the hypervisor is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
 **UsesCloudInfrastructure** | **bool** | Indicates whether the hypervisor uses cloud infrastructure. | 
-**Zone** | [**HypervisorResponseModelAllOfZone**](HypervisorResponseModelAllOfZone.md) |  | 
-**Fault** | Pointer to [**HypervisorResponseModelAllOfFault**](HypervisorResponseModelAllOfFault.md) |  | [optional] 
-**CustomProperties** | Pointer to **string** | CustomProperties of hypervisor connection | [optional] 
-**Uid** | Pointer to **int32** | The broker id. | [optional] 
+**Zone** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**Fault** | Pointer to [**HypervisorFaultResponseModel**](HypervisorFaultResponseModel.md) |  | [optional] 
+**CustomProperties** | Pointer to **NullableString** | CustomProperties of hypervisor connection | [optional] 
+**Uid** | Pointer to **NullableInt32** | The broker id. | [optional] 
 **IsVirtual** | Pointer to **bool** | If this connection is virtual. | [optional] 
 **Capabilities** | **[]string** | List of capabilities supported by the hypervisor. | 
 **ConfigurationObjectCapabilities** | [**[]HypervisorConfigurationObjectCapability**](HypervisorConfigurationObjectCapability.md) | List of configuration capabilities supported by each type of object on the hypervisor. | 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewHypervisorDetailOciResponseModel
 
-`func NewHypervisorDetailOciResponseModel(connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone HypervisorResponseModelAllOfZone, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, tenancyOcid string, ociRegion string, serviceAccountId string, ociEnvironment string, fingerprint string, ) *HypervisorDetailOciResponseModel`
+`func NewHypervisorDetailOciResponseModel(connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, tenancyOcid string, ociRegion string, serviceAccountId string, ociEnvironment string, fingerprint string, ) *HypervisorDetailOciResponseModel`
 
 NewHypervisorDetailOciResponseModel instantiates a new HypervisorDetailOciResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -80,6 +80,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorDetailOciResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorDetailOciResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorDetailOciResponseModel) GetName() string`
@@ -105,6 +115,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorDetailOciResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorDetailOciResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorDetailOciResponseModel) GetXDPath() string`
@@ -130,6 +150,16 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorDetailOciResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorDetailOciResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetConnectionType
 
 `func (o *HypervisorDetailOciResponseModel) GetConnectionType() HypervisorConnectionType`
@@ -280,6 +310,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *HypervisorDetailOciResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *HypervisorDetailOciResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetUsesCloudInfrastructure
 
 `func (o *HypervisorDetailOciResponseModel) GetUsesCloudInfrastructure() bool`
@@ -302,40 +342,40 @@ SetUsesCloudInfrastructure sets UsesCloudInfrastructure field to given value.
 
 ### GetZone
 
-`func (o *HypervisorDetailOciResponseModel) GetZone() HypervisorResponseModelAllOfZone`
+`func (o *HypervisorDetailOciResponseModel) GetZone() RefResponseModel`
 
 GetZone returns the Zone field if non-nil, zero value otherwise.
 
 ### GetZoneOk
 
-`func (o *HypervisorDetailOciResponseModel) GetZoneOk() (*HypervisorResponseModelAllOfZone, bool)`
+`func (o *HypervisorDetailOciResponseModel) GetZoneOk() (*RefResponseModel, bool)`
 
 GetZoneOk returns a tuple with the Zone field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetZone
 
-`func (o *HypervisorDetailOciResponseModel) SetZone(v HypervisorResponseModelAllOfZone)`
+`func (o *HypervisorDetailOciResponseModel) SetZone(v RefResponseModel)`
 
 SetZone sets Zone field to given value.
 
 
 ### GetFault
 
-`func (o *HypervisorDetailOciResponseModel) GetFault() HypervisorResponseModelAllOfFault`
+`func (o *HypervisorDetailOciResponseModel) GetFault() HypervisorFaultResponseModel`
 
 GetFault returns the Fault field if non-nil, zero value otherwise.
 
 ### GetFaultOk
 
-`func (o *HypervisorDetailOciResponseModel) GetFaultOk() (*HypervisorResponseModelAllOfFault, bool)`
+`func (o *HypervisorDetailOciResponseModel) GetFaultOk() (*HypervisorFaultResponseModel, bool)`
 
 GetFaultOk returns a tuple with the Fault field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFault
 
-`func (o *HypervisorDetailOciResponseModel) SetFault(v HypervisorResponseModelAllOfFault)`
+`func (o *HypervisorDetailOciResponseModel) SetFault(v HypervisorFaultResponseModel)`
 
 SetFault sets Fault field to given value.
 
@@ -370,6 +410,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *HypervisorDetailOciResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *HypervisorDetailOciResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetUid
 
 `func (o *HypervisorDetailOciResponseModel) GetUid() int32`
@@ -395,6 +445,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *HypervisorDetailOciResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *HypervisorDetailOciResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetIsVirtual
 
 `func (o *HypervisorDetailOciResponseModel) GetIsVirtual() bool`
@@ -625,6 +685,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *HypervisorDetailOciResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *HypervisorDetailOciResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetTenancyOcid
 
 `func (o *HypervisorDetailOciResponseModel) GetTenancyOcid() string`

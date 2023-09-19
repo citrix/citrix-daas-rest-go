@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MachineCatalog** | [**MachineCatalogTestResponseModelMachineCatalog**](MachineCatalogTestResponseModelMachineCatalog.md) |  | 
+**MachineCatalog** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **NumPassed** | **int32** | The number of tests that passed. | 
 **NumWarnings** | **int32** | The number of warnings that were found. | 
 **NumFailures** | **int32** | The number of tests that failed. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewMachineCatalogTestResponseModel
 
-`func NewMachineCatalogTestResponseModel(machineCatalog MachineCatalogTestResponseModelMachineCatalog, numPassed int32, numWarnings int32, numFailures int32, ) *MachineCatalogTestResponseModel`
+`func NewMachineCatalogTestResponseModel(machineCatalog RefResponseModel, numPassed int32, numWarnings int32, numFailures int32, ) *MachineCatalogTestResponseModel`
 
 NewMachineCatalogTestResponseModel instantiates a new MachineCatalogTestResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMachineCatalog
 
-`func (o *MachineCatalogTestResponseModel) GetMachineCatalog() MachineCatalogTestResponseModelMachineCatalog`
+`func (o *MachineCatalogTestResponseModel) GetMachineCatalog() RefResponseModel`
 
 GetMachineCatalog returns the MachineCatalog field if non-nil, zero value otherwise.
 
 ### GetMachineCatalogOk
 
-`func (o *MachineCatalogTestResponseModel) GetMachineCatalogOk() (*MachineCatalogTestResponseModelMachineCatalog, bool)`
+`func (o *MachineCatalogTestResponseModel) GetMachineCatalogOk() (*RefResponseModel, bool)`
 
 GetMachineCatalogOk returns a tuple with the MachineCatalog field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineCatalog
 
-`func (o *MachineCatalogTestResponseModel) SetMachineCatalog(v MachineCatalogTestResponseModelMachineCatalog)`
+`func (o *MachineCatalogTestResponseModel) SetMachineCatalog(v RefResponseModel)`
 
 SetMachineCatalog sets MachineCatalog field to given value.
 

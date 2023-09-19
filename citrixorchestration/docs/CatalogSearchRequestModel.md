@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdminFolder** | Pointer to **string** | Admin folder in which to search for the machine catalog. | [optional] 
-**IncludeSubFolders** | Pointer to **bool** | Whether to include subfolders of the AdminFolder in the search for the machine catalogs. | [optional] [default to true]
-**BasicSearchString** | Pointer to **string** | Basic search string. Specify a string which will match if contained within some string property of the catalog. | [optional] 
+**AdminFolder** | Pointer to **NullableString** | Admin folder in which to search for the machine catalog. | [optional] 
+**IncludeSubFolders** | Pointer to **NullableBool** | Whether to include subfolders of the AdminFolder in the search for the machine catalogs. | [optional] [default to true]
+**BasicSearchString** | Pointer to **NullableString** | Basic search string. Specify a string which will match if contained within some string property of the catalog. | [optional] 
 **SearchFilters** | Pointer to [**[]CatalogSearchFilterRequestModel**](CatalogSearchFilterRequestModel.md) | List of advanced search filters. | [optional] 
-**SortCriteria** | Pointer to [**CatalogSearchRequestModelSortCriteria**](CatalogSearchRequestModelSortCriteria.md) |  | [optional] 
+**SortCriteria** | Pointer to [**CatalogSortCriteriaRequestModel**](CatalogSortCriteriaRequestModel.md) |  | [optional] 
 **SearchFilterGroups** | Pointer to [**[]CatalogSearchFilterGroupRequestModel**](CatalogSearchFilterGroupRequestModel.md) | List of advanced search filter groups. | [optional] 
 **SearchFilterGroupsType** | Pointer to [**CatalogSearchFilterGroupsType**](CatalogSearchFilterGroupsType.md) |  | [optional] 
 
@@ -56,6 +56,16 @@ SetAdminFolder sets AdminFolder field to given value.
 
 HasAdminFolder returns a boolean if a field has been set.
 
+### SetAdminFolderNil
+
+`func (o *CatalogSearchRequestModel) SetAdminFolderNil(b bool)`
+
+ SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
+
+### UnsetAdminFolder
+`func (o *CatalogSearchRequestModel) UnsetAdminFolder()`
+
+UnsetAdminFolder ensures that no value is present for AdminFolder, not even an explicit nil
 ### GetIncludeSubFolders
 
 `func (o *CatalogSearchRequestModel) GetIncludeSubFolders() bool`
@@ -81,6 +91,16 @@ SetIncludeSubFolders sets IncludeSubFolders field to given value.
 
 HasIncludeSubFolders returns a boolean if a field has been set.
 
+### SetIncludeSubFoldersNil
+
+`func (o *CatalogSearchRequestModel) SetIncludeSubFoldersNil(b bool)`
+
+ SetIncludeSubFoldersNil sets the value for IncludeSubFolders to be an explicit nil
+
+### UnsetIncludeSubFolders
+`func (o *CatalogSearchRequestModel) UnsetIncludeSubFolders()`
+
+UnsetIncludeSubFolders ensures that no value is present for IncludeSubFolders, not even an explicit nil
 ### GetBasicSearchString
 
 `func (o *CatalogSearchRequestModel) GetBasicSearchString() string`
@@ -106,6 +126,16 @@ SetBasicSearchString sets BasicSearchString field to given value.
 
 HasBasicSearchString returns a boolean if a field has been set.
 
+### SetBasicSearchStringNil
+
+`func (o *CatalogSearchRequestModel) SetBasicSearchStringNil(b bool)`
+
+ SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
+
+### UnsetBasicSearchString
+`func (o *CatalogSearchRequestModel) UnsetBasicSearchString()`
+
+UnsetBasicSearchString ensures that no value is present for BasicSearchString, not even an explicit nil
 ### GetSearchFilters
 
 `func (o *CatalogSearchRequestModel) GetSearchFilters() []CatalogSearchFilterRequestModel`
@@ -131,22 +161,32 @@ SetSearchFilters sets SearchFilters field to given value.
 
 HasSearchFilters returns a boolean if a field has been set.
 
+### SetSearchFiltersNil
+
+`func (o *CatalogSearchRequestModel) SetSearchFiltersNil(b bool)`
+
+ SetSearchFiltersNil sets the value for SearchFilters to be an explicit nil
+
+### UnsetSearchFilters
+`func (o *CatalogSearchRequestModel) UnsetSearchFilters()`
+
+UnsetSearchFilters ensures that no value is present for SearchFilters, not even an explicit nil
 ### GetSortCriteria
 
-`func (o *CatalogSearchRequestModel) GetSortCriteria() CatalogSearchRequestModelSortCriteria`
+`func (o *CatalogSearchRequestModel) GetSortCriteria() CatalogSortCriteriaRequestModel`
 
 GetSortCriteria returns the SortCriteria field if non-nil, zero value otherwise.
 
 ### GetSortCriteriaOk
 
-`func (o *CatalogSearchRequestModel) GetSortCriteriaOk() (*CatalogSearchRequestModelSortCriteria, bool)`
+`func (o *CatalogSearchRequestModel) GetSortCriteriaOk() (*CatalogSortCriteriaRequestModel, bool)`
 
 GetSortCriteriaOk returns a tuple with the SortCriteria field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSortCriteria
 
-`func (o *CatalogSearchRequestModel) SetSortCriteria(v CatalogSearchRequestModelSortCriteria)`
+`func (o *CatalogSearchRequestModel) SetSortCriteria(v CatalogSortCriteriaRequestModel)`
 
 SetSortCriteria sets SortCriteria field to given value.
 
@@ -181,6 +221,16 @@ SetSearchFilterGroups sets SearchFilterGroups field to given value.
 
 HasSearchFilterGroups returns a boolean if a field has been set.
 
+### SetSearchFilterGroupsNil
+
+`func (o *CatalogSearchRequestModel) SetSearchFilterGroupsNil(b bool)`
+
+ SetSearchFilterGroupsNil sets the value for SearchFilterGroups to be an explicit nil
+
+### UnsetSearchFilterGroups
+`func (o *CatalogSearchRequestModel) UnsetSearchFilterGroups()`
+
+UnsetSearchFilterGroups ensures that no value is present for SearchFilterGroups, not even an explicit nil
 ### GetSearchFilterGroupsType
 
 `func (o *CatalogSearchRequestModel) GetSearchFilterGroupsType() CatalogSearchFilterGroupsType`

@@ -5,28 +5,28 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActionId** | Pointer to **string** | The action id. | [optional] 
-**ActionTargetName** | Pointer to **string** | The action target name, it&#39;s the related catalog name. | [optional] 
-**ActionTargetUid** | Pointer to **string** | The action target uid, it&#39;s the related catalog uid. | [optional] 
-**ActionTargetId** | Pointer to **string** | The action target id, it&#39;s related on catalog id. | [optional] 
+**ActionTargetName** | Pointer to **NullableString** | The action target name, it&#39;s the related catalog name. | [optional] 
+**ActionTargetUid** | Pointer to **NullableString** | The action target uid, it&#39;s the related catalog uid. | [optional] 
+**ActionTargetId** | Pointer to **NullableString** | The action target id, it&#39;s related on catalog id. | [optional] 
 **ActionType** | Pointer to [**ActionType**](ActionType.md) |  | [optional] 
-**CreationTime** | Pointer to **string** | The action creation time. | [optional] 
-**StartTime** | Pointer to **string** | The action start time. | [optional] 
-**FinishTime** | Pointer to **string** | The action finish time. | [optional] 
+**CreationTime** | Pointer to **NullableString** | The action creation time. | [optional] 
+**StartTime** | Pointer to **NullableString** | The action start time. | [optional] 
+**FinishTime** | Pointer to **NullableString** | The action finish time. | [optional] 
 **State** | Pointer to [**ActionState**](ActionState.md) |  | [optional] 
 **ErrorState** | Pointer to [**ActionErrorStatus**](ActionErrorStatus.md) |  | [optional] 
 **Progress** | Pointer to **float64** | The progress of the action. | [optional] 
-**ProgressMessage** | Pointer to **string** | The progress message. | [optional] 
-**TerminatingError** | Pointer to [**ActionResponseModelTerminatingError**](ActionResponseModelTerminatingError.md) |  | [optional] 
+**ProgressMessage** | Pointer to **NullableString** | The progress message. | [optional] 
+**TerminatingError** | Pointer to [**ActionError**](ActionError.md) |  | [optional] 
 **NonTerminatingErrors** | Pointer to [**[]ActionError**](ActionError.md) | The non terminating errors. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of the action. | [optional] 
 **Scopes** | Pointer to [**[]ScopeResponseModel**](ScopeResponseModel.md) | The scope of the catalog. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the hypervisor is assigned to.  If &#x60;null&#x60;, the hypervisor is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
 **IsRunning** | Pointer to **bool** | If the task is running. | [optional] 
-**MasterImage** | Pointer to **string** | The master image. | [optional] 
-**MachineCreationData** | Pointer to [**ActionCatalogCreationResponseModelAllOfMachineCreationData**](ActionCatalogCreationResponseModelAllOfMachineCreationData.md) |  | [optional] 
-**Snapshot** | Pointer to **string** | The snapshot. | [optional] 
-**MachineRemovalData** | Pointer to [**ActionMachineRemovalResponseModelAllOfMachineRemovalData**](ActionMachineRemovalResponseModelAllOfMachineRemovalData.md) |  | [optional] 
-**DeleteVirtualMachines** | Pointer to **string** | The delete virtual machines.  | [optional] 
+**MasterImage** | Pointer to **NullableString** | The master image. | [optional] 
+**MachineCreationData** | Pointer to [**ActionMachineCreationDetailsResponseModel**](ActionMachineCreationDetailsResponseModel.md) |  | [optional] 
+**Snapshot** | Pointer to **NullableString** | The snapshot. | [optional] 
+**MachineRemovalData** | Pointer to [**ActionMachineRemovalDetailsResponseModel**](ActionMachineRemovalDetailsResponseModel.md) |  | [optional] 
+**DeleteVirtualMachines** | Pointer to **NullableString** | The delete virtual machines.  | [optional] 
 
 ## Methods
 
@@ -97,6 +97,16 @@ SetActionTargetName sets ActionTargetName field to given value.
 
 HasActionTargetName returns a boolean if a field has been set.
 
+### SetActionTargetNameNil
+
+`func (o *ActionMachineCreationResponseModel) SetActionTargetNameNil(b bool)`
+
+ SetActionTargetNameNil sets the value for ActionTargetName to be an explicit nil
+
+### UnsetActionTargetName
+`func (o *ActionMachineCreationResponseModel) UnsetActionTargetName()`
+
+UnsetActionTargetName ensures that no value is present for ActionTargetName, not even an explicit nil
 ### GetActionTargetUid
 
 `func (o *ActionMachineCreationResponseModel) GetActionTargetUid() string`
@@ -122,6 +132,16 @@ SetActionTargetUid sets ActionTargetUid field to given value.
 
 HasActionTargetUid returns a boolean if a field has been set.
 
+### SetActionTargetUidNil
+
+`func (o *ActionMachineCreationResponseModel) SetActionTargetUidNil(b bool)`
+
+ SetActionTargetUidNil sets the value for ActionTargetUid to be an explicit nil
+
+### UnsetActionTargetUid
+`func (o *ActionMachineCreationResponseModel) UnsetActionTargetUid()`
+
+UnsetActionTargetUid ensures that no value is present for ActionTargetUid, not even an explicit nil
 ### GetActionTargetId
 
 `func (o *ActionMachineCreationResponseModel) GetActionTargetId() string`
@@ -147,6 +167,16 @@ SetActionTargetId sets ActionTargetId field to given value.
 
 HasActionTargetId returns a boolean if a field has been set.
 
+### SetActionTargetIdNil
+
+`func (o *ActionMachineCreationResponseModel) SetActionTargetIdNil(b bool)`
+
+ SetActionTargetIdNil sets the value for ActionTargetId to be an explicit nil
+
+### UnsetActionTargetId
+`func (o *ActionMachineCreationResponseModel) UnsetActionTargetId()`
+
+UnsetActionTargetId ensures that no value is present for ActionTargetId, not even an explicit nil
 ### GetActionType
 
 `func (o *ActionMachineCreationResponseModel) GetActionType() ActionType`
@@ -197,6 +227,16 @@ SetCreationTime sets CreationTime field to given value.
 
 HasCreationTime returns a boolean if a field has been set.
 
+### SetCreationTimeNil
+
+`func (o *ActionMachineCreationResponseModel) SetCreationTimeNil(b bool)`
+
+ SetCreationTimeNil sets the value for CreationTime to be an explicit nil
+
+### UnsetCreationTime
+`func (o *ActionMachineCreationResponseModel) UnsetCreationTime()`
+
+UnsetCreationTime ensures that no value is present for CreationTime, not even an explicit nil
 ### GetStartTime
 
 `func (o *ActionMachineCreationResponseModel) GetStartTime() string`
@@ -222,6 +262,16 @@ SetStartTime sets StartTime field to given value.
 
 HasStartTime returns a boolean if a field has been set.
 
+### SetStartTimeNil
+
+`func (o *ActionMachineCreationResponseModel) SetStartTimeNil(b bool)`
+
+ SetStartTimeNil sets the value for StartTime to be an explicit nil
+
+### UnsetStartTime
+`func (o *ActionMachineCreationResponseModel) UnsetStartTime()`
+
+UnsetStartTime ensures that no value is present for StartTime, not even an explicit nil
 ### GetFinishTime
 
 `func (o *ActionMachineCreationResponseModel) GetFinishTime() string`
@@ -247,6 +297,16 @@ SetFinishTime sets FinishTime field to given value.
 
 HasFinishTime returns a boolean if a field has been set.
 
+### SetFinishTimeNil
+
+`func (o *ActionMachineCreationResponseModel) SetFinishTimeNil(b bool)`
+
+ SetFinishTimeNil sets the value for FinishTime to be an explicit nil
+
+### UnsetFinishTime
+`func (o *ActionMachineCreationResponseModel) UnsetFinishTime()`
+
+UnsetFinishTime ensures that no value is present for FinishTime, not even an explicit nil
 ### GetState
 
 `func (o *ActionMachineCreationResponseModel) GetState() ActionState`
@@ -347,22 +407,32 @@ SetProgressMessage sets ProgressMessage field to given value.
 
 HasProgressMessage returns a boolean if a field has been set.
 
+### SetProgressMessageNil
+
+`func (o *ActionMachineCreationResponseModel) SetProgressMessageNil(b bool)`
+
+ SetProgressMessageNil sets the value for ProgressMessage to be an explicit nil
+
+### UnsetProgressMessage
+`func (o *ActionMachineCreationResponseModel) UnsetProgressMessage()`
+
+UnsetProgressMessage ensures that no value is present for ProgressMessage, not even an explicit nil
 ### GetTerminatingError
 
-`func (o *ActionMachineCreationResponseModel) GetTerminatingError() ActionResponseModelTerminatingError`
+`func (o *ActionMachineCreationResponseModel) GetTerminatingError() ActionError`
 
 GetTerminatingError returns the TerminatingError field if non-nil, zero value otherwise.
 
 ### GetTerminatingErrorOk
 
-`func (o *ActionMachineCreationResponseModel) GetTerminatingErrorOk() (*ActionResponseModelTerminatingError, bool)`
+`func (o *ActionMachineCreationResponseModel) GetTerminatingErrorOk() (*ActionError, bool)`
 
 GetTerminatingErrorOk returns a tuple with the TerminatingError field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTerminatingError
 
-`func (o *ActionMachineCreationResponseModel) SetTerminatingError(v ActionResponseModelTerminatingError)`
+`func (o *ActionMachineCreationResponseModel) SetTerminatingError(v ActionError)`
 
 SetTerminatingError sets TerminatingError field to given value.
 
@@ -397,6 +467,16 @@ SetNonTerminatingErrors sets NonTerminatingErrors field to given value.
 
 HasNonTerminatingErrors returns a boolean if a field has been set.
 
+### SetNonTerminatingErrorsNil
+
+`func (o *ActionMachineCreationResponseModel) SetNonTerminatingErrorsNil(b bool)`
+
+ SetNonTerminatingErrorsNil sets the value for NonTerminatingErrors to be an explicit nil
+
+### UnsetNonTerminatingErrors
+`func (o *ActionMachineCreationResponseModel) UnsetNonTerminatingErrors()`
+
+UnsetNonTerminatingErrors ensures that no value is present for NonTerminatingErrors, not even an explicit nil
 ### GetMetadata
 
 `func (o *ActionMachineCreationResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -422,6 +502,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *ActionMachineCreationResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ActionMachineCreationResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetScopes
 
 `func (o *ActionMachineCreationResponseModel) GetScopes() []ScopeResponseModel`
@@ -447,6 +537,16 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
+### SetScopesNil
+
+`func (o *ActionMachineCreationResponseModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *ActionMachineCreationResponseModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetTenants
 
 `func (o *ActionMachineCreationResponseModel) GetTenants() []RefResponseModel`
@@ -472,6 +572,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *ActionMachineCreationResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *ActionMachineCreationResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetIsRunning
 
 `func (o *ActionMachineCreationResponseModel) GetIsRunning() bool`
@@ -522,22 +632,32 @@ SetMasterImage sets MasterImage field to given value.
 
 HasMasterImage returns a boolean if a field has been set.
 
+### SetMasterImageNil
+
+`func (o *ActionMachineCreationResponseModel) SetMasterImageNil(b bool)`
+
+ SetMasterImageNil sets the value for MasterImage to be an explicit nil
+
+### UnsetMasterImage
+`func (o *ActionMachineCreationResponseModel) UnsetMasterImage()`
+
+UnsetMasterImage ensures that no value is present for MasterImage, not even an explicit nil
 ### GetMachineCreationData
 
-`func (o *ActionMachineCreationResponseModel) GetMachineCreationData() ActionCatalogCreationResponseModelAllOfMachineCreationData`
+`func (o *ActionMachineCreationResponseModel) GetMachineCreationData() ActionMachineCreationDetailsResponseModel`
 
 GetMachineCreationData returns the MachineCreationData field if non-nil, zero value otherwise.
 
 ### GetMachineCreationDataOk
 
-`func (o *ActionMachineCreationResponseModel) GetMachineCreationDataOk() (*ActionCatalogCreationResponseModelAllOfMachineCreationData, bool)`
+`func (o *ActionMachineCreationResponseModel) GetMachineCreationDataOk() (*ActionMachineCreationDetailsResponseModel, bool)`
 
 GetMachineCreationDataOk returns a tuple with the MachineCreationData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineCreationData
 
-`func (o *ActionMachineCreationResponseModel) SetMachineCreationData(v ActionCatalogCreationResponseModelAllOfMachineCreationData)`
+`func (o *ActionMachineCreationResponseModel) SetMachineCreationData(v ActionMachineCreationDetailsResponseModel)`
 
 SetMachineCreationData sets MachineCreationData field to given value.
 
@@ -572,22 +692,32 @@ SetSnapshot sets Snapshot field to given value.
 
 HasSnapshot returns a boolean if a field has been set.
 
+### SetSnapshotNil
+
+`func (o *ActionMachineCreationResponseModel) SetSnapshotNil(b bool)`
+
+ SetSnapshotNil sets the value for Snapshot to be an explicit nil
+
+### UnsetSnapshot
+`func (o *ActionMachineCreationResponseModel) UnsetSnapshot()`
+
+UnsetSnapshot ensures that no value is present for Snapshot, not even an explicit nil
 ### GetMachineRemovalData
 
-`func (o *ActionMachineCreationResponseModel) GetMachineRemovalData() ActionMachineRemovalResponseModelAllOfMachineRemovalData`
+`func (o *ActionMachineCreationResponseModel) GetMachineRemovalData() ActionMachineRemovalDetailsResponseModel`
 
 GetMachineRemovalData returns the MachineRemovalData field if non-nil, zero value otherwise.
 
 ### GetMachineRemovalDataOk
 
-`func (o *ActionMachineCreationResponseModel) GetMachineRemovalDataOk() (*ActionMachineRemovalResponseModelAllOfMachineRemovalData, bool)`
+`func (o *ActionMachineCreationResponseModel) GetMachineRemovalDataOk() (*ActionMachineRemovalDetailsResponseModel, bool)`
 
 GetMachineRemovalDataOk returns a tuple with the MachineRemovalData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineRemovalData
 
-`func (o *ActionMachineCreationResponseModel) SetMachineRemovalData(v ActionMachineRemovalResponseModelAllOfMachineRemovalData)`
+`func (o *ActionMachineCreationResponseModel) SetMachineRemovalData(v ActionMachineRemovalDetailsResponseModel)`
 
 SetMachineRemovalData sets MachineRemovalData field to given value.
 
@@ -622,6 +752,16 @@ SetDeleteVirtualMachines sets DeleteVirtualMachines field to given value.
 
 HasDeleteVirtualMachines returns a boolean if a field has been set.
 
+### SetDeleteVirtualMachinesNil
+
+`func (o *ActionMachineCreationResponseModel) SetDeleteVirtualMachinesNil(b bool)`
+
+ SetDeleteVirtualMachinesNil sets the value for DeleteVirtualMachines to be an explicit nil
+
+### UnsetDeleteVirtualMachines
+`func (o *ActionMachineCreationResponseModel) UnsetDeleteVirtualMachines()`
+
+UnsetDeleteVirtualMachines ensures that no value is present for DeleteVirtualMachines, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

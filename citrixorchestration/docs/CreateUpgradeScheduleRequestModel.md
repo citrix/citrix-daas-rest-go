@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDateTimeUtc** | Pointer to **time.Time** | UTC time to start the Vda upgrade. Must be a future time. If set to null, the upgrade should be started at once. | [optional] 
+**StartDateTimeUtc** | Pointer to **NullableTime** | UTC time to start the Vda upgrade. Must be a future time. If set to null, the upgrade should be started at once. | [optional] 
 **DurationInHours** | **int32** | Timeout duration in hours. Valid range is 1 to 24. | 
-**VDAComponentsAndFeaturesRequestModel** | Pointer to [**CreateUpgradeScheduleRequestModelVDAComponentsAndFeaturesRequestModel**](CreateUpgradeScheduleRequestModelVDAComponentsAndFeaturesRequestModel.md) |  | [optional] 
+**VDAComponentsAndFeaturesRequestModel** | Pointer to [**VDAComponentsSelectionValidationRequestModel**](VDAComponentsSelectionValidationRequestModel.md) |  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetStartDateTimeUtc sets StartDateTimeUtc field to given value.
 
 HasStartDateTimeUtc returns a boolean if a field has been set.
 
+### SetStartDateTimeUtcNil
+
+`func (o *CreateUpgradeScheduleRequestModel) SetStartDateTimeUtcNil(b bool)`
+
+ SetStartDateTimeUtcNil sets the value for StartDateTimeUtc to be an explicit nil
+
+### UnsetStartDateTimeUtc
+`func (o *CreateUpgradeScheduleRequestModel) UnsetStartDateTimeUtc()`
+
+UnsetStartDateTimeUtc ensures that no value is present for StartDateTimeUtc, not even an explicit nil
 ### GetDurationInHours
 
 `func (o *CreateUpgradeScheduleRequestModel) GetDurationInHours() int32`
@@ -74,20 +84,20 @@ SetDurationInHours sets DurationInHours field to given value.
 
 ### GetVDAComponentsAndFeaturesRequestModel
 
-`func (o *CreateUpgradeScheduleRequestModel) GetVDAComponentsAndFeaturesRequestModel() CreateUpgradeScheduleRequestModelVDAComponentsAndFeaturesRequestModel`
+`func (o *CreateUpgradeScheduleRequestModel) GetVDAComponentsAndFeaturesRequestModel() VDAComponentsSelectionValidationRequestModel`
 
 GetVDAComponentsAndFeaturesRequestModel returns the VDAComponentsAndFeaturesRequestModel field if non-nil, zero value otherwise.
 
 ### GetVDAComponentsAndFeaturesRequestModelOk
 
-`func (o *CreateUpgradeScheduleRequestModel) GetVDAComponentsAndFeaturesRequestModelOk() (*CreateUpgradeScheduleRequestModelVDAComponentsAndFeaturesRequestModel, bool)`
+`func (o *CreateUpgradeScheduleRequestModel) GetVDAComponentsAndFeaturesRequestModelOk() (*VDAComponentsSelectionValidationRequestModel, bool)`
 
 GetVDAComponentsAndFeaturesRequestModelOk returns a tuple with the VDAComponentsAndFeaturesRequestModel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVDAComponentsAndFeaturesRequestModel
 
-`func (o *CreateUpgradeScheduleRequestModel) SetVDAComponentsAndFeaturesRequestModel(v CreateUpgradeScheduleRequestModelVDAComponentsAndFeaturesRequestModel)`
+`func (o *CreateUpgradeScheduleRequestModel) SetVDAComponentsAndFeaturesRequestModel(v VDAComponentsSelectionValidationRequestModel)`
 
 SetVDAComponentsAndFeaturesRequestModel sets VDAComponentsAndFeaturesRequestModel field to given value.
 

@@ -8,18 +8,18 @@ Name | Type | Description | Notes
 **ExecutionId** | **string** | Execution Id | 
 **Duration** | **int32** | Current duration in seconds | 
 **Status** | [**BackupRestoreStatus**](BackupRestoreStatus.md) |  | 
-**BackupName** | Pointer to **string** | Backup Name | [optional] 
-**ScheduleName** | Pointer to **string** | Schedule Name | [optional] 
+**BackupName** | Pointer to **NullableString** | Backup Name | [optional] 
+**ScheduleName** | Pointer to **NullableString** | Schedule Name | [optional] 
 **MemberCount** | Pointer to **int32** | Member Count | [optional] 
 **StartTime** | **time.Time** | Action Start UTC Time              | 
 **CurrentTime** | **time.Time** | Action Current UTC Time | 
-**RestoreProgress** | Pointer to [**BackupRestoreStatusRequestModelRestoreProgress**](BackupRestoreStatusRequestModelRestoreProgress.md) |  | [optional] 
+**RestoreProgress** | Pointer to [**BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) |  | [optional] 
 **ActivityCount** | Pointer to **int32** | Activity count for stall testing | [optional] 
-**CurrentComponent** | Pointer to **string** | Current component being restored | [optional] 
-**CurrentMemberName** | Pointer to **string** | Current component member being restored | [optional] 
+**CurrentComponent** | Pointer to **NullableString** | Current component being restored | [optional] 
+**CurrentMemberName** | Pointer to **NullableString** | Current component member being restored | [optional] 
 **ComponentProgress** | Pointer to [**BackupRestorePlaybookActionState**](BackupRestorePlaybookActionState.md) |  | [optional] 
 **CheckMode** | Pointer to **bool** | Check Mode | [optional] 
-**AdministratrName** | Pointer to **string** | AdministratorName | [optional] 
+**AdministratrName** | Pointer to **NullableString** | AdministratorName | [optional] 
 **BackupDetails** | Pointer to **map[string]string** | Backup Status Details | [optional] 
 **RestoreDetails** | Pointer to [**[]BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) | Restore Status Details | [optional] 
 **SimpleResults** | Pointer to **[]string** | Simple Results (such as Get backed up member names) | [optional] 
@@ -148,6 +148,16 @@ SetBackupName sets BackupName field to given value.
 
 HasBackupName returns a boolean if a field has been set.
 
+### SetBackupNameNil
+
+`func (o *BackupRestoreStatusRequestModel) SetBackupNameNil(b bool)`
+
+ SetBackupNameNil sets the value for BackupName to be an explicit nil
+
+### UnsetBackupName
+`func (o *BackupRestoreStatusRequestModel) UnsetBackupName()`
+
+UnsetBackupName ensures that no value is present for BackupName, not even an explicit nil
 ### GetScheduleName
 
 `func (o *BackupRestoreStatusRequestModel) GetScheduleName() string`
@@ -173,6 +183,16 @@ SetScheduleName sets ScheduleName field to given value.
 
 HasScheduleName returns a boolean if a field has been set.
 
+### SetScheduleNameNil
+
+`func (o *BackupRestoreStatusRequestModel) SetScheduleNameNil(b bool)`
+
+ SetScheduleNameNil sets the value for ScheduleName to be an explicit nil
+
+### UnsetScheduleName
+`func (o *BackupRestoreStatusRequestModel) UnsetScheduleName()`
+
+UnsetScheduleName ensures that no value is present for ScheduleName, not even an explicit nil
 ### GetMemberCount
 
 `func (o *BackupRestoreStatusRequestModel) GetMemberCount() int32`
@@ -240,20 +260,20 @@ SetCurrentTime sets CurrentTime field to given value.
 
 ### GetRestoreProgress
 
-`func (o *BackupRestoreStatusRequestModel) GetRestoreProgress() BackupRestoreStatusRequestModelRestoreProgress`
+`func (o *BackupRestoreStatusRequestModel) GetRestoreProgress() BackupRestoreRestoreSingleMemberModel`
 
 GetRestoreProgress returns the RestoreProgress field if non-nil, zero value otherwise.
 
 ### GetRestoreProgressOk
 
-`func (o *BackupRestoreStatusRequestModel) GetRestoreProgressOk() (*BackupRestoreStatusRequestModelRestoreProgress, bool)`
+`func (o *BackupRestoreStatusRequestModel) GetRestoreProgressOk() (*BackupRestoreRestoreSingleMemberModel, bool)`
 
 GetRestoreProgressOk returns a tuple with the RestoreProgress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRestoreProgress
 
-`func (o *BackupRestoreStatusRequestModel) SetRestoreProgress(v BackupRestoreStatusRequestModelRestoreProgress)`
+`func (o *BackupRestoreStatusRequestModel) SetRestoreProgress(v BackupRestoreRestoreSingleMemberModel)`
 
 SetRestoreProgress sets RestoreProgress field to given value.
 
@@ -313,6 +333,16 @@ SetCurrentComponent sets CurrentComponent field to given value.
 
 HasCurrentComponent returns a boolean if a field has been set.
 
+### SetCurrentComponentNil
+
+`func (o *BackupRestoreStatusRequestModel) SetCurrentComponentNil(b bool)`
+
+ SetCurrentComponentNil sets the value for CurrentComponent to be an explicit nil
+
+### UnsetCurrentComponent
+`func (o *BackupRestoreStatusRequestModel) UnsetCurrentComponent()`
+
+UnsetCurrentComponent ensures that no value is present for CurrentComponent, not even an explicit nil
 ### GetCurrentMemberName
 
 `func (o *BackupRestoreStatusRequestModel) GetCurrentMemberName() string`
@@ -338,6 +368,16 @@ SetCurrentMemberName sets CurrentMemberName field to given value.
 
 HasCurrentMemberName returns a boolean if a field has been set.
 
+### SetCurrentMemberNameNil
+
+`func (o *BackupRestoreStatusRequestModel) SetCurrentMemberNameNil(b bool)`
+
+ SetCurrentMemberNameNil sets the value for CurrentMemberName to be an explicit nil
+
+### UnsetCurrentMemberName
+`func (o *BackupRestoreStatusRequestModel) UnsetCurrentMemberName()`
+
+UnsetCurrentMemberName ensures that no value is present for CurrentMemberName, not even an explicit nil
 ### GetComponentProgress
 
 `func (o *BackupRestoreStatusRequestModel) GetComponentProgress() BackupRestorePlaybookActionState`
@@ -413,6 +453,16 @@ SetAdministratrName sets AdministratrName field to given value.
 
 HasAdministratrName returns a boolean if a field has been set.
 
+### SetAdministratrNameNil
+
+`func (o *BackupRestoreStatusRequestModel) SetAdministratrNameNil(b bool)`
+
+ SetAdministratrNameNil sets the value for AdministratrName to be an explicit nil
+
+### UnsetAdministratrName
+`func (o *BackupRestoreStatusRequestModel) UnsetAdministratrName()`
+
+UnsetAdministratrName ensures that no value is present for AdministratrName, not even an explicit nil
 ### GetBackupDetails
 
 `func (o *BackupRestoreStatusRequestModel) GetBackupDetails() map[string]string`
@@ -438,6 +488,16 @@ SetBackupDetails sets BackupDetails field to given value.
 
 HasBackupDetails returns a boolean if a field has been set.
 
+### SetBackupDetailsNil
+
+`func (o *BackupRestoreStatusRequestModel) SetBackupDetailsNil(b bool)`
+
+ SetBackupDetailsNil sets the value for BackupDetails to be an explicit nil
+
+### UnsetBackupDetails
+`func (o *BackupRestoreStatusRequestModel) UnsetBackupDetails()`
+
+UnsetBackupDetails ensures that no value is present for BackupDetails, not even an explicit nil
 ### GetRestoreDetails
 
 `func (o *BackupRestoreStatusRequestModel) GetRestoreDetails() []BackupRestoreRestoreSingleMemberModel`
@@ -463,6 +523,16 @@ SetRestoreDetails sets RestoreDetails field to given value.
 
 HasRestoreDetails returns a boolean if a field has been set.
 
+### SetRestoreDetailsNil
+
+`func (o *BackupRestoreStatusRequestModel) SetRestoreDetailsNil(b bool)`
+
+ SetRestoreDetailsNil sets the value for RestoreDetails to be an explicit nil
+
+### UnsetRestoreDetails
+`func (o *BackupRestoreStatusRequestModel) UnsetRestoreDetails()`
+
+UnsetRestoreDetails ensures that no value is present for RestoreDetails, not even an explicit nil
 ### GetSimpleResults
 
 `func (o *BackupRestoreStatusRequestModel) GetSimpleResults() []string`
@@ -488,6 +558,16 @@ SetSimpleResults sets SimpleResults field to given value.
 
 HasSimpleResults returns a boolean if a field has been set.
 
+### SetSimpleResultsNil
+
+`func (o *BackupRestoreStatusRequestModel) SetSimpleResultsNil(b bool)`
+
+ SetSimpleResultsNil sets the value for SimpleResults to be an explicit nil
+
+### UnsetSimpleResults
+`func (o *BackupRestoreStatusRequestModel) UnsetSimpleResults()`
+
+UnsetSimpleResults ensures that no value is present for SimpleResults, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

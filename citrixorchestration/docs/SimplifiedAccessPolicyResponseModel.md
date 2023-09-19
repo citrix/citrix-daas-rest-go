@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AllowAnonymous** | **bool** | Whether anonymous connections are allowed to the delivery group. | 
 **AllowHdxAccess** | **bool** | Whether HDX connections are allowed to the delivery group. CHANGE: was: public bool AllowsHdxAccess { get; set; } | 
-**AllowMachineRestart** | Pointer to **bool** | Whether users are allowed to self-service restart machines. | [optional] 
+**AllowMachineRestart** | Pointer to **NullableBool** | Whether users are allowed to self-service restart machines. | [optional] 
 **AllowRdpAccess** | **bool** | Whether RDP connections are allowed to the delivery group. CHANGE: was: public bool AllowsRdpAccess { get; set; } | 
 **ConnectNotViaNetScalerGatewayAllowed** | **bool** | Whether connections that do not come through NetScaler Gateway are allowed. CHANGE: was: public bool ConnectNotViaAccessGatewayAllowed { get; set; } | 
 **ConnectViaNetScalerGatewayAllowed** | **bool** | Whether connections that come through NetScaler Gateway are allowed. CHANGE: was: public bool ConnectViaAccessGatewayAllowed { get; set; } | 
@@ -101,6 +101,16 @@ SetAllowMachineRestart sets AllowMachineRestart field to given value.
 
 HasAllowMachineRestart returns a boolean if a field has been set.
 
+### SetAllowMachineRestartNil
+
+`func (o *SimplifiedAccessPolicyResponseModel) SetAllowMachineRestartNil(b bool)`
+
+ SetAllowMachineRestartNil sets the value for AllowMachineRestart to be an explicit nil
+
+### UnsetAllowMachineRestart
+`func (o *SimplifiedAccessPolicyResponseModel) UnsetAllowMachineRestart()`
+
+UnsetAllowMachineRestart ensures that no value is present for AllowMachineRestart, not even an explicit nil
 ### GetAllowRdpAccess
 
 `func (o *SimplifiedAccessPolicyResponseModel) GetAllowRdpAccess() bool`
@@ -206,6 +216,16 @@ SetIncludedSmartAccessTags sets IncludedSmartAccessTags field to given value.
 
 HasIncludedSmartAccessTags returns a boolean if a field has been set.
 
+### SetIncludedSmartAccessTagsNil
+
+`func (o *SimplifiedAccessPolicyResponseModel) SetIncludedSmartAccessTagsNil(b bool)`
+
+ SetIncludedSmartAccessTagsNil sets the value for IncludedSmartAccessTags to be an explicit nil
+
+### UnsetIncludedSmartAccessTags
+`func (o *SimplifiedAccessPolicyResponseModel) UnsetIncludedSmartAccessTags()`
+
+UnsetIncludedSmartAccessTags ensures that no value is present for IncludedSmartAccessTags, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *SimplifiedAccessPolicyResponseModel) GetIncludedUserFilterEnabled() bool`
@@ -251,6 +271,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *SimplifiedAccessPolicyResponseModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *SimplifiedAccessPolicyResponseModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 ### GetExcludedUserFilterEnabled
 
 `func (o *SimplifiedAccessPolicyResponseModel) GetExcludedUserFilterEnabled() bool`
@@ -296,6 +326,16 @@ SetExcludedUsers sets ExcludedUsers field to given value.
 
 HasExcludedUsers returns a boolean if a field has been set.
 
+### SetExcludedUsersNil
+
+`func (o *SimplifiedAccessPolicyResponseModel) SetExcludedUsersNil(b bool)`
+
+ SetExcludedUsersNil sets the value for ExcludedUsers to be an explicit nil
+
+### UnsetExcludedUsers
+`func (o *SimplifiedAccessPolicyResponseModel) UnsetExcludedUsers()`
+
+UnsetExcludedUsers ensures that no value is present for ExcludedUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

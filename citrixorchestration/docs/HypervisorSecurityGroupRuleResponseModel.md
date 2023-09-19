@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FromPort** | Pointer to **float32** | Start of the port number range, required for any protocol that uses ports. In AWS this can also be an ICMP port number, where -1 specifies all ICMP types. | [optional] 
+**FromPort** | Pointer to **NullableFloat32** | Start of the port number range, required for any protocol that uses ports. In AWS this can also be an ICMP port number, where -1 specifies all ICMP types. | [optional] 
 **GroupIds** | Pointer to **[]string** | IDs of source or destination security groups. Empty when CIDR ranges are specified. | [optional] 
 **IPRanges** | Pointer to **[]string** | Source or destination CIDR address ranges. Empty if group IDs are specified. | [optional] 
 **Protocol** | **string** | IP protocol name or number. In AWS this is the IP protocol name or number, where -1 specifies all protocols. Protocol numbers: http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml | 
-**ToPort** | Pointer to **float32** | End of the port number range, required for any protocol that uses ports. In AWS this can also be an ICMP port number, where -1 specfies all ICMP types. | [optional] 
+**ToPort** | Pointer to **NullableFloat32** | End of the port number range, required for any protocol that uses ports. In AWS this can also be an ICMP port number, where -1 specfies all ICMP types. | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetFromPort sets FromPort field to given value.
 
 HasFromPort returns a boolean if a field has been set.
 
+### SetFromPortNil
+
+`func (o *HypervisorSecurityGroupRuleResponseModel) SetFromPortNil(b bool)`
+
+ SetFromPortNil sets the value for FromPort to be an explicit nil
+
+### UnsetFromPort
+`func (o *HypervisorSecurityGroupRuleResponseModel) UnsetFromPort()`
+
+UnsetFromPort ensures that no value is present for FromPort, not even an explicit nil
 ### GetGroupIds
 
 `func (o *HypervisorSecurityGroupRuleResponseModel) GetGroupIds() []string`
@@ -79,6 +89,16 @@ SetGroupIds sets GroupIds field to given value.
 
 HasGroupIds returns a boolean if a field has been set.
 
+### SetGroupIdsNil
+
+`func (o *HypervisorSecurityGroupRuleResponseModel) SetGroupIdsNil(b bool)`
+
+ SetGroupIdsNil sets the value for GroupIds to be an explicit nil
+
+### UnsetGroupIds
+`func (o *HypervisorSecurityGroupRuleResponseModel) UnsetGroupIds()`
+
+UnsetGroupIds ensures that no value is present for GroupIds, not even an explicit nil
 ### GetIPRanges
 
 `func (o *HypervisorSecurityGroupRuleResponseModel) GetIPRanges() []string`
@@ -104,6 +124,16 @@ SetIPRanges sets IPRanges field to given value.
 
 HasIPRanges returns a boolean if a field has been set.
 
+### SetIPRangesNil
+
+`func (o *HypervisorSecurityGroupRuleResponseModel) SetIPRangesNil(b bool)`
+
+ SetIPRangesNil sets the value for IPRanges to be an explicit nil
+
+### UnsetIPRanges
+`func (o *HypervisorSecurityGroupRuleResponseModel) UnsetIPRanges()`
+
+UnsetIPRanges ensures that no value is present for IPRanges, not even an explicit nil
 ### GetProtocol
 
 `func (o *HypervisorSecurityGroupRuleResponseModel) GetProtocol() string`
@@ -149,6 +179,16 @@ SetToPort sets ToPort field to given value.
 
 HasToPort returns a boolean if a field has been set.
 
+### SetToPortNil
+
+`func (o *HypervisorSecurityGroupRuleResponseModel) SetToPortNil(b bool)`
+
+ SetToPortNil sets the value for ToPort to be an explicit nil
+
+### UnsetToPort
+`func (o *HypervisorSecurityGroupRuleResponseModel) UnsetToPort()`
+
+UnsetToPort ensures that no value is present for ToPort, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

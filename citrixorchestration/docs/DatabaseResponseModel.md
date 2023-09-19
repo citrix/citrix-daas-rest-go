@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DataStore** | Pointer to [**DataStore**](DataStore.md) |  | [optional] 
-**DatabaseName** | Pointer to **string** | Name of database | [optional] 
-**DatabaseServerAddress** | Pointer to **string** | Server address of database | [optional] 
-**MirrorDatabaseServerAddress** | Pointer to **string** | Mirror address of database | [optional] 
+**DatabaseName** | Pointer to **NullableString** | Name of database | [optional] 
+**DatabaseServerAddress** | Pointer to **NullableString** | Server address of database | [optional] 
+**MirrorDatabaseServerAddress** | Pointer to **NullableString** | Mirror address of database | [optional] 
 **CanChangeDatabase** | Pointer to **bool** | Indicates whether this database can be changed | [optional] 
 
 ## Methods
@@ -79,6 +79,16 @@ SetDatabaseName sets DatabaseName field to given value.
 
 HasDatabaseName returns a boolean if a field has been set.
 
+### SetDatabaseNameNil
+
+`func (o *DatabaseResponseModel) SetDatabaseNameNil(b bool)`
+
+ SetDatabaseNameNil sets the value for DatabaseName to be an explicit nil
+
+### UnsetDatabaseName
+`func (o *DatabaseResponseModel) UnsetDatabaseName()`
+
+UnsetDatabaseName ensures that no value is present for DatabaseName, not even an explicit nil
 ### GetDatabaseServerAddress
 
 `func (o *DatabaseResponseModel) GetDatabaseServerAddress() string`
@@ -104,6 +114,16 @@ SetDatabaseServerAddress sets DatabaseServerAddress field to given value.
 
 HasDatabaseServerAddress returns a boolean if a field has been set.
 
+### SetDatabaseServerAddressNil
+
+`func (o *DatabaseResponseModel) SetDatabaseServerAddressNil(b bool)`
+
+ SetDatabaseServerAddressNil sets the value for DatabaseServerAddress to be an explicit nil
+
+### UnsetDatabaseServerAddress
+`func (o *DatabaseResponseModel) UnsetDatabaseServerAddress()`
+
+UnsetDatabaseServerAddress ensures that no value is present for DatabaseServerAddress, not even an explicit nil
 ### GetMirrorDatabaseServerAddress
 
 `func (o *DatabaseResponseModel) GetMirrorDatabaseServerAddress() string`
@@ -129,6 +149,16 @@ SetMirrorDatabaseServerAddress sets MirrorDatabaseServerAddress field to given v
 
 HasMirrorDatabaseServerAddress returns a boolean if a field has been set.
 
+### SetMirrorDatabaseServerAddressNil
+
+`func (o *DatabaseResponseModel) SetMirrorDatabaseServerAddressNil(b bool)`
+
+ SetMirrorDatabaseServerAddressNil sets the value for MirrorDatabaseServerAddress to be an explicit nil
+
+### UnsetMirrorDatabaseServerAddress
+`func (o *DatabaseResponseModel) UnsetMirrorDatabaseServerAddress()`
+
+UnsetMirrorDatabaseServerAddress ensures that no value is present for MirrorDatabaseServerAddress, not even an explicit nil
 ### GetCanChangeDatabase
 
 `func (o *DatabaseResponseModel) GetCanChangeDatabase() bool`

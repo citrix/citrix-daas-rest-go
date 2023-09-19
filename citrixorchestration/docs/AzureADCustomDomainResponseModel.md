@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | Pointer to **string** | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. | [optional] 
-**TenantDisplayName** | Pointer to **string** | The display name of the tenant. | [optional] 
-**AuthenticationType** | Pointer to **string** | The authentication type of the domain. Valid values are: Managed and Federated. | [optional] 
+**TenantId** | Pointer to **NullableString** | The tenant ID. For example, 00000000-0000-0000-0000-000000000000. | [optional] 
+**TenantDisplayName** | Pointer to **NullableString** | The display name of the tenant. | [optional] 
+**AuthenticationType** | Pointer to **NullableString** | The authentication type of the domain. Valid values are: Managed and Federated. | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *AzureADCustomDomainResponseModel) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *AzureADCustomDomainResponseModel) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetTenantDisplayName
 
 `func (o *AzureADCustomDomainResponseModel) GetTenantDisplayName() string`
@@ -77,6 +87,16 @@ SetTenantDisplayName sets TenantDisplayName field to given value.
 
 HasTenantDisplayName returns a boolean if a field has been set.
 
+### SetTenantDisplayNameNil
+
+`func (o *AzureADCustomDomainResponseModel) SetTenantDisplayNameNil(b bool)`
+
+ SetTenantDisplayNameNil sets the value for TenantDisplayName to be an explicit nil
+
+### UnsetTenantDisplayName
+`func (o *AzureADCustomDomainResponseModel) UnsetTenantDisplayName()`
+
+UnsetTenantDisplayName ensures that no value is present for TenantDisplayName, not even an explicit nil
 ### GetAuthenticationType
 
 `func (o *AzureADCustomDomainResponseModel) GetAuthenticationType() string`
@@ -102,6 +122,16 @@ SetAuthenticationType sets AuthenticationType field to given value.
 
 HasAuthenticationType returns a boolean if a field has been set.
 
+### SetAuthenticationTypeNil
+
+`func (o *AzureADCustomDomainResponseModel) SetAuthenticationTypeNil(b bool)`
+
+ SetAuthenticationTypeNil sets the value for AuthenticationType to be an explicit nil
+
+### UnsetAuthenticationType
+`func (o *AzureADCustomDomainResponseModel) UnsetAuthenticationType()`
+
+UnsetAuthenticationType ensures that no value is present for AuthenticationType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

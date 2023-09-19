@@ -8,40 +8,40 @@ Name | Type | Description | Notes
 **Name** | **string** | Site name.  Not guaranteed to be unique. | 
 **OrchestationApiVersion** | **int32** | Orchestration API version | 
 **AppProtectionAuthorized** | Pointer to **bool** |  | [optional] 
-**LicenseServerName** | Pointer to **string** | Hostname of the licensing server for the site. Will be null for XenApp &amp; XenDesktop service. | [optional] 
-**LicenseServerPort** | Pointer to **int32** | License server port. Will be null for XenApp &amp; XenDesktop service. | [optional] 
-**LicenseServerUri** | Pointer to **string** | License server URI. Will be null for XenApp &amp; XenDesktop service. | [optional] 
+**LicenseServerName** | Pointer to **NullableString** | Hostname of the licensing server for the site. Will be null for XenApp &amp; XenDesktop service. | [optional] 
+**LicenseServerPort** | Pointer to **NullableInt32** | License server port. Will be null for XenApp &amp; XenDesktop service. | [optional] 
+**LicenseServerUri** | Pointer to **NullableString** | License server URI. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 **LicensingModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 **SiteConfigurationComplete** | Pointer to **bool** | Indicates whether the site&#39;s initial configuration is complete. | [optional] 
-**PrimaryZone** | [**SiteDetailResponseModelAllOfPrimaryZone**](SiteDetailResponseModelAllOfPrimaryZone.md) |  | 
+**PrimaryZone** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **ProductCode** | **string** | Product code for the site license. | 
 **ProductEdition** | **string** | Product edition for the site license. | 
 **ProductVersion** | **string** | Product version. | 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of Site. | [optional] 
 **SiteServices** | [**[]SiteServiceResponseModel**](SiteServiceResponseModel.md) | Services running within the site. | 
 **EnabledFeatures** | **[]string** | Enabled features within the site. | 
-**BaseOU** | Pointer to **string** | The objectGUID property identifying the base OU in Active Directory used for desktop registrations. | [optional] 
+**BaseOU** | Pointer to **NullableString** | The objectGUID property identifying the base OU in Active Directory used for desktop registrations. | [optional] 
 **ColorDepth** | [**ColorDepth**](ColorDepth.md) |  | 
 **ConnectionLeasingEnabled** | Pointer to **bool** | Indicates whether connection leasing is enabled. | [optional] 
 **DefaultMinimumFunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
 **DefaultDesktopIconId** | **string** | The default desktop icon used for new delivery groups. | 
 **DnsResolutionEnabled** | Pointer to **bool** | Indicates whether numeric IP addresses or DNS names are present in ICA files. | [optional] 
-**LicenseGraceSessionsRemaining** | Pointer to **int32** | The number of licensing grace sessions remaining. | [optional] 
-**LicensedSessionsActive** | Pointer to **int32** | The number of active, licensed sessions. | [optional] 
-**LicensingGraceHoursLeft** | Pointer to **int32** | When in an active licensing grace period, indicates the  number of hours remaining in the grace period. Will be null for XenApp &amp; XenDesktop service. | [optional] 
-**LicensingGracePeriodActive** | Pointer to **bool** | Indicates whether a licensing grace period is active. Will be null for XenApp &amp; XenDesktop service. | [optional] 
-**PeakConcurrentLicenseUsers** | Pointer to **int32** | The peak number of concurrent licensed users. Only applies if LicensingModel is Concurrent. | [optional] 
+**LicenseGraceSessionsRemaining** | Pointer to **NullableInt32** | The number of licensing grace sessions remaining. | [optional] 
+**LicensedSessionsActive** | Pointer to **NullableInt32** | The number of active, licensed sessions. | [optional] 
+**LicensingGraceHoursLeft** | Pointer to **NullableInt32** | When in an active licensing grace period, indicates the  number of hours remaining in the grace period. Will be null for XenApp &amp; XenDesktop service. | [optional] 
+**LicensingGracePeriodActive** | Pointer to **NullableBool** | Indicates whether a licensing grace period is active. Will be null for XenApp &amp; XenDesktop service. | [optional] 
+**PeakConcurrentLicenseUsers** | Pointer to **NullableInt32** | The peak number of concurrent licensed users. Only applies if LicensingModel is Concurrent. | [optional] 
 **ReuseMachinesWithoutShutdownInOutageAllowed** | Pointer to **bool** | Allow sessions to launch on shared machines without an intermediate shutdown while the system is operating in outage mode. | [optional] 
 **DefaultSecureIcaRequired** | Pointer to **bool** | The default SecureICA usage for new delivery groups. | [optional] 
-**TotalUniqueLicenseUsers** | Pointer to **int32** | The total count of unique license users. | [optional] 
-**TrustRequestsSentToTheXmlServicePort** | Pointer to **bool** | Indicates whether the XML service trusts the caller to specify user identity. | [optional] 
+**TotalUniqueLicenseUsers** | Pointer to **NullableInt32** | The total count of unique license users. | [optional] 
+**TrustRequestsSentToTheXmlServicePort** | Pointer to **NullableBool** | Indicates whether the XML service trusts the caller to specify user identity. | [optional] 
 **LicensingAlerts** | Pointer to [**[]LicensingAlertResponseModel**](LicensingAlertResponseModel.md) | Get active licensing alerts in the site. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 
 ## Methods
 
 ### NewSiteDetailResponseModel
 
-`func NewSiteDetailResponseModel(id string, name string, orchestationApiVersion int32, primaryZone SiteDetailResponseModelAllOfPrimaryZone, productCode string, productEdition string, productVersion string, siteServices []SiteServiceResponseModel, enabledFeatures []string, colorDepth ColorDepth, defaultDesktopIconId string, ) *SiteDetailResponseModel`
+`func NewSiteDetailResponseModel(id string, name string, orchestationApiVersion int32, primaryZone RefResponseModel, productCode string, productEdition string, productVersion string, siteServices []SiteServiceResponseModel, enabledFeatures []string, colorDepth ColorDepth, defaultDesktopIconId string, ) *SiteDetailResponseModel`
 
 NewSiteDetailResponseModel instantiates a new SiteDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -166,6 +166,16 @@ SetLicenseServerName sets LicenseServerName field to given value.
 
 HasLicenseServerName returns a boolean if a field has been set.
 
+### SetLicenseServerNameNil
+
+`func (o *SiteDetailResponseModel) SetLicenseServerNameNil(b bool)`
+
+ SetLicenseServerNameNil sets the value for LicenseServerName to be an explicit nil
+
+### UnsetLicenseServerName
+`func (o *SiteDetailResponseModel) UnsetLicenseServerName()`
+
+UnsetLicenseServerName ensures that no value is present for LicenseServerName, not even an explicit nil
 ### GetLicenseServerPort
 
 `func (o *SiteDetailResponseModel) GetLicenseServerPort() int32`
@@ -191,6 +201,16 @@ SetLicenseServerPort sets LicenseServerPort field to given value.
 
 HasLicenseServerPort returns a boolean if a field has been set.
 
+### SetLicenseServerPortNil
+
+`func (o *SiteDetailResponseModel) SetLicenseServerPortNil(b bool)`
+
+ SetLicenseServerPortNil sets the value for LicenseServerPort to be an explicit nil
+
+### UnsetLicenseServerPort
+`func (o *SiteDetailResponseModel) UnsetLicenseServerPort()`
+
+UnsetLicenseServerPort ensures that no value is present for LicenseServerPort, not even an explicit nil
 ### GetLicenseServerUri
 
 `func (o *SiteDetailResponseModel) GetLicenseServerUri() string`
@@ -216,6 +236,16 @@ SetLicenseServerUri sets LicenseServerUri field to given value.
 
 HasLicenseServerUri returns a boolean if a field has been set.
 
+### SetLicenseServerUriNil
+
+`func (o *SiteDetailResponseModel) SetLicenseServerUriNil(b bool)`
+
+ SetLicenseServerUriNil sets the value for LicenseServerUri to be an explicit nil
+
+### UnsetLicenseServerUri
+`func (o *SiteDetailResponseModel) UnsetLicenseServerUri()`
+
+UnsetLicenseServerUri ensures that no value is present for LicenseServerUri, not even an explicit nil
 ### GetLicensingModel
 
 `func (o *SiteDetailResponseModel) GetLicensingModel() LicenseModel`
@@ -268,20 +298,20 @@ HasSiteConfigurationComplete returns a boolean if a field has been set.
 
 ### GetPrimaryZone
 
-`func (o *SiteDetailResponseModel) GetPrimaryZone() SiteDetailResponseModelAllOfPrimaryZone`
+`func (o *SiteDetailResponseModel) GetPrimaryZone() RefResponseModel`
 
 GetPrimaryZone returns the PrimaryZone field if non-nil, zero value otherwise.
 
 ### GetPrimaryZoneOk
 
-`func (o *SiteDetailResponseModel) GetPrimaryZoneOk() (*SiteDetailResponseModelAllOfPrimaryZone, bool)`
+`func (o *SiteDetailResponseModel) GetPrimaryZoneOk() (*RefResponseModel, bool)`
 
 GetPrimaryZoneOk returns a tuple with the PrimaryZone field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrimaryZone
 
-`func (o *SiteDetailResponseModel) SetPrimaryZone(v SiteDetailResponseModelAllOfPrimaryZone)`
+`func (o *SiteDetailResponseModel) SetPrimaryZone(v RefResponseModel)`
 
 SetPrimaryZone sets PrimaryZone field to given value.
 
@@ -371,6 +401,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *SiteDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *SiteDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetSiteServices
 
 `func (o *SiteDetailResponseModel) GetSiteServices() []SiteServiceResponseModel`
@@ -436,6 +476,16 @@ SetBaseOU sets BaseOU field to given value.
 
 HasBaseOU returns a boolean if a field has been set.
 
+### SetBaseOUNil
+
+`func (o *SiteDetailResponseModel) SetBaseOUNil(b bool)`
+
+ SetBaseOUNil sets the value for BaseOU to be an explicit nil
+
+### UnsetBaseOU
+`func (o *SiteDetailResponseModel) UnsetBaseOU()`
+
+UnsetBaseOU ensures that no value is present for BaseOU, not even an explicit nil
 ### GetColorDepth
 
 `func (o *SiteDetailResponseModel) GetColorDepth() ColorDepth`
@@ -576,6 +626,16 @@ SetLicenseGraceSessionsRemaining sets LicenseGraceSessionsRemaining field to giv
 
 HasLicenseGraceSessionsRemaining returns a boolean if a field has been set.
 
+### SetLicenseGraceSessionsRemainingNil
+
+`func (o *SiteDetailResponseModel) SetLicenseGraceSessionsRemainingNil(b bool)`
+
+ SetLicenseGraceSessionsRemainingNil sets the value for LicenseGraceSessionsRemaining to be an explicit nil
+
+### UnsetLicenseGraceSessionsRemaining
+`func (o *SiteDetailResponseModel) UnsetLicenseGraceSessionsRemaining()`
+
+UnsetLicenseGraceSessionsRemaining ensures that no value is present for LicenseGraceSessionsRemaining, not even an explicit nil
 ### GetLicensedSessionsActive
 
 `func (o *SiteDetailResponseModel) GetLicensedSessionsActive() int32`
@@ -601,6 +661,16 @@ SetLicensedSessionsActive sets LicensedSessionsActive field to given value.
 
 HasLicensedSessionsActive returns a boolean if a field has been set.
 
+### SetLicensedSessionsActiveNil
+
+`func (o *SiteDetailResponseModel) SetLicensedSessionsActiveNil(b bool)`
+
+ SetLicensedSessionsActiveNil sets the value for LicensedSessionsActive to be an explicit nil
+
+### UnsetLicensedSessionsActive
+`func (o *SiteDetailResponseModel) UnsetLicensedSessionsActive()`
+
+UnsetLicensedSessionsActive ensures that no value is present for LicensedSessionsActive, not even an explicit nil
 ### GetLicensingGraceHoursLeft
 
 `func (o *SiteDetailResponseModel) GetLicensingGraceHoursLeft() int32`
@@ -626,6 +696,16 @@ SetLicensingGraceHoursLeft sets LicensingGraceHoursLeft field to given value.
 
 HasLicensingGraceHoursLeft returns a boolean if a field has been set.
 
+### SetLicensingGraceHoursLeftNil
+
+`func (o *SiteDetailResponseModel) SetLicensingGraceHoursLeftNil(b bool)`
+
+ SetLicensingGraceHoursLeftNil sets the value for LicensingGraceHoursLeft to be an explicit nil
+
+### UnsetLicensingGraceHoursLeft
+`func (o *SiteDetailResponseModel) UnsetLicensingGraceHoursLeft()`
+
+UnsetLicensingGraceHoursLeft ensures that no value is present for LicensingGraceHoursLeft, not even an explicit nil
 ### GetLicensingGracePeriodActive
 
 `func (o *SiteDetailResponseModel) GetLicensingGracePeriodActive() bool`
@@ -651,6 +731,16 @@ SetLicensingGracePeriodActive sets LicensingGracePeriodActive field to given val
 
 HasLicensingGracePeriodActive returns a boolean if a field has been set.
 
+### SetLicensingGracePeriodActiveNil
+
+`func (o *SiteDetailResponseModel) SetLicensingGracePeriodActiveNil(b bool)`
+
+ SetLicensingGracePeriodActiveNil sets the value for LicensingGracePeriodActive to be an explicit nil
+
+### UnsetLicensingGracePeriodActive
+`func (o *SiteDetailResponseModel) UnsetLicensingGracePeriodActive()`
+
+UnsetLicensingGracePeriodActive ensures that no value is present for LicensingGracePeriodActive, not even an explicit nil
 ### GetPeakConcurrentLicenseUsers
 
 `func (o *SiteDetailResponseModel) GetPeakConcurrentLicenseUsers() int32`
@@ -676,6 +766,16 @@ SetPeakConcurrentLicenseUsers sets PeakConcurrentLicenseUsers field to given val
 
 HasPeakConcurrentLicenseUsers returns a boolean if a field has been set.
 
+### SetPeakConcurrentLicenseUsersNil
+
+`func (o *SiteDetailResponseModel) SetPeakConcurrentLicenseUsersNil(b bool)`
+
+ SetPeakConcurrentLicenseUsersNil sets the value for PeakConcurrentLicenseUsers to be an explicit nil
+
+### UnsetPeakConcurrentLicenseUsers
+`func (o *SiteDetailResponseModel) UnsetPeakConcurrentLicenseUsers()`
+
+UnsetPeakConcurrentLicenseUsers ensures that no value is present for PeakConcurrentLicenseUsers, not even an explicit nil
 ### GetReuseMachinesWithoutShutdownInOutageAllowed
 
 `func (o *SiteDetailResponseModel) GetReuseMachinesWithoutShutdownInOutageAllowed() bool`
@@ -751,6 +851,16 @@ SetTotalUniqueLicenseUsers sets TotalUniqueLicenseUsers field to given value.
 
 HasTotalUniqueLicenseUsers returns a boolean if a field has been set.
 
+### SetTotalUniqueLicenseUsersNil
+
+`func (o *SiteDetailResponseModel) SetTotalUniqueLicenseUsersNil(b bool)`
+
+ SetTotalUniqueLicenseUsersNil sets the value for TotalUniqueLicenseUsers to be an explicit nil
+
+### UnsetTotalUniqueLicenseUsers
+`func (o *SiteDetailResponseModel) UnsetTotalUniqueLicenseUsers()`
+
+UnsetTotalUniqueLicenseUsers ensures that no value is present for TotalUniqueLicenseUsers, not even an explicit nil
 ### GetTrustRequestsSentToTheXmlServicePort
 
 `func (o *SiteDetailResponseModel) GetTrustRequestsSentToTheXmlServicePort() bool`
@@ -776,6 +886,16 @@ SetTrustRequestsSentToTheXmlServicePort sets TrustRequestsSentToTheXmlServicePor
 
 HasTrustRequestsSentToTheXmlServicePort returns a boolean if a field has been set.
 
+### SetTrustRequestsSentToTheXmlServicePortNil
+
+`func (o *SiteDetailResponseModel) SetTrustRequestsSentToTheXmlServicePortNil(b bool)`
+
+ SetTrustRequestsSentToTheXmlServicePortNil sets the value for TrustRequestsSentToTheXmlServicePort to be an explicit nil
+
+### UnsetTrustRequestsSentToTheXmlServicePort
+`func (o *SiteDetailResponseModel) UnsetTrustRequestsSentToTheXmlServicePort()`
+
+UnsetTrustRequestsSentToTheXmlServicePort ensures that no value is present for TrustRequestsSentToTheXmlServicePort, not even an explicit nil
 ### GetLicensingAlerts
 
 `func (o *SiteDetailResponseModel) GetLicensingAlerts() []LicensingAlertResponseModel`
@@ -801,6 +921,16 @@ SetLicensingAlerts sets LicensingAlerts field to given value.
 
 HasLicensingAlerts returns a boolean if a field has been set.
 
+### SetLicensingAlertsNil
+
+`func (o *SiteDetailResponseModel) SetLicensingAlertsNil(b bool)`
+
+ SetLicensingAlertsNil sets the value for LicensingAlerts to be an explicit nil
+
+### UnsetLicensingAlerts
+`func (o *SiteDetailResponseModel) UnsetLicensingAlerts()`
+
+UnsetLicensingAlerts ensures that no value is present for LicensingAlerts, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

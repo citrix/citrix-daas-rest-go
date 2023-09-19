@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Machine** | Pointer to [**MachineTestResponseModelMachine**](MachineTestResponseModelMachine.md) |  | [optional] 
+**Machine** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **Status** | Pointer to [**CloudHealthCheckStatus**](CloudHealthCheckStatus.md) |  | [optional] 
-**CommandResponse** | Pointer to **string** | CommandResponse. | [optional] 
-**ErrorMessage** | Pointer to **string** | ErrorMessage. | [optional] 
-**CommandName** | Pointer to **string** | CommandName. | [optional] 
-**CategoryName** | Pointer to **string** | CategoryName. | [optional] 
-**CreatedBy** | Pointer to **string** | The owner of the test | [optional] 
+**CommandResponse** | Pointer to **NullableString** | CommandResponse. | [optional] 
+**ErrorMessage** | Pointer to **NullableString** | ErrorMessage. | [optional] 
+**CommandName** | Pointer to **NullableString** | CommandName. | [optional] 
+**CategoryName** | Pointer to **NullableString** | CategoryName. | [optional] 
+**CreatedBy** | Pointer to **NullableString** | The owner of the test | [optional] 
 
 ## Methods
 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetMachine
 
-`func (o *MachineTestResponseModel) GetMachine() MachineTestResponseModelMachine`
+`func (o *MachineTestResponseModel) GetMachine() RefResponseModel`
 
 GetMachine returns the Machine field if non-nil, zero value otherwise.
 
 ### GetMachineOk
 
-`func (o *MachineTestResponseModel) GetMachineOk() (*MachineTestResponseModelMachine, bool)`
+`func (o *MachineTestResponseModel) GetMachineOk() (*RefResponseModel, bool)`
 
 GetMachineOk returns a tuple with the Machine field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachine
 
-`func (o *MachineTestResponseModel) SetMachine(v MachineTestResponseModelMachine)`
+`func (o *MachineTestResponseModel) SetMachine(v RefResponseModel)`
 
 SetMachine sets Machine field to given value.
 
@@ -106,6 +106,16 @@ SetCommandResponse sets CommandResponse field to given value.
 
 HasCommandResponse returns a boolean if a field has been set.
 
+### SetCommandResponseNil
+
+`func (o *MachineTestResponseModel) SetCommandResponseNil(b bool)`
+
+ SetCommandResponseNil sets the value for CommandResponse to be an explicit nil
+
+### UnsetCommandResponse
+`func (o *MachineTestResponseModel) UnsetCommandResponse()`
+
+UnsetCommandResponse ensures that no value is present for CommandResponse, not even an explicit nil
 ### GetErrorMessage
 
 `func (o *MachineTestResponseModel) GetErrorMessage() string`
@@ -131,6 +141,16 @@ SetErrorMessage sets ErrorMessage field to given value.
 
 HasErrorMessage returns a boolean if a field has been set.
 
+### SetErrorMessageNil
+
+`func (o *MachineTestResponseModel) SetErrorMessageNil(b bool)`
+
+ SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
+
+### UnsetErrorMessage
+`func (o *MachineTestResponseModel) UnsetErrorMessage()`
+
+UnsetErrorMessage ensures that no value is present for ErrorMessage, not even an explicit nil
 ### GetCommandName
 
 `func (o *MachineTestResponseModel) GetCommandName() string`
@@ -156,6 +176,16 @@ SetCommandName sets CommandName field to given value.
 
 HasCommandName returns a boolean if a field has been set.
 
+### SetCommandNameNil
+
+`func (o *MachineTestResponseModel) SetCommandNameNil(b bool)`
+
+ SetCommandNameNil sets the value for CommandName to be an explicit nil
+
+### UnsetCommandName
+`func (o *MachineTestResponseModel) UnsetCommandName()`
+
+UnsetCommandName ensures that no value is present for CommandName, not even an explicit nil
 ### GetCategoryName
 
 `func (o *MachineTestResponseModel) GetCategoryName() string`
@@ -181,6 +211,16 @@ SetCategoryName sets CategoryName field to given value.
 
 HasCategoryName returns a boolean if a field has been set.
 
+### SetCategoryNameNil
+
+`func (o *MachineTestResponseModel) SetCategoryNameNil(b bool)`
+
+ SetCategoryNameNil sets the value for CategoryName to be an explicit nil
+
+### UnsetCategoryName
+`func (o *MachineTestResponseModel) UnsetCategoryName()`
+
+UnsetCategoryName ensures that no value is present for CategoryName, not even an explicit nil
 ### GetCreatedBy
 
 `func (o *MachineTestResponseModel) GetCreatedBy() string`
@@ -206,6 +246,16 @@ SetCreatedBy sets CreatedBy field to given value.
 
 HasCreatedBy returns a boolean if a field has been set.
 
+### SetCreatedByNil
+
+`func (o *MachineTestResponseModel) SetCreatedByNil(b bool)`
+
+ SetCreatedByNil sets the value for CreatedBy to be an explicit nil
+
+### UnsetCreatedBy
+`func (o *MachineTestResponseModel) UnsetCreatedBy()`
+
+UnsetCreatedBy ensures that no value is present for CreatedBy, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

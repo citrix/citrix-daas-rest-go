@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | Pointer to **string** | The FQDN of the printer name. | [optional] 
-**Model** | Pointer to **string** | Printer model name. | [optional] 
-**Location** | Pointer to **string** | The location. | [optional] 
-**Settings** | Pointer to [**PrinterPropertiesContractSettings**](PrinterPropertiesContractSettings.md) |  | [optional] 
-**Serialized** | Pointer to **string** | The serialized data. This is here so that JSON serialization can work. This should not be used. | [optional] 
+**Path** | Pointer to **NullableString** | The FQDN of the printer name. | [optional] 
+**Model** | Pointer to **NullableString** | Printer model name. | [optional] 
+**Location** | Pointer to **NullableString** | The location. | [optional] 
+**Settings** | Pointer to [**PrinterSettingsContract**](PrinterSettingsContract.md) |  | [optional] 
+**Serialized** | Pointer to **NullableString** | The serialized data. This is here so that JSON serialization can work. This should not be used. | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
+### SetPathNil
+
+`func (o *PrinterPropertiesContract) SetPathNil(b bool)`
+
+ SetPathNil sets the value for Path to be an explicit nil
+
+### UnsetPath
+`func (o *PrinterPropertiesContract) UnsetPath()`
+
+UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetModel
 
 `func (o *PrinterPropertiesContract) GetModel() string`
@@ -79,6 +89,16 @@ SetModel sets Model field to given value.
 
 HasModel returns a boolean if a field has been set.
 
+### SetModelNil
+
+`func (o *PrinterPropertiesContract) SetModelNil(b bool)`
+
+ SetModelNil sets the value for Model to be an explicit nil
+
+### UnsetModel
+`func (o *PrinterPropertiesContract) UnsetModel()`
+
+UnsetModel ensures that no value is present for Model, not even an explicit nil
 ### GetLocation
 
 `func (o *PrinterPropertiesContract) GetLocation() string`
@@ -104,22 +124,32 @@ SetLocation sets Location field to given value.
 
 HasLocation returns a boolean if a field has been set.
 
+### SetLocationNil
+
+`func (o *PrinterPropertiesContract) SetLocationNil(b bool)`
+
+ SetLocationNil sets the value for Location to be an explicit nil
+
+### UnsetLocation
+`func (o *PrinterPropertiesContract) UnsetLocation()`
+
+UnsetLocation ensures that no value is present for Location, not even an explicit nil
 ### GetSettings
 
-`func (o *PrinterPropertiesContract) GetSettings() PrinterPropertiesContractSettings`
+`func (o *PrinterPropertiesContract) GetSettings() PrinterSettingsContract`
 
 GetSettings returns the Settings field if non-nil, zero value otherwise.
 
 ### GetSettingsOk
 
-`func (o *PrinterPropertiesContract) GetSettingsOk() (*PrinterPropertiesContractSettings, bool)`
+`func (o *PrinterPropertiesContract) GetSettingsOk() (*PrinterSettingsContract, bool)`
 
 GetSettingsOk returns a tuple with the Settings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSettings
 
-`func (o *PrinterPropertiesContract) SetSettings(v PrinterPropertiesContractSettings)`
+`func (o *PrinterPropertiesContract) SetSettings(v PrinterSettingsContract)`
 
 SetSettings sets Settings field to given value.
 
@@ -154,6 +184,16 @@ SetSerialized sets Serialized field to given value.
 
 HasSerialized returns a boolean if a field has been set.
 
+### SetSerializedNil
+
+`func (o *PrinterPropertiesContract) SetSerializedNil(b bool)`
+
+ SetSerializedNil sets the value for Serialized to be an explicit nil
+
+### UnsetSerialized
+`func (o *PrinterPropertiesContract) UnsetSerialized()`
+
+UnsetSerialized ensures that no value is present for Serialized, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

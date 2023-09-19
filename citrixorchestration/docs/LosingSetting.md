@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PolicyGuid** | Pointer to **string** | Policy GUID. | [optional] 
-**PolicyName** | Pointer to **string** | The policy that has the setting. | [optional] 
-**SettingName** | Pointer to **string** | The setting that is not applied. | [optional] 
+**PolicyName** | Pointer to **NullableString** | The policy that has the setting. | [optional] 
+**SettingName** | Pointer to **NullableString** | The setting that is not applied. | [optional] 
 
 ## Methods
 
@@ -77,6 +77,16 @@ SetPolicyName sets PolicyName field to given value.
 
 HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *LosingSetting) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *LosingSetting) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
 ### GetSettingName
 
 `func (o *LosingSetting) GetSettingName() string`
@@ -102,6 +112,16 @@ SetSettingName sets SettingName field to given value.
 
 HasSettingName returns a boolean if a field has been set.
 
+### SetSettingNameNil
+
+`func (o *LosingSetting) SetSettingNameNil(b bool)`
+
+ SetSettingNameNil sets the value for SettingName to be an explicit nil
+
+### UnsetSettingName
+`func (o *LosingSetting) UnsetSettingName()`
+
+UnsetSettingName ensures that no value is present for SettingName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

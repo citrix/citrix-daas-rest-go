@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | [**ScopedObjectResponseModelObject**](ScopedObjectResponseModelObject.md) |  | 
-**ObjectDescription** | Pointer to **string** | Description of the scoped object, if it has one. | [optional] 
+**Object** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**ObjectDescription** | Pointer to **NullableString** | Description of the scoped object, if it has one. | [optional] 
 **ObjectType** | [**ScopedObjectType**](ScopedObjectType.md) |  | 
 
 ## Methods
 
 ### NewScopedObjectResponseModel
 
-`func NewScopedObjectResponseModel(object ScopedObjectResponseModelObject, objectType ScopedObjectType, ) *ScopedObjectResponseModel`
+`func NewScopedObjectResponseModel(object RefResponseModel, objectType ScopedObjectType, ) *ScopedObjectResponseModel`
 
 NewScopedObjectResponseModel instantiates a new ScopedObjectResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetObject
 
-`func (o *ScopedObjectResponseModel) GetObject() ScopedObjectResponseModelObject`
+`func (o *ScopedObjectResponseModel) GetObject() RefResponseModel`
 
 GetObject returns the Object field if non-nil, zero value otherwise.
 
 ### GetObjectOk
 
-`func (o *ScopedObjectResponseModel) GetObjectOk() (*ScopedObjectResponseModelObject, bool)`
+`func (o *ScopedObjectResponseModel) GetObjectOk() (*RefResponseModel, bool)`
 
 GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObject
 
-`func (o *ScopedObjectResponseModel) SetObject(v ScopedObjectResponseModelObject)`
+`func (o *ScopedObjectResponseModel) SetObject(v RefResponseModel)`
 
 SetObject sets Object field to given value.
 
@@ -72,6 +72,16 @@ SetObjectDescription sets ObjectDescription field to given value.
 
 HasObjectDescription returns a boolean if a field has been set.
 
+### SetObjectDescriptionNil
+
+`func (o *ScopedObjectResponseModel) SetObjectDescriptionNil(b bool)`
+
+ SetObjectDescriptionNil sets the value for ObjectDescription to be an explicit nil
+
+### UnsetObjectDescription
+`func (o *ScopedObjectResponseModel) UnsetObjectDescription()`
+
+UnsetObjectDescription ensures that no value is present for ObjectDescription, not even an explicit nil
 ### GetObjectType
 
 `func (o *ScopedObjectResponseModel) GetObjectType() ScopedObjectType`

@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | App-V application Id. | 
-**Identifier** | Pointer to **string** | App-V application identifier. | [optional] 
+**Identifier** | Pointer to **NullableString** | App-V application identifier. | [optional] 
 **PackageId** | **string** | App-V package identifier. | 
 **PackageName** | **string** | App-V package name. | 
 **PackageVersion** | **string** | App-V package version. | 
 **PackageVersionId** | **string** | App-V package version Id. | 
-**PublishingServer** | Pointer to **string** | App-V publishing server. | [optional] 
+**PublishingServer** | Pointer to **NullableString** | App-V publishing server. | [optional] 
 **SequenceLocation** | **string** | App-V sequence location. | 
-**ServerMachineConfigurationUid** | Pointer to **string** | App-V server machine configuration Uid. | [optional] 
+**ServerMachineConfigurationUid** | Pointer to **NullableString** | App-V server machine configuration Uid. | [optional] 
 **TargetInPackage** | Pointer to **bool** | Specifies whether the target is in an App-V package. | [optional] 
 
 ## Methods
@@ -79,6 +79,16 @@ SetIdentifier sets Identifier field to given value.
 
 HasIdentifier returns a boolean if a field has been set.
 
+### SetIdentifierNil
+
+`func (o *AppVAppRequestModel) SetIdentifierNil(b bool)`
+
+ SetIdentifierNil sets the value for Identifier to be an explicit nil
+
+### UnsetIdentifier
+`func (o *AppVAppRequestModel) UnsetIdentifier()`
+
+UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
 ### GetPackageId
 
 `func (o *AppVAppRequestModel) GetPackageId() string`
@@ -184,6 +194,16 @@ SetPublishingServer sets PublishingServer field to given value.
 
 HasPublishingServer returns a boolean if a field has been set.
 
+### SetPublishingServerNil
+
+`func (o *AppVAppRequestModel) SetPublishingServerNil(b bool)`
+
+ SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
+
+### UnsetPublishingServer
+`func (o *AppVAppRequestModel) UnsetPublishingServer()`
+
+UnsetPublishingServer ensures that no value is present for PublishingServer, not even an explicit nil
 ### GetSequenceLocation
 
 `func (o *AppVAppRequestModel) GetSequenceLocation() string`
@@ -229,6 +249,16 @@ SetServerMachineConfigurationUid sets ServerMachineConfigurationUid field to giv
 
 HasServerMachineConfigurationUid returns a boolean if a field has been set.
 
+### SetServerMachineConfigurationUidNil
+
+`func (o *AppVAppRequestModel) SetServerMachineConfigurationUidNil(b bool)`
+
+ SetServerMachineConfigurationUidNil sets the value for ServerMachineConfigurationUid to be an explicit nil
+
+### UnsetServerMachineConfigurationUid
+`func (o *AppVAppRequestModel) UnsetServerMachineConfigurationUid()`
+
+UnsetServerMachineConfigurationUid ensures that no value is present for ServerMachineConfigurationUid, not even an explicit nil
 ### GetTargetInPackage
 
 `func (o *AppVAppRequestModel) GetTargetInPackage() bool`

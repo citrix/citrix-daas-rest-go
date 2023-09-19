@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | Pointer to **string** | The date and time for this SessionTrendItem. | [optional] 
-**ConcurrentSessions** | Pointer to **int32** | ActiveSessions | [optional] 
-**ConnectedSessions** | Pointer to **int32** | ConnectedSessions | [optional] 
-**DisconnectedSessions** | Pointer to **int32** | DisconnectedSessions | [optional] 
+**Date** | Pointer to **NullableString** | The date and time for this SessionTrendItem. | [optional] 
+**ConcurrentSessions** | Pointer to **NullableInt32** | ActiveSessions | [optional] 
+**ConnectedSessions** | Pointer to **NullableInt32** | ConnectedSessions | [optional] 
+**DisconnectedSessions** | Pointer to **NullableInt32** | DisconnectedSessions | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetDate sets Date field to given value.
 
 HasDate returns a boolean if a field has been set.
 
+### SetDateNil
+
+`func (o *SessionTrendItem) SetDateNil(b bool)`
+
+ SetDateNil sets the value for Date to be an explicit nil
+
+### UnsetDate
+`func (o *SessionTrendItem) UnsetDate()`
+
+UnsetDate ensures that no value is present for Date, not even an explicit nil
 ### GetConcurrentSessions
 
 `func (o *SessionTrendItem) GetConcurrentSessions() int32`
@@ -78,6 +88,16 @@ SetConcurrentSessions sets ConcurrentSessions field to given value.
 
 HasConcurrentSessions returns a boolean if a field has been set.
 
+### SetConcurrentSessionsNil
+
+`func (o *SessionTrendItem) SetConcurrentSessionsNil(b bool)`
+
+ SetConcurrentSessionsNil sets the value for ConcurrentSessions to be an explicit nil
+
+### UnsetConcurrentSessions
+`func (o *SessionTrendItem) UnsetConcurrentSessions()`
+
+UnsetConcurrentSessions ensures that no value is present for ConcurrentSessions, not even an explicit nil
 ### GetConnectedSessions
 
 `func (o *SessionTrendItem) GetConnectedSessions() int32`
@@ -103,6 +123,16 @@ SetConnectedSessions sets ConnectedSessions field to given value.
 
 HasConnectedSessions returns a boolean if a field has been set.
 
+### SetConnectedSessionsNil
+
+`func (o *SessionTrendItem) SetConnectedSessionsNil(b bool)`
+
+ SetConnectedSessionsNil sets the value for ConnectedSessions to be an explicit nil
+
+### UnsetConnectedSessions
+`func (o *SessionTrendItem) UnsetConnectedSessions()`
+
+UnsetConnectedSessions ensures that no value is present for ConnectedSessions, not even an explicit nil
 ### GetDisconnectedSessions
 
 `func (o *SessionTrendItem) GetDisconnectedSessions() int32`
@@ -128,6 +158,16 @@ SetDisconnectedSessions sets DisconnectedSessions field to given value.
 
 HasDisconnectedSessions returns a boolean if a field has been set.
 
+### SetDisconnectedSessionsNil
+
+`func (o *SessionTrendItem) SetDisconnectedSessionsNil(b bool)`
+
+ SetDisconnectedSessionsNil sets the value for DisconnectedSessions to be an explicit nil
+
+### UnsetDisconnectedSessions
+`func (o *SessionTrendItem) UnsetDisconnectedSessions()`
+
+UnsetDisconnectedSessions ensures that no value is present for DisconnectedSessions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

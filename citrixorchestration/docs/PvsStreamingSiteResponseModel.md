@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FarmId** | Pointer to **string** | Id of the PVS farm. | [optional] 
-**FarmName** | Pointer to **string** | Name of the PVS farm. | [optional] 
-**ResourceLocation** | Pointer to **string** | Id of the resource location that PVS registered. | [optional] 
-**SiteId** | Pointer to **string** | Id of the PVS site. | [optional] 
-**SiteName** | Pointer to **string** | Name of the PVS site. | [optional] 
+**FarmId** | Pointer to **NullableString** | Id of the PVS farm. | [optional] 
+**FarmName** | Pointer to **NullableString** | Name of the PVS farm. | [optional] 
+**ResourceLocation** | Pointer to **NullableString** | Id of the resource location that PVS registered. | [optional] 
+**SiteId** | Pointer to **NullableString** | Id of the PVS site. | [optional] 
+**SiteName** | Pointer to **NullableString** | Name of the PVS site. | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetFarmId sets FarmId field to given value.
 
 HasFarmId returns a boolean if a field has been set.
 
+### SetFarmIdNil
+
+`func (o *PvsStreamingSiteResponseModel) SetFarmIdNil(b bool)`
+
+ SetFarmIdNil sets the value for FarmId to be an explicit nil
+
+### UnsetFarmId
+`func (o *PvsStreamingSiteResponseModel) UnsetFarmId()`
+
+UnsetFarmId ensures that no value is present for FarmId, not even an explicit nil
 ### GetFarmName
 
 `func (o *PvsStreamingSiteResponseModel) GetFarmName() string`
@@ -79,6 +89,16 @@ SetFarmName sets FarmName field to given value.
 
 HasFarmName returns a boolean if a field has been set.
 
+### SetFarmNameNil
+
+`func (o *PvsStreamingSiteResponseModel) SetFarmNameNil(b bool)`
+
+ SetFarmNameNil sets the value for FarmName to be an explicit nil
+
+### UnsetFarmName
+`func (o *PvsStreamingSiteResponseModel) UnsetFarmName()`
+
+UnsetFarmName ensures that no value is present for FarmName, not even an explicit nil
 ### GetResourceLocation
 
 `func (o *PvsStreamingSiteResponseModel) GetResourceLocation() string`
@@ -104,6 +124,16 @@ SetResourceLocation sets ResourceLocation field to given value.
 
 HasResourceLocation returns a boolean if a field has been set.
 
+### SetResourceLocationNil
+
+`func (o *PvsStreamingSiteResponseModel) SetResourceLocationNil(b bool)`
+
+ SetResourceLocationNil sets the value for ResourceLocation to be an explicit nil
+
+### UnsetResourceLocation
+`func (o *PvsStreamingSiteResponseModel) UnsetResourceLocation()`
+
+UnsetResourceLocation ensures that no value is present for ResourceLocation, not even an explicit nil
 ### GetSiteId
 
 `func (o *PvsStreamingSiteResponseModel) GetSiteId() string`
@@ -129,6 +159,16 @@ SetSiteId sets SiteId field to given value.
 
 HasSiteId returns a boolean if a field has been set.
 
+### SetSiteIdNil
+
+`func (o *PvsStreamingSiteResponseModel) SetSiteIdNil(b bool)`
+
+ SetSiteIdNil sets the value for SiteId to be an explicit nil
+
+### UnsetSiteId
+`func (o *PvsStreamingSiteResponseModel) UnsetSiteId()`
+
+UnsetSiteId ensures that no value is present for SiteId, not even an explicit nil
 ### GetSiteName
 
 `func (o *PvsStreamingSiteResponseModel) GetSiteName() string`
@@ -154,6 +194,16 @@ SetSiteName sets SiteName field to given value.
 
 HasSiteName returns a boolean if a field has been set.
 
+### SetSiteNameNil
+
+`func (o *PvsStreamingSiteResponseModel) SetSiteNameNil(b bool)`
+
+ SetSiteNameNil sets the value for SiteName to be an explicit nil
+
+### UnsetSiteName
+`func (o *PvsStreamingSiteResponseModel) UnsetSiteName()`
+
+UnsetSiteName ensures that no value is present for SiteName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Item** | Pointer to **string** | Reference to the item. | [optional] 
-**Priority** | Pointer to **int32** | Priority.  See the containing object context for details about how the Priority affects the object relationship. | [optional] [default to 0]
+**Item** | Pointer to **NullableString** | Reference to the item. | [optional] 
+**Priority** | Pointer to **NullableInt32** | Priority.  See the containing object context for details about how the Priority affects the object relationship. | [optional] [default to 0]
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetItem sets Item field to given value.
 
 HasItem returns a boolean if a field has been set.
 
+### SetItemNil
+
+`func (o *PriorityRefRequestModel) SetItemNil(b bool)`
+
+ SetItemNil sets the value for Item to be an explicit nil
+
+### UnsetItem
+`func (o *PriorityRefRequestModel) UnsetItem()`
+
+UnsetItem ensures that no value is present for Item, not even an explicit nil
 ### GetPriority
 
 `func (o *PriorityRefRequestModel) GetPriority() int32`
@@ -76,6 +86,16 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *PriorityRefRequestModel) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *PriorityRefRequestModel) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

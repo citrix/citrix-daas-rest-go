@@ -4,8 +4,10 @@ import (
 	"context"
 	"crypto/tls"
 	"net/http"
+	"reflect"
 	"time"
 
+	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
@@ -21,23 +23,39 @@ type AuthTokenModel struct {
 	ExpiresAt string `json:"expires_in"`
 }
 
-func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret string, onPremise bool) (*CitrixDaasClient, error) {
+// MiddlewareAuthFunction provides way to implement custom middleware which can do auth
+type MiddlewareAuthFunction func(authClient *CitrixDaasClient, r *http.Request)
+
+func getMiddlewareWithClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) citrixorchestration.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
+func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret string, onPremise bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, error) {
 	daasClient := &CitrixDaasClient{}
 
 	/* ------ Setup API Client ------ */
 	localCfg := openapiclient.NewConfiguration()
 	localCfg.Host = hostname
 	localCfg.Scheme = "https"
-	// When running against on-prem, ignore SSL verification
+	// When running against on-prem, ignore SSL verification and override the API Gateway API Server path
 	if onPremise {
 		tr := &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 		}
 		client := &http.Client{Transport: tr}
 		localCfg.HTTPClient = client
+
+		localCfg.Servers = openapiclient.ServerConfigurations{
+			{
+				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api/techpreview",
+			},
+		}
 	}
 
 	daasClient.ApiClient = openapiclient.NewAPIClient(localCfg)
+	localCfg.Middleware = getMiddlewareWithClient(daasClient, middlewareFunc)
 
 	/* ------ Setup Authentication Configuration ------ */
 	localAuthCfg := &AuthenticationConfiguration{}
@@ -49,12 +67,12 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 	daasClient.AuthConfig = localAuthCfg
 
 	/* ------ Setup Client Configuration ------*/
-	req := daasClient.ApiClient.MeTPApi.MeTPGetMe(context.Background())
+	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(context.Background())
 	token, err := daasClient.SignIn()
 	if err != nil {
 		return nil, err
 	}
-	req = req.Authorization(token)
+	req = req.Authorization(token).CitrixCustomerId(customerId)
 	resp, _, err := req.Execute()
 	if err != nil {
 		return nil, err
@@ -64,7 +82,18 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 	localClientCfg.CustomerId = customerId
 	localClientCfg.SiteId = resp.Customers[0].Sites[0].Id
 
+	if userAgent == nil {
+		defaultUserAgent := "citrix-daas-rest-go (https://github.com/citrix/citrix-daas-rest-go)"
+		userAgent = &defaultUserAgent
+	}
+	localClientCfg.UserAgent = *userAgent
+
 	daasClient.ClientConfig = localClientCfg
+
+	if onPremise {
+		// add CustomerId and SiteId to base path for on-prem. The Me Api will no longer work.
+		localCfg.Servers[0].URL += "/" + localClientCfg.CustomerId + "/" + localClientCfg.SiteId
+	}
 
 	return daasClient, nil
 }
@@ -72,21 +101,16 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int) (*openapiclient.JobResponseModel, error) {
 
 	maxWaitTime := time.Now().UTC().Add(time.Minute * time.Duration(maxWaitTimeInMinutes))
-	getJobIdRequest := c.ApiClient.JobsTPApi.JobsTPGetJob(ctx, jobId, c.ClientConfig.CustomerId, c.ClientConfig.SiteId)
+	getJobIdRequest := c.ApiClient.JobsAPIsDAAS.JobsGetJob(ctx, jobId)
 	var jobResponseModel *openapiclient.JobResponseModel
 	var err error
 
 	for {
-
 		if time.Now().UTC().After(maxWaitTime) {
 			break
 		}
 
-		token, _ := c.SignIn()
-		getJobIdRequest = getJobIdRequest.Authorization(token)
-
-		jobResponseModel, _, err = getJobIdRequest.Execute()
-
+		jobResponseModel, _, err = AddRequestData(getJobIdRequest, c).Execute()
 		if err != nil {
 			return jobResponseModel, err
 		}
@@ -100,4 +124,26 @@ func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWait
 	}
 
 	return jobResponseModel, err
+}
+
+func AddRequestData[T any](request T, c *CitrixDaasClient) T {
+	// Set the customerId, siteId, and user agent on the request using reflection (request models don't share a struct)
+	requestValue := reflect.ValueOf(request)
+	requestType := reflect.TypeOf(request)
+
+	method, ok := requestType.MethodByName("CitrixCustomerId")
+	if ok {
+		requestValue = method.Func.Call([]reflect.Value{requestValue, reflect.ValueOf(c.ClientConfig.CustomerId)})[0]
+	}
+
+	method, ok = requestType.MethodByName("CitrixInstanceId")
+	if ok {
+		requestValue = method.Func.Call([]reflect.Value{requestValue, reflect.ValueOf(c.ClientConfig.SiteId)})[0]
+	}
+
+	method, ok = requestType.MethodByName("UserAgent")
+	if ok {
+		requestValue = method.Func.Call([]reflect.Value{requestValue, reflect.ValueOf(c.ClientConfig.UserAgent)})[0]
+	}
+	return requestValue.Interface().(T)
 }

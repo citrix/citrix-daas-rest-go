@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Site** | [**SiteTestResponseModelSite**](SiteTestResponseModelSite.md) |  | 
+**Site** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **NumPassed** | **int32** | The number of tests that passed. | 
 **NumWarnings** | **int32** | The number of warnings that were found. | 
 **NumFailures** | **int32** | The number of tests that failed. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewSiteTestResponseModel
 
-`func NewSiteTestResponseModel(site SiteTestResponseModelSite, numPassed int32, numWarnings int32, numFailures int32, ) *SiteTestResponseModel`
+`func NewSiteTestResponseModel(site RefResponseModel, numPassed int32, numWarnings int32, numFailures int32, ) *SiteTestResponseModel`
 
 NewSiteTestResponseModel instantiates a new SiteTestResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSite
 
-`func (o *SiteTestResponseModel) GetSite() SiteTestResponseModelSite`
+`func (o *SiteTestResponseModel) GetSite() RefResponseModel`
 
 GetSite returns the Site field if non-nil, zero value otherwise.
 
 ### GetSiteOk
 
-`func (o *SiteTestResponseModel) GetSiteOk() (*SiteTestResponseModelSite, bool)`
+`func (o *SiteTestResponseModel) GetSiteOk() (*RefResponseModel, bool)`
 
 GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSite
 
-`func (o *SiteTestResponseModel) SetSite(v SiteTestResponseModelSite)`
+`func (o *SiteTestResponseModel) SetSite(v RefResponseModel)`
 
 SetSite sets Site field to given value.
 

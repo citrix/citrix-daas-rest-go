@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SearchFilters** | Pointer to [**[]LogOperationSearchFilterRequestModel**](LogOperationSearchFilterRequestModel.md) | List of advanced search filters. | [optional] 
-**SortCriteria** | Pointer to [**LogOperationSearchRequestModelSortCriteria**](LogOperationSearchRequestModelSortCriteria.md) |  | [optional] 
+**SortCriteria** | Pointer to [**LogOperationSortCriteriaRequestModel**](LogOperationSortCriteriaRequestModel.md) |  | [optional] 
 
 ## Methods
 
@@ -51,22 +51,32 @@ SetSearchFilters sets SearchFilters field to given value.
 
 HasSearchFilters returns a boolean if a field has been set.
 
+### SetSearchFiltersNil
+
+`func (o *LogOperationSearchRequestModel) SetSearchFiltersNil(b bool)`
+
+ SetSearchFiltersNil sets the value for SearchFilters to be an explicit nil
+
+### UnsetSearchFilters
+`func (o *LogOperationSearchRequestModel) UnsetSearchFilters()`
+
+UnsetSearchFilters ensures that no value is present for SearchFilters, not even an explicit nil
 ### GetSortCriteria
 
-`func (o *LogOperationSearchRequestModel) GetSortCriteria() LogOperationSearchRequestModelSortCriteria`
+`func (o *LogOperationSearchRequestModel) GetSortCriteria() LogOperationSortCriteriaRequestModel`
 
 GetSortCriteria returns the SortCriteria field if non-nil, zero value otherwise.
 
 ### GetSortCriteriaOk
 
-`func (o *LogOperationSearchRequestModel) GetSortCriteriaOk() (*LogOperationSearchRequestModelSortCriteria, bool)`
+`func (o *LogOperationSearchRequestModel) GetSortCriteriaOk() (*LogOperationSortCriteriaRequestModel, bool)`
 
 GetSortCriteriaOk returns a tuple with the SortCriteria field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSortCriteria
 
-`func (o *LogOperationSearchRequestModel) SetSortCriteria(v LogOperationSearchRequestModelSortCriteria)`
+`func (o *LogOperationSearchRequestModel) SetSortCriteria(v LogOperationSortCriteriaRequestModel)`
 
 SetSortCriteria sets SortCriteria field to given value.
 

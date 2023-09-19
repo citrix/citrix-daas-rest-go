@@ -31,9 +31,9 @@ Name | Type | Description | Notes
 **SupportsPvsVms** | **bool** | Indicates whether the hypervisor supports PVS VMs. | 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor connections. | [optional] 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
 **Addresses** | **[]string** | Addresses that can be used to contact the required hypervisor. All the addresses are considered equivalent, that is, all of the addresses provide access to the same virtual machines, snapshots, network, and storage. | 
 **InMaintenanceMode** | **bool** | Indicates whether the hypervisor is in maintenance mode, which disables all communication between XenApp &amp; XenDesktop and the Hypervisor. | 
 **Unentitled** | Pointer to **bool** | Indicates whether is UnEntitled. | [optional] 
@@ -41,20 +41,20 @@ Name | Type | Description | Notes
 **Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | The list of administrative scopes that the connection is a part of. The scopes control which administrators are able to work with the connection. | 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the hypervisor is assigned to.  If &#x60;null&#x60;, the hypervisor is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
 **UsesCloudInfrastructure** | **bool** | Indicates whether the hypervisor uses cloud infrastructure. | 
-**Zone** | [**HypervisorResponseModelAllOfZone**](HypervisorResponseModelAllOfZone.md) |  | 
-**Fault** | Pointer to [**HypervisorResponseModelAllOfFault**](HypervisorResponseModelAllOfFault.md) |  | [optional] 
-**CustomProperties** | Pointer to **string** | CustomProperties of hypervisor connection | [optional] 
-**Uid** | Pointer to **int32** | The broker id. | [optional] 
+**Zone** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**Fault** | Pointer to [**HypervisorFaultResponseModel**](HypervisorFaultResponseModel.md) |  | [optional] 
+**CustomProperties** | Pointer to **NullableString** | CustomProperties of hypervisor connection | [optional] 
+**Uid** | Pointer to **NullableInt32** | The broker id. | [optional] 
 **IsVirtual** | Pointer to **bool** | If this connection is virtual. | [optional] 
 **ApiKey** | **string** | The API key used to authenticate with the AWS APIs. | 
 **Region** | **string** | The AWS region which the hypervisor represents. | 
-**MaximumConcurrentProvisioningOperations** | Pointer to **int32** | AWS maximum concurrent provisioning operations. | [optional] 
+**MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | AWS maximum concurrent provisioning operations. | [optional] 
 
 ## Methods
 
 ### NewHypervisorDetailAWSResponseModel
 
-`func NewHypervisorDetailAWSResponseModel(applicationId string, subscriptionId string, activeDirectoryId string, environment AzureEnvironment, managementEndpoint string, authenticationAuthority string, storageSuffix string, serviceAccountId string, sccmWakeUpProxy bool, wakeOnLanPackets WakeOnLanTransmission, userName string, tenancyOcid string, ociRegion string, ociEnvironment string, fingerprint string, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone HypervisorResponseModelAllOfZone, apiKey string, region string, ) *HypervisorDetailAWSResponseModel`
+`func NewHypervisorDetailAWSResponseModel(applicationId string, subscriptionId string, activeDirectoryId string, environment AzureEnvironment, managementEndpoint string, authenticationAuthority string, storageSuffix string, serviceAccountId string, sccmWakeUpProxy bool, wakeOnLanPackets WakeOnLanTransmission, userName string, tenancyOcid string, ociRegion string, ociEnvironment string, fingerprint string, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, apiKey string, region string, ) *HypervisorDetailAWSResponseModel`
 
 NewHypervisorDetailAWSResponseModel instantiates a new HypervisorDetailAWSResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -294,6 +294,16 @@ SetSslThumbprints sets SslThumbprints field to given value.
 
 HasSslThumbprints returns a boolean if a field has been set.
 
+### SetSslThumbprintsNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetSslThumbprintsNil(b bool)`
+
+ SetSslThumbprintsNil sets the value for SslThumbprints to be an explicit nil
+
+### UnsetSslThumbprints
+`func (o *HypervisorDetailAWSResponseModel) UnsetSslThumbprints()`
+
+UnsetSslThumbprints ensures that no value is present for SslThumbprints, not even an explicit nil
 ### GetUserName
 
 `func (o *HypervisorDetailAWSResponseModel) GetUserName() string`
@@ -599,6 +609,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *HypervisorDetailAWSResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetConnectionType
 
 `func (o *HypervisorDetailAWSResponseModel) GetConnectionType() HypervisorConnectionType`
@@ -644,6 +664,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorDetailAWSResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorDetailAWSResponseModel) GetName() string`
@@ -669,6 +699,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorDetailAWSResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorDetailAWSResponseModel) GetXDPath() string`
@@ -694,6 +734,16 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorDetailAWSResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetAddresses
 
 `func (o *HypervisorDetailAWSResponseModel) GetAddresses() []string`
@@ -824,6 +874,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *HypervisorDetailAWSResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetUsesCloudInfrastructure
 
 `func (o *HypervisorDetailAWSResponseModel) GetUsesCloudInfrastructure() bool`
@@ -846,40 +906,40 @@ SetUsesCloudInfrastructure sets UsesCloudInfrastructure field to given value.
 
 ### GetZone
 
-`func (o *HypervisorDetailAWSResponseModel) GetZone() HypervisorResponseModelAllOfZone`
+`func (o *HypervisorDetailAWSResponseModel) GetZone() RefResponseModel`
 
 GetZone returns the Zone field if non-nil, zero value otherwise.
 
 ### GetZoneOk
 
-`func (o *HypervisorDetailAWSResponseModel) GetZoneOk() (*HypervisorResponseModelAllOfZone, bool)`
+`func (o *HypervisorDetailAWSResponseModel) GetZoneOk() (*RefResponseModel, bool)`
 
 GetZoneOk returns a tuple with the Zone field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetZone
 
-`func (o *HypervisorDetailAWSResponseModel) SetZone(v HypervisorResponseModelAllOfZone)`
+`func (o *HypervisorDetailAWSResponseModel) SetZone(v RefResponseModel)`
 
 SetZone sets Zone field to given value.
 
 
 ### GetFault
 
-`func (o *HypervisorDetailAWSResponseModel) GetFault() HypervisorResponseModelAllOfFault`
+`func (o *HypervisorDetailAWSResponseModel) GetFault() HypervisorFaultResponseModel`
 
 GetFault returns the Fault field if non-nil, zero value otherwise.
 
 ### GetFaultOk
 
-`func (o *HypervisorDetailAWSResponseModel) GetFaultOk() (*HypervisorResponseModelAllOfFault, bool)`
+`func (o *HypervisorDetailAWSResponseModel) GetFaultOk() (*HypervisorFaultResponseModel, bool)`
 
 GetFaultOk returns a tuple with the Fault field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFault
 
-`func (o *HypervisorDetailAWSResponseModel) SetFault(v HypervisorResponseModelAllOfFault)`
+`func (o *HypervisorDetailAWSResponseModel) SetFault(v HypervisorFaultResponseModel)`
 
 SetFault sets Fault field to given value.
 
@@ -914,6 +974,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *HypervisorDetailAWSResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetUid
 
 `func (o *HypervisorDetailAWSResponseModel) GetUid() int32`
@@ -939,6 +1009,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *HypervisorDetailAWSResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetIsVirtual
 
 `func (o *HypervisorDetailAWSResponseModel) GetIsVirtual() bool`
@@ -1029,6 +1109,16 @@ SetMaximumConcurrentProvisioningOperations sets MaximumConcurrentProvisioningOpe
 
 HasMaximumConcurrentProvisioningOperations returns a boolean if a field has been set.
 
+### SetMaximumConcurrentProvisioningOperationsNil
+
+`func (o *HypervisorDetailAWSResponseModel) SetMaximumConcurrentProvisioningOperationsNil(b bool)`
+
+ SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
+
+### UnsetMaximumConcurrentProvisioningOperations
+`func (o *HypervisorDetailAWSResponseModel) UnsetMaximumConcurrentProvisioningOperations()`
+
+UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

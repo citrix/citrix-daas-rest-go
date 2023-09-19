@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Style** | Pointer to [**MessageStyle**](MessageStyle.md) |  | [optional] 
-**Title** | Pointer to **string** | Text to display in the message box title bar. | [optional] 
-**Text** | Pointer to **string** | The message to display. | [optional] 
+**Title** | Pointer to **NullableString** | Text to display in the message box title bar. | [optional] 
+**Text** | Pointer to **NullableString** | The message to display. | [optional] 
 
 ## Methods
 
@@ -77,6 +77,16 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
+### SetTitleNil
+
+`func (o *SendMessageRequestModel) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *SendMessageRequestModel) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetText
 
 `func (o *SendMessageRequestModel) GetText() string`
@@ -102,6 +112,16 @@ SetText sets Text field to given value.
 
 HasText returns a boolean if a field has been set.
 
+### SetTextNil
+
+`func (o *SendMessageRequestModel) SetTextNil(b bool)`
+
+ SetTextNil sets the value for Text to be an explicit nil
+
+### UnsetText
+`func (o *SendMessageRequestModel) UnsetText()`
+
+UnsetText ensures that no value is present for Text, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

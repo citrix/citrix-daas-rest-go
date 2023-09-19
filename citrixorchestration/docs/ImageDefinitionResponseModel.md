@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The name associated with the image definition. | [optional] 
+**Name** | Pointer to **NullableString** | The name associated with the image definition. | [optional] 
 **Id** | Pointer to **string** | The Id of the image definition. | [optional] 
-**OsType** | Pointer to **string** | The os type of image definition. | [optional] 
-**HostingUnitName** | Pointer to **string** | The hosting unit name of image definition. | [optional] 
+**OsType** | Pointer to **NullableString** | The os type of image definition. | [optional] 
+**HostingUnitName** | Pointer to **NullableString** | The hosting unit name of image definition. | [optional] 
 **HostingUnitUid** | Pointer to **string** | The hosting unit id of image definition. | [optional] 
-**Description** | Pointer to **string** | The description of the image definition. | [optional] 
+**Description** | Pointer to **NullableString** | The description of the image definition. | [optional] 
 **UseWriteBackCache** | Pointer to **bool** | The UseWriteBackCache of the image definition. | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The custom properties of the image definition. Currently only resource group. | [optional] 
 
@@ -57,6 +57,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ImageDefinitionResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ImageDefinitionResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetId
 
 `func (o *ImageDefinitionResponseModel) GetId() string`
@@ -107,6 +117,16 @@ SetOsType sets OsType field to given value.
 
 HasOsType returns a boolean if a field has been set.
 
+### SetOsTypeNil
+
+`func (o *ImageDefinitionResponseModel) SetOsTypeNil(b bool)`
+
+ SetOsTypeNil sets the value for OsType to be an explicit nil
+
+### UnsetOsType
+`func (o *ImageDefinitionResponseModel) UnsetOsType()`
+
+UnsetOsType ensures that no value is present for OsType, not even an explicit nil
 ### GetHostingUnitName
 
 `func (o *ImageDefinitionResponseModel) GetHostingUnitName() string`
@@ -132,6 +152,16 @@ SetHostingUnitName sets HostingUnitName field to given value.
 
 HasHostingUnitName returns a boolean if a field has been set.
 
+### SetHostingUnitNameNil
+
+`func (o *ImageDefinitionResponseModel) SetHostingUnitNameNil(b bool)`
+
+ SetHostingUnitNameNil sets the value for HostingUnitName to be an explicit nil
+
+### UnsetHostingUnitName
+`func (o *ImageDefinitionResponseModel) UnsetHostingUnitName()`
+
+UnsetHostingUnitName ensures that no value is present for HostingUnitName, not even an explicit nil
 ### GetHostingUnitUid
 
 `func (o *ImageDefinitionResponseModel) GetHostingUnitUid() string`
@@ -182,6 +212,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ImageDefinitionResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ImageDefinitionResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetUseWriteBackCache
 
 `func (o *ImageDefinitionResponseModel) GetUseWriteBackCache() bool`
@@ -232,6 +272,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *ImageDefinitionResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *ImageDefinitionResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

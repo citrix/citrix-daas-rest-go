@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ImageDefinitionName** | **string** | The name associated with the image definition. | 
-**ImageDefinitionDescription** | Pointer to **string** | The description associated with the image definition. | [optional] 
+**ImageDefinitionDescription** | Pointer to **NullableString** | The description associated with the image definition. | [optional] 
 **HostingUnit** | **string** | The name or id of the HostingUnit the image definition is held on. | 
 **OsType** | **string** | OS Type of the image definition. OsType | 
-**UseWriteBackCache** | Pointer to **bool** | Indicates whether or not write back cache is enabled for the VMs created from this image definition. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**UseWriteBackCache** | Pointer to **NullableBool** | Indicates whether or not write back cache is enabled for the VMs created from this image definition. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the image definition that are specific to the target hosting infrastructure. | [optional] 
 
 ## Methods
@@ -75,6 +75,16 @@ SetImageDefinitionDescription sets ImageDefinitionDescription field to given val
 
 HasImageDefinitionDescription returns a boolean if a field has been set.
 
+### SetImageDefinitionDescriptionNil
+
+`func (o *CreateImageDefinitionDetailRequestModel) SetImageDefinitionDescriptionNil(b bool)`
+
+ SetImageDefinitionDescriptionNil sets the value for ImageDefinitionDescription to be an explicit nil
+
+### UnsetImageDefinitionDescription
+`func (o *CreateImageDefinitionDetailRequestModel) UnsetImageDefinitionDescription()`
+
+UnsetImageDefinitionDescription ensures that no value is present for ImageDefinitionDescription, not even an explicit nil
 ### GetHostingUnit
 
 `func (o *CreateImageDefinitionDetailRequestModel) GetHostingUnit() string`
@@ -140,6 +150,16 @@ SetUseWriteBackCache sets UseWriteBackCache field to given value.
 
 HasUseWriteBackCache returns a boolean if a field has been set.
 
+### SetUseWriteBackCacheNil
+
+`func (o *CreateImageDefinitionDetailRequestModel) SetUseWriteBackCacheNil(b bool)`
+
+ SetUseWriteBackCacheNil sets the value for UseWriteBackCache to be an explicit nil
+
+### UnsetUseWriteBackCache
+`func (o *CreateImageDefinitionDetailRequestModel) UnsetUseWriteBackCache()`
+
+UnsetUseWriteBackCache ensures that no value is present for UseWriteBackCache, not even an explicit nil
 ### GetCustomProperties
 
 `func (o *CreateImageDefinitionDetailRequestModel) GetCustomProperties() []NameValueStringPairModel`
@@ -165,6 +185,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *CreateImageDefinitionDetailRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *CreateImageDefinitionDetailRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

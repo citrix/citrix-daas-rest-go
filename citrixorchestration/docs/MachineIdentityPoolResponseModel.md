@@ -5,25 +5,25 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Machine identity pool id. | [optional] 
-**Name** | Pointer to **string** | Machine identity pool name. | [optional] 
+**Name** | Pointer to **NullableString** | Machine identity pool name. | [optional] 
 **NamingSchemeType** | Pointer to [**AccountNamingSchemeType**](AccountNamingSchemeType.md) |  | [optional] 
-**NamingScheme** | Pointer to **string** | Machine identity pool naming scheme. | [optional] 
+**NamingScheme** | Pointer to **NullableString** | Machine identity pool naming scheme. | [optional] 
 **StartCount** | Pointer to **int32** | Machine identity pool start count. | [optional] 
-**CustomActiveDirectoryOU** | Pointer to **string** | Machine identity pool custom active directory OU. | [optional] 
+**CustomActiveDirectoryOU** | Pointer to **NullableString** | Machine identity pool custom active directory OU. | [optional] 
 **UseDefaultOU** | Pointer to **bool** | Indicates whether use default OU | [optional] 
-**DefaultOUDomain** | Pointer to [**MachineIdentityPoolResponseModelDefaultOUDomain**](MachineIdentityPoolResponseModelDefaultOUDomain.md) |  | [optional] 
+**DefaultOUDomain** | Pointer to [**ADDomainResponseModel**](ADDomainResponseModel.md) |  | [optional] 
 **AvailableAccountsCount** | Pointer to **int32** | The number of available accounts in the machine identity pool | [optional] 
 **InUseAccountsCount** | Pointer to **int32** | The number of accounts in use in the machine identity pool | [optional] 
 **TaintedAccountsCount** | Pointer to **int32** | The number of tainted accounts in the machine identity pool | [optional] 
 **ErrorAccountsCount** | Pointer to **int32** | The number of bad accounts in the machine identity pool | [optional] 
-**TenantId** | Pointer to **string** | Tenant id. | [optional] 
+**TenantId** | Pointer to **NullableString** | Tenant id. | [optional] 
 **WorkGroupMachines** | Pointer to **bool** | Work group machines. | [optional] 
-**IdentityType** | Pointer to **string** | Identity type. | [optional] 
-**IdentityContent** | Pointer to **string** | Identity content. | [optional] 
-**AzureADSecurityGroupName** | Pointer to **string** | Azure AD security group name. | [optional] 
-**AzureADAccessToken** | Pointer to **string** | Azure AD access token. | [optional] 
-**DeviceManagementType** | Pointer to **string** | Device management type. | [optional] 
-**AzureADTenantId** | Pointer to **string** | Azure AD tenant id. | [optional] 
+**IdentityType** | Pointer to **NullableString** | Identity type. | [optional] 
+**IdentityContent** | Pointer to **NullableString** | Identity content. | [optional] 
+**AzureADSecurityGroupName** | Pointer to **NullableString** | Azure AD security group name. | [optional] 
+**AzureADAccessToken** | Pointer to **NullableString** | Azure AD access token. | [optional] 
+**DeviceManagementType** | Pointer to **NullableString** | Device management type. | [optional] 
+**AzureADTenantId** | Pointer to **NullableString** | Azure AD tenant id. | [optional] 
 
 ## Methods
 
@@ -94,6 +94,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *MachineIdentityPoolResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MachineIdentityPoolResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNamingSchemeType
 
 `func (o *MachineIdentityPoolResponseModel) GetNamingSchemeType() AccountNamingSchemeType`
@@ -144,6 +154,16 @@ SetNamingScheme sets NamingScheme field to given value.
 
 HasNamingScheme returns a boolean if a field has been set.
 
+### SetNamingSchemeNil
+
+`func (o *MachineIdentityPoolResponseModel) SetNamingSchemeNil(b bool)`
+
+ SetNamingSchemeNil sets the value for NamingScheme to be an explicit nil
+
+### UnsetNamingScheme
+`func (o *MachineIdentityPoolResponseModel) UnsetNamingScheme()`
+
+UnsetNamingScheme ensures that no value is present for NamingScheme, not even an explicit nil
 ### GetStartCount
 
 `func (o *MachineIdentityPoolResponseModel) GetStartCount() int32`
@@ -194,6 +214,16 @@ SetCustomActiveDirectoryOU sets CustomActiveDirectoryOU field to given value.
 
 HasCustomActiveDirectoryOU returns a boolean if a field has been set.
 
+### SetCustomActiveDirectoryOUNil
+
+`func (o *MachineIdentityPoolResponseModel) SetCustomActiveDirectoryOUNil(b bool)`
+
+ SetCustomActiveDirectoryOUNil sets the value for CustomActiveDirectoryOU to be an explicit nil
+
+### UnsetCustomActiveDirectoryOU
+`func (o *MachineIdentityPoolResponseModel) UnsetCustomActiveDirectoryOU()`
+
+UnsetCustomActiveDirectoryOU ensures that no value is present for CustomActiveDirectoryOU, not even an explicit nil
 ### GetUseDefaultOU
 
 `func (o *MachineIdentityPoolResponseModel) GetUseDefaultOU() bool`
@@ -221,20 +251,20 @@ HasUseDefaultOU returns a boolean if a field has been set.
 
 ### GetDefaultOUDomain
 
-`func (o *MachineIdentityPoolResponseModel) GetDefaultOUDomain() MachineIdentityPoolResponseModelDefaultOUDomain`
+`func (o *MachineIdentityPoolResponseModel) GetDefaultOUDomain() ADDomainResponseModel`
 
 GetDefaultOUDomain returns the DefaultOUDomain field if non-nil, zero value otherwise.
 
 ### GetDefaultOUDomainOk
 
-`func (o *MachineIdentityPoolResponseModel) GetDefaultOUDomainOk() (*MachineIdentityPoolResponseModelDefaultOUDomain, bool)`
+`func (o *MachineIdentityPoolResponseModel) GetDefaultOUDomainOk() (*ADDomainResponseModel, bool)`
 
 GetDefaultOUDomainOk returns a tuple with the DefaultOUDomain field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultOUDomain
 
-`func (o *MachineIdentityPoolResponseModel) SetDefaultOUDomain(v MachineIdentityPoolResponseModelDefaultOUDomain)`
+`func (o *MachineIdentityPoolResponseModel) SetDefaultOUDomain(v ADDomainResponseModel)`
 
 SetDefaultOUDomain sets DefaultOUDomain field to given value.
 
@@ -369,6 +399,16 @@ SetTenantId sets TenantId field to given value.
 
 HasTenantId returns a boolean if a field has been set.
 
+### SetTenantIdNil
+
+`func (o *MachineIdentityPoolResponseModel) SetTenantIdNil(b bool)`
+
+ SetTenantIdNil sets the value for TenantId to be an explicit nil
+
+### UnsetTenantId
+`func (o *MachineIdentityPoolResponseModel) UnsetTenantId()`
+
+UnsetTenantId ensures that no value is present for TenantId, not even an explicit nil
 ### GetWorkGroupMachines
 
 `func (o *MachineIdentityPoolResponseModel) GetWorkGroupMachines() bool`
@@ -419,6 +459,16 @@ SetIdentityType sets IdentityType field to given value.
 
 HasIdentityType returns a boolean if a field has been set.
 
+### SetIdentityTypeNil
+
+`func (o *MachineIdentityPoolResponseModel) SetIdentityTypeNil(b bool)`
+
+ SetIdentityTypeNil sets the value for IdentityType to be an explicit nil
+
+### UnsetIdentityType
+`func (o *MachineIdentityPoolResponseModel) UnsetIdentityType()`
+
+UnsetIdentityType ensures that no value is present for IdentityType, not even an explicit nil
 ### GetIdentityContent
 
 `func (o *MachineIdentityPoolResponseModel) GetIdentityContent() string`
@@ -444,6 +494,16 @@ SetIdentityContent sets IdentityContent field to given value.
 
 HasIdentityContent returns a boolean if a field has been set.
 
+### SetIdentityContentNil
+
+`func (o *MachineIdentityPoolResponseModel) SetIdentityContentNil(b bool)`
+
+ SetIdentityContentNil sets the value for IdentityContent to be an explicit nil
+
+### UnsetIdentityContent
+`func (o *MachineIdentityPoolResponseModel) UnsetIdentityContent()`
+
+UnsetIdentityContent ensures that no value is present for IdentityContent, not even an explicit nil
 ### GetAzureADSecurityGroupName
 
 `func (o *MachineIdentityPoolResponseModel) GetAzureADSecurityGroupName() string`
@@ -469,6 +529,16 @@ SetAzureADSecurityGroupName sets AzureADSecurityGroupName field to given value.
 
 HasAzureADSecurityGroupName returns a boolean if a field has been set.
 
+### SetAzureADSecurityGroupNameNil
+
+`func (o *MachineIdentityPoolResponseModel) SetAzureADSecurityGroupNameNil(b bool)`
+
+ SetAzureADSecurityGroupNameNil sets the value for AzureADSecurityGroupName to be an explicit nil
+
+### UnsetAzureADSecurityGroupName
+`func (o *MachineIdentityPoolResponseModel) UnsetAzureADSecurityGroupName()`
+
+UnsetAzureADSecurityGroupName ensures that no value is present for AzureADSecurityGroupName, not even an explicit nil
 ### GetAzureADAccessToken
 
 `func (o *MachineIdentityPoolResponseModel) GetAzureADAccessToken() string`
@@ -494,6 +564,16 @@ SetAzureADAccessToken sets AzureADAccessToken field to given value.
 
 HasAzureADAccessToken returns a boolean if a field has been set.
 
+### SetAzureADAccessTokenNil
+
+`func (o *MachineIdentityPoolResponseModel) SetAzureADAccessTokenNil(b bool)`
+
+ SetAzureADAccessTokenNil sets the value for AzureADAccessToken to be an explicit nil
+
+### UnsetAzureADAccessToken
+`func (o *MachineIdentityPoolResponseModel) UnsetAzureADAccessToken()`
+
+UnsetAzureADAccessToken ensures that no value is present for AzureADAccessToken, not even an explicit nil
 ### GetDeviceManagementType
 
 `func (o *MachineIdentityPoolResponseModel) GetDeviceManagementType() string`
@@ -519,6 +599,16 @@ SetDeviceManagementType sets DeviceManagementType field to given value.
 
 HasDeviceManagementType returns a boolean if a field has been set.
 
+### SetDeviceManagementTypeNil
+
+`func (o *MachineIdentityPoolResponseModel) SetDeviceManagementTypeNil(b bool)`
+
+ SetDeviceManagementTypeNil sets the value for DeviceManagementType to be an explicit nil
+
+### UnsetDeviceManagementType
+`func (o *MachineIdentityPoolResponseModel) UnsetDeviceManagementType()`
+
+UnsetDeviceManagementType ensures that no value is present for DeviceManagementType, not even an explicit nil
 ### GetAzureADTenantId
 
 `func (o *MachineIdentityPoolResponseModel) GetAzureADTenantId() string`
@@ -544,6 +634,16 @@ SetAzureADTenantId sets AzureADTenantId field to given value.
 
 HasAzureADTenantId returns a boolean if a field has been set.
 
+### SetAzureADTenantIdNil
+
+`func (o *MachineIdentityPoolResponseModel) SetAzureADTenantIdNil(b bool)`
+
+ SetAzureADTenantIdNil sets the value for AzureADTenantId to be an explicit nil
+
+### UnsetAzureADTenantId
+`func (o *MachineIdentityPoolResponseModel) UnsetAzureADTenantId()`
+
+UnsetAzureADTenantId ensures that no value is present for AzureADTenantId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the object. Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
-**Uid** | Pointer to **int32** | DEPRECATED. Use Id. | [optional] 
-**Name** | Pointer to **string** | Name of the object. | [optional] 
-**Priority** | Pointer to **int32** | RemotePC machine allocation priority for delivery group. | [optional] 
+**Id** | Pointer to **NullableString** | Id of the object. Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
+**Uid** | Pointer to **NullableInt32** | DEPRECATED. Use Id. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the object. | [optional] 
+**Priority** | Pointer to **NullableInt32** | RemotePC machine allocation priority for delivery group. | [optional] 
 **NumAssigned** | **int32** | Number of machines assigned from the machine catalog into the delivery group. | 
 **Total** | **int32** | Total number of machines in the delivery group. | 
 
@@ -55,6 +55,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *MachineCatalogDeliveryGroupRefResponseModel) GetUid() int32`
@@ -80,6 +90,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetName
 
 `func (o *MachineCatalogDeliveryGroupRefResponseModel) GetName() string`
@@ -105,6 +125,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPriority
 
 `func (o *MachineCatalogDeliveryGroupRefResponseModel) GetPriority() int32`
@@ -130,6 +160,16 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *MachineCatalogDeliveryGroupRefResponseModel) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 ### GetNumAssigned
 
 `func (o *MachineCatalogDeliveryGroupRefResponseModel) GetNumAssigned() int32`

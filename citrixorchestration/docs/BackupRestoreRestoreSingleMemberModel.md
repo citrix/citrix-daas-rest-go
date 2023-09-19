@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComponentName** | Pointer to **string** | Component Name | [optional] 
-**MemberName** | Pointer to **string** | Member Name | [optional] 
+**ComponentName** | Pointer to **NullableString** | Component Name | [optional] 
+**MemberName** | Pointer to **NullableString** | Member Name | [optional] 
 **PlaybookActionState** | Pointer to [**BackupRestorePlaybookActionState**](BackupRestorePlaybookActionState.md) |  | [optional] 
 **Result** | Pointer to **bool** | Result | [optional] 
-**Details** | Pointer to **string** | Details or Error Message | [optional] 
-**TransactionId** | Pointer to **string** | Transaction Id | [optional] 
+**Details** | Pointer to **NullableString** | Details or Error Message | [optional] 
+**TransactionId** | Pointer to **NullableString** | Transaction Id | [optional] 
 **DateTime** | Pointer to **time.Time** | Date Time stamps | [optional] 
 **MemberCount** | Pointer to **int32** | Member Count | [optional] 
 **CurrentMemberIndex** | Pointer to **int32** |  | [optional] 
@@ -59,6 +59,16 @@ SetComponentName sets ComponentName field to given value.
 
 HasComponentName returns a boolean if a field has been set.
 
+### SetComponentNameNil
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetComponentNameNil(b bool)`
+
+ SetComponentNameNil sets the value for ComponentName to be an explicit nil
+
+### UnsetComponentName
+`func (o *BackupRestoreRestoreSingleMemberModel) UnsetComponentName()`
+
+UnsetComponentName ensures that no value is present for ComponentName, not even an explicit nil
 ### GetMemberName
 
 `func (o *BackupRestoreRestoreSingleMemberModel) GetMemberName() string`
@@ -84,6 +94,16 @@ SetMemberName sets MemberName field to given value.
 
 HasMemberName returns a boolean if a field has been set.
 
+### SetMemberNameNil
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetMemberNameNil(b bool)`
+
+ SetMemberNameNil sets the value for MemberName to be an explicit nil
+
+### UnsetMemberName
+`func (o *BackupRestoreRestoreSingleMemberModel) UnsetMemberName()`
+
+UnsetMemberName ensures that no value is present for MemberName, not even an explicit nil
 ### GetPlaybookActionState
 
 `func (o *BackupRestoreRestoreSingleMemberModel) GetPlaybookActionState() BackupRestorePlaybookActionState`
@@ -159,6 +179,16 @@ SetDetails sets Details field to given value.
 
 HasDetails returns a boolean if a field has been set.
 
+### SetDetailsNil
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetDetailsNil(b bool)`
+
+ SetDetailsNil sets the value for Details to be an explicit nil
+
+### UnsetDetails
+`func (o *BackupRestoreRestoreSingleMemberModel) UnsetDetails()`
+
+UnsetDetails ensures that no value is present for Details, not even an explicit nil
 ### GetTransactionId
 
 `func (o *BackupRestoreRestoreSingleMemberModel) GetTransactionId() string`
@@ -184,6 +214,16 @@ SetTransactionId sets TransactionId field to given value.
 
 HasTransactionId returns a boolean if a field has been set.
 
+### SetTransactionIdNil
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetTransactionIdNil(b bool)`
+
+ SetTransactionIdNil sets the value for TransactionId to be an explicit nil
+
+### UnsetTransactionId
+`func (o *BackupRestoreRestoreSingleMemberModel) UnsetTransactionId()`
+
+UnsetTransactionId ensures that no value is present for TransactionId, not even an explicit nil
 ### GetDateTime
 
 `func (o *BackupRestoreRestoreSingleMemberModel) GetDateTime() time.Time`

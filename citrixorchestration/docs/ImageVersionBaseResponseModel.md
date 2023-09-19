@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | Pointer to **string** | The version number associated with the image version. | [optional] 
+**Version** | Pointer to **NullableString** | The version number associated with the image version. | [optional] 
 **Id** | Pointer to **string** | The Id of the image version. | [optional] 
-**MasterImagePath** | Pointer to **string** | The MasterImageVM of the image version. | [optional] 
-**Description** | Pointer to **string** | The Description of the image version. | [optional] 
+**MasterImagePath** | Pointer to **NullableString** | The MasterImageVM of the image version. | [optional] 
+**Description** | Pointer to **NullableString** | The Description of the image version. | [optional] 
 **DiskSizeGB** | Pointer to **int32** | Size of the VM&#39;s OS disk, in GB. | [optional] 
-**CreateTime** | Pointer to **string** | The create time of the image version. | [optional] 
+**CreateTime** | Pointer to **NullableString** | The create time of the image version. | [optional] 
 **WriteBackCacheDiskSize** | Pointer to **int32** | The WriteBackCacheDiskSize of the image version. | [optional] 
 **WriteBackCacheMemorySize** | Pointer to **int32** | The WriteBackCacheMemorySize of the image version. | [optional] 
-**ImageStatus** | Pointer to **string** | The image status of the image version. | [optional] 
-**Error** | Pointer to **string** | The error info of the image version. | [optional] 
+**ImageStatus** | Pointer to **NullableString** | The image status of the image version. | [optional] 
+**Error** | Pointer to **NullableString** | The error info of the image version. | [optional] 
 **AdditionalData** | Pointer to **map[string]string** | The additional data of the image version. | [optional] 
 
 ## Methods
@@ -60,6 +60,16 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *ImageVersionBaseResponseModel) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *ImageVersionBaseResponseModel) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetId
 
 `func (o *ImageVersionBaseResponseModel) GetId() string`
@@ -110,6 +120,16 @@ SetMasterImagePath sets MasterImagePath field to given value.
 
 HasMasterImagePath returns a boolean if a field has been set.
 
+### SetMasterImagePathNil
+
+`func (o *ImageVersionBaseResponseModel) SetMasterImagePathNil(b bool)`
+
+ SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
+
+### UnsetMasterImagePath
+`func (o *ImageVersionBaseResponseModel) UnsetMasterImagePath()`
+
+UnsetMasterImagePath ensures that no value is present for MasterImagePath, not even an explicit nil
 ### GetDescription
 
 `func (o *ImageVersionBaseResponseModel) GetDescription() string`
@@ -135,6 +155,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ImageVersionBaseResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ImageVersionBaseResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDiskSizeGB
 
 `func (o *ImageVersionBaseResponseModel) GetDiskSizeGB() int32`
@@ -185,6 +215,16 @@ SetCreateTime sets CreateTime field to given value.
 
 HasCreateTime returns a boolean if a field has been set.
 
+### SetCreateTimeNil
+
+`func (o *ImageVersionBaseResponseModel) SetCreateTimeNil(b bool)`
+
+ SetCreateTimeNil sets the value for CreateTime to be an explicit nil
+
+### UnsetCreateTime
+`func (o *ImageVersionBaseResponseModel) UnsetCreateTime()`
+
+UnsetCreateTime ensures that no value is present for CreateTime, not even an explicit nil
 ### GetWriteBackCacheDiskSize
 
 `func (o *ImageVersionBaseResponseModel) GetWriteBackCacheDiskSize() int32`
@@ -260,6 +300,16 @@ SetImageStatus sets ImageStatus field to given value.
 
 HasImageStatus returns a boolean if a field has been set.
 
+### SetImageStatusNil
+
+`func (o *ImageVersionBaseResponseModel) SetImageStatusNil(b bool)`
+
+ SetImageStatusNil sets the value for ImageStatus to be an explicit nil
+
+### UnsetImageStatus
+`func (o *ImageVersionBaseResponseModel) UnsetImageStatus()`
+
+UnsetImageStatus ensures that no value is present for ImageStatus, not even an explicit nil
 ### GetError
 
 `func (o *ImageVersionBaseResponseModel) GetError() string`
@@ -285,6 +335,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *ImageVersionBaseResponseModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *ImageVersionBaseResponseModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetAdditionalData
 
 `func (o *ImageVersionBaseResponseModel) GetAdditionalData() map[string]string`
@@ -310,6 +370,16 @@ SetAdditionalData sets AdditionalData field to given value.
 
 HasAdditionalData returns a boolean if a field has been set.
 
+### SetAdditionalDataNil
+
+`func (o *ImageVersionBaseResponseModel) SetAdditionalDataNil(b bool)`
+
+ SetAdditionalDataNil sets the value for AdditionalData to be an explicit nil
+
+### UnsetAdditionalData
+`func (o *ImageVersionBaseResponseModel) UnsetAdditionalData()`
+
+UnsetAdditionalData ensures that no value is present for AdditionalData, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

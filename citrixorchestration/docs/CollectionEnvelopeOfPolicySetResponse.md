@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]PolicySetResponse**](PolicySetResponse.md) | List of items. | [optional] 
-**ContinuationToken** | Pointer to **string** | If present, indicates to the caller that the query was not complete, and they should call the API again specifying the continuation token as a query parameter. | [optional] 
-**TotalItems** | Pointer to **int32** | Indicates the total number of items in the collection, which may be more than the number of items returned, if there is a ContinuationToken. Only returned in the response to $search APIs. | [optional] 
+**ContinuationToken** | Pointer to **NullableString** | If present, indicates to the caller that the query was not complete, and they should call the API again specifying the continuation token as a query parameter. | [optional] 
+**TotalItems** | Pointer to **NullableInt32** | Indicates the total number of items in the collection, which may be more than the number of items returned, if there is a ContinuationToken. Only returned in the response to $search APIs. | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *CollectionEnvelopeOfPolicySetResponse) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *CollectionEnvelopeOfPolicySetResponse) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetContinuationToken
 
 `func (o *CollectionEnvelopeOfPolicySetResponse) GetContinuationToken() string`
@@ -77,6 +87,16 @@ SetContinuationToken sets ContinuationToken field to given value.
 
 HasContinuationToken returns a boolean if a field has been set.
 
+### SetContinuationTokenNil
+
+`func (o *CollectionEnvelopeOfPolicySetResponse) SetContinuationTokenNil(b bool)`
+
+ SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
+
+### UnsetContinuationToken
+`func (o *CollectionEnvelopeOfPolicySetResponse) UnsetContinuationToken()`
+
+UnsetContinuationToken ensures that no value is present for ContinuationToken, not even an explicit nil
 ### GetTotalItems
 
 `func (o *CollectionEnvelopeOfPolicySetResponse) GetTotalItems() int32`
@@ -102,6 +122,16 @@ SetTotalItems sets TotalItems field to given value.
 
 HasTotalItems returns a boolean if a field has been set.
 
+### SetTotalItemsNil
+
+`func (o *CollectionEnvelopeOfPolicySetResponse) SetTotalItemsNil(b bool)`
+
+ SetTotalItemsNil sets the value for TotalItems to be an explicit nil
+
+### UnsetTotalItems
+`func (o *CollectionEnvelopeOfPolicySetResponse) UnsetTotalItems()`
+
+UnsetTotalItems ensures that no value is present for TotalItems, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

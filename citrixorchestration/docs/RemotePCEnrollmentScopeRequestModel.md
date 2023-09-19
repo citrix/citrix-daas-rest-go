@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OU** | **string** | Specifies the DN of an AD container containing machines allowed to enroll as remote PCs. | 
-**IncludeSubfolders** | Pointer to **bool** | Indicates whether machines in subfolders of OU are allowed to enroll as remote PCs. | [optional] [default to false]
-**IsOrganizationalUnit** | Pointer to **bool** | Indicates whether this objet is for a OU or for a machine | [optional] [default to false]
+**IncludeSubfolders** | Pointer to **NullableBool** | Indicates whether machines in subfolders of OU are allowed to enroll as remote PCs. | [optional] [default to false]
+**IsOrganizationalUnit** | Pointer to **NullableBool** | Indicates whether this objet is for a OU or for a machine | [optional] [default to false]
 **MachinesExcluded** | Pointer to **[]string** | Machines which are explicitly excluded from matching the enrollment scope. | [optional] 
 **MachinesIncluded** | Pointer to **[]string** | Machines which are included in the enrollment scope. | [optional] 
 **AssignedUsers** | Pointer to **[]string** | The user(s) to whom this machine will be assigned. Machines can be assigned to multiple users, a single client IP address, or a single client name, but only to one of these categories at a time. | [optional] 
@@ -75,6 +75,16 @@ SetIncludeSubfolders sets IncludeSubfolders field to given value.
 
 HasIncludeSubfolders returns a boolean if a field has been set.
 
+### SetIncludeSubfoldersNil
+
+`func (o *RemotePCEnrollmentScopeRequestModel) SetIncludeSubfoldersNil(b bool)`
+
+ SetIncludeSubfoldersNil sets the value for IncludeSubfolders to be an explicit nil
+
+### UnsetIncludeSubfolders
+`func (o *RemotePCEnrollmentScopeRequestModel) UnsetIncludeSubfolders()`
+
+UnsetIncludeSubfolders ensures that no value is present for IncludeSubfolders, not even an explicit nil
 ### GetIsOrganizationalUnit
 
 `func (o *RemotePCEnrollmentScopeRequestModel) GetIsOrganizationalUnit() bool`
@@ -100,6 +110,16 @@ SetIsOrganizationalUnit sets IsOrganizationalUnit field to given value.
 
 HasIsOrganizationalUnit returns a boolean if a field has been set.
 
+### SetIsOrganizationalUnitNil
+
+`func (o *RemotePCEnrollmentScopeRequestModel) SetIsOrganizationalUnitNil(b bool)`
+
+ SetIsOrganizationalUnitNil sets the value for IsOrganizationalUnit to be an explicit nil
+
+### UnsetIsOrganizationalUnit
+`func (o *RemotePCEnrollmentScopeRequestModel) UnsetIsOrganizationalUnit()`
+
+UnsetIsOrganizationalUnit ensures that no value is present for IsOrganizationalUnit, not even an explicit nil
 ### GetMachinesExcluded
 
 `func (o *RemotePCEnrollmentScopeRequestModel) GetMachinesExcluded() []string`
@@ -125,6 +145,16 @@ SetMachinesExcluded sets MachinesExcluded field to given value.
 
 HasMachinesExcluded returns a boolean if a field has been set.
 
+### SetMachinesExcludedNil
+
+`func (o *RemotePCEnrollmentScopeRequestModel) SetMachinesExcludedNil(b bool)`
+
+ SetMachinesExcludedNil sets the value for MachinesExcluded to be an explicit nil
+
+### UnsetMachinesExcluded
+`func (o *RemotePCEnrollmentScopeRequestModel) UnsetMachinesExcluded()`
+
+UnsetMachinesExcluded ensures that no value is present for MachinesExcluded, not even an explicit nil
 ### GetMachinesIncluded
 
 `func (o *RemotePCEnrollmentScopeRequestModel) GetMachinesIncluded() []string`
@@ -150,6 +180,16 @@ SetMachinesIncluded sets MachinesIncluded field to given value.
 
 HasMachinesIncluded returns a boolean if a field has been set.
 
+### SetMachinesIncludedNil
+
+`func (o *RemotePCEnrollmentScopeRequestModel) SetMachinesIncludedNil(b bool)`
+
+ SetMachinesIncludedNil sets the value for MachinesIncluded to be an explicit nil
+
+### UnsetMachinesIncluded
+`func (o *RemotePCEnrollmentScopeRequestModel) UnsetMachinesIncluded()`
+
+UnsetMachinesIncluded ensures that no value is present for MachinesIncluded, not even an explicit nil
 ### GetAssignedUsers
 
 `func (o *RemotePCEnrollmentScopeRequestModel) GetAssignedUsers() []string`
@@ -175,6 +215,16 @@ SetAssignedUsers sets AssignedUsers field to given value.
 
 HasAssignedUsers returns a boolean if a field has been set.
 
+### SetAssignedUsersNil
+
+`func (o *RemotePCEnrollmentScopeRequestModel) SetAssignedUsersNil(b bool)`
+
+ SetAssignedUsersNil sets the value for AssignedUsers to be an explicit nil
+
+### UnsetAssignedUsers
+`func (o *RemotePCEnrollmentScopeRequestModel) UnsetAssignedUsers()`
+
+UnsetAssignedUsers ensures that no value is present for AssignedUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

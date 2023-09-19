@@ -8,50 +8,50 @@ Name | Type | Description | Notes
 **Enabled** | **bool** | Indicates whether the GPU type is enabled on the hypervisor. | 
 **FrameBufferSizeMB** | **int32** | Frame Buffer Size in MB | 
 **HasDedicatedResource** | **bool** | Indicates whether the GPU type has resources dedicated to it. | 
-**Description** | Pointer to **string** | Description of the security group. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the security group. | [optional] 
 **EgressRules** | [**[]HypervisorSecurityGroupRuleResponseModel**](HypervisorSecurityGroupRuleResponseModel.md) | Egress rules governing outbound network traffic. | 
 **IngressRules** | [**[]HypervisorSecurityGroupRuleResponseModel**](HypervisorSecurityGroupRuleResponseModel.md) | Ingress rules governing inbound network traffic. | 
-**VirtualPrivateCloudId** | Pointer to **string** | The identifier of the associated VPC. | [optional] 
-**DedicatedTenancy** | Pointer to **string** | Indicates whether this service offering prescribes dedicated tenancy for the instances that use it. | [optional] 
+**VirtualPrivateCloudId** | Pointer to **NullableString** | The identifier of the associated VPC. | [optional] 
+**DedicatedTenancy** | Pointer to **NullableString** | Indicates whether this service offering prescribes dedicated tenancy for the instances that use it. | [optional] 
 **MemorySizeMB** | **float32** | The amount of memory that is available to instances using this service offering, measured in megabytes. | 
 **NumberOfCores** | **float32** | The number of virtual cores that are available to instances using this service offering. | 
-**AmazonComputeUnits** | Pointer to **float32** | The number of Amazon EC2 compute units that are available to instances using this service offering. This property is only meaningful for EC2-based cloud connections. | [optional] 
+**AmazonComputeUnits** | Pointer to **NullableFloat32** | The number of Amazon EC2 compute units that are available to instances using this service offering. This property is only meaningful for EC2-based cloud connections. | [optional] 
 **OptimizedForPooledDesktops** | **bool** | Indicates whether this service offering is intended specifically for usage with pooled desktops. | 
-**NetworkPerformance** | Pointer to **string** | The network performance available to instances using this service offering. | [optional] 
+**NetworkPerformance** | Pointer to **NullableString** | The network performance available to instances using this service offering. | [optional] 
 **NetworkPerformanceIsUnlimited** | **bool** | Indicates whether this service offering has no limit for it&#39;s network rate. | 
 **NetworkPerformanceIsDefault** | **bool** | Indicates whether this service offering has a default limit for it&#39;s network rate. | 
 **IsUsedInSite** | **bool** | Indicates whether the service offering is used by any machine catalogs in the site. | 
-**SupportsAzurePremiumStorage** | Pointer to **bool** | Indicates whether the service offering supports premium storage. This property is only meaningful on Azure. | [optional] 
+**SupportsAzurePremiumStorage** | Pointer to **NullableBool** | Indicates whether the service offering supports premium storage. This property is only meaningful on Azure. | [optional] 
 **Superseded** | **bool** | Indicates whether storage has been superseded.  Superseded storage may be used for existing virtual machines, but is not used when provisioning new virtual machines. | 
-**Owner** | Pointer to **string** | The account ID for the owner of this template. | [optional] 
-**IsWindowsTemplate** | Pointer to **bool** | Indicates whether this is a Windows OS template, if known. | [optional] 
+**Owner** | Pointer to **NullableString** | The account ID for the owner of this template. | [optional] 
+**IsWindowsTemplate** | Pointer to **NullableBool** | Indicates whether this is a Windows OS template, if known. | [optional] 
 **HasPersistentRootVolume** | **bool** | Indicates whether this template has a persistent root volume (eg. is an EBS-backed image on AWS). | 
 **VMId** | **string** | Id of the VM, as defined by the hypervisor. | 
-**MacAddress** | Pointer to **string** | MAC address of the VM. | [optional] 
-**CpuCount** | Pointer to **int32** | Number of CPUs, if known. | [optional] 
-**MemoryMB** | Pointer to **int32** | Memory in megabytes, if known. | [optional] 
-**HardDiskSizeGB** | Pointer to **int32** | Hard disk size in gigabytes, if known. | [optional] 
-**MinMemoryMB** | Pointer to **int32** | Minimum memory required to run this VM or snapshot, in megabytes, if known. | [optional] 
+**MacAddress** | Pointer to **NullableString** | MAC address of the VM. | [optional] 
+**CpuCount** | Pointer to **NullableInt32** | Number of CPUs, if known. | [optional] 
+**MemoryMB** | Pointer to **NullableInt32** | Memory in megabytes, if known. | [optional] 
+**HardDiskSizeGB** | Pointer to **NullableInt32** | Hard disk size in gigabytes, if known. | [optional] 
+**MinMemoryMB** | Pointer to **NullableInt32** | Minimum memory required to run this VM or snapshot, in megabytes, if known. | [optional] 
 **NetworkMappings** | Pointer to [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Network mappings associated with the VM, if known. | [optional] 
 **AttachedDisks** | Pointer to [**[]AttachedDiskResponseModel**](AttachedDiskResponseModel.md) | Disks attached to the VM, if known. | [optional] 
 **InstanceSecurityGroupLimit** | **int32** | Indicates the maximum number of security groups allowed per instance in this VPC | 
-**Endpoint** | Pointer to **string** | The API address with the region. | [optional] 
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
-**RelativePath** | Pointer to **string** | Path to the object, relative to the resource pool from which it was queried. &#x60;{{vm name}}.vm/{{snapshot name}}.snapshot&#x60; | [optional] 
-**FullRelativePath** | Pointer to **string** | Full path to the resource, including the hypervisor, relative to the root of the API. Example: &#x60;Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources/{{RelativePath}}&#x60; | [optional] 
+**Endpoint** | Pointer to **NullableString** | The API address with the region. | [optional] 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**RelativePath** | Pointer to **NullableString** | Path to the object, relative to the resource pool from which it was queried. &#x60;{{vm name}}.vm/{{snapshot name}}.snapshot&#x60; | [optional] 
+**FullRelativePath** | Pointer to **NullableString** | Full path to the resource, including the hypervisor, relative to the root of the API. Example: &#x60;Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources/{{RelativePath}}&#x60; | [optional] 
 **ResourceType** | **string** | Type of resource. | 
-**ObjectTypeName** | Pointer to **string** | The type name of the hypervisor resource object. | [optional] 
-**ResourceContainer** | Pointer to [**HypervisorResourceRefResponseModelAllOfResourceContainer**](HypervisorResourceRefResponseModelAllOfResourceContainer.md) |  | [optional] 
-**ResourcePoolXDPath** | Pointer to **string** | Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; This value  | [optional] 
+**ObjectTypeName** | Pointer to **NullableString** | The type name of the hypervisor resource object. | [optional] 
+**ResourceContainer** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
+**ResourcePoolXDPath** | Pointer to **NullableString** | Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; This value  | [optional] 
 **FullName** | **string** | Name of the resource, with the type concatenated. i.e. \&quot;name.type\&quot;. | 
 **IsContainer** | **bool** | Indicates whether the resource is a container. | 
 **Children** | Pointer to [**[]HypervisorResourceResponseModel**](HypervisorResourceResponseModel.md) | Child resources, when the resource is a container. | [optional] 
 **IsMachine** | **bool** | Indicates whether the resource is a machine. | 
 **IsSnapshotable** | **bool** | Indicates whether the resource can have a snapshot taken. | 
 **AllResourcesRelativePath** | **string** | Path to the resource, relative to the special \&quot;AllResources\&quot; resource pool associated with the hypervisor. | 
-**ResourcePool** | [**HypervisorResourceResponseModelAllOfResourcePool**](HypervisorResourceResponseModelAllOfResourcePool.md) |  | 
+**ResourcePool** | [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | 
 **IsSymLink** | **bool** | Indicates whether the object is a valid symbolic link. | 
 **AdditionalData** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Additional data about the object in the form of key-value pairs. | [optional] 
 
@@ -59,7 +59,7 @@ Name | Type | Description | Notes
 
 ### NewHypervisorResourceResponseModel
 
-`func NewHypervisorResourceResponseModel(supportsSecurityGroups bool, enabled bool, frameBufferSizeMB int32, hasDedicatedResource bool, egressRules []HypervisorSecurityGroupRuleResponseModel, ingressRules []HypervisorSecurityGroupRuleResponseModel, memorySizeMB float32, numberOfCores float32, optimizedForPooledDesktops bool, networkPerformanceIsUnlimited bool, networkPerformanceIsDefault bool, isUsedInSite bool, superseded bool, hasPersistentRootVolume bool, vMId string, instanceSecurityGroupLimit int32, resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourceResponseModelAllOfResourcePool, isSymLink bool, ) *HypervisorResourceResponseModel`
+`func NewHypervisorResourceResponseModel(supportsSecurityGroups bool, enabled bool, frameBufferSizeMB int32, hasDedicatedResource bool, egressRules []HypervisorSecurityGroupRuleResponseModel, ingressRules []HypervisorSecurityGroupRuleResponseModel, memorySizeMB float32, numberOfCores float32, optimizedForPooledDesktops bool, networkPerformanceIsUnlimited bool, networkPerformanceIsDefault bool, isUsedInSite bool, superseded bool, hasPersistentRootVolume bool, vMId string, instanceSecurityGroupLimit int32, resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourcePoolRefResponseModel, isSymLink bool, ) *HypervisorResourceResponseModel`
 
 NewHypervisorResourceResponseModel instantiates a new HypervisorResourceResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -179,6 +179,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *HypervisorResourceResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *HypervisorResourceResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEgressRules
 
 `func (o *HypervisorResourceResponseModel) GetEgressRules() []HypervisorSecurityGroupRuleResponseModel`
@@ -244,6 +254,16 @@ SetVirtualPrivateCloudId sets VirtualPrivateCloudId field to given value.
 
 HasVirtualPrivateCloudId returns a boolean if a field has been set.
 
+### SetVirtualPrivateCloudIdNil
+
+`func (o *HypervisorResourceResponseModel) SetVirtualPrivateCloudIdNil(b bool)`
+
+ SetVirtualPrivateCloudIdNil sets the value for VirtualPrivateCloudId to be an explicit nil
+
+### UnsetVirtualPrivateCloudId
+`func (o *HypervisorResourceResponseModel) UnsetVirtualPrivateCloudId()`
+
+UnsetVirtualPrivateCloudId ensures that no value is present for VirtualPrivateCloudId, not even an explicit nil
 ### GetDedicatedTenancy
 
 `func (o *HypervisorResourceResponseModel) GetDedicatedTenancy() string`
@@ -269,6 +289,16 @@ SetDedicatedTenancy sets DedicatedTenancy field to given value.
 
 HasDedicatedTenancy returns a boolean if a field has been set.
 
+### SetDedicatedTenancyNil
+
+`func (o *HypervisorResourceResponseModel) SetDedicatedTenancyNil(b bool)`
+
+ SetDedicatedTenancyNil sets the value for DedicatedTenancy to be an explicit nil
+
+### UnsetDedicatedTenancy
+`func (o *HypervisorResourceResponseModel) UnsetDedicatedTenancy()`
+
+UnsetDedicatedTenancy ensures that no value is present for DedicatedTenancy, not even an explicit nil
 ### GetMemorySizeMB
 
 `func (o *HypervisorResourceResponseModel) GetMemorySizeMB() float32`
@@ -334,6 +364,16 @@ SetAmazonComputeUnits sets AmazonComputeUnits field to given value.
 
 HasAmazonComputeUnits returns a boolean if a field has been set.
 
+### SetAmazonComputeUnitsNil
+
+`func (o *HypervisorResourceResponseModel) SetAmazonComputeUnitsNil(b bool)`
+
+ SetAmazonComputeUnitsNil sets the value for AmazonComputeUnits to be an explicit nil
+
+### UnsetAmazonComputeUnits
+`func (o *HypervisorResourceResponseModel) UnsetAmazonComputeUnits()`
+
+UnsetAmazonComputeUnits ensures that no value is present for AmazonComputeUnits, not even an explicit nil
 ### GetOptimizedForPooledDesktops
 
 `func (o *HypervisorResourceResponseModel) GetOptimizedForPooledDesktops() bool`
@@ -379,6 +419,16 @@ SetNetworkPerformance sets NetworkPerformance field to given value.
 
 HasNetworkPerformance returns a boolean if a field has been set.
 
+### SetNetworkPerformanceNil
+
+`func (o *HypervisorResourceResponseModel) SetNetworkPerformanceNil(b bool)`
+
+ SetNetworkPerformanceNil sets the value for NetworkPerformance to be an explicit nil
+
+### UnsetNetworkPerformance
+`func (o *HypervisorResourceResponseModel) UnsetNetworkPerformance()`
+
+UnsetNetworkPerformance ensures that no value is present for NetworkPerformance, not even an explicit nil
 ### GetNetworkPerformanceIsUnlimited
 
 `func (o *HypervisorResourceResponseModel) GetNetworkPerformanceIsUnlimited() bool`
@@ -464,6 +514,16 @@ SetSupportsAzurePremiumStorage sets SupportsAzurePremiumStorage field to given v
 
 HasSupportsAzurePremiumStorage returns a boolean if a field has been set.
 
+### SetSupportsAzurePremiumStorageNil
+
+`func (o *HypervisorResourceResponseModel) SetSupportsAzurePremiumStorageNil(b bool)`
+
+ SetSupportsAzurePremiumStorageNil sets the value for SupportsAzurePremiumStorage to be an explicit nil
+
+### UnsetSupportsAzurePremiumStorage
+`func (o *HypervisorResourceResponseModel) UnsetSupportsAzurePremiumStorage()`
+
+UnsetSupportsAzurePremiumStorage ensures that no value is present for SupportsAzurePremiumStorage, not even an explicit nil
 ### GetSuperseded
 
 `func (o *HypervisorResourceResponseModel) GetSuperseded() bool`
@@ -509,6 +569,16 @@ SetOwner sets Owner field to given value.
 
 HasOwner returns a boolean if a field has been set.
 
+### SetOwnerNil
+
+`func (o *HypervisorResourceResponseModel) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *HypervisorResourceResponseModel) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetIsWindowsTemplate
 
 `func (o *HypervisorResourceResponseModel) GetIsWindowsTemplate() bool`
@@ -534,6 +604,16 @@ SetIsWindowsTemplate sets IsWindowsTemplate field to given value.
 
 HasIsWindowsTemplate returns a boolean if a field has been set.
 
+### SetIsWindowsTemplateNil
+
+`func (o *HypervisorResourceResponseModel) SetIsWindowsTemplateNil(b bool)`
+
+ SetIsWindowsTemplateNil sets the value for IsWindowsTemplate to be an explicit nil
+
+### UnsetIsWindowsTemplate
+`func (o *HypervisorResourceResponseModel) UnsetIsWindowsTemplate()`
+
+UnsetIsWindowsTemplate ensures that no value is present for IsWindowsTemplate, not even an explicit nil
 ### GetHasPersistentRootVolume
 
 `func (o *HypervisorResourceResponseModel) GetHasPersistentRootVolume() bool`
@@ -599,6 +679,16 @@ SetMacAddress sets MacAddress field to given value.
 
 HasMacAddress returns a boolean if a field has been set.
 
+### SetMacAddressNil
+
+`func (o *HypervisorResourceResponseModel) SetMacAddressNil(b bool)`
+
+ SetMacAddressNil sets the value for MacAddress to be an explicit nil
+
+### UnsetMacAddress
+`func (o *HypervisorResourceResponseModel) UnsetMacAddress()`
+
+UnsetMacAddress ensures that no value is present for MacAddress, not even an explicit nil
 ### GetCpuCount
 
 `func (o *HypervisorResourceResponseModel) GetCpuCount() int32`
@@ -624,6 +714,16 @@ SetCpuCount sets CpuCount field to given value.
 
 HasCpuCount returns a boolean if a field has been set.
 
+### SetCpuCountNil
+
+`func (o *HypervisorResourceResponseModel) SetCpuCountNil(b bool)`
+
+ SetCpuCountNil sets the value for CpuCount to be an explicit nil
+
+### UnsetCpuCount
+`func (o *HypervisorResourceResponseModel) UnsetCpuCount()`
+
+UnsetCpuCount ensures that no value is present for CpuCount, not even an explicit nil
 ### GetMemoryMB
 
 `func (o *HypervisorResourceResponseModel) GetMemoryMB() int32`
@@ -649,6 +749,16 @@ SetMemoryMB sets MemoryMB field to given value.
 
 HasMemoryMB returns a boolean if a field has been set.
 
+### SetMemoryMBNil
+
+`func (o *HypervisorResourceResponseModel) SetMemoryMBNil(b bool)`
+
+ SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
+
+### UnsetMemoryMB
+`func (o *HypervisorResourceResponseModel) UnsetMemoryMB()`
+
+UnsetMemoryMB ensures that no value is present for MemoryMB, not even an explicit nil
 ### GetHardDiskSizeGB
 
 `func (o *HypervisorResourceResponseModel) GetHardDiskSizeGB() int32`
@@ -674,6 +784,16 @@ SetHardDiskSizeGB sets HardDiskSizeGB field to given value.
 
 HasHardDiskSizeGB returns a boolean if a field has been set.
 
+### SetHardDiskSizeGBNil
+
+`func (o *HypervisorResourceResponseModel) SetHardDiskSizeGBNil(b bool)`
+
+ SetHardDiskSizeGBNil sets the value for HardDiskSizeGB to be an explicit nil
+
+### UnsetHardDiskSizeGB
+`func (o *HypervisorResourceResponseModel) UnsetHardDiskSizeGB()`
+
+UnsetHardDiskSizeGB ensures that no value is present for HardDiskSizeGB, not even an explicit nil
 ### GetMinMemoryMB
 
 `func (o *HypervisorResourceResponseModel) GetMinMemoryMB() int32`
@@ -699,6 +819,16 @@ SetMinMemoryMB sets MinMemoryMB field to given value.
 
 HasMinMemoryMB returns a boolean if a field has been set.
 
+### SetMinMemoryMBNil
+
+`func (o *HypervisorResourceResponseModel) SetMinMemoryMBNil(b bool)`
+
+ SetMinMemoryMBNil sets the value for MinMemoryMB to be an explicit nil
+
+### UnsetMinMemoryMB
+`func (o *HypervisorResourceResponseModel) UnsetMinMemoryMB()`
+
+UnsetMinMemoryMB ensures that no value is present for MinMemoryMB, not even an explicit nil
 ### GetNetworkMappings
 
 `func (o *HypervisorResourceResponseModel) GetNetworkMappings() []NetworkMapResponseModel`
@@ -724,6 +854,16 @@ SetNetworkMappings sets NetworkMappings field to given value.
 
 HasNetworkMappings returns a boolean if a field has been set.
 
+### SetNetworkMappingsNil
+
+`func (o *HypervisorResourceResponseModel) SetNetworkMappingsNil(b bool)`
+
+ SetNetworkMappingsNil sets the value for NetworkMappings to be an explicit nil
+
+### UnsetNetworkMappings
+`func (o *HypervisorResourceResponseModel) UnsetNetworkMappings()`
+
+UnsetNetworkMappings ensures that no value is present for NetworkMappings, not even an explicit nil
 ### GetAttachedDisks
 
 `func (o *HypervisorResourceResponseModel) GetAttachedDisks() []AttachedDiskResponseModel`
@@ -749,6 +889,16 @@ SetAttachedDisks sets AttachedDisks field to given value.
 
 HasAttachedDisks returns a boolean if a field has been set.
 
+### SetAttachedDisksNil
+
+`func (o *HypervisorResourceResponseModel) SetAttachedDisksNil(b bool)`
+
+ SetAttachedDisksNil sets the value for AttachedDisks to be an explicit nil
+
+### UnsetAttachedDisks
+`func (o *HypervisorResourceResponseModel) UnsetAttachedDisks()`
+
+UnsetAttachedDisks ensures that no value is present for AttachedDisks, not even an explicit nil
 ### GetInstanceSecurityGroupLimit
 
 `func (o *HypervisorResourceResponseModel) GetInstanceSecurityGroupLimit() int32`
@@ -794,6 +944,16 @@ SetEndpoint sets Endpoint field to given value.
 
 HasEndpoint returns a boolean if a field has been set.
 
+### SetEndpointNil
+
+`func (o *HypervisorResourceResponseModel) SetEndpointNil(b bool)`
+
+ SetEndpointNil sets the value for Endpoint to be an explicit nil
+
+### UnsetEndpoint
+`func (o *HypervisorResourceResponseModel) UnsetEndpoint()`
+
+UnsetEndpoint ensures that no value is present for Endpoint, not even an explicit nil
 ### GetId
 
 `func (o *HypervisorResourceResponseModel) GetId() string`
@@ -819,6 +979,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorResourceResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorResourceResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorResourceResponseModel) GetName() string`
@@ -844,6 +1014,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorResourceResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorResourceResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorResourceResponseModel) GetXDPath() string`
@@ -869,6 +1049,16 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorResourceResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorResourceResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetRelativePath
 
 `func (o *HypervisorResourceResponseModel) GetRelativePath() string`
@@ -894,6 +1084,16 @@ SetRelativePath sets RelativePath field to given value.
 
 HasRelativePath returns a boolean if a field has been set.
 
+### SetRelativePathNil
+
+`func (o *HypervisorResourceResponseModel) SetRelativePathNil(b bool)`
+
+ SetRelativePathNil sets the value for RelativePath to be an explicit nil
+
+### UnsetRelativePath
+`func (o *HypervisorResourceResponseModel) UnsetRelativePath()`
+
+UnsetRelativePath ensures that no value is present for RelativePath, not even an explicit nil
 ### GetFullRelativePath
 
 `func (o *HypervisorResourceResponseModel) GetFullRelativePath() string`
@@ -919,6 +1119,16 @@ SetFullRelativePath sets FullRelativePath field to given value.
 
 HasFullRelativePath returns a boolean if a field has been set.
 
+### SetFullRelativePathNil
+
+`func (o *HypervisorResourceResponseModel) SetFullRelativePathNil(b bool)`
+
+ SetFullRelativePathNil sets the value for FullRelativePath to be an explicit nil
+
+### UnsetFullRelativePath
+`func (o *HypervisorResourceResponseModel) UnsetFullRelativePath()`
+
+UnsetFullRelativePath ensures that no value is present for FullRelativePath, not even an explicit nil
 ### GetResourceType
 
 `func (o *HypervisorResourceResponseModel) GetResourceType() string`
@@ -964,22 +1174,32 @@ SetObjectTypeName sets ObjectTypeName field to given value.
 
 HasObjectTypeName returns a boolean if a field has been set.
 
+### SetObjectTypeNameNil
+
+`func (o *HypervisorResourceResponseModel) SetObjectTypeNameNil(b bool)`
+
+ SetObjectTypeNameNil sets the value for ObjectTypeName to be an explicit nil
+
+### UnsetObjectTypeName
+`func (o *HypervisorResourceResponseModel) UnsetObjectTypeName()`
+
+UnsetObjectTypeName ensures that no value is present for ObjectTypeName, not even an explicit nil
 ### GetResourceContainer
 
-`func (o *HypervisorResourceResponseModel) GetResourceContainer() HypervisorResourceRefResponseModelAllOfResourceContainer`
+`func (o *HypervisorResourceResponseModel) GetResourceContainer() HypervisorResourceRefResponseModel`
 
 GetResourceContainer returns the ResourceContainer field if non-nil, zero value otherwise.
 
 ### GetResourceContainerOk
 
-`func (o *HypervisorResourceResponseModel) GetResourceContainerOk() (*HypervisorResourceRefResponseModelAllOfResourceContainer, bool)`
+`func (o *HypervisorResourceResponseModel) GetResourceContainerOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetResourceContainerOk returns a tuple with the ResourceContainer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceContainer
 
-`func (o *HypervisorResourceResponseModel) SetResourceContainer(v HypervisorResourceRefResponseModelAllOfResourceContainer)`
+`func (o *HypervisorResourceResponseModel) SetResourceContainer(v HypervisorResourceRefResponseModel)`
 
 SetResourceContainer sets ResourceContainer field to given value.
 
@@ -1014,6 +1234,16 @@ SetResourcePoolXDPath sets ResourcePoolXDPath field to given value.
 
 HasResourcePoolXDPath returns a boolean if a field has been set.
 
+### SetResourcePoolXDPathNil
+
+`func (o *HypervisorResourceResponseModel) SetResourcePoolXDPathNil(b bool)`
+
+ SetResourcePoolXDPathNil sets the value for ResourcePoolXDPath to be an explicit nil
+
+### UnsetResourcePoolXDPath
+`func (o *HypervisorResourceResponseModel) UnsetResourcePoolXDPath()`
+
+UnsetResourcePoolXDPath ensures that no value is present for ResourcePoolXDPath, not even an explicit nil
 ### GetFullName
 
 `func (o *HypervisorResourceResponseModel) GetFullName() string`
@@ -1079,6 +1309,16 @@ SetChildren sets Children field to given value.
 
 HasChildren returns a boolean if a field has been set.
 
+### SetChildrenNil
+
+`func (o *HypervisorResourceResponseModel) SetChildrenNil(b bool)`
+
+ SetChildrenNil sets the value for Children to be an explicit nil
+
+### UnsetChildren
+`func (o *HypervisorResourceResponseModel) UnsetChildren()`
+
+UnsetChildren ensures that no value is present for Children, not even an explicit nil
 ### GetIsMachine
 
 `func (o *HypervisorResourceResponseModel) GetIsMachine() bool`
@@ -1141,20 +1381,20 @@ SetAllResourcesRelativePath sets AllResourcesRelativePath field to given value.
 
 ### GetResourcePool
 
-`func (o *HypervisorResourceResponseModel) GetResourcePool() HypervisorResourceResponseModelAllOfResourcePool`
+`func (o *HypervisorResourceResponseModel) GetResourcePool() HypervisorResourcePoolRefResponseModel`
 
 GetResourcePool returns the ResourcePool field if non-nil, zero value otherwise.
 
 ### GetResourcePoolOk
 
-`func (o *HypervisorResourceResponseModel) GetResourcePoolOk() (*HypervisorResourceResponseModelAllOfResourcePool, bool)`
+`func (o *HypervisorResourceResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolRefResponseModel, bool)`
 
 GetResourcePoolOk returns a tuple with the ResourcePool field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourcePool
 
-`func (o *HypervisorResourceResponseModel) SetResourcePool(v HypervisorResourceResponseModelAllOfResourcePool)`
+`func (o *HypervisorResourceResponseModel) SetResourcePool(v HypervisorResourcePoolRefResponseModel)`
 
 SetResourcePool sets ResourcePool field to given value.
 
@@ -1204,6 +1444,16 @@ SetAdditionalData sets AdditionalData field to given value.
 
 HasAdditionalData returns a boolean if a field has been set.
 
+### SetAdditionalDataNil
+
+`func (o *HypervisorResourceResponseModel) SetAdditionalDataNil(b bool)`
+
+ SetAdditionalDataNil sets the value for AdditionalData to be an explicit nil
+
+### UnsetAdditionalData
+`func (o *HypervisorResourceResponseModel) UnsetAdditionalData()`
+
+UnsetAdditionalData ensures that no value is present for AdditionalData, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

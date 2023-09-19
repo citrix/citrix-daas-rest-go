@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OldPassword** | Pointer to **string** | Old account password, used when changing the account password. | [optional] 
-**NewPassword** | Pointer to **string** | New account password, used when changing the account password. | [optional] 
+**OldPassword** | Pointer to **NullableString** | Old account password, used when changing the account password. | [optional] 
+**NewPassword** | Pointer to **NullableString** | New account password, used when changing the account password. | [optional] 
 **AccountPasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetOldPassword sets OldPassword field to given value.
 
 HasOldPassword returns a boolean if a field has been set.
 
+### SetOldPasswordNil
+
+`func (o *IdentityUpdateUserRequestModel) SetOldPasswordNil(b bool)`
+
+ SetOldPasswordNil sets the value for OldPassword to be an explicit nil
+
+### UnsetOldPassword
+`func (o *IdentityUpdateUserRequestModel) UnsetOldPassword()`
+
+UnsetOldPassword ensures that no value is present for OldPassword, not even an explicit nil
 ### GetNewPassword
 
 `func (o *IdentityUpdateUserRequestModel) GetNewPassword() string`
@@ -77,6 +87,16 @@ SetNewPassword sets NewPassword field to given value.
 
 HasNewPassword returns a boolean if a field has been set.
 
+### SetNewPasswordNil
+
+`func (o *IdentityUpdateUserRequestModel) SetNewPasswordNil(b bool)`
+
+ SetNewPasswordNil sets the value for NewPassword to be an explicit nil
+
+### UnsetNewPassword
+`func (o *IdentityUpdateUserRequestModel) UnsetNewPassword()`
+
+UnsetNewPassword ensures that no value is present for NewPassword, not even an explicit nil
 ### GetAccountPasswordFormat
 
 `func (o *IdentityUpdateUserRequestModel) GetAccountPasswordFormat() IdentityPasswordFormat`

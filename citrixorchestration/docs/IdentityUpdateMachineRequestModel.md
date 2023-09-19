@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | Enable or disable the machine account. | [optional] 
-**OldPassword** | Pointer to **string** | Old account password, used when changing the account password. | [optional] 
-**NewPassword** | Pointer to **string** | New account password, used when changing the account password. | [optional] 
+**Enabled** | Pointer to **NullableBool** | Enable or disable the machine account. | [optional] 
+**OldPassword** | Pointer to **NullableString** | Old account password, used when changing the account password. | [optional] 
+**NewPassword** | Pointer to **NullableString** | New account password, used when changing the account password. | [optional] 
 **AccountPasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 
 ## Methods
@@ -53,6 +53,16 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### SetEnabledNil
+
+`func (o *IdentityUpdateMachineRequestModel) SetEnabledNil(b bool)`
+
+ SetEnabledNil sets the value for Enabled to be an explicit nil
+
+### UnsetEnabled
+`func (o *IdentityUpdateMachineRequestModel) UnsetEnabled()`
+
+UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetOldPassword
 
 `func (o *IdentityUpdateMachineRequestModel) GetOldPassword() string`
@@ -78,6 +88,16 @@ SetOldPassword sets OldPassword field to given value.
 
 HasOldPassword returns a boolean if a field has been set.
 
+### SetOldPasswordNil
+
+`func (o *IdentityUpdateMachineRequestModel) SetOldPasswordNil(b bool)`
+
+ SetOldPasswordNil sets the value for OldPassword to be an explicit nil
+
+### UnsetOldPassword
+`func (o *IdentityUpdateMachineRequestModel) UnsetOldPassword()`
+
+UnsetOldPassword ensures that no value is present for OldPassword, not even an explicit nil
 ### GetNewPassword
 
 `func (o *IdentityUpdateMachineRequestModel) GetNewPassword() string`
@@ -103,6 +123,16 @@ SetNewPassword sets NewPassword field to given value.
 
 HasNewPassword returns a boolean if a field has been set.
 
+### SetNewPasswordNil
+
+`func (o *IdentityUpdateMachineRequestModel) SetNewPasswordNil(b bool)`
+
+ SetNewPasswordNil sets the value for NewPassword to be an explicit nil
+
+### UnsetNewPassword
+`func (o *IdentityUpdateMachineRequestModel) UnsetNewPassword()`
+
+UnsetNewPassword ensures that no value is present for NewPassword, not even an explicit nil
 ### GetAccountPasswordFormat
 
 `func (o *IdentityUpdateMachineRequestModel) GetAccountPasswordFormat() IdentityPasswordFormat`

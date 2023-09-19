@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Reference** | **string** | Reference.  Required, and must be unique within all items in a single batch request. | 
-**Method** | Pointer to **string** | HTTP method of the request endpoint.  (GET, HEAD, PUT, PATCH, POST, DELETE) | [optional] [default to "GET"]
+**Method** | Pointer to **NullableString** | HTTP method of the request endpoint.  (GET, HEAD, PUT, PATCH, POST, DELETE) | [optional] [default to "GET"]
 **RelativeUrl** | **string** | Relative URL of the request endpoint vs. the site root. Must start with the API version i.e. &#x60;\&quot;v1/{customerid}/{siteid}/...\&quot;&#x60; | 
 **Headers** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | List of request headers. | [optional] 
-**Body** | Pointer to **string** | Request body.  Optional for PUT, PATCH, and POST. Cannot be specified for GET, HEAD, and DELETE. | [optional] 
+**Body** | Pointer to **NullableString** | Request body.  Optional for PUT, PATCH, and POST. Cannot be specified for GET, HEAD, and DELETE. | [optional] 
 
 ## Methods
 
@@ -74,6 +74,16 @@ SetMethod sets Method field to given value.
 
 HasMethod returns a boolean if a field has been set.
 
+### SetMethodNil
+
+`func (o *BatchRequestItemModel) SetMethodNil(b bool)`
+
+ SetMethodNil sets the value for Method to be an explicit nil
+
+### UnsetMethod
+`func (o *BatchRequestItemModel) UnsetMethod()`
+
+UnsetMethod ensures that no value is present for Method, not even an explicit nil
 ### GetRelativeUrl
 
 `func (o *BatchRequestItemModel) GetRelativeUrl() string`
@@ -119,6 +129,16 @@ SetHeaders sets Headers field to given value.
 
 HasHeaders returns a boolean if a field has been set.
 
+### SetHeadersNil
+
+`func (o *BatchRequestItemModel) SetHeadersNil(b bool)`
+
+ SetHeadersNil sets the value for Headers to be an explicit nil
+
+### UnsetHeaders
+`func (o *BatchRequestItemModel) UnsetHeaders()`
+
+UnsetHeaders ensures that no value is present for Headers, not even an explicit nil
 ### GetBody
 
 `func (o *BatchRequestItemModel) GetBody() string`
@@ -144,6 +164,16 @@ SetBody sets Body field to given value.
 
 HasBody returns a boolean if a field has been set.
 
+### SetBodyNil
+
+`func (o *BatchRequestItemModel) SetBodyNil(b bool)`
+
+ SetBodyNil sets the value for Body to be an explicit nil
+
+### UnsetBody
+`func (o *BatchRequestItemModel) UnsetBody()`
+
+UnsetBody ensures that no value is present for Body, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

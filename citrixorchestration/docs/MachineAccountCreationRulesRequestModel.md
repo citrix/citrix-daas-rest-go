@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NamingScheme** | **string** | Defines the template name for AD accounts created in the identity pool.  Required. | 
 **NamingSchemeType** | Pointer to [**NamingSchemeType**](NamingSchemeType.md) |  | [optional] 
-**OU** | Pointer to **string** | The OU that computer accounts will be created into.  Optional. | [optional] 
+**OU** | Pointer to **NullableString** | The OU that computer accounts will be created into.  Optional. | [optional] 
 **Domain** | **string** | The AD domain name for the pool. Specify this in FQDN format; for example, MyDomain.com. Required. | 
-**NextValue** | Pointer to **string** | Defines the next value that will be used if creating new AD accounts.  Optional. | [optional] 
-**IdentityPoolId** | Pointer to **string** | Existing identity pool id | [optional] 
+**NextValue** | Pointer to **NullableString** | Defines the next value that will be used if creating new AD accounts.  Optional. | [optional] 
+**IdentityPoolId** | Pointer to **NullableString** | Existing identity pool id | [optional] 
 
 ## Methods
 
@@ -100,6 +100,16 @@ SetOU sets OU field to given value.
 
 HasOU returns a boolean if a field has been set.
 
+### SetOUNil
+
+`func (o *MachineAccountCreationRulesRequestModel) SetOUNil(b bool)`
+
+ SetOUNil sets the value for OU to be an explicit nil
+
+### UnsetOU
+`func (o *MachineAccountCreationRulesRequestModel) UnsetOU()`
+
+UnsetOU ensures that no value is present for OU, not even an explicit nil
 ### GetDomain
 
 `func (o *MachineAccountCreationRulesRequestModel) GetDomain() string`
@@ -145,6 +155,16 @@ SetNextValue sets NextValue field to given value.
 
 HasNextValue returns a boolean if a field has been set.
 
+### SetNextValueNil
+
+`func (o *MachineAccountCreationRulesRequestModel) SetNextValueNil(b bool)`
+
+ SetNextValueNil sets the value for NextValue to be an explicit nil
+
+### UnsetNextValue
+`func (o *MachineAccountCreationRulesRequestModel) UnsetNextValue()`
+
+UnsetNextValue ensures that no value is present for NextValue, not even an explicit nil
 ### GetIdentityPoolId
 
 `func (o *MachineAccountCreationRulesRequestModel) GetIdentityPoolId() string`
@@ -170,6 +190,16 @@ SetIdentityPoolId sets IdentityPoolId field to given value.
 
 HasIdentityPoolId returns a boolean if a field has been set.
 
+### SetIdentityPoolIdNil
+
+`func (o *MachineAccountCreationRulesRequestModel) SetIdentityPoolIdNil(b bool)`
+
+ SetIdentityPoolIdNil sets the value for IdentityPoolId to be an explicit nil
+
+### UnsetIdentityPoolId
+`func (o *MachineAccountCreationRulesRequestModel) UnsetIdentityPoolId()`
+
+UnsetIdentityPoolId ensures that no value is present for IdentityPoolId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

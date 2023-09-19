@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilterType** | Pointer to **string** | The filter filter type. | [optional] 
-**IsAllowed** | **bool** | Allow or deny | 
-**IsEnabled** | **bool** | Enabled or disabled | 
-**FilterData** | Pointer to **string** | Serialized JSON string. | [optional] 
+**FilterType** | Pointer to **NullableString** | The filter filter type. | [optional] 
+**IsAllowed** | Pointer to **bool** | Allow or deny | [optional] 
+**IsEnabled** | Pointer to **bool** | Enabled or disabled | [optional] 
+**FilterData** | Pointer to **NullableString** | Serialized JSON string. | [optional] 
 
 ## Methods
 
 ### NewFilterRequest
 
-`func NewFilterRequest(isAllowed bool, isEnabled bool, ) *FilterRequest`
+`func NewFilterRequest() *FilterRequest`
 
 NewFilterRequest instantiates a new FilterRequest object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +53,16 @@ SetFilterType sets FilterType field to given value.
 
 HasFilterType returns a boolean if a field has been set.
 
+### SetFilterTypeNil
+
+`func (o *FilterRequest) SetFilterTypeNil(b bool)`
+
+ SetFilterTypeNil sets the value for FilterType to be an explicit nil
+
+### UnsetFilterType
+`func (o *FilterRequest) UnsetFilterType()`
+
+UnsetFilterType ensures that no value is present for FilterType, not even an explicit nil
 ### GetIsAllowed
 
 `func (o *FilterRequest) GetIsAllowed() bool`
@@ -72,6 +82,11 @@ and a boolean to check if the value has been set.
 
 SetIsAllowed sets IsAllowed field to given value.
 
+### HasIsAllowed
+
+`func (o *FilterRequest) HasIsAllowed() bool`
+
+HasIsAllowed returns a boolean if a field has been set.
 
 ### GetIsEnabled
 
@@ -92,6 +107,11 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
+### HasIsEnabled
+
+`func (o *FilterRequest) HasIsEnabled() bool`
+
+HasIsEnabled returns a boolean if a field has been set.
 
 ### GetFilterData
 
@@ -118,6 +138,16 @@ SetFilterData sets FilterData field to given value.
 
 HasFilterData returns a boolean if a field has been set.
 
+### SetFilterDataNil
+
+`func (o *FilterRequest) SetFilterDataNil(b bool)`
+
+ SetFilterDataNil sets the value for FilterData to be an explicit nil
+
+### UnsetFilterData
+`func (o *FilterRequest) UnsetFilterData()`
+
+UnsetFilterData ensures that no value is present for FilterData, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

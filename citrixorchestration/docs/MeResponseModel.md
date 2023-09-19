@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | Display name of the user. Internally: the *displayname* from the bearer token. | 
 **ExpiryTime** | **string** | Time when the login token expires. RFC 3339 compatible format. Internally: the *exp* from the bearer token, converted to RFC 3339. | 
 **RefreshExpirationTime** | **string** | Time after which the login token can no longer be refreshed. RFC 3339 compatible format. Internally: the *refresh_expiration* from the bearer token, converted to RFC 3339. | 
-**VerifiedEmail** | Pointer to **string** | Verified email of the user. | [optional] 
+**VerifiedEmail** | Pointer to **NullableString** | Verified email of the user. | [optional] 
 **IsCspCustomer** | Pointer to **bool** | True if the current customer is a csp customer(partner/tenant) | [optional] 
 **Customers** | [**[]MyCustomerResponseModel**](MyCustomerResponseModel.md) | List of customers and sites accessible by the user. | 
 
@@ -136,6 +136,16 @@ SetVerifiedEmail sets VerifiedEmail field to given value.
 
 HasVerifiedEmail returns a boolean if a field has been set.
 
+### SetVerifiedEmailNil
+
+`func (o *MeResponseModel) SetVerifiedEmailNil(b bool)`
+
+ SetVerifiedEmailNil sets the value for VerifiedEmail to be an explicit nil
+
+### UnsetVerifiedEmail
+`func (o *MeResponseModel) UnsetVerifiedEmail()`
+
+UnsetVerifiedEmail ensures that no value is present for VerifiedEmail, not even an explicit nil
 ### GetIsCspCustomer
 
 `func (o *MeResponseModel) GetIsCspCustomer() bool`

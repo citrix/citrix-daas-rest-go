@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
 **FullRelativePath** | **string** | Full path to the resources within the resource pool, including the hypervisor, relative to the root of the API. Example: &#x60;Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources&#x60; | 
-**Hypervisor** | [**HypervisorResourcePoolRefResponseModelAllOfHypervisor**](HypervisorResourcePoolRefResponseModelAllOfHypervisor.md) |  | 
+**Hypervisor** | [**RefResponseModel**](RefResponseModel.md) |  | 
 
 ## Methods
 
 ### NewHypervisorResourcePoolRefResponseModel
 
-`func NewHypervisorResourcePoolRefResponseModel(fullRelativePath string, hypervisor HypervisorResourcePoolRefResponseModelAllOfHypervisor, ) *HypervisorResourcePoolRefResponseModel`
+`func NewHypervisorResourcePoolRefResponseModel(fullRelativePath string, hypervisor RefResponseModel, ) *HypervisorResourcePoolRefResponseModel`
 
 NewHypervisorResourcePoolRefResponseModel instantiates a new HypervisorResourcePoolRefResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +54,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorResourcePoolRefResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorResourcePoolRefResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorResourcePoolRefResponseModel) GetName() string`
@@ -79,6 +89,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorResourcePoolRefResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorResourcePoolRefResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorResourcePoolRefResponseModel) GetXDPath() string`
@@ -104,6 +124,16 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorResourcePoolRefResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorResourcePoolRefResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetFullRelativePath
 
 `func (o *HypervisorResourcePoolRefResponseModel) GetFullRelativePath() string`
@@ -126,20 +156,20 @@ SetFullRelativePath sets FullRelativePath field to given value.
 
 ### GetHypervisor
 
-`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisor() HypervisorResourcePoolRefResponseModelAllOfHypervisor`
+`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisor() RefResponseModel`
 
 GetHypervisor returns the Hypervisor field if non-nil, zero value otherwise.
 
 ### GetHypervisorOk
 
-`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisorOk() (*HypervisorResourcePoolRefResponseModelAllOfHypervisor, bool)`
+`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisorOk() (*RefResponseModel, bool)`
 
 GetHypervisorOk returns a tuple with the Hypervisor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisor
 
-`func (o *HypervisorResourcePoolRefResponseModel) SetHypervisor(v HypervisorResourcePoolRefResponseModelAllOfHypervisor)`
+`func (o *HypervisorResourcePoolRefResponseModel) SetHypervisor(v RefResponseModel)`
 
 SetHypervisor sets Hypervisor field to given value.
 

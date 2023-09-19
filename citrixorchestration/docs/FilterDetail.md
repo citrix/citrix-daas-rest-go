@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FilterType** | Pointer to [**FilterType2**](FilterType2.md) |  | [optional] 
-**FilterValue** | Pointer to **string** | Filter value, if available. | [optional] 
+**FilterValue** | Pointer to **NullableString** | Filter value, if available. | [optional] 
 **IsMatched** | Pointer to **bool** | Indicate if the filter is a match. | [optional] 
-**FilterData** | Pointer to **string** | The filter data. This may need to get translated to a user readable string. | [optional] 
-**IsWithout** | Pointer to **bool** | Valid only for the branch repeater filter and access control filter. Indicate the mode or condition. | [optional] 
-**Gateway** | Pointer to **string** | Valid only for the access control filter. The access gateway. | [optional] 
+**FilterData** | Pointer to **NullableString** | The filter data. This may need to get translated to a user readable string. | [optional] 
+**IsWithout** | Pointer to **NullableBool** | Valid only for the branch repeater filter and access control filter. Indicate the mode or condition. | [optional] 
+**Gateway** | Pointer to **NullableString** | Valid only for the access control filter. The access gateway. | [optional] 
 
 ## Methods
 
@@ -80,6 +80,16 @@ SetFilterValue sets FilterValue field to given value.
 
 HasFilterValue returns a boolean if a field has been set.
 
+### SetFilterValueNil
+
+`func (o *FilterDetail) SetFilterValueNil(b bool)`
+
+ SetFilterValueNil sets the value for FilterValue to be an explicit nil
+
+### UnsetFilterValue
+`func (o *FilterDetail) UnsetFilterValue()`
+
+UnsetFilterValue ensures that no value is present for FilterValue, not even an explicit nil
 ### GetIsMatched
 
 `func (o *FilterDetail) GetIsMatched() bool`
@@ -130,6 +140,16 @@ SetFilterData sets FilterData field to given value.
 
 HasFilterData returns a boolean if a field has been set.
 
+### SetFilterDataNil
+
+`func (o *FilterDetail) SetFilterDataNil(b bool)`
+
+ SetFilterDataNil sets the value for FilterData to be an explicit nil
+
+### UnsetFilterData
+`func (o *FilterDetail) UnsetFilterData()`
+
+UnsetFilterData ensures that no value is present for FilterData, not even an explicit nil
 ### GetIsWithout
 
 `func (o *FilterDetail) GetIsWithout() bool`
@@ -155,6 +175,16 @@ SetIsWithout sets IsWithout field to given value.
 
 HasIsWithout returns a boolean if a field has been set.
 
+### SetIsWithoutNil
+
+`func (o *FilterDetail) SetIsWithoutNil(b bool)`
+
+ SetIsWithoutNil sets the value for IsWithout to be an explicit nil
+
+### UnsetIsWithout
+`func (o *FilterDetail) UnsetIsWithout()`
+
+UnsetIsWithout ensures that no value is present for IsWithout, not even an explicit nil
 ### GetGateway
 
 `func (o *FilterDetail) GetGateway() string`
@@ -180,6 +210,16 @@ SetGateway sets Gateway field to given value.
 
 HasGateway returns a boolean if a field has been set.
 
+### SetGatewayNil
+
+`func (o *FilterDetail) SetGatewayNil(b bool)`
+
+ SetGatewayNil sets the value for Gateway to be an explicit nil
+
+### UnsetGateway
+`func (o *FilterDetail) UnsetGateway()`
+
+UnsetGateway ensures that no value is present for Gateway, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

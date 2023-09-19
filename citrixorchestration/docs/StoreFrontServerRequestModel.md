@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | ID of an existing StoreFront server.  If specified, this must be the only property specified in the request model. | [optional] 
-**Name** | Pointer to **string** | Name of the StoreFront server. | [optional] 
-**Description** | Pointer to **string** | Description of the StoreFront server. | [optional] 
-**Url** | Pointer to **string** | Url of the StoreFront server. | [optional] 
-**Enabled** | Pointer to **bool** | Whether the StoreFront server is enabled.  Disabled StoreFront servers will not have thier URLs added to hosted receiver. | [optional] [default to true]
+**Id** | Pointer to **NullableString** | ID of an existing StoreFront server.  If specified, this must be the only property specified in the request model. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the StoreFront server. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the StoreFront server. | [optional] 
+**Url** | Pointer to **NullableString** | Url of the StoreFront server. | [optional] 
+**Enabled** | Pointer to **NullableBool** | Whether the StoreFront server is enabled.  Disabled StoreFront servers will not have thier URLs added to hosted receiver. | [optional] [default to true]
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *StoreFrontServerRequestModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *StoreFrontServerRequestModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *StoreFrontServerRequestModel) GetName() string`
@@ -79,6 +89,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *StoreFrontServerRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *StoreFrontServerRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *StoreFrontServerRequestModel) GetDescription() string`
@@ -104,6 +124,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *StoreFrontServerRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *StoreFrontServerRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetUrl
 
 `func (o *StoreFrontServerRequestModel) GetUrl() string`
@@ -129,6 +159,16 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
+### SetUrlNil
+
+`func (o *StoreFrontServerRequestModel) SetUrlNil(b bool)`
+
+ SetUrlNil sets the value for Url to be an explicit nil
+
+### UnsetUrl
+`func (o *StoreFrontServerRequestModel) UnsetUrl()`
+
+UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetEnabled
 
 `func (o *StoreFrontServerRequestModel) GetEnabled() bool`
@@ -154,6 +194,16 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### SetEnabledNil
+
+`func (o *StoreFrontServerRequestModel) SetEnabledNil(b bool)`
+
+ SetEnabledNil sets the value for Enabled to be an explicit nil
+
+### UnsetEnabled
+`func (o *StoreFrontServerRequestModel) UnsetEnabled()`
+
+UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

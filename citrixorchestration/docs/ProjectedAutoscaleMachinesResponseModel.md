@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DesktopGroupId** | **string** | The Id of the desired desktop group. | 
 **ManagedMachineCount** | **int32** | The number of machines in the desktop group that would be managed by Autoscale. This number shall include all the power managed machines in the desktop group, except for machines in maintenance mode or, not tagged for Autoscale if tag restriction is being used. | 
-**ProjectedAutoscaleMachines** | [**ProjectedAutoscaleMachinesResponseModelProjectedAutoscaleMachines**](ProjectedAutoscaleMachinesResponseModelProjectedAutoscaleMachines.md) |  | 
+**ProjectedAutoscaleMachines** | [**ProjectedMachineResponseModel**](ProjectedMachineResponseModel.md) |  | 
 **TimeZone** | **string** | The time zone in which this delivery group&#39;s machines reside. | 
 
 ## Methods
 
 ### NewProjectedAutoscaleMachinesResponseModel
 
-`func NewProjectedAutoscaleMachinesResponseModel(desktopGroupId string, managedMachineCount int32, projectedAutoscaleMachines ProjectedAutoscaleMachinesResponseModelProjectedAutoscaleMachines, timeZone string, ) *ProjectedAutoscaleMachinesResponseModel`
+`func NewProjectedAutoscaleMachinesResponseModel(desktopGroupId string, managedMachineCount int32, projectedAutoscaleMachines ProjectedMachineResponseModel, timeZone string, ) *ProjectedAutoscaleMachinesResponseModel`
 
 NewProjectedAutoscaleMachinesResponseModel instantiates a new ProjectedAutoscaleMachinesResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -70,20 +70,20 @@ SetManagedMachineCount sets ManagedMachineCount field to given value.
 
 ### GetProjectedAutoscaleMachines
 
-`func (o *ProjectedAutoscaleMachinesResponseModel) GetProjectedAutoscaleMachines() ProjectedAutoscaleMachinesResponseModelProjectedAutoscaleMachines`
+`func (o *ProjectedAutoscaleMachinesResponseModel) GetProjectedAutoscaleMachines() ProjectedMachineResponseModel`
 
 GetProjectedAutoscaleMachines returns the ProjectedAutoscaleMachines field if non-nil, zero value otherwise.
 
 ### GetProjectedAutoscaleMachinesOk
 
-`func (o *ProjectedAutoscaleMachinesResponseModel) GetProjectedAutoscaleMachinesOk() (*ProjectedAutoscaleMachinesResponseModelProjectedAutoscaleMachines, bool)`
+`func (o *ProjectedAutoscaleMachinesResponseModel) GetProjectedAutoscaleMachinesOk() (*ProjectedMachineResponseModel, bool)`
 
 GetProjectedAutoscaleMachinesOk returns a tuple with the ProjectedAutoscaleMachines field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProjectedAutoscaleMachines
 
-`func (o *ProjectedAutoscaleMachinesResponseModel) SetProjectedAutoscaleMachines(v ProjectedAutoscaleMachinesResponseModelProjectedAutoscaleMachines)`
+`func (o *ProjectedAutoscaleMachinesResponseModel) SetProjectedAutoscaleMachines(v ProjectedMachineResponseModel)`
 
 SetProjectedAutoscaleMachines sets ProjectedAutoscaleMachines field to given value.
 

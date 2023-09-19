@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Priority** | Pointer to **int32** | The priority of the licensing alert. | [optional] 
 **LicensingAlertLevel** | Pointer to [**LicensingAlertLevel**](LicensingAlertLevel.md) |  | [optional] 
-**TypeCode** | Pointer to **string** | The type code of the licensing alert (internal code used by licensing). | [optional] 
-**Title** | Pointer to **string** | The title of the alert. | [optional] 
-**Detail** | Pointer to **string** | More detailed information about the licensing alert. | [optional] 
-**Action** | Pointer to **string** | The action the user should take to resolve the alert. | [optional] 
+**TypeCode** | Pointer to **NullableString** | The type code of the licensing alert (internal code used by licensing). | [optional] 
+**Title** | Pointer to **NullableString** | The title of the alert. | [optional] 
+**Detail** | Pointer to **NullableString** | More detailed information about the licensing alert. | [optional] 
+**Action** | Pointer to **NullableString** | The action the user should take to resolve the alert. | [optional] 
 
 ## Methods
 
@@ -105,6 +105,16 @@ SetTypeCode sets TypeCode field to given value.
 
 HasTypeCode returns a boolean if a field has been set.
 
+### SetTypeCodeNil
+
+`func (o *LicensingAlertModel) SetTypeCodeNil(b bool)`
+
+ SetTypeCodeNil sets the value for TypeCode to be an explicit nil
+
+### UnsetTypeCode
+`func (o *LicensingAlertModel) UnsetTypeCode()`
+
+UnsetTypeCode ensures that no value is present for TypeCode, not even an explicit nil
 ### GetTitle
 
 `func (o *LicensingAlertModel) GetTitle() string`
@@ -130,6 +140,16 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
+### SetTitleNil
+
+`func (o *LicensingAlertModel) SetTitleNil(b bool)`
+
+ SetTitleNil sets the value for Title to be an explicit nil
+
+### UnsetTitle
+`func (o *LicensingAlertModel) UnsetTitle()`
+
+UnsetTitle ensures that no value is present for Title, not even an explicit nil
 ### GetDetail
 
 `func (o *LicensingAlertModel) GetDetail() string`
@@ -155,6 +175,16 @@ SetDetail sets Detail field to given value.
 
 HasDetail returns a boolean if a field has been set.
 
+### SetDetailNil
+
+`func (o *LicensingAlertModel) SetDetailNil(b bool)`
+
+ SetDetailNil sets the value for Detail to be an explicit nil
+
+### UnsetDetail
+`func (o *LicensingAlertModel) UnsetDetail()`
+
+UnsetDetail ensures that no value is present for Detail, not even an explicit nil
 ### GetAction
 
 `func (o *LicensingAlertModel) GetAction() string`
@@ -180,6 +210,16 @@ SetAction sets Action field to given value.
 
 HasAction returns a boolean if a field has been set.
 
+### SetActionNil
+
+`func (o *LicensingAlertModel) SetActionNil(b bool)`
+
+ SetActionNil sets the value for Action to be an explicit nil
+
+### UnsetAction
+`func (o *LicensingAlertModel) UnsetAction()`
+
+UnsetAction ensures that no value is present for Action, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

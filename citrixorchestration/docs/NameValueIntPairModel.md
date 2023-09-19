@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name. | [optional] 
+**Name** | Pointer to **NullableString** | Name. | [optional] 
 **Value** | Pointer to **int32** | Value. | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *NameValueIntPairModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *NameValueIntPairModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValue
 
 `func (o *NameValueIntPairModel) GetValue() int32`

@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
-**Image** | Pointer to [**VMImageResponseModelImage**](VMImageResponseModelImage.md) |  | [optional] 
-**ImageVersion** | Pointer to [**VMImageResponseModelImageVersion**](VMImageResponseModelImageVersion.md) |  | [optional] 
+**Image** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
+**ImageVersion** | Pointer to [**ImageVersionRefResponseModel**](ImageVersionRefResponseModel.md) |  | [optional] 
 **ImageStatus** | [**VMImageStatus**](VMImageStatus.md) |  | 
 **Date** | **string** | The date and time when the snapshot was used in the provisioning scheme. | 
-**MasterImageNote** | Pointer to **string** | The note of the provisioning scheme image. | [optional] 
+**MasterImageNote** | Pointer to **NullableString** | The note of the provisioning scheme image. | [optional] 
 
 ## Methods
 
@@ -57,20 +57,20 @@ HasFunctionalLevel returns a boolean if a field has been set.
 
 ### GetImage
 
-`func (o *VMImageResponseModel) GetImage() VMImageResponseModelImage`
+`func (o *VMImageResponseModel) GetImage() HypervisorResourceRefResponseModel`
 
 GetImage returns the Image field if non-nil, zero value otherwise.
 
 ### GetImageOk
 
-`func (o *VMImageResponseModel) GetImageOk() (*VMImageResponseModelImage, bool)`
+`func (o *VMImageResponseModel) GetImageOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetImageOk returns a tuple with the Image field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImage
 
-`func (o *VMImageResponseModel) SetImage(v VMImageResponseModelImage)`
+`func (o *VMImageResponseModel) SetImage(v HypervisorResourceRefResponseModel)`
 
 SetImage sets Image field to given value.
 
@@ -82,20 +82,20 @@ HasImage returns a boolean if a field has been set.
 
 ### GetImageVersion
 
-`func (o *VMImageResponseModel) GetImageVersion() VMImageResponseModelImageVersion`
+`func (o *VMImageResponseModel) GetImageVersion() ImageVersionRefResponseModel`
 
 GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
 
 ### GetImageVersionOk
 
-`func (o *VMImageResponseModel) GetImageVersionOk() (*VMImageResponseModelImageVersion, bool)`
+`func (o *VMImageResponseModel) GetImageVersionOk() (*ImageVersionRefResponseModel, bool)`
 
 GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageVersion
 
-`func (o *VMImageResponseModel) SetImageVersion(v VMImageResponseModelImageVersion)`
+`func (o *VMImageResponseModel) SetImageVersion(v ImageVersionRefResponseModel)`
 
 SetImageVersion sets ImageVersion field to given value.
 
@@ -170,6 +170,16 @@ SetMasterImageNote sets MasterImageNote field to given value.
 
 HasMasterImageNote returns a boolean if a field has been set.
 
+### SetMasterImageNoteNil
+
+`func (o *VMImageResponseModel) SetMasterImageNoteNil(b bool)`
+
+ SetMasterImageNoteNil sets the value for MasterImageNote to be an explicit nil
+
+### UnsetMasterImageNote
+`func (o *VMImageResponseModel) UnsetMasterImageNote()`
+
+UnsetMasterImageNote ensures that no value is present for MasterImageNote, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
