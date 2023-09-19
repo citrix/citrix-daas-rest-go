@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RenderAction** | Pointer to [**FlashUrlRenderAction**](FlashUrlRenderAction.md) |  | [optional] 
-**UrlPattern** | Pointer to **string** |  | [optional] 
-**FlashInstance** | Pointer to **string** |  | [optional] 
+**UrlPattern** | Pointer to **NullableString** |  | [optional] 
+**FlashInstance** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -77,6 +77,16 @@ SetUrlPattern sets UrlPattern field to given value.
 
 HasUrlPattern returns a boolean if a field has been set.
 
+### SetUrlPatternNil
+
+`func (o *FlashUrlRuleContract) SetUrlPatternNil(b bool)`
+
+ SetUrlPatternNil sets the value for UrlPattern to be an explicit nil
+
+### UnsetUrlPattern
+`func (o *FlashUrlRuleContract) UnsetUrlPattern()`
+
+UnsetUrlPattern ensures that no value is present for UrlPattern, not even an explicit nil
 ### GetFlashInstance
 
 `func (o *FlashUrlRuleContract) GetFlashInstance() string`
@@ -102,6 +112,16 @@ SetFlashInstance sets FlashInstance field to given value.
 
 HasFlashInstance returns a boolean if a field has been set.
 
+### SetFlashInstanceNil
+
+`func (o *FlashUrlRuleContract) SetFlashInstanceNil(b bool)`
+
+ SetFlashInstanceNil sets the value for FlashInstance to be an explicit nil
+
+### UnsetFlashInstance
+`func (o *FlashUrlRuleContract) UnsetFlashInstance()`
+
+UnsetFlashInstance ensures that no value is present for FlashInstance, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

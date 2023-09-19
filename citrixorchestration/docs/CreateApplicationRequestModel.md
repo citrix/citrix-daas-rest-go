@@ -4,33 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationFolder** | Pointer to **string** | The application folder in which the application should be created. | [optional] 
+**ApplicationFolder** | Pointer to **NullableString** | The application folder in which the application should be created. | [optional] 
 **ApplicationType** | Pointer to [**ApplicationType**](ApplicationType.md) |  | [optional] 
-**BrowserName** | Pointer to **string** | Internal name of the application. | [optional] 
-**ClientFolder** | Pointer to **string** | Specifies the folder that the application belongs to as the user sees it. | [optional] 
+**BrowserName** | Pointer to **NullableString** | Internal name of the application. | [optional] 
+**ClientFolder** | Pointer to **NullableString** | Specifies the folder that the application belongs to as the user sees it. | [optional] 
 **CpuPriorityLevel** | Pointer to [**CpuPriorityLevel**](CpuPriorityLevel.md) |  | [optional] 
 **ApplicationGroups** | Pointer to **[]string** | Specifies one or more application groups which the application will be published to. | [optional] 
-**Description** | Pointer to **string** | Specifies the description of the application. | [optional] 
-**Enabled** | Pointer to **bool** | Specifies whether or not this application can be launched. | [optional] [default to true]
-**DoNotEnumerate** | Pointer to **bool** | Indicates whether or not this application is enumerable | [optional] [default to false]
-**HomeZone** | Pointer to **string** | Specifies a home zone preference used when launching this application. | [optional] 
+**Description** | Pointer to **NullableString** | Specifies the description of the application. | [optional] 
+**Enabled** | Pointer to **NullableBool** | Specifies whether or not this application can be launched. | [optional] [default to true]
+**DoNotEnumerate** | Pointer to **NullableBool** | Indicates whether or not this application is enumerable | [optional] [default to false]
+**HomeZone** | Pointer to **NullableString** | Specifies a home zone preference used when launching this application. | [optional] 
 **HomeZoneMode** | Pointer to [**HomeZoneMode**](HomeZoneMode.md) |  | [optional] 
-**Icon** | Pointer to **string** | Icon to use for the application. | [optional] 
-**IconFromClient** | Pointer to **bool** | Specifies Whether the Icon is from client or not. Only can be set to &#x60;true&#x60; if Application Type is InstalledOnClient | [optional] [default to false]
-**IncludedUserFilterEnabled** | Pointer to **bool** | Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access polic(ies) is implicitly granted access to the application. | [optional] [default to false]
+**Icon** | Pointer to **NullableString** | Icon to use for the application. | [optional] 
+**IconFromClient** | Pointer to **NullableBool** | Specifies Whether the Icon is from client or not. Only can be set to &#x60;true&#x60; if Application Type is InstalledOnClient | [optional] [default to false]
+**IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access polic(ies) is implicitly granted access to the application. | [optional] [default to false]
 **IncludedUsers** | Pointer to **[]string** | Specifies the included users filter of the application; that is, the users and groups who are explicitly granted access to the published application. | [optional] 
-**InstalledAppProperties** | Pointer to [**CreateApplicationRequestModelInstalledAppProperties**](CreateApplicationRequestModelInstalledAppProperties.md) |  | [optional] 
-**AppVAppProperties** | Pointer to [**CreateApplicationRequestModelAppVAppProperties**](CreateApplicationRequestModelAppVAppProperties.md) |  | [optional] 
-**ContentLocation** | Pointer to **string** | Location of published content. | [optional] 
-**MaxPerUserInstances** | Pointer to **int32** | Specifies the maximum allowed concurrently running instances of the application that an individual user can have. | [optional] [default to 0]
-**MaxTotalInstances** | Pointer to **int32** | Specifies the maximum allowed total ofconcurrently running instances of the application within the site. | [optional] [default to 0]
+**InstalledAppProperties** | Pointer to [**CreateInstalledAppRequestModel**](CreateInstalledAppRequestModel.md) |  | [optional] 
+**AppVAppProperties** | Pointer to [**AppVAppRequestModel**](AppVAppRequestModel.md) |  | [optional] 
+**ContentLocation** | Pointer to **NullableString** | Location of published content. | [optional] 
+**MaxPerUserInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed concurrently running instances of the application that an individual user can have. | [optional] [default to 0]
+**MaxTotalInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed total ofconcurrently running instances of the application within the site. | [optional] [default to 0]
 **Name** | **string** | Specifies the name of the application. | 
-**PublishedName** | Pointer to **string** | The name seen by end users who have access to the application. | [optional] 
-**ShortcutAddedToDesktop** | Pointer to **bool** | Specifies whether or not a shortcut to the application should be placed on the user device. | [optional] [default to false]
-**ShortcutAddedToStartMenu** | Pointer to **bool** | Specifies whether or not a shortcut to the application should be placed in the user&#39;s start menu on their user device. | [optional] [default to false]
-**StartMenuFolder** | Pointer to **string** | Specifies the name of the start menu folder that holds the application shortcut (if any). | [optional] 
-**Visible** | Pointer to **bool** | Specifies whether or not this application is visible to users. | [optional] [default to true]
-**WaitForPrinterCreation** | Pointer to **bool** | Specifies whether or not the session waits for the printers to be created before allowing the user to interact with the session. | [optional] [default to false]
+**PublishedName** | Pointer to **NullableString** | The name seen by end users who have access to the application. | [optional] 
+**ShortcutAddedToDesktop** | Pointer to **NullableBool** | Specifies whether or not a shortcut to the application should be placed on the user device. | [optional] [default to false]
+**ShortcutAddedToStartMenu** | Pointer to **NullableBool** | Specifies whether or not a shortcut to the application should be placed in the user&#39;s start menu on their user device. | [optional] [default to false]
+**StartMenuFolder** | Pointer to **NullableString** | Specifies the name of the start menu folder that holds the application shortcut (if any). | [optional] 
+**Visible** | Pointer to **NullableBool** | Specifies whether or not this application is visible to users. | [optional] [default to true]
+**WaitForPrinterCreation** | Pointer to **NullableBool** | Specifies whether or not the session waits for the printers to be created before allowing the user to interact with the session. | [optional] [default to false]
 
 ## Methods
 
@@ -76,6 +76,16 @@ SetApplicationFolder sets ApplicationFolder field to given value.
 
 HasApplicationFolder returns a boolean if a field has been set.
 
+### SetApplicationFolderNil
+
+`func (o *CreateApplicationRequestModel) SetApplicationFolderNil(b bool)`
+
+ SetApplicationFolderNil sets the value for ApplicationFolder to be an explicit nil
+
+### UnsetApplicationFolder
+`func (o *CreateApplicationRequestModel) UnsetApplicationFolder()`
+
+UnsetApplicationFolder ensures that no value is present for ApplicationFolder, not even an explicit nil
 ### GetApplicationType
 
 `func (o *CreateApplicationRequestModel) GetApplicationType() ApplicationType`
@@ -126,6 +136,16 @@ SetBrowserName sets BrowserName field to given value.
 
 HasBrowserName returns a boolean if a field has been set.
 
+### SetBrowserNameNil
+
+`func (o *CreateApplicationRequestModel) SetBrowserNameNil(b bool)`
+
+ SetBrowserNameNil sets the value for BrowserName to be an explicit nil
+
+### UnsetBrowserName
+`func (o *CreateApplicationRequestModel) UnsetBrowserName()`
+
+UnsetBrowserName ensures that no value is present for BrowserName, not even an explicit nil
 ### GetClientFolder
 
 `func (o *CreateApplicationRequestModel) GetClientFolder() string`
@@ -151,6 +171,16 @@ SetClientFolder sets ClientFolder field to given value.
 
 HasClientFolder returns a boolean if a field has been set.
 
+### SetClientFolderNil
+
+`func (o *CreateApplicationRequestModel) SetClientFolderNil(b bool)`
+
+ SetClientFolderNil sets the value for ClientFolder to be an explicit nil
+
+### UnsetClientFolder
+`func (o *CreateApplicationRequestModel) UnsetClientFolder()`
+
+UnsetClientFolder ensures that no value is present for ClientFolder, not even an explicit nil
 ### GetCpuPriorityLevel
 
 `func (o *CreateApplicationRequestModel) GetCpuPriorityLevel() CpuPriorityLevel`
@@ -201,6 +231,16 @@ SetApplicationGroups sets ApplicationGroups field to given value.
 
 HasApplicationGroups returns a boolean if a field has been set.
 
+### SetApplicationGroupsNil
+
+`func (o *CreateApplicationRequestModel) SetApplicationGroupsNil(b bool)`
+
+ SetApplicationGroupsNil sets the value for ApplicationGroups to be an explicit nil
+
+### UnsetApplicationGroups
+`func (o *CreateApplicationRequestModel) UnsetApplicationGroups()`
+
+UnsetApplicationGroups ensures that no value is present for ApplicationGroups, not even an explicit nil
 ### GetDescription
 
 `func (o *CreateApplicationRequestModel) GetDescription() string`
@@ -226,6 +266,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateApplicationRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateApplicationRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *CreateApplicationRequestModel) GetEnabled() bool`
@@ -251,6 +301,16 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### SetEnabledNil
+
+`func (o *CreateApplicationRequestModel) SetEnabledNil(b bool)`
+
+ SetEnabledNil sets the value for Enabled to be an explicit nil
+
+### UnsetEnabled
+`func (o *CreateApplicationRequestModel) UnsetEnabled()`
+
+UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetDoNotEnumerate
 
 `func (o *CreateApplicationRequestModel) GetDoNotEnumerate() bool`
@@ -276,6 +336,16 @@ SetDoNotEnumerate sets DoNotEnumerate field to given value.
 
 HasDoNotEnumerate returns a boolean if a field has been set.
 
+### SetDoNotEnumerateNil
+
+`func (o *CreateApplicationRequestModel) SetDoNotEnumerateNil(b bool)`
+
+ SetDoNotEnumerateNil sets the value for DoNotEnumerate to be an explicit nil
+
+### UnsetDoNotEnumerate
+`func (o *CreateApplicationRequestModel) UnsetDoNotEnumerate()`
+
+UnsetDoNotEnumerate ensures that no value is present for DoNotEnumerate, not even an explicit nil
 ### GetHomeZone
 
 `func (o *CreateApplicationRequestModel) GetHomeZone() string`
@@ -301,6 +371,16 @@ SetHomeZone sets HomeZone field to given value.
 
 HasHomeZone returns a boolean if a field has been set.
 
+### SetHomeZoneNil
+
+`func (o *CreateApplicationRequestModel) SetHomeZoneNil(b bool)`
+
+ SetHomeZoneNil sets the value for HomeZone to be an explicit nil
+
+### UnsetHomeZone
+`func (o *CreateApplicationRequestModel) UnsetHomeZone()`
+
+UnsetHomeZone ensures that no value is present for HomeZone, not even an explicit nil
 ### GetHomeZoneMode
 
 `func (o *CreateApplicationRequestModel) GetHomeZoneMode() HomeZoneMode`
@@ -351,6 +431,16 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
+### SetIconNil
+
+`func (o *CreateApplicationRequestModel) SetIconNil(b bool)`
+
+ SetIconNil sets the value for Icon to be an explicit nil
+
+### UnsetIcon
+`func (o *CreateApplicationRequestModel) UnsetIcon()`
+
+UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetIconFromClient
 
 `func (o *CreateApplicationRequestModel) GetIconFromClient() bool`
@@ -376,6 +466,16 @@ SetIconFromClient sets IconFromClient field to given value.
 
 HasIconFromClient returns a boolean if a field has been set.
 
+### SetIconFromClientNil
+
+`func (o *CreateApplicationRequestModel) SetIconFromClientNil(b bool)`
+
+ SetIconFromClientNil sets the value for IconFromClient to be an explicit nil
+
+### UnsetIconFromClient
+`func (o *CreateApplicationRequestModel) UnsetIconFromClient()`
+
+UnsetIconFromClient ensures that no value is present for IconFromClient, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *CreateApplicationRequestModel) GetIncludedUserFilterEnabled() bool`
@@ -401,6 +501,16 @@ SetIncludedUserFilterEnabled sets IncludedUserFilterEnabled field to given value
 
 HasIncludedUserFilterEnabled returns a boolean if a field has been set.
 
+### SetIncludedUserFilterEnabledNil
+
+`func (o *CreateApplicationRequestModel) SetIncludedUserFilterEnabledNil(b bool)`
+
+ SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
+
+### UnsetIncludedUserFilterEnabled
+`func (o *CreateApplicationRequestModel) UnsetIncludedUserFilterEnabled()`
+
+UnsetIncludedUserFilterEnabled ensures that no value is present for IncludedUserFilterEnabled, not even an explicit nil
 ### GetIncludedUsers
 
 `func (o *CreateApplicationRequestModel) GetIncludedUsers() []string`
@@ -426,22 +536,32 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *CreateApplicationRequestModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *CreateApplicationRequestModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 ### GetInstalledAppProperties
 
-`func (o *CreateApplicationRequestModel) GetInstalledAppProperties() CreateApplicationRequestModelInstalledAppProperties`
+`func (o *CreateApplicationRequestModel) GetInstalledAppProperties() CreateInstalledAppRequestModel`
 
 GetInstalledAppProperties returns the InstalledAppProperties field if non-nil, zero value otherwise.
 
 ### GetInstalledAppPropertiesOk
 
-`func (o *CreateApplicationRequestModel) GetInstalledAppPropertiesOk() (*CreateApplicationRequestModelInstalledAppProperties, bool)`
+`func (o *CreateApplicationRequestModel) GetInstalledAppPropertiesOk() (*CreateInstalledAppRequestModel, bool)`
 
 GetInstalledAppPropertiesOk returns a tuple with the InstalledAppProperties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInstalledAppProperties
 
-`func (o *CreateApplicationRequestModel) SetInstalledAppProperties(v CreateApplicationRequestModelInstalledAppProperties)`
+`func (o *CreateApplicationRequestModel) SetInstalledAppProperties(v CreateInstalledAppRequestModel)`
 
 SetInstalledAppProperties sets InstalledAppProperties field to given value.
 
@@ -453,20 +573,20 @@ HasInstalledAppProperties returns a boolean if a field has been set.
 
 ### GetAppVAppProperties
 
-`func (o *CreateApplicationRequestModel) GetAppVAppProperties() CreateApplicationRequestModelAppVAppProperties`
+`func (o *CreateApplicationRequestModel) GetAppVAppProperties() AppVAppRequestModel`
 
 GetAppVAppProperties returns the AppVAppProperties field if non-nil, zero value otherwise.
 
 ### GetAppVAppPropertiesOk
 
-`func (o *CreateApplicationRequestModel) GetAppVAppPropertiesOk() (*CreateApplicationRequestModelAppVAppProperties, bool)`
+`func (o *CreateApplicationRequestModel) GetAppVAppPropertiesOk() (*AppVAppRequestModel, bool)`
 
 GetAppVAppPropertiesOk returns a tuple with the AppVAppProperties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppVAppProperties
 
-`func (o *CreateApplicationRequestModel) SetAppVAppProperties(v CreateApplicationRequestModelAppVAppProperties)`
+`func (o *CreateApplicationRequestModel) SetAppVAppProperties(v AppVAppRequestModel)`
 
 SetAppVAppProperties sets AppVAppProperties field to given value.
 
@@ -501,6 +621,16 @@ SetContentLocation sets ContentLocation field to given value.
 
 HasContentLocation returns a boolean if a field has been set.
 
+### SetContentLocationNil
+
+`func (o *CreateApplicationRequestModel) SetContentLocationNil(b bool)`
+
+ SetContentLocationNil sets the value for ContentLocation to be an explicit nil
+
+### UnsetContentLocation
+`func (o *CreateApplicationRequestModel) UnsetContentLocation()`
+
+UnsetContentLocation ensures that no value is present for ContentLocation, not even an explicit nil
 ### GetMaxPerUserInstances
 
 `func (o *CreateApplicationRequestModel) GetMaxPerUserInstances() int32`
@@ -526,6 +656,16 @@ SetMaxPerUserInstances sets MaxPerUserInstances field to given value.
 
 HasMaxPerUserInstances returns a boolean if a field has been set.
 
+### SetMaxPerUserInstancesNil
+
+`func (o *CreateApplicationRequestModel) SetMaxPerUserInstancesNil(b bool)`
+
+ SetMaxPerUserInstancesNil sets the value for MaxPerUserInstances to be an explicit nil
+
+### UnsetMaxPerUserInstances
+`func (o *CreateApplicationRequestModel) UnsetMaxPerUserInstances()`
+
+UnsetMaxPerUserInstances ensures that no value is present for MaxPerUserInstances, not even an explicit nil
 ### GetMaxTotalInstances
 
 `func (o *CreateApplicationRequestModel) GetMaxTotalInstances() int32`
@@ -551,6 +691,16 @@ SetMaxTotalInstances sets MaxTotalInstances field to given value.
 
 HasMaxTotalInstances returns a boolean if a field has been set.
 
+### SetMaxTotalInstancesNil
+
+`func (o *CreateApplicationRequestModel) SetMaxTotalInstancesNil(b bool)`
+
+ SetMaxTotalInstancesNil sets the value for MaxTotalInstances to be an explicit nil
+
+### UnsetMaxTotalInstances
+`func (o *CreateApplicationRequestModel) UnsetMaxTotalInstances()`
+
+UnsetMaxTotalInstances ensures that no value is present for MaxTotalInstances, not even an explicit nil
 ### GetName
 
 `func (o *CreateApplicationRequestModel) GetName() string`
@@ -596,6 +746,16 @@ SetPublishedName sets PublishedName field to given value.
 
 HasPublishedName returns a boolean if a field has been set.
 
+### SetPublishedNameNil
+
+`func (o *CreateApplicationRequestModel) SetPublishedNameNil(b bool)`
+
+ SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+
+### UnsetPublishedName
+`func (o *CreateApplicationRequestModel) UnsetPublishedName()`
+
+UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 ### GetShortcutAddedToDesktop
 
 `func (o *CreateApplicationRequestModel) GetShortcutAddedToDesktop() bool`
@@ -621,6 +781,16 @@ SetShortcutAddedToDesktop sets ShortcutAddedToDesktop field to given value.
 
 HasShortcutAddedToDesktop returns a boolean if a field has been set.
 
+### SetShortcutAddedToDesktopNil
+
+`func (o *CreateApplicationRequestModel) SetShortcutAddedToDesktopNil(b bool)`
+
+ SetShortcutAddedToDesktopNil sets the value for ShortcutAddedToDesktop to be an explicit nil
+
+### UnsetShortcutAddedToDesktop
+`func (o *CreateApplicationRequestModel) UnsetShortcutAddedToDesktop()`
+
+UnsetShortcutAddedToDesktop ensures that no value is present for ShortcutAddedToDesktop, not even an explicit nil
 ### GetShortcutAddedToStartMenu
 
 `func (o *CreateApplicationRequestModel) GetShortcutAddedToStartMenu() bool`
@@ -646,6 +816,16 @@ SetShortcutAddedToStartMenu sets ShortcutAddedToStartMenu field to given value.
 
 HasShortcutAddedToStartMenu returns a boolean if a field has been set.
 
+### SetShortcutAddedToStartMenuNil
+
+`func (o *CreateApplicationRequestModel) SetShortcutAddedToStartMenuNil(b bool)`
+
+ SetShortcutAddedToStartMenuNil sets the value for ShortcutAddedToStartMenu to be an explicit nil
+
+### UnsetShortcutAddedToStartMenu
+`func (o *CreateApplicationRequestModel) UnsetShortcutAddedToStartMenu()`
+
+UnsetShortcutAddedToStartMenu ensures that no value is present for ShortcutAddedToStartMenu, not even an explicit nil
 ### GetStartMenuFolder
 
 `func (o *CreateApplicationRequestModel) GetStartMenuFolder() string`
@@ -671,6 +851,16 @@ SetStartMenuFolder sets StartMenuFolder field to given value.
 
 HasStartMenuFolder returns a boolean if a field has been set.
 
+### SetStartMenuFolderNil
+
+`func (o *CreateApplicationRequestModel) SetStartMenuFolderNil(b bool)`
+
+ SetStartMenuFolderNil sets the value for StartMenuFolder to be an explicit nil
+
+### UnsetStartMenuFolder
+`func (o *CreateApplicationRequestModel) UnsetStartMenuFolder()`
+
+UnsetStartMenuFolder ensures that no value is present for StartMenuFolder, not even an explicit nil
 ### GetVisible
 
 `func (o *CreateApplicationRequestModel) GetVisible() bool`
@@ -696,6 +886,16 @@ SetVisible sets Visible field to given value.
 
 HasVisible returns a boolean if a field has been set.
 
+### SetVisibleNil
+
+`func (o *CreateApplicationRequestModel) SetVisibleNil(b bool)`
+
+ SetVisibleNil sets the value for Visible to be an explicit nil
+
+### UnsetVisible
+`func (o *CreateApplicationRequestModel) UnsetVisible()`
+
+UnsetVisible ensures that no value is present for Visible, not even an explicit nil
 ### GetWaitForPrinterCreation
 
 `func (o *CreateApplicationRequestModel) GetWaitForPrinterCreation() bool`
@@ -721,6 +921,16 @@ SetWaitForPrinterCreation sets WaitForPrinterCreation field to given value.
 
 HasWaitForPrinterCreation returns a boolean if a field has been set.
 
+### SetWaitForPrinterCreationNil
+
+`func (o *CreateApplicationRequestModel) SetWaitForPrinterCreationNil(b bool)`
+
+ SetWaitForPrinterCreationNil sets the value for WaitForPrinterCreation to be an explicit nil
+
+### UnsetWaitForPrinterCreation
+`func (o *CreateApplicationRequestModel) UnsetWaitForPrinterCreation()`
+
+UnsetWaitForPrinterCreation ensures that no value is present for WaitForPrinterCreation, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

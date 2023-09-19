@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FeatureId** | Pointer to **string** | Id of this feature object. | [optional] 
-**FeatureName** | Pointer to **string** | Name of this feature object. | [optional] 
-**FeatureDescription** | Pointer to **string** | Description of this feature object. | [optional] 
+**FeatureId** | Pointer to **NullableString** | Id of this feature object. | [optional] 
+**FeatureName** | Pointer to **NullableString** | Name of this feature object. | [optional] 
+**FeatureDescription** | Pointer to **NullableString** | Description of this feature object. | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetFeatureId sets FeatureId field to given value.
 
 HasFeatureId returns a boolean if a field has been set.
 
+### SetFeatureIdNil
+
+`func (o *VDAFeatureModel) SetFeatureIdNil(b bool)`
+
+ SetFeatureIdNil sets the value for FeatureId to be an explicit nil
+
+### UnsetFeatureId
+`func (o *VDAFeatureModel) UnsetFeatureId()`
+
+UnsetFeatureId ensures that no value is present for FeatureId, not even an explicit nil
 ### GetFeatureName
 
 `func (o *VDAFeatureModel) GetFeatureName() string`
@@ -77,6 +87,16 @@ SetFeatureName sets FeatureName field to given value.
 
 HasFeatureName returns a boolean if a field has been set.
 
+### SetFeatureNameNil
+
+`func (o *VDAFeatureModel) SetFeatureNameNil(b bool)`
+
+ SetFeatureNameNil sets the value for FeatureName to be an explicit nil
+
+### UnsetFeatureName
+`func (o *VDAFeatureModel) UnsetFeatureName()`
+
+UnsetFeatureName ensures that no value is present for FeatureName, not even an explicit nil
 ### GetFeatureDescription
 
 `func (o *VDAFeatureModel) GetFeatureDescription() string`
@@ -102,6 +122,16 @@ SetFeatureDescription sets FeatureDescription field to given value.
 
 HasFeatureDescription returns a boolean if a field has been set.
 
+### SetFeatureDescriptionNil
+
+`func (o *VDAFeatureModel) SetFeatureDescriptionNil(b bool)`
+
+ SetFeatureDescriptionNil sets the value for FeatureDescription to be an explicit nil
+
+### UnsetFeatureDescription
+`func (o *VDAFeatureModel) UnsetFeatureDescription()`
+
+UnsetFeatureDescription ensures that no value is present for FeatureDescription, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

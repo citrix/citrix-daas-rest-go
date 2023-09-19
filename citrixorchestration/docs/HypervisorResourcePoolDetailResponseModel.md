@@ -14,18 +14,18 @@ Name | Type | Description | Notes
 **RootPath** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
 **Storage** | [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for OS disks of virtual machines. | 
 **TemporaryStorage** | [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for temporary data storage for virtual machines. | 
-**UseLocalStorageCaching** | Pointer to **bool** | Indicates whether virtual machines created within this resource pool will use local storage caching for their disk images. | [optional] 
-**CustomProperties** | Pointer to **string** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
+**UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether virtual machines created within this resource pool will use local storage caching for their disk images. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 **PersonalvDiskStorage** | Pointer to [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines. | [optional] 
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
-**HypervisorConnection** | [**HypervisorResourcePoolResponseModelAllOfHypervisorConnection**](HypervisorResourcePoolResponseModelAllOfHypervisorConnection.md) |  | 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**HypervisorConnection** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
-**DefaultNetwork** | [**HypervisorResourcePoolResponseModelAllOfDefaultNetwork**](HypervisorResourcePoolResponseModelAllOfDefaultNetwork.md) |  | 
+**DefaultNetwork** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
 **VMTaggingEnabled** | **bool** | Indicates whether new virtual machines are tagged with metadata from the hypervisor. | 
-**ResourcePoolRootPath** | Pointer to **string** | Hypervisor resourcePool RootPath. | [optional] 
-**ResourcePoolRootId** | Pointer to **string** | Hypervisor resourcePool RootId. | [optional] 
+**ResourcePoolRootPath** | Pointer to **NullableString** | Hypervisor resourcePool RootPath. | [optional] 
+**ResourcePoolRootId** | Pointer to **NullableString** | Hypervisor resourcePool RootId. | [optional] 
 **GpuTypes** | Pointer to [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | GPU types available in the resource pool.  Only applicable to hypervisors that support GPU types. | [optional] 
 **UsesExplicitStorage** | Pointer to **bool** | If the hypervisor resource pool use ExplicitStorage. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor resource pool.  | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewHypervisorResourcePoolDetailResponseModel
 
-`func NewHypervisorResourcePoolDetailResponseModel(virtualPrivateCloud HypervisorResourceRefResponseModel, availabilityZone HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel, region HypervisorResourceRefResponseModel, virtualNetwork HypervisorResourceRefResponseModel, subnets []HypervisorResourceRefResponseModel, project HypervisorResourceRefResponseModel, storage []HypervisorStorageResourceResponseModel, temporaryStorage []HypervisorStorageResourceResponseModel, hypervisorConnection HypervisorResourcePoolResponseModelAllOfHypervisorConnection, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourcePoolResponseModelAllOfDefaultNetwork, vMTaggingEnabled bool, ) *HypervisorResourcePoolDetailResponseModel`
+`func NewHypervisorResourcePoolDetailResponseModel(virtualPrivateCloud HypervisorResourceRefResponseModel, availabilityZone HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel, region HypervisorResourceRefResponseModel, virtualNetwork HypervisorResourceRefResponseModel, subnets []HypervisorResourceRefResponseModel, project HypervisorResourceRefResponseModel, storage []HypervisorStorageResourceResponseModel, temporaryStorage []HypervisorStorageResourceResponseModel, hypervisorConnection RefResponseModel, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool, ) *HypervisorResourcePoolDetailResponseModel`
 
 NewHypervisorResourcePoolDetailResponseModel instantiates a new HypervisorResourcePoolDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -279,6 +279,16 @@ SetUseLocalStorageCaching sets UseLocalStorageCaching field to given value.
 
 HasUseLocalStorageCaching returns a boolean if a field has been set.
 
+### SetUseLocalStorageCachingNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetUseLocalStorageCachingNil(b bool)`
+
+ SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
+
+### UnsetUseLocalStorageCaching
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetUseLocalStorageCaching()`
+
+UnsetUseLocalStorageCaching ensures that no value is present for UseLocalStorageCaching, not even an explicit nil
 ### GetCustomProperties
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetCustomProperties() string`
@@ -304,6 +314,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetPersonalvDiskStorage
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetPersonalvDiskStorage() []HypervisorStorageResourceResponseModel`
@@ -329,6 +349,16 @@ SetPersonalvDiskStorage sets PersonalvDiskStorage field to given value.
 
 HasPersonalvDiskStorage returns a boolean if a field has been set.
 
+### SetPersonalvDiskStorageNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetPersonalvDiskStorageNil(b bool)`
+
+ SetPersonalvDiskStorageNil sets the value for PersonalvDiskStorage to be an explicit nil
+
+### UnsetPersonalvDiskStorage
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetPersonalvDiskStorage()`
+
+UnsetPersonalvDiskStorage ensures that no value is present for PersonalvDiskStorage, not even an explicit nil
 ### GetId
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetId() string`
@@ -354,6 +384,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetName() string`
@@ -379,6 +419,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetXDPath() string`
@@ -404,22 +454,32 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetHypervisorConnection
 
-`func (o *HypervisorResourcePoolDetailResponseModel) GetHypervisorConnection() HypervisorResourcePoolResponseModelAllOfHypervisorConnection`
+`func (o *HypervisorResourcePoolDetailResponseModel) GetHypervisorConnection() RefResponseModel`
 
 GetHypervisorConnection returns the HypervisorConnection field if non-nil, zero value otherwise.
 
 ### GetHypervisorConnectionOk
 
-`func (o *HypervisorResourcePoolDetailResponseModel) GetHypervisorConnectionOk() (*HypervisorResourcePoolResponseModelAllOfHypervisorConnection, bool)`
+`func (o *HypervisorResourcePoolDetailResponseModel) GetHypervisorConnectionOk() (*RefResponseModel, bool)`
 
 GetHypervisorConnectionOk returns a tuple with the HypervisorConnection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisorConnection
 
-`func (o *HypervisorResourcePoolDetailResponseModel) SetHypervisorConnection(v HypervisorResourcePoolResponseModelAllOfHypervisorConnection)`
+`func (o *HypervisorResourcePoolDetailResponseModel) SetHypervisorConnection(v RefResponseModel)`
 
 SetHypervisorConnection sets HypervisorConnection field to given value.
 
@@ -446,20 +506,20 @@ SetConnectionType sets ConnectionType field to given value.
 
 ### GetDefaultNetwork
 
-`func (o *HypervisorResourcePoolDetailResponseModel) GetDefaultNetwork() HypervisorResourcePoolResponseModelAllOfDefaultNetwork`
+`func (o *HypervisorResourcePoolDetailResponseModel) GetDefaultNetwork() HypervisorResourceRefResponseModel`
 
 GetDefaultNetwork returns the DefaultNetwork field if non-nil, zero value otherwise.
 
 ### GetDefaultNetworkOk
 
-`func (o *HypervisorResourcePoolDetailResponseModel) GetDefaultNetworkOk() (*HypervisorResourcePoolResponseModelAllOfDefaultNetwork, bool)`
+`func (o *HypervisorResourcePoolDetailResponseModel) GetDefaultNetworkOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetDefaultNetworkOk returns a tuple with the DefaultNetwork field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultNetwork
 
-`func (o *HypervisorResourcePoolDetailResponseModel) SetDefaultNetwork(v HypervisorResourcePoolResponseModelAllOfDefaultNetwork)`
+`func (o *HypervisorResourcePoolDetailResponseModel) SetDefaultNetwork(v HypervisorResourceRefResponseModel)`
 
 SetDefaultNetwork sets DefaultNetwork field to given value.
 
@@ -509,6 +569,16 @@ SetResourcePoolRootPath sets ResourcePoolRootPath field to given value.
 
 HasResourcePoolRootPath returns a boolean if a field has been set.
 
+### SetResourcePoolRootPathNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetResourcePoolRootPathNil(b bool)`
+
+ SetResourcePoolRootPathNil sets the value for ResourcePoolRootPath to be an explicit nil
+
+### UnsetResourcePoolRootPath
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetResourcePoolRootPath()`
+
+UnsetResourcePoolRootPath ensures that no value is present for ResourcePoolRootPath, not even an explicit nil
 ### GetResourcePoolRootId
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetResourcePoolRootId() string`
@@ -534,6 +604,16 @@ SetResourcePoolRootId sets ResourcePoolRootId field to given value.
 
 HasResourcePoolRootId returns a boolean if a field has been set.
 
+### SetResourcePoolRootIdNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetResourcePoolRootIdNil(b bool)`
+
+ SetResourcePoolRootIdNil sets the value for ResourcePoolRootId to be an explicit nil
+
+### UnsetResourcePoolRootId
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetResourcePoolRootId()`
+
+UnsetResourcePoolRootId ensures that no value is present for ResourcePoolRootId, not even an explicit nil
 ### GetGpuTypes
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetGpuTypes() []HypervisorResourceRefResponseModel`
@@ -559,6 +639,16 @@ SetGpuTypes sets GpuTypes field to given value.
 
 HasGpuTypes returns a boolean if a field has been set.
 
+### SetGpuTypesNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetGpuTypesNil(b bool)`
+
+ SetGpuTypesNil sets the value for GpuTypes to be an explicit nil
+
+### UnsetGpuTypes
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetGpuTypes()`
+
+UnsetGpuTypes ensures that no value is present for GpuTypes, not even an explicit nil
 ### GetUsesExplicitStorage
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetUsesExplicitStorage() bool`
@@ -609,6 +699,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

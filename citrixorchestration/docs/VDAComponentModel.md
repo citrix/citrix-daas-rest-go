@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ComponentId** | Pointer to **string** | Id of this component object. | [optional] 
-**ComponentName** | Pointer to **string** | Name of this component object. | [optional] 
-**ComponentDescription** | Pointer to **string** | Description of this component object. | [optional] 
+**ComponentId** | Pointer to **NullableString** | Id of this component object. | [optional] 
+**ComponentName** | Pointer to **NullableString** | Name of this component object. | [optional] 
+**ComponentDescription** | Pointer to **NullableString** | Description of this component object. | [optional] 
 **Parameters** | Pointer to [**[]VDAComponentParameterModel**](VDAComponentParameterModel.md) | Parameters of this component object. | [optional] 
 
 ## Methods
@@ -53,6 +53,16 @@ SetComponentId sets ComponentId field to given value.
 
 HasComponentId returns a boolean if a field has been set.
 
+### SetComponentIdNil
+
+`func (o *VDAComponentModel) SetComponentIdNil(b bool)`
+
+ SetComponentIdNil sets the value for ComponentId to be an explicit nil
+
+### UnsetComponentId
+`func (o *VDAComponentModel) UnsetComponentId()`
+
+UnsetComponentId ensures that no value is present for ComponentId, not even an explicit nil
 ### GetComponentName
 
 `func (o *VDAComponentModel) GetComponentName() string`
@@ -78,6 +88,16 @@ SetComponentName sets ComponentName field to given value.
 
 HasComponentName returns a boolean if a field has been set.
 
+### SetComponentNameNil
+
+`func (o *VDAComponentModel) SetComponentNameNil(b bool)`
+
+ SetComponentNameNil sets the value for ComponentName to be an explicit nil
+
+### UnsetComponentName
+`func (o *VDAComponentModel) UnsetComponentName()`
+
+UnsetComponentName ensures that no value is present for ComponentName, not even an explicit nil
 ### GetComponentDescription
 
 `func (o *VDAComponentModel) GetComponentDescription() string`
@@ -103,6 +123,16 @@ SetComponentDescription sets ComponentDescription field to given value.
 
 HasComponentDescription returns a boolean if a field has been set.
 
+### SetComponentDescriptionNil
+
+`func (o *VDAComponentModel) SetComponentDescriptionNil(b bool)`
+
+ SetComponentDescriptionNil sets the value for ComponentDescription to be an explicit nil
+
+### UnsetComponentDescription
+`func (o *VDAComponentModel) UnsetComponentDescription()`
+
+UnsetComponentDescription ensures that no value is present for ComponentDescription, not even an explicit nil
 ### GetParameters
 
 `func (o *VDAComponentModel) GetParameters() []VDAComponentParameterModel`
@@ -128,6 +158,16 @@ SetParameters sets Parameters field to given value.
 
 HasParameters returns a boolean if a field has been set.
 
+### SetParametersNil
+
+`func (o *VDAComponentModel) SetParametersNil(b bool)`
+
+ SetParametersNil sets the value for Parameters to be an explicit nil
+
+### UnsetParameters
+`func (o *VDAComponentModel) UnsetParameters()`
+
+UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

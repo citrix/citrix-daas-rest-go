@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TestType** | Pointer to [**TestType**](TestType.md) |  | [optional] 
-**CreatedBy** | Pointer to **string** | The owner of the test report | [optional] 
-**ReportTime** | Pointer to **string** | The time of the test report created | [optional] 
-**FormattedReportTime** | Pointer to **string** | The formatted time of the test report created RFC 3339 compatible format. | [optional] 
+**CreatedBy** | Pointer to **NullableString** | The owner of the test report | [optional] 
+**ReportTime** | Pointer to **NullableString** | The time of the test report created | [optional] 
+**FormattedReportTime** | Pointer to **NullableString** | The formatted time of the test report created RFC 3339 compatible format. | [optional] 
 **TestResults** | Pointer to [**[]TestReportResultModel**](TestReportResultModel.md) | The test results | [optional] 
 
 ## Methods
@@ -79,6 +79,16 @@ SetCreatedBy sets CreatedBy field to given value.
 
 HasCreatedBy returns a boolean if a field has been set.
 
+### SetCreatedByNil
+
+`func (o *TestReportResponseModel) SetCreatedByNil(b bool)`
+
+ SetCreatedByNil sets the value for CreatedBy to be an explicit nil
+
+### UnsetCreatedBy
+`func (o *TestReportResponseModel) UnsetCreatedBy()`
+
+UnsetCreatedBy ensures that no value is present for CreatedBy, not even an explicit nil
 ### GetReportTime
 
 `func (o *TestReportResponseModel) GetReportTime() string`
@@ -104,6 +114,16 @@ SetReportTime sets ReportTime field to given value.
 
 HasReportTime returns a boolean if a field has been set.
 
+### SetReportTimeNil
+
+`func (o *TestReportResponseModel) SetReportTimeNil(b bool)`
+
+ SetReportTimeNil sets the value for ReportTime to be an explicit nil
+
+### UnsetReportTime
+`func (o *TestReportResponseModel) UnsetReportTime()`
+
+UnsetReportTime ensures that no value is present for ReportTime, not even an explicit nil
 ### GetFormattedReportTime
 
 `func (o *TestReportResponseModel) GetFormattedReportTime() string`
@@ -129,6 +149,16 @@ SetFormattedReportTime sets FormattedReportTime field to given value.
 
 HasFormattedReportTime returns a boolean if a field has been set.
 
+### SetFormattedReportTimeNil
+
+`func (o *TestReportResponseModel) SetFormattedReportTimeNil(b bool)`
+
+ SetFormattedReportTimeNil sets the value for FormattedReportTime to be an explicit nil
+
+### UnsetFormattedReportTime
+`func (o *TestReportResponseModel) UnsetFormattedReportTime()`
+
+UnsetFormattedReportTime ensures that no value is present for FormattedReportTime, not even an explicit nil
 ### GetTestResults
 
 `func (o *TestReportResponseModel) GetTestResults() []TestReportResultModel`
@@ -154,6 +184,16 @@ SetTestResults sets TestResults field to given value.
 
 HasTestResults returns a boolean if a field has been set.
 
+### SetTestResultsNil
+
+`func (o *TestReportResponseModel) SetTestResultsNil(b bool)`
+
+ SetTestResultsNil sets the value for TestResults to be an explicit nil
+
+### UnsetTestResults
+`func (o *TestReportResponseModel) UnsetTestResults()`
+
+UnsetTestResults ensures that no value is present for TestResults, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

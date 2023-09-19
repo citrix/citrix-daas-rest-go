@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Id of the machine catalog. | 
 **Name** | **string** | Name of the catalog. | 
 **IsValid** | Pointer to **bool** | Validation result of VDA components selection of the catalog. | [optional] 
-**Message** | Pointer to **string** | Validation message of VDA components selection of the catalog. | [optional] 
+**Message** | Pointer to **NullableString** | Validation message of VDA components selection of the catalog. | [optional] 
 
 ## Methods
 
@@ -144,6 +144,16 @@ SetMessage sets Message field to given value.
 
 HasMessage returns a boolean if a field has been set.
 
+### SetMessageNil
+
+`func (o *VDAComponentsSelectionValidationResponseModel) SetMessageNil(b bool)`
+
+ SetMessageNil sets the value for Message to be an explicit nil
+
+### UnsetMessage
+`func (o *VDAComponentsSelectionValidationResponseModel) UnsetMessage()`
+
+UnsetMessage ensures that no value is present for Message, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

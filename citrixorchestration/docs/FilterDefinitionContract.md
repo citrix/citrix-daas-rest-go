@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilterType** | Pointer to **string** | Filter type | [optional] 
-**FilterName** | Pointer to **string** | Localized filter name | [optional] 
-**Explanation** | Pointer to **string** | Localized explanation | [optional] 
+**FilterType** | Pointer to **NullableString** | Filter type | [optional] 
+**FilterName** | Pointer to **NullableString** | Localized filter name | [optional] 
+**Explanation** | Pointer to **NullableString** | Localized explanation | [optional] 
 **IsUserFilter** | Pointer to **bool** | True &#x3D; user filter, False &#x3D; machine filter | [optional] 
 
 ## Methods
@@ -53,6 +53,16 @@ SetFilterType sets FilterType field to given value.
 
 HasFilterType returns a boolean if a field has been set.
 
+### SetFilterTypeNil
+
+`func (o *FilterDefinitionContract) SetFilterTypeNil(b bool)`
+
+ SetFilterTypeNil sets the value for FilterType to be an explicit nil
+
+### UnsetFilterType
+`func (o *FilterDefinitionContract) UnsetFilterType()`
+
+UnsetFilterType ensures that no value is present for FilterType, not even an explicit nil
 ### GetFilterName
 
 `func (o *FilterDefinitionContract) GetFilterName() string`
@@ -78,6 +88,16 @@ SetFilterName sets FilterName field to given value.
 
 HasFilterName returns a boolean if a field has been set.
 
+### SetFilterNameNil
+
+`func (o *FilterDefinitionContract) SetFilterNameNil(b bool)`
+
+ SetFilterNameNil sets the value for FilterName to be an explicit nil
+
+### UnsetFilterName
+`func (o *FilterDefinitionContract) UnsetFilterName()`
+
+UnsetFilterName ensures that no value is present for FilterName, not even an explicit nil
 ### GetExplanation
 
 `func (o *FilterDefinitionContract) GetExplanation() string`
@@ -103,6 +123,16 @@ SetExplanation sets Explanation field to given value.
 
 HasExplanation returns a boolean if a field has been set.
 
+### SetExplanationNil
+
+`func (o *FilterDefinitionContract) SetExplanationNil(b bool)`
+
+ SetExplanationNil sets the value for Explanation to be an explicit nil
+
+### UnsetExplanation
+`func (o *FilterDefinitionContract) UnsetExplanation()`
+
+UnsetExplanation ensures that no value is present for Explanation, not even an explicit nil
 ### GetIsUserFilter
 
 `func (o *FilterDefinitionContract) GetIsUserFilter() bool`

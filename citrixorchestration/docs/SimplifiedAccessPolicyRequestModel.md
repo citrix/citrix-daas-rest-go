@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AllowAnonymous** | Pointer to **bool** | Whether to allow anonymous connections to the delivery group. | [optional] 
-**AllowHdxAccess** | Pointer to **bool** | Whether to allow connections using HDX. Was: AllowsHdxAccess | [optional] [default to true]
-**AllowMachineRestart** | Pointer to **bool** | Whether to allow users to self-service restart machines. | [optional] [default to true]
-**AllowRdpAccess** | Pointer to **bool** | Whether to allow connections using RDP. Was: AllowsRdpAccess | [optional] [default to true]
-**ConnectNotViaNetScalerGatewayAllowed** | Pointer to **bool** | Whether to allow connections that do not come through NetScaler Gateway. | [optional] [default to true]
-**ConnectViaNetScalerGatewayAllowed** | Pointer to **bool** | Whether to allow connections that come through NetScaler Gateway. | [optional] [default to true]
-**IncludedSmartAccessFilterEnabled** | Pointer to **bool** | Specifies whether the IncludedSmartAccessTags filter is enabled.  If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] [default to true]
+**AllowAnonymous** | Pointer to **NullableBool** | Whether to allow anonymous connections to the delivery group. | [optional] 
+**AllowHdxAccess** | Pointer to **NullableBool** | Whether to allow connections using HDX. Was: AllowsHdxAccess | [optional] [default to true]
+**AllowMachineRestart** | Pointer to **NullableBool** | Whether to allow users to self-service restart machines. | [optional] [default to true]
+**AllowRdpAccess** | Pointer to **NullableBool** | Whether to allow connections using RDP. Was: AllowsRdpAccess | [optional] [default to true]
+**ConnectNotViaNetScalerGatewayAllowed** | Pointer to **NullableBool** | Whether to allow connections that do not come through NetScaler Gateway. | [optional] [default to true]
+**ConnectViaNetScalerGatewayAllowed** | Pointer to **NullableBool** | Whether to allow connections that come through NetScaler Gateway. | [optional] [default to true]
+**IncludedSmartAccessFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedSmartAccessTags filter is enabled.  If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] [default to true]
 **IncludedSmartAccessTags** | Pointer to [**[]SmartAccessTagRequestModel**](SmartAccessTagRequestModel.md) | Specifies the SmartAccess tags which grant access to the delivery group, if any occur in those provided by NetScaler Gateway with the user&#39;s connection. | [optional] 
-**IncludedUserFilterEnabled** | Pointer to **bool** | Specifies whether the IncludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] [default to false]
+**IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] [default to false]
 **IncludedUsers** | Pointer to **[]string** | Specifies the users and groups who are granted access to the delivery group. | [optional] 
-**ExcludedUserFilterEnabled** | Pointer to **bool** | Specifies whether the ExcludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] [default to false]
+**ExcludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the ExcludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] [default to false]
 **ExcludedUsers** | Pointer to **[]string** | Specifies the users and groups who are denied access to the delivery group. | [optional] 
 
 ## Methods
@@ -61,6 +61,16 @@ SetAllowAnonymous sets AllowAnonymous field to given value.
 
 HasAllowAnonymous returns a boolean if a field has been set.
 
+### SetAllowAnonymousNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetAllowAnonymousNil(b bool)`
+
+ SetAllowAnonymousNil sets the value for AllowAnonymous to be an explicit nil
+
+### UnsetAllowAnonymous
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetAllowAnonymous()`
+
+UnsetAllowAnonymous ensures that no value is present for AllowAnonymous, not even an explicit nil
 ### GetAllowHdxAccess
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetAllowHdxAccess() bool`
@@ -86,6 +96,16 @@ SetAllowHdxAccess sets AllowHdxAccess field to given value.
 
 HasAllowHdxAccess returns a boolean if a field has been set.
 
+### SetAllowHdxAccessNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetAllowHdxAccessNil(b bool)`
+
+ SetAllowHdxAccessNil sets the value for AllowHdxAccess to be an explicit nil
+
+### UnsetAllowHdxAccess
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetAllowHdxAccess()`
+
+UnsetAllowHdxAccess ensures that no value is present for AllowHdxAccess, not even an explicit nil
 ### GetAllowMachineRestart
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetAllowMachineRestart() bool`
@@ -111,6 +131,16 @@ SetAllowMachineRestart sets AllowMachineRestart field to given value.
 
 HasAllowMachineRestart returns a boolean if a field has been set.
 
+### SetAllowMachineRestartNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetAllowMachineRestartNil(b bool)`
+
+ SetAllowMachineRestartNil sets the value for AllowMachineRestart to be an explicit nil
+
+### UnsetAllowMachineRestart
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetAllowMachineRestart()`
+
+UnsetAllowMachineRestart ensures that no value is present for AllowMachineRestart, not even an explicit nil
 ### GetAllowRdpAccess
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetAllowRdpAccess() bool`
@@ -136,6 +166,16 @@ SetAllowRdpAccess sets AllowRdpAccess field to given value.
 
 HasAllowRdpAccess returns a boolean if a field has been set.
 
+### SetAllowRdpAccessNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetAllowRdpAccessNil(b bool)`
+
+ SetAllowRdpAccessNil sets the value for AllowRdpAccess to be an explicit nil
+
+### UnsetAllowRdpAccess
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetAllowRdpAccess()`
+
+UnsetAllowRdpAccess ensures that no value is present for AllowRdpAccess, not even an explicit nil
 ### GetConnectNotViaNetScalerGatewayAllowed
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetConnectNotViaNetScalerGatewayAllowed() bool`
@@ -161,6 +201,16 @@ SetConnectNotViaNetScalerGatewayAllowed sets ConnectNotViaNetScalerGatewayAllowe
 
 HasConnectNotViaNetScalerGatewayAllowed returns a boolean if a field has been set.
 
+### SetConnectNotViaNetScalerGatewayAllowedNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetConnectNotViaNetScalerGatewayAllowedNil(b bool)`
+
+ SetConnectNotViaNetScalerGatewayAllowedNil sets the value for ConnectNotViaNetScalerGatewayAllowed to be an explicit nil
+
+### UnsetConnectNotViaNetScalerGatewayAllowed
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetConnectNotViaNetScalerGatewayAllowed()`
+
+UnsetConnectNotViaNetScalerGatewayAllowed ensures that no value is present for ConnectNotViaNetScalerGatewayAllowed, not even an explicit nil
 ### GetConnectViaNetScalerGatewayAllowed
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetConnectViaNetScalerGatewayAllowed() bool`
@@ -186,6 +236,16 @@ SetConnectViaNetScalerGatewayAllowed sets ConnectViaNetScalerGatewayAllowed fiel
 
 HasConnectViaNetScalerGatewayAllowed returns a boolean if a field has been set.
 
+### SetConnectViaNetScalerGatewayAllowedNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetConnectViaNetScalerGatewayAllowedNil(b bool)`
+
+ SetConnectViaNetScalerGatewayAllowedNil sets the value for ConnectViaNetScalerGatewayAllowed to be an explicit nil
+
+### UnsetConnectViaNetScalerGatewayAllowed
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetConnectViaNetScalerGatewayAllowed()`
+
+UnsetConnectViaNetScalerGatewayAllowed ensures that no value is present for ConnectViaNetScalerGatewayAllowed, not even an explicit nil
 ### GetIncludedSmartAccessFilterEnabled
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetIncludedSmartAccessFilterEnabled() bool`
@@ -211,6 +271,16 @@ SetIncludedSmartAccessFilterEnabled sets IncludedSmartAccessFilterEnabled field 
 
 HasIncludedSmartAccessFilterEnabled returns a boolean if a field has been set.
 
+### SetIncludedSmartAccessFilterEnabledNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetIncludedSmartAccessFilterEnabledNil(b bool)`
+
+ SetIncludedSmartAccessFilterEnabledNil sets the value for IncludedSmartAccessFilterEnabled to be an explicit nil
+
+### UnsetIncludedSmartAccessFilterEnabled
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetIncludedSmartAccessFilterEnabled()`
+
+UnsetIncludedSmartAccessFilterEnabled ensures that no value is present for IncludedSmartAccessFilterEnabled, not even an explicit nil
 ### GetIncludedSmartAccessTags
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetIncludedSmartAccessTags() []SmartAccessTagRequestModel`
@@ -236,6 +306,16 @@ SetIncludedSmartAccessTags sets IncludedSmartAccessTags field to given value.
 
 HasIncludedSmartAccessTags returns a boolean if a field has been set.
 
+### SetIncludedSmartAccessTagsNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetIncludedSmartAccessTagsNil(b bool)`
+
+ SetIncludedSmartAccessTagsNil sets the value for IncludedSmartAccessTags to be an explicit nil
+
+### UnsetIncludedSmartAccessTags
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetIncludedSmartAccessTags()`
+
+UnsetIncludedSmartAccessTags ensures that no value is present for IncludedSmartAccessTags, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetIncludedUserFilterEnabled() bool`
@@ -261,6 +341,16 @@ SetIncludedUserFilterEnabled sets IncludedUserFilterEnabled field to given value
 
 HasIncludedUserFilterEnabled returns a boolean if a field has been set.
 
+### SetIncludedUserFilterEnabledNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetIncludedUserFilterEnabledNil(b bool)`
+
+ SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
+
+### UnsetIncludedUserFilterEnabled
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetIncludedUserFilterEnabled()`
+
+UnsetIncludedUserFilterEnabled ensures that no value is present for IncludedUserFilterEnabled, not even an explicit nil
 ### GetIncludedUsers
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetIncludedUsers() []string`
@@ -286,6 +376,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 ### GetExcludedUserFilterEnabled
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetExcludedUserFilterEnabled() bool`
@@ -311,6 +411,16 @@ SetExcludedUserFilterEnabled sets ExcludedUserFilterEnabled field to given value
 
 HasExcludedUserFilterEnabled returns a boolean if a field has been set.
 
+### SetExcludedUserFilterEnabledNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetExcludedUserFilterEnabledNil(b bool)`
+
+ SetExcludedUserFilterEnabledNil sets the value for ExcludedUserFilterEnabled to be an explicit nil
+
+### UnsetExcludedUserFilterEnabled
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetExcludedUserFilterEnabled()`
+
+UnsetExcludedUserFilterEnabled ensures that no value is present for ExcludedUserFilterEnabled, not even an explicit nil
 ### GetExcludedUsers
 
 `func (o *SimplifiedAccessPolicyRequestModel) GetExcludedUsers() []string`
@@ -336,6 +446,16 @@ SetExcludedUsers sets ExcludedUsers field to given value.
 
 HasExcludedUsers returns a boolean if a field has been set.
 
+### SetExcludedUsersNil
+
+`func (o *SimplifiedAccessPolicyRequestModel) SetExcludedUsersNil(b bool)`
+
+ SetExcludedUsersNil sets the value for ExcludedUsers to be an explicit nil
+
+### UnsetExcludedUsers
+`func (o *SimplifiedAccessPolicyRequestModel) UnsetExcludedUsers()`
+
+UnsetExcludedUsers ensures that no value is present for ExcludedUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

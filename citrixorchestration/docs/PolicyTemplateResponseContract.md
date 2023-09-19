@@ -51,6 +51,16 @@ SetPolicies sets Policies field to given value.
 
 HasPolicies returns a boolean if a field has been set.
 
+### SetPoliciesNil
+
+`func (o *PolicyTemplateResponseContract) SetPoliciesNil(b bool)`
+
+ SetPoliciesNil sets the value for Policies to be an explicit nil
+
+### UnsetPolicies
+`func (o *PolicyTemplateResponseContract) UnsetPolicies()`
+
+UnsetPolicies ensures that no value is present for Policies, not even an explicit nil
 ### GetTemplates
 
 `func (o *PolicyTemplateResponseContract) GetTemplates() []TemplateResponseContract`
@@ -76,6 +86,16 @@ SetTemplates sets Templates field to given value.
 
 HasTemplates returns a boolean if a field has been set.
 
+### SetTemplatesNil
+
+`func (o *PolicyTemplateResponseContract) SetTemplatesNil(b bool)`
+
+ SetTemplatesNil sets the value for Templates to be an explicit nil
+
+### UnsetTemplates
+`func (o *PolicyTemplateResponseContract) UnsetTemplates()`
+
+UnsetTemplates ensures that no value is present for Templates, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BasicSearchString** | Pointer to **string** | Basic search string. Specify a string which will match if contained within some string property of the machine. | [optional] 
+**BasicSearchString** | Pointer to **NullableString** | Basic search string. Specify a string which will match if contained within some string property of the machine. | [optional] 
 **SearchFilters** | Pointer to [**[]MachineAndSessionSearchFilterRequestModel**](MachineAndSessionSearchFilterRequestModel.md) | List of advanced search filters. | [optional] 
-**SortCriteria** | Pointer to [**MachineAndSessionSearchRequestModelSortCriteria**](MachineAndSessionSearchRequestModelSortCriteria.md) |  | [optional] 
+**SortCriteria** | Pointer to [**MachineAndSessionSortCriteriaRequestModel**](MachineAndSessionSortCriteriaRequestModel.md) |  | [optional] 
 **SearchFilterGroups** | Pointer to [**[]MachineAndSessionSearchFilterGroupRequestModel**](MachineAndSessionSearchFilterGroupRequestModel.md) | List of advanced search filter groups. | [optional] 
 **SearchFilterGroupsType** | Pointer to [**MachineAndSessionSearchFilterGroupsType**](MachineAndSessionSearchFilterGroupsType.md) |  | [optional] 
 **SortCriteriaItems** | Pointer to [**[]MachineAndSessionSortCriteriaRequestModel**](MachineAndSessionSortCriteriaRequestModel.md) | Sort criteria for the results, multiple sorting criteria can be specified here. | [optional] 
@@ -55,6 +55,16 @@ SetBasicSearchString sets BasicSearchString field to given value.
 
 HasBasicSearchString returns a boolean if a field has been set.
 
+### SetBasicSearchStringNil
+
+`func (o *MachineAndSessionSearchRequestModel) SetBasicSearchStringNil(b bool)`
+
+ SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
+
+### UnsetBasicSearchString
+`func (o *MachineAndSessionSearchRequestModel) UnsetBasicSearchString()`
+
+UnsetBasicSearchString ensures that no value is present for BasicSearchString, not even an explicit nil
 ### GetSearchFilters
 
 `func (o *MachineAndSessionSearchRequestModel) GetSearchFilters() []MachineAndSessionSearchFilterRequestModel`
@@ -80,22 +90,32 @@ SetSearchFilters sets SearchFilters field to given value.
 
 HasSearchFilters returns a boolean if a field has been set.
 
+### SetSearchFiltersNil
+
+`func (o *MachineAndSessionSearchRequestModel) SetSearchFiltersNil(b bool)`
+
+ SetSearchFiltersNil sets the value for SearchFilters to be an explicit nil
+
+### UnsetSearchFilters
+`func (o *MachineAndSessionSearchRequestModel) UnsetSearchFilters()`
+
+UnsetSearchFilters ensures that no value is present for SearchFilters, not even an explicit nil
 ### GetSortCriteria
 
-`func (o *MachineAndSessionSearchRequestModel) GetSortCriteria() MachineAndSessionSearchRequestModelSortCriteria`
+`func (o *MachineAndSessionSearchRequestModel) GetSortCriteria() MachineAndSessionSortCriteriaRequestModel`
 
 GetSortCriteria returns the SortCriteria field if non-nil, zero value otherwise.
 
 ### GetSortCriteriaOk
 
-`func (o *MachineAndSessionSearchRequestModel) GetSortCriteriaOk() (*MachineAndSessionSearchRequestModelSortCriteria, bool)`
+`func (o *MachineAndSessionSearchRequestModel) GetSortCriteriaOk() (*MachineAndSessionSortCriteriaRequestModel, bool)`
 
 GetSortCriteriaOk returns a tuple with the SortCriteria field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSortCriteria
 
-`func (o *MachineAndSessionSearchRequestModel) SetSortCriteria(v MachineAndSessionSearchRequestModelSortCriteria)`
+`func (o *MachineAndSessionSearchRequestModel) SetSortCriteria(v MachineAndSessionSortCriteriaRequestModel)`
 
 SetSortCriteria sets SortCriteria field to given value.
 
@@ -130,6 +150,16 @@ SetSearchFilterGroups sets SearchFilterGroups field to given value.
 
 HasSearchFilterGroups returns a boolean if a field has been set.
 
+### SetSearchFilterGroupsNil
+
+`func (o *MachineAndSessionSearchRequestModel) SetSearchFilterGroupsNil(b bool)`
+
+ SetSearchFilterGroupsNil sets the value for SearchFilterGroups to be an explicit nil
+
+### UnsetSearchFilterGroups
+`func (o *MachineAndSessionSearchRequestModel) UnsetSearchFilterGroups()`
+
+UnsetSearchFilterGroups ensures that no value is present for SearchFilterGroups, not even an explicit nil
 ### GetSearchFilterGroupsType
 
 `func (o *MachineAndSessionSearchRequestModel) GetSearchFilterGroupsType() MachineAndSessionSearchFilterGroupsType`
@@ -180,6 +210,16 @@ SetSortCriteriaItems sets SortCriteriaItems field to given value.
 
 HasSortCriteriaItems returns a boolean if a field has been set.
 
+### SetSortCriteriaItemsNil
+
+`func (o *MachineAndSessionSearchRequestModel) SetSortCriteriaItemsNil(b bool)`
+
+ SetSortCriteriaItemsNil sets the value for SortCriteriaItems to be an explicit nil
+
+### UnsetSortCriteriaItems
+`func (o *MachineAndSessionSearchRequestModel) UnsetSortCriteriaItems()`
+
+UnsetSortCriteriaItems ensures that no value is present for SortCriteriaItems, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

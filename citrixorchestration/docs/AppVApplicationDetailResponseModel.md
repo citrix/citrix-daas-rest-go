@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the App-V application. Was: AppVAppId | 
-**Target** | Pointer to **string** | Target of the App-V application. | [optional] 
-**Identifier** | Pointer to **string** | Identifier of the App-V application. | [optional] 
-**ServerMachineConfigurationUid** | Pointer to **string** | Internal property.  If &#x60;null&#x60;, indicates that the application type is AppLibraryAppV rather than AppV. | [optional] 
+**Target** | Pointer to **NullableString** | Target of the App-V application. | [optional] 
+**Identifier** | Pointer to **NullableString** | Identifier of the App-V application. | [optional] 
+**ServerMachineConfigurationUid** | Pointer to **NullableString** | Internal property.  If &#x60;null&#x60;, indicates that the application type is AppLibraryAppV rather than AppV. | [optional] 
 **Name** | **string** | App name. | 
 **PackageId** | **string** | App package id. | 
 **PackageName** | **string** | App package name. | 
@@ -85,6 +85,16 @@ SetTarget sets Target field to given value.
 
 HasTarget returns a boolean if a field has been set.
 
+### SetTargetNil
+
+`func (o *AppVApplicationDetailResponseModel) SetTargetNil(b bool)`
+
+ SetTargetNil sets the value for Target to be an explicit nil
+
+### UnsetTarget
+`func (o *AppVApplicationDetailResponseModel) UnsetTarget()`
+
+UnsetTarget ensures that no value is present for Target, not even an explicit nil
 ### GetIdentifier
 
 `func (o *AppVApplicationDetailResponseModel) GetIdentifier() string`
@@ -110,6 +120,16 @@ SetIdentifier sets Identifier field to given value.
 
 HasIdentifier returns a boolean if a field has been set.
 
+### SetIdentifierNil
+
+`func (o *AppVApplicationDetailResponseModel) SetIdentifierNil(b bool)`
+
+ SetIdentifierNil sets the value for Identifier to be an explicit nil
+
+### UnsetIdentifier
+`func (o *AppVApplicationDetailResponseModel) UnsetIdentifier()`
+
+UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
 ### GetServerMachineConfigurationUid
 
 `func (o *AppVApplicationDetailResponseModel) GetServerMachineConfigurationUid() string`
@@ -135,6 +155,16 @@ SetServerMachineConfigurationUid sets ServerMachineConfigurationUid field to giv
 
 HasServerMachineConfigurationUid returns a boolean if a field has been set.
 
+### SetServerMachineConfigurationUidNil
+
+`func (o *AppVApplicationDetailResponseModel) SetServerMachineConfigurationUidNil(b bool)`
+
+ SetServerMachineConfigurationUidNil sets the value for ServerMachineConfigurationUid to be an explicit nil
+
+### UnsetServerMachineConfigurationUid
+`func (o *AppVApplicationDetailResponseModel) UnsetServerMachineConfigurationUid()`
+
+UnsetServerMachineConfigurationUid ensures that no value is present for ServerMachineConfigurationUid, not even an explicit nil
 ### GetName
 
 `func (o *AppVApplicationDetailResponseModel) GetName() string`
@@ -305,6 +335,16 @@ SetBrokerApplicationNames sets BrokerApplicationNames field to given value.
 
 HasBrokerApplicationNames returns a boolean if a field has been set.
 
+### SetBrokerApplicationNamesNil
+
+`func (o *AppVApplicationDetailResponseModel) SetBrokerApplicationNamesNil(b bool)`
+
+ SetBrokerApplicationNamesNil sets the value for BrokerApplicationNames to be an explicit nil
+
+### UnsetBrokerApplicationNames
+`func (o *AppVApplicationDetailResponseModel) UnsetBrokerApplicationNames()`
+
+UnsetBrokerApplicationNames ensures that no value is present for BrokerApplicationNames, not even an explicit nil
 ### GetSequenceLocation
 
 `func (o *AppVApplicationDetailResponseModel) GetSequenceLocation() string`

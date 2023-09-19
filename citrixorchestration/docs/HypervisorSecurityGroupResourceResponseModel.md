@@ -4,34 +4,34 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the resource. | [optional] 
-**Name** | Pointer to **string** | Name of the resource. | [optional] 
-**XDPath** | Pointer to **string** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
-**RelativePath** | Pointer to **string** | Path to the object, relative to the resource pool from which it was queried. &#x60;{{vm name}}.vm/{{snapshot name}}.snapshot&#x60; | [optional] 
-**FullRelativePath** | Pointer to **string** | Full path to the resource, including the hypervisor, relative to the root of the API. Example: &#x60;Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources/{{RelativePath}}&#x60; | [optional] 
+**Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
+**XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
+**RelativePath** | Pointer to **NullableString** | Path to the object, relative to the resource pool from which it was queried. &#x60;{{vm name}}.vm/{{snapshot name}}.snapshot&#x60; | [optional] 
+**FullRelativePath** | Pointer to **NullableString** | Full path to the resource, including the hypervisor, relative to the root of the API. Example: &#x60;Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources/{{RelativePath}}&#x60; | [optional] 
 **ResourceType** | **string** | Type of resource. | 
-**ObjectTypeName** | Pointer to **string** | The type name of the hypervisor resource object. | [optional] 
-**ResourceContainer** | Pointer to [**HypervisorResourceRefResponseModelAllOfResourceContainer**](HypervisorResourceRefResponseModelAllOfResourceContainer.md) |  | [optional] 
-**ResourcePoolXDPath** | Pointer to **string** | Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; This value  | [optional] 
+**ObjectTypeName** | Pointer to **NullableString** | The type name of the hypervisor resource object. | [optional] 
+**ResourceContainer** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
+**ResourcePoolXDPath** | Pointer to **NullableString** | Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; This value  | [optional] 
 **FullName** | **string** | Name of the resource, with the type concatenated. i.e. \&quot;name.type\&quot;. | 
 **IsContainer** | **bool** | Indicates whether the resource is a container. | 
 **Children** | Pointer to [**[]HypervisorResourceResponseModel**](HypervisorResourceResponseModel.md) | Child resources, when the resource is a container. | [optional] 
 **IsMachine** | **bool** | Indicates whether the resource is a machine. | 
 **IsSnapshotable** | **bool** | Indicates whether the resource can have a snapshot taken. | 
 **AllResourcesRelativePath** | **string** | Path to the resource, relative to the special \&quot;AllResources\&quot; resource pool associated with the hypervisor. | 
-**ResourcePool** | [**HypervisorResourceResponseModelAllOfResourcePool**](HypervisorResourceResponseModelAllOfResourcePool.md) |  | 
+**ResourcePool** | [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | 
 **IsSymLink** | **bool** | Indicates whether the object is a valid symbolic link. | 
 **AdditionalData** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Additional data about the object in the form of key-value pairs. | [optional] 
-**Description** | Pointer to **string** | Description of the security group. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the security group. | [optional] 
 **EgressRules** | [**[]HypervisorSecurityGroupRuleResponseModel**](HypervisorSecurityGroupRuleResponseModel.md) | Egress rules governing outbound network traffic. | 
 **IngressRules** | [**[]HypervisorSecurityGroupRuleResponseModel**](HypervisorSecurityGroupRuleResponseModel.md) | Ingress rules governing inbound network traffic. | 
-**VirtualPrivateCloudId** | Pointer to **string** | The identifier of the associated VPC. | [optional] 
+**VirtualPrivateCloudId** | Pointer to **NullableString** | The identifier of the associated VPC. | [optional] 
 
 ## Methods
 
 ### NewHypervisorSecurityGroupResourceResponseModel
 
-`func NewHypervisorSecurityGroupResourceResponseModel(resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourceResponseModelAllOfResourcePool, isSymLink bool, egressRules []HypervisorSecurityGroupRuleResponseModel, ingressRules []HypervisorSecurityGroupRuleResponseModel, ) *HypervisorSecurityGroupResourceResponseModel`
+`func NewHypervisorSecurityGroupResourceResponseModel(resourceType string, fullName string, isContainer bool, isMachine bool, isSnapshotable bool, allResourcesRelativePath string, resourcePool HypervisorResourcePoolRefResponseModel, isSymLink bool, egressRules []HypervisorSecurityGroupRuleResponseModel, ingressRules []HypervisorSecurityGroupRuleResponseModel, ) *HypervisorSecurityGroupResourceResponseModel`
 
 NewHypervisorSecurityGroupResourceResponseModel instantiates a new HypervisorSecurityGroupResourceResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -71,6 +71,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetName() string`
@@ -96,6 +106,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetXDPath
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetXDPath() string`
@@ -121,6 +141,16 @@ SetXDPath sets XDPath field to given value.
 
 HasXDPath returns a boolean if a field has been set.
 
+### SetXDPathNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetXDPathNil(b bool)`
+
+ SetXDPathNil sets the value for XDPath to be an explicit nil
+
+### UnsetXDPath
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetXDPath()`
+
+UnsetXDPath ensures that no value is present for XDPath, not even an explicit nil
 ### GetRelativePath
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetRelativePath() string`
@@ -146,6 +176,16 @@ SetRelativePath sets RelativePath field to given value.
 
 HasRelativePath returns a boolean if a field has been set.
 
+### SetRelativePathNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetRelativePathNil(b bool)`
+
+ SetRelativePathNil sets the value for RelativePath to be an explicit nil
+
+### UnsetRelativePath
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetRelativePath()`
+
+UnsetRelativePath ensures that no value is present for RelativePath, not even an explicit nil
 ### GetFullRelativePath
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetFullRelativePath() string`
@@ -171,6 +211,16 @@ SetFullRelativePath sets FullRelativePath field to given value.
 
 HasFullRelativePath returns a boolean if a field has been set.
 
+### SetFullRelativePathNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetFullRelativePathNil(b bool)`
+
+ SetFullRelativePathNil sets the value for FullRelativePath to be an explicit nil
+
+### UnsetFullRelativePath
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetFullRelativePath()`
+
+UnsetFullRelativePath ensures that no value is present for FullRelativePath, not even an explicit nil
 ### GetResourceType
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetResourceType() string`
@@ -216,22 +266,32 @@ SetObjectTypeName sets ObjectTypeName field to given value.
 
 HasObjectTypeName returns a boolean if a field has been set.
 
+### SetObjectTypeNameNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetObjectTypeNameNil(b bool)`
+
+ SetObjectTypeNameNil sets the value for ObjectTypeName to be an explicit nil
+
+### UnsetObjectTypeName
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetObjectTypeName()`
+
+UnsetObjectTypeName ensures that no value is present for ObjectTypeName, not even an explicit nil
 ### GetResourceContainer
 
-`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourceContainer() HypervisorResourceRefResponseModelAllOfResourceContainer`
+`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourceContainer() HypervisorResourceRefResponseModel`
 
 GetResourceContainer returns the ResourceContainer field if non-nil, zero value otherwise.
 
 ### GetResourceContainerOk
 
-`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourceContainerOk() (*HypervisorResourceRefResponseModelAllOfResourceContainer, bool)`
+`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourceContainerOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetResourceContainerOk returns a tuple with the ResourceContainer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceContainer
 
-`func (o *HypervisorSecurityGroupResourceResponseModel) SetResourceContainer(v HypervisorResourceRefResponseModelAllOfResourceContainer)`
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetResourceContainer(v HypervisorResourceRefResponseModel)`
 
 SetResourceContainer sets ResourceContainer field to given value.
 
@@ -266,6 +326,16 @@ SetResourcePoolXDPath sets ResourcePoolXDPath field to given value.
 
 HasResourcePoolXDPath returns a boolean if a field has been set.
 
+### SetResourcePoolXDPathNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetResourcePoolXDPathNil(b bool)`
+
+ SetResourcePoolXDPathNil sets the value for ResourcePoolXDPath to be an explicit nil
+
+### UnsetResourcePoolXDPath
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetResourcePoolXDPath()`
+
+UnsetResourcePoolXDPath ensures that no value is present for ResourcePoolXDPath, not even an explicit nil
 ### GetFullName
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetFullName() string`
@@ -331,6 +401,16 @@ SetChildren sets Children field to given value.
 
 HasChildren returns a boolean if a field has been set.
 
+### SetChildrenNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetChildrenNil(b bool)`
+
+ SetChildrenNil sets the value for Children to be an explicit nil
+
+### UnsetChildren
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetChildren()`
+
+UnsetChildren ensures that no value is present for Children, not even an explicit nil
 ### GetIsMachine
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetIsMachine() bool`
@@ -393,20 +473,20 @@ SetAllResourcesRelativePath sets AllResourcesRelativePath field to given value.
 
 ### GetResourcePool
 
-`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourcePool() HypervisorResourceResponseModelAllOfResourcePool`
+`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourcePool() HypervisorResourcePoolRefResponseModel`
 
 GetResourcePool returns the ResourcePool field if non-nil, zero value otherwise.
 
 ### GetResourcePoolOk
 
-`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourcePoolOk() (*HypervisorResourceResponseModelAllOfResourcePool, bool)`
+`func (o *HypervisorSecurityGroupResourceResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolRefResponseModel, bool)`
 
 GetResourcePoolOk returns a tuple with the ResourcePool field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourcePool
 
-`func (o *HypervisorSecurityGroupResourceResponseModel) SetResourcePool(v HypervisorResourceResponseModelAllOfResourcePool)`
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetResourcePool(v HypervisorResourcePoolRefResponseModel)`
 
 SetResourcePool sets ResourcePool field to given value.
 
@@ -456,6 +536,16 @@ SetAdditionalData sets AdditionalData field to given value.
 
 HasAdditionalData returns a boolean if a field has been set.
 
+### SetAdditionalDataNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetAdditionalDataNil(b bool)`
+
+ SetAdditionalDataNil sets the value for AdditionalData to be an explicit nil
+
+### UnsetAdditionalData
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetAdditionalData()`
+
+UnsetAdditionalData ensures that no value is present for AdditionalData, not even an explicit nil
 ### GetDescription
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetDescription() string`
@@ -481,6 +571,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEgressRules
 
 `func (o *HypervisorSecurityGroupResourceResponseModel) GetEgressRules() []HypervisorSecurityGroupRuleResponseModel`
@@ -546,6 +646,16 @@ SetVirtualPrivateCloudId sets VirtualPrivateCloudId field to given value.
 
 HasVirtualPrivateCloudId returns a boolean if a field has been set.
 
+### SetVirtualPrivateCloudIdNil
+
+`func (o *HypervisorSecurityGroupResourceResponseModel) SetVirtualPrivateCloudIdNil(b bool)`
+
+ SetVirtualPrivateCloudIdNil sets the value for VirtualPrivateCloudId to be an explicit nil
+
+### UnsetVirtualPrivateCloudId
+`func (o *HypervisorSecurityGroupResourceResponseModel) UnsetVirtualPrivateCloudId()`
+
+UnsetVirtualPrivateCloudId ensures that no value is present for VirtualPrivateCloudId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

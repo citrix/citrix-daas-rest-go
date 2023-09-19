@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the zone. Each zone within a site must have a unique name.  Name is the only required property in creating a new zone. | 
-**Description** | Pointer to **string** | Description of the zone. | [optional] 
-**ResourceLocation** | Pointer to **string** | Resource location associated with the zone. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the zone. | [optional] 
+**ResourceLocation** | Pointer to **NullableString** | Resource location associated with the zone. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of the Zone. | [optional] 
 
 ## Methods
@@ -73,6 +73,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateZoneRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateZoneRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetResourceLocation
 
 `func (o *CreateZoneRequestModel) GetResourceLocation() string`
@@ -98,6 +108,16 @@ SetResourceLocation sets ResourceLocation field to given value.
 
 HasResourceLocation returns a boolean if a field has been set.
 
+### SetResourceLocationNil
+
+`func (o *CreateZoneRequestModel) SetResourceLocationNil(b bool)`
+
+ SetResourceLocationNil sets the value for ResourceLocation to be an explicit nil
+
+### UnsetResourceLocation
+`func (o *CreateZoneRequestModel) UnsetResourceLocation()`
+
+UnsetResourceLocation ensures that no value is present for ResourceLocation, not even an explicit nil
 ### GetMetadata
 
 `func (o *CreateZoneRequestModel) GetMetadata() []NameValueStringPairModel`
@@ -123,6 +143,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *CreateZoneRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *CreateZoneRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

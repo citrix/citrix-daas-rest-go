@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PreferredController** | Pointer to **string** | The preferred controller. | [optional] 
+**PreferredController** | Pointer to **NullableString** | The preferred controller. | [optional] 
 
 ## Methods
 
@@ -50,6 +50,16 @@ SetPreferredController sets PreferredController field to given value.
 
 HasPreferredController returns a boolean if a field has been set.
 
+### SetPreferredControllerNil
+
+`func (o *EditBrokerHypervisorConnectionRequestModel) SetPreferredControllerNil(b bool)`
+
+ SetPreferredControllerNil sets the value for PreferredController to be an explicit nil
+
+### UnsetPreferredController
+`func (o *EditBrokerHypervisorConnectionRequestModel) UnsetPreferredController()`
+
+UnsetPreferredController ensures that no value is present for PreferredController, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

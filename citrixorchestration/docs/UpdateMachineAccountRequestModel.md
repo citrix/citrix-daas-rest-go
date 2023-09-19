@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResetPassword** | Pointer to **bool** | Indicates whether the machine account password should be reset. | [optional] 
-**Password** | Pointer to **string** | The current password for the machine account, in the format specified by PasswordFormat. | [optional] 
+**ResetPassword** | Pointer to **NullableBool** | Indicates whether the machine account password should be reset. | [optional] 
+**Password** | Pointer to **NullableString** | The current password for the machine account, in the format specified by PasswordFormat. | [optional] 
 **PasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetResetPassword sets ResetPassword field to given value.
 
 HasResetPassword returns a boolean if a field has been set.
 
+### SetResetPasswordNil
+
+`func (o *UpdateMachineAccountRequestModel) SetResetPasswordNil(b bool)`
+
+ SetResetPasswordNil sets the value for ResetPassword to be an explicit nil
+
+### UnsetResetPassword
+`func (o *UpdateMachineAccountRequestModel) UnsetResetPassword()`
+
+UnsetResetPassword ensures that no value is present for ResetPassword, not even an explicit nil
 ### GetPassword
 
 `func (o *UpdateMachineAccountRequestModel) GetPassword() string`
@@ -77,6 +87,16 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
+### SetPasswordNil
+
+`func (o *UpdateMachineAccountRequestModel) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *UpdateMachineAccountRequestModel) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetPasswordFormat
 
 `func (o *UpdateMachineAccountRequestModel) GetPasswordFormat() IdentityPasswordFormat`

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the tag. | 
 **Id** | **string** | Id of the tag. Used to be: Guid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | 
-**Description** | Pointer to **string** | Description of the tag. | [optional] 
-**Uid** | Pointer to **int32** | &#x60;DEPRECATED&#x60; DEPRECATED.  Use Id. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the tag. | [optional] 
+**Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED&#x60; DEPRECATED.  Use Id. | [optional] 
 **IsUsedByGpo** | Pointer to **bool** | Used by Gpo or not. | [optional] 
 **NumMachines** | **int32** | Number of machines the tag is applied to, within the context of the query. | 
 **NumApplications** | **int32** | Number of applications the tag is applied to, within the context of the query. | 
@@ -102,6 +102,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *TagResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *TagResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetUid
 
 `func (o *TagResponseModel) GetUid() int32`
@@ -127,6 +137,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *TagResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *TagResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetIsUsedByGpo
 
 `func (o *TagResponseModel) GetIsUsedByGpo() bool`
@@ -322,6 +342,16 @@ SetScopeReferences sets ScopeReferences field to given value.
 
 HasScopeReferences returns a boolean if a field has been set.
 
+### SetScopeReferencesNil
+
+`func (o *TagResponseModel) SetScopeReferencesNil(b bool)`
+
+ SetScopeReferencesNil sets the value for ScopeReferences to be an explicit nil
+
+### UnsetScopeReferences
+`func (o *TagResponseModel) UnsetScopeReferences()`
+
+UnsetScopeReferences ensures that no value is present for ScopeReferences, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

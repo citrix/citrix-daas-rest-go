@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **BuildNumber** | Pointer to **int32** | OS build number. | [optional] 
 **ProductType** | Pointer to [**ProductType**](ProductType.md) |  | [optional] 
 **SuiteMask** | Pointer to [**SuiteMask**](SuiteMask.md) |  | [optional] 
-**ReleaseId** | Pointer to **string** | OS release Id. It is read from registry and available for Windows 10 and higher. | [optional] 
-**UpdateBuildRevision** | Pointer to **string** | OS update build revision number. It is read from registry and available for Windows 10 and higher. | [optional] 
-**DisplayVersion** | Pointer to **string** | OS display version. It is read from registry and available for Windows 10 and higher. | [optional] 
+**ReleaseId** | Pointer to **NullableString** | OS release Id. It is read from registry and available for Windows 10 and higher. | [optional] 
+**UpdateBuildRevision** | Pointer to **NullableString** | OS update build revision number. It is read from registry and available for Windows 10 and higher. | [optional] 
+**DisplayVersion** | Pointer to **NullableString** | OS display version. It is read from registry and available for Windows 10 and higher. | [optional] 
 **SessionSupport** | Pointer to [**SessionSupport**](SessionSupport.md) |  | [optional] 
 
 ## Methods
@@ -209,6 +209,16 @@ SetReleaseId sets ReleaseId field to given value.
 
 HasReleaseId returns a boolean if a field has been set.
 
+### SetReleaseIdNil
+
+`func (o *OperatingSystemInfoResponseModel) SetReleaseIdNil(b bool)`
+
+ SetReleaseIdNil sets the value for ReleaseId to be an explicit nil
+
+### UnsetReleaseId
+`func (o *OperatingSystemInfoResponseModel) UnsetReleaseId()`
+
+UnsetReleaseId ensures that no value is present for ReleaseId, not even an explicit nil
 ### GetUpdateBuildRevision
 
 `func (o *OperatingSystemInfoResponseModel) GetUpdateBuildRevision() string`
@@ -234,6 +244,16 @@ SetUpdateBuildRevision sets UpdateBuildRevision field to given value.
 
 HasUpdateBuildRevision returns a boolean if a field has been set.
 
+### SetUpdateBuildRevisionNil
+
+`func (o *OperatingSystemInfoResponseModel) SetUpdateBuildRevisionNil(b bool)`
+
+ SetUpdateBuildRevisionNil sets the value for UpdateBuildRevision to be an explicit nil
+
+### UnsetUpdateBuildRevision
+`func (o *OperatingSystemInfoResponseModel) UnsetUpdateBuildRevision()`
+
+UnsetUpdateBuildRevision ensures that no value is present for UpdateBuildRevision, not even an explicit nil
 ### GetDisplayVersion
 
 `func (o *OperatingSystemInfoResponseModel) GetDisplayVersion() string`
@@ -259,6 +279,16 @@ SetDisplayVersion sets DisplayVersion field to given value.
 
 HasDisplayVersion returns a boolean if a field has been set.
 
+### SetDisplayVersionNil
+
+`func (o *OperatingSystemInfoResponseModel) SetDisplayVersionNil(b bool)`
+
+ SetDisplayVersionNil sets the value for DisplayVersion to be an explicit nil
+
+### UnsetDisplayVersion
+`func (o *OperatingSystemInfoResponseModel) UnsetDisplayVersion()`
+
+UnsetDisplayVersion ensures that no value is present for DisplayVersion, not even an explicit nil
 ### GetSessionSupport
 
 `func (o *OperatingSystemInfoResponseModel) GetSessionSupport() SessionSupport`

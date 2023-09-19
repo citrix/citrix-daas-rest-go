@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Scope** | [**AdministratorRightResponseModelScope**](AdministratorRightResponseModelScope.md) |  | 
-**Role** | [**AdministratorRightResponseModelRole**](AdministratorRightResponseModelRole.md) |  | 
+**Scope** | [**ScopeResponseModel**](ScopeResponseModel.md) |  | 
+**Role** | [**RoleResponseModel**](RoleResponseModel.md) |  | 
 
 ## Methods
 
 ### NewAdministratorRightResponseModel
 
-`func NewAdministratorRightResponseModel(scope AdministratorRightResponseModelScope, role AdministratorRightResponseModelRole, ) *AdministratorRightResponseModel`
+`func NewAdministratorRightResponseModel(scope ScopeResponseModel, role RoleResponseModel, ) *AdministratorRightResponseModel`
 
 NewAdministratorRightResponseModel instantiates a new AdministratorRightResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -28,40 +28,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetScope
 
-`func (o *AdministratorRightResponseModel) GetScope() AdministratorRightResponseModelScope`
+`func (o *AdministratorRightResponseModel) GetScope() ScopeResponseModel`
 
 GetScope returns the Scope field if non-nil, zero value otherwise.
 
 ### GetScopeOk
 
-`func (o *AdministratorRightResponseModel) GetScopeOk() (*AdministratorRightResponseModelScope, bool)`
+`func (o *AdministratorRightResponseModel) GetScopeOk() (*ScopeResponseModel, bool)`
 
 GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScope
 
-`func (o *AdministratorRightResponseModel) SetScope(v AdministratorRightResponseModelScope)`
+`func (o *AdministratorRightResponseModel) SetScope(v ScopeResponseModel)`
 
 SetScope sets Scope field to given value.
 
 
 ### GetRole
 
-`func (o *AdministratorRightResponseModel) GetRole() AdministratorRightResponseModelRole`
+`func (o *AdministratorRightResponseModel) GetRole() RoleResponseModel`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *AdministratorRightResponseModel) GetRoleOk() (*AdministratorRightResponseModelRole, bool)`
+`func (o *AdministratorRightResponseModel) GetRoleOk() (*RoleResponseModel, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *AdministratorRightResponseModel) SetRole(v AdministratorRightResponseModelRole)`
+`func (o *AdministratorRightResponseModel) SetRole(v RoleResponseModel)`
 
 SetRole sets Role field to given value.
 

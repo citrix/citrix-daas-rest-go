@@ -4,33 +4,33 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of the hypervisor to create.  Optional; if not specified, will not be changed. | [optional] 
-**InMaintenanceMode** | Pointer to **bool** | Specifies whether the hypervisor is in maintenance mode, which disables all communication between XenApp &amp; XenDesktop and the Hypervisor.  Optional; if not specified, will not be changed. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the hypervisor to create.  Optional; if not specified, will not be changed. | [optional] 
+**InMaintenanceMode** | Pointer to **NullableBool** | Specifies whether the hypervisor is in maintenance mode, which disables all communication between XenApp &amp; XenDesktop and the Hypervisor.  Optional; if not specified, will not be changed. | [optional] 
 **Scopes** | Pointer to **[]string** | Administrative scopes which the newly created hypervisor will be a part of. If not specified, will not be changed. The \&quot;All\&quot; scope, and any tenant scopes, are implicit and cannot be removed.  To remove from all non-implicit scopes, specify an empty array ([]). Specifying tenant scopes is equivalent to specifying the Tenants property and is subject to the same constraints. | [optional] 
 **Tenants** | Pointer to **[]string** | Tenants to associate with the hypervisor. | [optional] 
-**MaxAbsoluteActiveActions** | Pointer to **int32** | Maximum number of actions that can execute in parallel on the hypervisor.  Optional; if not specified, will not be changed. | [optional] 
-**MaxAbsoluteNewActionsPerMinute** | Pointer to **int32** | Maximum number of actions that can be started on the hypervisor per-minute.  Optional; if not specified, will not be changed. | [optional] 
-**MaxPowerActionsPercentageOfMachines** | Pointer to **int32** | Maximum percentage of machines on the hypervisor which can have their power state changed simultaneously.  Optional; if not specified, will not be changed. | [optional] 
-**ConnectionOptions** | Pointer to **string** | Connection options to use for the hypervisor.  Optional; if not specified, will not be changed.  May be removed by specifying an empty string (&#x60;\&quot;\&quot;&#x60;). | [optional] 
+**MaxAbsoluteActiveActions** | Pointer to **NullableInt32** | Maximum number of actions that can execute in parallel on the hypervisor.  Optional; if not specified, will not be changed. | [optional] 
+**MaxAbsoluteNewActionsPerMinute** | Pointer to **NullableInt32** | Maximum number of actions that can be started on the hypervisor per-minute.  Optional; if not specified, will not be changed. | [optional] 
+**MaxPowerActionsPercentageOfMachines** | Pointer to **NullableInt32** | Maximum percentage of machines on the hypervisor which can have their power state changed simultaneously.  Optional; if not specified, will not be changed. | [optional] 
+**ConnectionOptions** | Pointer to **NullableString** | Connection options to use for the hypervisor.  Optional; if not specified, will not be changed.  May be removed by specifying an empty string (&#x60;\&quot;\&quot;&#x60;). | [optional] 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor connection. When set the property value equal to null/empty means to remove this property. | [optional] 
-**ApiKey** | Pointer to **string** | The API key used to authenticate with the AWS APIs.  Optional.  If not specified, will not be changed.  If specified, the SecretKey must also be specified. | [optional] 
-**SecretKey** | Pointer to **string** | The secret key used to authenticate with the AWS APIs.  Optional. Must be specified in the format indicated by SecretKeyFormat. | [optional] 
+**ApiKey** | Pointer to **NullableString** | The API key used to authenticate with the AWS APIs.  Optional.  If not specified, will not be changed.  If specified, the SecretKey must also be specified. | [optional] 
+**SecretKey** | Pointer to **NullableString** | The secret key used to authenticate with the AWS APIs.  Optional. Must be specified in the format indicated by SecretKeyFormat. | [optional] 
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
-**MaximumConcurrentProvisioningOperations** | Pointer to **int32** | Maximum number of concurrent AWS provisioning operations. Optional.  If not specified, will not be changed. | [optional] 
-**ApplicationId** | Pointer to **string** | Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified. | [optional] 
-**ApplicationSecret** | Pointer to **string** | The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat. | [optional] 
+**MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | Maximum number of concurrent AWS provisioning operations. Optional.  If not specified, will not be changed. | [optional] 
+**ApplicationId** | Pointer to **NullableString** | Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified. | [optional] 
+**ApplicationSecret** | Pointer to **NullableString** | The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
-**CustomProperties** | Pointer to **string** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
-**ServiceAccountId** | Pointer to **string** | The service account ID used to access the Google Cloud APIs. Optional.  If not specified, will not be changed.  If specified, ServiceAccountCredentials must also be specified. | [optional] 
-**ServiceAccountCredentials** | Pointer to **string** | the JSON-encoded service account credentials used to access the Google Cloud APIs.  Optional.  If not specified, will not be changed.  If specified, must be in the format indicated by ServiceAccountCredentialsFormat. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
+**ServiceAccountId** | Pointer to **NullableString** | The service account ID used to access the Google Cloud APIs. Optional.  If not specified, will not be changed.  If specified, ServiceAccountCredentials must also be specified. | [optional] 
+**ServiceAccountCredentials** | Pointer to **NullableString** | the JSON-encoded service account credentials used to access the Google Cloud APIs.  Optional.  If not specified, will not be changed.  If specified, must be in the format indicated by ServiceAccountCredentialsFormat. | [optional] 
 **ServiceAccountCredentialsFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
-**UserName** | Pointer to **string** | Hypervisor user name.  Optional.  If not specified, will not be changed.  If specified, Password must also be specified. | [optional] 
-**Password** | Pointer to **string** | Hypervisor password.  Optional.  If specified, must be in the format indicated by PasswordFormat. | [optional] 
+**UserName** | Pointer to **NullableString** | Hypervisor user name.  Optional.  If not specified, will not be changed.  If specified, Password must also be specified. | [optional] 
+**Password** | Pointer to **NullableString** | Hypervisor password.  Optional.  If specified, must be in the format indicated by PasswordFormat. | [optional] 
 **PasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Addresses** | **[]string** | Hypervisor address(es).  Optional.  If not specified, will not be changed. | 
 **SslThumbprints** | Pointer to **[]string** | SSL certificate thumbprints to consider acceptable for this connection.  Optional.  If not specified, will not be changed.  To remove previously specified values, specify an empty array (&#x60;[]&#x60;). | [optional] 
-**SccmWakeUpProxy** | Pointer to **bool** | Specifies whether to use Microsoft System Center Configuration Manager 2012 SP1 Wake-up Proxy for power management.  Optional.  If not specified, will not be changed. | [optional] 
+**SccmWakeUpProxy** | Pointer to **NullableBool** | Specifies whether to use Microsoft System Center Configuration Manager 2012 SP1 Wake-up Proxy for power management.  Optional.  If not specified, will not be changed. | [optional] 
 **WakeOnLanPackets** | Pointer to [**WakeOnLanTransmission**](WakeOnLanTransmission.md) |  | [optional] 
 **ServiceAccountCredential** | Pointer to **string** | The private key string to access the Oracle Cloud Infrastructure APIs. Required. Must be specified in the format indicated by ServiceAccountCredentialFormat. | [optional] 
 **ServiceAccountCredentialFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -80,6 +80,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetInMaintenanceMode
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetInMaintenanceMode() bool`
@@ -105,6 +115,16 @@ SetInMaintenanceMode sets InMaintenanceMode field to given value.
 
 HasInMaintenanceMode returns a boolean if a field has been set.
 
+### SetInMaintenanceModeNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetInMaintenanceModeNil(b bool)`
+
+ SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
+
+### UnsetInMaintenanceMode
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetInMaintenanceMode()`
+
+UnsetInMaintenanceMode ensures that no value is present for InMaintenanceMode, not even an explicit nil
 ### GetScopes
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetScopes() []string`
@@ -130,6 +150,16 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
+### SetScopesNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetTenants
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetTenants() []string`
@@ -155,6 +185,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetMaxAbsoluteActiveActions
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetMaxAbsoluteActiveActions() int32`
@@ -180,6 +220,16 @@ SetMaxAbsoluteActiveActions sets MaxAbsoluteActiveActions field to given value.
 
 HasMaxAbsoluteActiveActions returns a boolean if a field has been set.
 
+### SetMaxAbsoluteActiveActionsNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetMaxAbsoluteActiveActionsNil(b bool)`
+
+ SetMaxAbsoluteActiveActionsNil sets the value for MaxAbsoluteActiveActions to be an explicit nil
+
+### UnsetMaxAbsoluteActiveActions
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetMaxAbsoluteActiveActions()`
+
+UnsetMaxAbsoluteActiveActions ensures that no value is present for MaxAbsoluteActiveActions, not even an explicit nil
 ### GetMaxAbsoluteNewActionsPerMinute
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetMaxAbsoluteNewActionsPerMinute() int32`
@@ -205,6 +255,16 @@ SetMaxAbsoluteNewActionsPerMinute sets MaxAbsoluteNewActionsPerMinute field to g
 
 HasMaxAbsoluteNewActionsPerMinute returns a boolean if a field has been set.
 
+### SetMaxAbsoluteNewActionsPerMinuteNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetMaxAbsoluteNewActionsPerMinuteNil(b bool)`
+
+ SetMaxAbsoluteNewActionsPerMinuteNil sets the value for MaxAbsoluteNewActionsPerMinute to be an explicit nil
+
+### UnsetMaxAbsoluteNewActionsPerMinute
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetMaxAbsoluteNewActionsPerMinute()`
+
+UnsetMaxAbsoluteNewActionsPerMinute ensures that no value is present for MaxAbsoluteNewActionsPerMinute, not even an explicit nil
 ### GetMaxPowerActionsPercentageOfMachines
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetMaxPowerActionsPercentageOfMachines() int32`
@@ -230,6 +290,16 @@ SetMaxPowerActionsPercentageOfMachines sets MaxPowerActionsPercentageOfMachines 
 
 HasMaxPowerActionsPercentageOfMachines returns a boolean if a field has been set.
 
+### SetMaxPowerActionsPercentageOfMachinesNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetMaxPowerActionsPercentageOfMachinesNil(b bool)`
+
+ SetMaxPowerActionsPercentageOfMachinesNil sets the value for MaxPowerActionsPercentageOfMachines to be an explicit nil
+
+### UnsetMaxPowerActionsPercentageOfMachines
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetMaxPowerActionsPercentageOfMachines()`
+
+UnsetMaxPowerActionsPercentageOfMachines ensures that no value is present for MaxPowerActionsPercentageOfMachines, not even an explicit nil
 ### GetConnectionOptions
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetConnectionOptions() string`
@@ -255,6 +325,16 @@ SetConnectionOptions sets ConnectionOptions field to given value.
 
 HasConnectionOptions returns a boolean if a field has been set.
 
+### SetConnectionOptionsNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetConnectionOptionsNil(b bool)`
+
+ SetConnectionOptionsNil sets the value for ConnectionOptions to be an explicit nil
+
+### UnsetConnectionOptions
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetConnectionOptions()`
+
+UnsetConnectionOptions ensures that no value is present for ConnectionOptions, not even an explicit nil
 ### GetConnectionType
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetConnectionType() HypervisorConnectionType`
@@ -300,6 +380,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetApiKey
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetApiKey() string`
@@ -325,6 +415,16 @@ SetApiKey sets ApiKey field to given value.
 
 HasApiKey returns a boolean if a field has been set.
 
+### SetApiKeyNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetApiKeyNil(b bool)`
+
+ SetApiKeyNil sets the value for ApiKey to be an explicit nil
+
+### UnsetApiKey
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetApiKey()`
+
+UnsetApiKey ensures that no value is present for ApiKey, not even an explicit nil
 ### GetSecretKey
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetSecretKey() string`
@@ -350,6 +450,16 @@ SetSecretKey sets SecretKey field to given value.
 
 HasSecretKey returns a boolean if a field has been set.
 
+### SetSecretKeyNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetSecretKeyNil(b bool)`
+
+ SetSecretKeyNil sets the value for SecretKey to be an explicit nil
+
+### UnsetSecretKey
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetSecretKey()`
+
+UnsetSecretKey ensures that no value is present for SecretKey, not even an explicit nil
 ### GetSecretKeyFormat
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetSecretKeyFormat() IdentityPasswordFormat`
@@ -400,6 +510,16 @@ SetMaximumConcurrentProvisioningOperations sets MaximumConcurrentProvisioningOpe
 
 HasMaximumConcurrentProvisioningOperations returns a boolean if a field has been set.
 
+### SetMaximumConcurrentProvisioningOperationsNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetMaximumConcurrentProvisioningOperationsNil(b bool)`
+
+ SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
+
+### UnsetMaximumConcurrentProvisioningOperations
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetMaximumConcurrentProvisioningOperations()`
+
+UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
 ### GetApplicationId
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetApplicationId() string`
@@ -425,6 +545,16 @@ SetApplicationId sets ApplicationId field to given value.
 
 HasApplicationId returns a boolean if a field has been set.
 
+### SetApplicationIdNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetApplicationIdNil(b bool)`
+
+ SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+
+### UnsetApplicationId
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetApplicationId()`
+
+UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
 ### GetApplicationSecret
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetApplicationSecret() string`
@@ -450,6 +580,16 @@ SetApplicationSecret sets ApplicationSecret field to given value.
 
 HasApplicationSecret returns a boolean if a field has been set.
 
+### SetApplicationSecretNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetApplicationSecretNil(b bool)`
+
+ SetApplicationSecretNil sets the value for ApplicationSecret to be an explicit nil
+
+### UnsetApplicationSecret
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetApplicationSecret()`
+
+UnsetApplicationSecret ensures that no value is present for ApplicationSecret, not even an explicit nil
 ### GetApplicationSecretFormat
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetApplicationSecretFormat() IdentityPasswordFormat`
@@ -500,6 +640,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetServiceAccountId
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetServiceAccountId() string`
@@ -525,6 +675,16 @@ SetServiceAccountId sets ServiceAccountId field to given value.
 
 HasServiceAccountId returns a boolean if a field has been set.
 
+### SetServiceAccountIdNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetServiceAccountIdNil(b bool)`
+
+ SetServiceAccountIdNil sets the value for ServiceAccountId to be an explicit nil
+
+### UnsetServiceAccountId
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetServiceAccountId()`
+
+UnsetServiceAccountId ensures that no value is present for ServiceAccountId, not even an explicit nil
 ### GetServiceAccountCredentials
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetServiceAccountCredentials() string`
@@ -550,6 +710,16 @@ SetServiceAccountCredentials sets ServiceAccountCredentials field to given value
 
 HasServiceAccountCredentials returns a boolean if a field has been set.
 
+### SetServiceAccountCredentialsNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetServiceAccountCredentialsNil(b bool)`
+
+ SetServiceAccountCredentialsNil sets the value for ServiceAccountCredentials to be an explicit nil
+
+### UnsetServiceAccountCredentials
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetServiceAccountCredentials()`
+
+UnsetServiceAccountCredentials ensures that no value is present for ServiceAccountCredentials, not even an explicit nil
 ### GetServiceAccountCredentialsFormat
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetServiceAccountCredentialsFormat() IdentityPasswordFormat`
@@ -600,6 +770,16 @@ SetUserName sets UserName field to given value.
 
 HasUserName returns a boolean if a field has been set.
 
+### SetUserNameNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetUserNameNil(b bool)`
+
+ SetUserNameNil sets the value for UserName to be an explicit nil
+
+### UnsetUserName
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetUserName()`
+
+UnsetUserName ensures that no value is present for UserName, not even an explicit nil
 ### GetPassword
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetPassword() string`
@@ -625,6 +805,16 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
+### SetPasswordNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetPasswordFormat
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetPasswordFormat() IdentityPasswordFormat`
@@ -695,6 +885,16 @@ SetSslThumbprints sets SslThumbprints field to given value.
 
 HasSslThumbprints returns a boolean if a field has been set.
 
+### SetSslThumbprintsNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetSslThumbprintsNil(b bool)`
+
+ SetSslThumbprintsNil sets the value for SslThumbprints to be an explicit nil
+
+### UnsetSslThumbprints
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetSslThumbprints()`
+
+UnsetSslThumbprints ensures that no value is present for SslThumbprints, not even an explicit nil
 ### GetSccmWakeUpProxy
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetSccmWakeUpProxy() bool`
@@ -720,6 +920,16 @@ SetSccmWakeUpProxy sets SccmWakeUpProxy field to given value.
 
 HasSccmWakeUpProxy returns a boolean if a field has been set.
 
+### SetSccmWakeUpProxyNil
+
+`func (o *EditHypervisorWOLConnectionRequestModel) SetSccmWakeUpProxyNil(b bool)`
+
+ SetSccmWakeUpProxyNil sets the value for SccmWakeUpProxy to be an explicit nil
+
+### UnsetSccmWakeUpProxy
+`func (o *EditHypervisorWOLConnectionRequestModel) UnsetSccmWakeUpProxy()`
+
+UnsetSccmWakeUpProxy ensures that no value is present for SccmWakeUpProxy, not even an explicit nil
 ### GetWakeOnLanPackets
 
 `func (o *EditHypervisorWOLConnectionRequestModel) GetWakeOnLanPackets() WakeOnLanTransmission`

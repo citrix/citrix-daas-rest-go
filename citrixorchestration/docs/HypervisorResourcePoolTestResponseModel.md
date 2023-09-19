@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourcePool** | [**HypervisorResourcePoolTestResponseModelResourcePool**](HypervisorResourcePoolTestResponseModelResourcePool.md) |  | 
+**ResourcePool** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **NumPassed** | **int32** | The number of tests that passed. | 
 **NumWarnings** | **int32** | The number of warnings that were found. | 
 **NumFailures** | **int32** | The number of tests that failed. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewHypervisorResourcePoolTestResponseModel
 
-`func NewHypervisorResourcePoolTestResponseModel(resourcePool HypervisorResourcePoolTestResponseModelResourcePool, numPassed int32, numWarnings int32, numFailures int32, ) *HypervisorResourcePoolTestResponseModel`
+`func NewHypervisorResourcePoolTestResponseModel(resourcePool RefResponseModel, numPassed int32, numWarnings int32, numFailures int32, ) *HypervisorResourcePoolTestResponseModel`
 
 NewHypervisorResourcePoolTestResponseModel instantiates a new HypervisorResourcePoolTestResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetResourcePool
 
-`func (o *HypervisorResourcePoolTestResponseModel) GetResourcePool() HypervisorResourcePoolTestResponseModelResourcePool`
+`func (o *HypervisorResourcePoolTestResponseModel) GetResourcePool() RefResponseModel`
 
 GetResourcePool returns the ResourcePool field if non-nil, zero value otherwise.
 
 ### GetResourcePoolOk
 
-`func (o *HypervisorResourcePoolTestResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolTestResponseModelResourcePool, bool)`
+`func (o *HypervisorResourcePoolTestResponseModel) GetResourcePoolOk() (*RefResponseModel, bool)`
 
 GetResourcePoolOk returns a tuple with the ResourcePool field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourcePool
 
-`func (o *HypervisorResourcePoolTestResponseModel) SetResourcePool(v HypervisorResourcePoolTestResponseModelResourcePool)`
+`func (o *HypervisorResourcePoolTestResponseModel) SetResourcePool(v RefResponseModel)`
 
 SetResourcePool sets ResourcePool field to given value.
 

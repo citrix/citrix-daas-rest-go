@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ContentType** | Pointer to **string** | Content-type.  (Mime type) | [optional] 
+**ContentType** | Pointer to **NullableString** | Content-type.  (Mime type) | [optional] 
 **ExtensionName** | **string** | The extension name for the file type association. For example, \&quot;.txt\&quot; or \&quot;.doc\&quot;. | 
-**Description** | Pointer to **string** | The description of the handler for the file type association. | [optional] 
+**Description** | Pointer to **NullableString** | The description of the handler for the file type association. | [optional] 
 **HandlerName** | **string** | The name of the handler for the file type association (as seen in the Registry). For example, \&quot;TXTFILE\&quot; or \&quot;Word.Document.8\&quot;. | 
-**OpenArguments** | Pointer to **string** | The arguments for the open command that the handler should use. For example, \&quot;%1\&quot;. | [optional] 
+**OpenArguments** | Pointer to **NullableString** | The arguments for the open command that the handler should use. For example, \&quot;%1\&quot;. | [optional] 
 **Enabled** | **bool** | Indicates if the file type association is enabled; i.e. whether users who receive the application will launch files of this type using the published application. | 
 **IsImported** | **bool** | Indicates if the file type association was imported, as opposed to explicitly added.  File type associations which are not imported will be deleted when disabled. | 
 
@@ -56,6 +56,16 @@ SetContentType sets ContentType field to given value.
 
 HasContentType returns a boolean if a field has been set.
 
+### SetContentTypeNil
+
+`func (o *FtaResponseModel) SetContentTypeNil(b bool)`
+
+ SetContentTypeNil sets the value for ContentType to be an explicit nil
+
+### UnsetContentType
+`func (o *FtaResponseModel) UnsetContentType()`
+
+UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetExtensionName
 
 `func (o *FtaResponseModel) GetExtensionName() string`
@@ -101,6 +111,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *FtaResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *FtaResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetHandlerName
 
 `func (o *FtaResponseModel) GetHandlerName() string`
@@ -146,6 +166,16 @@ SetOpenArguments sets OpenArguments field to given value.
 
 HasOpenArguments returns a boolean if a field has been set.
 
+### SetOpenArgumentsNil
+
+`func (o *FtaResponseModel) SetOpenArgumentsNil(b bool)`
+
+ SetOpenArgumentsNil sets the value for OpenArguments to be an explicit nil
+
+### UnsetOpenArguments
+`func (o *FtaResponseModel) UnsetOpenArguments()`
+
+UnsetOpenArguments ensures that no value is present for OpenArguments, not even an explicit nil
 ### GetEnabled
 
 `func (o *FtaResponseModel) GetEnabled() bool`

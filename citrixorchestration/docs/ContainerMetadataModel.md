@@ -51,6 +51,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *ContainerMetadataModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ContainerMetadataModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetContainerType
 
 `func (o *ContainerMetadataModel) GetContainerType() ContainerMetadataType`

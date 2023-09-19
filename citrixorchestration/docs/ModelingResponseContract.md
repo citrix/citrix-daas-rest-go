@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Gets or sets Name | [optional] 
-**User** | Pointer to **string** | Gets or sets User | [optional] 
-**Machine** | Pointer to **string** | Gets or sets Machine | [optional] 
-**Result** | Pointer to [**ModelingResponseContractResult**](ModelingResponseContractResult.md) |  | [optional] 
+**Name** | Pointer to **NullableString** | Gets or sets Name | [optional] 
+**User** | Pointer to **NullableString** | Gets or sets User | [optional] 
+**Machine** | Pointer to **NullableString** | Gets or sets Machine | [optional] 
+**Result** | Pointer to [**ModelingResultContract**](ModelingResultContract.md) |  | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ModelingResponseContract) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ModelingResponseContract) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetUser
 
 `func (o *ModelingResponseContract) GetUser() string`
@@ -78,6 +88,16 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
+### SetUserNil
+
+`func (o *ModelingResponseContract) SetUserNil(b bool)`
+
+ SetUserNil sets the value for User to be an explicit nil
+
+### UnsetUser
+`func (o *ModelingResponseContract) UnsetUser()`
+
+UnsetUser ensures that no value is present for User, not even an explicit nil
 ### GetMachine
 
 `func (o *ModelingResponseContract) GetMachine() string`
@@ -103,22 +123,32 @@ SetMachine sets Machine field to given value.
 
 HasMachine returns a boolean if a field has been set.
 
+### SetMachineNil
+
+`func (o *ModelingResponseContract) SetMachineNil(b bool)`
+
+ SetMachineNil sets the value for Machine to be an explicit nil
+
+### UnsetMachine
+`func (o *ModelingResponseContract) UnsetMachine()`
+
+UnsetMachine ensures that no value is present for Machine, not even an explicit nil
 ### GetResult
 
-`func (o *ModelingResponseContract) GetResult() ModelingResponseContractResult`
+`func (o *ModelingResponseContract) GetResult() ModelingResultContract`
 
 GetResult returns the Result field if non-nil, zero value otherwise.
 
 ### GetResultOk
 
-`func (o *ModelingResponseContract) GetResultOk() (*ModelingResponseContractResult, bool)`
+`func (o *ModelingResponseContract) GetResultOk() (*ModelingResultContract, bool)`
 
 GetResultOk returns a tuple with the Result field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResult
 
-`func (o *ModelingResponseContract) SetResult(v ModelingResponseContractResult)`
+`func (o *ModelingResponseContract) SetResult(v ModelingResultContract)`
 
 SetResult sets Result field to given value.
 

@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of the logged operation. | 
-**AdminMachineIP** | Pointer to **string** | IP address of the admin machine from which the operation was performed. | [optional] 
-**EndTime** | Pointer to **string** | Time when the operation ended. If the operation is incomplete, will be null. | [optional] 
-**FormattedEndTime** | Pointer to **string** | Formatted time when the operation ended. If the operation is incomplete, will be null. RFC 3339 compatible format. | [optional] 
-**IsSuccessful** | Pointer to **bool** | Indicates whether the operation completed successfully.  If the operation is incomplete, will be null. | [optional] 
+**AdminMachineIP** | Pointer to **NullableString** | IP address of the admin machine from which the operation was performed. | [optional] 
+**EndTime** | Pointer to **NullableString** | Time when the operation ended. If the operation is incomplete, will be null. | [optional] 
+**FormattedEndTime** | Pointer to **NullableString** | Formatted time when the operation ended. If the operation is incomplete, will be null. RFC 3339 compatible format. | [optional] 
+**IsSuccessful** | Pointer to **NullableBool** | Indicates whether the operation completed successfully.  If the operation is incomplete, will be null. | [optional] 
 **OperationType** | [**LogOperationType**](LogOperationType.md) |  | 
 **Parameters** | [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Operation parameters. It is a list of parameter names. | 
 **Source** | **string** | Source of the operation. | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **FormattedStartTime** | **string** | Formatted time when the operation started. RFC 3339 compatible format. | 
 **TargetTypes** | **[]string** | The type(s) of object which were the target of the configuration change. For example, \&quot;Session\&quot; or \&quot;Machine\&quot;. | 
 **Text** | **string** | Human-readable description of the change. | 
-**User** | Pointer to **string** | User who performed the change. | [optional] 
+**User** | Pointer to **NullableString** | User who performed the change. | [optional] 
 
 ## Methods
 
@@ -82,6 +82,16 @@ SetAdminMachineIP sets AdminMachineIP field to given value.
 
 HasAdminMachineIP returns a boolean if a field has been set.
 
+### SetAdminMachineIPNil
+
+`func (o *LogOperationResponseModel) SetAdminMachineIPNil(b bool)`
+
+ SetAdminMachineIPNil sets the value for AdminMachineIP to be an explicit nil
+
+### UnsetAdminMachineIP
+`func (o *LogOperationResponseModel) UnsetAdminMachineIP()`
+
+UnsetAdminMachineIP ensures that no value is present for AdminMachineIP, not even an explicit nil
 ### GetEndTime
 
 `func (o *LogOperationResponseModel) GetEndTime() string`
@@ -107,6 +117,16 @@ SetEndTime sets EndTime field to given value.
 
 HasEndTime returns a boolean if a field has been set.
 
+### SetEndTimeNil
+
+`func (o *LogOperationResponseModel) SetEndTimeNil(b bool)`
+
+ SetEndTimeNil sets the value for EndTime to be an explicit nil
+
+### UnsetEndTime
+`func (o *LogOperationResponseModel) UnsetEndTime()`
+
+UnsetEndTime ensures that no value is present for EndTime, not even an explicit nil
 ### GetFormattedEndTime
 
 `func (o *LogOperationResponseModel) GetFormattedEndTime() string`
@@ -132,6 +152,16 @@ SetFormattedEndTime sets FormattedEndTime field to given value.
 
 HasFormattedEndTime returns a boolean if a field has been set.
 
+### SetFormattedEndTimeNil
+
+`func (o *LogOperationResponseModel) SetFormattedEndTimeNil(b bool)`
+
+ SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
+
+### UnsetFormattedEndTime
+`func (o *LogOperationResponseModel) UnsetFormattedEndTime()`
+
+UnsetFormattedEndTime ensures that no value is present for FormattedEndTime, not even an explicit nil
 ### GetIsSuccessful
 
 `func (o *LogOperationResponseModel) GetIsSuccessful() bool`
@@ -157,6 +187,16 @@ SetIsSuccessful sets IsSuccessful field to given value.
 
 HasIsSuccessful returns a boolean if a field has been set.
 
+### SetIsSuccessfulNil
+
+`func (o *LogOperationResponseModel) SetIsSuccessfulNil(b bool)`
+
+ SetIsSuccessfulNil sets the value for IsSuccessful to be an explicit nil
+
+### UnsetIsSuccessful
+`func (o *LogOperationResponseModel) UnsetIsSuccessful()`
+
+UnsetIsSuccessful ensures that no value is present for IsSuccessful, not even an explicit nil
 ### GetOperationType
 
 `func (o *LogOperationResponseModel) GetOperationType() LogOperationType`
@@ -322,6 +362,16 @@ SetUser sets User field to given value.
 
 HasUser returns a boolean if a field has been set.
 
+### SetUserNil
+
+`func (o *LogOperationResponseModel) SetUserNil(b bool)`
+
+ SetUserNil sets the value for User to be an explicit nil
+
+### UnsetUser
+`func (o *LogOperationResponseModel) UnsetUser()`
+
+UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

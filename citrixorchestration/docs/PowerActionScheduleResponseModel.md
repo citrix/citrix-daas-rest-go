@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | Pointer to [**SupportedPowerAction**](SupportedPowerAction.md) |  | [optional] 
 **ActionDueTime** | Pointer to **time.Time** |  | [optional] 
-**DNSName** | Pointer to **string** |  | [optional] 
-**HostedMachineName** | Pointer to **string** |  | [optional] 
+**DNSName** | Pointer to **NullableString** |  | [optional] 
+**HostedMachineName** | Pointer to **NullableString** |  | [optional] 
 **HypervisorConnectionUid** | Pointer to **int32** |  | [optional] 
-**MachineName** | Pointer to **string** |  | [optional] 
+**MachineName** | Pointer to **NullableString** |  | [optional] 
 **Uid** | Pointer to **int64** |  | [optional] 
 
 ## Methods
@@ -106,6 +106,16 @@ SetDNSName sets DNSName field to given value.
 
 HasDNSName returns a boolean if a field has been set.
 
+### SetDNSNameNil
+
+`func (o *PowerActionScheduleResponseModel) SetDNSNameNil(b bool)`
+
+ SetDNSNameNil sets the value for DNSName to be an explicit nil
+
+### UnsetDNSName
+`func (o *PowerActionScheduleResponseModel) UnsetDNSName()`
+
+UnsetDNSName ensures that no value is present for DNSName, not even an explicit nil
 ### GetHostedMachineName
 
 `func (o *PowerActionScheduleResponseModel) GetHostedMachineName() string`
@@ -131,6 +141,16 @@ SetHostedMachineName sets HostedMachineName field to given value.
 
 HasHostedMachineName returns a boolean if a field has been set.
 
+### SetHostedMachineNameNil
+
+`func (o *PowerActionScheduleResponseModel) SetHostedMachineNameNil(b bool)`
+
+ SetHostedMachineNameNil sets the value for HostedMachineName to be an explicit nil
+
+### UnsetHostedMachineName
+`func (o *PowerActionScheduleResponseModel) UnsetHostedMachineName()`
+
+UnsetHostedMachineName ensures that no value is present for HostedMachineName, not even an explicit nil
 ### GetHypervisorConnectionUid
 
 `func (o *PowerActionScheduleResponseModel) GetHypervisorConnectionUid() int32`
@@ -181,6 +201,16 @@ SetMachineName sets MachineName field to given value.
 
 HasMachineName returns a boolean if a field has been set.
 
+### SetMachineNameNil
+
+`func (o *PowerActionScheduleResponseModel) SetMachineNameNil(b bool)`
+
+ SetMachineNameNil sets the value for MachineName to be an explicit nil
+
+### UnsetMachineName
+`func (o *PowerActionScheduleResponseModel) UnsetMachineName()`
+
+UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
 ### GetUid
 
 `func (o *PowerActionScheduleResponseModel) GetUid() int64`

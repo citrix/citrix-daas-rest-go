@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Product** | Pointer to **string** | XA or XD, no other values. | [optional] 
-**Version** | Pointer to **string** | One of the values in XaVersions or XdVersions. | [optional] 
-**Edition** | Pointer to **string** | MS or SS, no other values. | [optional] 
-**DisplayName** | Pointer to **string** | Display name. | [optional] 
+**Product** | Pointer to **NullableString** | XA or XD, no other values. | [optional] 
+**Version** | Pointer to **NullableString** | One of the values in XaVersions or XdVersions. | [optional] 
+**Edition** | Pointer to **NullableString** | MS or SS, no other values. | [optional] 
+**DisplayName** | Pointer to **NullableString** | Display name. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetProduct sets Product field to given value.
 
 HasProduct returns a boolean if a field has been set.
 
+### SetProductNil
+
+`func (o *VersionDetail) SetProductNil(b bool)`
+
+ SetProductNil sets the value for Product to be an explicit nil
+
+### UnsetProduct
+`func (o *VersionDetail) UnsetProduct()`
+
+UnsetProduct ensures that no value is present for Product, not even an explicit nil
 ### GetVersion
 
 `func (o *VersionDetail) GetVersion() string`
@@ -78,6 +88,16 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *VersionDetail) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *VersionDetail) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetEdition
 
 `func (o *VersionDetail) GetEdition() string`
@@ -103,6 +123,16 @@ SetEdition sets Edition field to given value.
 
 HasEdition returns a boolean if a field has been set.
 
+### SetEditionNil
+
+`func (o *VersionDetail) SetEditionNil(b bool)`
+
+ SetEditionNil sets the value for Edition to be an explicit nil
+
+### UnsetEdition
+`func (o *VersionDetail) UnsetEdition()`
+
+UnsetEdition ensures that no value is present for Edition, not even an explicit nil
 ### GetDisplayName
 
 `func (o *VersionDetail) GetDisplayName() string`
@@ -128,6 +158,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *VersionDetail) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *VersionDetail) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

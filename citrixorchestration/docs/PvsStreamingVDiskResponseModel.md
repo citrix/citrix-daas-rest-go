@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DiskLocatorId** | Pointer to **string** | Id of the PVS vDisk. | [optional] 
+**DiskLocatorId** | Pointer to **NullableString** | Id of the PVS vDisk. | [optional] 
 **DiskLocatorName** | **string** | Name of the PVS vDisk. | 
-**SiteId** | Pointer to **string** | Id of the PVS site. | [optional] 
-**SiteName** | Pointer to **string** | Name of the PVS site. | [optional] 
-**StoreId** | Pointer to **string** | Id of the PVS store. | [optional] 
-**StoreName** | Pointer to **string** | Name of the PVS store. | [optional] 
+**SiteId** | Pointer to **NullableString** | Id of the PVS site. | [optional] 
+**SiteName** | Pointer to **NullableString** | Name of the PVS site. | [optional] 
+**StoreId** | Pointer to **NullableString** | Id of the PVS store. | [optional] 
+**StoreName** | Pointer to **NullableString** | Name of the PVS store. | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetDiskLocatorId sets DiskLocatorId field to given value.
 
 HasDiskLocatorId returns a boolean if a field has been set.
 
+### SetDiskLocatorIdNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetDiskLocatorIdNil(b bool)`
+
+ SetDiskLocatorIdNil sets the value for DiskLocatorId to be an explicit nil
+
+### UnsetDiskLocatorId
+`func (o *PvsStreamingVDiskResponseModel) UnsetDiskLocatorId()`
+
+UnsetDiskLocatorId ensures that no value is present for DiskLocatorId, not even an explicit nil
 ### GetDiskLocatorName
 
 `func (o *PvsStreamingVDiskResponseModel) GetDiskLocatorName() string`
@@ -100,6 +110,16 @@ SetSiteId sets SiteId field to given value.
 
 HasSiteId returns a boolean if a field has been set.
 
+### SetSiteIdNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetSiteIdNil(b bool)`
+
+ SetSiteIdNil sets the value for SiteId to be an explicit nil
+
+### UnsetSiteId
+`func (o *PvsStreamingVDiskResponseModel) UnsetSiteId()`
+
+UnsetSiteId ensures that no value is present for SiteId, not even an explicit nil
 ### GetSiteName
 
 `func (o *PvsStreamingVDiskResponseModel) GetSiteName() string`
@@ -125,6 +145,16 @@ SetSiteName sets SiteName field to given value.
 
 HasSiteName returns a boolean if a field has been set.
 
+### SetSiteNameNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetSiteNameNil(b bool)`
+
+ SetSiteNameNil sets the value for SiteName to be an explicit nil
+
+### UnsetSiteName
+`func (o *PvsStreamingVDiskResponseModel) UnsetSiteName()`
+
+UnsetSiteName ensures that no value is present for SiteName, not even an explicit nil
 ### GetStoreId
 
 `func (o *PvsStreamingVDiskResponseModel) GetStoreId() string`
@@ -150,6 +180,16 @@ SetStoreId sets StoreId field to given value.
 
 HasStoreId returns a boolean if a field has been set.
 
+### SetStoreIdNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetStoreIdNil(b bool)`
+
+ SetStoreIdNil sets the value for StoreId to be an explicit nil
+
+### UnsetStoreId
+`func (o *PvsStreamingVDiskResponseModel) UnsetStoreId()`
+
+UnsetStoreId ensures that no value is present for StoreId, not even an explicit nil
 ### GetStoreName
 
 `func (o *PvsStreamingVDiskResponseModel) GetStoreName() string`
@@ -175,6 +215,16 @@ SetStoreName sets StoreName field to given value.
 
 HasStoreName returns a boolean if a field has been set.
 
+### SetStoreNameNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetStoreNameNil(b bool)`
+
+ SetStoreNameNil sets the value for StoreName to be an explicit nil
+
+### UnsetStoreName
+`func (o *PvsStreamingVDiskResponseModel) UnsetStoreName()`
+
+UnsetStoreName ensures that no value is present for StoreName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

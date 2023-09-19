@@ -50,6 +50,16 @@ SetNetworks sets Networks field to given value.
 
 HasNetworks returns a boolean if a field has been set.
 
+### SetNetworksNil
+
+`func (o *HypervisorResourcePoolPatchPreviewRequestModel) SetNetworksNil(b bool)`
+
+ SetNetworksNil sets the value for Networks to be an explicit nil
+
+### UnsetNetworks
+`func (o *HypervisorResourcePoolPatchPreviewRequestModel) UnsetNetworks()`
+
+UnsetNetworks ensures that no value is present for Networks, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

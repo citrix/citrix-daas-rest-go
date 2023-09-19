@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Notes** | Pointer to **string** | Notes              | [optional] 
-**ScheduleName** | Pointer to **string** | Schedule Name; for logging purposes only | [optional] 
+**Notes** | Pointer to **NullableString** | Notes              | [optional] 
+**ScheduleName** | Pointer to **NullableString** | Schedule Name; for logging purposes only | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *BackupRestoreDoBackupRequestModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *BackupRestoreDoBackupRequestModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetScheduleName
 
 `func (o *BackupRestoreDoBackupRequestModel) GetScheduleName() string`
@@ -76,6 +86,16 @@ SetScheduleName sets ScheduleName field to given value.
 
 HasScheduleName returns a boolean if a field has been set.
 
+### SetScheduleNameNil
+
+`func (o *BackupRestoreDoBackupRequestModel) SetScheduleNameNil(b bool)`
+
+ SetScheduleNameNil sets the value for ScheduleName to be an explicit nil
+
+### UnsetScheduleName
+`func (o *BackupRestoreDoBackupRequestModel) UnsetScheduleName()`
+
+UnsetScheduleName ensures that no value is present for ScheduleName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

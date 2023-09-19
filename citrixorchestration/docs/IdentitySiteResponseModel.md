@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The name associated with the site object. | [optional] 
-**Guid** | Pointer to **string** | The guid of the site. | [optional] 
+**Name** | Pointer to **NullableString** | The name associated with the site object. | [optional] 
+**Guid** | Pointer to **NullableString** | The guid of the site. | [optional] 
 **Subnets** | Pointer to [**[]IdentitySubnetResponseModel**](IdentitySubnetResponseModel.md) | The subnets in the site. | [optional] 
 **PossibleLookupFailure** | Pointer to **bool** |     For individual identity lookup, usually an exception will be thrown.      | [optional] 
 **PropertiesFetched** | **int32** | Properties fetched and populated in the Site object.  This is a bitfield indicating the fetched properties. | 
@@ -54,6 +54,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *IdentitySiteResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *IdentitySiteResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetGuid
 
 `func (o *IdentitySiteResponseModel) GetGuid() string`
@@ -79,6 +89,16 @@ SetGuid sets Guid field to given value.
 
 HasGuid returns a boolean if a field has been set.
 
+### SetGuidNil
+
+`func (o *IdentitySiteResponseModel) SetGuidNil(b bool)`
+
+ SetGuidNil sets the value for Guid to be an explicit nil
+
+### UnsetGuid
+`func (o *IdentitySiteResponseModel) UnsetGuid()`
+
+UnsetGuid ensures that no value is present for Guid, not even an explicit nil
 ### GetSubnets
 
 `func (o *IdentitySiteResponseModel) GetSubnets() []IdentitySubnetResponseModel`
@@ -104,6 +124,16 @@ SetSubnets sets Subnets field to given value.
 
 HasSubnets returns a boolean if a field has been set.
 
+### SetSubnetsNil
+
+`func (o *IdentitySiteResponseModel) SetSubnetsNil(b bool)`
+
+ SetSubnetsNil sets the value for Subnets to be an explicit nil
+
+### UnsetSubnets
+`func (o *IdentitySiteResponseModel) UnsetSubnets()`
+
+UnsetSubnets ensures that no value is present for Subnets, not even an explicit nil
 ### GetPossibleLookupFailure
 
 `func (o *IdentitySiteResponseModel) GetPossibleLookupFailure() bool`

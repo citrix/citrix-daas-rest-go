@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RawData** | **string** | Raw icon data, Base64-encoded. | 
-**FormattedData** | Pointer to **string** | Icon data in the requested format for display.  For example, if the caller requested \&quot;image/png;32x32x24\&quot; image format, then this will be a 32x32, 24bpp PNG-format image, Base64-encoded.  If the caller did not request an icon format, this will not be set. | [optional] 
+**FormattedData** | Pointer to **NullableString** | Icon data in the requested format for display.  For example, if the caller requested \&quot;image/png;32x32x24\&quot; image format, then this will be a 32x32, 24bpp PNG-format image, Base64-encoded.  If the caller did not request an icon format, this will not be set. | [optional] 
 **Id** | **string** | Id of the icon. | 
 **IsBuiltIn** | **bool** | Indicates if the icon is built-in (i.e. Citrix-provided).  The built-in icons can be used for applications or desktops that don&#39;t have their own icons. | 
-**Uid** | Pointer to **int32** | DEPRECATED.  Use Id. | [optional] 
+**Uid** | Pointer to **NullableInt32** | DEPRECATED.  Use Id. | [optional] 
 
 ## Methods
 
@@ -74,6 +74,16 @@ SetFormattedData sets FormattedData field to given value.
 
 HasFormattedData returns a boolean if a field has been set.
 
+### SetFormattedDataNil
+
+`func (o *IconResponseModel) SetFormattedDataNil(b bool)`
+
+ SetFormattedDataNil sets the value for FormattedData to be an explicit nil
+
+### UnsetFormattedData
+`func (o *IconResponseModel) UnsetFormattedData()`
+
+UnsetFormattedData ensures that no value is present for FormattedData, not even an explicit nil
 ### GetId
 
 `func (o *IconResponseModel) GetId() string`
@@ -139,6 +149,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *IconResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *IconResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

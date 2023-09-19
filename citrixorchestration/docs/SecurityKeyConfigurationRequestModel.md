@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key1** | Pointer to **string** | The first security key. | [optional] 
-**Key2** | Pointer to **string** | The second security key. | [optional] 
-**RequireKeyForSta** | Pointer to **bool** | Indicates whether to require a key to authenticate communications over the STA port. | [optional] 
-**RequireKeyForXml** | Pointer to **bool** | Indicates whether to require a key to authenticate communications over the XML port. | [optional] 
+**Key1** | Pointer to **NullableString** | The first security key. | [optional] 
+**Key2** | Pointer to **NullableString** | The second security key. | [optional] 
+**RequireKeyForSta** | Pointer to **NullableBool** | Indicates whether to require a key to authenticate communications over the STA port. | [optional] 
+**RequireKeyForXml** | Pointer to **NullableBool** | Indicates whether to require a key to authenticate communications over the XML port. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetKey1 sets Key1 field to given value.
 
 HasKey1 returns a boolean if a field has been set.
 
+### SetKey1Nil
+
+`func (o *SecurityKeyConfigurationRequestModel) SetKey1Nil(b bool)`
+
+ SetKey1Nil sets the value for Key1 to be an explicit nil
+
+### UnsetKey1
+`func (o *SecurityKeyConfigurationRequestModel) UnsetKey1()`
+
+UnsetKey1 ensures that no value is present for Key1, not even an explicit nil
 ### GetKey2
 
 `func (o *SecurityKeyConfigurationRequestModel) GetKey2() string`
@@ -78,6 +88,16 @@ SetKey2 sets Key2 field to given value.
 
 HasKey2 returns a boolean if a field has been set.
 
+### SetKey2Nil
+
+`func (o *SecurityKeyConfigurationRequestModel) SetKey2Nil(b bool)`
+
+ SetKey2Nil sets the value for Key2 to be an explicit nil
+
+### UnsetKey2
+`func (o *SecurityKeyConfigurationRequestModel) UnsetKey2()`
+
+UnsetKey2 ensures that no value is present for Key2, not even an explicit nil
 ### GetRequireKeyForSta
 
 `func (o *SecurityKeyConfigurationRequestModel) GetRequireKeyForSta() bool`
@@ -103,6 +123,16 @@ SetRequireKeyForSta sets RequireKeyForSta field to given value.
 
 HasRequireKeyForSta returns a boolean if a field has been set.
 
+### SetRequireKeyForStaNil
+
+`func (o *SecurityKeyConfigurationRequestModel) SetRequireKeyForStaNil(b bool)`
+
+ SetRequireKeyForStaNil sets the value for RequireKeyForSta to be an explicit nil
+
+### UnsetRequireKeyForSta
+`func (o *SecurityKeyConfigurationRequestModel) UnsetRequireKeyForSta()`
+
+UnsetRequireKeyForSta ensures that no value is present for RequireKeyForSta, not even an explicit nil
 ### GetRequireKeyForXml
 
 `func (o *SecurityKeyConfigurationRequestModel) GetRequireKeyForXml() bool`
@@ -128,6 +158,16 @@ SetRequireKeyForXml sets RequireKeyForXml field to given value.
 
 HasRequireKeyForXml returns a boolean if a field has been set.
 
+### SetRequireKeyForXmlNil
+
+`func (o *SecurityKeyConfigurationRequestModel) SetRequireKeyForXmlNil(b bool)`
+
+ SetRequireKeyForXmlNil sets the value for RequireKeyForXml to be an explicit nil
+
+### UnsetRequireKeyForXml
+`func (o *SecurityKeyConfigurationRequestModel) UnsetRequireKeyForXml()`
+
+UnsetRequireKeyForXml ensures that no value is present for RequireKeyForXml, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

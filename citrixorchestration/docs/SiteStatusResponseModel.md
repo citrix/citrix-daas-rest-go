@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CurrentUserCanPerformUpgrade** | Pointer to **bool** | If the current administrator can perform upgrade. | [optional] 
 **UpgradedControllers** | Pointer to **[]string** | These controllers have been upgraded and will function normally at the latest version.              | [optional] 
 **ControllersRequiringBinaryUpgrade** | Pointer to **[]string** | These controllers require their binaries to be upgraded to bring them inline with the rest of the site. | [optional] 
-**LatestControllerVersion** | Pointer to **string** | The highest of all controller versions in the site. All controllers should be upgraded to this version. | [optional] 
+**LatestControllerVersion** | Pointer to **NullableString** | The highest of all controller versions in the site. All controllers should be upgraded to this version. | [optional] 
 **DatabaseServersRequiringUpgrade** | Pointer to **[]string** | These database servers must be upgraded to be compatible with the site controllers. | [optional] 
 **DataStoresRequiringUpgrade** | Pointer to **[]string** | The database versions for these data stores are older than what is required by the most up-to-date controllers. | [optional] 
 
@@ -101,6 +101,16 @@ SetUpgradedControllers sets UpgradedControllers field to given value.
 
 HasUpgradedControllers returns a boolean if a field has been set.
 
+### SetUpgradedControllersNil
+
+`func (o *SiteStatusResponseModel) SetUpgradedControllersNil(b bool)`
+
+ SetUpgradedControllersNil sets the value for UpgradedControllers to be an explicit nil
+
+### UnsetUpgradedControllers
+`func (o *SiteStatusResponseModel) UnsetUpgradedControllers()`
+
+UnsetUpgradedControllers ensures that no value is present for UpgradedControllers, not even an explicit nil
 ### GetControllersRequiringBinaryUpgrade
 
 `func (o *SiteStatusResponseModel) GetControllersRequiringBinaryUpgrade() []string`
@@ -126,6 +136,16 @@ SetControllersRequiringBinaryUpgrade sets ControllersRequiringBinaryUpgrade fiel
 
 HasControllersRequiringBinaryUpgrade returns a boolean if a field has been set.
 
+### SetControllersRequiringBinaryUpgradeNil
+
+`func (o *SiteStatusResponseModel) SetControllersRequiringBinaryUpgradeNil(b bool)`
+
+ SetControllersRequiringBinaryUpgradeNil sets the value for ControllersRequiringBinaryUpgrade to be an explicit nil
+
+### UnsetControllersRequiringBinaryUpgrade
+`func (o *SiteStatusResponseModel) UnsetControllersRequiringBinaryUpgrade()`
+
+UnsetControllersRequiringBinaryUpgrade ensures that no value is present for ControllersRequiringBinaryUpgrade, not even an explicit nil
 ### GetLatestControllerVersion
 
 `func (o *SiteStatusResponseModel) GetLatestControllerVersion() string`
@@ -151,6 +171,16 @@ SetLatestControllerVersion sets LatestControllerVersion field to given value.
 
 HasLatestControllerVersion returns a boolean if a field has been set.
 
+### SetLatestControllerVersionNil
+
+`func (o *SiteStatusResponseModel) SetLatestControllerVersionNil(b bool)`
+
+ SetLatestControllerVersionNil sets the value for LatestControllerVersion to be an explicit nil
+
+### UnsetLatestControllerVersion
+`func (o *SiteStatusResponseModel) UnsetLatestControllerVersion()`
+
+UnsetLatestControllerVersion ensures that no value is present for LatestControllerVersion, not even an explicit nil
 ### GetDatabaseServersRequiringUpgrade
 
 `func (o *SiteStatusResponseModel) GetDatabaseServersRequiringUpgrade() []string`
@@ -176,6 +206,16 @@ SetDatabaseServersRequiringUpgrade sets DatabaseServersRequiringUpgrade field to
 
 HasDatabaseServersRequiringUpgrade returns a boolean if a field has been set.
 
+### SetDatabaseServersRequiringUpgradeNil
+
+`func (o *SiteStatusResponseModel) SetDatabaseServersRequiringUpgradeNil(b bool)`
+
+ SetDatabaseServersRequiringUpgradeNil sets the value for DatabaseServersRequiringUpgrade to be an explicit nil
+
+### UnsetDatabaseServersRequiringUpgrade
+`func (o *SiteStatusResponseModel) UnsetDatabaseServersRequiringUpgrade()`
+
+UnsetDatabaseServersRequiringUpgrade ensures that no value is present for DatabaseServersRequiringUpgrade, not even an explicit nil
 ### GetDataStoresRequiringUpgrade
 
 `func (o *SiteStatusResponseModel) GetDataStoresRequiringUpgrade() []string`
@@ -201,6 +241,16 @@ SetDataStoresRequiringUpgrade sets DataStoresRequiringUpgrade field to given val
 
 HasDataStoresRequiringUpgrade returns a boolean if a field has been set.
 
+### SetDataStoresRequiringUpgradeNil
+
+`func (o *SiteStatusResponseModel) SetDataStoresRequiringUpgradeNil(b bool)`
+
+ SetDataStoresRequiringUpgradeNil sets the value for DataStoresRequiringUpgrade to be an explicit nil
+
+### UnsetDataStoresRequiringUpgrade
+`func (o *SiteStatusResponseModel) UnsetDataStoresRequiringUpgrade()`
+
+UnsetDataStoresRequiringUpgrade ensures that no value is present for DataStoresRequiringUpgrade, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

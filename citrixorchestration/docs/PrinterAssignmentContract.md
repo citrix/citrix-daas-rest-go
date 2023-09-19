@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DefaultPrinterOption** | Pointer to [**DefaultPrinterOption**](DefaultPrinterOption.md) |  | [optional] 
-**SpecificDefaultPrinter** | Pointer to **string** | The custom printer. If specified, the default printer is not used. | [optional] 
+**SpecificDefaultPrinter** | Pointer to **NullableString** | The custom printer. If specified, the default printer is not used. | [optional] 
 **SessionPrinters** | Pointer to [**[]PrinterPropertiesContract**](PrinterPropertiesContract.md) | Session printers. | [optional] 
 **Filters** | Pointer to **[]string** | Client names or IPs. | [optional] 
 
@@ -78,6 +78,16 @@ SetSpecificDefaultPrinter sets SpecificDefaultPrinter field to given value.
 
 HasSpecificDefaultPrinter returns a boolean if a field has been set.
 
+### SetSpecificDefaultPrinterNil
+
+`func (o *PrinterAssignmentContract) SetSpecificDefaultPrinterNil(b bool)`
+
+ SetSpecificDefaultPrinterNil sets the value for SpecificDefaultPrinter to be an explicit nil
+
+### UnsetSpecificDefaultPrinter
+`func (o *PrinterAssignmentContract) UnsetSpecificDefaultPrinter()`
+
+UnsetSpecificDefaultPrinter ensures that no value is present for SpecificDefaultPrinter, not even an explicit nil
 ### GetSessionPrinters
 
 `func (o *PrinterAssignmentContract) GetSessionPrinters() []PrinterPropertiesContract`
@@ -103,6 +113,16 @@ SetSessionPrinters sets SessionPrinters field to given value.
 
 HasSessionPrinters returns a boolean if a field has been set.
 
+### SetSessionPrintersNil
+
+`func (o *PrinterAssignmentContract) SetSessionPrintersNil(b bool)`
+
+ SetSessionPrintersNil sets the value for SessionPrinters to be an explicit nil
+
+### UnsetSessionPrinters
+`func (o *PrinterAssignmentContract) UnsetSessionPrinters()`
+
+UnsetSessionPrinters ensures that no value is present for SessionPrinters, not even an explicit nil
 ### GetFilters
 
 `func (o *PrinterAssignmentContract) GetFilters() []string`
@@ -128,6 +148,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *PrinterAssignmentContract) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *PrinterAssignmentContract) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

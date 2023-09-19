@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Failed machine or account. | [optional] 
-**ActionError** | Pointer to [**ActionFailedMachineOrAccountResponseModelActionError**](ActionFailedMachineOrAccountResponseModelActionError.md) |  | [optional] 
+**Name** | Pointer to **NullableString** | Failed machine or account. | [optional] 
+**ActionError** | Pointer to [**ActionError**](ActionError.md) |  | [optional] 
 
 ## Methods
 
@@ -51,22 +51,32 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ActionFailedMachineOrAccountResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ActionFailedMachineOrAccountResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetActionError
 
-`func (o *ActionFailedMachineOrAccountResponseModel) GetActionError() ActionFailedMachineOrAccountResponseModelActionError`
+`func (o *ActionFailedMachineOrAccountResponseModel) GetActionError() ActionError`
 
 GetActionError returns the ActionError field if non-nil, zero value otherwise.
 
 ### GetActionErrorOk
 
-`func (o *ActionFailedMachineOrAccountResponseModel) GetActionErrorOk() (*ActionFailedMachineOrAccountResponseModelActionError, bool)`
+`func (o *ActionFailedMachineOrAccountResponseModel) GetActionErrorOk() (*ActionError, bool)`
 
 GetActionErrorOk returns a tuple with the ActionError field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionError
 
-`func (o *ActionFailedMachineOrAccountResponseModel) SetActionError(v ActionFailedMachineOrAccountResponseModelActionError)`
+`func (o *ActionFailedMachineOrAccountResponseModel) SetActionError(v ActionError)`
 
 SetActionError sets ActionError field to given value.
 

@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Forest** | **string** | Forest in which to create the machine identity. | 
-**Domain** | Pointer to **string** | Domain in which to create the machine identity. | [optional] 
+**Domain** | Pointer to **NullableString** | Domain in which to create the machine identity. | [optional] 
 **Name** | **string** | The machine identity to create. | 
-**ParentOU** | Pointer to **string** | The OU where the machine identity should be created. | [optional] 
+**ParentOU** | Pointer to **NullableString** | The OU where the machine identity should be created. | [optional] 
 **AccountPassword** | **string** | The machine account password, in the format specified by AccountPasswordFormat. | 
 **AccountPasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
-**ResourceLocationId** | Pointer to **string** | Resource location within which the machine account should be created. | [optional] 
+**ResourceLocationId** | Pointer to **NullableString** | Resource location within which the machine account should be created. | [optional] 
 
 ## Methods
 
@@ -76,6 +76,16 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *IdentityCreateMachineRequestModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *IdentityCreateMachineRequestModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetName
 
 `func (o *IdentityCreateMachineRequestModel) GetName() string`
@@ -121,6 +131,16 @@ SetParentOU sets ParentOU field to given value.
 
 HasParentOU returns a boolean if a field has been set.
 
+### SetParentOUNil
+
+`func (o *IdentityCreateMachineRequestModel) SetParentOUNil(b bool)`
+
+ SetParentOUNil sets the value for ParentOU to be an explicit nil
+
+### UnsetParentOU
+`func (o *IdentityCreateMachineRequestModel) UnsetParentOU()`
+
+UnsetParentOU ensures that no value is present for ParentOU, not even an explicit nil
 ### GetAccountPassword
 
 `func (o *IdentityCreateMachineRequestModel) GetAccountPassword() string`
@@ -191,6 +211,16 @@ SetResourceLocationId sets ResourceLocationId field to given value.
 
 HasResourceLocationId returns a boolean if a field has been set.
 
+### SetResourceLocationIdNil
+
+`func (o *IdentityCreateMachineRequestModel) SetResourceLocationIdNil(b bool)`
+
+ SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
+
+### UnsetResourceLocationId
+`func (o *IdentityCreateMachineRequestModel) UnsetResourceLocationId()`
+
+UnsetResourceLocationId ensures that no value is present for ResourceLocationId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

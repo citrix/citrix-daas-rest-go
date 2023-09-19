@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int32** | The Id of a machine configuration. | [optional] 
-**ConfigurationSlot** | Pointer to [**MachineConfigurationResponseModelConfigurationSlot**](MachineConfigurationResponseModelConfigurationSlot.md) |  | [optional] 
-**Name** | Pointer to **string** | The name of a machine configuration. | [optional] 
-**LeafName** | Pointer to **string** | The name of a machine configuration. | [optional] 
-**Policy** | Pointer to **string** | The policy of a configuration slot. | [optional] 
-**Description** | Pointer to **string** | The Description of a machine configuration. | [optional] 
+**ConfigurationSlot** | Pointer to [**ConfigurationSlotResponseModel**](ConfigurationSlotResponseModel.md) |  | [optional] 
+**Name** | Pointer to **NullableString** | The name of a machine configuration. | [optional] 
+**LeafName** | Pointer to **NullableString** | The name of a machine configuration. | [optional] 
+**Policy** | Pointer to **NullableString** | The policy of a configuration slot. | [optional] 
+**Description** | Pointer to **NullableString** | The Description of a machine configuration. | [optional] 
 **DeliveryGroups** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The associated desktop grouds ref. | [optional] 
 
 ## Methods
@@ -58,20 +58,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetConfigurationSlot
 
-`func (o *MachineConfigurationResponseModel) GetConfigurationSlot() MachineConfigurationResponseModelConfigurationSlot`
+`func (o *MachineConfigurationResponseModel) GetConfigurationSlot() ConfigurationSlotResponseModel`
 
 GetConfigurationSlot returns the ConfigurationSlot field if non-nil, zero value otherwise.
 
 ### GetConfigurationSlotOk
 
-`func (o *MachineConfigurationResponseModel) GetConfigurationSlotOk() (*MachineConfigurationResponseModelConfigurationSlot, bool)`
+`func (o *MachineConfigurationResponseModel) GetConfigurationSlotOk() (*ConfigurationSlotResponseModel, bool)`
 
 GetConfigurationSlotOk returns a tuple with the ConfigurationSlot field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfigurationSlot
 
-`func (o *MachineConfigurationResponseModel) SetConfigurationSlot(v MachineConfigurationResponseModelConfigurationSlot)`
+`func (o *MachineConfigurationResponseModel) SetConfigurationSlot(v ConfigurationSlotResponseModel)`
 
 SetConfigurationSlot sets ConfigurationSlot field to given value.
 
@@ -106,6 +106,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *MachineConfigurationResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MachineConfigurationResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetLeafName
 
 `func (o *MachineConfigurationResponseModel) GetLeafName() string`
@@ -131,6 +141,16 @@ SetLeafName sets LeafName field to given value.
 
 HasLeafName returns a boolean if a field has been set.
 
+### SetLeafNameNil
+
+`func (o *MachineConfigurationResponseModel) SetLeafNameNil(b bool)`
+
+ SetLeafNameNil sets the value for LeafName to be an explicit nil
+
+### UnsetLeafName
+`func (o *MachineConfigurationResponseModel) UnsetLeafName()`
+
+UnsetLeafName ensures that no value is present for LeafName, not even an explicit nil
 ### GetPolicy
 
 `func (o *MachineConfigurationResponseModel) GetPolicy() string`
@@ -156,6 +176,16 @@ SetPolicy sets Policy field to given value.
 
 HasPolicy returns a boolean if a field has been set.
 
+### SetPolicyNil
+
+`func (o *MachineConfigurationResponseModel) SetPolicyNil(b bool)`
+
+ SetPolicyNil sets the value for Policy to be an explicit nil
+
+### UnsetPolicy
+`func (o *MachineConfigurationResponseModel) UnsetPolicy()`
+
+UnsetPolicy ensures that no value is present for Policy, not even an explicit nil
 ### GetDescription
 
 `func (o *MachineConfigurationResponseModel) GetDescription() string`
@@ -181,6 +211,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *MachineConfigurationResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *MachineConfigurationResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDeliveryGroups
 
 `func (o *MachineConfigurationResponseModel) GetDeliveryGroups() []RefResponseModel`
@@ -206,6 +246,16 @@ SetDeliveryGroups sets DeliveryGroups field to given value.
 
 HasDeliveryGroups returns a boolean if a field has been set.
 
+### SetDeliveryGroupsNil
+
+`func (o *MachineConfigurationResponseModel) SetDeliveryGroupsNil(b bool)`
+
+ SetDeliveryGroupsNil sets the value for DeliveryGroups to be an explicit nil
+
+### UnsetDeliveryGroups
+`func (o *MachineConfigurationResponseModel) UnsetDeliveryGroups()`
+
+UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

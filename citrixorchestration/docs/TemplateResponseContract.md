@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TemplateName** | Pointer to **string** | Template name as identifier | [optional] 
+**TemplateName** | Pointer to **NullableString** | Template name as identifier | [optional] 
 **IsReadOnly** | Pointer to **bool** | Is template builtin. | [optional] 
-**Description** | Pointer to **string** | Template description | [optional] 
+**Description** | Pointer to **NullableString** | Template description | [optional] 
 **Settings** | Pointer to [**[]SettingResponseContract**](SettingResponseContract.md) | Settings | [optional] 
 
 ## Methods
@@ -53,6 +53,16 @@ SetTemplateName sets TemplateName field to given value.
 
 HasTemplateName returns a boolean if a field has been set.
 
+### SetTemplateNameNil
+
+`func (o *TemplateResponseContract) SetTemplateNameNil(b bool)`
+
+ SetTemplateNameNil sets the value for TemplateName to be an explicit nil
+
+### UnsetTemplateName
+`func (o *TemplateResponseContract) UnsetTemplateName()`
+
+UnsetTemplateName ensures that no value is present for TemplateName, not even an explicit nil
 ### GetIsReadOnly
 
 `func (o *TemplateResponseContract) GetIsReadOnly() bool`
@@ -103,6 +113,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *TemplateResponseContract) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *TemplateResponseContract) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetSettings
 
 `func (o *TemplateResponseContract) GetSettings() []SettingResponseContract`
@@ -128,6 +148,16 @@ SetSettings sets Settings field to given value.
 
 HasSettings returns a boolean if a field has been set.
 
+### SetSettingsNil
+
+`func (o *TemplateResponseContract) SetSettingsNil(b bool)`
+
+ SetSettingsNil sets the value for Settings to be an explicit nil
+
+### UnsetSettings
+`func (o *TemplateResponseContract) UnsetSettings()`
+
+UnsetSettings ensures that no value is present for Settings, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

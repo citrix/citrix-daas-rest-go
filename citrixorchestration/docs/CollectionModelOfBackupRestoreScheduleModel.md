@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | [**[]BackupRestoreScheduleModel**](BackupRestoreScheduleModel.md) | List of items. | 
-**ContinuationToken** | Pointer to **string** | If present, indicates to the caller that the query was not complete, and they should call the API again specifying the continuation token as a query parameter. | [optional] 
-**TotalItems** | Pointer to **int32** | Indicates the total number of items in the collection, which may be more than the number of Items returned, if there is a ContinuationToken.  Only returned in the response to &#x60;$search&#x60; APIs. | [optional] 
+**ContinuationToken** | Pointer to **NullableString** | If present, indicates to the caller that the query was not complete, and they should call the API again specifying the continuation token as a query parameter. | [optional] 
+**TotalItems** | Pointer to **NullableInt32** | Indicates the total number of items in the collection, which may be more than the number of Items returned, if there is a ContinuationToken.  Only returned in the response to &#x60;$search&#x60; APIs. | [optional] 
 
 ## Methods
 
@@ -72,6 +72,16 @@ SetContinuationToken sets ContinuationToken field to given value.
 
 HasContinuationToken returns a boolean if a field has been set.
 
+### SetContinuationTokenNil
+
+`func (o *CollectionModelOfBackupRestoreScheduleModel) SetContinuationTokenNil(b bool)`
+
+ SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
+
+### UnsetContinuationToken
+`func (o *CollectionModelOfBackupRestoreScheduleModel) UnsetContinuationToken()`
+
+UnsetContinuationToken ensures that no value is present for ContinuationToken, not even an explicit nil
 ### GetTotalItems
 
 `func (o *CollectionModelOfBackupRestoreScheduleModel) GetTotalItems() int32`
@@ -97,6 +107,16 @@ SetTotalItems sets TotalItems field to given value.
 
 HasTotalItems returns a boolean if a field has been set.
 
+### SetTotalItemsNil
+
+`func (o *CollectionModelOfBackupRestoreScheduleModel) SetTotalItemsNil(b bool)`
+
+ SetTotalItemsNil sets the value for TotalItems to be an explicit nil
+
+### UnsetTotalItems
+`func (o *CollectionModelOfBackupRestoreScheduleModel) UnsetTotalItems()`
+
+UnsetTotalItems ensures that no value is present for TotalItems, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

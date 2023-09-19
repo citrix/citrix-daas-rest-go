@@ -4,38 +4,38 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourcePool** | Pointer to **string** | The HostingUnit name or Id in which machine catalog locates | [optional] 
-**MasterImagePath** | Pointer to **string** | The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
-**ImageVersion** | Pointer to [**CreateMachineCatalogProvisioningSchemeRequestModelImageVersion**](CreateMachineCatalogProvisioningSchemeRequestModelImageVersion.md) |  | [optional] 
-**MachineProfilePath** | Pointer to **string** | The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
-**MasterImageNote** | Pointer to **string** | The note for the master image. | [optional] 
-**CpuCount** | Pointer to **int32** | The number of processors that virtual machines created from the provisioning scheme should use. | [optional] 
-**CoresPerCpuCount** | Pointer to **int32** | The number of cores per processor that virtual machines created from the provisioning scheme should use. | [optional] 
-**MemoryMB** | Pointer to **int32** | The maximum amount of memory that virtual machines created from the provisioning scheme should use. | [optional] 
-**UseWriteBackCache** | Pointer to **bool** | Indicates whether or not write back cache is enabled for the VMs created from this provisioning scheme. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
-**WriteBackCacheDiskSizeGB** | Pointer to **int32** | The size in GB of any temporary storage disk used by the write back cache. Should be used in conjunction with WriteBackCacheMemorySizeMB. | [optional] 
-**WriteBackCacheMemorySizeMB** | Pointer to **int32** | The size in MB of any write back cache if required. Should be used in conjunction with WriteBackCacheDiskSizeGB. | [optional] 
-**PrepareImage** | Pointer to **bool** | Indicates whether image preparation should be performed on this provisioning scheme. Optional; default is &#x60;true&#x60;. | [optional] [default to true]
+**ResourcePool** | Pointer to **NullableString** | The HostingUnit name or Id in which machine catalog locates | [optional] 
+**MasterImagePath** | Pointer to **NullableString** | The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
+**ImageVersion** | Pointer to [**AssignImageVersionToMachineCatalogRequestModel**](AssignImageVersionToMachineCatalogRequestModel.md) |  | [optional] 
+**MachineProfilePath** | Pointer to **NullableString** | The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
+**MasterImageNote** | Pointer to **NullableString** | The note for the master image. | [optional] 
+**CpuCount** | Pointer to **NullableInt32** | The number of processors that virtual machines created from the provisioning scheme should use. | [optional] 
+**CoresPerCpuCount** | Pointer to **NullableInt32** | The number of cores per processor that virtual machines created from the provisioning scheme should use. | [optional] 
+**MemoryMB** | Pointer to **NullableInt32** | The maximum amount of memory that virtual machines created from the provisioning scheme should use. | [optional] 
+**UseWriteBackCache** | Pointer to **NullableBool** | Indicates whether or not write back cache is enabled for the VMs created from this provisioning scheme. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**WriteBackCacheDiskSizeGB** | Pointer to **NullableInt32** | The size in GB of any temporary storage disk used by the write back cache. Should be used in conjunction with WriteBackCacheMemorySizeMB. | [optional] 
+**WriteBackCacheMemorySizeMB** | Pointer to **NullableInt32** | The size in MB of any write back cache if required. Should be used in conjunction with WriteBackCacheDiskSizeGB. | [optional] 
+**PrepareImage** | Pointer to **NullableBool** | Indicates whether image preparation should be performed on this provisioning scheme. Optional; default is &#x60;true&#x60;. | [optional] [default to true]
 **NetworkMapping** | Pointer to [**[]NetworkMapRequestModel**](NetworkMapRequestModel.md) | Specifies how the attached NICs are mapped to networks.  If this parameter is omitted, provisioned VMs are created with a single NIC, which is mapped to the default network in the hypervisor resource pool.  If this parameter is supplied, machines are created with the number of NICs specified in the map, and each NIC is attached to the specified network. | [optional] 
-**ServiceOfferingPath** | Pointer to **string** | The hypervisor resource path of the Cloud service offering to use when creating machines. | [optional] 
+**ServiceOfferingPath** | Pointer to **NullableString** | The hypervisor resource path of the Cloud service offering to use when creating machines. | [optional] 
 **SecurityGroups** | Pointer to **[]string** | The hypervisor resource path(s) of the Cloud security group(s) to use when creating machines. | [optional] 
-**DedicatedTenancy** | Pointer to **bool** | Indicates whether to use dedicated tenancy when creating machines in Cloud Hypervisors. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**DedicatedTenancy** | Pointer to **NullableBool** | Indicates whether to use dedicated tenancy when creating machines in Cloud Hypervisors. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
 **TenancyType** | Pointer to [**TenancyType**](TenancyType.md) |  | [optional] 
 **AzureAdJoinType** | Pointer to [**AzureAdJoinType**](AzureAdJoinType.md) |  | [optional] 
 **IdentityType** | Pointer to [**IdentityType**](IdentityType.md) |  | [optional] 
 **DeviceManagementType** | Pointer to [**DeviceManagementType**](DeviceManagementType.md) |  | [optional] 
-**AzureADSecurityGroupName** | Pointer to **string** | Name of Azure AD security group to be created. | [optional] 
-**AzureADSecurityGroupNestId** | Pointer to **string** | The object id of the Azure AD security group to nest.  Only valid for Azure. | [optional] 
-**AzureADTenantId** | Pointer to **string** | TenantId of Azure Directory. | [optional] 
+**AzureADSecurityGroupName** | Pointer to **NullableString** | Name of Azure AD security group to be created. | [optional] 
+**AzureADSecurityGroupNestId** | Pointer to **NullableString** | The object id of the Azure AD security group to nest.  Only valid for Azure. | [optional] 
+**AzureADTenantId** | Pointer to **NullableString** | TenantId of Azure Directory. | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
-**ResetAdministratorPasswords** | Pointer to **bool** | Indicates whether to reset the password for the administrator accounts on provisioned machines. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
-**UseFullDiskCloneProvisioning** | Pointer to **bool** | Indicates that the virtual machines created from the provisioning scheme should be created using the dedicated full disk clone feature. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
-**WorkGroupMachines** | Pointer to **bool** | Indicates whether to provision workgroup virtual machines e.g. non-domain joined. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
-**NumTotalMachines** | Pointer to **int32** | Number of machines to provision initially.  Optional; default is 1.  It is valid to request 0 machines initially. | [optional] [default to 1]
-**MachineAccountCreationRules** | Pointer to [**CreateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules**](CreateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules.md) |  | [optional] 
+**ResetAdministratorPasswords** | Pointer to **NullableBool** | Indicates whether to reset the password for the administrator accounts on provisioned machines. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**UseFullDiskCloneProvisioning** | Pointer to **NullableBool** | Indicates that the virtual machines created from the provisioning scheme should be created using the dedicated full disk clone feature. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**WorkGroupMachines** | Pointer to **NullableBool** | Indicates whether to provision workgroup virtual machines e.g. non-domain joined. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**NumTotalMachines** | Pointer to **NullableInt32** | Number of machines to provision initially.  Optional; default is 1.  It is valid to request 0 machines initially. | [optional] [default to 1]
+**MachineAccountCreationRules** | Pointer to [**MachineAccountCreationRulesRequestModel**](MachineAccountCreationRulesRequestModel.md) |  | [optional] 
 **AvailableMachineAccounts** | Pointer to [**[]MachineAccountRequestModel**](MachineAccountRequestModel.md) | List of Active Directory machine accounts that are to be used when machines are provisioned. | [optional] 
-**PVSSite** | Pointer to **string** | PVS site id. | [optional] 
-**PVSVDisk** | Pointer to **string** | PVS vDisk id. | [optional] 
+**PVSSite** | Pointer to **NullableString** | PVS site id. | [optional] 
+**PVSVDisk** | Pointer to **NullableString** | PVS vDisk id. | [optional] 
 
 ## Methods
 
@@ -81,6 +81,16 @@ SetResourcePool sets ResourcePool field to given value.
 
 HasResourcePool returns a boolean if a field has been set.
 
+### SetResourcePoolNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetResourcePoolNil(b bool)`
+
+ SetResourcePoolNil sets the value for ResourcePool to be an explicit nil
+
+### UnsetResourcePool
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetResourcePool()`
+
+UnsetResourcePool ensures that no value is present for ResourcePool, not even an explicit nil
 ### GetMasterImagePath
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMasterImagePath() string`
@@ -106,22 +116,32 @@ SetMasterImagePath sets MasterImagePath field to given value.
 
 HasMasterImagePath returns a boolean if a field has been set.
 
+### SetMasterImagePathNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMasterImagePathNil(b bool)`
+
+ SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
+
+### UnsetMasterImagePath
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetMasterImagePath()`
+
+UnsetMasterImagePath ensures that no value is present for MasterImagePath, not even an explicit nil
 ### GetImageVersion
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() CreateMachineCatalogProvisioningSchemeRequestModelImageVersion`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() AssignImageVersionToMachineCatalogRequestModel`
 
 GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
 
 ### GetImageVersionOk
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*CreateMachineCatalogProvisioningSchemeRequestModelImageVersion, bool)`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*AssignImageVersionToMachineCatalogRequestModel, bool)`
 
 GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageVersion
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v CreateMachineCatalogProvisioningSchemeRequestModelImageVersion)`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v AssignImageVersionToMachineCatalogRequestModel)`
 
 SetImageVersion sets ImageVersion field to given value.
 
@@ -156,6 +176,16 @@ SetMachineProfilePath sets MachineProfilePath field to given value.
 
 HasMachineProfilePath returns a boolean if a field has been set.
 
+### SetMachineProfilePathNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMachineProfilePathNil(b bool)`
+
+ SetMachineProfilePathNil sets the value for MachineProfilePath to be an explicit nil
+
+### UnsetMachineProfilePath
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetMachineProfilePath()`
+
+UnsetMachineProfilePath ensures that no value is present for MachineProfilePath, not even an explicit nil
 ### GetMasterImageNote
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMasterImageNote() string`
@@ -181,6 +211,16 @@ SetMasterImageNote sets MasterImageNote field to given value.
 
 HasMasterImageNote returns a boolean if a field has been set.
 
+### SetMasterImageNoteNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMasterImageNoteNil(b bool)`
+
+ SetMasterImageNoteNil sets the value for MasterImageNote to be an explicit nil
+
+### UnsetMasterImageNote
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetMasterImageNote()`
+
+UnsetMasterImageNote ensures that no value is present for MasterImageNote, not even an explicit nil
 ### GetCpuCount
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetCpuCount() int32`
@@ -206,6 +246,16 @@ SetCpuCount sets CpuCount field to given value.
 
 HasCpuCount returns a boolean if a field has been set.
 
+### SetCpuCountNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCpuCountNil(b bool)`
+
+ SetCpuCountNil sets the value for CpuCount to be an explicit nil
+
+### UnsetCpuCount
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetCpuCount()`
+
+UnsetCpuCount ensures that no value is present for CpuCount, not even an explicit nil
 ### GetCoresPerCpuCount
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetCoresPerCpuCount() int32`
@@ -231,6 +281,16 @@ SetCoresPerCpuCount sets CoresPerCpuCount field to given value.
 
 HasCoresPerCpuCount returns a boolean if a field has been set.
 
+### SetCoresPerCpuCountNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCoresPerCpuCountNil(b bool)`
+
+ SetCoresPerCpuCountNil sets the value for CoresPerCpuCount to be an explicit nil
+
+### UnsetCoresPerCpuCount
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetCoresPerCpuCount()`
+
+UnsetCoresPerCpuCount ensures that no value is present for CoresPerCpuCount, not even an explicit nil
 ### GetMemoryMB
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMemoryMB() int32`
@@ -256,6 +316,16 @@ SetMemoryMB sets MemoryMB field to given value.
 
 HasMemoryMB returns a boolean if a field has been set.
 
+### SetMemoryMBNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMemoryMBNil(b bool)`
+
+ SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
+
+### UnsetMemoryMB
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetMemoryMB()`
+
+UnsetMemoryMB ensures that no value is present for MemoryMB, not even an explicit nil
 ### GetUseWriteBackCache
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetUseWriteBackCache() bool`
@@ -281,6 +351,16 @@ SetUseWriteBackCache sets UseWriteBackCache field to given value.
 
 HasUseWriteBackCache returns a boolean if a field has been set.
 
+### SetUseWriteBackCacheNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetUseWriteBackCacheNil(b bool)`
+
+ SetUseWriteBackCacheNil sets the value for UseWriteBackCache to be an explicit nil
+
+### UnsetUseWriteBackCache
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetUseWriteBackCache()`
+
+UnsetUseWriteBackCache ensures that no value is present for UseWriteBackCache, not even an explicit nil
 ### GetWriteBackCacheDiskSizeGB
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetWriteBackCacheDiskSizeGB() int32`
@@ -306,6 +386,16 @@ SetWriteBackCacheDiskSizeGB sets WriteBackCacheDiskSizeGB field to given value.
 
 HasWriteBackCacheDiskSizeGB returns a boolean if a field has been set.
 
+### SetWriteBackCacheDiskSizeGBNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWriteBackCacheDiskSizeGBNil(b bool)`
+
+ SetWriteBackCacheDiskSizeGBNil sets the value for WriteBackCacheDiskSizeGB to be an explicit nil
+
+### UnsetWriteBackCacheDiskSizeGB
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetWriteBackCacheDiskSizeGB()`
+
+UnsetWriteBackCacheDiskSizeGB ensures that no value is present for WriteBackCacheDiskSizeGB, not even an explicit nil
 ### GetWriteBackCacheMemorySizeMB
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetWriteBackCacheMemorySizeMB() int32`
@@ -331,6 +421,16 @@ SetWriteBackCacheMemorySizeMB sets WriteBackCacheMemorySizeMB field to given val
 
 HasWriteBackCacheMemorySizeMB returns a boolean if a field has been set.
 
+### SetWriteBackCacheMemorySizeMBNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWriteBackCacheMemorySizeMBNil(b bool)`
+
+ SetWriteBackCacheMemorySizeMBNil sets the value for WriteBackCacheMemorySizeMB to be an explicit nil
+
+### UnsetWriteBackCacheMemorySizeMB
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetWriteBackCacheMemorySizeMB()`
+
+UnsetWriteBackCacheMemorySizeMB ensures that no value is present for WriteBackCacheMemorySizeMB, not even an explicit nil
 ### GetPrepareImage
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetPrepareImage() bool`
@@ -356,6 +456,16 @@ SetPrepareImage sets PrepareImage field to given value.
 
 HasPrepareImage returns a boolean if a field has been set.
 
+### SetPrepareImageNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPrepareImageNil(b bool)`
+
+ SetPrepareImageNil sets the value for PrepareImage to be an explicit nil
+
+### UnsetPrepareImage
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetPrepareImage()`
+
+UnsetPrepareImage ensures that no value is present for PrepareImage, not even an explicit nil
 ### GetNetworkMapping
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetNetworkMapping() []NetworkMapRequestModel`
@@ -381,6 +491,16 @@ SetNetworkMapping sets NetworkMapping field to given value.
 
 HasNetworkMapping returns a boolean if a field has been set.
 
+### SetNetworkMappingNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetNetworkMappingNil(b bool)`
+
+ SetNetworkMappingNil sets the value for NetworkMapping to be an explicit nil
+
+### UnsetNetworkMapping
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetNetworkMapping()`
+
+UnsetNetworkMapping ensures that no value is present for NetworkMapping, not even an explicit nil
 ### GetServiceOfferingPath
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetServiceOfferingPath() string`
@@ -406,6 +526,16 @@ SetServiceOfferingPath sets ServiceOfferingPath field to given value.
 
 HasServiceOfferingPath returns a boolean if a field has been set.
 
+### SetServiceOfferingPathNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetServiceOfferingPathNil(b bool)`
+
+ SetServiceOfferingPathNil sets the value for ServiceOfferingPath to be an explicit nil
+
+### UnsetServiceOfferingPath
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetServiceOfferingPath()`
+
+UnsetServiceOfferingPath ensures that no value is present for ServiceOfferingPath, not even an explicit nil
 ### GetSecurityGroups
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetSecurityGroups() []string`
@@ -431,6 +561,16 @@ SetSecurityGroups sets SecurityGroups field to given value.
 
 HasSecurityGroups returns a boolean if a field has been set.
 
+### SetSecurityGroupsNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetSecurityGroupsNil(b bool)`
+
+ SetSecurityGroupsNil sets the value for SecurityGroups to be an explicit nil
+
+### UnsetSecurityGroups
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetSecurityGroups()`
+
+UnsetSecurityGroups ensures that no value is present for SecurityGroups, not even an explicit nil
 ### GetDedicatedTenancy
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetDedicatedTenancy() bool`
@@ -456,6 +596,16 @@ SetDedicatedTenancy sets DedicatedTenancy field to given value.
 
 HasDedicatedTenancy returns a boolean if a field has been set.
 
+### SetDedicatedTenancyNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetDedicatedTenancyNil(b bool)`
+
+ SetDedicatedTenancyNil sets the value for DedicatedTenancy to be an explicit nil
+
+### UnsetDedicatedTenancy
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetDedicatedTenancy()`
+
+UnsetDedicatedTenancy ensures that no value is present for DedicatedTenancy, not even an explicit nil
 ### GetTenancyType
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetTenancyType() TenancyType`
@@ -581,6 +731,16 @@ SetAzureADSecurityGroupName sets AzureADSecurityGroupName field to given value.
 
 HasAzureADSecurityGroupName returns a boolean if a field has been set.
 
+### SetAzureADSecurityGroupNameNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNameNil(b bool)`
+
+ SetAzureADSecurityGroupNameNil sets the value for AzureADSecurityGroupName to be an explicit nil
+
+### UnsetAzureADSecurityGroupName
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetAzureADSecurityGroupName()`
+
+UnsetAzureADSecurityGroupName ensures that no value is present for AzureADSecurityGroupName, not even an explicit nil
 ### GetAzureADSecurityGroupNestId
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAzureADSecurityGroupNestId() string`
@@ -606,6 +766,16 @@ SetAzureADSecurityGroupNestId sets AzureADSecurityGroupNestId field to given val
 
 HasAzureADSecurityGroupNestId returns a boolean if a field has been set.
 
+### SetAzureADSecurityGroupNestIdNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNestIdNil(b bool)`
+
+ SetAzureADSecurityGroupNestIdNil sets the value for AzureADSecurityGroupNestId to be an explicit nil
+
+### UnsetAzureADSecurityGroupNestId
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetAzureADSecurityGroupNestId()`
+
+UnsetAzureADSecurityGroupNestId ensures that no value is present for AzureADSecurityGroupNestId, not even an explicit nil
 ### GetAzureADTenantId
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAzureADTenantId() string`
@@ -631,6 +801,16 @@ SetAzureADTenantId sets AzureADTenantId field to given value.
 
 HasAzureADTenantId returns a boolean if a field has been set.
 
+### SetAzureADTenantIdNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADTenantIdNil(b bool)`
+
+ SetAzureADTenantIdNil sets the value for AzureADTenantId to be an explicit nil
+
+### UnsetAzureADTenantId
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetAzureADTenantId()`
+
+UnsetAzureADTenantId ensures that no value is present for AzureADTenantId, not even an explicit nil
 ### GetCustomProperties
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetCustomProperties() []NameValueStringPairModel`
@@ -656,6 +836,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetResetAdministratorPasswords
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetResetAdministratorPasswords() bool`
@@ -681,6 +871,16 @@ SetResetAdministratorPasswords sets ResetAdministratorPasswords field to given v
 
 HasResetAdministratorPasswords returns a boolean if a field has been set.
 
+### SetResetAdministratorPasswordsNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetResetAdministratorPasswordsNil(b bool)`
+
+ SetResetAdministratorPasswordsNil sets the value for ResetAdministratorPasswords to be an explicit nil
+
+### UnsetResetAdministratorPasswords
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetResetAdministratorPasswords()`
+
+UnsetResetAdministratorPasswords ensures that no value is present for ResetAdministratorPasswords, not even an explicit nil
 ### GetUseFullDiskCloneProvisioning
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetUseFullDiskCloneProvisioning() bool`
@@ -706,6 +906,16 @@ SetUseFullDiskCloneProvisioning sets UseFullDiskCloneProvisioning field to given
 
 HasUseFullDiskCloneProvisioning returns a boolean if a field has been set.
 
+### SetUseFullDiskCloneProvisioningNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetUseFullDiskCloneProvisioningNil(b bool)`
+
+ SetUseFullDiskCloneProvisioningNil sets the value for UseFullDiskCloneProvisioning to be an explicit nil
+
+### UnsetUseFullDiskCloneProvisioning
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetUseFullDiskCloneProvisioning()`
+
+UnsetUseFullDiskCloneProvisioning ensures that no value is present for UseFullDiskCloneProvisioning, not even an explicit nil
 ### GetWorkGroupMachines
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetWorkGroupMachines() bool`
@@ -731,6 +941,16 @@ SetWorkGroupMachines sets WorkGroupMachines field to given value.
 
 HasWorkGroupMachines returns a boolean if a field has been set.
 
+### SetWorkGroupMachinesNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWorkGroupMachinesNil(b bool)`
+
+ SetWorkGroupMachinesNil sets the value for WorkGroupMachines to be an explicit nil
+
+### UnsetWorkGroupMachines
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetWorkGroupMachines()`
+
+UnsetWorkGroupMachines ensures that no value is present for WorkGroupMachines, not even an explicit nil
 ### GetNumTotalMachines
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetNumTotalMachines() int32`
@@ -756,22 +976,32 @@ SetNumTotalMachines sets NumTotalMachines field to given value.
 
 HasNumTotalMachines returns a boolean if a field has been set.
 
+### SetNumTotalMachinesNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetNumTotalMachinesNil(b bool)`
+
+ SetNumTotalMachinesNil sets the value for NumTotalMachines to be an explicit nil
+
+### UnsetNumTotalMachines
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetNumTotalMachines()`
+
+UnsetNumTotalMachines ensures that no value is present for NumTotalMachines, not even an explicit nil
 ### GetMachineAccountCreationRules
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRules() CreateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRules() MachineAccountCreationRulesRequestModel`
 
 GetMachineAccountCreationRules returns the MachineAccountCreationRules field if non-nil, zero value otherwise.
 
 ### GetMachineAccountCreationRulesOk
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRulesOk() (*CreateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules, bool)`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRulesOk() (*MachineAccountCreationRulesRequestModel, bool)`
 
 GetMachineAccountCreationRulesOk returns a tuple with the MachineAccountCreationRules field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineAccountCreationRules
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMachineAccountCreationRules(v CreateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules)`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMachineAccountCreationRules(v MachineAccountCreationRulesRequestModel)`
 
 SetMachineAccountCreationRules sets MachineAccountCreationRules field to given value.
 
@@ -806,6 +1036,16 @@ SetAvailableMachineAccounts sets AvailableMachineAccounts field to given value.
 
 HasAvailableMachineAccounts returns a boolean if a field has been set.
 
+### SetAvailableMachineAccountsNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAvailableMachineAccountsNil(b bool)`
+
+ SetAvailableMachineAccountsNil sets the value for AvailableMachineAccounts to be an explicit nil
+
+### UnsetAvailableMachineAccounts
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetAvailableMachineAccounts()`
+
+UnsetAvailableMachineAccounts ensures that no value is present for AvailableMachineAccounts, not even an explicit nil
 ### GetPVSSite
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetPVSSite() string`
@@ -831,6 +1071,16 @@ SetPVSSite sets PVSSite field to given value.
 
 HasPVSSite returns a boolean if a field has been set.
 
+### SetPVSSiteNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPVSSiteNil(b bool)`
+
+ SetPVSSiteNil sets the value for PVSSite to be an explicit nil
+
+### UnsetPVSSite
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetPVSSite()`
+
+UnsetPVSSite ensures that no value is present for PVSSite, not even an explicit nil
 ### GetPVSVDisk
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetPVSVDisk() string`
@@ -856,6 +1106,16 @@ SetPVSVDisk sets PVSVDisk field to given value.
 
 HasPVSVDisk returns a boolean if a field has been set.
 
+### SetPVSVDiskNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPVSVDiskNil(b bool)`
+
+ SetPVSVDiskNil sets the value for PVSVDisk to be an explicit nil
+
+### UnsetPVSVDisk
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetPVSVDisk()`
+
+UnsetPVSVDisk ensures that no value is present for PVSVDisk, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

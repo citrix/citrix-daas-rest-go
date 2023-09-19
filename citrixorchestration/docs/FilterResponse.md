@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyGuid** | **string** | Policy GUID. | 
-**FilterType** | Pointer to **string** | The filter type. | [optional] 
-**FilterGuid** | **string** | The filter Guid. | 
-**IsAllowed** | **bool** | Allow or deny | 
-**IsEnabled** | **bool** | Enabled or disabled | 
-**FilterData** | Pointer to **string** | Serialized JSON string. | [optional] 
+**PolicyGuid** | Pointer to **string** | Policy GUID. | [optional] 
+**FilterType** | Pointer to **NullableString** | The filter type. | [optional] 
+**FilterGuid** | Pointer to **string** | The filter Guid. | [optional] 
+**IsAllowed** | Pointer to **bool** | Allow or deny | [optional] 
+**IsEnabled** | Pointer to **bool** | Enabled or disabled | [optional] 
+**FilterData** | Pointer to **NullableString** | Serialized JSON string. | [optional] 
 
 ## Methods
 
 ### NewFilterResponse
 
-`func NewFilterResponse(policyGuid string, filterGuid string, isAllowed bool, isEnabled bool, ) *FilterResponse`
+`func NewFilterResponse() *FilterResponse`
 
 NewFilterResponse instantiates a new FilterResponse object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +49,11 @@ and a boolean to check if the value has been set.
 
 SetPolicyGuid sets PolicyGuid field to given value.
 
+### HasPolicyGuid
+
+`func (o *FilterResponse) HasPolicyGuid() bool`
+
+HasPolicyGuid returns a boolean if a field has been set.
 
 ### GetFilterType
 
@@ -75,6 +80,16 @@ SetFilterType sets FilterType field to given value.
 
 HasFilterType returns a boolean if a field has been set.
 
+### SetFilterTypeNil
+
+`func (o *FilterResponse) SetFilterTypeNil(b bool)`
+
+ SetFilterTypeNil sets the value for FilterType to be an explicit nil
+
+### UnsetFilterType
+`func (o *FilterResponse) UnsetFilterType()`
+
+UnsetFilterType ensures that no value is present for FilterType, not even an explicit nil
 ### GetFilterGuid
 
 `func (o *FilterResponse) GetFilterGuid() string`
@@ -94,6 +109,11 @@ and a boolean to check if the value has been set.
 
 SetFilterGuid sets FilterGuid field to given value.
 
+### HasFilterGuid
+
+`func (o *FilterResponse) HasFilterGuid() bool`
+
+HasFilterGuid returns a boolean if a field has been set.
 
 ### GetIsAllowed
 
@@ -114,6 +134,11 @@ and a boolean to check if the value has been set.
 
 SetIsAllowed sets IsAllowed field to given value.
 
+### HasIsAllowed
+
+`func (o *FilterResponse) HasIsAllowed() bool`
+
+HasIsAllowed returns a boolean if a field has been set.
 
 ### GetIsEnabled
 
@@ -134,6 +159,11 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
+### HasIsEnabled
+
+`func (o *FilterResponse) HasIsEnabled() bool`
+
+HasIsEnabled returns a boolean if a field has been set.
 
 ### GetFilterData
 
@@ -160,6 +190,16 @@ SetFilterData sets FilterData field to given value.
 
 HasFilterData returns a boolean if a field has been set.
 
+### SetFilterDataNil
+
+`func (o *FilterResponse) SetFilterDataNil(b bool)`
+
+ SetFilterDataNil sets the value for FilterData to be an explicit nil
+
+### UnsetFilterData
+`func (o *FilterResponse) UnsetFilterData()`
+
+UnsetFilterData ensures that no value is present for FilterData, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

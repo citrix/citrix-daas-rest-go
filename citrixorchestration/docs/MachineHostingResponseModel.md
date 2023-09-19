@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HostedMachineId** | Pointer to **string** | Unique ID within the hosting unit of the target managed machine. | [optional] 
-**HostedMachineName** | Pointer to **string** | The friendly name of a hosted machine as used by its hypervisor. This is not necessarily the DNS name of the machine. | [optional] 
-**HostingServerName** | Pointer to **string** | DNS name of the hypervisor that is hosting the machine. | [optional] 
-**LastHostingUpdateTime** | Pointer to **string** | Time of last update to any hosting data (such as power states) for this machine reported by the hypervisor connection. | [optional] 
-**FormattedLastHostingUpdateTime** | Pointer to **string** | Formatted time of last update to any hosting data (such as power states) for this machine reported by the hypervisor connection. RFC 3339 compatible format. | [optional] 
-**HypervisorConnection** | Pointer to [**MachineHostingResponseModelHypervisorConnection**](MachineHostingResponseModelHypervisorConnection.md) |  | [optional] 
+**HostedMachineId** | Pointer to **NullableString** | Unique ID within the hosting unit of the target managed machine. | [optional] 
+**HostedMachineName** | Pointer to **NullableString** | The friendly name of a hosted machine as used by its hypervisor. This is not necessarily the DNS name of the machine. | [optional] 
+**HostingServerName** | Pointer to **NullableString** | DNS name of the hypervisor that is hosting the machine. | [optional] 
+**LastHostingUpdateTime** | Pointer to **NullableString** | Time of last update to any hosting data (such as power states) for this machine reported by the hypervisor connection. | [optional] 
+**FormattedLastHostingUpdateTime** | Pointer to **NullableString** | Formatted time of last update to any hosting data (such as power states) for this machine reported by the hypervisor connection. RFC 3339 compatible format. | [optional] 
+**HypervisorConnection** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **ImageOutOfDate** | Pointer to **bool** | Indicates whether the machine image matches the latest image specified for the machine catalog. | [optional] 
 
 ## Methods
@@ -56,6 +56,16 @@ SetHostedMachineId sets HostedMachineId field to given value.
 
 HasHostedMachineId returns a boolean if a field has been set.
 
+### SetHostedMachineIdNil
+
+`func (o *MachineHostingResponseModel) SetHostedMachineIdNil(b bool)`
+
+ SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
+
+### UnsetHostedMachineId
+`func (o *MachineHostingResponseModel) UnsetHostedMachineId()`
+
+UnsetHostedMachineId ensures that no value is present for HostedMachineId, not even an explicit nil
 ### GetHostedMachineName
 
 `func (o *MachineHostingResponseModel) GetHostedMachineName() string`
@@ -81,6 +91,16 @@ SetHostedMachineName sets HostedMachineName field to given value.
 
 HasHostedMachineName returns a boolean if a field has been set.
 
+### SetHostedMachineNameNil
+
+`func (o *MachineHostingResponseModel) SetHostedMachineNameNil(b bool)`
+
+ SetHostedMachineNameNil sets the value for HostedMachineName to be an explicit nil
+
+### UnsetHostedMachineName
+`func (o *MachineHostingResponseModel) UnsetHostedMachineName()`
+
+UnsetHostedMachineName ensures that no value is present for HostedMachineName, not even an explicit nil
 ### GetHostingServerName
 
 `func (o *MachineHostingResponseModel) GetHostingServerName() string`
@@ -106,6 +126,16 @@ SetHostingServerName sets HostingServerName field to given value.
 
 HasHostingServerName returns a boolean if a field has been set.
 
+### SetHostingServerNameNil
+
+`func (o *MachineHostingResponseModel) SetHostingServerNameNil(b bool)`
+
+ SetHostingServerNameNil sets the value for HostingServerName to be an explicit nil
+
+### UnsetHostingServerName
+`func (o *MachineHostingResponseModel) UnsetHostingServerName()`
+
+UnsetHostingServerName ensures that no value is present for HostingServerName, not even an explicit nil
 ### GetLastHostingUpdateTime
 
 `func (o *MachineHostingResponseModel) GetLastHostingUpdateTime() string`
@@ -131,6 +161,16 @@ SetLastHostingUpdateTime sets LastHostingUpdateTime field to given value.
 
 HasLastHostingUpdateTime returns a boolean if a field has been set.
 
+### SetLastHostingUpdateTimeNil
+
+`func (o *MachineHostingResponseModel) SetLastHostingUpdateTimeNil(b bool)`
+
+ SetLastHostingUpdateTimeNil sets the value for LastHostingUpdateTime to be an explicit nil
+
+### UnsetLastHostingUpdateTime
+`func (o *MachineHostingResponseModel) UnsetLastHostingUpdateTime()`
+
+UnsetLastHostingUpdateTime ensures that no value is present for LastHostingUpdateTime, not even an explicit nil
 ### GetFormattedLastHostingUpdateTime
 
 `func (o *MachineHostingResponseModel) GetFormattedLastHostingUpdateTime() string`
@@ -156,22 +196,32 @@ SetFormattedLastHostingUpdateTime sets FormattedLastHostingUpdateTime field to g
 
 HasFormattedLastHostingUpdateTime returns a boolean if a field has been set.
 
+### SetFormattedLastHostingUpdateTimeNil
+
+`func (o *MachineHostingResponseModel) SetFormattedLastHostingUpdateTimeNil(b bool)`
+
+ SetFormattedLastHostingUpdateTimeNil sets the value for FormattedLastHostingUpdateTime to be an explicit nil
+
+### UnsetFormattedLastHostingUpdateTime
+`func (o *MachineHostingResponseModel) UnsetFormattedLastHostingUpdateTime()`
+
+UnsetFormattedLastHostingUpdateTime ensures that no value is present for FormattedLastHostingUpdateTime, not even an explicit nil
 ### GetHypervisorConnection
 
-`func (o *MachineHostingResponseModel) GetHypervisorConnection() MachineHostingResponseModelHypervisorConnection`
+`func (o *MachineHostingResponseModel) GetHypervisorConnection() RefResponseModel`
 
 GetHypervisorConnection returns the HypervisorConnection field if non-nil, zero value otherwise.
 
 ### GetHypervisorConnectionOk
 
-`func (o *MachineHostingResponseModel) GetHypervisorConnectionOk() (*MachineHostingResponseModelHypervisorConnection, bool)`
+`func (o *MachineHostingResponseModel) GetHypervisorConnectionOk() (*RefResponseModel, bool)`
 
 GetHypervisorConnectionOk returns a tuple with the HypervisorConnection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisorConnection
 
-`func (o *MachineHostingResponseModel) SetHypervisorConnection(v MachineHostingResponseModelHypervisorConnection)`
+`func (o *MachineHostingResponseModel) SetHypervisorConnection(v RefResponseModel)`
 
 SetHypervisorConnection sets HypervisorConnection field to given value.
 

@@ -52,6 +52,16 @@ SetNetworksCanBeDeleted sets NetworksCanBeDeleted field to given value.
 
 HasNetworksCanBeDeleted returns a boolean if a field has been set.
 
+### SetNetworksCanBeDeletedNil
+
+`func (o *HypervisorResourcePoolPatchPreviewResponseModel) SetNetworksCanBeDeletedNil(b bool)`
+
+ SetNetworksCanBeDeletedNil sets the value for NetworksCanBeDeleted to be an explicit nil
+
+### UnsetNetworksCanBeDeleted
+`func (o *HypervisorResourcePoolPatchPreviewResponseModel) UnsetNetworksCanBeDeleted()`
+
+UnsetNetworksCanBeDeleted ensures that no value is present for NetworksCanBeDeleted, not even an explicit nil
 ### GetNetworksToBeDeleted
 
 `func (o *HypervisorResourcePoolPatchPreviewResponseModel) GetNetworksToBeDeleted() []string`
@@ -77,6 +87,16 @@ SetNetworksToBeDeleted sets NetworksToBeDeleted field to given value.
 
 HasNetworksToBeDeleted returns a boolean if a field has been set.
 
+### SetNetworksToBeDeletedNil
+
+`func (o *HypervisorResourcePoolPatchPreviewResponseModel) SetNetworksToBeDeletedNil(b bool)`
+
+ SetNetworksToBeDeletedNil sets the value for NetworksToBeDeleted to be an explicit nil
+
+### UnsetNetworksToBeDeleted
+`func (o *HypervisorResourcePoolPatchPreviewResponseModel) UnsetNetworksToBeDeleted()`
+
+UnsetNetworksToBeDeleted ensures that no value is present for NetworksToBeDeleted, not even an explicit nil
 ### GetDeleteImpactedCatalogs
 
 `func (o *HypervisorResourcePoolPatchPreviewResponseModel) GetDeleteImpactedCatalogs() map[string]map[string]int32`
@@ -102,6 +122,16 @@ SetDeleteImpactedCatalogs sets DeleteImpactedCatalogs field to given value.
 
 HasDeleteImpactedCatalogs returns a boolean if a field has been set.
 
+### SetDeleteImpactedCatalogsNil
+
+`func (o *HypervisorResourcePoolPatchPreviewResponseModel) SetDeleteImpactedCatalogsNil(b bool)`
+
+ SetDeleteImpactedCatalogsNil sets the value for DeleteImpactedCatalogs to be an explicit nil
+
+### UnsetDeleteImpactedCatalogs
+`func (o *HypervisorResourcePoolPatchPreviewResponseModel) UnsetDeleteImpactedCatalogs()`
+
+UnsetDeleteImpactedCatalogs ensures that no value is present for DeleteImpactedCatalogs, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

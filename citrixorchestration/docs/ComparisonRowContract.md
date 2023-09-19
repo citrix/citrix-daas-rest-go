@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingName** | Pointer to **string** | Can be either a category name or setting name. | [optional] 
+**SettingName** | Pointer to **NullableString** | Can be either a category name or setting name. | [optional] 
 **IsSetting** | Pointer to **bool** | Indicate if SettingName is a setting name or category name. | [optional] 
 **IsDifferent** | Pointer to **bool** | Valid only when IsSetting is false. Used to indicate if there is any difference among the settings in the category. | [optional] 
 **IsInUse** | Pointer to **[]bool** | There are Targets.Length number of items in the list, stored in the same order as the items in Targets. Value is true if the setting is configured in the target. Value is true if SettingName is a category name and at least one of the settings under the category has IsInUse set to true. | [optional] 
 **Values** | Pointer to **[]string** | There are Targets.Length number of items in the list, stored in the same order as the items in Targets. Value should not be used if the corresponding IsInUse value is false. If the IsInUse value is false, a - should be displayed if IsSetting is true. Don&#39;t use the values here if IsSetting is false. | [optional] 
-**Category** | Pointer to **string** | For internal use to keep track of setting category. | [optional] 
-**DefaultValue** | Pointer to **string** | The default value as specified in the GPFX file for the setting. | [optional] 
+**Category** | Pointer to **NullableString** | For internal use to keep track of setting category. | [optional] 
+**DefaultValue** | Pointer to **NullableString** | The default value as specified in the GPFX file for the setting. | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetSettingName sets SettingName field to given value.
 
 HasSettingName returns a boolean if a field has been set.
 
+### SetSettingNameNil
+
+`func (o *ComparisonRowContract) SetSettingNameNil(b bool)`
+
+ SetSettingNameNil sets the value for SettingName to be an explicit nil
+
+### UnsetSettingName
+`func (o *ComparisonRowContract) UnsetSettingName()`
+
+UnsetSettingName ensures that no value is present for SettingName, not even an explicit nil
 ### GetIsSetting
 
 `func (o *ComparisonRowContract) GetIsSetting() bool`
@@ -131,6 +141,16 @@ SetIsInUse sets IsInUse field to given value.
 
 HasIsInUse returns a boolean if a field has been set.
 
+### SetIsInUseNil
+
+`func (o *ComparisonRowContract) SetIsInUseNil(b bool)`
+
+ SetIsInUseNil sets the value for IsInUse to be an explicit nil
+
+### UnsetIsInUse
+`func (o *ComparisonRowContract) UnsetIsInUse()`
+
+UnsetIsInUse ensures that no value is present for IsInUse, not even an explicit nil
 ### GetValues
 
 `func (o *ComparisonRowContract) GetValues() []string`
@@ -156,6 +176,16 @@ SetValues sets Values field to given value.
 
 HasValues returns a boolean if a field has been set.
 
+### SetValuesNil
+
+`func (o *ComparisonRowContract) SetValuesNil(b bool)`
+
+ SetValuesNil sets the value for Values to be an explicit nil
+
+### UnsetValues
+`func (o *ComparisonRowContract) UnsetValues()`
+
+UnsetValues ensures that no value is present for Values, not even an explicit nil
 ### GetCategory
 
 `func (o *ComparisonRowContract) GetCategory() string`
@@ -181,6 +211,16 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
+### SetCategoryNil
+
+`func (o *ComparisonRowContract) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *ComparisonRowContract) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetDefaultValue
 
 `func (o *ComparisonRowContract) GetDefaultValue() string`
@@ -206,6 +246,16 @@ SetDefaultValue sets DefaultValue field to given value.
 
 HasDefaultValue returns a boolean if a field has been set.
 
+### SetDefaultValueNil
+
+`func (o *ComparisonRowContract) SetDefaultValueNil(b bool)`
+
+ SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
+
+### UnsetDefaultValue
+`func (o *ComparisonRowContract) UnsetDefaultValue()`
+
+UnsetDefaultValue ensures that no value is present for DefaultValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

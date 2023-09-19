@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **UserManagement** | Pointer to [**UserManagementModel**](UserManagementModel.md) |  | [optional] 
 **Delivering** | [**DeliveryKind**](DeliveryKind.md) |  | 
 **DeliveryType** | [**DeliveryKind**](DeliveryKind.md) |  | 
-**Description** | Pointer to **string** | A description for this delivery group useful for administrators of the site. | [optional] 
+**Description** | Pointer to **NullableString** | A description for this delivery group useful for administrators of the site. | [optional] 
 **DesktopsAvailable** | **int32** | Number of machines in the delivery group which are available to launch sessions on. | 
 **DesktopsDisconnected** | **int32** | Number of desktops in the delivery group which have disconnected sessions. | 
 **DesktopsFaulted** | **int32** | Number of desktops in the delivery group which are in a faulted state. | 
@@ -24,10 +24,10 @@ Name | Type | Description | Notes
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of delivery group. | [optional] 
 **MinimumFunctionalLevel** | [**FunctionalLevel**](FunctionalLevel.md) |  | 
 **Name** | **string** | Simple administrative name of delivery group within parent admin folder (if any). This property is not guaranteed unique across all catalogs. | 
-**FullName** | Pointer to **string** | Unique administrative name of delivery group. | [optional] 
-**PublishedName** | Pointer to **string** | The name of the desktop group as it is to appear to the user in StoreFront. | [optional] 
+**FullName** | Pointer to **NullableString** | Unique administrative name of delivery group. | [optional] 
+**PublishedName** | Pointer to **NullableString** | The name of the desktop group as it is to appear to the user in StoreFront. | [optional] 
 **PolicySetGuid** | Pointer to **string** | The Guid of the policy set that is assigned to this desktop group. If the value is Guid.Empty, there is no policy set assigned to the desktop group. | [optional] 
-**ProductCode** | Pointer to **string** | The product code of the delivery group. | [optional] 
+**ProductCode** | Pointer to **NullableString** | The product code of the delivery group. | [optional] 
 **LicenseModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 **RequireUserHomeZone** | **bool** | Whether the resources from this delivery group are required to launch within the user&#39;s home zone. | 
 **Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | Administrative scopes which the delivery group is part of. | 
@@ -40,25 +40,25 @@ Name | Type | Description | Notes
 **ApplicationGroupCompatibility** | [**AppGroupCompatibility**](AppGroupCompatibility.md) |  | 
 **ApplicationCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
 **DesktopCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
-**AdminFolder** | Pointer to [**CatalogSearchResponseModelAdminFolder**](CatalogSearchResponseModelAdminFolder.md) |  | [optional] 
-**AppAccessPolicy** | Pointer to [**DeliveryGroupDetailResponseModelAllOfAppAccessPolicy**](DeliveryGroupDetailResponseModelAllOfAppAccessPolicy.md) |  | [optional] 
-**AppProtectionKeyLoggingRequired** | Pointer to **bool** | Specifies whether key logging app protection is required. | [optional] 
-**AppProtectionScreenCaptureRequired** | Pointer to **bool** | Specifies whether screen capture app protection is required. | [optional] 
+**AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**AppAccessPolicy** | Pointer to [**AppAccessPolicyResponseModel**](AppAccessPolicyResponseModel.md) |  | [optional] 
+**AppProtectionKeyLoggingRequired** | Pointer to **NullableBool** | Specifies whether key logging app protection is required. | [optional] 
+**AppProtectionScreenCaptureRequired** | Pointer to **NullableBool** | Specifies whether screen capture app protection is required. | [optional] 
 **AutomaticPowerOnForAssigned** | Pointer to **bool** | Whether assigned (Private) machines in the delivery group should be automatically powered-on at the start of peak time periods. | [optional] 
 **AutomaticPowerOnForAssignedDuringPeak** | Pointer to **bool** | Whether assigned (Private) machines in the delivery group should be automatically powered-on throughout peak time periods. | [optional] 
-**AutoScaleEnabled** | Pointer to **bool** | Indicates whether auto-scale is enabled for the delivery group. | [optional] 
-**RestrictAutoscaleTag** | Pointer to [**DeliveryGroupDetailResponseModelAllOfRestrictAutoscaleTag**](DeliveryGroupDetailResponseModelAllOfRestrictAutoscaleTag.md) |  | [optional] 
+**AutoScaleEnabled** | Pointer to **NullableBool** | Indicates whether auto-scale is enabled for the delivery group. | [optional] 
+**RestrictAutoscaleTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **ColorDepth** | Pointer to [**ColorDepth**](ColorDepth.md) |  | [optional] 
-**DefaultDesktopIconId** | Pointer to **string** | Default icon to use for desktops published from the delivery group. was IconUid | [optional] 
-**DefaultDesktopPublishedName** | Pointer to **string** | Default published name to use for desktops published from the delivery group. Change: Add | [optional] 
+**DefaultDesktopIconId** | Pointer to **NullableString** | Default icon to use for desktops published from the delivery group. was IconUid | [optional] 
+**DefaultDesktopPublishedName** | Pointer to **NullableString** | Default published name to use for desktops published from the delivery group. Change: Add | [optional] 
 **DesktopsInUse** | **int32** | Number of machines in the delivery group which are currently in-use. | 
 **DesktopsNeverRegistered** | **int32** | Number of machines in the delivery group which have never successfully registered. | 
 **DesktopsPreparing** | **int32** | Number of machines in the delivery group which are preparing for a connection. | 
-**HdxSslEnabled** | Pointer to **bool** | Whether connections to machines in the delivery group will use SSL. CHANGE: add: | [optional] 
+**HdxSslEnabled** | Pointer to **NullableBool** | Whether connections to machines in the delivery group will use SSL. CHANGE: add: | [optional] 
 **IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType&#x3D;&#x3D;Virtual meant the same thing as \&quot;power-managed\&quot;; however that&#39;s not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType&#x3D;&#x3D;Physical). | [optional] 
-**LingerSettings** | Pointer to [**DeliveryGroupDetailResponseModelAllOfLingerSettings**](DeliveryGroupDetailResponseModelAllOfLingerSettings.md) |  | [optional] 
-**PowerOffDelayMinutes** | Pointer to **int32** | Delay before machines are powered off, when scaling down.  Specified in minutes.  Applies only to multi-session machines. | [optional] 
-**MachineCost** | Pointer to **float64** | Indicates the estimated per-hour cost for machines in the delivery group, as set by the administrator. | [optional] 
+**LingerSettings** | Pointer to [**FastApplicationSettingsResponseModel**](FastApplicationSettingsResponseModel.md) |  | [optional] 
+**PowerOffDelayMinutes** | Pointer to **NullableInt32** | Delay before machines are powered off, when scaling down.  Specified in minutes.  Applies only to multi-session machines. | [optional] 
+**MachineCost** | Pointer to **NullableFloat64** | Indicates the estimated per-hour cost for machines in the delivery group, as set by the administrator. | [optional] 
 **MachinesInMaintenanceMode** | **int32** | Number of machines in the delivery group which are in maintenance mode. | 
 **MachineOperatingSystems** | [**[]NameValueIntPairModel**](NameValueIntPairModel.md) | List of operating systems of machines in the delivery group, along with a count of how many machines use each OS. CHANGE: was public IDictionary&lt;string,int&gt; MachineOperatingSystems { get; set; } | 
 **MachineType** | [**MachineType**](MachineType.md) |  | 
@@ -81,7 +81,7 @@ Name | Type | Description | Notes
 **DisconnectOffPeakIdleSessionAfterSeconds** | Pointer to **int32** | Specifies the time in seconds after which an idle session belonging to the delivery group is disconnected during off-peak time. | [optional] 
 **LogoffPeakDisconnectedSessionAfterSeconds** | Pointer to **int32** | Specifies the time in seconds after which a disconnected session belonging to the delivery group is terminated during peak time. | [optional] 
 **LogoffOffPeakDisconnectedSessionAfterSeconds** | Pointer to **int32** | Specifies the time in seconds after which a disconnected session belonging to the delivery group is terminated during off-peak time. | [optional] 
-**PrelaunchSettings** | Pointer to [**DeliveryGroupDetailResponseModelAllOfPrelaunchSettings**](DeliveryGroupDetailResponseModelAllOfPrelaunchSettings.md) |  | [optional] 
+**PrelaunchSettings** | Pointer to [**FastApplicationSettingsResponseModel**](FastApplicationSettingsResponseModel.md) |  | [optional] 
 **PowerTimeSchemes** | Pointer to [**[]PowerTimeSchemeResponseModel**](PowerTimeSchemeResponseModel.md) | Power management time schemes.  No two schemes will cover the same day of the week. | [optional] 
 **ProtocolPriority** | Pointer to [**[]ProtocolType**](ProtocolType.md) | A list of protocols in the order in which they will be attempted for use during connection. | [optional] 
 **RegisteredMachines** | **int32** | Number of machines in the delivery group that have registered. | 
@@ -89,28 +89,29 @@ Name | Type | Description | Notes
 **SecureIcaRequired** | **bool** | Whether HDX connections to machines in the delivery group require the use of the SecureICA protocol. | 
 **SettlementPeriodBeforeAutoShutdownSeconds** | Pointer to **int32** | Time after a session ends during which automatic shutdown requests (for example, shutdown after use, idle pool management) are deferred. Any outstanding shutdown request takes effect after the settlement period expires. This is typically used to configure time to allow logoff scripts to complete. | [optional] 
 **SettlementPeriodBeforeUseSeconds** | Pointer to **int32** | Idle period before a machine can be selected to host a new session after registration or the end of a previous session. This is typically used to allow a machine to become idle following processing associated with start-up or logoff actions. A machine may still be selected during the idle period if no other machine is available for immediate use. | [optional] 
-**ShutdownDesktopsAfterUse** | Pointer to **bool** | Whether machines in this delivery group should be automatically shut down when each user session completes. | [optional] 
-**SimpleAccessPolicy** | Pointer to [**DeliveryGroupDetailResponseModelAllOfSimpleAccessPolicy**](DeliveryGroupDetailResponseModelAllOfSimpleAccessPolicy.md) |  | [optional] 
+**ShutdownDesktopsAfterUse** | Pointer to **NullableBool** | Whether machines in this delivery group should be automatically shut down when each user session completes. | [optional] 
+**SimpleAccessPolicy** | Pointer to [**SimplifiedAccessPolicyResponseModel**](SimplifiedAccessPolicyResponseModel.md) |  | [optional] 
+**AdvancedAccessPolicy** | Pointer to [**[]AdvancedAccessPolicyResponseModel**](AdvancedAccessPolicyResponseModel.md) | List of Advanced access policy for connections to the delivery group. | [optional] 
 **StoreFrontServersForHostedReceiver** | Pointer to [**[]StoreFrontServerResponseModel**](StoreFrontServerResponseModel.md) | List of StoreFront server addresses to configure within hosted receivers that are delivered from the delivery group. CHANGE: was public string[] StoreFronts | [optional] 
-**TimeZone** | Pointer to **string** | The time zone in which this delivery group&#39;s machines reside. | [optional] 
+**TimeZone** | Pointer to **NullableString** | The time zone in which this delivery group&#39;s machines reside. | [optional] 
 **TotalApplicationGroups** | **int32** | Total number of application groups associated with the delivery group. | 
 **TotalMachines** | **int32** | Total number of machines in the delivery group. | 
-**TurnOnAddedMachines** | Pointer to **bool** | Whether to attempt to power on machines when they are added to the delivery group. was TurnOnAddedMachine | [optional] 
-**UnassignedMachines** | Pointer to **int32** | Number of unassigned machines in the delivery group. | [optional] 
-**UsedByGroupPolicy** | Pointer to **bool** | Check if desktop group is used by group policy. | [optional] 
+**TurnOnAddedMachines** | Pointer to **NullableBool** | Whether to attempt to power on machines when they are added to the delivery group. was TurnOnAddedMachine | [optional] 
+**UnassignedMachines** | Pointer to **NullableInt32** | Number of unassigned machines in the delivery group. | [optional] 
+**UsedByGroupPolicy** | Pointer to **NullableBool** | Check if desktop group is used by group policy. | [optional] 
 **VdaVersions** | Pointer to [**[]NameValueIntPairModel**](NameValueIntPairModel.md) | List of the versions, and count of each version, of VDAs within the delivery group. CHANGE: was public IDictionary&lt;string,int&gt; VdaVersions { get; set; } | [optional] 
 **ZonePreferences** | Pointer to [**[]ZonePreference**](ZonePreference.md) | Ordered list of zone preferences to be applied when launching resources from this delivery group. | [optional] 
-**LimitSecondsToForceLogOffUserDuringPeak** | Pointer to **int32** | Represents the number of seconds that must elapsed before the active sessions on the draining machines belonging to the delivery group are logged off, during peak time. | [optional] 
-**LimitSecondsToForceLogOffUserDuringOffPeak** | Pointer to **int32** | Represents the number of seconds that must elapsed before the active sessions on the draining machines belonging to the delivery group are logged off, during off-peak. | [optional] 
-**RestrictAutoscaleMinIdleUntaggedPercentDuringPeak** | Pointer to **int32** | Represents the percentage that the number of untagged single-session machines in an idle state, or for multi-session machines, the untagged available load capacity must fall below before Autoscale powers on and manages &#39;tagged&#39; machines, as per policy, in peak time. If the number of untagged machines in an idle state, or the untagged available load capacity goes above this threshold value, Autoscale will attempt to shut down &#39;tagged&#39; machines. | [optional] 
-**RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak** | Pointer to **int32** | Represents the percentage that the number of untagged single-session machines in an idle state, or for multi-session machines, the untagged available load capacity must fall below before Autoscale powers on and manages &#39;tagged&#39; machines, as per policy, in off-peak. If the number of untagged machines in an idle state, or the untagged available load capacity goes above this threshold value, Autoscale will attempt to shut down &#39;tagged&#39; machines. | [optional] 
-**LogOffWarningMessage** | Pointer to **string** | The warning message to display to users in active sessions prior to logging off users, whether in peak time or off-peak. | [optional] 
-**LogOffWarningTitle** | Pointer to **string** | The title of the warning message dialog. | [optional] 
-**AutoscaleLogOffReminderEnabled** | Pointer to **bool** | Boolean value indicating whether the warning messages should be sent on an interval to nudge a logoff should be sent on an interval when autoscale is enabled. | [optional] 
-**AutoscaleLogOffReminderIntervalSecondsOffPeak** | Pointer to **int32** | Represents the time interval at which messages are  sent to the user during off peak time when Autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
-**AutoscaleLogOffReminderIntervalSecondsPeak** | Pointer to **int32** | Represents the time interval at which messages are  sent to the user during peak time when autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
-**AutoscaleLogOffReminderMessage** | Pointer to **string** | Notification message to display to users in active sessions belonging to machines needed by Autoscale for shutdown. | [optional] 
-**AutoscaleLogOffReminderTitle** | Pointer to **string** | Notification message dialog title displayed when Autoscale issues a logoff reminder request. | [optional] 
+**LimitSecondsToForceLogOffUserDuringPeak** | Pointer to **NullableInt32** | Represents the number of seconds that must elapsed before the active sessions on the draining machines belonging to the delivery group are logged off, during peak time. | [optional] 
+**LimitSecondsToForceLogOffUserDuringOffPeak** | Pointer to **NullableInt32** | Represents the number of seconds that must elapsed before the active sessions on the draining machines belonging to the delivery group are logged off, during off-peak. | [optional] 
+**RestrictAutoscaleMinIdleUntaggedPercentDuringPeak** | Pointer to **NullableInt32** | Represents the percentage that the number of untagged single-session machines in an idle state, or for multi-session machines, the untagged available load capacity must fall below before Autoscale powers on and manages &#39;tagged&#39; machines, as per policy, in peak time. If the number of untagged machines in an idle state, or the untagged available load capacity goes above this threshold value, Autoscale will attempt to shut down &#39;tagged&#39; machines. | [optional] 
+**RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak** | Pointer to **NullableInt32** | Represents the percentage that the number of untagged single-session machines in an idle state, or for multi-session machines, the untagged available load capacity must fall below before Autoscale powers on and manages &#39;tagged&#39; machines, as per policy, in off-peak. If the number of untagged machines in an idle state, or the untagged available load capacity goes above this threshold value, Autoscale will attempt to shut down &#39;tagged&#39; machines. | [optional] 
+**LogOffWarningMessage** | Pointer to **NullableString** | The warning message to display to users in active sessions prior to logging off users, whether in peak time or off-peak. | [optional] 
+**LogOffWarningTitle** | Pointer to **NullableString** | The title of the warning message dialog. | [optional] 
+**AutoscaleLogOffReminderEnabled** | Pointer to **NullableBool** | Boolean value indicating whether the warning messages should be sent on an interval to nudge a logoff should be sent on an interval when autoscale is enabled. | [optional] 
+**AutoscaleLogOffReminderIntervalSecondsOffPeak** | Pointer to **NullableInt32** | Represents the time interval at which messages are  sent to the user during off peak time when Autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
+**AutoscaleLogOffReminderIntervalSecondsPeak** | Pointer to **NullableInt32** | Represents the time interval at which messages are  sent to the user during peak time when autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
+**AutoscaleLogOffReminderMessage** | Pointer to **NullableString** | Notification message to display to users in active sessions belonging to machines needed by Autoscale for shutdown. | [optional] 
+**AutoscaleLogOffReminderTitle** | Pointer to **NullableString** | Notification message dialog title displayed when Autoscale issues a logoff reminder request. | [optional] 
 
 ## Methods
 
@@ -266,6 +267,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *DeliveryGroupDetailResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDesktopsAvailable
 
 `func (o *DeliveryGroupDetailResponseModel) GetDesktopsAvailable() int32`
@@ -521,6 +532,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *DeliveryGroupDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetMinimumFunctionalLevel
 
 `func (o *DeliveryGroupDetailResponseModel) GetMinimumFunctionalLevel() FunctionalLevel`
@@ -586,6 +607,16 @@ SetFullName sets FullName field to given value.
 
 HasFullName returns a boolean if a field has been set.
 
+### SetFullNameNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetFullNameNil(b bool)`
+
+ SetFullNameNil sets the value for FullName to be an explicit nil
+
+### UnsetFullName
+`func (o *DeliveryGroupDetailResponseModel) UnsetFullName()`
+
+UnsetFullName ensures that no value is present for FullName, not even an explicit nil
 ### GetPublishedName
 
 `func (o *DeliveryGroupDetailResponseModel) GetPublishedName() string`
@@ -611,6 +642,16 @@ SetPublishedName sets PublishedName field to given value.
 
 HasPublishedName returns a boolean if a field has been set.
 
+### SetPublishedNameNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetPublishedNameNil(b bool)`
+
+ SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+
+### UnsetPublishedName
+`func (o *DeliveryGroupDetailResponseModel) UnsetPublishedName()`
+
+UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 ### GetPolicySetGuid
 
 `func (o *DeliveryGroupDetailResponseModel) GetPolicySetGuid() string`
@@ -661,6 +702,16 @@ SetProductCode sets ProductCode field to given value.
 
 HasProductCode returns a boolean if a field has been set.
 
+### SetProductCodeNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetProductCodeNil(b bool)`
+
+ SetProductCodeNil sets the value for ProductCode to be an explicit nil
+
+### UnsetProductCode
+`func (o *DeliveryGroupDetailResponseModel) UnsetProductCode()`
+
+UnsetProductCode ensures that no value is present for ProductCode, not even an explicit nil
 ### GetLicenseModel
 
 `func (o *DeliveryGroupDetailResponseModel) GetLicenseModel() LicenseModel`
@@ -751,6 +802,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *DeliveryGroupDetailResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetSessionCount
 
 `func (o *DeliveryGroupDetailResponseModel) GetSessionCount() int32`
@@ -913,20 +974,20 @@ SetDesktopCompatibility sets DesktopCompatibility field to given value.
 
 ### GetAdminFolder
 
-`func (o *DeliveryGroupDetailResponseModel) GetAdminFolder() CatalogSearchResponseModelAdminFolder`
+`func (o *DeliveryGroupDetailResponseModel) GetAdminFolder() RefResponseModel`
 
 GetAdminFolder returns the AdminFolder field if non-nil, zero value otherwise.
 
 ### GetAdminFolderOk
 
-`func (o *DeliveryGroupDetailResponseModel) GetAdminFolderOk() (*CatalogSearchResponseModelAdminFolder, bool)`
+`func (o *DeliveryGroupDetailResponseModel) GetAdminFolderOk() (*RefResponseModel, bool)`
 
 GetAdminFolderOk returns a tuple with the AdminFolder field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAdminFolder
 
-`func (o *DeliveryGroupDetailResponseModel) SetAdminFolder(v CatalogSearchResponseModelAdminFolder)`
+`func (o *DeliveryGroupDetailResponseModel) SetAdminFolder(v RefResponseModel)`
 
 SetAdminFolder sets AdminFolder field to given value.
 
@@ -938,20 +999,20 @@ HasAdminFolder returns a boolean if a field has been set.
 
 ### GetAppAccessPolicy
 
-`func (o *DeliveryGroupDetailResponseModel) GetAppAccessPolicy() DeliveryGroupDetailResponseModelAllOfAppAccessPolicy`
+`func (o *DeliveryGroupDetailResponseModel) GetAppAccessPolicy() AppAccessPolicyResponseModel`
 
 GetAppAccessPolicy returns the AppAccessPolicy field if non-nil, zero value otherwise.
 
 ### GetAppAccessPolicyOk
 
-`func (o *DeliveryGroupDetailResponseModel) GetAppAccessPolicyOk() (*DeliveryGroupDetailResponseModelAllOfAppAccessPolicy, bool)`
+`func (o *DeliveryGroupDetailResponseModel) GetAppAccessPolicyOk() (*AppAccessPolicyResponseModel, bool)`
 
 GetAppAccessPolicyOk returns a tuple with the AppAccessPolicy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppAccessPolicy
 
-`func (o *DeliveryGroupDetailResponseModel) SetAppAccessPolicy(v DeliveryGroupDetailResponseModelAllOfAppAccessPolicy)`
+`func (o *DeliveryGroupDetailResponseModel) SetAppAccessPolicy(v AppAccessPolicyResponseModel)`
 
 SetAppAccessPolicy sets AppAccessPolicy field to given value.
 
@@ -986,6 +1047,16 @@ SetAppProtectionKeyLoggingRequired sets AppProtectionKeyLoggingRequired field to
 
 HasAppProtectionKeyLoggingRequired returns a boolean if a field has been set.
 
+### SetAppProtectionKeyLoggingRequiredNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAppProtectionKeyLoggingRequiredNil(b bool)`
+
+ SetAppProtectionKeyLoggingRequiredNil sets the value for AppProtectionKeyLoggingRequired to be an explicit nil
+
+### UnsetAppProtectionKeyLoggingRequired
+`func (o *DeliveryGroupDetailResponseModel) UnsetAppProtectionKeyLoggingRequired()`
+
+UnsetAppProtectionKeyLoggingRequired ensures that no value is present for AppProtectionKeyLoggingRequired, not even an explicit nil
 ### GetAppProtectionScreenCaptureRequired
 
 `func (o *DeliveryGroupDetailResponseModel) GetAppProtectionScreenCaptureRequired() bool`
@@ -1011,6 +1082,16 @@ SetAppProtectionScreenCaptureRequired sets AppProtectionScreenCaptureRequired fi
 
 HasAppProtectionScreenCaptureRequired returns a boolean if a field has been set.
 
+### SetAppProtectionScreenCaptureRequiredNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAppProtectionScreenCaptureRequiredNil(b bool)`
+
+ SetAppProtectionScreenCaptureRequiredNil sets the value for AppProtectionScreenCaptureRequired to be an explicit nil
+
+### UnsetAppProtectionScreenCaptureRequired
+`func (o *DeliveryGroupDetailResponseModel) UnsetAppProtectionScreenCaptureRequired()`
+
+UnsetAppProtectionScreenCaptureRequired ensures that no value is present for AppProtectionScreenCaptureRequired, not even an explicit nil
 ### GetAutomaticPowerOnForAssigned
 
 `func (o *DeliveryGroupDetailResponseModel) GetAutomaticPowerOnForAssigned() bool`
@@ -1086,22 +1167,32 @@ SetAutoScaleEnabled sets AutoScaleEnabled field to given value.
 
 HasAutoScaleEnabled returns a boolean if a field has been set.
 
+### SetAutoScaleEnabledNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoScaleEnabledNil(b bool)`
+
+ SetAutoScaleEnabledNil sets the value for AutoScaleEnabled to be an explicit nil
+
+### UnsetAutoScaleEnabled
+`func (o *DeliveryGroupDetailResponseModel) UnsetAutoScaleEnabled()`
+
+UnsetAutoScaleEnabled ensures that no value is present for AutoScaleEnabled, not even an explicit nil
 ### GetRestrictAutoscaleTag
 
-`func (o *DeliveryGroupDetailResponseModel) GetRestrictAutoscaleTag() DeliveryGroupDetailResponseModelAllOfRestrictAutoscaleTag`
+`func (o *DeliveryGroupDetailResponseModel) GetRestrictAutoscaleTag() RefResponseModel`
 
 GetRestrictAutoscaleTag returns the RestrictAutoscaleTag field if non-nil, zero value otherwise.
 
 ### GetRestrictAutoscaleTagOk
 
-`func (o *DeliveryGroupDetailResponseModel) GetRestrictAutoscaleTagOk() (*DeliveryGroupDetailResponseModelAllOfRestrictAutoscaleTag, bool)`
+`func (o *DeliveryGroupDetailResponseModel) GetRestrictAutoscaleTagOk() (*RefResponseModel, bool)`
 
 GetRestrictAutoscaleTagOk returns a tuple with the RestrictAutoscaleTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRestrictAutoscaleTag
 
-`func (o *DeliveryGroupDetailResponseModel) SetRestrictAutoscaleTag(v DeliveryGroupDetailResponseModelAllOfRestrictAutoscaleTag)`
+`func (o *DeliveryGroupDetailResponseModel) SetRestrictAutoscaleTag(v RefResponseModel)`
 
 SetRestrictAutoscaleTag sets RestrictAutoscaleTag field to given value.
 
@@ -1161,6 +1252,16 @@ SetDefaultDesktopIconId sets DefaultDesktopIconId field to given value.
 
 HasDefaultDesktopIconId returns a boolean if a field has been set.
 
+### SetDefaultDesktopIconIdNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetDefaultDesktopIconIdNil(b bool)`
+
+ SetDefaultDesktopIconIdNil sets the value for DefaultDesktopIconId to be an explicit nil
+
+### UnsetDefaultDesktopIconId
+`func (o *DeliveryGroupDetailResponseModel) UnsetDefaultDesktopIconId()`
+
+UnsetDefaultDesktopIconId ensures that no value is present for DefaultDesktopIconId, not even an explicit nil
 ### GetDefaultDesktopPublishedName
 
 `func (o *DeliveryGroupDetailResponseModel) GetDefaultDesktopPublishedName() string`
@@ -1186,6 +1287,16 @@ SetDefaultDesktopPublishedName sets DefaultDesktopPublishedName field to given v
 
 HasDefaultDesktopPublishedName returns a boolean if a field has been set.
 
+### SetDefaultDesktopPublishedNameNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetDefaultDesktopPublishedNameNil(b bool)`
+
+ SetDefaultDesktopPublishedNameNil sets the value for DefaultDesktopPublishedName to be an explicit nil
+
+### UnsetDefaultDesktopPublishedName
+`func (o *DeliveryGroupDetailResponseModel) UnsetDefaultDesktopPublishedName()`
+
+UnsetDefaultDesktopPublishedName ensures that no value is present for DefaultDesktopPublishedName, not even an explicit nil
 ### GetDesktopsInUse
 
 `func (o *DeliveryGroupDetailResponseModel) GetDesktopsInUse() int32`
@@ -1271,6 +1382,16 @@ SetHdxSslEnabled sets HdxSslEnabled field to given value.
 
 HasHdxSslEnabled returns a boolean if a field has been set.
 
+### SetHdxSslEnabledNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetHdxSslEnabledNil(b bool)`
+
+ SetHdxSslEnabledNil sets the value for HdxSslEnabled to be an explicit nil
+
+### UnsetHdxSslEnabled
+`func (o *DeliveryGroupDetailResponseModel) UnsetHdxSslEnabled()`
+
+UnsetHdxSslEnabled ensures that no value is present for HdxSslEnabled, not even an explicit nil
 ### GetIsPowerManaged
 
 `func (o *DeliveryGroupDetailResponseModel) GetIsPowerManaged() bool`
@@ -1298,20 +1419,20 @@ HasIsPowerManaged returns a boolean if a field has been set.
 
 ### GetLingerSettings
 
-`func (o *DeliveryGroupDetailResponseModel) GetLingerSettings() DeliveryGroupDetailResponseModelAllOfLingerSettings`
+`func (o *DeliveryGroupDetailResponseModel) GetLingerSettings() FastApplicationSettingsResponseModel`
 
 GetLingerSettings returns the LingerSettings field if non-nil, zero value otherwise.
 
 ### GetLingerSettingsOk
 
-`func (o *DeliveryGroupDetailResponseModel) GetLingerSettingsOk() (*DeliveryGroupDetailResponseModelAllOfLingerSettings, bool)`
+`func (o *DeliveryGroupDetailResponseModel) GetLingerSettingsOk() (*FastApplicationSettingsResponseModel, bool)`
 
 GetLingerSettingsOk returns a tuple with the LingerSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLingerSettings
 
-`func (o *DeliveryGroupDetailResponseModel) SetLingerSettings(v DeliveryGroupDetailResponseModelAllOfLingerSettings)`
+`func (o *DeliveryGroupDetailResponseModel) SetLingerSettings(v FastApplicationSettingsResponseModel)`
 
 SetLingerSettings sets LingerSettings field to given value.
 
@@ -1346,6 +1467,16 @@ SetPowerOffDelayMinutes sets PowerOffDelayMinutes field to given value.
 
 HasPowerOffDelayMinutes returns a boolean if a field has been set.
 
+### SetPowerOffDelayMinutesNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetPowerOffDelayMinutesNil(b bool)`
+
+ SetPowerOffDelayMinutesNil sets the value for PowerOffDelayMinutes to be an explicit nil
+
+### UnsetPowerOffDelayMinutes
+`func (o *DeliveryGroupDetailResponseModel) UnsetPowerOffDelayMinutes()`
+
+UnsetPowerOffDelayMinutes ensures that no value is present for PowerOffDelayMinutes, not even an explicit nil
 ### GetMachineCost
 
 `func (o *DeliveryGroupDetailResponseModel) GetMachineCost() float64`
@@ -1371,6 +1502,16 @@ SetMachineCost sets MachineCost field to given value.
 
 HasMachineCost returns a boolean if a field has been set.
 
+### SetMachineCostNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetMachineCostNil(b bool)`
+
+ SetMachineCostNil sets the value for MachineCost to be an explicit nil
+
+### UnsetMachineCost
+`func (o *DeliveryGroupDetailResponseModel) UnsetMachineCost()`
+
+UnsetMachineCost ensures that no value is present for MachineCost, not even an explicit nil
 ### GetMachinesInMaintenanceMode
 
 `func (o *DeliveryGroupDetailResponseModel) GetMachinesInMaintenanceMode() int32`
@@ -1903,20 +2044,20 @@ HasLogoffOffPeakDisconnectedSessionAfterSeconds returns a boolean if a field has
 
 ### GetPrelaunchSettings
 
-`func (o *DeliveryGroupDetailResponseModel) GetPrelaunchSettings() DeliveryGroupDetailResponseModelAllOfPrelaunchSettings`
+`func (o *DeliveryGroupDetailResponseModel) GetPrelaunchSettings() FastApplicationSettingsResponseModel`
 
 GetPrelaunchSettings returns the PrelaunchSettings field if non-nil, zero value otherwise.
 
 ### GetPrelaunchSettingsOk
 
-`func (o *DeliveryGroupDetailResponseModel) GetPrelaunchSettingsOk() (*DeliveryGroupDetailResponseModelAllOfPrelaunchSettings, bool)`
+`func (o *DeliveryGroupDetailResponseModel) GetPrelaunchSettingsOk() (*FastApplicationSettingsResponseModel, bool)`
 
 GetPrelaunchSettingsOk returns a tuple with the PrelaunchSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrelaunchSettings
 
-`func (o *DeliveryGroupDetailResponseModel) SetPrelaunchSettings(v DeliveryGroupDetailResponseModelAllOfPrelaunchSettings)`
+`func (o *DeliveryGroupDetailResponseModel) SetPrelaunchSettings(v FastApplicationSettingsResponseModel)`
 
 SetPrelaunchSettings sets PrelaunchSettings field to given value.
 
@@ -1951,6 +2092,16 @@ SetPowerTimeSchemes sets PowerTimeSchemes field to given value.
 
 HasPowerTimeSchemes returns a boolean if a field has been set.
 
+### SetPowerTimeSchemesNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetPowerTimeSchemesNil(b bool)`
+
+ SetPowerTimeSchemesNil sets the value for PowerTimeSchemes to be an explicit nil
+
+### UnsetPowerTimeSchemes
+`func (o *DeliveryGroupDetailResponseModel) UnsetPowerTimeSchemes()`
+
+UnsetPowerTimeSchemes ensures that no value is present for PowerTimeSchemes, not even an explicit nil
 ### GetProtocolPriority
 
 `func (o *DeliveryGroupDetailResponseModel) GetProtocolPriority() []ProtocolType`
@@ -1976,6 +2127,16 @@ SetProtocolPriority sets ProtocolPriority field to given value.
 
 HasProtocolPriority returns a boolean if a field has been set.
 
+### SetProtocolPriorityNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetProtocolPriorityNil(b bool)`
+
+ SetProtocolPriorityNil sets the value for ProtocolPriority to be an explicit nil
+
+### UnsetProtocolPriority
+`func (o *DeliveryGroupDetailResponseModel) UnsetProtocolPriority()`
+
+UnsetProtocolPriority ensures that no value is present for ProtocolPriority, not even an explicit nil
 ### GetRegisteredMachines
 
 `func (o *DeliveryGroupDetailResponseModel) GetRegisteredMachines() int32`
@@ -2116,22 +2277,32 @@ SetShutdownDesktopsAfterUse sets ShutdownDesktopsAfterUse field to given value.
 
 HasShutdownDesktopsAfterUse returns a boolean if a field has been set.
 
+### SetShutdownDesktopsAfterUseNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetShutdownDesktopsAfterUseNil(b bool)`
+
+ SetShutdownDesktopsAfterUseNil sets the value for ShutdownDesktopsAfterUse to be an explicit nil
+
+### UnsetShutdownDesktopsAfterUse
+`func (o *DeliveryGroupDetailResponseModel) UnsetShutdownDesktopsAfterUse()`
+
+UnsetShutdownDesktopsAfterUse ensures that no value is present for ShutdownDesktopsAfterUse, not even an explicit nil
 ### GetSimpleAccessPolicy
 
-`func (o *DeliveryGroupDetailResponseModel) GetSimpleAccessPolicy() DeliveryGroupDetailResponseModelAllOfSimpleAccessPolicy`
+`func (o *DeliveryGroupDetailResponseModel) GetSimpleAccessPolicy() SimplifiedAccessPolicyResponseModel`
 
 GetSimpleAccessPolicy returns the SimpleAccessPolicy field if non-nil, zero value otherwise.
 
 ### GetSimpleAccessPolicyOk
 
-`func (o *DeliveryGroupDetailResponseModel) GetSimpleAccessPolicyOk() (*DeliveryGroupDetailResponseModelAllOfSimpleAccessPolicy, bool)`
+`func (o *DeliveryGroupDetailResponseModel) GetSimpleAccessPolicyOk() (*SimplifiedAccessPolicyResponseModel, bool)`
 
 GetSimpleAccessPolicyOk returns a tuple with the SimpleAccessPolicy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSimpleAccessPolicy
 
-`func (o *DeliveryGroupDetailResponseModel) SetSimpleAccessPolicy(v DeliveryGroupDetailResponseModelAllOfSimpleAccessPolicy)`
+`func (o *DeliveryGroupDetailResponseModel) SetSimpleAccessPolicy(v SimplifiedAccessPolicyResponseModel)`
 
 SetSimpleAccessPolicy sets SimpleAccessPolicy field to given value.
 
@@ -2141,6 +2312,41 @@ SetSimpleAccessPolicy sets SimpleAccessPolicy field to given value.
 
 HasSimpleAccessPolicy returns a boolean if a field has been set.
 
+### GetAdvancedAccessPolicy
+
+`func (o *DeliveryGroupDetailResponseModel) GetAdvancedAccessPolicy() []AdvancedAccessPolicyResponseModel`
+
+GetAdvancedAccessPolicy returns the AdvancedAccessPolicy field if non-nil, zero value otherwise.
+
+### GetAdvancedAccessPolicyOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetAdvancedAccessPolicyOk() (*[]AdvancedAccessPolicyResponseModel, bool)`
+
+GetAdvancedAccessPolicyOk returns a tuple with the AdvancedAccessPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdvancedAccessPolicy
+
+`func (o *DeliveryGroupDetailResponseModel) SetAdvancedAccessPolicy(v []AdvancedAccessPolicyResponseModel)`
+
+SetAdvancedAccessPolicy sets AdvancedAccessPolicy field to given value.
+
+### HasAdvancedAccessPolicy
+
+`func (o *DeliveryGroupDetailResponseModel) HasAdvancedAccessPolicy() bool`
+
+HasAdvancedAccessPolicy returns a boolean if a field has been set.
+
+### SetAdvancedAccessPolicyNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAdvancedAccessPolicyNil(b bool)`
+
+ SetAdvancedAccessPolicyNil sets the value for AdvancedAccessPolicy to be an explicit nil
+
+### UnsetAdvancedAccessPolicy
+`func (o *DeliveryGroupDetailResponseModel) UnsetAdvancedAccessPolicy()`
+
+UnsetAdvancedAccessPolicy ensures that no value is present for AdvancedAccessPolicy, not even an explicit nil
 ### GetStoreFrontServersForHostedReceiver
 
 `func (o *DeliveryGroupDetailResponseModel) GetStoreFrontServersForHostedReceiver() []StoreFrontServerResponseModel`
@@ -2166,6 +2372,16 @@ SetStoreFrontServersForHostedReceiver sets StoreFrontServersForHostedReceiver fi
 
 HasStoreFrontServersForHostedReceiver returns a boolean if a field has been set.
 
+### SetStoreFrontServersForHostedReceiverNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetStoreFrontServersForHostedReceiverNil(b bool)`
+
+ SetStoreFrontServersForHostedReceiverNil sets the value for StoreFrontServersForHostedReceiver to be an explicit nil
+
+### UnsetStoreFrontServersForHostedReceiver
+`func (o *DeliveryGroupDetailResponseModel) UnsetStoreFrontServersForHostedReceiver()`
+
+UnsetStoreFrontServersForHostedReceiver ensures that no value is present for StoreFrontServersForHostedReceiver, not even an explicit nil
 ### GetTimeZone
 
 `func (o *DeliveryGroupDetailResponseModel) GetTimeZone() string`
@@ -2191,6 +2407,16 @@ SetTimeZone sets TimeZone field to given value.
 
 HasTimeZone returns a boolean if a field has been set.
 
+### SetTimeZoneNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetTimeZoneNil(b bool)`
+
+ SetTimeZoneNil sets the value for TimeZone to be an explicit nil
+
+### UnsetTimeZone
+`func (o *DeliveryGroupDetailResponseModel) UnsetTimeZone()`
+
+UnsetTimeZone ensures that no value is present for TimeZone, not even an explicit nil
 ### GetTotalApplicationGroups
 
 `func (o *DeliveryGroupDetailResponseModel) GetTotalApplicationGroups() int32`
@@ -2256,6 +2482,16 @@ SetTurnOnAddedMachines sets TurnOnAddedMachines field to given value.
 
 HasTurnOnAddedMachines returns a boolean if a field has been set.
 
+### SetTurnOnAddedMachinesNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetTurnOnAddedMachinesNil(b bool)`
+
+ SetTurnOnAddedMachinesNil sets the value for TurnOnAddedMachines to be an explicit nil
+
+### UnsetTurnOnAddedMachines
+`func (o *DeliveryGroupDetailResponseModel) UnsetTurnOnAddedMachines()`
+
+UnsetTurnOnAddedMachines ensures that no value is present for TurnOnAddedMachines, not even an explicit nil
 ### GetUnassignedMachines
 
 `func (o *DeliveryGroupDetailResponseModel) GetUnassignedMachines() int32`
@@ -2281,6 +2517,16 @@ SetUnassignedMachines sets UnassignedMachines field to given value.
 
 HasUnassignedMachines returns a boolean if a field has been set.
 
+### SetUnassignedMachinesNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetUnassignedMachinesNil(b bool)`
+
+ SetUnassignedMachinesNil sets the value for UnassignedMachines to be an explicit nil
+
+### UnsetUnassignedMachines
+`func (o *DeliveryGroupDetailResponseModel) UnsetUnassignedMachines()`
+
+UnsetUnassignedMachines ensures that no value is present for UnassignedMachines, not even an explicit nil
 ### GetUsedByGroupPolicy
 
 `func (o *DeliveryGroupDetailResponseModel) GetUsedByGroupPolicy() bool`
@@ -2306,6 +2552,16 @@ SetUsedByGroupPolicy sets UsedByGroupPolicy field to given value.
 
 HasUsedByGroupPolicy returns a boolean if a field has been set.
 
+### SetUsedByGroupPolicyNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetUsedByGroupPolicyNil(b bool)`
+
+ SetUsedByGroupPolicyNil sets the value for UsedByGroupPolicy to be an explicit nil
+
+### UnsetUsedByGroupPolicy
+`func (o *DeliveryGroupDetailResponseModel) UnsetUsedByGroupPolicy()`
+
+UnsetUsedByGroupPolicy ensures that no value is present for UsedByGroupPolicy, not even an explicit nil
 ### GetVdaVersions
 
 `func (o *DeliveryGroupDetailResponseModel) GetVdaVersions() []NameValueIntPairModel`
@@ -2331,6 +2587,16 @@ SetVdaVersions sets VdaVersions field to given value.
 
 HasVdaVersions returns a boolean if a field has been set.
 
+### SetVdaVersionsNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetVdaVersionsNil(b bool)`
+
+ SetVdaVersionsNil sets the value for VdaVersions to be an explicit nil
+
+### UnsetVdaVersions
+`func (o *DeliveryGroupDetailResponseModel) UnsetVdaVersions()`
+
+UnsetVdaVersions ensures that no value is present for VdaVersions, not even an explicit nil
 ### GetZonePreferences
 
 `func (o *DeliveryGroupDetailResponseModel) GetZonePreferences() []ZonePreference`
@@ -2356,6 +2622,16 @@ SetZonePreferences sets ZonePreferences field to given value.
 
 HasZonePreferences returns a boolean if a field has been set.
 
+### SetZonePreferencesNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetZonePreferencesNil(b bool)`
+
+ SetZonePreferencesNil sets the value for ZonePreferences to be an explicit nil
+
+### UnsetZonePreferences
+`func (o *DeliveryGroupDetailResponseModel) UnsetZonePreferences()`
+
+UnsetZonePreferences ensures that no value is present for ZonePreferences, not even an explicit nil
 ### GetLimitSecondsToForceLogOffUserDuringPeak
 
 `func (o *DeliveryGroupDetailResponseModel) GetLimitSecondsToForceLogOffUserDuringPeak() int32`
@@ -2381,6 +2657,16 @@ SetLimitSecondsToForceLogOffUserDuringPeak sets LimitSecondsToForceLogOffUserDur
 
 HasLimitSecondsToForceLogOffUserDuringPeak returns a boolean if a field has been set.
 
+### SetLimitSecondsToForceLogOffUserDuringPeakNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetLimitSecondsToForceLogOffUserDuringPeakNil(b bool)`
+
+ SetLimitSecondsToForceLogOffUserDuringPeakNil sets the value for LimitSecondsToForceLogOffUserDuringPeak to be an explicit nil
+
+### UnsetLimitSecondsToForceLogOffUserDuringPeak
+`func (o *DeliveryGroupDetailResponseModel) UnsetLimitSecondsToForceLogOffUserDuringPeak()`
+
+UnsetLimitSecondsToForceLogOffUserDuringPeak ensures that no value is present for LimitSecondsToForceLogOffUserDuringPeak, not even an explicit nil
 ### GetLimitSecondsToForceLogOffUserDuringOffPeak
 
 `func (o *DeliveryGroupDetailResponseModel) GetLimitSecondsToForceLogOffUserDuringOffPeak() int32`
@@ -2406,6 +2692,16 @@ SetLimitSecondsToForceLogOffUserDuringOffPeak sets LimitSecondsToForceLogOffUser
 
 HasLimitSecondsToForceLogOffUserDuringOffPeak returns a boolean if a field has been set.
 
+### SetLimitSecondsToForceLogOffUserDuringOffPeakNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetLimitSecondsToForceLogOffUserDuringOffPeakNil(b bool)`
+
+ SetLimitSecondsToForceLogOffUserDuringOffPeakNil sets the value for LimitSecondsToForceLogOffUserDuringOffPeak to be an explicit nil
+
+### UnsetLimitSecondsToForceLogOffUserDuringOffPeak
+`func (o *DeliveryGroupDetailResponseModel) UnsetLimitSecondsToForceLogOffUserDuringOffPeak()`
+
+UnsetLimitSecondsToForceLogOffUserDuringOffPeak ensures that no value is present for LimitSecondsToForceLogOffUserDuringOffPeak, not even an explicit nil
 ### GetRestrictAutoscaleMinIdleUntaggedPercentDuringPeak
 
 `func (o *DeliveryGroupDetailResponseModel) GetRestrictAutoscaleMinIdleUntaggedPercentDuringPeak() int32`
@@ -2431,6 +2727,16 @@ SetRestrictAutoscaleMinIdleUntaggedPercentDuringPeak sets RestrictAutoscaleMinId
 
 HasRestrictAutoscaleMinIdleUntaggedPercentDuringPeak returns a boolean if a field has been set.
 
+### SetRestrictAutoscaleMinIdleUntaggedPercentDuringPeakNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetRestrictAutoscaleMinIdleUntaggedPercentDuringPeakNil(b bool)`
+
+ SetRestrictAutoscaleMinIdleUntaggedPercentDuringPeakNil sets the value for RestrictAutoscaleMinIdleUntaggedPercentDuringPeak to be an explicit nil
+
+### UnsetRestrictAutoscaleMinIdleUntaggedPercentDuringPeak
+`func (o *DeliveryGroupDetailResponseModel) UnsetRestrictAutoscaleMinIdleUntaggedPercentDuringPeak()`
+
+UnsetRestrictAutoscaleMinIdleUntaggedPercentDuringPeak ensures that no value is present for RestrictAutoscaleMinIdleUntaggedPercentDuringPeak, not even an explicit nil
 ### GetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak
 
 `func (o *DeliveryGroupDetailResponseModel) GetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak() int32`
@@ -2456,6 +2762,16 @@ SetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak sets RestrictAutoscaleMi
 
 HasRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak returns a boolean if a field has been set.
 
+### SetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeakNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeakNil(b bool)`
+
+ SetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeakNil sets the value for RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak to be an explicit nil
+
+### UnsetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak
+`func (o *DeliveryGroupDetailResponseModel) UnsetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak()`
+
+UnsetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak ensures that no value is present for RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak, not even an explicit nil
 ### GetLogOffWarningMessage
 
 `func (o *DeliveryGroupDetailResponseModel) GetLogOffWarningMessage() string`
@@ -2481,6 +2797,16 @@ SetLogOffWarningMessage sets LogOffWarningMessage field to given value.
 
 HasLogOffWarningMessage returns a boolean if a field has been set.
 
+### SetLogOffWarningMessageNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetLogOffWarningMessageNil(b bool)`
+
+ SetLogOffWarningMessageNil sets the value for LogOffWarningMessage to be an explicit nil
+
+### UnsetLogOffWarningMessage
+`func (o *DeliveryGroupDetailResponseModel) UnsetLogOffWarningMessage()`
+
+UnsetLogOffWarningMessage ensures that no value is present for LogOffWarningMessage, not even an explicit nil
 ### GetLogOffWarningTitle
 
 `func (o *DeliveryGroupDetailResponseModel) GetLogOffWarningTitle() string`
@@ -2506,6 +2832,16 @@ SetLogOffWarningTitle sets LogOffWarningTitle field to given value.
 
 HasLogOffWarningTitle returns a boolean if a field has been set.
 
+### SetLogOffWarningTitleNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetLogOffWarningTitleNil(b bool)`
+
+ SetLogOffWarningTitleNil sets the value for LogOffWarningTitle to be an explicit nil
+
+### UnsetLogOffWarningTitle
+`func (o *DeliveryGroupDetailResponseModel) UnsetLogOffWarningTitle()`
+
+UnsetLogOffWarningTitle ensures that no value is present for LogOffWarningTitle, not even an explicit nil
 ### GetAutoscaleLogOffReminderEnabled
 
 `func (o *DeliveryGroupDetailResponseModel) GetAutoscaleLogOffReminderEnabled() bool`
@@ -2531,6 +2867,16 @@ SetAutoscaleLogOffReminderEnabled sets AutoscaleLogOffReminderEnabled field to g
 
 HasAutoscaleLogOffReminderEnabled returns a boolean if a field has been set.
 
+### SetAutoscaleLogOffReminderEnabledNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleLogOffReminderEnabledNil(b bool)`
+
+ SetAutoscaleLogOffReminderEnabledNil sets the value for AutoscaleLogOffReminderEnabled to be an explicit nil
+
+### UnsetAutoscaleLogOffReminderEnabled
+`func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleLogOffReminderEnabled()`
+
+UnsetAutoscaleLogOffReminderEnabled ensures that no value is present for AutoscaleLogOffReminderEnabled, not even an explicit nil
 ### GetAutoscaleLogOffReminderIntervalSecondsOffPeak
 
 `func (o *DeliveryGroupDetailResponseModel) GetAutoscaleLogOffReminderIntervalSecondsOffPeak() int32`
@@ -2556,6 +2902,16 @@ SetAutoscaleLogOffReminderIntervalSecondsOffPeak sets AutoscaleLogOffReminderInt
 
 HasAutoscaleLogOffReminderIntervalSecondsOffPeak returns a boolean if a field has been set.
 
+### SetAutoscaleLogOffReminderIntervalSecondsOffPeakNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleLogOffReminderIntervalSecondsOffPeakNil(b bool)`
+
+ SetAutoscaleLogOffReminderIntervalSecondsOffPeakNil sets the value for AutoscaleLogOffReminderIntervalSecondsOffPeak to be an explicit nil
+
+### UnsetAutoscaleLogOffReminderIntervalSecondsOffPeak
+`func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleLogOffReminderIntervalSecondsOffPeak()`
+
+UnsetAutoscaleLogOffReminderIntervalSecondsOffPeak ensures that no value is present for AutoscaleLogOffReminderIntervalSecondsOffPeak, not even an explicit nil
 ### GetAutoscaleLogOffReminderIntervalSecondsPeak
 
 `func (o *DeliveryGroupDetailResponseModel) GetAutoscaleLogOffReminderIntervalSecondsPeak() int32`
@@ -2581,6 +2937,16 @@ SetAutoscaleLogOffReminderIntervalSecondsPeak sets AutoscaleLogOffReminderInterv
 
 HasAutoscaleLogOffReminderIntervalSecondsPeak returns a boolean if a field has been set.
 
+### SetAutoscaleLogOffReminderIntervalSecondsPeakNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleLogOffReminderIntervalSecondsPeakNil(b bool)`
+
+ SetAutoscaleLogOffReminderIntervalSecondsPeakNil sets the value for AutoscaleLogOffReminderIntervalSecondsPeak to be an explicit nil
+
+### UnsetAutoscaleLogOffReminderIntervalSecondsPeak
+`func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleLogOffReminderIntervalSecondsPeak()`
+
+UnsetAutoscaleLogOffReminderIntervalSecondsPeak ensures that no value is present for AutoscaleLogOffReminderIntervalSecondsPeak, not even an explicit nil
 ### GetAutoscaleLogOffReminderMessage
 
 `func (o *DeliveryGroupDetailResponseModel) GetAutoscaleLogOffReminderMessage() string`
@@ -2606,6 +2972,16 @@ SetAutoscaleLogOffReminderMessage sets AutoscaleLogOffReminderMessage field to g
 
 HasAutoscaleLogOffReminderMessage returns a boolean if a field has been set.
 
+### SetAutoscaleLogOffReminderMessageNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleLogOffReminderMessageNil(b bool)`
+
+ SetAutoscaleLogOffReminderMessageNil sets the value for AutoscaleLogOffReminderMessage to be an explicit nil
+
+### UnsetAutoscaleLogOffReminderMessage
+`func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleLogOffReminderMessage()`
+
+UnsetAutoscaleLogOffReminderMessage ensures that no value is present for AutoscaleLogOffReminderMessage, not even an explicit nil
 ### GetAutoscaleLogOffReminderTitle
 
 `func (o *DeliveryGroupDetailResponseModel) GetAutoscaleLogOffReminderTitle() string`
@@ -2631,6 +3007,16 @@ SetAutoscaleLogOffReminderTitle sets AutoscaleLogOffReminderTitle field to given
 
 HasAutoscaleLogOffReminderTitle returns a boolean if a field has been set.
 
+### SetAutoscaleLogOffReminderTitleNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleLogOffReminderTitleNil(b bool)`
+
+ SetAutoscaleLogOffReminderTitleNil sets the value for AutoscaleLogOffReminderTitle to be an explicit nil
+
+### UnsetAutoscaleLogOffReminderTitle
+`func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleLogOffReminderTitle()`
+
+UnsetAutoscaleLogOffReminderTitle ensures that no value is present for AutoscaleLogOffReminderTitle, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingType** | Pointer to **string** | Setting type. Is globally unique. | [optional] 
-**SettingValue** | Pointer to **string** | The setting value. * For all setting types, excluding booleans, if null, use the default value. * For all setting types, including booleans, otherwise, use the specified value. * For boolean types, the value can be \&quot;true\&quot;/\&quot;false\&quot;, \&quot;1\&quot;/\&quot;0\&quot;, null will be accepted as using default value. | [optional] 
+**SettingType** | Pointer to **NullableString** | Setting type. Is globally unique. | [optional] 
+**SettingValue** | Pointer to **NullableString** | The setting value. * For all setting types, excluding booleans, if null, use the default value. * For all setting types, including booleans, otherwise, use the specified value. * For boolean types, the value can be \&quot;true\&quot;/\&quot;false\&quot;, \&quot;1\&quot;/\&quot;0\&quot;, null will be accepted as using default value. | [optional] 
 **TypedValue** | Pointer to **map[string]interface{}** | The value in native C# type. If this value is null, use SettingValue, otherwise use this value. | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetSettingType sets SettingType field to given value.
 
 HasSettingType returns a boolean if a field has been set.
 
+### SetSettingTypeNil
+
+`func (o *SettingRequestContract) SetSettingTypeNil(b bool)`
+
+ SetSettingTypeNil sets the value for SettingType to be an explicit nil
+
+### UnsetSettingType
+`func (o *SettingRequestContract) UnsetSettingType()`
+
+UnsetSettingType ensures that no value is present for SettingType, not even an explicit nil
 ### GetSettingValue
 
 `func (o *SettingRequestContract) GetSettingValue() string`
@@ -77,6 +87,16 @@ SetSettingValue sets SettingValue field to given value.
 
 HasSettingValue returns a boolean if a field has been set.
 
+### SetSettingValueNil
+
+`func (o *SettingRequestContract) SetSettingValueNil(b bool)`
+
+ SetSettingValueNil sets the value for SettingValue to be an explicit nil
+
+### UnsetSettingValue
+`func (o *SettingRequestContract) UnsetSettingValue()`
+
+UnsetSettingValue ensures that no value is present for SettingValue, not even an explicit nil
 ### GetTypedValue
 
 `func (o *SettingRequestContract) GetTypedValue() map[string]interface{}`
@@ -102,6 +122,16 @@ SetTypedValue sets TypedValue field to given value.
 
 HasTypedValue returns a boolean if a field has been set.
 
+### SetTypedValueNil
+
+`func (o *SettingRequestContract) SetTypedValueNil(b bool)`
+
+ SetTypedValueNil sets the value for TypedValue to be an explicit nil
+
+### UnsetTypedValue
+`func (o *SettingRequestContract) UnsetTypedValue()`
+
+UnsetTypedValue ensures that no value is present for TypedValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

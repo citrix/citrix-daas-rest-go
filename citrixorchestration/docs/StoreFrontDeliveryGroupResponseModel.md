@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DeliveryGroupUid** | Pointer to **int32** | Gets or sets the DeliveryGroupUid. | [optional] 
-**DeliveryGroupName** | Pointer to **string** | Gets or sets the DeliveryGroupName. | [optional] 
+**DeliveryGroupName** | Pointer to **NullableString** | Gets or sets the DeliveryGroupName. | [optional] 
 
 ## Methods
 
@@ -76,6 +76,16 @@ SetDeliveryGroupName sets DeliveryGroupName field to given value.
 
 HasDeliveryGroupName returns a boolean if a field has been set.
 
+### SetDeliveryGroupNameNil
+
+`func (o *StoreFrontDeliveryGroupResponseModel) SetDeliveryGroupNameNil(b bool)`
+
+ SetDeliveryGroupNameNil sets the value for DeliveryGroupName to be an explicit nil
+
+### UnsetDeliveryGroupName
+`func (o *StoreFrontDeliveryGroupResponseModel) UnsetDeliveryGroupName()`
+
+UnsetDeliveryGroupName ensures that no value is present for DeliveryGroupName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

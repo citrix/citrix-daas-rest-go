@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Member name | [optional] 
-**Value** | **int32** | Integer value of the member. | 
-**DisplayName** | Pointer to **string** | localized name of the member. | [optional] 
+**Name** | Pointer to **NullableString** | Member name | [optional] 
+**Value** | Pointer to **int32** | Integer value of the member. | [optional] 
+**DisplayName** | Pointer to **NullableString** | localized name of the member. | [optional] 
 
 ## Methods
 
 ### NewEnumerationMember
 
-`func NewEnumerationMember(value int32, ) *EnumerationMember`
+`func NewEnumerationMember() *EnumerationMember`
 
 NewEnumerationMember instantiates a new EnumerationMember object
 This constructor will assign default values to properties that have it defined,
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EnumerationMember) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EnumerationMember) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValue
 
 `func (o *EnumerationMember) GetValue() int32`
@@ -71,6 +81,11 @@ and a boolean to check if the value has been set.
 
 SetValue sets Value field to given value.
 
+### HasValue
+
+`func (o *EnumerationMember) HasValue() bool`
+
+HasValue returns a boolean if a field has been set.
 
 ### GetDisplayName
 
@@ -97,6 +112,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *EnumerationMember) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *EnumerationMember) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

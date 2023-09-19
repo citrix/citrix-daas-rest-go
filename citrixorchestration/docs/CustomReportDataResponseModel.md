@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CsvData** | Pointer to **string** |  | [optional] 
-**HtmlSummaryData** | Pointer to **string** |  | [optional] 
-**HtmlDetailsData** | Pointer to **string** |  | [optional] 
+**CsvData** | Pointer to **NullableString** |  | [optional] 
+**HtmlSummaryData** | Pointer to **NullableString** |  | [optional] 
+**HtmlDetailsData** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetCsvData sets CsvData field to given value.
 
 HasCsvData returns a boolean if a field has been set.
 
+### SetCsvDataNil
+
+`func (o *CustomReportDataResponseModel) SetCsvDataNil(b bool)`
+
+ SetCsvDataNil sets the value for CsvData to be an explicit nil
+
+### UnsetCsvData
+`func (o *CustomReportDataResponseModel) UnsetCsvData()`
+
+UnsetCsvData ensures that no value is present for CsvData, not even an explicit nil
 ### GetHtmlSummaryData
 
 `func (o *CustomReportDataResponseModel) GetHtmlSummaryData() string`
@@ -77,6 +87,16 @@ SetHtmlSummaryData sets HtmlSummaryData field to given value.
 
 HasHtmlSummaryData returns a boolean if a field has been set.
 
+### SetHtmlSummaryDataNil
+
+`func (o *CustomReportDataResponseModel) SetHtmlSummaryDataNil(b bool)`
+
+ SetHtmlSummaryDataNil sets the value for HtmlSummaryData to be an explicit nil
+
+### UnsetHtmlSummaryData
+`func (o *CustomReportDataResponseModel) UnsetHtmlSummaryData()`
+
+UnsetHtmlSummaryData ensures that no value is present for HtmlSummaryData, not even an explicit nil
 ### GetHtmlDetailsData
 
 `func (o *CustomReportDataResponseModel) GetHtmlDetailsData() string`
@@ -102,6 +122,16 @@ SetHtmlDetailsData sets HtmlDetailsData field to given value.
 
 HasHtmlDetailsData returns a boolean if a field has been set.
 
+### SetHtmlDetailsDataNil
+
+`func (o *CustomReportDataResponseModel) SetHtmlDetailsDataNil(b bool)`
+
+ SetHtmlDetailsDataNil sets the value for HtmlDetailsData to be an explicit nil
+
+### UnsetHtmlDetailsData
+`func (o *CustomReportDataResponseModel) UnsetHtmlDetailsData()`
+
+UnsetHtmlDetailsData ensures that no value is present for HtmlDetailsData, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

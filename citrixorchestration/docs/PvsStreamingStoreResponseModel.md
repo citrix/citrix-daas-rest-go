@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StoreId** | Pointer to **string** | Id of the PVS store. | [optional] 
+**StoreId** | Pointer to **NullableString** | Id of the PVS store. | [optional] 
 **StoreName** | **string** | Name of the PVS store. | 
-**SiteId** | Pointer to **string** | Id of the PVS site. | [optional] 
+**SiteId** | Pointer to **NullableString** | Id of the PVS site. | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetStoreId sets StoreId field to given value.
 
 HasStoreId returns a boolean if a field has been set.
 
+### SetStoreIdNil
+
+`func (o *PvsStreamingStoreResponseModel) SetStoreIdNil(b bool)`
+
+ SetStoreIdNil sets the value for StoreId to be an explicit nil
+
+### UnsetStoreId
+`func (o *PvsStreamingStoreResponseModel) UnsetStoreId()`
+
+UnsetStoreId ensures that no value is present for StoreId, not even an explicit nil
 ### GetStoreName
 
 `func (o *PvsStreamingStoreResponseModel) GetStoreName() string`
@@ -97,6 +107,16 @@ SetSiteId sets SiteId field to given value.
 
 HasSiteId returns a boolean if a field has been set.
 
+### SetSiteIdNil
+
+`func (o *PvsStreamingStoreResponseModel) SetSiteIdNil(b bool)`
+
+ SetSiteIdNil sets the value for SiteId to be an explicit nil
+
+### UnsetSiteId
+`func (o *PvsStreamingStoreResponseModel) UnsetSiteId()`
+
+UnsetSiteId ensures that no value is present for SiteId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

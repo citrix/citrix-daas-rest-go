@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Token** | Pointer to **string** | The FMA token. | [optional] 
-**Principal** | Pointer to **string** | The user principal. | [optional] 
-**UserId** | Pointer to **string** | The user id. | [optional] 
-**CustomerId** | Pointer to **string** | The customer id. | [optional] 
-**ExpiresAt** | Pointer to **string** | The token will expire at the UTC time. | [optional] 
+**Token** | Pointer to **NullableString** | The FMA token. | [optional] 
+**Principal** | Pointer to **NullableString** | The user principal. | [optional] 
+**UserId** | Pointer to **NullableString** | The user id. | [optional] 
+**CustomerId** | Pointer to **NullableString** | The customer id. | [optional] 
+**ExpiresAt** | Pointer to **NullableString** | The token will expire at the UTC time. | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetToken sets Token field to given value.
 
 HasToken returns a boolean if a field has been set.
 
+### SetTokenNil
+
+`func (o *AuthTokenResponseModel) SetTokenNil(b bool)`
+
+ SetTokenNil sets the value for Token to be an explicit nil
+
+### UnsetToken
+`func (o *AuthTokenResponseModel) UnsetToken()`
+
+UnsetToken ensures that no value is present for Token, not even an explicit nil
 ### GetPrincipal
 
 `func (o *AuthTokenResponseModel) GetPrincipal() string`
@@ -79,6 +89,16 @@ SetPrincipal sets Principal field to given value.
 
 HasPrincipal returns a boolean if a field has been set.
 
+### SetPrincipalNil
+
+`func (o *AuthTokenResponseModel) SetPrincipalNil(b bool)`
+
+ SetPrincipalNil sets the value for Principal to be an explicit nil
+
+### UnsetPrincipal
+`func (o *AuthTokenResponseModel) UnsetPrincipal()`
+
+UnsetPrincipal ensures that no value is present for Principal, not even an explicit nil
 ### GetUserId
 
 `func (o *AuthTokenResponseModel) GetUserId() string`
@@ -104,6 +124,16 @@ SetUserId sets UserId field to given value.
 
 HasUserId returns a boolean if a field has been set.
 
+### SetUserIdNil
+
+`func (o *AuthTokenResponseModel) SetUserIdNil(b bool)`
+
+ SetUserIdNil sets the value for UserId to be an explicit nil
+
+### UnsetUserId
+`func (o *AuthTokenResponseModel) UnsetUserId()`
+
+UnsetUserId ensures that no value is present for UserId, not even an explicit nil
 ### GetCustomerId
 
 `func (o *AuthTokenResponseModel) GetCustomerId() string`
@@ -129,6 +159,16 @@ SetCustomerId sets CustomerId field to given value.
 
 HasCustomerId returns a boolean if a field has been set.
 
+### SetCustomerIdNil
+
+`func (o *AuthTokenResponseModel) SetCustomerIdNil(b bool)`
+
+ SetCustomerIdNil sets the value for CustomerId to be an explicit nil
+
+### UnsetCustomerId
+`func (o *AuthTokenResponseModel) UnsetCustomerId()`
+
+UnsetCustomerId ensures that no value is present for CustomerId, not even an explicit nil
 ### GetExpiresAt
 
 `func (o *AuthTokenResponseModel) GetExpiresAt() string`
@@ -154,6 +194,16 @@ SetExpiresAt sets ExpiresAt field to given value.
 
 HasExpiresAt returns a boolean if a field has been set.
 
+### SetExpiresAtNil
+
+`func (o *AuthTokenResponseModel) SetExpiresAtNil(b bool)`
+
+ SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
+
+### UnsetExpiresAt
+`func (o *AuthTokenResponseModel) UnsetExpiresAt()`
+
+UnsetExpiresAt ensures that no value is present for ExpiresAt, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

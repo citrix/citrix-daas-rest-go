@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ParameterName** | Pointer to **string** | Name of this parameter object. | [optional] 
-**ParameterId** | Pointer to **string** | Id of this parameter object. | [optional] 
-**ParameterDescription** | Pointer to **string** | Description of this parameter object. | [optional] 
-**ParameterType** | Pointer to **string** | Type of this parameter object. | [optional] 
+**ParameterName** | Pointer to **NullableString** | Name of this parameter object. | [optional] 
+**ParameterId** | Pointer to **NullableString** | Id of this parameter object. | [optional] 
+**ParameterDescription** | Pointer to **NullableString** | Description of this parameter object. | [optional] 
+**ParameterType** | Pointer to **NullableString** | Type of this parameter object. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetParameterName sets ParameterName field to given value.
 
 HasParameterName returns a boolean if a field has been set.
 
+### SetParameterNameNil
+
+`func (o *VDAComponentParameterModel) SetParameterNameNil(b bool)`
+
+ SetParameterNameNil sets the value for ParameterName to be an explicit nil
+
+### UnsetParameterName
+`func (o *VDAComponentParameterModel) UnsetParameterName()`
+
+UnsetParameterName ensures that no value is present for ParameterName, not even an explicit nil
 ### GetParameterId
 
 `func (o *VDAComponentParameterModel) GetParameterId() string`
@@ -78,6 +88,16 @@ SetParameterId sets ParameterId field to given value.
 
 HasParameterId returns a boolean if a field has been set.
 
+### SetParameterIdNil
+
+`func (o *VDAComponentParameterModel) SetParameterIdNil(b bool)`
+
+ SetParameterIdNil sets the value for ParameterId to be an explicit nil
+
+### UnsetParameterId
+`func (o *VDAComponentParameterModel) UnsetParameterId()`
+
+UnsetParameterId ensures that no value is present for ParameterId, not even an explicit nil
 ### GetParameterDescription
 
 `func (o *VDAComponentParameterModel) GetParameterDescription() string`
@@ -103,6 +123,16 @@ SetParameterDescription sets ParameterDescription field to given value.
 
 HasParameterDescription returns a boolean if a field has been set.
 
+### SetParameterDescriptionNil
+
+`func (o *VDAComponentParameterModel) SetParameterDescriptionNil(b bool)`
+
+ SetParameterDescriptionNil sets the value for ParameterDescription to be an explicit nil
+
+### UnsetParameterDescription
+`func (o *VDAComponentParameterModel) UnsetParameterDescription()`
+
+UnsetParameterDescription ensures that no value is present for ParameterDescription, not even an explicit nil
 ### GetParameterType
 
 `func (o *VDAComponentParameterModel) GetParameterType() string`
@@ -128,6 +158,16 @@ SetParameterType sets ParameterType field to given value.
 
 HasParameterType returns a boolean if a field has been set.
 
+### SetParameterTypeNil
+
+`func (o *VDAComponentParameterModel) SetParameterTypeNil(b bool)`
+
+ SetParameterTypeNil sets the value for ParameterType to be an explicit nil
+
+### UnsetParameterType
+`func (o *VDAComponentParameterModel) UnsetParameterType()`
+
+UnsetParameterType ensures that no value is present for ParameterType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

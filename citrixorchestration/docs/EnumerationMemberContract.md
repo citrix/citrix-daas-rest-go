@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Member name | [optional] 
+**Name** | Pointer to **NullableString** | Member name | [optional] 
 **Value** | Pointer to **int32** | Integer value of the member. | [optional] 
-**DisplayName** | Pointer to **string** | Translated names of the member. | [optional] 
+**DisplayName** | Pointer to **NullableString** | Translated names of the member. | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EnumerationMemberContract) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EnumerationMemberContract) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetValue
 
 `func (o *EnumerationMemberContract) GetValue() int32`
@@ -102,6 +112,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *EnumerationMemberContract) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *EnumerationMemberContract) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

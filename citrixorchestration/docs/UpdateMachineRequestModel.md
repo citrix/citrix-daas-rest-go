@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignedClientName** | Pointer to **string** | The client name to which this machine will be assigned.  Machines can be assigned to multiple users, a single client IP address, or a single client name, but only to one of these categories at a time. | [optional] 
-**AssignedIPAddress** | Pointer to **string** | The client IP address to which this machine will be assigned.  Machines can be assigned to multiple users, a single client IP address, or a single client name, but only to one of these categories at a time. | [optional] 
+**AssignedClientName** | Pointer to **NullableString** | The client name to which this machine will be assigned.  Machines can be assigned to multiple users, a single client IP address, or a single client name, but only to one of these categories at a time. | [optional] 
+**AssignedIPAddress** | Pointer to **NullableString** | The client IP address to which this machine will be assigned.  Machines can be assigned to multiple users, a single client IP address, or a single client name, but only to one of these categories at a time. | [optional] 
 **AssignedUsers** | Pointer to **[]string** | The user(s) to whom this machine will be assigned.  Machines can be assigned to multiple users, a single client IP address, or a single client name, but only to one of these categories at a time. | [optional] 
-**HostedMachineId** | Pointer to **string** | The unique ID by which the hypervisor recognizes the machine. Omit this for machines that are not power-managed. | [optional] 
-**HypervisorConnection** | Pointer to **string** | Hypervisor connection to use for power management of the machine. | [optional] 
-**InMaintenanceMode** | Pointer to **bool** | Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is not available for new sessions, and for managed machines all automatic power management is disabled. If &#x60;null&#x60;, will not be changed. | [optional] 
-**PublishedName** | Pointer to **string** | Customized name of the machine that is displayed in StoreFront, if the machine has been published. It can be set only for private desktops. If &#x60;null&#x60;, will not be changed. If empty string (&#x60;\&quot;\&quot;&#x60;), the machine will be unassigned from any published name. | [optional] 
+**HostedMachineId** | Pointer to **NullableString** | The unique ID by which the hypervisor recognizes the machine. Omit this for machines that are not power-managed. | [optional] 
+**HypervisorConnection** | Pointer to **NullableString** | Hypervisor connection to use for power management of the machine. | [optional] 
+**InMaintenanceMode** | Pointer to **NullableBool** | Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is not available for new sessions, and for managed machines all automatic power management is disabled. If &#x60;null&#x60;, will not be changed. | [optional] 
+**PublishedName** | Pointer to **NullableString** | Customized name of the machine that is displayed in StoreFront, if the machine has been published. It can be set only for private desktops. If &#x60;null&#x60;, will not be changed. If empty string (&#x60;\&quot;\&quot;&#x60;), the machine will be unassigned from any published name. | [optional] 
 
 ## Methods
 
@@ -56,6 +56,16 @@ SetAssignedClientName sets AssignedClientName field to given value.
 
 HasAssignedClientName returns a boolean if a field has been set.
 
+### SetAssignedClientNameNil
+
+`func (o *UpdateMachineRequestModel) SetAssignedClientNameNil(b bool)`
+
+ SetAssignedClientNameNil sets the value for AssignedClientName to be an explicit nil
+
+### UnsetAssignedClientName
+`func (o *UpdateMachineRequestModel) UnsetAssignedClientName()`
+
+UnsetAssignedClientName ensures that no value is present for AssignedClientName, not even an explicit nil
 ### GetAssignedIPAddress
 
 `func (o *UpdateMachineRequestModel) GetAssignedIPAddress() string`
@@ -81,6 +91,16 @@ SetAssignedIPAddress sets AssignedIPAddress field to given value.
 
 HasAssignedIPAddress returns a boolean if a field has been set.
 
+### SetAssignedIPAddressNil
+
+`func (o *UpdateMachineRequestModel) SetAssignedIPAddressNil(b bool)`
+
+ SetAssignedIPAddressNil sets the value for AssignedIPAddress to be an explicit nil
+
+### UnsetAssignedIPAddress
+`func (o *UpdateMachineRequestModel) UnsetAssignedIPAddress()`
+
+UnsetAssignedIPAddress ensures that no value is present for AssignedIPAddress, not even an explicit nil
 ### GetAssignedUsers
 
 `func (o *UpdateMachineRequestModel) GetAssignedUsers() []string`
@@ -106,6 +126,16 @@ SetAssignedUsers sets AssignedUsers field to given value.
 
 HasAssignedUsers returns a boolean if a field has been set.
 
+### SetAssignedUsersNil
+
+`func (o *UpdateMachineRequestModel) SetAssignedUsersNil(b bool)`
+
+ SetAssignedUsersNil sets the value for AssignedUsers to be an explicit nil
+
+### UnsetAssignedUsers
+`func (o *UpdateMachineRequestModel) UnsetAssignedUsers()`
+
+UnsetAssignedUsers ensures that no value is present for AssignedUsers, not even an explicit nil
 ### GetHostedMachineId
 
 `func (o *UpdateMachineRequestModel) GetHostedMachineId() string`
@@ -131,6 +161,16 @@ SetHostedMachineId sets HostedMachineId field to given value.
 
 HasHostedMachineId returns a boolean if a field has been set.
 
+### SetHostedMachineIdNil
+
+`func (o *UpdateMachineRequestModel) SetHostedMachineIdNil(b bool)`
+
+ SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
+
+### UnsetHostedMachineId
+`func (o *UpdateMachineRequestModel) UnsetHostedMachineId()`
+
+UnsetHostedMachineId ensures that no value is present for HostedMachineId, not even an explicit nil
 ### GetHypervisorConnection
 
 `func (o *UpdateMachineRequestModel) GetHypervisorConnection() string`
@@ -156,6 +196,16 @@ SetHypervisorConnection sets HypervisorConnection field to given value.
 
 HasHypervisorConnection returns a boolean if a field has been set.
 
+### SetHypervisorConnectionNil
+
+`func (o *UpdateMachineRequestModel) SetHypervisorConnectionNil(b bool)`
+
+ SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
+
+### UnsetHypervisorConnection
+`func (o *UpdateMachineRequestModel) UnsetHypervisorConnection()`
+
+UnsetHypervisorConnection ensures that no value is present for HypervisorConnection, not even an explicit nil
 ### GetInMaintenanceMode
 
 `func (o *UpdateMachineRequestModel) GetInMaintenanceMode() bool`
@@ -181,6 +231,16 @@ SetInMaintenanceMode sets InMaintenanceMode field to given value.
 
 HasInMaintenanceMode returns a boolean if a field has been set.
 
+### SetInMaintenanceModeNil
+
+`func (o *UpdateMachineRequestModel) SetInMaintenanceModeNil(b bool)`
+
+ SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
+
+### UnsetInMaintenanceMode
+`func (o *UpdateMachineRequestModel) UnsetInMaintenanceMode()`
+
+UnsetInMaintenanceMode ensures that no value is present for InMaintenanceMode, not even an explicit nil
 ### GetPublishedName
 
 `func (o *UpdateMachineRequestModel) GetPublishedName() string`
@@ -206,6 +266,16 @@ SetPublishedName sets PublishedName field to given value.
 
 HasPublishedName returns a boolean if a field has been set.
 
+### SetPublishedNameNil
+
+`func (o *UpdateMachineRequestModel) SetPublishedNameNil(b bool)`
+
+ SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+
+### UnsetPublishedName
+`func (o *UpdateMachineRequestModel) UnsetPublishedName()`
+
+UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

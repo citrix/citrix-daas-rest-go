@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ParameterId** | **string** | Id of the parameter. | 
-**ParameterValue** | Pointer to **string** | Value of the parameter. | [optional] 
+**ParameterValue** | Pointer to **NullableString** | Value of the parameter. | [optional] 
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetParameterValue sets ParameterValue field to given value.
 
 HasParameterValue returns a boolean if a field has been set.
 
+### SetParameterValueNil
+
+`func (o *VDAComponentParameterRequestModel) SetParameterValueNil(b bool)`
+
+ SetParameterValueNil sets the value for ParameterValue to be an explicit nil
+
+### UnsetParameterValue
+`func (o *VDAComponentParameterRequestModel) UnsetParameterValue()`
+
+UnsetParameterValue ensures that no value is present for ParameterValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

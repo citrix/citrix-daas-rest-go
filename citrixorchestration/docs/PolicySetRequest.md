@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicySetType** | Pointer to **string** | The policy set type. | [optional] 
-**Name** | Pointer to **string** | Name of the policy set. | [optional] 
-**Description** | Pointer to **string** | Policy set description. | [optional] 
+**PolicySetType** | Pointer to **NullableString** | The policy set type. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the policy set. | [optional] 
+**Description** | Pointer to **NullableString** | Policy set description. | [optional] 
 **Scopes** | Pointer to **[]string** | Delegated administration scopes for the policy set. | [optional] 
 
 ## Methods
@@ -53,6 +53,16 @@ SetPolicySetType sets PolicySetType field to given value.
 
 HasPolicySetType returns a boolean if a field has been set.
 
+### SetPolicySetTypeNil
+
+`func (o *PolicySetRequest) SetPolicySetTypeNil(b bool)`
+
+ SetPolicySetTypeNil sets the value for PolicySetType to be an explicit nil
+
+### UnsetPolicySetType
+`func (o *PolicySetRequest) UnsetPolicySetType()`
+
+UnsetPolicySetType ensures that no value is present for PolicySetType, not even an explicit nil
 ### GetName
 
 `func (o *PolicySetRequest) GetName() string`
@@ -78,6 +88,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *PolicySetRequest) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PolicySetRequest) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *PolicySetRequest) GetDescription() string`
@@ -103,6 +123,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PolicySetRequest) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PolicySetRequest) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetScopes
 
 `func (o *PolicySetRequest) GetScopes() []string`
@@ -128,6 +158,16 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
+### SetScopesNil
+
+`func (o *PolicySetRequest) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *PolicySetRequest) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

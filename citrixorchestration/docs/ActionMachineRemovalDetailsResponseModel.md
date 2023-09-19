@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdAccountAction** | Pointer to **string** | Active directory account action. | [optional] 
+**AdAccountAction** | Pointer to **NullableString** | Active directory account action. | [optional] 
 **SuccessfulAccounts** | Pointer to **[]string** | Successful accounts. | [optional] 
 **SuccessfulMachines** | Pointer to **[]string** | Successful machines.  | [optional] 
 **FailedMachines** | Pointer to [**[]ActionFailedMachineOrAccountResponseModel**](ActionFailedMachineOrAccountResponseModel.md) | Failed machines and Action errors. | [optional] 
 **FailedAccounts** | Pointer to [**[]ActionFailedMachineOrAccountResponseModel**](ActionFailedMachineOrAccountResponseModel.md) | Failed accounts and action errors. | [optional] 
-**VMAction** | Pointer to **string** | The virtual machine actions.  | [optional] 
+**VMAction** | Pointer to **NullableString** | The virtual machine actions.  | [optional] 
 
 ## Methods
 
@@ -55,6 +55,16 @@ SetAdAccountAction sets AdAccountAction field to given value.
 
 HasAdAccountAction returns a boolean if a field has been set.
 
+### SetAdAccountActionNil
+
+`func (o *ActionMachineRemovalDetailsResponseModel) SetAdAccountActionNil(b bool)`
+
+ SetAdAccountActionNil sets the value for AdAccountAction to be an explicit nil
+
+### UnsetAdAccountAction
+`func (o *ActionMachineRemovalDetailsResponseModel) UnsetAdAccountAction()`
+
+UnsetAdAccountAction ensures that no value is present for AdAccountAction, not even an explicit nil
 ### GetSuccessfulAccounts
 
 `func (o *ActionMachineRemovalDetailsResponseModel) GetSuccessfulAccounts() []string`
@@ -80,6 +90,16 @@ SetSuccessfulAccounts sets SuccessfulAccounts field to given value.
 
 HasSuccessfulAccounts returns a boolean if a field has been set.
 
+### SetSuccessfulAccountsNil
+
+`func (o *ActionMachineRemovalDetailsResponseModel) SetSuccessfulAccountsNil(b bool)`
+
+ SetSuccessfulAccountsNil sets the value for SuccessfulAccounts to be an explicit nil
+
+### UnsetSuccessfulAccounts
+`func (o *ActionMachineRemovalDetailsResponseModel) UnsetSuccessfulAccounts()`
+
+UnsetSuccessfulAccounts ensures that no value is present for SuccessfulAccounts, not even an explicit nil
 ### GetSuccessfulMachines
 
 `func (o *ActionMachineRemovalDetailsResponseModel) GetSuccessfulMachines() []string`
@@ -105,6 +125,16 @@ SetSuccessfulMachines sets SuccessfulMachines field to given value.
 
 HasSuccessfulMachines returns a boolean if a field has been set.
 
+### SetSuccessfulMachinesNil
+
+`func (o *ActionMachineRemovalDetailsResponseModel) SetSuccessfulMachinesNil(b bool)`
+
+ SetSuccessfulMachinesNil sets the value for SuccessfulMachines to be an explicit nil
+
+### UnsetSuccessfulMachines
+`func (o *ActionMachineRemovalDetailsResponseModel) UnsetSuccessfulMachines()`
+
+UnsetSuccessfulMachines ensures that no value is present for SuccessfulMachines, not even an explicit nil
 ### GetFailedMachines
 
 `func (o *ActionMachineRemovalDetailsResponseModel) GetFailedMachines() []ActionFailedMachineOrAccountResponseModel`
@@ -130,6 +160,16 @@ SetFailedMachines sets FailedMachines field to given value.
 
 HasFailedMachines returns a boolean if a field has been set.
 
+### SetFailedMachinesNil
+
+`func (o *ActionMachineRemovalDetailsResponseModel) SetFailedMachinesNil(b bool)`
+
+ SetFailedMachinesNil sets the value for FailedMachines to be an explicit nil
+
+### UnsetFailedMachines
+`func (o *ActionMachineRemovalDetailsResponseModel) UnsetFailedMachines()`
+
+UnsetFailedMachines ensures that no value is present for FailedMachines, not even an explicit nil
 ### GetFailedAccounts
 
 `func (o *ActionMachineRemovalDetailsResponseModel) GetFailedAccounts() []ActionFailedMachineOrAccountResponseModel`
@@ -155,6 +195,16 @@ SetFailedAccounts sets FailedAccounts field to given value.
 
 HasFailedAccounts returns a boolean if a field has been set.
 
+### SetFailedAccountsNil
+
+`func (o *ActionMachineRemovalDetailsResponseModel) SetFailedAccountsNil(b bool)`
+
+ SetFailedAccountsNil sets the value for FailedAccounts to be an explicit nil
+
+### UnsetFailedAccounts
+`func (o *ActionMachineRemovalDetailsResponseModel) UnsetFailedAccounts()`
+
+UnsetFailedAccounts ensures that no value is present for FailedAccounts, not even an explicit nil
 ### GetVMAction
 
 `func (o *ActionMachineRemovalDetailsResponseModel) GetVMAction() string`
@@ -180,6 +230,16 @@ SetVMAction sets VMAction field to given value.
 
 HasVMAction returns a boolean if a field has been set.
 
+### SetVMActionNil
+
+`func (o *ActionMachineRemovalDetailsResponseModel) SetVMActionNil(b bool)`
+
+ SetVMActionNil sets the value for VMAction to be an explicit nil
+
+### UnsetVMAction
+`func (o *ActionMachineRemovalDetailsResponseModel) UnsetVMAction()`
+
+UnsetVMAction ensures that no value is present for VMAction, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

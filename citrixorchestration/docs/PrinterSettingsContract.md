@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **OverrideDuplex** | Pointer to **bool** |  | [optional] 
 **Duplex** | Pointer to [**PrintDuplexSetting**](PrintDuplexSetting.md) |  | [optional] 
 **OverrideFormName** | Pointer to **bool** |  | [optional] 
-**FormName** | Pointer to **string** |  | [optional] 
+**FormName** | Pointer to **NullableString** |  | [optional] 
 **OverrideTrueTypeOption** | Pointer to **bool** |  | [optional] 
 **TrueTypeOption** | Pointer to [**PrintTrueTypeOption**](PrintTrueTypeOption.md) |  | [optional] 
 
@@ -572,6 +572,16 @@ SetFormName sets FormName field to given value.
 
 HasFormName returns a boolean if a field has been set.
 
+### SetFormNameNil
+
+`func (o *PrinterSettingsContract) SetFormNameNil(b bool)`
+
+ SetFormNameNil sets the value for FormName to be an explicit nil
+
+### UnsetFormName
+`func (o *PrinterSettingsContract) UnsetFormName()`
+
+UnsetFormName ensures that no value is present for FormName, not even an explicit nil
 ### GetOverrideTrueTypeOption
 
 `func (o *PrinterSettingsContract) GetOverrideTrueTypeOption() bool`

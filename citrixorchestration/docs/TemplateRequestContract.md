@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TemplateName** | Pointer to **string** | Template name as identifier | [optional] 
-**Description** | Pointer to **string** | Template description | [optional] 
+**TemplateName** | Pointer to **NullableString** | Template name as identifier | [optional] 
+**Description** | Pointer to **NullableString** | Template description | [optional] 
 **Settings** | Pointer to [**[]SettingRequestContract**](SettingRequestContract.md) | Settings | [optional] 
 **ForceWrite** | Pointer to **bool** | True to force this change to the database even if changes have been made by another user | [optional] 
 
@@ -53,6 +53,16 @@ SetTemplateName sets TemplateName field to given value.
 
 HasTemplateName returns a boolean if a field has been set.
 
+### SetTemplateNameNil
+
+`func (o *TemplateRequestContract) SetTemplateNameNil(b bool)`
+
+ SetTemplateNameNil sets the value for TemplateName to be an explicit nil
+
+### UnsetTemplateName
+`func (o *TemplateRequestContract) UnsetTemplateName()`
+
+UnsetTemplateName ensures that no value is present for TemplateName, not even an explicit nil
 ### GetDescription
 
 `func (o *TemplateRequestContract) GetDescription() string`
@@ -78,6 +88,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *TemplateRequestContract) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *TemplateRequestContract) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetSettings
 
 `func (o *TemplateRequestContract) GetSettings() []SettingRequestContract`
@@ -103,6 +123,16 @@ SetSettings sets Settings field to given value.
 
 HasSettings returns a boolean if a field has been set.
 
+### SetSettingsNil
+
+`func (o *TemplateRequestContract) SetSettingsNil(b bool)`
+
+ SetSettingsNil sets the value for Settings to be an explicit nil
+
+### UnsetSettings
+`func (o *TemplateRequestContract) UnsetSettings()`
+
+UnsetSettings ensures that no value is present for Settings, not even an explicit nil
 ### GetForceWrite
 
 `func (o *TemplateRequestContract) GetForceWrite() bool`

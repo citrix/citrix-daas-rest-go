@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The requested administrator name for previewing. | [optional] 
-**Error** | Pointer to **string** | Localized error message when the request administrator request name is illegal. If the name is fine, the property should be null. | [optional] 
+**Name** | Pointer to **NullableString** | The requested administrator name for previewing. | [optional] 
+**Error** | Pointer to **NullableString** | Localized error message when the request administrator request name is illegal. If the name is fine, the property should be null. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AdministratorNamePreviewResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AdministratorNamePreviewResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetError
 
 `func (o *AdministratorNamePreviewResponseModel) GetError() string`
@@ -76,6 +86,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *AdministratorNamePreviewResponseModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *AdministratorNamePreviewResponseModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

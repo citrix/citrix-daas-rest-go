@@ -52,6 +52,16 @@ SetExistingApplications sets ExistingApplications field to given value.
 
 HasExistingApplications returns a boolean if a field has been set.
 
+### SetExistingApplicationsNil
+
+`func (o *DeliveryGroupAddApplicationsRequestModel) SetExistingApplicationsNil(b bool)`
+
+ SetExistingApplicationsNil sets the value for ExistingApplications to be an explicit nil
+
+### UnsetExistingApplications
+`func (o *DeliveryGroupAddApplicationsRequestModel) UnsetExistingApplications()`
+
+UnsetExistingApplications ensures that no value is present for ExistingApplications, not even an explicit nil
 ### GetNewApplications
 
 `func (o *DeliveryGroupAddApplicationsRequestModel) GetNewApplications() []CreateApplicationRequestModel`
@@ -77,6 +87,16 @@ SetNewApplications sets NewApplications field to given value.
 
 HasNewApplications returns a boolean if a field has been set.
 
+### SetNewApplicationsNil
+
+`func (o *DeliveryGroupAddApplicationsRequestModel) SetNewApplicationsNil(b bool)`
+
+ SetNewApplicationsNil sets the value for NewApplications to be an explicit nil
+
+### UnsetNewApplications
+`func (o *DeliveryGroupAddApplicationsRequestModel) UnsetNewApplications()`
+
+UnsetNewApplications ensures that no value is present for NewApplications, not even an explicit nil
 ### GetExistingApplicationGroups
 
 `func (o *DeliveryGroupAddApplicationsRequestModel) GetExistingApplicationGroups() []PriorityRefRequestModel`
@@ -102,6 +122,16 @@ SetExistingApplicationGroups sets ExistingApplicationGroups field to given value
 
 HasExistingApplicationGroups returns a boolean if a field has been set.
 
+### SetExistingApplicationGroupsNil
+
+`func (o *DeliveryGroupAddApplicationsRequestModel) SetExistingApplicationGroupsNil(b bool)`
+
+ SetExistingApplicationGroupsNil sets the value for ExistingApplicationGroups to be an explicit nil
+
+### UnsetExistingApplicationGroups
+`func (o *DeliveryGroupAddApplicationsRequestModel) UnsetExistingApplicationGroups()`
+
+UnsetExistingApplicationGroups ensures that no value is present for ExistingApplicationGroups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

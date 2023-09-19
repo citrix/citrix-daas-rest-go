@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Forest** | Pointer to **string** | Forest in which the user account resides. | [optional] 
-**Domain** | Pointer to **string** | Domain in which the user account resides. | [optional] 
+**Forest** | Pointer to **NullableString** | Forest in which the user account resides. | [optional] 
+**Domain** | Pointer to **NullableString** | Domain in which the user account resides. | [optional] 
 **LogOnType** | Pointer to [**IdentityLogonType**](IdentityLogonType.md) |  | [optional] 
 **UserName** | **string** | Username to validate.  Required. | 
 **Password** | **string** | Password to validate.  Required. Must be specified in the format indicated by PasswordFormat. | 
@@ -55,6 +55,16 @@ SetForest sets Forest field to given value.
 
 HasForest returns a boolean if a field has been set.
 
+### SetForestNil
+
+`func (o *IdentityValidateUserRequestModel) SetForestNil(b bool)`
+
+ SetForestNil sets the value for Forest to be an explicit nil
+
+### UnsetForest
+`func (o *IdentityValidateUserRequestModel) UnsetForest()`
+
+UnsetForest ensures that no value is present for Forest, not even an explicit nil
 ### GetDomain
 
 `func (o *IdentityValidateUserRequestModel) GetDomain() string`
@@ -80,6 +90,16 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *IdentityValidateUserRequestModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *IdentityValidateUserRequestModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetLogOnType
 
 `func (o *IdentityValidateUserRequestModel) GetLogOnType() IdentityLogonType`

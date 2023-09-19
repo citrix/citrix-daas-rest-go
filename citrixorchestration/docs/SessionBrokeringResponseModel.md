@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AutonomouslyBrokered** | **bool** | Indicates whether this is an HDX session established by direct connection without being brokered. | 
-**DurationMilliseconds** | Pointer to **int32** | Time taken to broker the session. | [optional] 
-**Time** | Pointer to **string** | Time at which the session was brokered. | [optional] 
-**FormattedTime** | Pointer to **string** | Formatted time at which the session was brokered. RFC 3339 compatible format. | [optional] 
-**UserName** | Pointer to **string** | The user name of the brokering user. | [optional] 
-**UserSid** | Pointer to **string** | The SID of the brokering user. | [optional] 
+**DurationMilliseconds** | Pointer to **NullableInt32** | Time taken to broker the session. | [optional] 
+**Time** | Pointer to **NullableString** | Time at which the session was brokered. | [optional] 
+**FormattedTime** | Pointer to **NullableString** | Formatted time at which the session was brokered. RFC 3339 compatible format. | [optional] 
+**UserName** | Pointer to **NullableString** | The user name of the brokering user. | [optional] 
+**UserSid** | Pointer to **NullableString** | The SID of the brokering user. | [optional] 
 
 ## Methods
 
@@ -75,6 +75,16 @@ SetDurationMilliseconds sets DurationMilliseconds field to given value.
 
 HasDurationMilliseconds returns a boolean if a field has been set.
 
+### SetDurationMillisecondsNil
+
+`func (o *SessionBrokeringResponseModel) SetDurationMillisecondsNil(b bool)`
+
+ SetDurationMillisecondsNil sets the value for DurationMilliseconds to be an explicit nil
+
+### UnsetDurationMilliseconds
+`func (o *SessionBrokeringResponseModel) UnsetDurationMilliseconds()`
+
+UnsetDurationMilliseconds ensures that no value is present for DurationMilliseconds, not even an explicit nil
 ### GetTime
 
 `func (o *SessionBrokeringResponseModel) GetTime() string`
@@ -100,6 +110,16 @@ SetTime sets Time field to given value.
 
 HasTime returns a boolean if a field has been set.
 
+### SetTimeNil
+
+`func (o *SessionBrokeringResponseModel) SetTimeNil(b bool)`
+
+ SetTimeNil sets the value for Time to be an explicit nil
+
+### UnsetTime
+`func (o *SessionBrokeringResponseModel) UnsetTime()`
+
+UnsetTime ensures that no value is present for Time, not even an explicit nil
 ### GetFormattedTime
 
 `func (o *SessionBrokeringResponseModel) GetFormattedTime() string`
@@ -125,6 +145,16 @@ SetFormattedTime sets FormattedTime field to given value.
 
 HasFormattedTime returns a boolean if a field has been set.
 
+### SetFormattedTimeNil
+
+`func (o *SessionBrokeringResponseModel) SetFormattedTimeNil(b bool)`
+
+ SetFormattedTimeNil sets the value for FormattedTime to be an explicit nil
+
+### UnsetFormattedTime
+`func (o *SessionBrokeringResponseModel) UnsetFormattedTime()`
+
+UnsetFormattedTime ensures that no value is present for FormattedTime, not even an explicit nil
 ### GetUserName
 
 `func (o *SessionBrokeringResponseModel) GetUserName() string`
@@ -150,6 +180,16 @@ SetUserName sets UserName field to given value.
 
 HasUserName returns a boolean if a field has been set.
 
+### SetUserNameNil
+
+`func (o *SessionBrokeringResponseModel) SetUserNameNil(b bool)`
+
+ SetUserNameNil sets the value for UserName to be an explicit nil
+
+### UnsetUserName
+`func (o *SessionBrokeringResponseModel) UnsetUserName()`
+
+UnsetUserName ensures that no value is present for UserName, not even an explicit nil
 ### GetUserSid
 
 `func (o *SessionBrokeringResponseModel) GetUserSid() string`
@@ -175,6 +215,16 @@ SetUserSid sets UserSid field to given value.
 
 HasUserSid returns a boolean if a field has been set.
 
+### SetUserSidNil
+
+`func (o *SessionBrokeringResponseModel) SetUserSidNil(b bool)`
+
+ SetUserSidNil sets the value for UserSid to be an explicit nil
+
+### UnsetUserSid
+`func (o *SessionBrokeringResponseModel) UnsetUserSid()`
+
+UnsetUserSid ensures that no value is present for UserSid, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

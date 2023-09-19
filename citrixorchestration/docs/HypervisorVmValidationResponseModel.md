@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HypervisorVmResource** | Pointer to [**HypervisorVmValidationResponseModelHypervisorVmResource**](HypervisorVmValidationResponseModelHypervisorVmResource.md) |  | [optional] 
-**HypervisorConnection** | Pointer to [**HypervisorVmValidationResponseModelHypervisorConnection**](HypervisorVmValidationResponseModelHypervisorConnection.md) |  | [optional] 
+**HypervisorVmResource** | Pointer to [**HypervisorVmResourceResponseModel**](HypervisorVmResourceResponseModel.md) |  | [optional] 
+**HypervisorConnection** | Pointer to [**HypervisorResponseModel**](HypervisorResponseModel.md) |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetHypervisorVmResource
 
-`func (o *HypervisorVmValidationResponseModel) GetHypervisorVmResource() HypervisorVmValidationResponseModelHypervisorVmResource`
+`func (o *HypervisorVmValidationResponseModel) GetHypervisorVmResource() HypervisorVmResourceResponseModel`
 
 GetHypervisorVmResource returns the HypervisorVmResource field if non-nil, zero value otherwise.
 
 ### GetHypervisorVmResourceOk
 
-`func (o *HypervisorVmValidationResponseModel) GetHypervisorVmResourceOk() (*HypervisorVmValidationResponseModelHypervisorVmResource, bool)`
+`func (o *HypervisorVmValidationResponseModel) GetHypervisorVmResourceOk() (*HypervisorVmResourceResponseModel, bool)`
 
 GetHypervisorVmResourceOk returns a tuple with the HypervisorVmResource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisorVmResource
 
-`func (o *HypervisorVmValidationResponseModel) SetHypervisorVmResource(v HypervisorVmValidationResponseModelHypervisorVmResource)`
+`func (o *HypervisorVmValidationResponseModel) SetHypervisorVmResource(v HypervisorVmResourceResponseModel)`
 
 SetHypervisorVmResource sets HypervisorVmResource field to given value.
 
@@ -53,20 +53,20 @@ HasHypervisorVmResource returns a boolean if a field has been set.
 
 ### GetHypervisorConnection
 
-`func (o *HypervisorVmValidationResponseModel) GetHypervisorConnection() HypervisorVmValidationResponseModelHypervisorConnection`
+`func (o *HypervisorVmValidationResponseModel) GetHypervisorConnection() HypervisorResponseModel`
 
 GetHypervisorConnection returns the HypervisorConnection field if non-nil, zero value otherwise.
 
 ### GetHypervisorConnectionOk
 
-`func (o *HypervisorVmValidationResponseModel) GetHypervisorConnectionOk() (*HypervisorVmValidationResponseModelHypervisorConnection, bool)`
+`func (o *HypervisorVmValidationResponseModel) GetHypervisorConnectionOk() (*HypervisorResponseModel, bool)`
 
 GetHypervisorConnectionOk returns a tuple with the HypervisorConnection field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisorConnection
 
-`func (o *HypervisorVmValidationResponseModel) SetHypervisorConnection(v HypervisorVmValidationResponseModelHypervisorConnection)`
+`func (o *HypervisorVmValidationResponseModel) SetHypervisorConnection(v HypervisorResponseModel)`
 
 SetHypervisorConnection sets HypervisorConnection field to given value.
 

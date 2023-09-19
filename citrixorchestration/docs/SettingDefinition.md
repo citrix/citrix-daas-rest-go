@@ -4,37 +4,38 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingName** | Pointer to **string** | Setting name; Is globally unique | [optional] 
-**EditorName** | Pointer to **string** | The setting editor name. | [optional] 
-**DisplayName** | Pointer to **string** | Translated setting name. Is globally unique. | [optional] 
-**Category** | Pointer to **string** | Setting category, e.g., ICA\\Printing. | [optional] 
-**Explanation** | Pointer to **string** | Setting detailed description | [optional] 
-**IsUserSetting** | **bool** | true &#x3D; user, false &#x3D; machine | 
-**ValueType** | Pointer to **string** | Type of setting value | [optional] 
-**IsEnableDisable** | **bool** | Label test for a boolean setting, display enable/disable if true, otherwise allow/prohibit | 
-**DefaultValue** | Pointer to **string** | Setting default value | [optional] 
-**DisabledValue** | Pointer to **string** | Disabled value for toggled settings | [optional] 
-**InitialValue** | Pointer to **string** | Initial value for toggled settings when value is not disabled. | [optional] 
-**ValueMinimum** | Pointer to **string** | Minimal value for integer setting | [optional] 
-**ValueMaximum** | Pointer to **string** | Maximal value for integer setting | [optional] 
-**ValueValidator** | Pointer to **string** | An expression executed to validate the value | [optional] 
-**ValidatorError** | Pointer to **string** | Warning message issued when validator fails (throws exception) | [optional] 
+**SettingName** | Pointer to **NullableString** | Setting name; Is globally unique | [optional] 
+**EditorName** | Pointer to **NullableString** | The setting editor name. | [optional] 
+**DisplayName** | Pointer to **NullableString** | Translated setting name. Is globally unique. | [optional] 
+**Category** | Pointer to **NullableString** | Setting category, e.g., ICA\\Printing. | [optional] 
+**Explanation** | Pointer to **NullableString** | Setting detailed description | [optional] 
+**IsUserSetting** | Pointer to **bool** | true &#x3D; user, false &#x3D; machine | [optional] 
+**ValueType** | Pointer to **NullableString** | Type of setting value | [optional] 
+**IsEnableDisable** | Pointer to **bool** | Label test for a boolean setting, display enable/disable if true, otherwise allow/prohibit | [optional] 
+**IsToggled** | Pointer to **bool** | Indicate if the integer, string, enum or multiline string is toggled. | [optional] 
+**DefaultValue** | Pointer to **NullableString** | Setting default value | [optional] 
+**DisabledValue** | Pointer to **NullableString** | Disabled value for toggled settings | [optional] 
+**InitialValue** | Pointer to **NullableString** | Initial value for toggled settings when value is not disabled. | [optional] 
+**ValueMinimum** | Pointer to **NullableString** | Minimal value for integer setting | [optional] 
+**ValueMaximum** | Pointer to **NullableString** | Maximal value for integer setting | [optional] 
+**ValueValidator** | Pointer to **NullableString** | An expression executed to validate the value | [optional] 
+**ValidatorError** | Pointer to **NullableString** | Warning message issued when validator fails (throws exception) | [optional] 
 **RelatedSettings** | Pointer to **[]string** | Related settings. | [optional] 
-**ValueUnit** | Pointer to **string** | Unit of value in translated text | [optional] 
-**AllowedText** | Pointer to **string** | Custom text for the allowed explanation for some boolean settings. | [optional] 
-**DeniedText** | Pointer to **string** | Custom text for the denied explanation for some boolean settings. | [optional] 
-**EnumType** | Pointer to [**SettingDefinitionEnumType**](SettingDefinitionEnumType.md) |  | [optional] 
+**ValueUnit** | Pointer to **NullableString** | Unit of value in translated text | [optional] 
+**AllowedText** | Pointer to **NullableString** | Custom text for the allowed explanation for some boolean settings. | [optional] 
+**DeniedText** | Pointer to **NullableString** | Custom text for the denied explanation for some boolean settings. | [optional] 
+**EnumType** | Pointer to [**EnumerationType**](EnumerationType.md) |  | [optional] 
 **VersionDetails** | Pointer to [**[]VersionDetail**](VersionDetail.md) | VDA versions honoring this setting. | [optional] 
-**VersionCode** | Pointer to **string** | The version string in GPFX file, e.g., XD&#x3D;7.8,*,B. | [optional] 
+**VersionCode** | Pointer to **NullableString** | The version string in GPFX file, e.g., XD&#x3D;7.8,*,B. | [optional] 
 **VdaVersions** | Pointer to **[]string** | Array of VDA versions, e.g., 7.8S, 7.8M. This is much lighter than VersionDetails. | [optional] 
-**GpoScope** | Pointer to **string** | Scope, e.g. ConfigSlot | [optional] 
-**ProductGroup** | Pointer to **string** | Group, e.g., UPM. | [optional] 
+**GpoScope** | Pointer to **NullableString** | Scope, e.g. ConfigSlot | [optional] 
+**ProductGroup** | Pointer to **NullableString** | Group, e.g., UPM. | [optional] 
 
 ## Methods
 
 ### NewSettingDefinition
 
-`func NewSettingDefinition(isUserSetting bool, isEnableDisable bool, ) *SettingDefinition`
+`func NewSettingDefinition() *SettingDefinition`
 
 NewSettingDefinition instantiates a new SettingDefinition object
 This constructor will assign default values to properties that have it defined,
@@ -74,6 +75,16 @@ SetSettingName sets SettingName field to given value.
 
 HasSettingName returns a boolean if a field has been set.
 
+### SetSettingNameNil
+
+`func (o *SettingDefinition) SetSettingNameNil(b bool)`
+
+ SetSettingNameNil sets the value for SettingName to be an explicit nil
+
+### UnsetSettingName
+`func (o *SettingDefinition) UnsetSettingName()`
+
+UnsetSettingName ensures that no value is present for SettingName, not even an explicit nil
 ### GetEditorName
 
 `func (o *SettingDefinition) GetEditorName() string`
@@ -99,6 +110,16 @@ SetEditorName sets EditorName field to given value.
 
 HasEditorName returns a boolean if a field has been set.
 
+### SetEditorNameNil
+
+`func (o *SettingDefinition) SetEditorNameNil(b bool)`
+
+ SetEditorNameNil sets the value for EditorName to be an explicit nil
+
+### UnsetEditorName
+`func (o *SettingDefinition) UnsetEditorName()`
+
+UnsetEditorName ensures that no value is present for EditorName, not even an explicit nil
 ### GetDisplayName
 
 `func (o *SettingDefinition) GetDisplayName() string`
@@ -124,6 +145,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *SettingDefinition) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *SettingDefinition) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetCategory
 
 `func (o *SettingDefinition) GetCategory() string`
@@ -149,6 +180,16 @@ SetCategory sets Category field to given value.
 
 HasCategory returns a boolean if a field has been set.
 
+### SetCategoryNil
+
+`func (o *SettingDefinition) SetCategoryNil(b bool)`
+
+ SetCategoryNil sets the value for Category to be an explicit nil
+
+### UnsetCategory
+`func (o *SettingDefinition) UnsetCategory()`
+
+UnsetCategory ensures that no value is present for Category, not even an explicit nil
 ### GetExplanation
 
 `func (o *SettingDefinition) GetExplanation() string`
@@ -174,6 +215,16 @@ SetExplanation sets Explanation field to given value.
 
 HasExplanation returns a boolean if a field has been set.
 
+### SetExplanationNil
+
+`func (o *SettingDefinition) SetExplanationNil(b bool)`
+
+ SetExplanationNil sets the value for Explanation to be an explicit nil
+
+### UnsetExplanation
+`func (o *SettingDefinition) UnsetExplanation()`
+
+UnsetExplanation ensures that no value is present for Explanation, not even an explicit nil
 ### GetIsUserSetting
 
 `func (o *SettingDefinition) GetIsUserSetting() bool`
@@ -193,6 +244,11 @@ and a boolean to check if the value has been set.
 
 SetIsUserSetting sets IsUserSetting field to given value.
 
+### HasIsUserSetting
+
+`func (o *SettingDefinition) HasIsUserSetting() bool`
+
+HasIsUserSetting returns a boolean if a field has been set.
 
 ### GetValueType
 
@@ -219,6 +275,16 @@ SetValueType sets ValueType field to given value.
 
 HasValueType returns a boolean if a field has been set.
 
+### SetValueTypeNil
+
+`func (o *SettingDefinition) SetValueTypeNil(b bool)`
+
+ SetValueTypeNil sets the value for ValueType to be an explicit nil
+
+### UnsetValueType
+`func (o *SettingDefinition) UnsetValueType()`
+
+UnsetValueType ensures that no value is present for ValueType, not even an explicit nil
 ### GetIsEnableDisable
 
 `func (o *SettingDefinition) GetIsEnableDisable() bool`
@@ -238,6 +304,36 @@ and a boolean to check if the value has been set.
 
 SetIsEnableDisable sets IsEnableDisable field to given value.
 
+### HasIsEnableDisable
+
+`func (o *SettingDefinition) HasIsEnableDisable() bool`
+
+HasIsEnableDisable returns a boolean if a field has been set.
+
+### GetIsToggled
+
+`func (o *SettingDefinition) GetIsToggled() bool`
+
+GetIsToggled returns the IsToggled field if non-nil, zero value otherwise.
+
+### GetIsToggledOk
+
+`func (o *SettingDefinition) GetIsToggledOk() (*bool, bool)`
+
+GetIsToggledOk returns a tuple with the IsToggled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsToggled
+
+`func (o *SettingDefinition) SetIsToggled(v bool)`
+
+SetIsToggled sets IsToggled field to given value.
+
+### HasIsToggled
+
+`func (o *SettingDefinition) HasIsToggled() bool`
+
+HasIsToggled returns a boolean if a field has been set.
 
 ### GetDefaultValue
 
@@ -264,6 +360,16 @@ SetDefaultValue sets DefaultValue field to given value.
 
 HasDefaultValue returns a boolean if a field has been set.
 
+### SetDefaultValueNil
+
+`func (o *SettingDefinition) SetDefaultValueNil(b bool)`
+
+ SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
+
+### UnsetDefaultValue
+`func (o *SettingDefinition) UnsetDefaultValue()`
+
+UnsetDefaultValue ensures that no value is present for DefaultValue, not even an explicit nil
 ### GetDisabledValue
 
 `func (o *SettingDefinition) GetDisabledValue() string`
@@ -289,6 +395,16 @@ SetDisabledValue sets DisabledValue field to given value.
 
 HasDisabledValue returns a boolean if a field has been set.
 
+### SetDisabledValueNil
+
+`func (o *SettingDefinition) SetDisabledValueNil(b bool)`
+
+ SetDisabledValueNil sets the value for DisabledValue to be an explicit nil
+
+### UnsetDisabledValue
+`func (o *SettingDefinition) UnsetDisabledValue()`
+
+UnsetDisabledValue ensures that no value is present for DisabledValue, not even an explicit nil
 ### GetInitialValue
 
 `func (o *SettingDefinition) GetInitialValue() string`
@@ -314,6 +430,16 @@ SetInitialValue sets InitialValue field to given value.
 
 HasInitialValue returns a boolean if a field has been set.
 
+### SetInitialValueNil
+
+`func (o *SettingDefinition) SetInitialValueNil(b bool)`
+
+ SetInitialValueNil sets the value for InitialValue to be an explicit nil
+
+### UnsetInitialValue
+`func (o *SettingDefinition) UnsetInitialValue()`
+
+UnsetInitialValue ensures that no value is present for InitialValue, not even an explicit nil
 ### GetValueMinimum
 
 `func (o *SettingDefinition) GetValueMinimum() string`
@@ -339,6 +465,16 @@ SetValueMinimum sets ValueMinimum field to given value.
 
 HasValueMinimum returns a boolean if a field has been set.
 
+### SetValueMinimumNil
+
+`func (o *SettingDefinition) SetValueMinimumNil(b bool)`
+
+ SetValueMinimumNil sets the value for ValueMinimum to be an explicit nil
+
+### UnsetValueMinimum
+`func (o *SettingDefinition) UnsetValueMinimum()`
+
+UnsetValueMinimum ensures that no value is present for ValueMinimum, not even an explicit nil
 ### GetValueMaximum
 
 `func (o *SettingDefinition) GetValueMaximum() string`
@@ -364,6 +500,16 @@ SetValueMaximum sets ValueMaximum field to given value.
 
 HasValueMaximum returns a boolean if a field has been set.
 
+### SetValueMaximumNil
+
+`func (o *SettingDefinition) SetValueMaximumNil(b bool)`
+
+ SetValueMaximumNil sets the value for ValueMaximum to be an explicit nil
+
+### UnsetValueMaximum
+`func (o *SettingDefinition) UnsetValueMaximum()`
+
+UnsetValueMaximum ensures that no value is present for ValueMaximum, not even an explicit nil
 ### GetValueValidator
 
 `func (o *SettingDefinition) GetValueValidator() string`
@@ -389,6 +535,16 @@ SetValueValidator sets ValueValidator field to given value.
 
 HasValueValidator returns a boolean if a field has been set.
 
+### SetValueValidatorNil
+
+`func (o *SettingDefinition) SetValueValidatorNil(b bool)`
+
+ SetValueValidatorNil sets the value for ValueValidator to be an explicit nil
+
+### UnsetValueValidator
+`func (o *SettingDefinition) UnsetValueValidator()`
+
+UnsetValueValidator ensures that no value is present for ValueValidator, not even an explicit nil
 ### GetValidatorError
 
 `func (o *SettingDefinition) GetValidatorError() string`
@@ -414,6 +570,16 @@ SetValidatorError sets ValidatorError field to given value.
 
 HasValidatorError returns a boolean if a field has been set.
 
+### SetValidatorErrorNil
+
+`func (o *SettingDefinition) SetValidatorErrorNil(b bool)`
+
+ SetValidatorErrorNil sets the value for ValidatorError to be an explicit nil
+
+### UnsetValidatorError
+`func (o *SettingDefinition) UnsetValidatorError()`
+
+UnsetValidatorError ensures that no value is present for ValidatorError, not even an explicit nil
 ### GetRelatedSettings
 
 `func (o *SettingDefinition) GetRelatedSettings() []string`
@@ -439,6 +605,16 @@ SetRelatedSettings sets RelatedSettings field to given value.
 
 HasRelatedSettings returns a boolean if a field has been set.
 
+### SetRelatedSettingsNil
+
+`func (o *SettingDefinition) SetRelatedSettingsNil(b bool)`
+
+ SetRelatedSettingsNil sets the value for RelatedSettings to be an explicit nil
+
+### UnsetRelatedSettings
+`func (o *SettingDefinition) UnsetRelatedSettings()`
+
+UnsetRelatedSettings ensures that no value is present for RelatedSettings, not even an explicit nil
 ### GetValueUnit
 
 `func (o *SettingDefinition) GetValueUnit() string`
@@ -464,6 +640,16 @@ SetValueUnit sets ValueUnit field to given value.
 
 HasValueUnit returns a boolean if a field has been set.
 
+### SetValueUnitNil
+
+`func (o *SettingDefinition) SetValueUnitNil(b bool)`
+
+ SetValueUnitNil sets the value for ValueUnit to be an explicit nil
+
+### UnsetValueUnit
+`func (o *SettingDefinition) UnsetValueUnit()`
+
+UnsetValueUnit ensures that no value is present for ValueUnit, not even an explicit nil
 ### GetAllowedText
 
 `func (o *SettingDefinition) GetAllowedText() string`
@@ -489,6 +675,16 @@ SetAllowedText sets AllowedText field to given value.
 
 HasAllowedText returns a boolean if a field has been set.
 
+### SetAllowedTextNil
+
+`func (o *SettingDefinition) SetAllowedTextNil(b bool)`
+
+ SetAllowedTextNil sets the value for AllowedText to be an explicit nil
+
+### UnsetAllowedText
+`func (o *SettingDefinition) UnsetAllowedText()`
+
+UnsetAllowedText ensures that no value is present for AllowedText, not even an explicit nil
 ### GetDeniedText
 
 `func (o *SettingDefinition) GetDeniedText() string`
@@ -514,22 +710,32 @@ SetDeniedText sets DeniedText field to given value.
 
 HasDeniedText returns a boolean if a field has been set.
 
+### SetDeniedTextNil
+
+`func (o *SettingDefinition) SetDeniedTextNil(b bool)`
+
+ SetDeniedTextNil sets the value for DeniedText to be an explicit nil
+
+### UnsetDeniedText
+`func (o *SettingDefinition) UnsetDeniedText()`
+
+UnsetDeniedText ensures that no value is present for DeniedText, not even an explicit nil
 ### GetEnumType
 
-`func (o *SettingDefinition) GetEnumType() SettingDefinitionEnumType`
+`func (o *SettingDefinition) GetEnumType() EnumerationType`
 
 GetEnumType returns the EnumType field if non-nil, zero value otherwise.
 
 ### GetEnumTypeOk
 
-`func (o *SettingDefinition) GetEnumTypeOk() (*SettingDefinitionEnumType, bool)`
+`func (o *SettingDefinition) GetEnumTypeOk() (*EnumerationType, bool)`
 
 GetEnumTypeOk returns a tuple with the EnumType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnumType
 
-`func (o *SettingDefinition) SetEnumType(v SettingDefinitionEnumType)`
+`func (o *SettingDefinition) SetEnumType(v EnumerationType)`
 
 SetEnumType sets EnumType field to given value.
 
@@ -564,6 +770,16 @@ SetVersionDetails sets VersionDetails field to given value.
 
 HasVersionDetails returns a boolean if a field has been set.
 
+### SetVersionDetailsNil
+
+`func (o *SettingDefinition) SetVersionDetailsNil(b bool)`
+
+ SetVersionDetailsNil sets the value for VersionDetails to be an explicit nil
+
+### UnsetVersionDetails
+`func (o *SettingDefinition) UnsetVersionDetails()`
+
+UnsetVersionDetails ensures that no value is present for VersionDetails, not even an explicit nil
 ### GetVersionCode
 
 `func (o *SettingDefinition) GetVersionCode() string`
@@ -589,6 +805,16 @@ SetVersionCode sets VersionCode field to given value.
 
 HasVersionCode returns a boolean if a field has been set.
 
+### SetVersionCodeNil
+
+`func (o *SettingDefinition) SetVersionCodeNil(b bool)`
+
+ SetVersionCodeNil sets the value for VersionCode to be an explicit nil
+
+### UnsetVersionCode
+`func (o *SettingDefinition) UnsetVersionCode()`
+
+UnsetVersionCode ensures that no value is present for VersionCode, not even an explicit nil
 ### GetVdaVersions
 
 `func (o *SettingDefinition) GetVdaVersions() []string`
@@ -614,6 +840,16 @@ SetVdaVersions sets VdaVersions field to given value.
 
 HasVdaVersions returns a boolean if a field has been set.
 
+### SetVdaVersionsNil
+
+`func (o *SettingDefinition) SetVdaVersionsNil(b bool)`
+
+ SetVdaVersionsNil sets the value for VdaVersions to be an explicit nil
+
+### UnsetVdaVersions
+`func (o *SettingDefinition) UnsetVdaVersions()`
+
+UnsetVdaVersions ensures that no value is present for VdaVersions, not even an explicit nil
 ### GetGpoScope
 
 `func (o *SettingDefinition) GetGpoScope() string`
@@ -639,6 +875,16 @@ SetGpoScope sets GpoScope field to given value.
 
 HasGpoScope returns a boolean if a field has been set.
 
+### SetGpoScopeNil
+
+`func (o *SettingDefinition) SetGpoScopeNil(b bool)`
+
+ SetGpoScopeNil sets the value for GpoScope to be an explicit nil
+
+### UnsetGpoScope
+`func (o *SettingDefinition) UnsetGpoScope()`
+
+UnsetGpoScope ensures that no value is present for GpoScope, not even an explicit nil
 ### GetProductGroup
 
 `func (o *SettingDefinition) GetProductGroup() string`
@@ -664,6 +910,16 @@ SetProductGroup sets ProductGroup field to given value.
 
 HasProductGroup returns a boolean if a field has been set.
 
+### SetProductGroupNil
+
+`func (o *SettingDefinition) SetProductGroupNil(b bool)`
+
+ SetProductGroupNil sets the value for ProductGroup to be an explicit nil
+
+### UnsetProductGroup
+`func (o *SettingDefinition) UnsetProductGroup()`
+
+UnsetProductGroup ensures that no value is present for ProductGroup, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

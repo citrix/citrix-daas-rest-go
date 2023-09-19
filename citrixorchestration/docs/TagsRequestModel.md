@@ -52,6 +52,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *TagsRequestModel) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *TagsRequestModel) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetCreateTags
 
 `func (o *TagsRequestModel) GetCreateTags() []TagRequestModel`
@@ -77,6 +87,16 @@ SetCreateTags sets CreateTags field to given value.
 
 HasCreateTags returns a boolean if a field has been set.
 
+### SetCreateTagsNil
+
+`func (o *TagsRequestModel) SetCreateTagsNil(b bool)`
+
+ SetCreateTagsNil sets the value for CreateTags to be an explicit nil
+
+### UnsetCreateTags
+`func (o *TagsRequestModel) UnsetCreateTags()`
+
+UnsetCreateTags ensures that no value is present for CreateTags, not even an explicit nil
 ### GetDeleteTags
 
 `func (o *TagsRequestModel) GetDeleteTags() []string`
@@ -102,6 +122,16 @@ SetDeleteTags sets DeleteTags field to given value.
 
 HasDeleteTags returns a boolean if a field has been set.
 
+### SetDeleteTagsNil
+
+`func (o *TagsRequestModel) SetDeleteTagsNil(b bool)`
+
+ SetDeleteTagsNil sets the value for DeleteTags to be an explicit nil
+
+### UnsetDeleteTags
+`func (o *TagsRequestModel) UnsetDeleteTags()`
+
+UnsetDeleteTags ensures that no value is present for DeleteTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

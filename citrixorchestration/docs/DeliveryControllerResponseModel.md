@@ -4,25 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Sid** | Pointer to **string** | The sid of the delivery controller | [optional] 
-**Id** | Pointer to **string** | The id(uuid) of the delivery controller | [optional] 
-**MachineName** | Pointer to **string** | The machine name of the delivery controller | [optional] 
-**DnsName** | Pointer to **string** | The dns name of the delivery controller | [optional] 
+**Sid** | Pointer to **NullableString** | The sid of the delivery controller | [optional] 
+**Id** | Pointer to **NullableString** | The id(uuid) of the delivery controller | [optional] 
+**MachineName** | Pointer to **NullableString** | The machine name of the delivery controller | [optional] 
+**DnsName** | Pointer to **NullableString** | The dns name of the delivery controller | [optional] 
 **ServiceHostId** | Pointer to **string** | The service host id of the delivery controller | [optional] 
-**ControllerVersion** | Pointer to **string** | The controller version of the delivery controller | [optional] 
+**ControllerVersion** | Pointer to **NullableString** | The controller version of the delivery controller | [optional] 
 **RegisteredDesktops** | Pointer to **int32** | The number of registered desktops in the delivery controller | [optional] 
-**LastActivityTime** | Pointer to **string** | The LastActivityTime of the delivery controller | [optional] 
-**LastStartTime** | Pointer to **string** | The LastStartTime of the delivery controller | [optional] 
-**OSVersion** | Pointer to **string** | The OSVersion of the delivery controller | [optional] 
-**OSType** | Pointer to **string** | The OSType of the delivery controller | [optional] 
+**LastActivityTime** | Pointer to **NullableString** | The LastActivityTime of the delivery controller | [optional] 
+**LastStartTime** | Pointer to **NullableString** | The LastStartTime of the delivery controller | [optional] 
+**OSVersion** | Pointer to **NullableString** | The OSVersion of the delivery controller | [optional] 
+**OSType** | Pointer to **NullableString** | The OSType of the delivery controller | [optional] 
 **ServiceStatuses** | Pointer to [**[]DeliveryControllerServiceStatusResponseModel**](DeliveryControllerServiceStatusResponseModel.md) | The service statuses of the delivery controller. | [optional] 
 **ControllerState** | Pointer to [**DeliveryControllerState**](DeliveryControllerState.md) |  | [optional] 
-**ZoneId** | Pointer to **string** | The ID of the zone this zonable item belongs to | [optional] 
-**ZonableItemId** | Pointer to **string** | The Id of this zonable Item. This is a generic name to access non-generic properties | [optional] 
+**ZoneId** | Pointer to **NullableString** | The ID of the zone this zonable item belongs to | [optional] 
+**ZonableItemId** | Pointer to **NullableString** | The Id of this zonable Item. This is a generic name to access non-generic properties | [optional] 
 **ZonableItemType** | Pointer to [**ZonableItemType**](ZonableItemType.md) |  | [optional] 
-**ZoneName** | Pointer to **string** | The Zone&#39;s Name | [optional] 
-**ZonableItemName** | Pointer to **string** | Tthe name of this zonable Item | [optional] 
-**ZonableItemDescription** | Pointer to **string** | The description of this zonable Item | [optional] 
+**ZoneName** | Pointer to **NullableString** | The Zone&#39;s Name | [optional] 
+**ZonableItemName** | Pointer to **NullableString** | Tthe name of this zonable Item | [optional] 
+**ZonableItemDescription** | Pointer to **NullableString** | The description of this zonable Item | [optional] 
 
 ## Methods
 
@@ -68,6 +68,16 @@ SetSid sets Sid field to given value.
 
 HasSid returns a boolean if a field has been set.
 
+### SetSidNil
+
+`func (o *DeliveryControllerResponseModel) SetSidNil(b bool)`
+
+ SetSidNil sets the value for Sid to be an explicit nil
+
+### UnsetSid
+`func (o *DeliveryControllerResponseModel) UnsetSid()`
+
+UnsetSid ensures that no value is present for Sid, not even an explicit nil
 ### GetId
 
 `func (o *DeliveryControllerResponseModel) GetId() string`
@@ -93,6 +103,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *DeliveryControllerResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *DeliveryControllerResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetMachineName
 
 `func (o *DeliveryControllerResponseModel) GetMachineName() string`
@@ -118,6 +138,16 @@ SetMachineName sets MachineName field to given value.
 
 HasMachineName returns a boolean if a field has been set.
 
+### SetMachineNameNil
+
+`func (o *DeliveryControllerResponseModel) SetMachineNameNil(b bool)`
+
+ SetMachineNameNil sets the value for MachineName to be an explicit nil
+
+### UnsetMachineName
+`func (o *DeliveryControllerResponseModel) UnsetMachineName()`
+
+UnsetMachineName ensures that no value is present for MachineName, not even an explicit nil
 ### GetDnsName
 
 `func (o *DeliveryControllerResponseModel) GetDnsName() string`
@@ -143,6 +173,16 @@ SetDnsName sets DnsName field to given value.
 
 HasDnsName returns a boolean if a field has been set.
 
+### SetDnsNameNil
+
+`func (o *DeliveryControllerResponseModel) SetDnsNameNil(b bool)`
+
+ SetDnsNameNil sets the value for DnsName to be an explicit nil
+
+### UnsetDnsName
+`func (o *DeliveryControllerResponseModel) UnsetDnsName()`
+
+UnsetDnsName ensures that no value is present for DnsName, not even an explicit nil
 ### GetServiceHostId
 
 `func (o *DeliveryControllerResponseModel) GetServiceHostId() string`
@@ -193,6 +233,16 @@ SetControllerVersion sets ControllerVersion field to given value.
 
 HasControllerVersion returns a boolean if a field has been set.
 
+### SetControllerVersionNil
+
+`func (o *DeliveryControllerResponseModel) SetControllerVersionNil(b bool)`
+
+ SetControllerVersionNil sets the value for ControllerVersion to be an explicit nil
+
+### UnsetControllerVersion
+`func (o *DeliveryControllerResponseModel) UnsetControllerVersion()`
+
+UnsetControllerVersion ensures that no value is present for ControllerVersion, not even an explicit nil
 ### GetRegisteredDesktops
 
 `func (o *DeliveryControllerResponseModel) GetRegisteredDesktops() int32`
@@ -243,6 +293,16 @@ SetLastActivityTime sets LastActivityTime field to given value.
 
 HasLastActivityTime returns a boolean if a field has been set.
 
+### SetLastActivityTimeNil
+
+`func (o *DeliveryControllerResponseModel) SetLastActivityTimeNil(b bool)`
+
+ SetLastActivityTimeNil sets the value for LastActivityTime to be an explicit nil
+
+### UnsetLastActivityTime
+`func (o *DeliveryControllerResponseModel) UnsetLastActivityTime()`
+
+UnsetLastActivityTime ensures that no value is present for LastActivityTime, not even an explicit nil
 ### GetLastStartTime
 
 `func (o *DeliveryControllerResponseModel) GetLastStartTime() string`
@@ -268,6 +328,16 @@ SetLastStartTime sets LastStartTime field to given value.
 
 HasLastStartTime returns a boolean if a field has been set.
 
+### SetLastStartTimeNil
+
+`func (o *DeliveryControllerResponseModel) SetLastStartTimeNil(b bool)`
+
+ SetLastStartTimeNil sets the value for LastStartTime to be an explicit nil
+
+### UnsetLastStartTime
+`func (o *DeliveryControllerResponseModel) UnsetLastStartTime()`
+
+UnsetLastStartTime ensures that no value is present for LastStartTime, not even an explicit nil
 ### GetOSVersion
 
 `func (o *DeliveryControllerResponseModel) GetOSVersion() string`
@@ -293,6 +363,16 @@ SetOSVersion sets OSVersion field to given value.
 
 HasOSVersion returns a boolean if a field has been set.
 
+### SetOSVersionNil
+
+`func (o *DeliveryControllerResponseModel) SetOSVersionNil(b bool)`
+
+ SetOSVersionNil sets the value for OSVersion to be an explicit nil
+
+### UnsetOSVersion
+`func (o *DeliveryControllerResponseModel) UnsetOSVersion()`
+
+UnsetOSVersion ensures that no value is present for OSVersion, not even an explicit nil
 ### GetOSType
 
 `func (o *DeliveryControllerResponseModel) GetOSType() string`
@@ -318,6 +398,16 @@ SetOSType sets OSType field to given value.
 
 HasOSType returns a boolean if a field has been set.
 
+### SetOSTypeNil
+
+`func (o *DeliveryControllerResponseModel) SetOSTypeNil(b bool)`
+
+ SetOSTypeNil sets the value for OSType to be an explicit nil
+
+### UnsetOSType
+`func (o *DeliveryControllerResponseModel) UnsetOSType()`
+
+UnsetOSType ensures that no value is present for OSType, not even an explicit nil
 ### GetServiceStatuses
 
 `func (o *DeliveryControllerResponseModel) GetServiceStatuses() []DeliveryControllerServiceStatusResponseModel`
@@ -343,6 +433,16 @@ SetServiceStatuses sets ServiceStatuses field to given value.
 
 HasServiceStatuses returns a boolean if a field has been set.
 
+### SetServiceStatusesNil
+
+`func (o *DeliveryControllerResponseModel) SetServiceStatusesNil(b bool)`
+
+ SetServiceStatusesNil sets the value for ServiceStatuses to be an explicit nil
+
+### UnsetServiceStatuses
+`func (o *DeliveryControllerResponseModel) UnsetServiceStatuses()`
+
+UnsetServiceStatuses ensures that no value is present for ServiceStatuses, not even an explicit nil
 ### GetControllerState
 
 `func (o *DeliveryControllerResponseModel) GetControllerState() DeliveryControllerState`
@@ -393,6 +493,16 @@ SetZoneId sets ZoneId field to given value.
 
 HasZoneId returns a boolean if a field has been set.
 
+### SetZoneIdNil
+
+`func (o *DeliveryControllerResponseModel) SetZoneIdNil(b bool)`
+
+ SetZoneIdNil sets the value for ZoneId to be an explicit nil
+
+### UnsetZoneId
+`func (o *DeliveryControllerResponseModel) UnsetZoneId()`
+
+UnsetZoneId ensures that no value is present for ZoneId, not even an explicit nil
 ### GetZonableItemId
 
 `func (o *DeliveryControllerResponseModel) GetZonableItemId() string`
@@ -418,6 +528,16 @@ SetZonableItemId sets ZonableItemId field to given value.
 
 HasZonableItemId returns a boolean if a field has been set.
 
+### SetZonableItemIdNil
+
+`func (o *DeliveryControllerResponseModel) SetZonableItemIdNil(b bool)`
+
+ SetZonableItemIdNil sets the value for ZonableItemId to be an explicit nil
+
+### UnsetZonableItemId
+`func (o *DeliveryControllerResponseModel) UnsetZonableItemId()`
+
+UnsetZonableItemId ensures that no value is present for ZonableItemId, not even an explicit nil
 ### GetZonableItemType
 
 `func (o *DeliveryControllerResponseModel) GetZonableItemType() ZonableItemType`
@@ -468,6 +588,16 @@ SetZoneName sets ZoneName field to given value.
 
 HasZoneName returns a boolean if a field has been set.
 
+### SetZoneNameNil
+
+`func (o *DeliveryControllerResponseModel) SetZoneNameNil(b bool)`
+
+ SetZoneNameNil sets the value for ZoneName to be an explicit nil
+
+### UnsetZoneName
+`func (o *DeliveryControllerResponseModel) UnsetZoneName()`
+
+UnsetZoneName ensures that no value is present for ZoneName, not even an explicit nil
 ### GetZonableItemName
 
 `func (o *DeliveryControllerResponseModel) GetZonableItemName() string`
@@ -493,6 +623,16 @@ SetZonableItemName sets ZonableItemName field to given value.
 
 HasZonableItemName returns a boolean if a field has been set.
 
+### SetZonableItemNameNil
+
+`func (o *DeliveryControllerResponseModel) SetZonableItemNameNil(b bool)`
+
+ SetZonableItemNameNil sets the value for ZonableItemName to be an explicit nil
+
+### UnsetZonableItemName
+`func (o *DeliveryControllerResponseModel) UnsetZonableItemName()`
+
+UnsetZonableItemName ensures that no value is present for ZonableItemName, not even an explicit nil
 ### GetZonableItemDescription
 
 `func (o *DeliveryControllerResponseModel) GetZonableItemDescription() string`
@@ -518,6 +658,16 @@ SetZonableItemDescription sets ZonableItemDescription field to given value.
 
 HasZonableItemDescription returns a boolean if a field has been set.
 
+### SetZonableItemDescriptionNil
+
+`func (o *DeliveryControllerResponseModel) SetZonableItemDescriptionNil(b bool)`
+
+ SetZonableItemDescriptionNil sets the value for ZonableItemDescription to be an explicit nil
+
+### UnsetZonableItemDescription
+`func (o *DeliveryControllerResponseModel) UnsetZonableItemDescription()`
+
+UnsetZonableItemDescription ensures that no value is present for ZonableItemDescription, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

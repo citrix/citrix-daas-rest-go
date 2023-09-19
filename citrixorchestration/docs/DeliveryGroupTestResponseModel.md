@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeliveryGroup** | [**DeliveryGroupTestResponseModelDeliveryGroup**](DeliveryGroupTestResponseModelDeliveryGroup.md) |  | 
+**DeliveryGroup** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **NumPassed** | **int32** | The number of tests that passed. | 
 **NumWarnings** | **int32** | The number of warnings that were found. | 
 **NumFailures** | **int32** | The number of tests that failed. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewDeliveryGroupTestResponseModel
 
-`func NewDeliveryGroupTestResponseModel(deliveryGroup DeliveryGroupTestResponseModelDeliveryGroup, numPassed int32, numWarnings int32, numFailures int32, ) *DeliveryGroupTestResponseModel`
+`func NewDeliveryGroupTestResponseModel(deliveryGroup RefResponseModel, numPassed int32, numWarnings int32, numFailures int32, ) *DeliveryGroupTestResponseModel`
 
 NewDeliveryGroupTestResponseModel instantiates a new DeliveryGroupTestResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeliveryGroup
 
-`func (o *DeliveryGroupTestResponseModel) GetDeliveryGroup() DeliveryGroupTestResponseModelDeliveryGroup`
+`func (o *DeliveryGroupTestResponseModel) GetDeliveryGroup() RefResponseModel`
 
 GetDeliveryGroup returns the DeliveryGroup field if non-nil, zero value otherwise.
 
 ### GetDeliveryGroupOk
 
-`func (o *DeliveryGroupTestResponseModel) GetDeliveryGroupOk() (*DeliveryGroupTestResponseModelDeliveryGroup, bool)`
+`func (o *DeliveryGroupTestResponseModel) GetDeliveryGroupOk() (*RefResponseModel, bool)`
 
 GetDeliveryGroupOk returns a tuple with the DeliveryGroup field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeliveryGroup
 
-`func (o *DeliveryGroupTestResponseModel) SetDeliveryGroup(v DeliveryGroupTestResponseModelDeliveryGroup)`
+`func (o *DeliveryGroupTestResponseModel) SetDeliveryGroup(v RefResponseModel)`
 
 SetDeliveryGroup sets DeliveryGroup field to given value.
 

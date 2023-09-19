@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of machine. Used to be: DesktopUid (and wasn&#39;t globally unique) OR UUID, depending on context Needs to be globally unique Might be constructed from site ID + internal Uid?  or use uuid | 
-**MachineCatalog** | Pointer to [**MachineBaseResponseModelMachineCatalog**](MachineBaseResponseModelMachineCatalog.md) |  | [optional] 
-**Name** | Pointer to **string** | DNS host name of the machine. Used to be: MachineName | [optional] 
+**MachineCatalog** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**Name** | Pointer to **NullableString** | DNS host name of the machine. Used to be: MachineName | [optional] 
 
 ## Methods
 
@@ -49,20 +49,20 @@ SetId sets Id field to given value.
 
 ### GetMachineCatalog
 
-`func (o *MachineBaseResponseModel) GetMachineCatalog() MachineBaseResponseModelMachineCatalog`
+`func (o *MachineBaseResponseModel) GetMachineCatalog() RefResponseModel`
 
 GetMachineCatalog returns the MachineCatalog field if non-nil, zero value otherwise.
 
 ### GetMachineCatalogOk
 
-`func (o *MachineBaseResponseModel) GetMachineCatalogOk() (*MachineBaseResponseModelMachineCatalog, bool)`
+`func (o *MachineBaseResponseModel) GetMachineCatalogOk() (*RefResponseModel, bool)`
 
 GetMachineCatalogOk returns a tuple with the MachineCatalog field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineCatalog
 
-`func (o *MachineBaseResponseModel) SetMachineCatalog(v MachineBaseResponseModelMachineCatalog)`
+`func (o *MachineBaseResponseModel) SetMachineCatalog(v RefResponseModel)`
 
 SetMachineCatalog sets MachineCatalog field to given value.
 
@@ -97,6 +97,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *MachineBaseResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MachineBaseResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

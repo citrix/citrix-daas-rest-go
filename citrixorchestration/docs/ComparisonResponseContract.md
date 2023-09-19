@@ -52,6 +52,16 @@ SetTargets sets Targets field to given value.
 
 HasTargets returns a boolean if a field has been set.
 
+### SetTargetsNil
+
+`func (o *ComparisonResponseContract) SetTargetsNil(b bool)`
+
+ SetTargetsNil sets the value for Targets to be an explicit nil
+
+### UnsetTargets
+`func (o *ComparisonResponseContract) UnsetTargets()`
+
+UnsetTargets ensures that no value is present for Targets, not even an explicit nil
 ### GetResult
 
 `func (o *ComparisonResponseContract) GetResult() []ComparisonRowContract`
@@ -77,6 +87,16 @@ SetResult sets Result field to given value.
 
 HasResult returns a boolean if a field has been set.
 
+### SetResultNil
+
+`func (o *ComparisonResponseContract) SetResultNil(b bool)`
+
+ SetResultNil sets the value for Result to be an explicit nil
+
+### UnsetResult
+`func (o *ComparisonResponseContract) UnsetResult()`
+
+UnsetResult ensures that no value is present for Result, not even an explicit nil
 ### GetWithDefaults
 
 `func (o *ComparisonResponseContract) GetWithDefaults() bool`

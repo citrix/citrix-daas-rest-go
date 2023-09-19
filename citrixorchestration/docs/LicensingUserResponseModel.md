@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Account** | Pointer to **string** | Gets or sets the account name | [optional] 
-**AccountSid** | Pointer to **string** | Gets or sets the account SID  | [optional] 
+**Account** | Pointer to **NullableString** | Gets or sets the account name | [optional] 
+**AccountSid** | Pointer to **NullableString** | Gets or sets the account SID  | [optional] 
 **PermissionLevel** | Pointer to [**LicensingPermissionLevel**](LicensingPermissionLevel.md) |  | [optional] 
 **IsGroup** | Pointer to **bool** | Gets or sets a value indicating whether it is an individual account or a group | [optional] 
 
@@ -53,6 +53,16 @@ SetAccount sets Account field to given value.
 
 HasAccount returns a boolean if a field has been set.
 
+### SetAccountNil
+
+`func (o *LicensingUserResponseModel) SetAccountNil(b bool)`
+
+ SetAccountNil sets the value for Account to be an explicit nil
+
+### UnsetAccount
+`func (o *LicensingUserResponseModel) UnsetAccount()`
+
+UnsetAccount ensures that no value is present for Account, not even an explicit nil
 ### GetAccountSid
 
 `func (o *LicensingUserResponseModel) GetAccountSid() string`
@@ -78,6 +88,16 @@ SetAccountSid sets AccountSid field to given value.
 
 HasAccountSid returns a boolean if a field has been set.
 
+### SetAccountSidNil
+
+`func (o *LicensingUserResponseModel) SetAccountSidNil(b bool)`
+
+ SetAccountSidNil sets the value for AccountSid to be an explicit nil
+
+### UnsetAccountSid
+`func (o *LicensingUserResponseModel) UnsetAccountSid()`
+
+UnsetAccountSid ensures that no value is present for AccountSid, not even an explicit nil
 ### GetPermissionLevel
 
 `func (o *LicensingUserResponseModel) GetPermissionLevel() LicensingPermissionLevel`

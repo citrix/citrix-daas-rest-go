@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UseVerticalScalingForRdsLaunches** | Pointer to **bool** | Determines whether to use vertical scaling when considering RDS machines for launches. Vertical scaling would saturate machines in the current pool rather than send sessions to the least loaded machines. This would be a trade in performance vs. cost, where vertical scaling would be less costly. | [optional] 
-**DnsResolutionEnabled** | Pointer to **bool** | Changes whether ICA files returned by a broker service to a user device contain the numeric IP address or the DNS name of the desktop machine to which a session should be established. | [optional] 
-**TrustRequestsSentToTheXmlServicePortEnabled** | Pointer to **bool** | Changes whether the XML Service (as used by Storefront) implicitly trusts the originator of requests it receives, or whether it fully authenticates them. | [optional] 
-**WebUiPolicySetEnabled** | Pointer to **bool** | Determine whether the policy set in web UI is enabled or not | [optional] 
+**UseVerticalScalingForRdsLaunches** | Pointer to **NullableBool** | Determines whether to use vertical scaling when considering RDS machines for launches. Vertical scaling would saturate machines in the current pool rather than send sessions to the least loaded machines. This would be a trade in performance vs. cost, where vertical scaling would be less costly. | [optional] 
+**DnsResolutionEnabled** | Pointer to **NullableBool** | Changes whether ICA files returned by a broker service to a user device contain the numeric IP address or the DNS name of the desktop machine to which a session should be established. | [optional] 
+**TrustRequestsSentToTheXmlServicePortEnabled** | Pointer to **NullableBool** | Changes whether the XML Service (as used by Storefront) implicitly trusts the originator of requests it receives, or whether it fully authenticates them. | [optional] 
+**WebUiPolicySetEnabled** | Pointer to **NullableBool** | Determine whether the policy set in web UI is enabled or not | [optional] 
+**SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
 
 ## Methods
 
@@ -53,6 +54,16 @@ SetUseVerticalScalingForRdsLaunches sets UseVerticalScalingForRdsLaunches field 
 
 HasUseVerticalScalingForRdsLaunches returns a boolean if a field has been set.
 
+### SetUseVerticalScalingForRdsLaunchesNil
+
+`func (o *EditSiteSettingsRequestModel) SetUseVerticalScalingForRdsLaunchesNil(b bool)`
+
+ SetUseVerticalScalingForRdsLaunchesNil sets the value for UseVerticalScalingForRdsLaunches to be an explicit nil
+
+### UnsetUseVerticalScalingForRdsLaunches
+`func (o *EditSiteSettingsRequestModel) UnsetUseVerticalScalingForRdsLaunches()`
+
+UnsetUseVerticalScalingForRdsLaunches ensures that no value is present for UseVerticalScalingForRdsLaunches, not even an explicit nil
 ### GetDnsResolutionEnabled
 
 `func (o *EditSiteSettingsRequestModel) GetDnsResolutionEnabled() bool`
@@ -78,6 +89,16 @@ SetDnsResolutionEnabled sets DnsResolutionEnabled field to given value.
 
 HasDnsResolutionEnabled returns a boolean if a field has been set.
 
+### SetDnsResolutionEnabledNil
+
+`func (o *EditSiteSettingsRequestModel) SetDnsResolutionEnabledNil(b bool)`
+
+ SetDnsResolutionEnabledNil sets the value for DnsResolutionEnabled to be an explicit nil
+
+### UnsetDnsResolutionEnabled
+`func (o *EditSiteSettingsRequestModel) UnsetDnsResolutionEnabled()`
+
+UnsetDnsResolutionEnabled ensures that no value is present for DnsResolutionEnabled, not even an explicit nil
 ### GetTrustRequestsSentToTheXmlServicePortEnabled
 
 `func (o *EditSiteSettingsRequestModel) GetTrustRequestsSentToTheXmlServicePortEnabled() bool`
@@ -103,6 +124,16 @@ SetTrustRequestsSentToTheXmlServicePortEnabled sets TrustRequestsSentToTheXmlSer
 
 HasTrustRequestsSentToTheXmlServicePortEnabled returns a boolean if a field has been set.
 
+### SetTrustRequestsSentToTheXmlServicePortEnabledNil
+
+`func (o *EditSiteSettingsRequestModel) SetTrustRequestsSentToTheXmlServicePortEnabledNil(b bool)`
+
+ SetTrustRequestsSentToTheXmlServicePortEnabledNil sets the value for TrustRequestsSentToTheXmlServicePortEnabled to be an explicit nil
+
+### UnsetTrustRequestsSentToTheXmlServicePortEnabled
+`func (o *EditSiteSettingsRequestModel) UnsetTrustRequestsSentToTheXmlServicePortEnabled()`
+
+UnsetTrustRequestsSentToTheXmlServicePortEnabled ensures that no value is present for TrustRequestsSentToTheXmlServicePortEnabled, not even an explicit nil
 ### GetWebUiPolicySetEnabled
 
 `func (o *EditSiteSettingsRequestModel) GetWebUiPolicySetEnabled() bool`
@@ -127,6 +158,41 @@ SetWebUiPolicySetEnabled sets WebUiPolicySetEnabled field to given value.
 `func (o *EditSiteSettingsRequestModel) HasWebUiPolicySetEnabled() bool`
 
 HasWebUiPolicySetEnabled returns a boolean if a field has been set.
+
+### SetWebUiPolicySetEnabledNil
+
+`func (o *EditSiteSettingsRequestModel) SetWebUiPolicySetEnabledNil(b bool)`
+
+ SetWebUiPolicySetEnabledNil sets the value for WebUiPolicySetEnabled to be an explicit nil
+
+### UnsetWebUiPolicySetEnabled
+`func (o *EditSiteSettingsRequestModel) UnsetWebUiPolicySetEnabled()`
+
+UnsetWebUiPolicySetEnabled ensures that no value is present for WebUiPolicySetEnabled, not even an explicit nil
+### GetSupportedAuthenticators
+
+`func (o *EditSiteSettingsRequestModel) GetSupportedAuthenticators() Authenticator`
+
+GetSupportedAuthenticators returns the SupportedAuthenticators field if non-nil, zero value otherwise.
+
+### GetSupportedAuthenticatorsOk
+
+`func (o *EditSiteSettingsRequestModel) GetSupportedAuthenticatorsOk() (*Authenticator, bool)`
+
+GetSupportedAuthenticatorsOk returns a tuple with the SupportedAuthenticators field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedAuthenticators
+
+`func (o *EditSiteSettingsRequestModel) SetSupportedAuthenticators(v Authenticator)`
+
+SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
+
+### HasSupportedAuthenticators
+
+`func (o *EditSiteSettingsRequestModel) HasSupportedAuthenticators() bool`
+
+HasSupportedAuthenticators returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

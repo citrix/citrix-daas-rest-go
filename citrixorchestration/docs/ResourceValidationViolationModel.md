@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Level** | [**ResourceViolationLevel**](ResourceViolationLevel.md) |  | 
 **Message** | **string** | A violation message. | 
-**Detail** | Pointer to **string** | The attached detail, could be null. | [optional] 
-**RelativePath** | Pointer to **string** | The relative path of the resource which owns this violation, could be null. | [optional] 
+**Detail** | Pointer to **NullableString** | The attached detail, could be null. | [optional] 
+**RelativePath** | Pointer to **NullableString** | The relative path of the resource which owns this violation, could be null. | [optional] 
 
 ## Methods
 
@@ -93,6 +93,16 @@ SetDetail sets Detail field to given value.
 
 HasDetail returns a boolean if a field has been set.
 
+### SetDetailNil
+
+`func (o *ResourceValidationViolationModel) SetDetailNil(b bool)`
+
+ SetDetailNil sets the value for Detail to be an explicit nil
+
+### UnsetDetail
+`func (o *ResourceValidationViolationModel) UnsetDetail()`
+
+UnsetDetail ensures that no value is present for Detail, not even an explicit nil
 ### GetRelativePath
 
 `func (o *ResourceValidationViolationModel) GetRelativePath() string`
@@ -118,6 +128,16 @@ SetRelativePath sets RelativePath field to given value.
 
 HasRelativePath returns a boolean if a field has been set.
 
+### SetRelativePathNil
+
+`func (o *ResourceValidationViolationModel) SetRelativePathNil(b bool)`
+
+ SetRelativePathNil sets the value for RelativePath to be an explicit nil
+
+### UnsetRelativePath
+`func (o *ResourceValidationViolationModel) UnsetRelativePath()`
+
+UnsetRelativePath ensures that no value is present for RelativePath, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

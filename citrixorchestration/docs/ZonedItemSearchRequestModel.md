@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ZoneId** | Pointer to **string** | Id of the zone in which to search for the zoned item. | [optional] 
+**ZoneId** | Pointer to **NullableString** | Id of the zone in which to search for the zoned item. | [optional] 
 **ItemType** | Pointer to [**ZonableItemType**](ZonableItemType.md) |  | [optional] 
-**BasicSearchString** | Pointer to **string** | Basic search string. Specify a string which will match if contained within name of the zoned item. | [optional] 
+**BasicSearchString** | Pointer to **NullableString** | Basic search string. Specify a string which will match if contained within name of the zoned item. | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetZoneId sets ZoneId field to given value.
 
 HasZoneId returns a boolean if a field has been set.
 
+### SetZoneIdNil
+
+`func (o *ZonedItemSearchRequestModel) SetZoneIdNil(b bool)`
+
+ SetZoneIdNil sets the value for ZoneId to be an explicit nil
+
+### UnsetZoneId
+`func (o *ZonedItemSearchRequestModel) UnsetZoneId()`
+
+UnsetZoneId ensures that no value is present for ZoneId, not even an explicit nil
 ### GetItemType
 
 `func (o *ZonedItemSearchRequestModel) GetItemType() ZonableItemType`
@@ -102,6 +112,16 @@ SetBasicSearchString sets BasicSearchString field to given value.
 
 HasBasicSearchString returns a boolean if a field has been set.
 
+### SetBasicSearchStringNil
+
+`func (o *ZonedItemSearchRequestModel) SetBasicSearchStringNil(b bool)`
+
+ SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
+
+### UnsetBasicSearchString
+`func (o *ZonedItemSearchRequestModel) UnsetBasicSearchString()`
+
+UnsetBasicSearchString ensures that no value is present for BasicSearchString, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

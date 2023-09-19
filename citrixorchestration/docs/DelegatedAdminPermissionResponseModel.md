@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the permission. Needs to be made globally unique (perhaps add site id) | 
 **Name** | **string** | Name of the permission. | 
-**Description** | Pointer to **string** | Description of the permission. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the permission. | [optional] 
 **IsReadOnly** | **bool** | Indicates whether the permission is restricted to read-only operations. Was: ReadOnly | 
 **Operations** | **[]string** | List of operations that the permission allows. | 
 
@@ -94,6 +94,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *DelegatedAdminPermissionResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *DelegatedAdminPermissionResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsReadOnly
 
 `func (o *DelegatedAdminPermissionResponseModel) GetIsReadOnly() bool`

@@ -52,6 +52,16 @@ SetApplicationGroups sets ApplicationGroups field to given value.
 
 HasApplicationGroups returns a boolean if a field has been set.
 
+### SetApplicationGroupsNil
+
+`func (o *SearchStartMenuApplicationsRequestModel) SetApplicationGroupsNil(b bool)`
+
+ SetApplicationGroupsNil sets the value for ApplicationGroups to be an explicit nil
+
+### UnsetApplicationGroups
+`func (o *SearchStartMenuApplicationsRequestModel) UnsetApplicationGroups()`
+
+UnsetApplicationGroups ensures that no value is present for ApplicationGroups, not even an explicit nil
 ### GetDeliveryGroups
 
 `func (o *SearchStartMenuApplicationsRequestModel) GetDeliveryGroups() []string`
@@ -77,6 +87,16 @@ SetDeliveryGroups sets DeliveryGroups field to given value.
 
 HasDeliveryGroups returns a boolean if a field has been set.
 
+### SetDeliveryGroupsNil
+
+`func (o *SearchStartMenuApplicationsRequestModel) SetDeliveryGroupsNil(b bool)`
+
+ SetDeliveryGroupsNil sets the value for DeliveryGroups to be an explicit nil
+
+### UnsetDeliveryGroups
+`func (o *SearchStartMenuApplicationsRequestModel) UnsetDeliveryGroups()`
+
+UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
 ### GetTagRestrictions
 
 `func (o *SearchStartMenuApplicationsRequestModel) GetTagRestrictions() []string`
@@ -102,6 +122,16 @@ SetTagRestrictions sets TagRestrictions field to given value.
 
 HasTagRestrictions returns a boolean if a field has been set.
 
+### SetTagRestrictionsNil
+
+`func (o *SearchStartMenuApplicationsRequestModel) SetTagRestrictionsNil(b bool)`
+
+ SetTagRestrictionsNil sets the value for TagRestrictions to be an explicit nil
+
+### UnsetTagRestrictions
+`func (o *SearchStartMenuApplicationsRequestModel) UnsetTagRestrictions()`
+
+UnsetTagRestrictions ensures that no value is present for TagRestrictions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EncodedReport** | Pointer to **string** | The encoded report as string. That is: RFC-4648-base-64(utf-8(html-report-content)) | [optional] 
-**Encoding** | Pointer to **string** | The encoding of the EncodedReport. | [optional] 
-**MediaType** | Pointer to **string** | The media type of the report content; | [optional] 
+**EncodedReport** | Pointer to **NullableString** | The encoded report as string. That is: RFC-4648-base-64(utf-8(html-report-content)) | [optional] 
+**Encoding** | Pointer to **NullableString** | The encoding of the EncodedReport. | [optional] 
+**MediaType** | Pointer to **NullableString** | The media type of the report content; | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetEncodedReport sets EncodedReport field to given value.
 
 HasEncodedReport returns a boolean if a field has been set.
 
+### SetEncodedReportNil
+
+`func (o *AdministratorReportResponseModel) SetEncodedReportNil(b bool)`
+
+ SetEncodedReportNil sets the value for EncodedReport to be an explicit nil
+
+### UnsetEncodedReport
+`func (o *AdministratorReportResponseModel) UnsetEncodedReport()`
+
+UnsetEncodedReport ensures that no value is present for EncodedReport, not even an explicit nil
 ### GetEncoding
 
 `func (o *AdministratorReportResponseModel) GetEncoding() string`
@@ -77,6 +87,16 @@ SetEncoding sets Encoding field to given value.
 
 HasEncoding returns a boolean if a field has been set.
 
+### SetEncodingNil
+
+`func (o *AdministratorReportResponseModel) SetEncodingNil(b bool)`
+
+ SetEncodingNil sets the value for Encoding to be an explicit nil
+
+### UnsetEncoding
+`func (o *AdministratorReportResponseModel) UnsetEncoding()`
+
+UnsetEncoding ensures that no value is present for Encoding, not even an explicit nil
 ### GetMediaType
 
 `func (o *AdministratorReportResponseModel) GetMediaType() string`
@@ -102,6 +122,16 @@ SetMediaType sets MediaType field to given value.
 
 HasMediaType returns a boolean if a field has been set.
 
+### SetMediaTypeNil
+
+`func (o *AdministratorReportResponseModel) SetMediaTypeNil(b bool)`
+
+ SetMediaTypeNil sets the value for MediaType to be an explicit nil
+
+### UnsetMediaType
+`func (o *AdministratorReportResponseModel) UnsetMediaType()`
+
+UnsetMediaType ensures that no value is present for MediaType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

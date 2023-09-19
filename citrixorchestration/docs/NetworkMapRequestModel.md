@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceNameOrId** | Pointer to **string** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;NetworkDeviceNameOrId&#39;/&gt;.&#x60; The name or Id of the network.  Required. | [optional] 
-**NetworkDeviceNameOrId** | Pointer to **string** | The name or Id of the network device. | [optional] 
+**DeviceNameOrId** | Pointer to **NullableString** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;NetworkDeviceNameOrId&#39;/&gt;.&#x60; The name or Id of the network.  Required. | [optional] 
+**NetworkDeviceNameOrId** | Pointer to **NullableString** | The name or Id of the network device. | [optional] 
 **NetworkPath** | **string** | The path in the resource pool to the virtual network that the device should be attached to. This must be a path to a Network item in the resource pool to which the Machine Catalog is associated. | 
 
 ## Methods
@@ -52,6 +52,16 @@ SetDeviceNameOrId sets DeviceNameOrId field to given value.
 
 HasDeviceNameOrId returns a boolean if a field has been set.
 
+### SetDeviceNameOrIdNil
+
+`func (o *NetworkMapRequestModel) SetDeviceNameOrIdNil(b bool)`
+
+ SetDeviceNameOrIdNil sets the value for DeviceNameOrId to be an explicit nil
+
+### UnsetDeviceNameOrId
+`func (o *NetworkMapRequestModel) UnsetDeviceNameOrId()`
+
+UnsetDeviceNameOrId ensures that no value is present for DeviceNameOrId, not even an explicit nil
 ### GetNetworkDeviceNameOrId
 
 `func (o *NetworkMapRequestModel) GetNetworkDeviceNameOrId() string`
@@ -77,6 +87,16 @@ SetNetworkDeviceNameOrId sets NetworkDeviceNameOrId field to given value.
 
 HasNetworkDeviceNameOrId returns a boolean if a field has been set.
 
+### SetNetworkDeviceNameOrIdNil
+
+`func (o *NetworkMapRequestModel) SetNetworkDeviceNameOrIdNil(b bool)`
+
+ SetNetworkDeviceNameOrIdNil sets the value for NetworkDeviceNameOrId to be an explicit nil
+
+### UnsetNetworkDeviceNameOrId
+`func (o *NetworkMapRequestModel) UnsetNetworkDeviceNameOrId()`
+
+UnsetNetworkDeviceNameOrId ensures that no value is present for NetworkDeviceNameOrId, not even an explicit nil
 ### GetNetworkPath
 
 `func (o *NetworkMapRequestModel) GetNetworkPath() string`

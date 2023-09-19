@@ -5,20 +5,20 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AppVApplications** | [**[]AppVApplicationResponseModel**](AppVApplicationResponseModel.md) | List of applications in the package. | 
-**Description** | Pointer to **string** | Description of the package. | [optional] 
+**Description** | Pointer to **NullableString** | Description of the package. | [optional] 
 **Exists** | **bool** | Indicates whether the package exists. | 
-**LibraryUid** | Pointer to **int32** | Id of the library which the package is in. | [optional] 
-**LibraryName** | Pointer to **string** | Name of the library which the package is in. | [optional] 
-**LibraryDescription** | Pointer to **string** | Description of the library which the package is in. | [optional] 
+**LibraryUid** | Pointer to **NullableInt32** | Id of the library which the package is in. | [optional] 
+**LibraryName** | Pointer to **NullableString** | Name of the library which the package is in. | [optional] 
+**LibraryDescription** | Pointer to **NullableString** | Description of the library which the package is in. | [optional] 
 **Name** | **string** | Package name. | 
 **Id** | **string** | Id of package. | 
 **Path** | **string** | Path to package. | 
 **Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED.  Use Id. | [optional] 
 **Version** | **string** | Package version. | 
 **VersionGuid** | **string** | Package version id. | 
-**SourceName** | Pointer to **string** | Gets or sets SourceName | [optional] 
+**SourceName** | Pointer to **NullableString** | Gets or sets SourceName | [optional] 
 **SourceType** | Pointer to [**AppVSource**](AppVSource.md) |  | [optional] 
-**SourceTypeName** | Pointer to **string** | Gets or sets SourceType name | [optional] 
+**SourceTypeName** | Pointer to **NullableString** | Gets or sets SourceType name | [optional] 
 **OrderNumber** | Pointer to **int32** | Gets or sets OrderNumber | [optional] 
 **ExplicitInclusion** | Pointer to **bool** | Gets or sets a value indicating whether ExplicitInclusion | [optional] 
 **NumOfBrokerApplications** | Pointer to **int32** | Numbers of broker applications use the package | [optional] 
@@ -88,6 +88,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *AppVPackageResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AppVPackageResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetExists
 
 `func (o *AppVPackageResponseModel) GetExists() bool`
@@ -133,6 +143,16 @@ SetLibraryUid sets LibraryUid field to given value.
 
 HasLibraryUid returns a boolean if a field has been set.
 
+### SetLibraryUidNil
+
+`func (o *AppVPackageResponseModel) SetLibraryUidNil(b bool)`
+
+ SetLibraryUidNil sets the value for LibraryUid to be an explicit nil
+
+### UnsetLibraryUid
+`func (o *AppVPackageResponseModel) UnsetLibraryUid()`
+
+UnsetLibraryUid ensures that no value is present for LibraryUid, not even an explicit nil
 ### GetLibraryName
 
 `func (o *AppVPackageResponseModel) GetLibraryName() string`
@@ -158,6 +178,16 @@ SetLibraryName sets LibraryName field to given value.
 
 HasLibraryName returns a boolean if a field has been set.
 
+### SetLibraryNameNil
+
+`func (o *AppVPackageResponseModel) SetLibraryNameNil(b bool)`
+
+ SetLibraryNameNil sets the value for LibraryName to be an explicit nil
+
+### UnsetLibraryName
+`func (o *AppVPackageResponseModel) UnsetLibraryName()`
+
+UnsetLibraryName ensures that no value is present for LibraryName, not even an explicit nil
 ### GetLibraryDescription
 
 `func (o *AppVPackageResponseModel) GetLibraryDescription() string`
@@ -183,6 +213,16 @@ SetLibraryDescription sets LibraryDescription field to given value.
 
 HasLibraryDescription returns a boolean if a field has been set.
 
+### SetLibraryDescriptionNil
+
+`func (o *AppVPackageResponseModel) SetLibraryDescriptionNil(b bool)`
+
+ SetLibraryDescriptionNil sets the value for LibraryDescription to be an explicit nil
+
+### UnsetLibraryDescription
+`func (o *AppVPackageResponseModel) UnsetLibraryDescription()`
+
+UnsetLibraryDescription ensures that no value is present for LibraryDescription, not even an explicit nil
 ### GetName
 
 `func (o *AppVPackageResponseModel) GetName() string`
@@ -333,6 +373,16 @@ SetSourceName sets SourceName field to given value.
 
 HasSourceName returns a boolean if a field has been set.
 
+### SetSourceNameNil
+
+`func (o *AppVPackageResponseModel) SetSourceNameNil(b bool)`
+
+ SetSourceNameNil sets the value for SourceName to be an explicit nil
+
+### UnsetSourceName
+`func (o *AppVPackageResponseModel) UnsetSourceName()`
+
+UnsetSourceName ensures that no value is present for SourceName, not even an explicit nil
 ### GetSourceType
 
 `func (o *AppVPackageResponseModel) GetSourceType() AppVSource`
@@ -383,6 +433,16 @@ SetSourceTypeName sets SourceTypeName field to given value.
 
 HasSourceTypeName returns a boolean if a field has been set.
 
+### SetSourceTypeNameNil
+
+`func (o *AppVPackageResponseModel) SetSourceTypeNameNil(b bool)`
+
+ SetSourceTypeNameNil sets the value for SourceTypeName to be an explicit nil
+
+### UnsetSourceTypeName
+`func (o *AppVPackageResponseModel) UnsetSourceTypeName()`
+
+UnsetSourceTypeName ensures that no value is present for SourceTypeName, not even an explicit nil
 ### GetOrderNumber
 
 `func (o *AppVPackageResponseModel) GetOrderNumber() int32`

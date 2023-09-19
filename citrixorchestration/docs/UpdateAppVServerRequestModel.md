@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ManagementServer** | Pointer to **string** | The url of the App-V Management server that packages will be discovered from. | [optional] 
-**PublishingServer** | Pointer to **string** | The url of the App-V Publishing server that packages will be discovered from. | [optional] 
+**ManagementServer** | Pointer to **NullableString** | The url of the App-V Management server that packages will be discovered from. | [optional] 
+**PublishingServer** | Pointer to **NullableString** | The url of the App-V Publishing server that packages will be discovered from. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetManagementServer sets ManagementServer field to given value.
 
 HasManagementServer returns a boolean if a field has been set.
 
+### SetManagementServerNil
+
+`func (o *UpdateAppVServerRequestModel) SetManagementServerNil(b bool)`
+
+ SetManagementServerNil sets the value for ManagementServer to be an explicit nil
+
+### UnsetManagementServer
+`func (o *UpdateAppVServerRequestModel) UnsetManagementServer()`
+
+UnsetManagementServer ensures that no value is present for ManagementServer, not even an explicit nil
 ### GetPublishingServer
 
 `func (o *UpdateAppVServerRequestModel) GetPublishingServer() string`
@@ -76,6 +86,16 @@ SetPublishingServer sets PublishingServer field to given value.
 
 HasPublishingServer returns a boolean if a field has been set.
 
+### SetPublishingServerNil
+
+`func (o *UpdateAppVServerRequestModel) SetPublishingServerNil(b bool)`
+
+ SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
+
+### UnsetPublishingServer
+`func (o *UpdateAppVServerRequestModel) UnsetPublishingServer()`
+
+UnsetPublishingServer ensures that no value is present for PublishingServer, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

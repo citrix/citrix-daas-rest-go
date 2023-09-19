@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EndTime** | Pointer to **string** | The date and time that the operation completed. This will be null if the operation is still in progress, or if the operation never completed.              | [optional] 
-**FormattedEndTime** | Pointer to **string** | The formatted date and time that the operation completed. RFC 3339 compatible format. This will be null if the operation is still in progress, or if the operation never completed.              | [optional] 
-**IsSuccessful** | Pointer to **bool** | Indicates whether the operation completed successfully or not. This will be null if the operation is still in progress, or if the operation didn&#39;t complete.              | [optional] 
-**NewValue** | Pointer to **string** | The new property value.              | [optional] 
-**PreviousValue** | Pointer to **string** | The previous property value.              | [optional] 
-**PropertyName** | Pointer to **string** | The name of the changed property.              | [optional] 
-**AddValue** | Pointer to **string** | If the object property contains a set of values, this specifies the new value which was added to the set.              | [optional] 
-**RemoveValue** | Pointer to **string** | If the object property contains a set of values, this specifies the value which was removed from the set.              | [optional] 
+**EndTime** | Pointer to **NullableString** | The date and time that the operation completed. This will be null if the operation is still in progress, or if the operation never completed.              | [optional] 
+**FormattedEndTime** | Pointer to **NullableString** | The formatted date and time that the operation completed. RFC 3339 compatible format. This will be null if the operation is still in progress, or if the operation never completed.              | [optional] 
+**IsSuccessful** | Pointer to **NullableBool** | Indicates whether the operation completed successfully or not. This will be null if the operation is still in progress, or if the operation didn&#39;t complete.              | [optional] 
+**NewValue** | Pointer to **NullableString** | The new property value.              | [optional] 
+**PreviousValue** | Pointer to **NullableString** | The previous property value.              | [optional] 
+**PropertyName** | Pointer to **NullableString** | The name of the changed property.              | [optional] 
+**AddValue** | Pointer to **NullableString** | If the object property contains a set of values, this specifies the new value which was added to the set.              | [optional] 
+**RemoveValue** | Pointer to **NullableString** | If the object property contains a set of values, this specifies the value which was removed from the set.              | [optional] 
 **StartTime** | **string** | The date and time that the operation started.              | 
 **FormattedStartTime** | **string** | The formatted date and time that the operation started. RFC 3339 compatible format.              | 
 **TargetName** | **string** | The name of the target object affected by the operation.              | 
 **TargetUid** | **string** | The unique identifier of the target object affected by the operation.              | 
-**TargetType** | Pointer to **string** | The type of the target object.              | [optional] 
+**TargetType** | Pointer to **NullableString** | The type of the target object.              | [optional] 
 **Text** | **string** | The description of operation performed on the target object.              | 
 
 ## Methods
@@ -63,6 +63,16 @@ SetEndTime sets EndTime field to given value.
 
 HasEndTime returns a boolean if a field has been set.
 
+### SetEndTimeNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetEndTimeNil(b bool)`
+
+ SetEndTimeNil sets the value for EndTime to be an explicit nil
+
+### UnsetEndTime
+`func (o *LowLevelOperationDetailResponseModel) UnsetEndTime()`
+
+UnsetEndTime ensures that no value is present for EndTime, not even an explicit nil
 ### GetFormattedEndTime
 
 `func (o *LowLevelOperationDetailResponseModel) GetFormattedEndTime() string`
@@ -88,6 +98,16 @@ SetFormattedEndTime sets FormattedEndTime field to given value.
 
 HasFormattedEndTime returns a boolean if a field has been set.
 
+### SetFormattedEndTimeNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetFormattedEndTimeNil(b bool)`
+
+ SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
+
+### UnsetFormattedEndTime
+`func (o *LowLevelOperationDetailResponseModel) UnsetFormattedEndTime()`
+
+UnsetFormattedEndTime ensures that no value is present for FormattedEndTime, not even an explicit nil
 ### GetIsSuccessful
 
 `func (o *LowLevelOperationDetailResponseModel) GetIsSuccessful() bool`
@@ -113,6 +133,16 @@ SetIsSuccessful sets IsSuccessful field to given value.
 
 HasIsSuccessful returns a boolean if a field has been set.
 
+### SetIsSuccessfulNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetIsSuccessfulNil(b bool)`
+
+ SetIsSuccessfulNil sets the value for IsSuccessful to be an explicit nil
+
+### UnsetIsSuccessful
+`func (o *LowLevelOperationDetailResponseModel) UnsetIsSuccessful()`
+
+UnsetIsSuccessful ensures that no value is present for IsSuccessful, not even an explicit nil
 ### GetNewValue
 
 `func (o *LowLevelOperationDetailResponseModel) GetNewValue() string`
@@ -138,6 +168,16 @@ SetNewValue sets NewValue field to given value.
 
 HasNewValue returns a boolean if a field has been set.
 
+### SetNewValueNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetNewValueNil(b bool)`
+
+ SetNewValueNil sets the value for NewValue to be an explicit nil
+
+### UnsetNewValue
+`func (o *LowLevelOperationDetailResponseModel) UnsetNewValue()`
+
+UnsetNewValue ensures that no value is present for NewValue, not even an explicit nil
 ### GetPreviousValue
 
 `func (o *LowLevelOperationDetailResponseModel) GetPreviousValue() string`
@@ -163,6 +203,16 @@ SetPreviousValue sets PreviousValue field to given value.
 
 HasPreviousValue returns a boolean if a field has been set.
 
+### SetPreviousValueNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetPreviousValueNil(b bool)`
+
+ SetPreviousValueNil sets the value for PreviousValue to be an explicit nil
+
+### UnsetPreviousValue
+`func (o *LowLevelOperationDetailResponseModel) UnsetPreviousValue()`
+
+UnsetPreviousValue ensures that no value is present for PreviousValue, not even an explicit nil
 ### GetPropertyName
 
 `func (o *LowLevelOperationDetailResponseModel) GetPropertyName() string`
@@ -188,6 +238,16 @@ SetPropertyName sets PropertyName field to given value.
 
 HasPropertyName returns a boolean if a field has been set.
 
+### SetPropertyNameNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetPropertyNameNil(b bool)`
+
+ SetPropertyNameNil sets the value for PropertyName to be an explicit nil
+
+### UnsetPropertyName
+`func (o *LowLevelOperationDetailResponseModel) UnsetPropertyName()`
+
+UnsetPropertyName ensures that no value is present for PropertyName, not even an explicit nil
 ### GetAddValue
 
 `func (o *LowLevelOperationDetailResponseModel) GetAddValue() string`
@@ -213,6 +273,16 @@ SetAddValue sets AddValue field to given value.
 
 HasAddValue returns a boolean if a field has been set.
 
+### SetAddValueNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetAddValueNil(b bool)`
+
+ SetAddValueNil sets the value for AddValue to be an explicit nil
+
+### UnsetAddValue
+`func (o *LowLevelOperationDetailResponseModel) UnsetAddValue()`
+
+UnsetAddValue ensures that no value is present for AddValue, not even an explicit nil
 ### GetRemoveValue
 
 `func (o *LowLevelOperationDetailResponseModel) GetRemoveValue() string`
@@ -238,6 +308,16 @@ SetRemoveValue sets RemoveValue field to given value.
 
 HasRemoveValue returns a boolean if a field has been set.
 
+### SetRemoveValueNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetRemoveValueNil(b bool)`
+
+ SetRemoveValueNil sets the value for RemoveValue to be an explicit nil
+
+### UnsetRemoveValue
+`func (o *LowLevelOperationDetailResponseModel) UnsetRemoveValue()`
+
+UnsetRemoveValue ensures that no value is present for RemoveValue, not even an explicit nil
 ### GetStartTime
 
 `func (o *LowLevelOperationDetailResponseModel) GetStartTime() string`
@@ -343,6 +423,16 @@ SetTargetType sets TargetType field to given value.
 
 HasTargetType returns a boolean if a field has been set.
 
+### SetTargetTypeNil
+
+`func (o *LowLevelOperationDetailResponseModel) SetTargetTypeNil(b bool)`
+
+ SetTargetTypeNil sets the value for TargetType to be an explicit nil
+
+### UnsetTargetType
+`func (o *LowLevelOperationDetailResponseModel) UnsetTargetType()`
+
+UnsetTargetType ensures that no value is present for TargetType, not even an explicit nil
 ### GetText
 
 `func (o *LowLevelOperationDetailResponseModel) GetText() string`

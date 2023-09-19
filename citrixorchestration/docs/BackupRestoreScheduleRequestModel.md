@@ -11,16 +11,17 @@ Name | Type | Description | Notes
 **WeekInMonth** | Pointer to [**BackupRestoreScheduleWeeks**](BackupRestoreScheduleWeeks.md) |  | [optional] 
 **StartDate** | **string** | Start Date | 
 **FrequencyFactor** | **int32** | Frequency Factor | 
-**Description** | Pointer to **string** | Description | [optional] 
+**Description** | Pointer to **NullableString** | Description | [optional] 
 **Enabled** | **bool** | Enabled              | 
 **Frequency** | [**BackupRestoreScheduleFrequency**](BackupRestoreScheduleFrequency.md) |  | 
 **StartTime** | **string** | Start Time | 
+**TimeZoneId** | **string** | Time Zone Id | 
 
 ## Methods
 
 ### NewBackupRestoreScheduleRequestModel
 
-`func NewBackupRestoreScheduleRequestModel(name string, startDate string, frequencyFactor int32, enabled bool, frequency BackupRestoreScheduleFrequency, startTime string, ) *BackupRestoreScheduleRequestModel`
+`func NewBackupRestoreScheduleRequestModel(name string, startDate string, frequencyFactor int32, enabled bool, frequency BackupRestoreScheduleFrequency, startTime string, timeZoneId string, ) *BackupRestoreScheduleRequestModel`
 
 NewBackupRestoreScheduleRequestModel instantiates a new BackupRestoreScheduleRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -105,6 +106,16 @@ SetDaysInWeek sets DaysInWeek field to given value.
 
 HasDaysInWeek returns a boolean if a field has been set.
 
+### SetDaysInWeekNil
+
+`func (o *BackupRestoreScheduleRequestModel) SetDaysInWeekNil(b bool)`
+
+ SetDaysInWeekNil sets the value for DaysInWeek to be an explicit nil
+
+### UnsetDaysInWeek
+`func (o *BackupRestoreScheduleRequestModel) UnsetDaysInWeek()`
+
+UnsetDaysInWeek ensures that no value is present for DaysInWeek, not even an explicit nil
 ### GetDayInMonth
 
 `func (o *BackupRestoreScheduleRequestModel) GetDayInMonth() BackupRestoreScheduleDays`
@@ -220,6 +231,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *BackupRestoreScheduleRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *BackupRestoreScheduleRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *BackupRestoreScheduleRequestModel) GetEnabled() bool`
@@ -278,6 +299,26 @@ and a boolean to check if the value has been set.
 `func (o *BackupRestoreScheduleRequestModel) SetStartTime(v string)`
 
 SetStartTime sets StartTime field to given value.
+
+
+### GetTimeZoneId
+
+`func (o *BackupRestoreScheduleRequestModel) GetTimeZoneId() string`
+
+GetTimeZoneId returns the TimeZoneId field if non-nil, zero value otherwise.
+
+### GetTimeZoneIdOk
+
+`func (o *BackupRestoreScheduleRequestModel) GetTimeZoneIdOk() (*string, bool)`
+
+GetTimeZoneIdOk returns a tuple with the TimeZoneId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeZoneId
+
+`func (o *BackupRestoreScheduleRequestModel) SetTimeZoneId(v string)`
+
+SetTimeZoneId sets TimeZoneId field to given value.
 
 
 

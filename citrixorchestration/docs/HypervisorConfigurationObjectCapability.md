@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceType** | Pointer to **string** | Type of hypervisor resource. | [optional] 
+**ResourceType** | Pointer to **NullableString** | Type of hypervisor resource. | [optional] 
 **TypeCapabilities** | Pointer to **[]string** | List of capabilities. | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetResourceType sets ResourceType field to given value.
 
 HasResourceType returns a boolean if a field has been set.
 
+### SetResourceTypeNil
+
+`func (o *HypervisorConfigurationObjectCapability) SetResourceTypeNil(b bool)`
+
+ SetResourceTypeNil sets the value for ResourceType to be an explicit nil
+
+### UnsetResourceType
+`func (o *HypervisorConfigurationObjectCapability) UnsetResourceType()`
+
+UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil
 ### GetTypeCapabilities
 
 `func (o *HypervisorConfigurationObjectCapability) GetTypeCapabilities() []string`
@@ -76,6 +86,16 @@ SetTypeCapabilities sets TypeCapabilities field to given value.
 
 HasTypeCapabilities returns a boolean if a field has been set.
 
+### SetTypeCapabilitiesNil
+
+`func (o *HypervisorConfigurationObjectCapability) SetTypeCapabilitiesNil(b bool)`
+
+ SetTypeCapabilitiesNil sets the value for TypeCapabilities to be an explicit nil
+
+### UnsetTypeCapabilities
+`func (o *HypervisorConfigurationObjectCapability) UnsetTypeCapabilities()`
+
+UnsetTypeCapabilities ensures that no value is present for TypeCapabilities, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

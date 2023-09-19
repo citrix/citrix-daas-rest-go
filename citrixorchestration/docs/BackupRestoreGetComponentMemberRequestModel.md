@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Component** | [**BckRstrAutoConfigComponents**](BckRstrAutoConfigComponents.md) |  | 
-**Filters** | Pointer to **string** | Comma delimted component member names to restore; may include wildcards | [optional] 
+**Filters** | Pointer to **NullableString** | Comma delimted component member names to restore; may include wildcards | [optional] 
 
 ## Methods
 
@@ -71,6 +71,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *BackupRestoreGetComponentMemberRequestModel) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *BackupRestoreGetComponentMemberRequestModel) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

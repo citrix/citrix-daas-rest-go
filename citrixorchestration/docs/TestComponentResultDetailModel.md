@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ServiceSource** | Pointer to **string** | The service source of any error information present in this record. Typically, this will be the service that ran the test.  In some cases, particularly where an orphaned object target was detected and the test could not be run at all, the service source may be the framework itself, EnvTestService. | [optional] 
-**Serverity** | Pointer to **string** | The severity of the problem. | [optional] 
-**Explanation** | Pointer to **string** | The explanation of the problem. | [optional] 
-**Action** | Pointer to **string** | The action to be take to fix this problem. | [optional] 
+**ServiceSource** | Pointer to **NullableString** | The service source of any error information present in this record. Typically, this will be the service that ran the test.  In some cases, particularly where an orphaned object target was detected and the test could not be run at all, the service source may be the framework itself, EnvTestService. | [optional] 
+**Serverity** | Pointer to **NullableString** | The severity of the problem. | [optional] 
+**Explanation** | Pointer to **NullableString** | The explanation of the problem. | [optional] 
+**Action** | Pointer to **NullableString** | The action to be take to fix this problem. | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetServiceSource sets ServiceSource field to given value.
 
 HasServiceSource returns a boolean if a field has been set.
 
+### SetServiceSourceNil
+
+`func (o *TestComponentResultDetailModel) SetServiceSourceNil(b bool)`
+
+ SetServiceSourceNil sets the value for ServiceSource to be an explicit nil
+
+### UnsetServiceSource
+`func (o *TestComponentResultDetailModel) UnsetServiceSource()`
+
+UnsetServiceSource ensures that no value is present for ServiceSource, not even an explicit nil
 ### GetServerity
 
 `func (o *TestComponentResultDetailModel) GetServerity() string`
@@ -78,6 +88,16 @@ SetServerity sets Serverity field to given value.
 
 HasServerity returns a boolean if a field has been set.
 
+### SetServerityNil
+
+`func (o *TestComponentResultDetailModel) SetServerityNil(b bool)`
+
+ SetServerityNil sets the value for Serverity to be an explicit nil
+
+### UnsetServerity
+`func (o *TestComponentResultDetailModel) UnsetServerity()`
+
+UnsetServerity ensures that no value is present for Serverity, not even an explicit nil
 ### GetExplanation
 
 `func (o *TestComponentResultDetailModel) GetExplanation() string`
@@ -103,6 +123,16 @@ SetExplanation sets Explanation field to given value.
 
 HasExplanation returns a boolean if a field has been set.
 
+### SetExplanationNil
+
+`func (o *TestComponentResultDetailModel) SetExplanationNil(b bool)`
+
+ SetExplanationNil sets the value for Explanation to be an explicit nil
+
+### UnsetExplanation
+`func (o *TestComponentResultDetailModel) UnsetExplanation()`
+
+UnsetExplanation ensures that no value is present for Explanation, not even an explicit nil
 ### GetAction
 
 `func (o *TestComponentResultDetailModel) GetAction() string`
@@ -128,6 +158,16 @@ SetAction sets Action field to given value.
 
 HasAction returns a boolean if a field has been set.
 
+### SetActionNil
+
+`func (o *TestComponentResultDetailModel) SetActionNil(b bool)`
+
+ SetActionNil sets the value for Action to be an explicit nil
+
+### UnsetAction
+`func (o *TestComponentResultDetailModel) UnsetAction()`
+
+UnsetAction ensures that no value is present for Action, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

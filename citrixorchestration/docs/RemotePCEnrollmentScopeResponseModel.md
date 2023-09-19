@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OU** | **string** | Specifies the DN of an AD container containing machines allowed to enroll as remote PCs. | 
-**IncludeSubfolders** | Pointer to **bool** | Indicates whether machines in subfolders of OU are allowed to enroll as remote PCs. | [optional] [default to false]
-**IsOrganizationalUnit** | Pointer to **bool** | Indicates whether this objet is for a OU or for a machine | [optional] [default to false]
+**IncludeSubfolders** | Pointer to **NullableBool** | Indicates whether machines in subfolders of OU are allowed to enroll as remote PCs. | [optional] [default to false]
+**IsOrganizationalUnit** | Pointer to **NullableBool** | Indicates whether this objet is for a OU or for a machine | [optional] [default to false]
 **MachinesExcluded** | Pointer to **[]string** | Machines which are explicitly excluded from matching the enrollment scope. | [optional] 
 **MachinesIncluded** | Pointer to **[]string** | Machines which are included in the enrollment scope. | [optional] 
 
@@ -74,6 +74,16 @@ SetIncludeSubfolders sets IncludeSubfolders field to given value.
 
 HasIncludeSubfolders returns a boolean if a field has been set.
 
+### SetIncludeSubfoldersNil
+
+`func (o *RemotePCEnrollmentScopeResponseModel) SetIncludeSubfoldersNil(b bool)`
+
+ SetIncludeSubfoldersNil sets the value for IncludeSubfolders to be an explicit nil
+
+### UnsetIncludeSubfolders
+`func (o *RemotePCEnrollmentScopeResponseModel) UnsetIncludeSubfolders()`
+
+UnsetIncludeSubfolders ensures that no value is present for IncludeSubfolders, not even an explicit nil
 ### GetIsOrganizationalUnit
 
 `func (o *RemotePCEnrollmentScopeResponseModel) GetIsOrganizationalUnit() bool`
@@ -99,6 +109,16 @@ SetIsOrganizationalUnit sets IsOrganizationalUnit field to given value.
 
 HasIsOrganizationalUnit returns a boolean if a field has been set.
 
+### SetIsOrganizationalUnitNil
+
+`func (o *RemotePCEnrollmentScopeResponseModel) SetIsOrganizationalUnitNil(b bool)`
+
+ SetIsOrganizationalUnitNil sets the value for IsOrganizationalUnit to be an explicit nil
+
+### UnsetIsOrganizationalUnit
+`func (o *RemotePCEnrollmentScopeResponseModel) UnsetIsOrganizationalUnit()`
+
+UnsetIsOrganizationalUnit ensures that no value is present for IsOrganizationalUnit, not even an explicit nil
 ### GetMachinesExcluded
 
 `func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesExcluded() []string`
@@ -124,6 +144,16 @@ SetMachinesExcluded sets MachinesExcluded field to given value.
 
 HasMachinesExcluded returns a boolean if a field has been set.
 
+### SetMachinesExcludedNil
+
+`func (o *RemotePCEnrollmentScopeResponseModel) SetMachinesExcludedNil(b bool)`
+
+ SetMachinesExcludedNil sets the value for MachinesExcluded to be an explicit nil
+
+### UnsetMachinesExcluded
+`func (o *RemotePCEnrollmentScopeResponseModel) UnsetMachinesExcluded()`
+
+UnsetMachinesExcluded ensures that no value is present for MachinesExcluded, not even an explicit nil
 ### GetMachinesIncluded
 
 `func (o *RemotePCEnrollmentScopeResponseModel) GetMachinesIncluded() []string`
@@ -149,6 +179,16 @@ SetMachinesIncluded sets MachinesIncluded field to given value.
 
 HasMachinesIncluded returns a boolean if a field has been set.
 
+### SetMachinesIncludedNil
+
+`func (o *RemotePCEnrollmentScopeResponseModel) SetMachinesIncludedNil(b bool)`
+
+ SetMachinesIncludedNil sets the value for MachinesIncluded to be an explicit nil
+
+### UnsetMachinesIncluded
+`func (o *RemotePCEnrollmentScopeResponseModel) UnsetMachinesIncluded()`
+
+UnsetMachinesIncluded ensures that no value is present for MachinesIncluded, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

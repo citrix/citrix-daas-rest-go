@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the role. Name is globally unique. | 
-**Description** | Pointer to **string** | The description of the admin role. | [optional] 
-**CanLaunchManage** | Pointer to **bool** | Indicate that if the mangement page could be launch on xdconsole | [optional] 
-**CanLaunchMonitor** | Pointer to **bool** | Indicate that if the monitor page could be launch on xdconsole | [optional] 
+**Description** | Pointer to **NullableString** | The description of the admin role. | [optional] 
+**CanLaunchManage** | Pointer to **NullableBool** | Indicate that if the mangement page could be launch on xdconsole | [optional] 
+**CanLaunchMonitor** | Pointer to **NullableBool** | Indicate that if the monitor page could be launch on xdconsole | [optional] 
 **Permissions** | Pointer to **[]string** | List of permissions granted by the role. At least one permission is required. | [optional] 
 
 ## Methods
@@ -74,6 +74,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateAdminRoleRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateAdminRoleRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetCanLaunchManage
 
 `func (o *CreateAdminRoleRequestModel) GetCanLaunchManage() bool`
@@ -99,6 +109,16 @@ SetCanLaunchManage sets CanLaunchManage field to given value.
 
 HasCanLaunchManage returns a boolean if a field has been set.
 
+### SetCanLaunchManageNil
+
+`func (o *CreateAdminRoleRequestModel) SetCanLaunchManageNil(b bool)`
+
+ SetCanLaunchManageNil sets the value for CanLaunchManage to be an explicit nil
+
+### UnsetCanLaunchManage
+`func (o *CreateAdminRoleRequestModel) UnsetCanLaunchManage()`
+
+UnsetCanLaunchManage ensures that no value is present for CanLaunchManage, not even an explicit nil
 ### GetCanLaunchMonitor
 
 `func (o *CreateAdminRoleRequestModel) GetCanLaunchMonitor() bool`
@@ -124,6 +144,16 @@ SetCanLaunchMonitor sets CanLaunchMonitor field to given value.
 
 HasCanLaunchMonitor returns a boolean if a field has been set.
 
+### SetCanLaunchMonitorNil
+
+`func (o *CreateAdminRoleRequestModel) SetCanLaunchMonitorNil(b bool)`
+
+ SetCanLaunchMonitorNil sets the value for CanLaunchMonitor to be an explicit nil
+
+### UnsetCanLaunchMonitor
+`func (o *CreateAdminRoleRequestModel) UnsetCanLaunchMonitor()`
+
+UnsetCanLaunchMonitor ensures that no value is present for CanLaunchMonitor, not even an explicit nil
 ### GetPermissions
 
 `func (o *CreateAdminRoleRequestModel) GetPermissions() []string`
@@ -149,6 +179,16 @@ SetPermissions sets Permissions field to given value.
 
 HasPermissions returns a boolean if a field has been set.
 
+### SetPermissionsNil
+
+`func (o *CreateAdminRoleRequestModel) SetPermissionsNil(b bool)`
+
+ SetPermissionsNil sets the value for Permissions to be an explicit nil
+
+### UnsetPermissions
+`func (o *CreateAdminRoleRequestModel) UnsetPermissions()`
+
+UnsetPermissions ensures that no value is present for Permissions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

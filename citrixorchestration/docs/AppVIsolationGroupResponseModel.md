@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of IsolationGroup | [optional] 
-**Description** | Pointer to **string** | Description of IsolationGroup | [optional] 
-**Version** | Pointer to **string** | Version of IsolationGroup | [optional] 
+**Name** | Pointer to **NullableString** | Name of IsolationGroup | [optional] 
+**Description** | Pointer to **NullableString** | Description of IsolationGroup | [optional] 
+**Version** | Pointer to **NullableString** | Version of IsolationGroup | [optional] 
 **Uid** | Pointer to **int32** | Uid of IsolationGroup | [optional] 
 **AppVPackages** | Pointer to [**[]AppVPackageResponseModel**](AppVPackageResponseModel.md) | Contained AppV packages | [optional] 
 
@@ -54,6 +54,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *AppVIsolationGroupResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *AppVIsolationGroupResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *AppVIsolationGroupResponseModel) GetDescription() string`
@@ -79,6 +89,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *AppVIsolationGroupResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AppVIsolationGroupResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetVersion
 
 `func (o *AppVIsolationGroupResponseModel) GetVersion() string`
@@ -104,6 +124,16 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *AppVIsolationGroupResponseModel) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *AppVIsolationGroupResponseModel) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetUid
 
 `func (o *AppVIsolationGroupResponseModel) GetUid() int32`
@@ -154,6 +184,16 @@ SetAppVPackages sets AppVPackages field to given value.
 
 HasAppVPackages returns a boolean if a field has been set.
 
+### SetAppVPackagesNil
+
+`func (o *AppVIsolationGroupResponseModel) SetAppVPackagesNil(b bool)`
+
+ SetAppVPackagesNil sets the value for AppVPackages to be an explicit nil
+
+### UnsetAppVPackages
+`func (o *AppVIsolationGroupResponseModel) UnsetAppVPackages()`
+
+UnsetAppVPackages ensures that no value is present for AppVPackages, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

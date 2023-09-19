@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of the application folder.  If not set, will not be changed.  The name must be unique within the folder&#39;s parent folder. | [optional] 
-**Parent** | Pointer to **string** | Parent folder.  If not set, will not be changed.  Can be set to either Id or Path.  To move the application to the root folder, specify the empty string (\&quot;\&quot;).  If specified as a path, and the path does not exist, it will be created. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the application folder.  If not set, will not be changed.  The name must be unique within the folder&#39;s parent folder. | [optional] 
+**Parent** | Pointer to **NullableString** | Parent folder.  If not set, will not be changed.  Can be set to either Id or Path.  To move the application to the root folder, specify the empty string (\&quot;\&quot;).  If specified as a path, and the path does not exist, it will be created. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EditApplicationFolderRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditApplicationFolderRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetParent
 
 `func (o *EditApplicationFolderRequestModel) GetParent() string`
@@ -76,6 +86,16 @@ SetParent sets Parent field to given value.
 
 HasParent returns a boolean if a field has been set.
 
+### SetParentNil
+
+`func (o *EditApplicationFolderRequestModel) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *EditApplicationFolderRequestModel) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

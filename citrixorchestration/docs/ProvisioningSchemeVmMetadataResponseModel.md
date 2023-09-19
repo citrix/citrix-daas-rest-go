@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MachineSize** | Pointer to **string** | VmMetadata machine size | [optional] 
-**OsDiskCaching** | Pointer to **string** | VmMetadata OS disk cache | [optional] 
-**Tags** | Pointer to **string** | VmMetadata tags | [optional] 
-**BootDiagnostics** | Pointer to **bool** | VmMetadata boot diagnostics configuration | [optional] 
-**AcceleratedNetwork** | Pointer to **bool** | VmMetadata accelerated network configuration | [optional] 
-**SupportsHibernation** | Pointer to **bool** | VmMetadata hibernation configuration. | [optional] 
+**MachineSize** | Pointer to **NullableString** | VmMetadata machine size | [optional] 
+**OsDiskCaching** | Pointer to **NullableString** | VmMetadata OS disk cache | [optional] 
+**Tags** | Pointer to **NullableString** | VmMetadata tags | [optional] 
+**BootDiagnostics** | Pointer to **NullableBool** | VmMetadata boot diagnostics configuration | [optional] 
+**AcceleratedNetwork** | Pointer to **NullableBool** | VmMetadata accelerated network configuration | [optional] 
+**SupportsHibernation** | Pointer to **NullableBool** | VmMetadata hibernation configuration. | [optional] 
+**Labels** | Pointer to **NullableString** | VmMetadata Labels | [optional] 
 
 ## Methods
 
@@ -55,6 +56,16 @@ SetMachineSize sets MachineSize field to given value.
 
 HasMachineSize returns a boolean if a field has been set.
 
+### SetMachineSizeNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetMachineSizeNil(b bool)`
+
+ SetMachineSizeNil sets the value for MachineSize to be an explicit nil
+
+### UnsetMachineSize
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetMachineSize()`
+
+UnsetMachineSize ensures that no value is present for MachineSize, not even an explicit nil
 ### GetOsDiskCaching
 
 `func (o *ProvisioningSchemeVmMetadataResponseModel) GetOsDiskCaching() string`
@@ -80,6 +91,16 @@ SetOsDiskCaching sets OsDiskCaching field to given value.
 
 HasOsDiskCaching returns a boolean if a field has been set.
 
+### SetOsDiskCachingNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetOsDiskCachingNil(b bool)`
+
+ SetOsDiskCachingNil sets the value for OsDiskCaching to be an explicit nil
+
+### UnsetOsDiskCaching
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetOsDiskCaching()`
+
+UnsetOsDiskCaching ensures that no value is present for OsDiskCaching, not even an explicit nil
 ### GetTags
 
 `func (o *ProvisioningSchemeVmMetadataResponseModel) GetTags() string`
@@ -105,6 +126,16 @@ SetTags sets Tags field to given value.
 
 HasTags returns a boolean if a field has been set.
 
+### SetTagsNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetBootDiagnostics
 
 `func (o *ProvisioningSchemeVmMetadataResponseModel) GetBootDiagnostics() bool`
@@ -130,6 +161,16 @@ SetBootDiagnostics sets BootDiagnostics field to given value.
 
 HasBootDiagnostics returns a boolean if a field has been set.
 
+### SetBootDiagnosticsNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetBootDiagnosticsNil(b bool)`
+
+ SetBootDiagnosticsNil sets the value for BootDiagnostics to be an explicit nil
+
+### UnsetBootDiagnostics
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetBootDiagnostics()`
+
+UnsetBootDiagnostics ensures that no value is present for BootDiagnostics, not even an explicit nil
 ### GetAcceleratedNetwork
 
 `func (o *ProvisioningSchemeVmMetadataResponseModel) GetAcceleratedNetwork() bool`
@@ -155,6 +196,16 @@ SetAcceleratedNetwork sets AcceleratedNetwork field to given value.
 
 HasAcceleratedNetwork returns a boolean if a field has been set.
 
+### SetAcceleratedNetworkNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetAcceleratedNetworkNil(b bool)`
+
+ SetAcceleratedNetworkNil sets the value for AcceleratedNetwork to be an explicit nil
+
+### UnsetAcceleratedNetwork
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetAcceleratedNetwork()`
+
+UnsetAcceleratedNetwork ensures that no value is present for AcceleratedNetwork, not even an explicit nil
 ### GetSupportsHibernation
 
 `func (o *ProvisioningSchemeVmMetadataResponseModel) GetSupportsHibernation() bool`
@@ -180,6 +231,51 @@ SetSupportsHibernation sets SupportsHibernation field to given value.
 
 HasSupportsHibernation returns a boolean if a field has been set.
 
+### SetSupportsHibernationNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetSupportsHibernationNil(b bool)`
+
+ SetSupportsHibernationNil sets the value for SupportsHibernation to be an explicit nil
+
+### UnsetSupportsHibernation
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetSupportsHibernation()`
+
+UnsetSupportsHibernation ensures that no value is present for SupportsHibernation, not even an explicit nil
+### GetLabels
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetLabels() string`
+
+GetLabels returns the Labels field if non-nil, zero value otherwise.
+
+### GetLabelsOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetLabelsOk() (*string, bool)`
+
+GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabels
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetLabels(v string)`
+
+SetLabels sets Labels field to given value.
+
+### HasLabels
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasLabels() bool`
+
+HasLabels returns a boolean if a field has been set.
+
+### SetLabelsNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetLabelsNil(b bool)`
+
+ SetLabelsNil sets the value for Labels to be an explicit nil
+
+### UnsetLabels
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetLabels()`
+
+UnsetLabels ensures that no value is present for Labels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

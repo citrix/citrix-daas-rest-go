@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of IsolationGroup | 
-**Description** | Pointer to **string** | Description of IsolationGroup | [optional] 
+**Description** | Pointer to **NullableString** | Description of IsolationGroup | [optional] 
 **IncludedAppVPackages** | Pointer to [**[]AppVIsolationGroupPackageRequestModel**](AppVIsolationGroupPackageRequestModel.md) | Included AppV packages | [optional] 
 
 ## Methods
@@ -72,6 +72,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateAppVIsolationGroupRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateAppVIsolationGroupRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIncludedAppVPackages
 
 `func (o *CreateAppVIsolationGroupRequestModel) GetIncludedAppVPackages() []AppVIsolationGroupPackageRequestModel`
@@ -97,6 +107,16 @@ SetIncludedAppVPackages sets IncludedAppVPackages field to given value.
 
 HasIncludedAppVPackages returns a boolean if a field has been set.
 
+### SetIncludedAppVPackagesNil
+
+`func (o *CreateAppVIsolationGroupRequestModel) SetIncludedAppVPackagesNil(b bool)`
+
+ SetIncludedAppVPackagesNil sets the value for IncludedAppVPackages to be an explicit nil
+
+### UnsetIncludedAppVPackages
+`func (o *CreateAppVIsolationGroupRequestModel) UnsetIncludedAppVPackages()`
+
+UnsetIncludedAppVPackages ensures that no value is present for IncludedAppVPackages, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

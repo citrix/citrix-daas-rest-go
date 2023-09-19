@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdAccountAction** | Pointer to **string** | Active directory account action. | [optional] 
+**AdAccountAction** | Pointer to **NullableString** | Active directory account action. | [optional] 
 **SuccessfulAccounts** | Pointer to **[]string** | Successful accounts. | [optional] 
 **SuccessfulMachines** | Pointer to **[]string** | Successful machines.  | [optional] 
 **FailedMachines** | Pointer to [**[]ActionFailedMachineOrAccountResponseModel**](ActionFailedMachineOrAccountResponseModel.md) | Failed machines and Action errors. | [optional] 
@@ -55,6 +55,16 @@ SetAdAccountAction sets AdAccountAction field to given value.
 
 HasAdAccountAction returns a boolean if a field has been set.
 
+### SetAdAccountActionNil
+
+`func (o *ActionMachineCreationDetailsResponseModel) SetAdAccountActionNil(b bool)`
+
+ SetAdAccountActionNil sets the value for AdAccountAction to be an explicit nil
+
+### UnsetAdAccountAction
+`func (o *ActionMachineCreationDetailsResponseModel) UnsetAdAccountAction()`
+
+UnsetAdAccountAction ensures that no value is present for AdAccountAction, not even an explicit nil
 ### GetSuccessfulAccounts
 
 `func (o *ActionMachineCreationDetailsResponseModel) GetSuccessfulAccounts() []string`
@@ -80,6 +90,16 @@ SetSuccessfulAccounts sets SuccessfulAccounts field to given value.
 
 HasSuccessfulAccounts returns a boolean if a field has been set.
 
+### SetSuccessfulAccountsNil
+
+`func (o *ActionMachineCreationDetailsResponseModel) SetSuccessfulAccountsNil(b bool)`
+
+ SetSuccessfulAccountsNil sets the value for SuccessfulAccounts to be an explicit nil
+
+### UnsetSuccessfulAccounts
+`func (o *ActionMachineCreationDetailsResponseModel) UnsetSuccessfulAccounts()`
+
+UnsetSuccessfulAccounts ensures that no value is present for SuccessfulAccounts, not even an explicit nil
 ### GetSuccessfulMachines
 
 `func (o *ActionMachineCreationDetailsResponseModel) GetSuccessfulMachines() []string`
@@ -105,6 +125,16 @@ SetSuccessfulMachines sets SuccessfulMachines field to given value.
 
 HasSuccessfulMachines returns a boolean if a field has been set.
 
+### SetSuccessfulMachinesNil
+
+`func (o *ActionMachineCreationDetailsResponseModel) SetSuccessfulMachinesNil(b bool)`
+
+ SetSuccessfulMachinesNil sets the value for SuccessfulMachines to be an explicit nil
+
+### UnsetSuccessfulMachines
+`func (o *ActionMachineCreationDetailsResponseModel) UnsetSuccessfulMachines()`
+
+UnsetSuccessfulMachines ensures that no value is present for SuccessfulMachines, not even an explicit nil
 ### GetFailedMachines
 
 `func (o *ActionMachineCreationDetailsResponseModel) GetFailedMachines() []ActionFailedMachineOrAccountResponseModel`
@@ -130,6 +160,16 @@ SetFailedMachines sets FailedMachines field to given value.
 
 HasFailedMachines returns a boolean if a field has been set.
 
+### SetFailedMachinesNil
+
+`func (o *ActionMachineCreationDetailsResponseModel) SetFailedMachinesNil(b bool)`
+
+ SetFailedMachinesNil sets the value for FailedMachines to be an explicit nil
+
+### UnsetFailedMachines
+`func (o *ActionMachineCreationDetailsResponseModel) UnsetFailedMachines()`
+
+UnsetFailedMachines ensures that no value is present for FailedMachines, not even an explicit nil
 ### GetFailedAccounts
 
 `func (o *ActionMachineCreationDetailsResponseModel) GetFailedAccounts() []ActionFailedMachineOrAccountResponseModel`
@@ -155,6 +195,16 @@ SetFailedAccounts sets FailedAccounts field to given value.
 
 HasFailedAccounts returns a boolean if a field has been set.
 
+### SetFailedAccountsNil
+
+`func (o *ActionMachineCreationDetailsResponseModel) SetFailedAccountsNil(b bool)`
+
+ SetFailedAccountsNil sets the value for FailedAccounts to be an explicit nil
+
+### UnsetFailedAccounts
+`func (o *ActionMachineCreationDetailsResponseModel) UnsetFailedAccounts()`
+
+UnsetFailedAccounts ensures that no value is present for FailedAccounts, not even an explicit nil
 ### GetMachineRequested
 
 `func (o *ActionMachineCreationDetailsResponseModel) GetMachineRequested() int32`

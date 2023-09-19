@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TimeRange** | Pointer to **string** | Time range during which the pool size applies. | [optional] 
+**TimeRange** | Pointer to **NullableString** | Time range during which the pool size applies. | [optional] 
 **PoolSize** | Pointer to **int32** | The number of machines (either as an absolute number or a percentage of the machines in the delivery group, depending on the value of PoolUsingPercentage) that are to be maintained in a running state, whether they are in use or not. | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetTimeRange sets TimeRange field to given value.
 
 HasTimeRange returns a boolean if a field has been set.
 
+### SetTimeRangeNil
+
+`func (o *PoolSizeScheduleRequestModel) SetTimeRangeNil(b bool)`
+
+ SetTimeRangeNil sets the value for TimeRange to be an explicit nil
+
+### UnsetTimeRange
+`func (o *PoolSizeScheduleRequestModel) UnsetTimeRange()`
+
+UnsetTimeRange ensures that no value is present for TimeRange, not even an explicit nil
 ### GetPoolSize
 
 `func (o *PoolSizeScheduleRequestModel) GetPoolSize() int32`

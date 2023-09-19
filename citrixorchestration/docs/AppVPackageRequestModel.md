@@ -50,6 +50,16 @@ SetPaths sets Paths field to given value.
 
 HasPaths returns a boolean if a field has been set.
 
+### SetPathsNil
+
+`func (o *AppVPackageRequestModel) SetPathsNil(b bool)`
+
+ SetPathsNil sets the value for Paths to be an explicit nil
+
+### UnsetPaths
+`func (o *AppVPackageRequestModel) UnsetPaths()`
+
+UnsetPaths ensures that no value is present for Paths, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

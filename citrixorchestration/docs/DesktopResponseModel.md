@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Id of the desktop. | 
 **Uid** | Pointer to **int32** | &#x60;DEPRECATED&#x60; DEPRECATED. Use Id. | [optional] 
 **ColorDepth** | [**ColorDepth**](ColorDepth.md) |  | 
-**Description** | Pointer to **string** | Optional description of the desktop. The text may be visible to the end user, for example, as a tooltip associated with the desktop within receiver. | [optional] 
+**Description** | Pointer to **NullableString** | Optional description of the desktop. The text may be visible to the end user, for example, as a tooltip associated with the desktop within receiver. | [optional] 
 **Enabled** | **bool** | Whether the published desktop is enabled. A disabled desktop is ignored when determining which desktops are available for a user. | 
 **ExcludedUserFilterEnabled** | **bool** | Indicates whether the ExcludedUsers filter is enabled.  If the filter is disabled then any user entries in the filter are ignored when determining which desktops are available for a user. | 
 **ExcludedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | The excluded users filter of the desktop; that is, the users and groups who are explicitly denied access to the published desktop. | [optional] 
@@ -15,13 +15,13 @@ Name | Type | Description | Notes
 **IncludedUserFilterEnabled** | **bool** | Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access policy is implicitly granted an entitlement to the published desktop. | 
 **IncludedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | The included users filter of the desktop; that is, the users and groups who are explicitly granted access to the published desktop. | [optional] 
 **LeasingBehavior** | Pointer to [**LeasingBehavior**](LeasingBehavior.md) |  | [optional] 
-**MaxDesktops** | Pointer to **int32** | The number of machines from the delivery group which a user may privately allocate. | [optional] 
-**Name** | Pointer to **string** | The administrative name of the desktop. | [optional] 
+**MaxDesktops** | Pointer to **NullableInt32** | The number of machines from the delivery group which a user may privately allocate. | [optional] 
+**Name** | Pointer to **NullableString** | The administrative name of the desktop. | [optional] 
 **PublishedName** | **string** | The name of the published desktop as seen by the user, and of assigned desktop(s) in the case where SharingKind is equal to Private. | 
-**RestrictToTag** | Pointer to [**DesktopResponseModelRestrictToTag**](DesktopResponseModelRestrictToTag.md) |  | [optional] 
+**RestrictToTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **SecureIcaRequired** | **bool** | Indicates whether the desktop requires the SecureICA protocol for desktop sessions. | 
 **SessionReconnection** | Pointer to [**SessionReconnection**](SessionReconnection.md) |  | [optional] 
-**MachinesForAssignment** | Pointer to **int32** | Indicates the number of machines which are available for assignment based on this desktop configuration. | [optional] 
+**MachinesForAssignment** | Pointer to **NullableInt32** | Indicates the number of machines which are available for assignment based on this desktop configuration. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the desktop is assigned to.  If &#x60;null&#x60;, the desktop is not assigned to any tenants, and may be used by any tenant. | [optional] 
 
 ## Methods
@@ -133,6 +133,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *DesktopResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *DesktopResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetEnabled
 
 `func (o *DesktopResponseModel) GetEnabled() bool`
@@ -198,6 +208,16 @@ SetExcludedUsers sets ExcludedUsers field to given value.
 
 HasExcludedUsers returns a boolean if a field has been set.
 
+### SetExcludedUsersNil
+
+`func (o *DesktopResponseModel) SetExcludedUsersNil(b bool)`
+
+ SetExcludedUsersNil sets the value for ExcludedUsers to be an explicit nil
+
+### UnsetExcludedUsers
+`func (o *DesktopResponseModel) UnsetExcludedUsers()`
+
+UnsetExcludedUsers ensures that no value is present for ExcludedUsers, not even an explicit nil
 ### GetIconId
 
 `func (o *DesktopResponseModel) GetIconId() string`
@@ -263,6 +283,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *DesktopResponseModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *DesktopResponseModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 ### GetLeasingBehavior
 
 `func (o *DesktopResponseModel) GetLeasingBehavior() LeasingBehavior`
@@ -313,6 +343,16 @@ SetMaxDesktops sets MaxDesktops field to given value.
 
 HasMaxDesktops returns a boolean if a field has been set.
 
+### SetMaxDesktopsNil
+
+`func (o *DesktopResponseModel) SetMaxDesktopsNil(b bool)`
+
+ SetMaxDesktopsNil sets the value for MaxDesktops to be an explicit nil
+
+### UnsetMaxDesktops
+`func (o *DesktopResponseModel) UnsetMaxDesktops()`
+
+UnsetMaxDesktops ensures that no value is present for MaxDesktops, not even an explicit nil
 ### GetName
 
 `func (o *DesktopResponseModel) GetName() string`
@@ -338,6 +378,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *DesktopResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *DesktopResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPublishedName
 
 `func (o *DesktopResponseModel) GetPublishedName() string`
@@ -360,20 +410,20 @@ SetPublishedName sets PublishedName field to given value.
 
 ### GetRestrictToTag
 
-`func (o *DesktopResponseModel) GetRestrictToTag() DesktopResponseModelRestrictToTag`
+`func (o *DesktopResponseModel) GetRestrictToTag() RefResponseModel`
 
 GetRestrictToTag returns the RestrictToTag field if non-nil, zero value otherwise.
 
 ### GetRestrictToTagOk
 
-`func (o *DesktopResponseModel) GetRestrictToTagOk() (*DesktopResponseModelRestrictToTag, bool)`
+`func (o *DesktopResponseModel) GetRestrictToTagOk() (*RefResponseModel, bool)`
 
 GetRestrictToTagOk returns a tuple with the RestrictToTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRestrictToTag
 
-`func (o *DesktopResponseModel) SetRestrictToTag(v DesktopResponseModelRestrictToTag)`
+`func (o *DesktopResponseModel) SetRestrictToTag(v RefResponseModel)`
 
 SetRestrictToTag sets RestrictToTag field to given value.
 
@@ -453,6 +503,16 @@ SetMachinesForAssignment sets MachinesForAssignment field to given value.
 
 HasMachinesForAssignment returns a boolean if a field has been set.
 
+### SetMachinesForAssignmentNil
+
+`func (o *DesktopResponseModel) SetMachinesForAssignmentNil(b bool)`
+
+ SetMachinesForAssignmentNil sets the value for MachinesForAssignment to be an explicit nil
+
+### UnsetMachinesForAssignment
+`func (o *DesktopResponseModel) UnsetMachinesForAssignment()`
+
+UnsetMachinesForAssignment ensures that no value is present for MachinesForAssignment, not even an explicit nil
 ### GetTenants
 
 `func (o *DesktopResponseModel) GetTenants() []RefResponseModel`
@@ -478,6 +538,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *DesktopResponseModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *DesktopResponseModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LicenseProductName** | Pointer to [**LicenseProduct**](LicenseProduct.md) |  | [optional] 
-**LocalizedLicenseProductName** | Pointer to **string** | Localized license name of the product | [optional] 
-**LicenseExpirationDate** | Pointer to **string** | The expired date of the license | [optional] 
-**LicenseSubscriptionAdvantageDate** | Pointer to **string** | The subscription advantage date of the license | [optional] 
-**LicenseType** | Pointer to **string** | The type of the license | [optional] 
+**LocalizedLicenseProductName** | Pointer to **NullableString** | Localized license name of the product | [optional] 
+**LicenseExpirationDate** | Pointer to **NullableString** | The expired date of the license | [optional] 
+**LicenseSubscriptionAdvantageDate** | Pointer to **NullableString** | The subscription advantage date of the license | [optional] 
+**LicenseType** | Pointer to **NullableString** | The type of the license | [optional] 
 **LicensesInUse** | Pointer to **int32** | The number of the Licenses in use | [optional] 
 **LicensesAvailable** | Pointer to **int32** | The number of the available licenses | [optional] 
 **LicenseOverdraft** | Pointer to **int32** | The number of the overdraft licenses | [optional] 
@@ -84,6 +84,16 @@ SetLocalizedLicenseProductName sets LocalizedLicenseProductName field to given v
 
 HasLocalizedLicenseProductName returns a boolean if a field has been set.
 
+### SetLocalizedLicenseProductNameNil
+
+`func (o *LicenseInventoryModel) SetLocalizedLicenseProductNameNil(b bool)`
+
+ SetLocalizedLicenseProductNameNil sets the value for LocalizedLicenseProductName to be an explicit nil
+
+### UnsetLocalizedLicenseProductName
+`func (o *LicenseInventoryModel) UnsetLocalizedLicenseProductName()`
+
+UnsetLocalizedLicenseProductName ensures that no value is present for LocalizedLicenseProductName, not even an explicit nil
 ### GetLicenseExpirationDate
 
 `func (o *LicenseInventoryModel) GetLicenseExpirationDate() string`
@@ -109,6 +119,16 @@ SetLicenseExpirationDate sets LicenseExpirationDate field to given value.
 
 HasLicenseExpirationDate returns a boolean if a field has been set.
 
+### SetLicenseExpirationDateNil
+
+`func (o *LicenseInventoryModel) SetLicenseExpirationDateNil(b bool)`
+
+ SetLicenseExpirationDateNil sets the value for LicenseExpirationDate to be an explicit nil
+
+### UnsetLicenseExpirationDate
+`func (o *LicenseInventoryModel) UnsetLicenseExpirationDate()`
+
+UnsetLicenseExpirationDate ensures that no value is present for LicenseExpirationDate, not even an explicit nil
 ### GetLicenseSubscriptionAdvantageDate
 
 `func (o *LicenseInventoryModel) GetLicenseSubscriptionAdvantageDate() string`
@@ -134,6 +154,16 @@ SetLicenseSubscriptionAdvantageDate sets LicenseSubscriptionAdvantageDate field 
 
 HasLicenseSubscriptionAdvantageDate returns a boolean if a field has been set.
 
+### SetLicenseSubscriptionAdvantageDateNil
+
+`func (o *LicenseInventoryModel) SetLicenseSubscriptionAdvantageDateNil(b bool)`
+
+ SetLicenseSubscriptionAdvantageDateNil sets the value for LicenseSubscriptionAdvantageDate to be an explicit nil
+
+### UnsetLicenseSubscriptionAdvantageDate
+`func (o *LicenseInventoryModel) UnsetLicenseSubscriptionAdvantageDate()`
+
+UnsetLicenseSubscriptionAdvantageDate ensures that no value is present for LicenseSubscriptionAdvantageDate, not even an explicit nil
 ### GetLicenseType
 
 `func (o *LicenseInventoryModel) GetLicenseType() string`
@@ -159,6 +189,16 @@ SetLicenseType sets LicenseType field to given value.
 
 HasLicenseType returns a boolean if a field has been set.
 
+### SetLicenseTypeNil
+
+`func (o *LicenseInventoryModel) SetLicenseTypeNil(b bool)`
+
+ SetLicenseTypeNil sets the value for LicenseType to be an explicit nil
+
+### UnsetLicenseType
+`func (o *LicenseInventoryModel) UnsetLicenseType()`
+
+UnsetLicenseType ensures that no value is present for LicenseType, not even an explicit nil
 ### GetLicensesInUse
 
 `func (o *LicenseInventoryModel) GetLicensesInUse() int32`

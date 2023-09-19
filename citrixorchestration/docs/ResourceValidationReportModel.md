@@ -102,6 +102,16 @@ SetViolations sets Violations field to given value.
 
 HasViolations returns a boolean if a field has been set.
 
+### SetViolationsNil
+
+`func (o *ResourceValidationReportModel) SetViolationsNil(b bool)`
+
+ SetViolationsNil sets the value for Violations to be an explicit nil
+
+### UnsetViolations
+`func (o *ResourceValidationReportModel) UnsetViolations()`
+
+UnsetViolations ensures that no value is present for Violations, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

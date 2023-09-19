@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingName** | Pointer to **string** | Setting name | [optional] 
-**SettingValue** | Pointer to **string** | Setting value | [optional] 
-**WinningGpo** | Pointer to **string** | Source GPO for the setting | [optional] 
-**WinningPolicy** | Pointer to **string** | Source policy for the setting | [optional] 
+**SettingName** | Pointer to **NullableString** | Setting name | [optional] 
+**SettingValue** | Pointer to **NullableString** | Setting value | [optional] 
+**WinningGpo** | Pointer to **NullableString** | Source GPO for the setting | [optional] 
+**WinningPolicy** | Pointer to **NullableString** | Source policy for the setting | [optional] 
 
 ## Methods
 
@@ -53,6 +53,16 @@ SetSettingName sets SettingName field to given value.
 
 HasSettingName returns a boolean if a field has been set.
 
+### SetSettingNameNil
+
+`func (o *AppliedSetting) SetSettingNameNil(b bool)`
+
+ SetSettingNameNil sets the value for SettingName to be an explicit nil
+
+### UnsetSettingName
+`func (o *AppliedSetting) UnsetSettingName()`
+
+UnsetSettingName ensures that no value is present for SettingName, not even an explicit nil
 ### GetSettingValue
 
 `func (o *AppliedSetting) GetSettingValue() string`
@@ -78,6 +88,16 @@ SetSettingValue sets SettingValue field to given value.
 
 HasSettingValue returns a boolean if a field has been set.
 
+### SetSettingValueNil
+
+`func (o *AppliedSetting) SetSettingValueNil(b bool)`
+
+ SetSettingValueNil sets the value for SettingValue to be an explicit nil
+
+### UnsetSettingValue
+`func (o *AppliedSetting) UnsetSettingValue()`
+
+UnsetSettingValue ensures that no value is present for SettingValue, not even an explicit nil
 ### GetWinningGpo
 
 `func (o *AppliedSetting) GetWinningGpo() string`
@@ -103,6 +123,16 @@ SetWinningGpo sets WinningGpo field to given value.
 
 HasWinningGpo returns a boolean if a field has been set.
 
+### SetWinningGpoNil
+
+`func (o *AppliedSetting) SetWinningGpoNil(b bool)`
+
+ SetWinningGpoNil sets the value for WinningGpo to be an explicit nil
+
+### UnsetWinningGpo
+`func (o *AppliedSetting) UnsetWinningGpo()`
+
+UnsetWinningGpo ensures that no value is present for WinningGpo, not even an explicit nil
 ### GetWinningPolicy
 
 `func (o *AppliedSetting) GetWinningPolicy() string`
@@ -128,6 +158,16 @@ SetWinningPolicy sets WinningPolicy field to given value.
 
 HasWinningPolicy returns a boolean if a field has been set.
 
+### SetWinningPolicyNil
+
+`func (o *AppliedSetting) SetWinningPolicyNil(b bool)`
+
+ SetWinningPolicyNil sets the value for WinningPolicy to be an explicit nil
+
+### UnsetWinningPolicy
+`func (o *AppliedSetting) UnsetWinningPolicy()`
+
+UnsetWinningPolicy ensures that no value is present for WinningPolicy, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

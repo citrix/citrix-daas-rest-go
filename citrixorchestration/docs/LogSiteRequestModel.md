@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LoggingEnabled** | Pointer to **bool** | Configuration logging settings enabled. | [optional] 
 **AllowChangesWhileDatabaseDown** | Pointer to **bool** | Allow changes to the site configuration when the database is not available. | [optional] 
-**Locale** | Pointer to **string** | Locale. | [optional] 
+**Locale** | Pointer to **NullableString** | Locale. | [optional] 
 
 ## Methods
 
@@ -102,6 +102,16 @@ SetLocale sets Locale field to given value.
 
 HasLocale returns a boolean if a field has been set.
 
+### SetLocaleNil
+
+`func (o *LogSiteRequestModel) SetLocaleNil(b bool)`
+
+ SetLocaleNil sets the value for Locale to be an explicit nil
+
+### UnsetLocale
+`func (o *LogSiteRequestModel) UnsetLocale()`
+
+UnsetLocale ensures that no value is present for Locale, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

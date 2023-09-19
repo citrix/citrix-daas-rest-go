@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Description** | Pointer to **string** | The description of the permission. It is usually missed (null or empty). | [optional] 
+**Description** | Pointer to **NullableString** | The description of the permission. It is usually missed (null or empty). | [optional] 
 **GroupId** | **string** | The group id of the permission. | 
 **GroupName** | **string** | The group name of the permission. | 
 **Id** | **string** | The Id of the permission. It is globally unique. | 
@@ -56,6 +56,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PredefinedPermissionResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PredefinedPermissionResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetGroupId
 
 `func (o *PredefinedPermissionResponseModel) GetGroupId() string`

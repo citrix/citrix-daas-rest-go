@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DiscoveryType** | Pointer to [**AppLibPackageDiscoveryType**](AppLibPackageDiscoveryType.md) |  | [optional] 
-**DiscoveryProfileUid** | Pointer to **int32** | the UID of AppLib package discovery profile | [optional] 
-**DesktopGroupUid** | Pointer to **int32** | The UID of the DesktopGroup from which the broker will select a VDA to run the discover session. | [optional] 
-**Path** | Pointer to **string** | The root directory where the discovery session will run. | [optional] 
-**Recurse** | Pointer to **bool** | A value indicating whether or not to search the child directory tree. | [optional] [default to true]
-**DiscoverAppV** | Pointer to **bool** | A value indicating whether or not to discover App-V packages | [optional] [default to false]
-**DiscoverMsiX** | Pointer to **bool** | A value indicating whether or not to discover MSIX packages | [optional] [default to false]
-**DiscoverAppAttach** | Pointer to **bool** | A value indicating whether or not to discover AppAttach packages | [optional] [default to false]
-**ManagementServer** | Pointer to **string** | The url of the App-V Management Server that packages will be discovered from. | [optional] 
-**PublishingServer** | Pointer to **string** | A value indicating whether or not to discover AppAttach packages | [optional] 
-**Username** | Pointer to **string** | the username of App-V server admin | [optional] 
-**Password** | Pointer to **string** | the password of App-V server admin | [optional] 
+**DiscoveryProfileUid** | Pointer to **NullableInt32** | the UID of AppLib package discovery profile | [optional] 
+**DesktopGroupUid** | Pointer to **NullableInt32** | The UID of the DesktopGroup from which the broker will select a VDA to run the discover session. | [optional] 
+**Path** | Pointer to **NullableString** | The root directory where the discovery session will run. | [optional] 
+**Recurse** | Pointer to **NullableBool** | A value indicating whether or not to search the child directory tree. | [optional] [default to true]
+**DiscoverAppV** | Pointer to **NullableBool** | A value indicating whether or not to discover App-V packages | [optional] [default to false]
+**DiscoverMsiX** | Pointer to **NullableBool** | A value indicating whether or not to discover MSIX packages | [optional] [default to false]
+**DiscoverAppAttach** | Pointer to **NullableBool** | A value indicating whether or not to discover AppAttach packages | [optional] [default to false]
+**ManagementServer** | Pointer to **NullableString** | The url of the App-V Management Server that packages will be discovered from. | [optional] 
+**PublishingServer** | Pointer to **NullableString** | A value indicating whether or not to discover AppAttach packages | [optional] 
+**Username** | Pointer to **NullableString** | the username of App-V server admin | [optional] 
+**Password** | Pointer to **NullableString** | the password of App-V server admin | [optional] 
 **PasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 
 ## Methods
@@ -87,6 +87,16 @@ SetDiscoveryProfileUid sets DiscoveryProfileUid field to given value.
 
 HasDiscoveryProfileUid returns a boolean if a field has been set.
 
+### SetDiscoveryProfileUidNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoveryProfileUidNil(b bool)`
+
+ SetDiscoveryProfileUidNil sets the value for DiscoveryProfileUid to be an explicit nil
+
+### UnsetDiscoveryProfileUid
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoveryProfileUid()`
+
+UnsetDiscoveryProfileUid ensures that no value is present for DiscoveryProfileUid, not even an explicit nil
 ### GetDesktopGroupUid
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetDesktopGroupUid() int32`
@@ -112,6 +122,16 @@ SetDesktopGroupUid sets DesktopGroupUid field to given value.
 
 HasDesktopGroupUid returns a boolean if a field has been set.
 
+### SetDesktopGroupUidNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetDesktopGroupUidNil(b bool)`
+
+ SetDesktopGroupUidNil sets the value for DesktopGroupUid to be an explicit nil
+
+### UnsetDesktopGroupUid
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetDesktopGroupUid()`
+
+UnsetDesktopGroupUid ensures that no value is present for DesktopGroupUid, not even an explicit nil
 ### GetPath
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetPath() string`
@@ -137,6 +157,16 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
+### SetPathNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetPathNil(b bool)`
+
+ SetPathNil sets the value for Path to be an explicit nil
+
+### UnsetPath
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetPath()`
+
+UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetRecurse
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetRecurse() bool`
@@ -162,6 +192,16 @@ SetRecurse sets Recurse field to given value.
 
 HasRecurse returns a boolean if a field has been set.
 
+### SetRecurseNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetRecurseNil(b bool)`
+
+ SetRecurseNil sets the value for Recurse to be an explicit nil
+
+### UnsetRecurse
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetRecurse()`
+
+UnsetRecurse ensures that no value is present for Recurse, not even an explicit nil
 ### GetDiscoverAppV
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverAppV() bool`
@@ -187,6 +227,16 @@ SetDiscoverAppV sets DiscoverAppV field to given value.
 
 HasDiscoverAppV returns a boolean if a field has been set.
 
+### SetDiscoverAppVNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverAppVNil(b bool)`
+
+ SetDiscoverAppVNil sets the value for DiscoverAppV to be an explicit nil
+
+### UnsetDiscoverAppV
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverAppV()`
+
+UnsetDiscoverAppV ensures that no value is present for DiscoverAppV, not even an explicit nil
 ### GetDiscoverMsiX
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverMsiX() bool`
@@ -212,6 +262,16 @@ SetDiscoverMsiX sets DiscoverMsiX field to given value.
 
 HasDiscoverMsiX returns a boolean if a field has been set.
 
+### SetDiscoverMsiXNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverMsiXNil(b bool)`
+
+ SetDiscoverMsiXNil sets the value for DiscoverMsiX to be an explicit nil
+
+### UnsetDiscoverMsiX
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverMsiX()`
+
+UnsetDiscoverMsiX ensures that no value is present for DiscoverMsiX, not even an explicit nil
 ### GetDiscoverAppAttach
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverAppAttach() bool`
@@ -237,6 +297,16 @@ SetDiscoverAppAttach sets DiscoverAppAttach field to given value.
 
 HasDiscoverAppAttach returns a boolean if a field has been set.
 
+### SetDiscoverAppAttachNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverAppAttachNil(b bool)`
+
+ SetDiscoverAppAttachNil sets the value for DiscoverAppAttach to be an explicit nil
+
+### UnsetDiscoverAppAttach
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverAppAttach()`
+
+UnsetDiscoverAppAttach ensures that no value is present for DiscoverAppAttach, not even an explicit nil
 ### GetManagementServer
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetManagementServer() string`
@@ -262,6 +332,16 @@ SetManagementServer sets ManagementServer field to given value.
 
 HasManagementServer returns a boolean if a field has been set.
 
+### SetManagementServerNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetManagementServerNil(b bool)`
+
+ SetManagementServerNil sets the value for ManagementServer to be an explicit nil
+
+### UnsetManagementServer
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetManagementServer()`
+
+UnsetManagementServer ensures that no value is present for ManagementServer, not even an explicit nil
 ### GetPublishingServer
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetPublishingServer() string`
@@ -287,6 +367,16 @@ SetPublishingServer sets PublishingServer field to given value.
 
 HasPublishingServer returns a boolean if a field has been set.
 
+### SetPublishingServerNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetPublishingServerNil(b bool)`
+
+ SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
+
+### UnsetPublishingServer
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetPublishingServer()`
+
+UnsetPublishingServer ensures that no value is present for PublishingServer, not even an explicit nil
 ### GetUsername
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetUsername() string`
@@ -312,6 +402,16 @@ SetUsername sets Username field to given value.
 
 HasUsername returns a boolean if a field has been set.
 
+### SetUsernameNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetUsernameNil(b bool)`
+
+ SetUsernameNil sets the value for Username to be an explicit nil
+
+### UnsetUsername
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetUsername()`
+
+UnsetUsername ensures that no value is present for Username, not even an explicit nil
 ### GetPassword
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetPassword() string`
@@ -337,6 +437,16 @@ SetPassword sets Password field to given value.
 
 HasPassword returns a boolean if a field has been set.
 
+### SetPasswordNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetPasswordNil(b bool)`
+
+ SetPasswordNil sets the value for Password to be an explicit nil
+
+### UnsetPassword
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetPassword()`
+
+UnsetPassword ensures that no value is present for Password, not even an explicit nil
 ### GetPasswordFormat
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetPasswordFormat() IdentityPasswordFormat`

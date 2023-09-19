@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name of the resource pool.  Optional.  If not specified, will not be changed. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the resource pool.  Optional.  If not specified, will not be changed. | [optional] 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
-**VmTagging** | Pointer to **bool** | Indicates whether VMs created by Virtual Apps &amp; Desktops provisioning operations should be tagged.  Tagged VMs are filtered out of queries by default. | [optional] 
+**VmTagging** | Pointer to **NullableBool** | Indicates whether VMs created by Virtual Apps &amp; Desktops provisioning operations should be tagged.  Tagged VMs are filtered out of queries by default. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor resource pool. When set the property value equal to null/empty means to remove this property. | [optional] 
 **Storage** | Pointer to [**[]HypervisorResourcePoolStorageRequestModel**](HypervisorResourcePoolStorageRequestModel.md) | Path to the storage resource(s) that are available for provisioning operations in this resource pool. Optional; if not specified, will not be changed.  If any storage is specified, all desired storage must be listed.  Any storage that was previously used for the resource pool, but not listed during an edit operation, will be removed. Note that removing storage from the resource pool will permanently disable the ability to update or rollback machines that are provisioned using that storage.  Therefore, removal of storage should _only_ be done when the storage is terminally broken or is being replaced. | [optional] 
 **TemporaryStorage** | Pointer to [**[]HypervisorResourcePoolStorageRequestModel**](HypervisorResourcePoolStorageRequestModel.md) | Path to the storage resource(s) that are used for temporary operations in this resource pool. Optional; if not specified, will not be changed.  If any storage is specified, all desired storage must be listed.  Any storage that was previously used for the resource pool, but not listed during an edit operation, will be removed. Note that removing storage from the resource pool will permanently disable the ability to update or rollback machines that are provisioned using that storage.  Therefore, removal of storage should _only_ be done when the storage is terminally broken or is being replaced. | [optional] 
 **PersonalvDiskStorage** | Pointer to [**[]HypervisorResourcePoolStorageRequestModel**](HypervisorResourcePoolStorageRequestModel.md) | Path to the personal virtual disk storage resource(s). Optional; if not specified, will not be changed.  If any storage is specified, all desired storage must be listed.  Any storage that was previously used for the resource pool, but not listed during an edit operation, will be removed. Note that removing storage from the resource pool will permanently disable the ability to update or rollback machines that are provisioned using that storage.  Therefore, removal of storage should _only_ be done when the storage is terminally broken or is being replaced. | [optional] 
-**CustomProperties** | Pointer to **string** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
-**UseLocalStorageCaching** | Pointer to **bool** | Indicates whether local storage on the hypervisor will be used for caching purposes. Not all hypervisor types support this.  Defaults to &#x60;false&#x60;. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
+**UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether local storage on the hypervisor will be used for caching purposes. Not all hypervisor types support this.  Defaults to &#x60;false&#x60;. | [optional] 
 **Networks** | Pointer to **[]string** | Path to the network resource(s) that are available for provisioning operations in this resource pool.  At least one is required. | [optional] 
 **Subnets** | Pointer to **[]string** | Path to the subnet(s) that are available for provisioning operations in this resource pool.  At least one is required. | [optional] 
 
@@ -60,6 +60,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetConnectionType
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetConnectionType() HypervisorConnectionType`
@@ -105,6 +115,16 @@ SetVmTagging sets VmTagging field to given value.
 
 HasVmTagging returns a boolean if a field has been set.
 
+### SetVmTaggingNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetVmTaggingNil(b bool)`
+
+ SetVmTaggingNil sets the value for VmTagging to be an explicit nil
+
+### UnsetVmTagging
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetVmTagging()`
+
+UnsetVmTagging ensures that no value is present for VmTagging, not even an explicit nil
 ### GetMetadata
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetMetadata() []NameValueStringPairModel`
@@ -130,6 +150,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetStorage
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetStorage() []HypervisorResourcePoolStorageRequestModel`
@@ -155,6 +185,16 @@ SetStorage sets Storage field to given value.
 
 HasStorage returns a boolean if a field has been set.
 
+### SetStorageNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetStorageNil(b bool)`
+
+ SetStorageNil sets the value for Storage to be an explicit nil
+
+### UnsetStorage
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetStorage()`
+
+UnsetStorage ensures that no value is present for Storage, not even an explicit nil
 ### GetTemporaryStorage
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetTemporaryStorage() []HypervisorResourcePoolStorageRequestModel`
@@ -180,6 +220,16 @@ SetTemporaryStorage sets TemporaryStorage field to given value.
 
 HasTemporaryStorage returns a boolean if a field has been set.
 
+### SetTemporaryStorageNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetTemporaryStorageNil(b bool)`
+
+ SetTemporaryStorageNil sets the value for TemporaryStorage to be an explicit nil
+
+### UnsetTemporaryStorage
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetTemporaryStorage()`
+
+UnsetTemporaryStorage ensures that no value is present for TemporaryStorage, not even an explicit nil
 ### GetPersonalvDiskStorage
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetPersonalvDiskStorage() []HypervisorResourcePoolStorageRequestModel`
@@ -205,6 +255,16 @@ SetPersonalvDiskStorage sets PersonalvDiskStorage field to given value.
 
 HasPersonalvDiskStorage returns a boolean if a field has been set.
 
+### SetPersonalvDiskStorageNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetPersonalvDiskStorageNil(b bool)`
+
+ SetPersonalvDiskStorageNil sets the value for PersonalvDiskStorage to be an explicit nil
+
+### UnsetPersonalvDiskStorage
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetPersonalvDiskStorage()`
+
+UnsetPersonalvDiskStorage ensures that no value is present for PersonalvDiskStorage, not even an explicit nil
 ### GetCustomProperties
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetCustomProperties() string`
@@ -230,6 +290,16 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetUseLocalStorageCaching
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetUseLocalStorageCaching() bool`
@@ -255,6 +325,16 @@ SetUseLocalStorageCaching sets UseLocalStorageCaching field to given value.
 
 HasUseLocalStorageCaching returns a boolean if a field has been set.
 
+### SetUseLocalStorageCachingNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetUseLocalStorageCachingNil(b bool)`
+
+ SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
+
+### UnsetUseLocalStorageCaching
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetUseLocalStorageCaching()`
+
+UnsetUseLocalStorageCaching ensures that no value is present for UseLocalStorageCaching, not even an explicit nil
 ### GetNetworks
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetNetworks() []string`
@@ -280,6 +360,16 @@ SetNetworks sets Networks field to given value.
 
 HasNetworks returns a boolean if a field has been set.
 
+### SetNetworksNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetNetworksNil(b bool)`
+
+ SetNetworksNil sets the value for Networks to be an explicit nil
+
+### UnsetNetworks
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetNetworks()`
+
+UnsetNetworks ensures that no value is present for Networks, not even an explicit nil
 ### GetSubnets
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetSubnets() []string`
@@ -305,6 +395,16 @@ SetSubnets sets Subnets field to given value.
 
 HasSubnets returns a boolean if a field has been set.
 
+### SetSubnetsNil
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetSubnetsNil(b bool)`
+
+ SetSubnetsNil sets the value for Subnets to be an explicit nil
+
+### UnsetSubnets
+`func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetSubnets()`
+
+UnsetSubnets ensures that no value is present for Subnets, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

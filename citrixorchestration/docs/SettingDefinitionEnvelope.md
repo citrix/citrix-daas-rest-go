@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Items** | Pointer to [**[]SettingDefinition**](SettingDefinition.md) | Items of collection. | [optional] 
-**ContinuationToken** | Pointer to **string** | Continuation token if paging is requested. This is a compressed JSON string of the SettingSearchFilters object. | [optional] 
+**ContinuationToken** | Pointer to **NullableString** | Continuation token if paging is requested. This is a compressed JSON string of the SettingSearchFilters object. | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetItems sets Items field to given value.
 
 HasItems returns a boolean if a field has been set.
 
+### SetItemsNil
+
+`func (o *SettingDefinitionEnvelope) SetItemsNil(b bool)`
+
+ SetItemsNil sets the value for Items to be an explicit nil
+
+### UnsetItems
+`func (o *SettingDefinitionEnvelope) UnsetItems()`
+
+UnsetItems ensures that no value is present for Items, not even an explicit nil
 ### GetContinuationToken
 
 `func (o *SettingDefinitionEnvelope) GetContinuationToken() string`
@@ -76,6 +86,16 @@ SetContinuationToken sets ContinuationToken field to given value.
 
 HasContinuationToken returns a boolean if a field has been set.
 
+### SetContinuationTokenNil
+
+`func (o *SettingDefinitionEnvelope) SetContinuationTokenNil(b bool)`
+
+ SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
+
+### UnsetContinuationToken
+`func (o *SettingDefinitionEnvelope) UnsetContinuationToken()`
+
+UnsetContinuationToken ensures that no value is present for ContinuationToken, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

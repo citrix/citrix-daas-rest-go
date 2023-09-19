@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the scope. Name is globally unique. | 
-**Description** | Pointer to **string** | The description of the admin scope. | [optional] 
+**Description** | Pointer to **NullableString** | The description of the admin scope. | [optional] 
 **IsTenantScope** | Pointer to **bool** | Indicates if it is tenant scope. | [optional] 
 **ScopedObjects** | Pointer to [**[]ScopedObjectRequestModel**](ScopedObjectRequestModel.md) | Scoped objects associated with the scope object. | [optional] 
 
@@ -73,6 +73,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateAdminScopeRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateAdminScopeRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetIsTenantScope
 
 `func (o *CreateAdminScopeRequestModel) GetIsTenantScope() bool`
@@ -123,6 +133,16 @@ SetScopedObjects sets ScopedObjects field to given value.
 
 HasScopedObjects returns a boolean if a field has been set.
 
+### SetScopedObjectsNil
+
+`func (o *CreateAdminScopeRequestModel) SetScopedObjectsNil(b bool)`
+
+ SetScopedObjectsNil sets the value for ScopedObjects to be an explicit nil
+
+### UnsetScopedObjects
+`func (o *CreateAdminScopeRequestModel) UnsetScopedObjects()`
+
+UnsetScopedObjects ensures that no value is present for ScopedObjects, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

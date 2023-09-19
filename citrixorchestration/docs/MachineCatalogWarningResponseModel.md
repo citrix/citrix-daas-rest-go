@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | [**MachineCatalogWarningType**](MachineCatalogWarningType.md) |  | 
 **Subtype** | Pointer to [**MachineCatalogWarningSubtype**](MachineCatalogWarningSubtype.md) |  | [optional] 
-**Message** | Pointer to **string** | Message associated with warning | [optional] 
+**Message** | Pointer to **NullableString** | Message associated with warning | [optional] 
 
 ## Methods
 
@@ -97,6 +97,16 @@ SetMessage sets Message field to given value.
 
 HasMessage returns a boolean if a field has been set.
 
+### SetMessageNil
+
+`func (o *MachineCatalogWarningResponseModel) SetMessageNil(b bool)`
+
+ SetMessageNil sets the value for Message to be an explicit nil
+
+### UnsetMessage
+`func (o *MachineCatalogWarningResponseModel) UnsetMessage()`
+
+UnsetMessage ensures that no value is present for Message, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

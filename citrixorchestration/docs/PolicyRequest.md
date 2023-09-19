@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Policy name. | [optional] 
-**IsEnabled** | **bool** | Is policy enabled | 
-**Description** | Pointer to **string** | Policy description | [optional] 
+**Name** | Pointer to **NullableString** | Policy name. | [optional] 
+**IsEnabled** | Pointer to **bool** | Is policy enabled | [optional] 
+**Description** | Pointer to **NullableString** | Policy description | [optional] 
 **Settings** | Pointer to [**[]SettingRequest**](SettingRequest.md) | Policy settings | [optional] 
 **Filters** | Pointer to [**[]FilterRequest**](FilterRequest.md) | Policy filters | [optional] 
 
@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewPolicyRequest
 
-`func NewPolicyRequest(isEnabled bool, ) *PolicyRequest`
+`func NewPolicyRequest() *PolicyRequest`
 
 NewPolicyRequest instantiates a new PolicyRequest object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +54,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *PolicyRequest) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PolicyRequest) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *PolicyRequest) GetIsEnabled() bool`
@@ -73,6 +83,11 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
+### HasIsEnabled
+
+`func (o *PolicyRequest) HasIsEnabled() bool`
+
+HasIsEnabled returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -99,6 +114,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PolicyRequest) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PolicyRequest) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetSettings
 
 `func (o *PolicyRequest) GetSettings() []SettingRequest`
@@ -124,6 +149,16 @@ SetSettings sets Settings field to given value.
 
 HasSettings returns a boolean if a field has been set.
 
+### SetSettingsNil
+
+`func (o *PolicyRequest) SetSettingsNil(b bool)`
+
+ SetSettingsNil sets the value for Settings to be an explicit nil
+
+### UnsetSettings
+`func (o *PolicyRequest) UnsetSettings()`
+
+UnsetSettings ensures that no value is present for Settings, not even an explicit nil
 ### GetFilters
 
 `func (o *PolicyRequest) GetFilters() []FilterRequest`
@@ -149,6 +184,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *PolicyRequest) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *PolicyRequest) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | Pointer to **string** | The version number associated with the image version. | [optional] 
+**Version** | Pointer to **NullableString** | The version number associated with the image version. | [optional] 
 **Id** | Pointer to **string** | The Id of the image version. | [optional] 
-**MasterImagePath** | Pointer to **string** | The MasterImageVM of the image version. | [optional] 
-**Description** | Pointer to **string** | The Description of the image version. | [optional] 
+**MasterImagePath** | Pointer to **NullableString** | The MasterImageVM of the image version. | [optional] 
+**Description** | Pointer to **NullableString** | The Description of the image version. | [optional] 
 **DiskSizeGB** | Pointer to **int32** | Size of the VM&#39;s OS disk, in GB. | [optional] 
-**CreateTime** | Pointer to **string** | The create time of the image version. | [optional] 
+**CreateTime** | Pointer to **NullableString** | The create time of the image version. | [optional] 
 **WriteBackCacheDiskSize** | Pointer to **int32** | The WriteBackCacheDiskSize of the image version. | [optional] 
 **WriteBackCacheMemorySize** | Pointer to **int32** | The WriteBackCacheMemorySize of the image version. | [optional] 
-**ImageStatus** | Pointer to **string** | The image status of the image version. | [optional] 
-**Error** | Pointer to **string** | The error info of the image version. | [optional] 
+**ImageStatus** | Pointer to **NullableString** | The image status of the image version. | [optional] 
+**Error** | Pointer to **NullableString** | The error info of the image version. | [optional] 
 **AdditionalData** | Pointer to **map[string]string** | The additional data of the image version. | [optional] 
-**ImageDefinition** | Pointer to [**ImageVersionResponseModelAllOfImageDefinition**](ImageVersionResponseModelAllOfImageDefinition.md) |  | [optional] 
-**ImageScheme** | Pointer to [**ImageVersionDetailResponseModelAllOfImageScheme**](ImageVersionDetailResponseModelAllOfImageScheme.md) |  | [optional] 
+**ImageDefinition** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**ImageScheme** | Pointer to [**ImageSchemeResponseModel**](ImageSchemeResponseModel.md) |  | [optional] 
 
 ## Methods
 
@@ -62,6 +62,16 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *ImageVersionResponseModel) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *ImageVersionResponseModel) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetId
 
 `func (o *ImageVersionResponseModel) GetId() string`
@@ -112,6 +122,16 @@ SetMasterImagePath sets MasterImagePath field to given value.
 
 HasMasterImagePath returns a boolean if a field has been set.
 
+### SetMasterImagePathNil
+
+`func (o *ImageVersionResponseModel) SetMasterImagePathNil(b bool)`
+
+ SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
+
+### UnsetMasterImagePath
+`func (o *ImageVersionResponseModel) UnsetMasterImagePath()`
+
+UnsetMasterImagePath ensures that no value is present for MasterImagePath, not even an explicit nil
 ### GetDescription
 
 `func (o *ImageVersionResponseModel) GetDescription() string`
@@ -137,6 +157,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ImageVersionResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ImageVersionResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDiskSizeGB
 
 `func (o *ImageVersionResponseModel) GetDiskSizeGB() int32`
@@ -187,6 +217,16 @@ SetCreateTime sets CreateTime field to given value.
 
 HasCreateTime returns a boolean if a field has been set.
 
+### SetCreateTimeNil
+
+`func (o *ImageVersionResponseModel) SetCreateTimeNil(b bool)`
+
+ SetCreateTimeNil sets the value for CreateTime to be an explicit nil
+
+### UnsetCreateTime
+`func (o *ImageVersionResponseModel) UnsetCreateTime()`
+
+UnsetCreateTime ensures that no value is present for CreateTime, not even an explicit nil
 ### GetWriteBackCacheDiskSize
 
 `func (o *ImageVersionResponseModel) GetWriteBackCacheDiskSize() int32`
@@ -262,6 +302,16 @@ SetImageStatus sets ImageStatus field to given value.
 
 HasImageStatus returns a boolean if a field has been set.
 
+### SetImageStatusNil
+
+`func (o *ImageVersionResponseModel) SetImageStatusNil(b bool)`
+
+ SetImageStatusNil sets the value for ImageStatus to be an explicit nil
+
+### UnsetImageStatus
+`func (o *ImageVersionResponseModel) UnsetImageStatus()`
+
+UnsetImageStatus ensures that no value is present for ImageStatus, not even an explicit nil
 ### GetError
 
 `func (o *ImageVersionResponseModel) GetError() string`
@@ -287,6 +337,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *ImageVersionResponseModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *ImageVersionResponseModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetAdditionalData
 
 `func (o *ImageVersionResponseModel) GetAdditionalData() map[string]string`
@@ -312,22 +372,32 @@ SetAdditionalData sets AdditionalData field to given value.
 
 HasAdditionalData returns a boolean if a field has been set.
 
+### SetAdditionalDataNil
+
+`func (o *ImageVersionResponseModel) SetAdditionalDataNil(b bool)`
+
+ SetAdditionalDataNil sets the value for AdditionalData to be an explicit nil
+
+### UnsetAdditionalData
+`func (o *ImageVersionResponseModel) UnsetAdditionalData()`
+
+UnsetAdditionalData ensures that no value is present for AdditionalData, not even an explicit nil
 ### GetImageDefinition
 
-`func (o *ImageVersionResponseModel) GetImageDefinition() ImageVersionResponseModelAllOfImageDefinition`
+`func (o *ImageVersionResponseModel) GetImageDefinition() RefResponseModel`
 
 GetImageDefinition returns the ImageDefinition field if non-nil, zero value otherwise.
 
 ### GetImageDefinitionOk
 
-`func (o *ImageVersionResponseModel) GetImageDefinitionOk() (*ImageVersionResponseModelAllOfImageDefinition, bool)`
+`func (o *ImageVersionResponseModel) GetImageDefinitionOk() (*RefResponseModel, bool)`
 
 GetImageDefinitionOk returns a tuple with the ImageDefinition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageDefinition
 
-`func (o *ImageVersionResponseModel) SetImageDefinition(v ImageVersionResponseModelAllOfImageDefinition)`
+`func (o *ImageVersionResponseModel) SetImageDefinition(v RefResponseModel)`
 
 SetImageDefinition sets ImageDefinition field to given value.
 
@@ -339,20 +409,20 @@ HasImageDefinition returns a boolean if a field has been set.
 
 ### GetImageScheme
 
-`func (o *ImageVersionResponseModel) GetImageScheme() ImageVersionDetailResponseModelAllOfImageScheme`
+`func (o *ImageVersionResponseModel) GetImageScheme() ImageSchemeResponseModel`
 
 GetImageScheme returns the ImageScheme field if non-nil, zero value otherwise.
 
 ### GetImageSchemeOk
 
-`func (o *ImageVersionResponseModel) GetImageSchemeOk() (*ImageVersionDetailResponseModelAllOfImageScheme, bool)`
+`func (o *ImageVersionResponseModel) GetImageSchemeOk() (*ImageSchemeResponseModel, bool)`
 
 GetImageSchemeOk returns a tuple with the ImageScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageScheme
 
-`func (o *ImageVersionResponseModel) SetImageScheme(v ImageVersionDetailResponseModelAllOfImageScheme)`
+`func (o *ImageVersionResponseModel) SetImageScheme(v ImageSchemeResponseModel)`
 
 SetImageScheme sets ImageScheme field to given value.
 

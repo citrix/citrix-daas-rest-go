@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceId** | Pointer to **string** | Unique identifier for the client device that has most recently been associated with the session. | [optional] 
-**HardwareId** | Pointer to **string** | Unique identifier for the client hardware that has been most recently associated with the session. | [optional] 
-**IPAddress** | Pointer to **string** | The IP address of the client connected to the session. | [optional] 
-**Name** | Pointer to **string** | The host name of the client connected to the session. | [optional] 
-**Platform** | Pointer to **string** | The name of client platform, as indicated by client product ID. | [optional] 
-**ProductId** | Pointer to **int32** | The product ID of the client connected to the session. | [optional] 
-**ReceiverIPAddress** | Pointer to **string** | The IP address of the client as supplied by Receiver (for example, Receiver for Web) when the session was launched, or reconnected. | [optional] 
-**ReceiverName** | Pointer to **string** | The name of the client as supplied by Receiver (for example, Receiver for Web) when the session was launched, or reconnected. | [optional] 
-**Version** | Pointer to **string** | The version of the Citrix Receiver running on the client connected to the session. | [optional] 
+**DeviceId** | Pointer to **NullableString** | Unique identifier for the client device that has most recently been associated with the session. | [optional] 
+**HardwareId** | Pointer to **NullableString** | Unique identifier for the client hardware that has been most recently associated with the session. | [optional] 
+**IPAddress** | Pointer to **NullableString** | The IP address of the client connected to the session. | [optional] 
+**Name** | Pointer to **NullableString** | The host name of the client connected to the session. | [optional] 
+**Platform** | Pointer to **NullableString** | The name of client platform, as indicated by client product ID. | [optional] 
+**ProductId** | Pointer to **NullableInt32** | The product ID of the client connected to the session. | [optional] 
+**ReceiverIPAddress** | Pointer to **NullableString** | The IP address of the client as supplied by Receiver (for example, Receiver for Web) when the session was launched, or reconnected. | [optional] 
+**ReceiverName** | Pointer to **NullableString** | The name of the client as supplied by Receiver (for example, Receiver for Web) when the session was launched, or reconnected. | [optional] 
+**Version** | Pointer to **NullableString** | The version of the Citrix Receiver running on the client connected to the session. | [optional] 
 
 ## Methods
 
@@ -58,6 +58,16 @@ SetDeviceId sets DeviceId field to given value.
 
 HasDeviceId returns a boolean if a field has been set.
 
+### SetDeviceIdNil
+
+`func (o *SessionClientResponseModel) SetDeviceIdNil(b bool)`
+
+ SetDeviceIdNil sets the value for DeviceId to be an explicit nil
+
+### UnsetDeviceId
+`func (o *SessionClientResponseModel) UnsetDeviceId()`
+
+UnsetDeviceId ensures that no value is present for DeviceId, not even an explicit nil
 ### GetHardwareId
 
 `func (o *SessionClientResponseModel) GetHardwareId() string`
@@ -83,6 +93,16 @@ SetHardwareId sets HardwareId field to given value.
 
 HasHardwareId returns a boolean if a field has been set.
 
+### SetHardwareIdNil
+
+`func (o *SessionClientResponseModel) SetHardwareIdNil(b bool)`
+
+ SetHardwareIdNil sets the value for HardwareId to be an explicit nil
+
+### UnsetHardwareId
+`func (o *SessionClientResponseModel) UnsetHardwareId()`
+
+UnsetHardwareId ensures that no value is present for HardwareId, not even an explicit nil
 ### GetIPAddress
 
 `func (o *SessionClientResponseModel) GetIPAddress() string`
@@ -108,6 +128,16 @@ SetIPAddress sets IPAddress field to given value.
 
 HasIPAddress returns a boolean if a field has been set.
 
+### SetIPAddressNil
+
+`func (o *SessionClientResponseModel) SetIPAddressNil(b bool)`
+
+ SetIPAddressNil sets the value for IPAddress to be an explicit nil
+
+### UnsetIPAddress
+`func (o *SessionClientResponseModel) UnsetIPAddress()`
+
+UnsetIPAddress ensures that no value is present for IPAddress, not even an explicit nil
 ### GetName
 
 `func (o *SessionClientResponseModel) GetName() string`
@@ -133,6 +163,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *SessionClientResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *SessionClientResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPlatform
 
 `func (o *SessionClientResponseModel) GetPlatform() string`
@@ -158,6 +198,16 @@ SetPlatform sets Platform field to given value.
 
 HasPlatform returns a boolean if a field has been set.
 
+### SetPlatformNil
+
+`func (o *SessionClientResponseModel) SetPlatformNil(b bool)`
+
+ SetPlatformNil sets the value for Platform to be an explicit nil
+
+### UnsetPlatform
+`func (o *SessionClientResponseModel) UnsetPlatform()`
+
+UnsetPlatform ensures that no value is present for Platform, not even an explicit nil
 ### GetProductId
 
 `func (o *SessionClientResponseModel) GetProductId() int32`
@@ -183,6 +233,16 @@ SetProductId sets ProductId field to given value.
 
 HasProductId returns a boolean if a field has been set.
 
+### SetProductIdNil
+
+`func (o *SessionClientResponseModel) SetProductIdNil(b bool)`
+
+ SetProductIdNil sets the value for ProductId to be an explicit nil
+
+### UnsetProductId
+`func (o *SessionClientResponseModel) UnsetProductId()`
+
+UnsetProductId ensures that no value is present for ProductId, not even an explicit nil
 ### GetReceiverIPAddress
 
 `func (o *SessionClientResponseModel) GetReceiverIPAddress() string`
@@ -208,6 +268,16 @@ SetReceiverIPAddress sets ReceiverIPAddress field to given value.
 
 HasReceiverIPAddress returns a boolean if a field has been set.
 
+### SetReceiverIPAddressNil
+
+`func (o *SessionClientResponseModel) SetReceiverIPAddressNil(b bool)`
+
+ SetReceiverIPAddressNil sets the value for ReceiverIPAddress to be an explicit nil
+
+### UnsetReceiverIPAddress
+`func (o *SessionClientResponseModel) UnsetReceiverIPAddress()`
+
+UnsetReceiverIPAddress ensures that no value is present for ReceiverIPAddress, not even an explicit nil
 ### GetReceiverName
 
 `func (o *SessionClientResponseModel) GetReceiverName() string`
@@ -233,6 +303,16 @@ SetReceiverName sets ReceiverName field to given value.
 
 HasReceiverName returns a boolean if a field has been set.
 
+### SetReceiverNameNil
+
+`func (o *SessionClientResponseModel) SetReceiverNameNil(b bool)`
+
+ SetReceiverNameNil sets the value for ReceiverName to be an explicit nil
+
+### UnsetReceiverName
+`func (o *SessionClientResponseModel) UnsetReceiverName()`
+
+UnsetReceiverName ensures that no value is present for ReceiverName, not even an explicit nil
 ### GetVersion
 
 `func (o *SessionClientResponseModel) GetVersion() string`
@@ -258,6 +338,16 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *SessionClientResponseModel) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *SessionClientResponseModel) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

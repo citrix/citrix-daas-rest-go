@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BackupName** | Pointer to **string** | Backup File name | [optional] 
-**Notes** | Pointer to **string** | Notes | [optional] 
+**BackupName** | Pointer to **NullableString** | Backup File name | [optional] 
+**Notes** | Pointer to **NullableString** | Notes | [optional] 
 **Pinned** | Pointer to **bool** | Pinned &#x3D; true, unpinned &#x3D; false | [optional] 
 **DateTime** | Pointer to **time.Time** | Backup date and time | [optional] 
 **HistoryUid** | Pointer to **int32** | Hisotry Uid | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **RelatedDate** | Pointer to **time.Time** | Related history Date/Time | [optional] 
 **RelatedIsCheckMode** | Pointer to **bool** | Related Restore was run in check mode | [optional] 
 **Duration** | Pointer to **int32** | Duration in seconds              | [optional] 
-**AdministratorName** | Pointer to **string** | Administrator Name | [optional] 
+**AdministratorName** | Pointer to **NullableString** | Administrator Name | [optional] 
 **Details** | Pointer to **map[string]string** | Details | [optional] 
 
 ## Methods
@@ -60,6 +60,16 @@ SetBackupName sets BackupName field to given value.
 
 HasBackupName returns a boolean if a field has been set.
 
+### SetBackupNameNil
+
+`func (o *BackupRestoreBackupResponseModel) SetBackupNameNil(b bool)`
+
+ SetBackupNameNil sets the value for BackupName to be an explicit nil
+
+### UnsetBackupName
+`func (o *BackupRestoreBackupResponseModel) UnsetBackupName()`
+
+UnsetBackupName ensures that no value is present for BackupName, not even an explicit nil
 ### GetNotes
 
 `func (o *BackupRestoreBackupResponseModel) GetNotes() string`
@@ -85,6 +95,16 @@ SetNotes sets Notes field to given value.
 
 HasNotes returns a boolean if a field has been set.
 
+### SetNotesNil
+
+`func (o *BackupRestoreBackupResponseModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *BackupRestoreBackupResponseModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 ### GetPinned
 
 `func (o *BackupRestoreBackupResponseModel) GetPinned() bool`
@@ -285,6 +305,16 @@ SetAdministratorName sets AdministratorName field to given value.
 
 HasAdministratorName returns a boolean if a field has been set.
 
+### SetAdministratorNameNil
+
+`func (o *BackupRestoreBackupResponseModel) SetAdministratorNameNil(b bool)`
+
+ SetAdministratorNameNil sets the value for AdministratorName to be an explicit nil
+
+### UnsetAdministratorName
+`func (o *BackupRestoreBackupResponseModel) UnsetAdministratorName()`
+
+UnsetAdministratorName ensures that no value is present for AdministratorName, not even an explicit nil
 ### GetDetails
 
 `func (o *BackupRestoreBackupResponseModel) GetDetails() map[string]string`
@@ -310,6 +340,16 @@ SetDetails sets Details field to given value.
 
 HasDetails returns a boolean if a field has been set.
 
+### SetDetailsNil
+
+`func (o *BackupRestoreBackupResponseModel) SetDetailsNil(b bool)`
+
+ SetDetailsNil sets the value for Details to be an explicit nil
+
+### UnsetDetails
+`func (o *BackupRestoreBackupResponseModel) UnsetDetails()`
+
+UnsetDetails ensures that no value is present for Details, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

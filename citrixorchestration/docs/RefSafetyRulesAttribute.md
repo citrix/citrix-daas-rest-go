@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TypeId** | Pointer to **map[string]interface{}** |  | [optional] 
-**Version** | **int32** |  | 
+**Version** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
 ### NewRefSafetyRulesAttribute
 
-`func NewRefSafetyRulesAttribute(version int32, ) *RefSafetyRulesAttribute`
+`func NewRefSafetyRulesAttribute() *RefSafetyRulesAttribute`
 
 NewRefSafetyRulesAttribute instantiates a new RefSafetyRulesAttribute object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +51,16 @@ SetTypeId sets TypeId field to given value.
 
 HasTypeId returns a boolean if a field has been set.
 
+### SetTypeIdNil
+
+`func (o *RefSafetyRulesAttribute) SetTypeIdNil(b bool)`
+
+ SetTypeIdNil sets the value for TypeId to be an explicit nil
+
+### UnsetTypeId
+`func (o *RefSafetyRulesAttribute) UnsetTypeId()`
+
+UnsetTypeId ensures that no value is present for TypeId, not even an explicit nil
 ### GetVersion
 
 `func (o *RefSafetyRulesAttribute) GetVersion() int32`
@@ -70,6 +80,11 @@ and a boolean to check if the value has been set.
 
 SetVersion sets Version field to given value.
 
+### HasVersion
+
+`func (o *RefSafetyRulesAttribute) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

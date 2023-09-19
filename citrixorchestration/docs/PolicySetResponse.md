@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicySetGuid** | **string** | Guid of the policy set. | 
-**PolicySetType** | [**SdkGpoPolicySetType**](SdkGpoPolicySetType.md) |  | 
-**Name** | Pointer to **string** | Name of the policy set. | [optional] 
-**Description** | Pointer to **string** | Policy set description. | [optional] 
-**PolicyCount** | **int32** | Number of policies in the policy set. | 
+**PolicySetGuid** | Pointer to **string** | Guid of the policy set. | [optional] 
+**PolicySetType** | Pointer to [**SdkGpoPolicySetType**](SdkGpoPolicySetType.md) |  | [optional] 
+**Name** | Pointer to **NullableString** | Name of the policy set. | [optional] 
+**Description** | Pointer to **NullableString** | Policy set description. | [optional] 
+**PolicyCount** | Pointer to **int32** | Number of policies in the policy set. | [optional] 
 **Policies** | Pointer to [**[]PolicyResponse**](PolicyResponse.md) | Policies in the policy set. | [optional] 
 **Scopes** | Pointer to **[]string** | Delegated admin scopes. | [optional] 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewPolicySetResponse
 
-`func NewPolicySetResponse(policySetGuid string, policySetType SdkGpoPolicySetType, policyCount int32, ) *PolicySetResponse`
+`func NewPolicySetResponse() *PolicySetResponse`
 
 NewPolicySetResponse instantiates a new PolicySetResponse object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +50,11 @@ and a boolean to check if the value has been set.
 
 SetPolicySetGuid sets PolicySetGuid field to given value.
 
+### HasPolicySetGuid
+
+`func (o *PolicySetResponse) HasPolicySetGuid() bool`
+
+HasPolicySetGuid returns a boolean if a field has been set.
 
 ### GetPolicySetType
 
@@ -70,6 +75,11 @@ and a boolean to check if the value has been set.
 
 SetPolicySetType sets PolicySetType field to given value.
 
+### HasPolicySetType
+
+`func (o *PolicySetResponse) HasPolicySetType() bool`
+
+HasPolicySetType returns a boolean if a field has been set.
 
 ### GetName
 
@@ -96,6 +106,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *PolicySetResponse) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *PolicySetResponse) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetDescription
 
 `func (o *PolicySetResponse) GetDescription() string`
@@ -121,6 +141,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PolicySetResponse) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PolicySetResponse) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetPolicyCount
 
 `func (o *PolicySetResponse) GetPolicyCount() int32`
@@ -140,6 +170,11 @@ and a boolean to check if the value has been set.
 
 SetPolicyCount sets PolicyCount field to given value.
 
+### HasPolicyCount
+
+`func (o *PolicySetResponse) HasPolicyCount() bool`
+
+HasPolicyCount returns a boolean if a field has been set.
 
 ### GetPolicies
 
@@ -166,6 +201,16 @@ SetPolicies sets Policies field to given value.
 
 HasPolicies returns a boolean if a field has been set.
 
+### SetPoliciesNil
+
+`func (o *PolicySetResponse) SetPoliciesNil(b bool)`
+
+ SetPoliciesNil sets the value for Policies to be an explicit nil
+
+### UnsetPolicies
+`func (o *PolicySetResponse) UnsetPolicies()`
+
+UnsetPolicies ensures that no value is present for Policies, not even an explicit nil
 ### GetScopes
 
 `func (o *PolicySetResponse) GetScopes() []string`
@@ -191,6 +236,16 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
+### SetScopesNil
+
+`func (o *PolicySetResponse) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *PolicySetResponse) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

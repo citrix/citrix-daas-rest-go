@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilterType** | Pointer to **string** | The filter type. | [optional] 
-**Identifier** | Pointer to **string** | The filter name. | [optional] 
-**DisplayName** | Pointer to **string** | Filter display name, this is translated and unique. | [optional] 
+**FilterType** | Pointer to **NullableString** | The filter type. | [optional] 
+**Identifier** | Pointer to **NullableString** | The filter name. | [optional] 
+**DisplayName** | Pointer to **NullableString** | Filter display name, this is translated and unique. | [optional] 
 **IsSingleton** | Pointer to **bool** | Is filter a singleton, only the NetScaler SD-Wan filter is singleton. | [optional] 
-**Explanation** | Pointer to **string** | Translated filter explanation. | [optional] 
-**Synopsis** | Pointer to **string** | A summary of filter value. | [optional] 
+**Explanation** | Pointer to **NullableString** | Translated filter explanation. | [optional] 
+**Synopsis** | Pointer to **NullableString** | A summary of filter value. | [optional] 
 **IsUserFilter** | Pointer to **bool** | True &#x3D; user filter, False &#x3D; machine filter | [optional] 
-**IsAllowed** | Pointer to **bool** | Allow or deny | [optional] 
-**IsEnabled** | Pointer to **bool** | Enabled or disabled | [optional] 
-**FilterValue** | Pointer to **string** | Serialized JSON string. | [optional] 
+**IsAllowed** | Pointer to **NullableBool** | Allow or deny | [optional] 
+**IsEnabled** | Pointer to **NullableBool** | Enabled or disabled | [optional] 
+**FilterValue** | Pointer to **NullableString** | Serialized JSON string. | [optional] 
 
 ## Methods
 
@@ -59,6 +59,16 @@ SetFilterType sets FilterType field to given value.
 
 HasFilterType returns a boolean if a field has been set.
 
+### SetFilterTypeNil
+
+`func (o *FilterResponseContract) SetFilterTypeNil(b bool)`
+
+ SetFilterTypeNil sets the value for FilterType to be an explicit nil
+
+### UnsetFilterType
+`func (o *FilterResponseContract) UnsetFilterType()`
+
+UnsetFilterType ensures that no value is present for FilterType, not even an explicit nil
 ### GetIdentifier
 
 `func (o *FilterResponseContract) GetIdentifier() string`
@@ -84,6 +94,16 @@ SetIdentifier sets Identifier field to given value.
 
 HasIdentifier returns a boolean if a field has been set.
 
+### SetIdentifierNil
+
+`func (o *FilterResponseContract) SetIdentifierNil(b bool)`
+
+ SetIdentifierNil sets the value for Identifier to be an explicit nil
+
+### UnsetIdentifier
+`func (o *FilterResponseContract) UnsetIdentifier()`
+
+UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
 ### GetDisplayName
 
 `func (o *FilterResponseContract) GetDisplayName() string`
@@ -109,6 +129,16 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### SetDisplayNameNil
+
+`func (o *FilterResponseContract) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *FilterResponseContract) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetIsSingleton
 
 `func (o *FilterResponseContract) GetIsSingleton() bool`
@@ -159,6 +189,16 @@ SetExplanation sets Explanation field to given value.
 
 HasExplanation returns a boolean if a field has been set.
 
+### SetExplanationNil
+
+`func (o *FilterResponseContract) SetExplanationNil(b bool)`
+
+ SetExplanationNil sets the value for Explanation to be an explicit nil
+
+### UnsetExplanation
+`func (o *FilterResponseContract) UnsetExplanation()`
+
+UnsetExplanation ensures that no value is present for Explanation, not even an explicit nil
 ### GetSynopsis
 
 `func (o *FilterResponseContract) GetSynopsis() string`
@@ -184,6 +224,16 @@ SetSynopsis sets Synopsis field to given value.
 
 HasSynopsis returns a boolean if a field has been set.
 
+### SetSynopsisNil
+
+`func (o *FilterResponseContract) SetSynopsisNil(b bool)`
+
+ SetSynopsisNil sets the value for Synopsis to be an explicit nil
+
+### UnsetSynopsis
+`func (o *FilterResponseContract) UnsetSynopsis()`
+
+UnsetSynopsis ensures that no value is present for Synopsis, not even an explicit nil
 ### GetIsUserFilter
 
 `func (o *FilterResponseContract) GetIsUserFilter() bool`
@@ -234,6 +284,16 @@ SetIsAllowed sets IsAllowed field to given value.
 
 HasIsAllowed returns a boolean if a field has been set.
 
+### SetIsAllowedNil
+
+`func (o *FilterResponseContract) SetIsAllowedNil(b bool)`
+
+ SetIsAllowedNil sets the value for IsAllowed to be an explicit nil
+
+### UnsetIsAllowed
+`func (o *FilterResponseContract) UnsetIsAllowed()`
+
+UnsetIsAllowed ensures that no value is present for IsAllowed, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *FilterResponseContract) GetIsEnabled() bool`
@@ -259,6 +319,16 @@ SetIsEnabled sets IsEnabled field to given value.
 
 HasIsEnabled returns a boolean if a field has been set.
 
+### SetIsEnabledNil
+
+`func (o *FilterResponseContract) SetIsEnabledNil(b bool)`
+
+ SetIsEnabledNil sets the value for IsEnabled to be an explicit nil
+
+### UnsetIsEnabled
+`func (o *FilterResponseContract) UnsetIsEnabled()`
+
+UnsetIsEnabled ensures that no value is present for IsEnabled, not even an explicit nil
 ### GetFilterValue
 
 `func (o *FilterResponseContract) GetFilterValue() string`
@@ -284,6 +354,16 @@ SetFilterValue sets FilterValue field to given value.
 
 HasFilterValue returns a boolean if a field has been set.
 
+### SetFilterValueNil
+
+`func (o *FilterResponseContract) SetFilterValueNil(b bool)`
+
+ SetFilterValueNil sets the value for FilterValue to be an explicit nil
+
+### UnsetFilterValue
+`func (o *FilterResponseContract) UnsetFilterValue()`
+
+UnsetFilterValue ensures that no value is present for FilterValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

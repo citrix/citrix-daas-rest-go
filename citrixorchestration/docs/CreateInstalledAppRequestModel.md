@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CommandLineArguments** | Pointer to **string** | Specifies the command-line arguments to use when launching the executable. Environment variables can be used. | [optional] 
+**CommandLineArguments** | Pointer to **NullableString** | Specifies the command-line arguments to use when launching the executable. Environment variables can be used. | [optional] 
 **CommandLineExecutable** | **string** | Specifies the name of the executable file to launch. The full path need not be provided if it&#39;s already in the path. Environment variables can also be used. | 
-**WorkingDirectory** | Pointer to **string** | Specifies which working directory the executable is launched from. Environment variables can be used.  | [optional] 
+**WorkingDirectory** | Pointer to **NullableString** | Specifies which working directory the executable is launched from. Environment variables can be used.  | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetCommandLineArguments sets CommandLineArguments field to given value.
 
 HasCommandLineArguments returns a boolean if a field has been set.
 
+### SetCommandLineArgumentsNil
+
+`func (o *CreateInstalledAppRequestModel) SetCommandLineArgumentsNil(b bool)`
+
+ SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
+
+### UnsetCommandLineArguments
+`func (o *CreateInstalledAppRequestModel) UnsetCommandLineArguments()`
+
+UnsetCommandLineArguments ensures that no value is present for CommandLineArguments, not even an explicit nil
 ### GetCommandLineExecutable
 
 `func (o *CreateInstalledAppRequestModel) GetCommandLineExecutable() string`
@@ -97,6 +107,16 @@ SetWorkingDirectory sets WorkingDirectory field to given value.
 
 HasWorkingDirectory returns a boolean if a field has been set.
 
+### SetWorkingDirectoryNil
+
+`func (o *CreateInstalledAppRequestModel) SetWorkingDirectoryNil(b bool)`
+
+ SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+
+### UnsetWorkingDirectory
+`func (o *CreateInstalledAppRequestModel) UnsetWorkingDirectory()`
+
+UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

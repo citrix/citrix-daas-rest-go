@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Name of the folder to create. May be omitted if Path is used; otherwise required.  If both  and  are specified, a folder with the specified name will be created as a child of the specified path. | 
-**Path** | Pointer to **string** | Path where the folder should be created. Exclusive with ParentId.  One or the other property may be used but not both.  Path to where the folder should be created. Any folders in the path which don&#39;t exist will be created.  If not specified, default is the root folder path. | [optional] 
-**ParentId** | Pointer to **string** | Parent folder where the folder should be created. Exclusive with Path.  One or the other property may be used but not both.  If not specified, default is the root folder path. | [optional] 
+**Path** | Pointer to **NullableString** | Path where the folder should be created. Exclusive with ParentId.  One or the other property may be used but not both.  Path to where the folder should be created. Any folders in the path which don&#39;t exist will be created.  If not specified, default is the root folder path. | [optional] 
+**ParentId** | Pointer to **NullableString** | Parent folder where the folder should be created. Exclusive with Path.  One or the other property may be used but not both.  If not specified, default is the root folder path. | [optional] 
 **ObjectIdentifiers** | [**[]AdminFolderObjectIdentifier**](AdminFolderObjectIdentifier.md) | The object identifiers of the new admin folder. To indicated what objects this folder will include. | 
 
 ## Methods
@@ -73,6 +73,16 @@ SetPath sets Path field to given value.
 
 HasPath returns a boolean if a field has been set.
 
+### SetPathNil
+
+`func (o *CreateAdminFolderRequestModel) SetPathNil(b bool)`
+
+ SetPathNil sets the value for Path to be an explicit nil
+
+### UnsetPath
+`func (o *CreateAdminFolderRequestModel) UnsetPath()`
+
+UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetParentId
 
 `func (o *CreateAdminFolderRequestModel) GetParentId() string`
@@ -98,6 +108,16 @@ SetParentId sets ParentId field to given value.
 
 HasParentId returns a boolean if a field has been set.
 
+### SetParentIdNil
+
+`func (o *CreateAdminFolderRequestModel) SetParentIdNil(b bool)`
+
+ SetParentIdNil sets the value for ParentId to be an explicit nil
+
+### UnsetParentId
+`func (o *CreateAdminFolderRequestModel) UnsetParentId()`
+
+UnsetParentId ensures that no value is present for ParentId, not even an explicit nil
 ### GetObjectIdentifiers
 
 `func (o *CreateAdminFolderRequestModel) GetObjectIdentifiers() []AdminFolderObjectIdentifier`

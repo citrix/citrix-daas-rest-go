@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Forest** | Pointer to **string** | The forest the domain belongs to. | [optional] 
-**Parent** | Pointer to **string** | The parent of the domain. | [optional] 
-**Name** | Pointer to **string** | The name of the domain. | [optional] 
+**Forest** | Pointer to **NullableString** | The forest the domain belongs to. | [optional] 
+**Parent** | Pointer to **NullableString** | The parent of the domain. | [optional] 
+**Name** | Pointer to **NullableString** | The name of the domain. | [optional] 
 **Children** | Pointer to **[]string** | The sub-domains associated with the Domain object. | [optional] 
-**Sid** | Pointer to **string** | The Security Identifier associated with the Domain object. | [optional] 
-**Guid** | Pointer to **string** | The GUID is unique across the enterprise and anywhere else. | [optional] 
-**NetBiosName** | Pointer to **string** | The NETBiosName associated with the Domain object. | [optional] 
-**DistinguishedName** | Pointer to **string** | The Distinguished name of the Domain object. Distinguished names (DNs) are unique and they unambiguously identify objects in the directory. | [optional] 
+**Sid** | Pointer to **NullableString** | The Security Identifier associated with the Domain object. | [optional] 
+**Guid** | Pointer to **NullableString** | The GUID is unique across the enterprise and anywhere else. | [optional] 
+**NetBiosName** | Pointer to **NullableString** | The NETBiosName associated with the Domain object. | [optional] 
+**DistinguishedName** | Pointer to **NullableString** | The Distinguished name of the Domain object. Distinguished names (DNs) are unique and they unambiguously identify objects in the directory. | [optional] 
 **Controllers** | Pointer to **[]string** | The discoverable controllers/directory servers for the domain. | [optional] 
-**DefaultController** | Pointer to **string** | The default controller/directory server for the domain. | [optional] 
+**DefaultController** | Pointer to **NullableString** | The default controller/directory server for the domain. | [optional] 
 **TrustedDomains** | Pointer to **[]string** | Other Domains that have trusts with this Domain. | [optional] 
 **UpnSuffixes** | Pointer to **[]string** | The UPN suffixes of the domain. | [optional] 
 **PossibleLookupFailure** | Pointer to **bool** | Set to True during a bulk identity lookup operation. For individual identity lookup, usually an exception will be throw. | [optional] 
@@ -63,6 +63,16 @@ SetForest sets Forest field to given value.
 
 HasForest returns a boolean if a field has been set.
 
+### SetForestNil
+
+`func (o *IdentityDomainResponseModel) SetForestNil(b bool)`
+
+ SetForestNil sets the value for Forest to be an explicit nil
+
+### UnsetForest
+`func (o *IdentityDomainResponseModel) UnsetForest()`
+
+UnsetForest ensures that no value is present for Forest, not even an explicit nil
 ### GetParent
 
 `func (o *IdentityDomainResponseModel) GetParent() string`
@@ -88,6 +98,16 @@ SetParent sets Parent field to given value.
 
 HasParent returns a boolean if a field has been set.
 
+### SetParentNil
+
+`func (o *IdentityDomainResponseModel) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *IdentityDomainResponseModel) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetName
 
 `func (o *IdentityDomainResponseModel) GetName() string`
@@ -113,6 +133,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *IdentityDomainResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *IdentityDomainResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetChildren
 
 `func (o *IdentityDomainResponseModel) GetChildren() []string`
@@ -138,6 +168,16 @@ SetChildren sets Children field to given value.
 
 HasChildren returns a boolean if a field has been set.
 
+### SetChildrenNil
+
+`func (o *IdentityDomainResponseModel) SetChildrenNil(b bool)`
+
+ SetChildrenNil sets the value for Children to be an explicit nil
+
+### UnsetChildren
+`func (o *IdentityDomainResponseModel) UnsetChildren()`
+
+UnsetChildren ensures that no value is present for Children, not even an explicit nil
 ### GetSid
 
 `func (o *IdentityDomainResponseModel) GetSid() string`
@@ -163,6 +203,16 @@ SetSid sets Sid field to given value.
 
 HasSid returns a boolean if a field has been set.
 
+### SetSidNil
+
+`func (o *IdentityDomainResponseModel) SetSidNil(b bool)`
+
+ SetSidNil sets the value for Sid to be an explicit nil
+
+### UnsetSid
+`func (o *IdentityDomainResponseModel) UnsetSid()`
+
+UnsetSid ensures that no value is present for Sid, not even an explicit nil
 ### GetGuid
 
 `func (o *IdentityDomainResponseModel) GetGuid() string`
@@ -188,6 +238,16 @@ SetGuid sets Guid field to given value.
 
 HasGuid returns a boolean if a field has been set.
 
+### SetGuidNil
+
+`func (o *IdentityDomainResponseModel) SetGuidNil(b bool)`
+
+ SetGuidNil sets the value for Guid to be an explicit nil
+
+### UnsetGuid
+`func (o *IdentityDomainResponseModel) UnsetGuid()`
+
+UnsetGuid ensures that no value is present for Guid, not even an explicit nil
 ### GetNetBiosName
 
 `func (o *IdentityDomainResponseModel) GetNetBiosName() string`
@@ -213,6 +273,16 @@ SetNetBiosName sets NetBiosName field to given value.
 
 HasNetBiosName returns a boolean if a field has been set.
 
+### SetNetBiosNameNil
+
+`func (o *IdentityDomainResponseModel) SetNetBiosNameNil(b bool)`
+
+ SetNetBiosNameNil sets the value for NetBiosName to be an explicit nil
+
+### UnsetNetBiosName
+`func (o *IdentityDomainResponseModel) UnsetNetBiosName()`
+
+UnsetNetBiosName ensures that no value is present for NetBiosName, not even an explicit nil
 ### GetDistinguishedName
 
 `func (o *IdentityDomainResponseModel) GetDistinguishedName() string`
@@ -238,6 +308,16 @@ SetDistinguishedName sets DistinguishedName field to given value.
 
 HasDistinguishedName returns a boolean if a field has been set.
 
+### SetDistinguishedNameNil
+
+`func (o *IdentityDomainResponseModel) SetDistinguishedNameNil(b bool)`
+
+ SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
+
+### UnsetDistinguishedName
+`func (o *IdentityDomainResponseModel) UnsetDistinguishedName()`
+
+UnsetDistinguishedName ensures that no value is present for DistinguishedName, not even an explicit nil
 ### GetControllers
 
 `func (o *IdentityDomainResponseModel) GetControllers() []string`
@@ -263,6 +343,16 @@ SetControllers sets Controllers field to given value.
 
 HasControllers returns a boolean if a field has been set.
 
+### SetControllersNil
+
+`func (o *IdentityDomainResponseModel) SetControllersNil(b bool)`
+
+ SetControllersNil sets the value for Controllers to be an explicit nil
+
+### UnsetControllers
+`func (o *IdentityDomainResponseModel) UnsetControllers()`
+
+UnsetControllers ensures that no value is present for Controllers, not even an explicit nil
 ### GetDefaultController
 
 `func (o *IdentityDomainResponseModel) GetDefaultController() string`
@@ -288,6 +378,16 @@ SetDefaultController sets DefaultController field to given value.
 
 HasDefaultController returns a boolean if a field has been set.
 
+### SetDefaultControllerNil
+
+`func (o *IdentityDomainResponseModel) SetDefaultControllerNil(b bool)`
+
+ SetDefaultControllerNil sets the value for DefaultController to be an explicit nil
+
+### UnsetDefaultController
+`func (o *IdentityDomainResponseModel) UnsetDefaultController()`
+
+UnsetDefaultController ensures that no value is present for DefaultController, not even an explicit nil
 ### GetTrustedDomains
 
 `func (o *IdentityDomainResponseModel) GetTrustedDomains() []string`
@@ -313,6 +413,16 @@ SetTrustedDomains sets TrustedDomains field to given value.
 
 HasTrustedDomains returns a boolean if a field has been set.
 
+### SetTrustedDomainsNil
+
+`func (o *IdentityDomainResponseModel) SetTrustedDomainsNil(b bool)`
+
+ SetTrustedDomainsNil sets the value for TrustedDomains to be an explicit nil
+
+### UnsetTrustedDomains
+`func (o *IdentityDomainResponseModel) UnsetTrustedDomains()`
+
+UnsetTrustedDomains ensures that no value is present for TrustedDomains, not even an explicit nil
 ### GetUpnSuffixes
 
 `func (o *IdentityDomainResponseModel) GetUpnSuffixes() []string`
@@ -338,6 +448,16 @@ SetUpnSuffixes sets UpnSuffixes field to given value.
 
 HasUpnSuffixes returns a boolean if a field has been set.
 
+### SetUpnSuffixesNil
+
+`func (o *IdentityDomainResponseModel) SetUpnSuffixesNil(b bool)`
+
+ SetUpnSuffixesNil sets the value for UpnSuffixes to be an explicit nil
+
+### UnsetUpnSuffixes
+`func (o *IdentityDomainResponseModel) UnsetUpnSuffixes()`
+
+UnsetUpnSuffixes ensures that no value is present for UpnSuffixes, not even an explicit nil
 ### GetPossibleLookupFailure
 
 `func (o *IdentityDomainResponseModel) GetPossibleLookupFailure() bool`

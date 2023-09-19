@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TypeName** | Pointer to **string** | Name of the type. | [optional] 
+**TypeName** | Pointer to **NullableString** | Name of the type. | [optional] 
 **Members** | Pointer to [**[]EnumerationMember**](EnumerationMember.md) | Members of the type. | [optional] 
 
 ## Methods
@@ -51,6 +51,16 @@ SetTypeName sets TypeName field to given value.
 
 HasTypeName returns a boolean if a field has been set.
 
+### SetTypeNameNil
+
+`func (o *EnumerationType) SetTypeNameNil(b bool)`
+
+ SetTypeNameNil sets the value for TypeName to be an explicit nil
+
+### UnsetTypeName
+`func (o *EnumerationType) UnsetTypeName()`
+
+UnsetTypeName ensures that no value is present for TypeName, not even an explicit nil
 ### GetMembers
 
 `func (o *EnumerationType) GetMembers() []EnumerationMember`
@@ -76,6 +86,16 @@ SetMembers sets Members field to given value.
 
 HasMembers returns a boolean if a field has been set.
 
+### SetMembersNil
+
+`func (o *EnumerationType) SetMembersNil(b bool)`
+
+ SetMembersNil sets the value for Members to be an explicit nil
+
+### UnsetMembers
+`func (o *EnumerationType) UnsetMembers()`
+
+UnsetMembers ensures that no value is present for Members, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

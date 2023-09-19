@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the App-V application | [optional] 
+**Id** | Pointer to **NullableString** | Id of the App-V application | [optional] 
 **PackageId** | **string** | App-V package identifier. | 
 **PackageName** | **string** | App-V package name. | 
 **PackageVersion** | **string** | App-V package version. | 
 **PackageVersionId** | **string** | App-V package version Id. | 
-**PublishingServer** | Pointer to **string** | App-V publishing server. | [optional] 
-**ManagementServer** | Pointer to **string** | App-V Management server. | [optional] 
+**PublishingServer** | Pointer to **NullableString** | App-V publishing server. | [optional] 
+**ManagementServer** | Pointer to **NullableString** | App-V Management server. | [optional] 
 **SequenceLocation** | **string** | App-V sequence location. | 
-**ServerMachineConfigurationUid** | Pointer to **string** | App-V server machine configuration Uid. | [optional] 
+**ServerMachineConfigurationUid** | Pointer to **NullableString** | App-V server machine configuration Uid. | [optional] 
 **TargetInPackage** | **bool** | Whether the target is in an App-V package. | 
-**SourceTypeName** | Pointer to **string** | Application  Source Type Name. | [optional] 
+**SourceTypeName** | Pointer to **NullableString** | Application  Source Type Name. | [optional] 
 
 ## Methods
 
@@ -60,6 +60,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *AppVAppResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *AppVAppResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetPackageId
 
 `func (o *AppVAppResponseModel) GetPackageId() string`
@@ -165,6 +175,16 @@ SetPublishingServer sets PublishingServer field to given value.
 
 HasPublishingServer returns a boolean if a field has been set.
 
+### SetPublishingServerNil
+
+`func (o *AppVAppResponseModel) SetPublishingServerNil(b bool)`
+
+ SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
+
+### UnsetPublishingServer
+`func (o *AppVAppResponseModel) UnsetPublishingServer()`
+
+UnsetPublishingServer ensures that no value is present for PublishingServer, not even an explicit nil
 ### GetManagementServer
 
 `func (o *AppVAppResponseModel) GetManagementServer() string`
@@ -190,6 +210,16 @@ SetManagementServer sets ManagementServer field to given value.
 
 HasManagementServer returns a boolean if a field has been set.
 
+### SetManagementServerNil
+
+`func (o *AppVAppResponseModel) SetManagementServerNil(b bool)`
+
+ SetManagementServerNil sets the value for ManagementServer to be an explicit nil
+
+### UnsetManagementServer
+`func (o *AppVAppResponseModel) UnsetManagementServer()`
+
+UnsetManagementServer ensures that no value is present for ManagementServer, not even an explicit nil
 ### GetSequenceLocation
 
 `func (o *AppVAppResponseModel) GetSequenceLocation() string`
@@ -235,6 +265,16 @@ SetServerMachineConfigurationUid sets ServerMachineConfigurationUid field to giv
 
 HasServerMachineConfigurationUid returns a boolean if a field has been set.
 
+### SetServerMachineConfigurationUidNil
+
+`func (o *AppVAppResponseModel) SetServerMachineConfigurationUidNil(b bool)`
+
+ SetServerMachineConfigurationUidNil sets the value for ServerMachineConfigurationUid to be an explicit nil
+
+### UnsetServerMachineConfigurationUid
+`func (o *AppVAppResponseModel) UnsetServerMachineConfigurationUid()`
+
+UnsetServerMachineConfigurationUid ensures that no value is present for ServerMachineConfigurationUid, not even an explicit nil
 ### GetTargetInPackage
 
 `func (o *AppVAppResponseModel) GetTargetInPackage() bool`
@@ -280,6 +320,16 @@ SetSourceTypeName sets SourceTypeName field to given value.
 
 HasSourceTypeName returns a boolean if a field has been set.
 
+### SetSourceTypeNameNil
+
+`func (o *AppVAppResponseModel) SetSourceTypeNameNil(b bool)`
+
+ SetSourceTypeNameNil sets the value for SourceTypeName to be an explicit nil
+
+### UnsetSourceTypeName
+`func (o *AppVAppResponseModel) UnsetSourceTypeName()`
+
+UnsetSourceTypeName ensures that no value is present for SourceTypeName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

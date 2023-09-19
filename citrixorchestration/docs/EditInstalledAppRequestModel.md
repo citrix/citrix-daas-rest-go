@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CommandLineArguments** | Pointer to **string** | The command-line arguments to use when launching the executable. Environment variables can be used. If not specified, the value will not be changed. | [optional] 
-**CommandLineExecutable** | Pointer to **string** | The name of the executable file to launch. The full path need not be provided if it&#39;s already in the path. Environment variables can also be used. If not specified, the value will not be changed. | [optional] 
-**WorkingDirectory** | Pointer to **string** | The working directory which the executable is launched from. Environment variables can be used.  If not specified, the value will not be changed. | [optional] 
+**CommandLineArguments** | Pointer to **NullableString** | The command-line arguments to use when launching the executable. Environment variables can be used. If not specified, the value will not be changed. | [optional] 
+**CommandLineExecutable** | Pointer to **NullableString** | The name of the executable file to launch. The full path need not be provided if it&#39;s already in the path. Environment variables can also be used. If not specified, the value will not be changed. | [optional] 
+**WorkingDirectory** | Pointer to **NullableString** | The working directory which the executable is launched from. Environment variables can be used.  If not specified, the value will not be changed. | [optional] 
 
 ## Methods
 
@@ -52,6 +52,16 @@ SetCommandLineArguments sets CommandLineArguments field to given value.
 
 HasCommandLineArguments returns a boolean if a field has been set.
 
+### SetCommandLineArgumentsNil
+
+`func (o *EditInstalledAppRequestModel) SetCommandLineArgumentsNil(b bool)`
+
+ SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
+
+### UnsetCommandLineArguments
+`func (o *EditInstalledAppRequestModel) UnsetCommandLineArguments()`
+
+UnsetCommandLineArguments ensures that no value is present for CommandLineArguments, not even an explicit nil
 ### GetCommandLineExecutable
 
 `func (o *EditInstalledAppRequestModel) GetCommandLineExecutable() string`
@@ -77,6 +87,16 @@ SetCommandLineExecutable sets CommandLineExecutable field to given value.
 
 HasCommandLineExecutable returns a boolean if a field has been set.
 
+### SetCommandLineExecutableNil
+
+`func (o *EditInstalledAppRequestModel) SetCommandLineExecutableNil(b bool)`
+
+ SetCommandLineExecutableNil sets the value for CommandLineExecutable to be an explicit nil
+
+### UnsetCommandLineExecutable
+`func (o *EditInstalledAppRequestModel) UnsetCommandLineExecutable()`
+
+UnsetCommandLineExecutable ensures that no value is present for CommandLineExecutable, not even an explicit nil
 ### GetWorkingDirectory
 
 `func (o *EditInstalledAppRequestModel) GetWorkingDirectory() string`
@@ -102,6 +122,16 @@ SetWorkingDirectory sets WorkingDirectory field to given value.
 
 HasWorkingDirectory returns a boolean if a field has been set.
 
+### SetWorkingDirectoryNil
+
+`func (o *EditInstalledAppRequestModel) SetWorkingDirectoryNil(b bool)`
+
+ SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
+
+### UnsetWorkingDirectory
+`func (o *EditInstalledAppRequestModel) UnsetWorkingDirectory()`
+
+UnsetWorkingDirectory ensures that no value is present for WorkingDirectory, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

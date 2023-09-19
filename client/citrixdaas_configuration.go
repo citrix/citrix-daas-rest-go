@@ -12,4 +12,5 @@ type AuthenticationConfiguration struct {
 type ClientConfiguration struct {
 	CustomerId string
 	SiteId     string
+	UserAgent  string
 }

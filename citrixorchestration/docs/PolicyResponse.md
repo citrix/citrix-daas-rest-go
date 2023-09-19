@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicySetGuid** | **string** | The blob that this policy belongs to. | 
-**PolicyGuid** | **string** | Policy GUID. | 
-**PolicyName** | Pointer to **string** | Policy name, translated. | [optional] 
-**Priority** | **int32** | Policy priority | 
-**IsEnabled** | **bool** | Is policy enabled | 
-**Description** | Pointer to **string** | Policy description | [optional] 
+**PolicySetGuid** | Pointer to **string** | The blob that this policy belongs to. | [optional] 
+**PolicyGuid** | Pointer to **string** | Policy GUID. | [optional] 
+**PolicyName** | Pointer to **NullableString** | Policy name, translated. | [optional] 
+**Priority** | Pointer to **int32** | Policy priority | [optional] 
+**IsEnabled** | Pointer to **bool** | Is policy enabled | [optional] 
+**Description** | Pointer to **NullableString** | Policy description | [optional] 
 **Settings** | Pointer to [**[]SettingResponse**](SettingResponse.md) | Policy settings | [optional] 
 **Filters** | Pointer to [**[]FilterResponse**](FilterResponse.md) | Policy filters | [optional] 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewPolicyResponse
 
-`func NewPolicyResponse(policySetGuid string, policyGuid string, priority int32, isEnabled bool, ) *PolicyResponse`
+`func NewPolicyResponse() *PolicyResponse`
 
 NewPolicyResponse instantiates a new PolicyResponse object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +51,11 @@ and a boolean to check if the value has been set.
 
 SetPolicySetGuid sets PolicySetGuid field to given value.
 
+### HasPolicySetGuid
+
+`func (o *PolicyResponse) HasPolicySetGuid() bool`
+
+HasPolicySetGuid returns a boolean if a field has been set.
 
 ### GetPolicyGuid
 
@@ -71,6 +76,11 @@ and a boolean to check if the value has been set.
 
 SetPolicyGuid sets PolicyGuid field to given value.
 
+### HasPolicyGuid
+
+`func (o *PolicyResponse) HasPolicyGuid() bool`
+
+HasPolicyGuid returns a boolean if a field has been set.
 
 ### GetPolicyName
 
@@ -97,6 +107,16 @@ SetPolicyName sets PolicyName field to given value.
 
 HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *PolicyResponse) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *PolicyResponse) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
 ### GetPriority
 
 `func (o *PolicyResponse) GetPriority() int32`
@@ -116,6 +136,11 @@ and a boolean to check if the value has been set.
 
 SetPriority sets Priority field to given value.
 
+### HasPriority
+
+`func (o *PolicyResponse) HasPriority() bool`
+
+HasPriority returns a boolean if a field has been set.
 
 ### GetIsEnabled
 
@@ -136,6 +161,11 @@ and a boolean to check if the value has been set.
 
 SetIsEnabled sets IsEnabled field to given value.
 
+### HasIsEnabled
+
+`func (o *PolicyResponse) HasIsEnabled() bool`
+
+HasIsEnabled returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -162,6 +192,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PolicyResponse) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PolicyResponse) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetSettings
 
 `func (o *PolicyResponse) GetSettings() []SettingResponse`
@@ -187,6 +227,16 @@ SetSettings sets Settings field to given value.
 
 HasSettings returns a boolean if a field has been set.
 
+### SetSettingsNil
+
+`func (o *PolicyResponse) SetSettingsNil(b bool)`
+
+ SetSettingsNil sets the value for Settings to be an explicit nil
+
+### UnsetSettings
+`func (o *PolicyResponse) UnsetSettings()`
+
+UnsetSettings ensures that no value is present for Settings, not even an explicit nil
 ### GetFilters
 
 `func (o *PolicyResponse) GetFilters() []FilterResponse`
@@ -212,6 +262,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *PolicyResponse) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *PolicyResponse) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Forest** | Pointer to **string** | Forest of the directory. | [optional] 
-**Domain** | Pointer to **string** | Domain of the directory. | [optional] 
-**Tenant** | Pointer to **string** | Tenant of the directory. | [optional] 
+**Forest** | Pointer to **NullableString** | Forest of the directory. | [optional] 
+**Domain** | Pointer to **NullableString** | Domain of the directory. | [optional] 
+**Tenant** | Pointer to **NullableString** | Tenant of the directory. | [optional] 
 **IdentityProvider** | Pointer to [**IdentityProviderType**](IdentityProviderType.md) |  | [optional] 
 
 ## Methods
@@ -53,6 +53,16 @@ SetForest sets Forest field to given value.
 
 HasForest returns a boolean if a field has been set.
 
+### SetForestNil
+
+`func (o *IdentityDirectoryResponseModel) SetForestNil(b bool)`
+
+ SetForestNil sets the value for Forest to be an explicit nil
+
+### UnsetForest
+`func (o *IdentityDirectoryResponseModel) UnsetForest()`
+
+UnsetForest ensures that no value is present for Forest, not even an explicit nil
 ### GetDomain
 
 `func (o *IdentityDirectoryResponseModel) GetDomain() string`
@@ -78,6 +88,16 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *IdentityDirectoryResponseModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *IdentityDirectoryResponseModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetTenant
 
 `func (o *IdentityDirectoryResponseModel) GetTenant() string`
@@ -103,6 +123,16 @@ SetTenant sets Tenant field to given value.
 
 HasTenant returns a boolean if a field has been set.
 
+### SetTenantNil
+
+`func (o *IdentityDirectoryResponseModel) SetTenantNil(b bool)`
+
+ SetTenantNil sets the value for Tenant to be an explicit nil
+
+### UnsetTenant
+`func (o *IdentityDirectoryResponseModel) UnsetTenant()`
+
+UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetIdentityProvider
 
 `func (o *IdentityDirectoryResponseModel) GetIdentityProvider() IdentityProviderType`

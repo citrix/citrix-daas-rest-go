@@ -181,6 +181,16 @@ SetHostsToBeDeleted sets HostsToBeDeleted field to given value.
 
 HasHostsToBeDeleted returns a boolean if a field has been set.
 
+### SetHostsToBeDeletedNil
+
+`func (o *HypervisorDeletePreviewResponseModel) SetHostsToBeDeletedNil(b bool)`
+
+ SetHostsToBeDeletedNil sets the value for HostsToBeDeleted to be an explicit nil
+
+### UnsetHostsToBeDeleted
+`func (o *HypervisorDeletePreviewResponseModel) UnsetHostsToBeDeleted()`
+
+UnsetHostsToBeDeleted ensures that no value is present for HostsToBeDeleted, not even an explicit nil
 ### GetImpactedCatalogs
 
 `func (o *HypervisorDeletePreviewResponseModel) GetImpactedCatalogs() map[string]int32`
@@ -206,6 +216,16 @@ SetImpactedCatalogs sets ImpactedCatalogs field to given value.
 
 HasImpactedCatalogs returns a boolean if a field has been set.
 
+### SetImpactedCatalogsNil
+
+`func (o *HypervisorDeletePreviewResponseModel) SetImpactedCatalogsNil(b bool)`
+
+ SetImpactedCatalogsNil sets the value for ImpactedCatalogs to be an explicit nil
+
+### UnsetImpactedCatalogs
+`func (o *HypervisorDeletePreviewResponseModel) UnsetImpactedCatalogs()`
+
+UnsetImpactedCatalogs ensures that no value is present for ImpactedCatalogs, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

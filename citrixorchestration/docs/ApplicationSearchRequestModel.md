@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationFolder** | Pointer to **string** | Application folder in which to search for the application. | [optional] 
-**IncludeSubFolders** | Pointer to **bool** | Whether to include subfolders of the ApplicationFolder in the search for the application. | [optional] [default to true]
-**ApplicationGroup** | Pointer to **string** | Application group in which to search for the application. | [optional] 
-**BasicSearchString** | Pointer to **string** | Basic search string.  Specify a string which will match if contained within the application name. | [optional] 
+**ApplicationFolder** | Pointer to **NullableString** | Application folder in which to search for the application. | [optional] 
+**IncludeSubFolders** | Pointer to **NullableBool** | Whether to include subfolders of the ApplicationFolder in the search for the application. | [optional] [default to true]
+**ApplicationGroup** | Pointer to **NullableString** | Application group in which to search for the application. | [optional] 
+**BasicSearchString** | Pointer to **NullableString** | Basic search string.  Specify a string which will match if contained within the application name. | [optional] 
 **SearchFilters** | Pointer to [**[]AppSearchFilterRequestModel**](AppSearchFilterRequestModel.md) | List of advanced search filters. | [optional] 
-**SortCriteria** | Pointer to [**ApplicationSearchRequestModelSortCriteria**](ApplicationSearchRequestModelSortCriteria.md) |  | [optional] 
+**SortCriteria** | Pointer to [**AppSortCriteriaRequestModel**](AppSortCriteriaRequestModel.md) |  | [optional] 
 **SearchFilterGroups** | Pointer to [**[]AppSearchFilterGroupRequestModel**](AppSearchFilterGroupRequestModel.md) | List of advanced search filter groups. | [optional] 
 **SearchFilterGroupsType** | Pointer to [**AppSearchFilterGroupsType**](AppSearchFilterGroupsType.md) |  | [optional] 
 
@@ -57,6 +57,16 @@ SetApplicationFolder sets ApplicationFolder field to given value.
 
 HasApplicationFolder returns a boolean if a field has been set.
 
+### SetApplicationFolderNil
+
+`func (o *ApplicationSearchRequestModel) SetApplicationFolderNil(b bool)`
+
+ SetApplicationFolderNil sets the value for ApplicationFolder to be an explicit nil
+
+### UnsetApplicationFolder
+`func (o *ApplicationSearchRequestModel) UnsetApplicationFolder()`
+
+UnsetApplicationFolder ensures that no value is present for ApplicationFolder, not even an explicit nil
 ### GetIncludeSubFolders
 
 `func (o *ApplicationSearchRequestModel) GetIncludeSubFolders() bool`
@@ -82,6 +92,16 @@ SetIncludeSubFolders sets IncludeSubFolders field to given value.
 
 HasIncludeSubFolders returns a boolean if a field has been set.
 
+### SetIncludeSubFoldersNil
+
+`func (o *ApplicationSearchRequestModel) SetIncludeSubFoldersNil(b bool)`
+
+ SetIncludeSubFoldersNil sets the value for IncludeSubFolders to be an explicit nil
+
+### UnsetIncludeSubFolders
+`func (o *ApplicationSearchRequestModel) UnsetIncludeSubFolders()`
+
+UnsetIncludeSubFolders ensures that no value is present for IncludeSubFolders, not even an explicit nil
 ### GetApplicationGroup
 
 `func (o *ApplicationSearchRequestModel) GetApplicationGroup() string`
@@ -107,6 +127,16 @@ SetApplicationGroup sets ApplicationGroup field to given value.
 
 HasApplicationGroup returns a boolean if a field has been set.
 
+### SetApplicationGroupNil
+
+`func (o *ApplicationSearchRequestModel) SetApplicationGroupNil(b bool)`
+
+ SetApplicationGroupNil sets the value for ApplicationGroup to be an explicit nil
+
+### UnsetApplicationGroup
+`func (o *ApplicationSearchRequestModel) UnsetApplicationGroup()`
+
+UnsetApplicationGroup ensures that no value is present for ApplicationGroup, not even an explicit nil
 ### GetBasicSearchString
 
 `func (o *ApplicationSearchRequestModel) GetBasicSearchString() string`
@@ -132,6 +162,16 @@ SetBasicSearchString sets BasicSearchString field to given value.
 
 HasBasicSearchString returns a boolean if a field has been set.
 
+### SetBasicSearchStringNil
+
+`func (o *ApplicationSearchRequestModel) SetBasicSearchStringNil(b bool)`
+
+ SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
+
+### UnsetBasicSearchString
+`func (o *ApplicationSearchRequestModel) UnsetBasicSearchString()`
+
+UnsetBasicSearchString ensures that no value is present for BasicSearchString, not even an explicit nil
 ### GetSearchFilters
 
 `func (o *ApplicationSearchRequestModel) GetSearchFilters() []AppSearchFilterRequestModel`
@@ -157,22 +197,32 @@ SetSearchFilters sets SearchFilters field to given value.
 
 HasSearchFilters returns a boolean if a field has been set.
 
+### SetSearchFiltersNil
+
+`func (o *ApplicationSearchRequestModel) SetSearchFiltersNil(b bool)`
+
+ SetSearchFiltersNil sets the value for SearchFilters to be an explicit nil
+
+### UnsetSearchFilters
+`func (o *ApplicationSearchRequestModel) UnsetSearchFilters()`
+
+UnsetSearchFilters ensures that no value is present for SearchFilters, not even an explicit nil
 ### GetSortCriteria
 
-`func (o *ApplicationSearchRequestModel) GetSortCriteria() ApplicationSearchRequestModelSortCriteria`
+`func (o *ApplicationSearchRequestModel) GetSortCriteria() AppSortCriteriaRequestModel`
 
 GetSortCriteria returns the SortCriteria field if non-nil, zero value otherwise.
 
 ### GetSortCriteriaOk
 
-`func (o *ApplicationSearchRequestModel) GetSortCriteriaOk() (*ApplicationSearchRequestModelSortCriteria, bool)`
+`func (o *ApplicationSearchRequestModel) GetSortCriteriaOk() (*AppSortCriteriaRequestModel, bool)`
 
 GetSortCriteriaOk returns a tuple with the SortCriteria field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSortCriteria
 
-`func (o *ApplicationSearchRequestModel) SetSortCriteria(v ApplicationSearchRequestModelSortCriteria)`
+`func (o *ApplicationSearchRequestModel) SetSortCriteria(v AppSortCriteriaRequestModel)`
 
 SetSortCriteria sets SortCriteria field to given value.
 
@@ -207,6 +257,16 @@ SetSearchFilterGroups sets SearchFilterGroups field to given value.
 
 HasSearchFilterGroups returns a boolean if a field has been set.
 
+### SetSearchFilterGroupsNil
+
+`func (o *ApplicationSearchRequestModel) SetSearchFilterGroupsNil(b bool)`
+
+ SetSearchFilterGroupsNil sets the value for SearchFilterGroups to be an explicit nil
+
+### UnsetSearchFilterGroups
+`func (o *ApplicationSearchRequestModel) UnsetSearchFilterGroups()`
+
+UnsetSearchFilterGroups ensures that no value is present for SearchFilterGroups, not even an explicit nil
 ### GetSearchFilterGroupsType
 
 `func (o *ApplicationSearchRequestModel) GetSearchFilterGroupsType() AppSearchFilterGroupsType`

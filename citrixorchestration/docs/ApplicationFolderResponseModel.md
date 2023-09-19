@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the application folder. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | 
-**Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
+**Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
 **Children** | [**[]RefResponseModel**](RefResponseModel.md) | Child folders. | 
 **Name** | **string** | Name of the folder. | 
-**Parent** | Pointer to [**AdminFolderResponseModelParent**](AdminFolderResponseModelParent.md) |  | [optional] 
+**Parent** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **Path** | **string** | Full path to the folder. Used to be: FullName | 
 **TotalApplications** | **int32** | Total number of applications in the folder. | 
 **TotalMachineCatalogs** | Pointer to **int32** | Total number of machine catalogs in the folder. | [optional] 
@@ -79,6 +79,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *ApplicationFolderResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *ApplicationFolderResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetChildren
 
 `func (o *ApplicationFolderResponseModel) GetChildren() []RefResponseModel`
@@ -121,20 +131,20 @@ SetName sets Name field to given value.
 
 ### GetParent
 
-`func (o *ApplicationFolderResponseModel) GetParent() AdminFolderResponseModelParent`
+`func (o *ApplicationFolderResponseModel) GetParent() RefResponseModel`
 
 GetParent returns the Parent field if non-nil, zero value otherwise.
 
 ### GetParentOk
 
-`func (o *ApplicationFolderResponseModel) GetParentOk() (*AdminFolderResponseModelParent, bool)`
+`func (o *ApplicationFolderResponseModel) GetParentOk() (*RefResponseModel, bool)`
 
 GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParent
 
-`func (o *ApplicationFolderResponseModel) SetParent(v AdminFolderResponseModelParent)`
+`func (o *ApplicationFolderResponseModel) SetParent(v RefResponseModel)`
 
 SetParent sets Parent field to given value.
 

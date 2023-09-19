@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MasterImagePath** | Pointer to **string** | The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
-**MachineProfilePath** | Pointer to **string** | The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
-**StoreOldImage** | Pointer to **bool** | Whether the old image is stored in the catalog history. | [optional] 
+**MasterImagePath** | Pointer to **NullableString** | The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
+**MachineProfilePath** | Pointer to **NullableString** | The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
+**StoreOldImage** | Pointer to **NullableBool** | Whether the old image is stored in the catalog history. | [optional] 
 **MinimumFunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
-**MasterImageNote** | Pointer to **string** | The note of the new image. | [optional] 
-**CpuCount** | Pointer to **int32** | &#x60;DEPRECATED.&#x60; The number of processors that virtual machines created from the provisioning scheme should use. | [optional] 
-**MemoryMB** | Pointer to **int32** | &#x60;DEPRECATED.&#x60; The maximum amount of memory that virtual machines created from the provisioning scheme should use. | [optional] 
-**ServiceOfferingPath** | Pointer to **string** | &#x60;DEPRECATED.&#x60; The hypervisor resource path of the Cloud service offering to use when creating machines. | [optional] 
+**MasterImageNote** | Pointer to **NullableString** | The note of the new image. | [optional] 
+**CpuCount** | Pointer to **NullableInt32** | &#x60;DEPRECATED.&#x60; The number of processors that virtual machines created from the provisioning scheme should use. | [optional] 
+**MemoryMB** | Pointer to **NullableInt32** | &#x60;DEPRECATED.&#x60; The maximum amount of memory that virtual machines created from the provisioning scheme should use. | [optional] 
+**ServiceOfferingPath** | Pointer to **NullableString** | &#x60;DEPRECATED.&#x60; The hypervisor resource path of the Cloud service offering to use when creating machines. | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | &#x60;DEPRECATED.&#x60; The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
-**RebootOptions** | Pointer to [**UpdateMachineCatalogProvisioningSchemeRequestModelRebootOptions**](UpdateMachineCatalogProvisioningSchemeRequestModelRebootOptions.md) |  | [optional] 
-**NumTotalMachines** | Pointer to **int32** | &#x60;DEPRECATED.&#x60; Total number of machines desired within the catalog. Optional; default is to leave the number of machines in the catalog unchanged. | [optional] 
-**MachineAccountCreationRules** | Pointer to [**UpdateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules**](UpdateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules.md) |  | [optional] 
+**RebootOptions** | Pointer to [**RebootMachinesRequestModel**](RebootMachinesRequestModel.md) |  | [optional] 
+**NumTotalMachines** | Pointer to **NullableInt32** | &#x60;DEPRECATED.&#x60; Total number of machines desired within the catalog. Optional; default is to leave the number of machines in the catalog unchanged. | [optional] 
+**MachineAccountCreationRules** | Pointer to [**UpdateMachineAccountCreationRulesRequestModel**](UpdateMachineAccountCreationRulesRequestModel.md) |  | [optional] 
 **AddAvailableMachineAccounts** | Pointer to [**[]MachineAccountRequestModel**](MachineAccountRequestModel.md) | &#x60;DEPRECATED.&#x60; List of Active Directory machine accounts to add to the pool of available accounts that are to be used when machines are provisioned. | [optional] 
 **RemoveAvailableMachineAccounts** | Pointer to **[]string** | &#x60;DEPRECATED.&#x60; List of Active Directory machine accounts to remove from the pool of available accounts that are used when machines are provisioned. | [optional] 
 **MachineAccountDeleteOption** | Pointer to [**MachineAccountDeleteOption**](MachineAccountDeleteOption.md) |  | [optional] 
-**ImageVersion** | Pointer to [**CreateMachineCatalogProvisioningSchemeRequestModelImageVersion**](CreateMachineCatalogProvisioningSchemeRequestModelImageVersion.md) |  | [optional] 
+**ImageVersion** | Pointer to [**AssignImageVersionToMachineCatalogRequestModel**](AssignImageVersionToMachineCatalogRequestModel.md) |  | [optional] 
 
 ## Methods
 
@@ -65,6 +65,16 @@ SetMasterImagePath sets MasterImagePath field to given value.
 
 HasMasterImagePath returns a boolean if a field has been set.
 
+### SetMasterImagePathNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMasterImagePathNil(b bool)`
+
+ SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
+
+### UnsetMasterImagePath
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetMasterImagePath()`
+
+UnsetMasterImagePath ensures that no value is present for MasterImagePath, not even an explicit nil
 ### GetMachineProfilePath
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMachineProfilePath() string`
@@ -90,6 +100,16 @@ SetMachineProfilePath sets MachineProfilePath field to given value.
 
 HasMachineProfilePath returns a boolean if a field has been set.
 
+### SetMachineProfilePathNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMachineProfilePathNil(b bool)`
+
+ SetMachineProfilePathNil sets the value for MachineProfilePath to be an explicit nil
+
+### UnsetMachineProfilePath
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetMachineProfilePath()`
+
+UnsetMachineProfilePath ensures that no value is present for MachineProfilePath, not even an explicit nil
 ### GetStoreOldImage
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetStoreOldImage() bool`
@@ -115,6 +135,16 @@ SetStoreOldImage sets StoreOldImage field to given value.
 
 HasStoreOldImage returns a boolean if a field has been set.
 
+### SetStoreOldImageNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetStoreOldImageNil(b bool)`
+
+ SetStoreOldImageNil sets the value for StoreOldImage to be an explicit nil
+
+### UnsetStoreOldImage
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetStoreOldImage()`
+
+UnsetStoreOldImage ensures that no value is present for StoreOldImage, not even an explicit nil
 ### GetMinimumFunctionalLevel
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMinimumFunctionalLevel() FunctionalLevel`
@@ -165,6 +195,16 @@ SetMasterImageNote sets MasterImageNote field to given value.
 
 HasMasterImageNote returns a boolean if a field has been set.
 
+### SetMasterImageNoteNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMasterImageNoteNil(b bool)`
+
+ SetMasterImageNoteNil sets the value for MasterImageNote to be an explicit nil
+
+### UnsetMasterImageNote
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetMasterImageNote()`
+
+UnsetMasterImageNote ensures that no value is present for MasterImageNote, not even an explicit nil
 ### GetCpuCount
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetCpuCount() int32`
@@ -190,6 +230,16 @@ SetCpuCount sets CpuCount field to given value.
 
 HasCpuCount returns a boolean if a field has been set.
 
+### SetCpuCountNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCpuCountNil(b bool)`
+
+ SetCpuCountNil sets the value for CpuCount to be an explicit nil
+
+### UnsetCpuCount
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetCpuCount()`
+
+UnsetCpuCount ensures that no value is present for CpuCount, not even an explicit nil
 ### GetMemoryMB
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMemoryMB() int32`
@@ -215,6 +265,16 @@ SetMemoryMB sets MemoryMB field to given value.
 
 HasMemoryMB returns a boolean if a field has been set.
 
+### SetMemoryMBNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMemoryMBNil(b bool)`
+
+ SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
+
+### UnsetMemoryMB
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetMemoryMB()`
+
+UnsetMemoryMB ensures that no value is present for MemoryMB, not even an explicit nil
 ### GetServiceOfferingPath
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetServiceOfferingPath() string`
@@ -240,6 +300,16 @@ SetServiceOfferingPath sets ServiceOfferingPath field to given value.
 
 HasServiceOfferingPath returns a boolean if a field has been set.
 
+### SetServiceOfferingPathNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetServiceOfferingPathNil(b bool)`
+
+ SetServiceOfferingPathNil sets the value for ServiceOfferingPath to be an explicit nil
+
+### UnsetServiceOfferingPath
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetServiceOfferingPath()`
+
+UnsetServiceOfferingPath ensures that no value is present for ServiceOfferingPath, not even an explicit nil
 ### GetCustomProperties
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetCustomProperties() []NameValueStringPairModel`
@@ -265,22 +335,32 @@ SetCustomProperties sets CustomProperties field to given value.
 
 HasCustomProperties returns a boolean if a field has been set.
 
+### SetCustomPropertiesNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetRebootOptions
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetRebootOptions() UpdateMachineCatalogProvisioningSchemeRequestModelRebootOptions`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetRebootOptions() RebootMachinesRequestModel`
 
 GetRebootOptions returns the RebootOptions field if non-nil, zero value otherwise.
 
 ### GetRebootOptionsOk
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetRebootOptionsOk() (*UpdateMachineCatalogProvisioningSchemeRequestModelRebootOptions, bool)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetRebootOptionsOk() (*RebootMachinesRequestModel, bool)`
 
 GetRebootOptionsOk returns a tuple with the RebootOptions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRebootOptions
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetRebootOptions(v UpdateMachineCatalogProvisioningSchemeRequestModelRebootOptions)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetRebootOptions(v RebootMachinesRequestModel)`
 
 SetRebootOptions sets RebootOptions field to given value.
 
@@ -315,22 +395,32 @@ SetNumTotalMachines sets NumTotalMachines field to given value.
 
 HasNumTotalMachines returns a boolean if a field has been set.
 
+### SetNumTotalMachinesNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetNumTotalMachinesNil(b bool)`
+
+ SetNumTotalMachinesNil sets the value for NumTotalMachines to be an explicit nil
+
+### UnsetNumTotalMachines
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetNumTotalMachines()`
+
+UnsetNumTotalMachines ensures that no value is present for NumTotalMachines, not even an explicit nil
 ### GetMachineAccountCreationRules
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRules() UpdateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRules() UpdateMachineAccountCreationRulesRequestModel`
 
 GetMachineAccountCreationRules returns the MachineAccountCreationRules field if non-nil, zero value otherwise.
 
 ### GetMachineAccountCreationRulesOk
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRulesOk() (*UpdateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules, bool)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountCreationRulesOk() (*UpdateMachineAccountCreationRulesRequestModel, bool)`
 
 GetMachineAccountCreationRulesOk returns a tuple with the MachineAccountCreationRules field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMachineAccountCreationRules
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMachineAccountCreationRules(v UpdateMachineCatalogProvisioningSchemeRequestModelMachineAccountCreationRules)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMachineAccountCreationRules(v UpdateMachineAccountCreationRulesRequestModel)`
 
 SetMachineAccountCreationRules sets MachineAccountCreationRules field to given value.
 
@@ -365,6 +455,16 @@ SetAddAvailableMachineAccounts sets AddAvailableMachineAccounts field to given v
 
 HasAddAvailableMachineAccounts returns a boolean if a field has been set.
 
+### SetAddAvailableMachineAccountsNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetAddAvailableMachineAccountsNil(b bool)`
+
+ SetAddAvailableMachineAccountsNil sets the value for AddAvailableMachineAccounts to be an explicit nil
+
+### UnsetAddAvailableMachineAccounts
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetAddAvailableMachineAccounts()`
+
+UnsetAddAvailableMachineAccounts ensures that no value is present for AddAvailableMachineAccounts, not even an explicit nil
 ### GetRemoveAvailableMachineAccounts
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetRemoveAvailableMachineAccounts() []string`
@@ -390,6 +490,16 @@ SetRemoveAvailableMachineAccounts sets RemoveAvailableMachineAccounts field to g
 
 HasRemoveAvailableMachineAccounts returns a boolean if a field has been set.
 
+### SetRemoveAvailableMachineAccountsNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetRemoveAvailableMachineAccountsNil(b bool)`
+
+ SetRemoveAvailableMachineAccountsNil sets the value for RemoveAvailableMachineAccounts to be an explicit nil
+
+### UnsetRemoveAvailableMachineAccounts
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetRemoveAvailableMachineAccounts()`
+
+UnsetRemoveAvailableMachineAccounts ensures that no value is present for RemoveAvailableMachineAccounts, not even an explicit nil
 ### GetMachineAccountDeleteOption
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMachineAccountDeleteOption() MachineAccountDeleteOption`
@@ -417,20 +527,20 @@ HasMachineAccountDeleteOption returns a boolean if a field has been set.
 
 ### GetImageVersion
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() CreateMachineCatalogProvisioningSchemeRequestModelImageVersion`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() AssignImageVersionToMachineCatalogRequestModel`
 
 GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
 
 ### GetImageVersionOk
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*CreateMachineCatalogProvisioningSchemeRequestModelImageVersion, bool)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*AssignImageVersionToMachineCatalogRequestModel, bool)`
 
 GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageVersion
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v CreateMachineCatalogProvisioningSchemeRequestModelImageVersion)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v AssignImageVersionToMachineCatalogRequestModel)`
 
 SetImageVersion sets ImageVersion field to given value.
 

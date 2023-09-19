@@ -120,6 +120,16 @@ SetInstalledComponents sets InstalledComponents field to given value.
 
 HasInstalledComponents returns a boolean if a field has been set.
 
+### SetInstalledComponentsNil
+
+`func (o *MachineCatalogVusComponentResponseModel) SetInstalledComponentsNil(b bool)`
+
+ SetInstalledComponentsNil sets the value for InstalledComponents to be an explicit nil
+
+### UnsetInstalledComponents
+`func (o *MachineCatalogVusComponentResponseModel) UnsetInstalledComponents()`
+
+UnsetInstalledComponents ensures that no value is present for InstalledComponents, not even an explicit nil
 ### GetAvailableComponents
 
 `func (o *MachineCatalogVusComponentResponseModel) GetAvailableComponents() []VDAComponentModel`
@@ -145,6 +155,16 @@ SetAvailableComponents sets AvailableComponents field to given value.
 
 HasAvailableComponents returns a boolean if a field has been set.
 
+### SetAvailableComponentsNil
+
+`func (o *MachineCatalogVusComponentResponseModel) SetAvailableComponentsNil(b bool)`
+
+ SetAvailableComponentsNil sets the value for AvailableComponents to be an explicit nil
+
+### UnsetAvailableComponents
+`func (o *MachineCatalogVusComponentResponseModel) UnsetAvailableComponents()`
+
+UnsetAvailableComponents ensures that no value is present for AvailableComponents, not even an explicit nil
 ### GetAvailableFeatures
 
 `func (o *MachineCatalogVusComponentResponseModel) GetAvailableFeatures() []VDAFeatureModel`
@@ -170,6 +190,16 @@ SetAvailableFeatures sets AvailableFeatures field to given value.
 
 HasAvailableFeatures returns a boolean if a field has been set.
 
+### SetAvailableFeaturesNil
+
+`func (o *MachineCatalogVusComponentResponseModel) SetAvailableFeaturesNil(b bool)`
+
+ SetAvailableFeaturesNil sets the value for AvailableFeatures to be an explicit nil
+
+### UnsetAvailableFeatures
+`func (o *MachineCatalogVusComponentResponseModel) UnsetAvailableFeatures()`
+
+UnsetAvailableFeatures ensures that no value is present for AvailableFeatures, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

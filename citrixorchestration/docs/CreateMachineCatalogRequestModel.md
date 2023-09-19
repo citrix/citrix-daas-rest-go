@@ -4,28 +4,28 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdminFolder** | Pointer to **string** | The admin folder in which the machine catalog should be created. | [optional] 
+**AdminFolder** | Pointer to **NullableString** | The admin folder in which the machine catalog should be created. | [optional] 
 **Name** | **string** | Name of the machine catalog.  Each machine catalog within a site must have a unique name.  Required. | 
 **AllocationType** | Pointer to [**AllocationType**](AllocationType.md) |  | [optional] 
-**Description** | Pointer to **string** | Description of the machine catalog.  Optional.  Default is no description. | [optional] 
-**HypervisorConnection** | Pointer to **string** | Specifies the hypervisor connection to use for power management of machines in this machine catalog. | [optional] 
-**IsRemotePC** | Pointer to **bool** | Indicates whether or not the catalog is a RemotePC catalog.  Default is &#x60;false&#x60;. | [optional] [default to false]
+**Description** | Pointer to **NullableString** | Description of the machine catalog.  Optional.  Default is no description. | [optional] 
+**HypervisorConnection** | Pointer to **NullableString** | Specifies the hypervisor connection to use for power management of machines in this machine catalog. | [optional] 
+**IsRemotePC** | Pointer to **NullableBool** | Indicates whether or not the catalog is a RemotePC catalog.  Default is &#x60;false&#x60;. | [optional] [default to false]
 **RemotePCEnrollmentScopes** | Pointer to [**[]RemotePCEnrollmentScopeRequestModel**](RemotePCEnrollmentScopeRequestModel.md) | List of one or more remote PC enrollment scopes. | [optional] 
 **MachineType** | Pointer to [**MachineType**](MachineType.md) |  | [optional] 
 **MinimumFunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
 **PersistUserChanges** | Pointer to [**PersistChanges**](PersistChanges.md) |  | [optional] 
 **ProvisioningType** | [**ProvisioningType**](ProvisioningType.md) |  | 
-**ProvisioningScheme** | Pointer to [**CreateMachineCatalogRequestModelProvisioningScheme**](CreateMachineCatalogRequestModelProvisioningScheme.md) |  | [optional] 
-**ProvisioningSchemeImportData** | Pointer to [**CreateMachineCatalogRequestModelProvisioningSchemeImportData**](CreateMachineCatalogRequestModelProvisioningSchemeImportData.md) |  | [optional] 
+**ProvisioningScheme** | Pointer to [**CreateMachineCatalogProvisioningSchemeRequestModel**](CreateMachineCatalogProvisioningSchemeRequestModel.md) |  | [optional] 
+**ProvisioningSchemeImportData** | Pointer to [**MCSImportData**](MCSImportData.md) |  | [optional] 
 **Machines** | Pointer to [**[]AddMachineToMachineCatalogRequestModel**](AddMachineToMachineCatalogRequestModel.md) | List of machines to add to the catalog.  Must not be specified if  equals  or .  Optional otherwise.  Default is not to add any machines. | [optional] 
-**PvsAddress** | Pointer to **string** | IP address of the PVS server to be used.  This only applies if the ProvisioningType is PVS. | [optional] 
-**PvsDomain** | Pointer to **string** | The domain of the PVS server to be used. This only applies if the ProvisioningType is PVS. | [optional] 
+**PvsAddress** | Pointer to **NullableString** | IP address of the PVS server to be used.  This only applies if the ProvisioningType is PVS. | [optional] 
+**PvsDomain** | Pointer to **NullableString** | The domain of the PVS server to be used. This only applies if the ProvisioningType is PVS. | [optional] 
 **PvsCollectionIds** | Pointer to **[]string** | Collection IDs of PVS collections containing machines that should be added to the catalog.  This only applies if the ProvisioningType is PVS, and is required in that case.  Each item must be a valid PVS collection ID residing on the PVS server located at the specified . | [optional] 
 **Scopes** | Pointer to **[]string** | Administrative scopes which the newly created machine catalog will be a part of. | [optional] 
 **Tenants** | Pointer to **[]string** | Tenant(s) to associate the machine catalog with. | [optional] 
 **SessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
 **VdaUpgradeType** | Pointer to [**VdaUpgradeType**](VdaUpgradeType.md) |  | [optional] 
-**Zone** | Pointer to **string** | Zone the machine catalog is associated with.  Optional.  If not specified, the machine catalog is associated with the primary zone. See PrimaryZone. | [optional] 
+**Zone** | Pointer to **NullableString** | Zone the machine catalog is associated with.  Optional.  If not specified, the machine catalog is associated with the primary zone. See PrimaryZone. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine catalog. | [optional] 
 
 ## Methods
@@ -72,6 +72,16 @@ SetAdminFolder sets AdminFolder field to given value.
 
 HasAdminFolder returns a boolean if a field has been set.
 
+### SetAdminFolderNil
+
+`func (o *CreateMachineCatalogRequestModel) SetAdminFolderNil(b bool)`
+
+ SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
+
+### UnsetAdminFolder
+`func (o *CreateMachineCatalogRequestModel) UnsetAdminFolder()`
+
+UnsetAdminFolder ensures that no value is present for AdminFolder, not even an explicit nil
 ### GetName
 
 `func (o *CreateMachineCatalogRequestModel) GetName() string`
@@ -142,6 +152,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *CreateMachineCatalogRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateMachineCatalogRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetHypervisorConnection
 
 `func (o *CreateMachineCatalogRequestModel) GetHypervisorConnection() string`
@@ -167,6 +187,16 @@ SetHypervisorConnection sets HypervisorConnection field to given value.
 
 HasHypervisorConnection returns a boolean if a field has been set.
 
+### SetHypervisorConnectionNil
+
+`func (o *CreateMachineCatalogRequestModel) SetHypervisorConnectionNil(b bool)`
+
+ SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
+
+### UnsetHypervisorConnection
+`func (o *CreateMachineCatalogRequestModel) UnsetHypervisorConnection()`
+
+UnsetHypervisorConnection ensures that no value is present for HypervisorConnection, not even an explicit nil
 ### GetIsRemotePC
 
 `func (o *CreateMachineCatalogRequestModel) GetIsRemotePC() bool`
@@ -192,6 +222,16 @@ SetIsRemotePC sets IsRemotePC field to given value.
 
 HasIsRemotePC returns a boolean if a field has been set.
 
+### SetIsRemotePCNil
+
+`func (o *CreateMachineCatalogRequestModel) SetIsRemotePCNil(b bool)`
+
+ SetIsRemotePCNil sets the value for IsRemotePC to be an explicit nil
+
+### UnsetIsRemotePC
+`func (o *CreateMachineCatalogRequestModel) UnsetIsRemotePC()`
+
+UnsetIsRemotePC ensures that no value is present for IsRemotePC, not even an explicit nil
 ### GetRemotePCEnrollmentScopes
 
 `func (o *CreateMachineCatalogRequestModel) GetRemotePCEnrollmentScopes() []RemotePCEnrollmentScopeRequestModel`
@@ -217,6 +257,16 @@ SetRemotePCEnrollmentScopes sets RemotePCEnrollmentScopes field to given value.
 
 HasRemotePCEnrollmentScopes returns a boolean if a field has been set.
 
+### SetRemotePCEnrollmentScopesNil
+
+`func (o *CreateMachineCatalogRequestModel) SetRemotePCEnrollmentScopesNil(b bool)`
+
+ SetRemotePCEnrollmentScopesNil sets the value for RemotePCEnrollmentScopes to be an explicit nil
+
+### UnsetRemotePCEnrollmentScopes
+`func (o *CreateMachineCatalogRequestModel) UnsetRemotePCEnrollmentScopes()`
+
+UnsetRemotePCEnrollmentScopes ensures that no value is present for RemotePCEnrollmentScopes, not even an explicit nil
 ### GetMachineType
 
 `func (o *CreateMachineCatalogRequestModel) GetMachineType() MachineType`
@@ -314,20 +364,20 @@ SetProvisioningType sets ProvisioningType field to given value.
 
 ### GetProvisioningScheme
 
-`func (o *CreateMachineCatalogRequestModel) GetProvisioningScheme() CreateMachineCatalogRequestModelProvisioningScheme`
+`func (o *CreateMachineCatalogRequestModel) GetProvisioningScheme() CreateMachineCatalogProvisioningSchemeRequestModel`
 
 GetProvisioningScheme returns the ProvisioningScheme field if non-nil, zero value otherwise.
 
 ### GetProvisioningSchemeOk
 
-`func (o *CreateMachineCatalogRequestModel) GetProvisioningSchemeOk() (*CreateMachineCatalogRequestModelProvisioningScheme, bool)`
+`func (o *CreateMachineCatalogRequestModel) GetProvisioningSchemeOk() (*CreateMachineCatalogProvisioningSchemeRequestModel, bool)`
 
 GetProvisioningSchemeOk returns a tuple with the ProvisioningScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProvisioningScheme
 
-`func (o *CreateMachineCatalogRequestModel) SetProvisioningScheme(v CreateMachineCatalogRequestModelProvisioningScheme)`
+`func (o *CreateMachineCatalogRequestModel) SetProvisioningScheme(v CreateMachineCatalogProvisioningSchemeRequestModel)`
 
 SetProvisioningScheme sets ProvisioningScheme field to given value.
 
@@ -339,20 +389,20 @@ HasProvisioningScheme returns a boolean if a field has been set.
 
 ### GetProvisioningSchemeImportData
 
-`func (o *CreateMachineCatalogRequestModel) GetProvisioningSchemeImportData() CreateMachineCatalogRequestModelProvisioningSchemeImportData`
+`func (o *CreateMachineCatalogRequestModel) GetProvisioningSchemeImportData() MCSImportData`
 
 GetProvisioningSchemeImportData returns the ProvisioningSchemeImportData field if non-nil, zero value otherwise.
 
 ### GetProvisioningSchemeImportDataOk
 
-`func (o *CreateMachineCatalogRequestModel) GetProvisioningSchemeImportDataOk() (*CreateMachineCatalogRequestModelProvisioningSchemeImportData, bool)`
+`func (o *CreateMachineCatalogRequestModel) GetProvisioningSchemeImportDataOk() (*MCSImportData, bool)`
 
 GetProvisioningSchemeImportDataOk returns a tuple with the ProvisioningSchemeImportData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProvisioningSchemeImportData
 
-`func (o *CreateMachineCatalogRequestModel) SetProvisioningSchemeImportData(v CreateMachineCatalogRequestModelProvisioningSchemeImportData)`
+`func (o *CreateMachineCatalogRequestModel) SetProvisioningSchemeImportData(v MCSImportData)`
 
 SetProvisioningSchemeImportData sets ProvisioningSchemeImportData field to given value.
 
@@ -387,6 +437,16 @@ SetMachines sets Machines field to given value.
 
 HasMachines returns a boolean if a field has been set.
 
+### SetMachinesNil
+
+`func (o *CreateMachineCatalogRequestModel) SetMachinesNil(b bool)`
+
+ SetMachinesNil sets the value for Machines to be an explicit nil
+
+### UnsetMachines
+`func (o *CreateMachineCatalogRequestModel) UnsetMachines()`
+
+UnsetMachines ensures that no value is present for Machines, not even an explicit nil
 ### GetPvsAddress
 
 `func (o *CreateMachineCatalogRequestModel) GetPvsAddress() string`
@@ -412,6 +472,16 @@ SetPvsAddress sets PvsAddress field to given value.
 
 HasPvsAddress returns a boolean if a field has been set.
 
+### SetPvsAddressNil
+
+`func (o *CreateMachineCatalogRequestModel) SetPvsAddressNil(b bool)`
+
+ SetPvsAddressNil sets the value for PvsAddress to be an explicit nil
+
+### UnsetPvsAddress
+`func (o *CreateMachineCatalogRequestModel) UnsetPvsAddress()`
+
+UnsetPvsAddress ensures that no value is present for PvsAddress, not even an explicit nil
 ### GetPvsDomain
 
 `func (o *CreateMachineCatalogRequestModel) GetPvsDomain() string`
@@ -437,6 +507,16 @@ SetPvsDomain sets PvsDomain field to given value.
 
 HasPvsDomain returns a boolean if a field has been set.
 
+### SetPvsDomainNil
+
+`func (o *CreateMachineCatalogRequestModel) SetPvsDomainNil(b bool)`
+
+ SetPvsDomainNil sets the value for PvsDomain to be an explicit nil
+
+### UnsetPvsDomain
+`func (o *CreateMachineCatalogRequestModel) UnsetPvsDomain()`
+
+UnsetPvsDomain ensures that no value is present for PvsDomain, not even an explicit nil
 ### GetPvsCollectionIds
 
 `func (o *CreateMachineCatalogRequestModel) GetPvsCollectionIds() []string`
@@ -462,6 +542,16 @@ SetPvsCollectionIds sets PvsCollectionIds field to given value.
 
 HasPvsCollectionIds returns a boolean if a field has been set.
 
+### SetPvsCollectionIdsNil
+
+`func (o *CreateMachineCatalogRequestModel) SetPvsCollectionIdsNil(b bool)`
+
+ SetPvsCollectionIdsNil sets the value for PvsCollectionIds to be an explicit nil
+
+### UnsetPvsCollectionIds
+`func (o *CreateMachineCatalogRequestModel) UnsetPvsCollectionIds()`
+
+UnsetPvsCollectionIds ensures that no value is present for PvsCollectionIds, not even an explicit nil
 ### GetScopes
 
 `func (o *CreateMachineCatalogRequestModel) GetScopes() []string`
@@ -487,6 +577,16 @@ SetScopes sets Scopes field to given value.
 
 HasScopes returns a boolean if a field has been set.
 
+### SetScopesNil
+
+`func (o *CreateMachineCatalogRequestModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *CreateMachineCatalogRequestModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetTenants
 
 `func (o *CreateMachineCatalogRequestModel) GetTenants() []string`
@@ -512,6 +612,16 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### SetTenantsNil
+
+`func (o *CreateMachineCatalogRequestModel) SetTenantsNil(b bool)`
+
+ SetTenantsNil sets the value for Tenants to be an explicit nil
+
+### UnsetTenants
+`func (o *CreateMachineCatalogRequestModel) UnsetTenants()`
+
+UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
 ### GetSessionSupport
 
 `func (o *CreateMachineCatalogRequestModel) GetSessionSupport() SessionSupport`
@@ -582,6 +692,16 @@ SetZone sets Zone field to given value.
 
 HasZone returns a boolean if a field has been set.
 
+### SetZoneNil
+
+`func (o *CreateMachineCatalogRequestModel) SetZoneNil(b bool)`
+
+ SetZoneNil sets the value for Zone to be an explicit nil
+
+### UnsetZone
+`func (o *CreateMachineCatalogRequestModel) UnsetZone()`
+
+UnsetZone ensures that no value is present for Zone, not even an explicit nil
 ### GetMetadata
 
 `func (o *CreateMachineCatalogRequestModel) GetMetadata() []NameValueStringPairModel`
@@ -607,6 +727,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *CreateMachineCatalogRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *CreateMachineCatalogRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageDefinitionName** | Pointer to **string** | The image definition name. | [optional] 
-**ImageVersionNumber** | Pointer to **string** | The image version number. | [optional] 
+**ImageDefinitionName** | Pointer to **NullableString** | The image definition name. | [optional] 
+**ImageVersionNumber** | Pointer to **NullableString** | The image version number. | [optional] 
 **ImageVersionUid** | Pointer to **string** | The image version uid. | [optional] 
 
 ## Methods
@@ -52,6 +52,16 @@ SetImageDefinitionName sets ImageDefinitionName field to given value.
 
 HasImageDefinitionName returns a boolean if a field has been set.
 
+### SetImageDefinitionNameNil
+
+`func (o *ImageVersionRefResponseModel) SetImageDefinitionNameNil(b bool)`
+
+ SetImageDefinitionNameNil sets the value for ImageDefinitionName to be an explicit nil
+
+### UnsetImageDefinitionName
+`func (o *ImageVersionRefResponseModel) UnsetImageDefinitionName()`
+
+UnsetImageDefinitionName ensures that no value is present for ImageDefinitionName, not even an explicit nil
 ### GetImageVersionNumber
 
 `func (o *ImageVersionRefResponseModel) GetImageVersionNumber() string`
@@ -77,6 +87,16 @@ SetImageVersionNumber sets ImageVersionNumber field to given value.
 
 HasImageVersionNumber returns a boolean if a field has been set.
 
+### SetImageVersionNumberNil
+
+`func (o *ImageVersionRefResponseModel) SetImageVersionNumberNil(b bool)`
+
+ SetImageVersionNumberNil sets the value for ImageVersionNumber to be an explicit nil
+
+### UnsetImageVersionNumber
+`func (o *ImageVersionRefResponseModel) UnsetImageVersionNumber()`
+
+UnsetImageVersionNumber ensures that no value is present for ImageVersionNumber, not even an explicit nil
 ### GetImageVersionUid
 
 `func (o *ImageVersionRefResponseModel) GetImageVersionUid() string`

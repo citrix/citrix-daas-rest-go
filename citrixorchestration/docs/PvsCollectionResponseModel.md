@@ -6,14 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Id of the PVS collection. | 
 **Name** | **string** | Name of the PVS collection. | 
-**Domain** | Pointer to **string** | Active directory domain of machines in the collection. internally: when querying a collection, get a single device from the collection and get its AD domain. | [optional] 
-**PvsSite** | [**PvsCollectionResponseModelPvsSite**](PvsCollectionResponseModelPvsSite.md) |  | 
+**Domain** | Pointer to **NullableString** | Active directory domain of machines in the collection. internally: when querying a collection, get a single device from the collection and get its AD domain. | [optional] 
+**PvsSite** | [**RefResponseModel**](RefResponseModel.md) |  | 
 
 ## Methods
 
 ### NewPvsCollectionResponseModel
 
-`func NewPvsCollectionResponseModel(id string, name string, pvsSite PvsCollectionResponseModelPvsSite, ) *PvsCollectionResponseModel`
+`func NewPvsCollectionResponseModel(id string, name string, pvsSite RefResponseModel, ) *PvsCollectionResponseModel`
 
 NewPvsCollectionResponseModel instantiates a new PvsCollectionResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -93,22 +93,32 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *PvsCollectionResponseModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *PvsCollectionResponseModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetPvsSite
 
-`func (o *PvsCollectionResponseModel) GetPvsSite() PvsCollectionResponseModelPvsSite`
+`func (o *PvsCollectionResponseModel) GetPvsSite() RefResponseModel`
 
 GetPvsSite returns the PvsSite field if non-nil, zero value otherwise.
 
 ### GetPvsSiteOk
 
-`func (o *PvsCollectionResponseModel) GetPvsSiteOk() (*PvsCollectionResponseModelPvsSite, bool)`
+`func (o *PvsCollectionResponseModel) GetPvsSiteOk() (*RefResponseModel, bool)`
 
 GetPvsSiteOk returns a tuple with the PvsSite field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPvsSite
 
-`func (o *PvsCollectionResponseModel) SetPvsSite(v PvsCollectionResponseModelPvsSite)`
+`func (o *PvsCollectionResponseModel) SetPvsSite(v RefResponseModel)`
 
 SetPvsSite sets PvsSite field to given value.
 

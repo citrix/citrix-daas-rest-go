@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the object. Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
-**Uid** | Pointer to **int32** | DEPRECATED. Use Id. | [optional] 
-**Name** | Pointer to **string** | Name of the object. | [optional] 
+**Id** | Pointer to **NullableString** | Id of the object. Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
+**Uid** | Pointer to **NullableInt32** | DEPRECATED. Use Id. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the object. | [optional] 
 **Priority** | Pointer to **int32** | Specifies the priority of the mapping between application and delivery group where lower numbers imply higher priority with zero being highest. | [optional] 
 **NumMachines** | Pointer to **int32** | Number of machines within the delivery group that are capable of hosting the applications in the application group. | [optional] 
 **NumTaggedMachines** | Pointer to **int32** | Number of tagged machines within the delivery group that are capable of hosting the applications in the application group. | [optional] 
@@ -56,6 +56,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ApplicationGroupDeliveryGroupRefResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *ApplicationGroupDeliveryGroupRefResponseModel) GetUid() int32`
@@ -81,6 +91,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *ApplicationGroupDeliveryGroupRefResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetName
 
 `func (o *ApplicationGroupDeliveryGroupRefResponseModel) GetName() string`
@@ -106,6 +126,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *ApplicationGroupDeliveryGroupRefResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ApplicationGroupDeliveryGroupRefResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPriority
 
 `func (o *ApplicationGroupDeliveryGroupRefResponseModel) GetPriority() int32`

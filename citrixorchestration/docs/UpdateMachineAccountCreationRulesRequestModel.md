@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NamingScheme** | Pointer to **string** | Defines the template name for AD accounts created in the identity pool.   If this is not specified, it will remain unchanged.   If the provisioning scheme is configured with a NamingScheme already, and this value is set to an empty string, the provisioning scheme will be reconfigured so that it will no longer automatically create machine accounts. | [optional] 
+**NamingScheme** | Pointer to **NullableString** | Defines the template name for AD accounts created in the identity pool.   If this is not specified, it will remain unchanged.   If the provisioning scheme is configured with a NamingScheme already, and this value is set to an empty string, the provisioning scheme will be reconfigured so that it will no longer automatically create machine accounts. | [optional] 
 **NamingSchemeType** | Pointer to [**NamingSchemeType**](NamingSchemeType.md) |  | [optional] 
-**OU** | Pointer to **string** | The OU that computer accounts will be created into.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, then use the default account container specified by AD. This is the &#x60;Computers&#x60; container for out-of-the-box installations of AD. | [optional] 
-**Domain** | Pointer to **string** | The AD domain name for the pool. Specify this in FQDN format; for example, MyDomain.com.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, this property is required. | [optional] 
-**NextValue** | Pointer to **string** | Defines the next value that will be used if creating new AD accounts.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, the default is a sequence of &#x60;0&#x60;s or &#x60;A&#x60;s, depending on the . | [optional] 
+**OU** | Pointer to **NullableString** | The OU that computer accounts will be created into.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, then use the default account container specified by AD. This is the &#x60;Computers&#x60; container for out-of-the-box installations of AD. | [optional] 
+**Domain** | Pointer to **NullableString** | The AD domain name for the pool. Specify this in FQDN format; for example, MyDomain.com.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, this property is required. | [optional] 
+**NextValue** | Pointer to **NullableString** | Defines the next value that will be used if creating new AD accounts.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, the default is a sequence of &#x60;0&#x60;s or &#x60;A&#x60;s, depending on the . | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetNamingScheme sets NamingScheme field to given value.
 
 HasNamingScheme returns a boolean if a field has been set.
 
+### SetNamingSchemeNil
+
+`func (o *UpdateMachineAccountCreationRulesRequestModel) SetNamingSchemeNil(b bool)`
+
+ SetNamingSchemeNil sets the value for NamingScheme to be an explicit nil
+
+### UnsetNamingScheme
+`func (o *UpdateMachineAccountCreationRulesRequestModel) UnsetNamingScheme()`
+
+UnsetNamingScheme ensures that no value is present for NamingScheme, not even an explicit nil
 ### GetNamingSchemeType
 
 `func (o *UpdateMachineAccountCreationRulesRequestModel) GetNamingSchemeType() NamingSchemeType`
@@ -104,6 +114,16 @@ SetOU sets OU field to given value.
 
 HasOU returns a boolean if a field has been set.
 
+### SetOUNil
+
+`func (o *UpdateMachineAccountCreationRulesRequestModel) SetOUNil(b bool)`
+
+ SetOUNil sets the value for OU to be an explicit nil
+
+### UnsetOU
+`func (o *UpdateMachineAccountCreationRulesRequestModel) UnsetOU()`
+
+UnsetOU ensures that no value is present for OU, not even an explicit nil
 ### GetDomain
 
 `func (o *UpdateMachineAccountCreationRulesRequestModel) GetDomain() string`
@@ -129,6 +149,16 @@ SetDomain sets Domain field to given value.
 
 HasDomain returns a boolean if a field has been set.
 
+### SetDomainNil
+
+`func (o *UpdateMachineAccountCreationRulesRequestModel) SetDomainNil(b bool)`
+
+ SetDomainNil sets the value for Domain to be an explicit nil
+
+### UnsetDomain
+`func (o *UpdateMachineAccountCreationRulesRequestModel) UnsetDomain()`
+
+UnsetDomain ensures that no value is present for Domain, not even an explicit nil
 ### GetNextValue
 
 `func (o *UpdateMachineAccountCreationRulesRequestModel) GetNextValue() string`
@@ -154,6 +184,16 @@ SetNextValue sets NextValue field to given value.
 
 HasNextValue returns a boolean if a field has been set.
 
+### SetNextValueNil
+
+`func (o *UpdateMachineAccountCreationRulesRequestModel) SetNextValueNil(b bool)`
+
+ SetNextValueNil sets the value for NextValue to be an explicit nil
+
+### UnsetNextValue
+`func (o *UpdateMachineAccountCreationRulesRequestModel) UnsetNextValue()`
+
+UnsetNextValue ensures that no value is present for NextValue, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

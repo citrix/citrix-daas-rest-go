@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Id of the object. Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
-**Uid** | Pointer to **int32** | DEPRECATED. Use Id. | [optional] 
-**Name** | Pointer to **string** | Name of the object. | [optional] 
+**Id** | Pointer to **NullableString** | Id of the object. Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
+**Uid** | Pointer to **NullableInt32** | DEPRECATED. Use Id. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the object. | [optional] 
 **Associated** | **bool** | Whether the delivery group was associated. | 
-**Priority** | Pointer to **int32** | The priority of delivery group association. | [optional] 
+**Priority** | Pointer to **NullableInt32** | The priority of delivery group association. | [optional] 
 
 ## Methods
 
@@ -54,6 +54,16 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### SetIdNil
+
+`func (o *DeliveryGroupAssociationResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *DeliveryGroupAssociationResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *DeliveryGroupAssociationResponseModel) GetUid() int32`
@@ -79,6 +89,16 @@ SetUid sets Uid field to given value.
 
 HasUid returns a boolean if a field has been set.
 
+### SetUidNil
+
+`func (o *DeliveryGroupAssociationResponseModel) SetUidNil(b bool)`
+
+ SetUidNil sets the value for Uid to be an explicit nil
+
+### UnsetUid
+`func (o *DeliveryGroupAssociationResponseModel) UnsetUid()`
+
+UnsetUid ensures that no value is present for Uid, not even an explicit nil
 ### GetName
 
 `func (o *DeliveryGroupAssociationResponseModel) GetName() string`
@@ -104,6 +124,16 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### SetNameNil
+
+`func (o *DeliveryGroupAssociationResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *DeliveryGroupAssociationResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetAssociated
 
 `func (o *DeliveryGroupAssociationResponseModel) GetAssociated() bool`
@@ -149,6 +179,16 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *DeliveryGroupAssociationResponseModel) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *DeliveryGroupAssociationResponseModel) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

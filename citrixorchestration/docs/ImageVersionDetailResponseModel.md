@@ -4,27 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | Pointer to **string** | The version number associated with the image version. | [optional] 
+**Version** | Pointer to **NullableString** | The version number associated with the image version. | [optional] 
 **Id** | Pointer to **string** | The Id of the image version. | [optional] 
-**MasterImagePath** | Pointer to **string** | The MasterImageVM of the image version. | [optional] 
-**Description** | Pointer to **string** | The Description of the image version. | [optional] 
+**MasterImagePath** | Pointer to **NullableString** | The MasterImageVM of the image version. | [optional] 
+**Description** | Pointer to **NullableString** | The Description of the image version. | [optional] 
 **DiskSizeGB** | Pointer to **int32** | Size of the VM&#39;s OS disk, in GB. | [optional] 
-**CreateTime** | Pointer to **string** | The create time of the image version. | [optional] 
+**CreateTime** | Pointer to **NullableString** | The create time of the image version. | [optional] 
 **WriteBackCacheDiskSize** | Pointer to **int32** | The WriteBackCacheDiskSize of the image version. | [optional] 
 **WriteBackCacheMemorySize** | Pointer to **int32** | The WriteBackCacheMemorySize of the image version. | [optional] 
-**ImageStatus** | Pointer to **string** | The image status of the image version. | [optional] 
-**Error** | Pointer to **string** | The error info of the image version. | [optional] 
+**ImageStatus** | Pointer to **NullableString** | The image status of the image version. | [optional] 
+**Error** | Pointer to **NullableString** | The error info of the image version. | [optional] 
 **AdditionalData** | Pointer to **map[string]string** | The additional data of the image version. | [optional] 
-**ImageDefinition** | Pointer to [**ImageVersionDetailResponseModelAllOfImageDefinition**](ImageVersionDetailResponseModelAllOfImageDefinition.md) |  | [optional] 
-**ImageScheme** | Pointer to [**ImageVersionDetailResponseModelAllOfImageScheme**](ImageVersionDetailResponseModelAllOfImageScheme.md) |  | [optional] 
-**VMMetadata** | Pointer to [**ImageVersionDetailResponseModelAllOfVMMetadata**](ImageVersionDetailResponseModelAllOfVMMetadata.md) |  | [optional] 
-**MasterImage** | [**ImageVersionDetailResponseModelAllOfMasterImage**](ImageVersionDetailResponseModelAllOfMasterImage.md) |  | 
+**ImageDefinition** | Pointer to [**ImageDefinitionResponseModel**](ImageDefinitionResponseModel.md) |  | [optional] 
+**ImageScheme** | Pointer to [**ImageSchemeResponseModel**](ImageSchemeResponseModel.md) |  | [optional] 
+**VMMetadata** | Pointer to [**ProvisioningSchemeVmMetadataResponseModel**](ProvisioningSchemeVmMetadataResponseModel.md) |  | [optional] 
+**MasterImage** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
 
 ## Methods
 
 ### NewImageVersionDetailResponseModel
 
-`func NewImageVersionDetailResponseModel(masterImage ImageVersionDetailResponseModelAllOfMasterImage, ) *ImageVersionDetailResponseModel`
+`func NewImageVersionDetailResponseModel(masterImage HypervisorResourceRefResponseModel, ) *ImageVersionDetailResponseModel`
 
 NewImageVersionDetailResponseModel instantiates a new ImageVersionDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +64,16 @@ SetVersion sets Version field to given value.
 
 HasVersion returns a boolean if a field has been set.
 
+### SetVersionNil
+
+`func (o *ImageVersionDetailResponseModel) SetVersionNil(b bool)`
+
+ SetVersionNil sets the value for Version to be an explicit nil
+
+### UnsetVersion
+`func (o *ImageVersionDetailResponseModel) UnsetVersion()`
+
+UnsetVersion ensures that no value is present for Version, not even an explicit nil
 ### GetId
 
 `func (o *ImageVersionDetailResponseModel) GetId() string`
@@ -114,6 +124,16 @@ SetMasterImagePath sets MasterImagePath field to given value.
 
 HasMasterImagePath returns a boolean if a field has been set.
 
+### SetMasterImagePathNil
+
+`func (o *ImageVersionDetailResponseModel) SetMasterImagePathNil(b bool)`
+
+ SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
+
+### UnsetMasterImagePath
+`func (o *ImageVersionDetailResponseModel) UnsetMasterImagePath()`
+
+UnsetMasterImagePath ensures that no value is present for MasterImagePath, not even an explicit nil
 ### GetDescription
 
 `func (o *ImageVersionDetailResponseModel) GetDescription() string`
@@ -139,6 +159,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *ImageVersionDetailResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ImageVersionDetailResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetDiskSizeGB
 
 `func (o *ImageVersionDetailResponseModel) GetDiskSizeGB() int32`
@@ -189,6 +219,16 @@ SetCreateTime sets CreateTime field to given value.
 
 HasCreateTime returns a boolean if a field has been set.
 
+### SetCreateTimeNil
+
+`func (o *ImageVersionDetailResponseModel) SetCreateTimeNil(b bool)`
+
+ SetCreateTimeNil sets the value for CreateTime to be an explicit nil
+
+### UnsetCreateTime
+`func (o *ImageVersionDetailResponseModel) UnsetCreateTime()`
+
+UnsetCreateTime ensures that no value is present for CreateTime, not even an explicit nil
 ### GetWriteBackCacheDiskSize
 
 `func (o *ImageVersionDetailResponseModel) GetWriteBackCacheDiskSize() int32`
@@ -264,6 +304,16 @@ SetImageStatus sets ImageStatus field to given value.
 
 HasImageStatus returns a boolean if a field has been set.
 
+### SetImageStatusNil
+
+`func (o *ImageVersionDetailResponseModel) SetImageStatusNil(b bool)`
+
+ SetImageStatusNil sets the value for ImageStatus to be an explicit nil
+
+### UnsetImageStatus
+`func (o *ImageVersionDetailResponseModel) UnsetImageStatus()`
+
+UnsetImageStatus ensures that no value is present for ImageStatus, not even an explicit nil
 ### GetError
 
 `func (o *ImageVersionDetailResponseModel) GetError() string`
@@ -289,6 +339,16 @@ SetError sets Error field to given value.
 
 HasError returns a boolean if a field has been set.
 
+### SetErrorNil
+
+`func (o *ImageVersionDetailResponseModel) SetErrorNil(b bool)`
+
+ SetErrorNil sets the value for Error to be an explicit nil
+
+### UnsetError
+`func (o *ImageVersionDetailResponseModel) UnsetError()`
+
+UnsetError ensures that no value is present for Error, not even an explicit nil
 ### GetAdditionalData
 
 `func (o *ImageVersionDetailResponseModel) GetAdditionalData() map[string]string`
@@ -314,22 +374,32 @@ SetAdditionalData sets AdditionalData field to given value.
 
 HasAdditionalData returns a boolean if a field has been set.
 
+### SetAdditionalDataNil
+
+`func (o *ImageVersionDetailResponseModel) SetAdditionalDataNil(b bool)`
+
+ SetAdditionalDataNil sets the value for AdditionalData to be an explicit nil
+
+### UnsetAdditionalData
+`func (o *ImageVersionDetailResponseModel) UnsetAdditionalData()`
+
+UnsetAdditionalData ensures that no value is present for AdditionalData, not even an explicit nil
 ### GetImageDefinition
 
-`func (o *ImageVersionDetailResponseModel) GetImageDefinition() ImageVersionDetailResponseModelAllOfImageDefinition`
+`func (o *ImageVersionDetailResponseModel) GetImageDefinition() ImageDefinitionResponseModel`
 
 GetImageDefinition returns the ImageDefinition field if non-nil, zero value otherwise.
 
 ### GetImageDefinitionOk
 
-`func (o *ImageVersionDetailResponseModel) GetImageDefinitionOk() (*ImageVersionDetailResponseModelAllOfImageDefinition, bool)`
+`func (o *ImageVersionDetailResponseModel) GetImageDefinitionOk() (*ImageDefinitionResponseModel, bool)`
 
 GetImageDefinitionOk returns a tuple with the ImageDefinition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageDefinition
 
-`func (o *ImageVersionDetailResponseModel) SetImageDefinition(v ImageVersionDetailResponseModelAllOfImageDefinition)`
+`func (o *ImageVersionDetailResponseModel) SetImageDefinition(v ImageDefinitionResponseModel)`
 
 SetImageDefinition sets ImageDefinition field to given value.
 
@@ -341,20 +411,20 @@ HasImageDefinition returns a boolean if a field has been set.
 
 ### GetImageScheme
 
-`func (o *ImageVersionDetailResponseModel) GetImageScheme() ImageVersionDetailResponseModelAllOfImageScheme`
+`func (o *ImageVersionDetailResponseModel) GetImageScheme() ImageSchemeResponseModel`
 
 GetImageScheme returns the ImageScheme field if non-nil, zero value otherwise.
 
 ### GetImageSchemeOk
 
-`func (o *ImageVersionDetailResponseModel) GetImageSchemeOk() (*ImageVersionDetailResponseModelAllOfImageScheme, bool)`
+`func (o *ImageVersionDetailResponseModel) GetImageSchemeOk() (*ImageSchemeResponseModel, bool)`
 
 GetImageSchemeOk returns a tuple with the ImageScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImageScheme
 
-`func (o *ImageVersionDetailResponseModel) SetImageScheme(v ImageVersionDetailResponseModelAllOfImageScheme)`
+`func (o *ImageVersionDetailResponseModel) SetImageScheme(v ImageSchemeResponseModel)`
 
 SetImageScheme sets ImageScheme field to given value.
 
@@ -366,20 +436,20 @@ HasImageScheme returns a boolean if a field has been set.
 
 ### GetVMMetadata
 
-`func (o *ImageVersionDetailResponseModel) GetVMMetadata() ImageVersionDetailResponseModelAllOfVMMetadata`
+`func (o *ImageVersionDetailResponseModel) GetVMMetadata() ProvisioningSchemeVmMetadataResponseModel`
 
 GetVMMetadata returns the VMMetadata field if non-nil, zero value otherwise.
 
 ### GetVMMetadataOk
 
-`func (o *ImageVersionDetailResponseModel) GetVMMetadataOk() (*ImageVersionDetailResponseModelAllOfVMMetadata, bool)`
+`func (o *ImageVersionDetailResponseModel) GetVMMetadataOk() (*ProvisioningSchemeVmMetadataResponseModel, bool)`
 
 GetVMMetadataOk returns a tuple with the VMMetadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVMMetadata
 
-`func (o *ImageVersionDetailResponseModel) SetVMMetadata(v ImageVersionDetailResponseModelAllOfVMMetadata)`
+`func (o *ImageVersionDetailResponseModel) SetVMMetadata(v ProvisioningSchemeVmMetadataResponseModel)`
 
 SetVMMetadata sets VMMetadata field to given value.
 
@@ -391,20 +461,20 @@ HasVMMetadata returns a boolean if a field has been set.
 
 ### GetMasterImage
 
-`func (o *ImageVersionDetailResponseModel) GetMasterImage() ImageVersionDetailResponseModelAllOfMasterImage`
+`func (o *ImageVersionDetailResponseModel) GetMasterImage() HypervisorResourceRefResponseModel`
 
 GetMasterImage returns the MasterImage field if non-nil, zero value otherwise.
 
 ### GetMasterImageOk
 
-`func (o *ImageVersionDetailResponseModel) GetMasterImageOk() (*ImageVersionDetailResponseModelAllOfMasterImage, bool)`
+`func (o *ImageVersionDetailResponseModel) GetMasterImageOk() (*HypervisorResourceRefResponseModel, bool)`
 
 GetMasterImageOk returns a tuple with the MasterImage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMasterImage
 
-`func (o *ImageVersionDetailResponseModel) SetMasterImage(v ImageVersionDetailResponseModelAllOfMasterImage)`
+`func (o *ImageVersionDetailResponseModel) SetMasterImage(v HypervisorResourceRefResponseModel)`
 
 SetMasterImage sets MasterImage field to given value.
 

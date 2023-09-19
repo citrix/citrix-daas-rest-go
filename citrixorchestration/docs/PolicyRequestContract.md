@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyName** | Pointer to **string** | Policy name as identifier, translated. | [optional] 
-**IsEnabled** | Pointer to **bool** | Is policy enabled | [optional] [default to false]
-**Description** | Pointer to **string** | Policy description | [optional] 
-**Priority** | Pointer to **int32** | New policy priority | [optional] 
+**PolicyName** | Pointer to **NullableString** | Policy name as identifier, translated. | [optional] 
+**IsEnabled** | Pointer to **NullableBool** | Is policy enabled | [optional] [default to false]
+**Description** | Pointer to **NullableString** | Policy description | [optional] 
+**Priority** | Pointer to **NullableInt32** | New policy priority | [optional] 
 **Settings** | Pointer to [**[]SettingRequestContract**](SettingRequestContract.md) | Policy settings | [optional] 
 **Filters** | Pointer to [**[]FilterRequestContract**](FilterRequestContract.md) | Policy filters | [optional] 
 
@@ -55,6 +55,16 @@ SetPolicyName sets PolicyName field to given value.
 
 HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *PolicyRequestContract) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *PolicyRequestContract) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
 ### GetIsEnabled
 
 `func (o *PolicyRequestContract) GetIsEnabled() bool`
@@ -80,6 +90,16 @@ SetIsEnabled sets IsEnabled field to given value.
 
 HasIsEnabled returns a boolean if a field has been set.
 
+### SetIsEnabledNil
+
+`func (o *PolicyRequestContract) SetIsEnabledNil(b bool)`
+
+ SetIsEnabledNil sets the value for IsEnabled to be an explicit nil
+
+### UnsetIsEnabled
+`func (o *PolicyRequestContract) UnsetIsEnabled()`
+
+UnsetIsEnabled ensures that no value is present for IsEnabled, not even an explicit nil
 ### GetDescription
 
 `func (o *PolicyRequestContract) GetDescription() string`
@@ -105,6 +125,16 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### SetDescriptionNil
+
+`func (o *PolicyRequestContract) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *PolicyRequestContract) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetPriority
 
 `func (o *PolicyRequestContract) GetPriority() int32`
@@ -130,6 +160,16 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *PolicyRequestContract) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *PolicyRequestContract) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 ### GetSettings
 
 `func (o *PolicyRequestContract) GetSettings() []SettingRequestContract`
@@ -155,6 +195,16 @@ SetSettings sets Settings field to given value.
 
 HasSettings returns a boolean if a field has been set.
 
+### SetSettingsNil
+
+`func (o *PolicyRequestContract) SetSettingsNil(b bool)`
+
+ SetSettingsNil sets the value for Settings to be an explicit nil
+
+### UnsetSettings
+`func (o *PolicyRequestContract) UnsetSettings()`
+
+UnsetSettings ensures that no value is present for Settings, not even an explicit nil
 ### GetFilters
 
 `func (o *PolicyRequestContract) GetFilters() []FilterRequestContract`
@@ -180,6 +230,16 @@ SetFilters sets Filters field to given value.
 
 HasFilters returns a boolean if a field has been set.
 
+### SetFiltersNil
+
+`func (o *PolicyRequestContract) SetFiltersNil(b bool)`
+
+ SetFiltersNil sets the value for Filters to be an explicit nil
+
+### UnsetFilters
+`func (o *PolicyRequestContract) UnsetFilters()`
+
+UnsetFilters ensures that no value is present for Filters, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

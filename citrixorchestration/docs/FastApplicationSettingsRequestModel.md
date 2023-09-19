@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | Indicates if the pre-launch or lingering settings are enabled. | [optional] [default to true]
-**MaxAverageLoadThreshold** | Pointer to **int32** | Specifies the average load threshold across the delivery group before pre-launched or lingering sessions will be terminated. When the threshold hits, sessions which have been pre-launched or which have lingered the longest will be terminated to reduce load. | [optional] [default to 0]
-**MaxLoadPerMachineThreshold** | Pointer to **int32** | Specifies the maximum load threshold per machine in the delivery group before pre-launched or lingering sessions will be terminated. When the threshold hits, sessions which have been pre-launched or which have lingered the longest on each loaded machine will be terminated to reduce load. Was: public int? MaxPerDesktopLoadThreshold { get; set; } | [optional] [default to 0]
-**MaxTimeBeforeDisconnectMinutes** | Pointer to **int32** | Specifies the time by which a pre-launched or lingering session will be disconnected. | [optional] [default to 0]
-**MaxTimeBeforeTerminateMinutes** | Pointer to **int32** | Specifies the time by which a pre-launched or lingering session will be terminated. | [optional] [default to 0]
-**IncludedUserFilterEnabled** | Pointer to **bool** | Specifies whether the IncludedUsers filter is enabled or disabled.  When the user filter is enabled, pre-launch or lingering are enabled only to users who appear in the filter (either explicitly or by virtue of group membership). Was: UserFilterEnabled | [optional] [default to false]
+**Enabled** | Pointer to **NullableBool** | Indicates if the pre-launch or lingering settings are enabled. | [optional] [default to true]
+**MaxAverageLoadThreshold** | Pointer to **NullableInt32** | Specifies the average load threshold across the delivery group before pre-launched or lingering sessions will be terminated. When the threshold hits, sessions which have been pre-launched or which have lingered the longest will be terminated to reduce load. | [optional] [default to 0]
+**MaxLoadPerMachineThreshold** | Pointer to **NullableInt32** | Specifies the maximum load threshold per machine in the delivery group before pre-launched or lingering sessions will be terminated. When the threshold hits, sessions which have been pre-launched or which have lingered the longest on each loaded machine will be terminated to reduce load. Was: public int? MaxPerDesktopLoadThreshold { get; set; } | [optional] [default to 0]
+**MaxTimeBeforeDisconnectMinutes** | Pointer to **NullableInt32** | Specifies the time by which a pre-launched or lingering session will be disconnected. | [optional] [default to 0]
+**MaxTimeBeforeTerminateMinutes** | Pointer to **NullableInt32** | Specifies the time by which a pre-launched or lingering session will be terminated. | [optional] [default to 0]
+**IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled or disabled.  When the user filter is enabled, pre-launch or lingering are enabled only to users who appear in the filter (either explicitly or by virtue of group membership). Was: UserFilterEnabled | [optional] [default to false]
 **IncludedUsers** | Pointer to **[]string** | Specifies the users and user groups to whom the pre-launch or lingering settings apply. Was: users | [optional] 
 
 ## Methods
@@ -56,6 +56,16 @@ SetEnabled sets Enabled field to given value.
 
 HasEnabled returns a boolean if a field has been set.
 
+### SetEnabledNil
+
+`func (o *FastApplicationSettingsRequestModel) SetEnabledNil(b bool)`
+
+ SetEnabledNil sets the value for Enabled to be an explicit nil
+
+### UnsetEnabled
+`func (o *FastApplicationSettingsRequestModel) UnsetEnabled()`
+
+UnsetEnabled ensures that no value is present for Enabled, not even an explicit nil
 ### GetMaxAverageLoadThreshold
 
 `func (o *FastApplicationSettingsRequestModel) GetMaxAverageLoadThreshold() int32`
@@ -81,6 +91,16 @@ SetMaxAverageLoadThreshold sets MaxAverageLoadThreshold field to given value.
 
 HasMaxAverageLoadThreshold returns a boolean if a field has been set.
 
+### SetMaxAverageLoadThresholdNil
+
+`func (o *FastApplicationSettingsRequestModel) SetMaxAverageLoadThresholdNil(b bool)`
+
+ SetMaxAverageLoadThresholdNil sets the value for MaxAverageLoadThreshold to be an explicit nil
+
+### UnsetMaxAverageLoadThreshold
+`func (o *FastApplicationSettingsRequestModel) UnsetMaxAverageLoadThreshold()`
+
+UnsetMaxAverageLoadThreshold ensures that no value is present for MaxAverageLoadThreshold, not even an explicit nil
 ### GetMaxLoadPerMachineThreshold
 
 `func (o *FastApplicationSettingsRequestModel) GetMaxLoadPerMachineThreshold() int32`
@@ -106,6 +126,16 @@ SetMaxLoadPerMachineThreshold sets MaxLoadPerMachineThreshold field to given val
 
 HasMaxLoadPerMachineThreshold returns a boolean if a field has been set.
 
+### SetMaxLoadPerMachineThresholdNil
+
+`func (o *FastApplicationSettingsRequestModel) SetMaxLoadPerMachineThresholdNil(b bool)`
+
+ SetMaxLoadPerMachineThresholdNil sets the value for MaxLoadPerMachineThreshold to be an explicit nil
+
+### UnsetMaxLoadPerMachineThreshold
+`func (o *FastApplicationSettingsRequestModel) UnsetMaxLoadPerMachineThreshold()`
+
+UnsetMaxLoadPerMachineThreshold ensures that no value is present for MaxLoadPerMachineThreshold, not even an explicit nil
 ### GetMaxTimeBeforeDisconnectMinutes
 
 `func (o *FastApplicationSettingsRequestModel) GetMaxTimeBeforeDisconnectMinutes() int32`
@@ -131,6 +161,16 @@ SetMaxTimeBeforeDisconnectMinutes sets MaxTimeBeforeDisconnectMinutes field to g
 
 HasMaxTimeBeforeDisconnectMinutes returns a boolean if a field has been set.
 
+### SetMaxTimeBeforeDisconnectMinutesNil
+
+`func (o *FastApplicationSettingsRequestModel) SetMaxTimeBeforeDisconnectMinutesNil(b bool)`
+
+ SetMaxTimeBeforeDisconnectMinutesNil sets the value for MaxTimeBeforeDisconnectMinutes to be an explicit nil
+
+### UnsetMaxTimeBeforeDisconnectMinutes
+`func (o *FastApplicationSettingsRequestModel) UnsetMaxTimeBeforeDisconnectMinutes()`
+
+UnsetMaxTimeBeforeDisconnectMinutes ensures that no value is present for MaxTimeBeforeDisconnectMinutes, not even an explicit nil
 ### GetMaxTimeBeforeTerminateMinutes
 
 `func (o *FastApplicationSettingsRequestModel) GetMaxTimeBeforeTerminateMinutes() int32`
@@ -156,6 +196,16 @@ SetMaxTimeBeforeTerminateMinutes sets MaxTimeBeforeTerminateMinutes field to giv
 
 HasMaxTimeBeforeTerminateMinutes returns a boolean if a field has been set.
 
+### SetMaxTimeBeforeTerminateMinutesNil
+
+`func (o *FastApplicationSettingsRequestModel) SetMaxTimeBeforeTerminateMinutesNil(b bool)`
+
+ SetMaxTimeBeforeTerminateMinutesNil sets the value for MaxTimeBeforeTerminateMinutes to be an explicit nil
+
+### UnsetMaxTimeBeforeTerminateMinutes
+`func (o *FastApplicationSettingsRequestModel) UnsetMaxTimeBeforeTerminateMinutes()`
+
+UnsetMaxTimeBeforeTerminateMinutes ensures that no value is present for MaxTimeBeforeTerminateMinutes, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *FastApplicationSettingsRequestModel) GetIncludedUserFilterEnabled() bool`
@@ -181,6 +231,16 @@ SetIncludedUserFilterEnabled sets IncludedUserFilterEnabled field to given value
 
 HasIncludedUserFilterEnabled returns a boolean if a field has been set.
 
+### SetIncludedUserFilterEnabledNil
+
+`func (o *FastApplicationSettingsRequestModel) SetIncludedUserFilterEnabledNil(b bool)`
+
+ SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
+
+### UnsetIncludedUserFilterEnabled
+`func (o *FastApplicationSettingsRequestModel) UnsetIncludedUserFilterEnabled()`
+
+UnsetIncludedUserFilterEnabled ensures that no value is present for IncludedUserFilterEnabled, not even an explicit nil
 ### GetIncludedUsers
 
 `func (o *FastApplicationSettingsRequestModel) GetIncludedUsers() []string`
@@ -206,6 +266,16 @@ SetIncludedUsers sets IncludedUsers field to given value.
 
 HasIncludedUsers returns a boolean if a field has been set.
 
+### SetIncludedUsersNil
+
+`func (o *FastApplicationSettingsRequestModel) SetIncludedUsersNil(b bool)`
+
+ SetIncludedUsersNil sets the value for IncludedUsers to be an explicit nil
+
+### UnsetIncludedUsers
+`func (o *FastApplicationSettingsRequestModel) UnsetIncludedUsers()`
+
+UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
