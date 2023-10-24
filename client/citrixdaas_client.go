@@ -32,17 +32,17 @@ func getMiddlewareWithClient(authClient *CitrixDaasClient, middlewareAuthFunc Mi
 	}
 }
 
-func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret string, onPremise bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, error) {
+func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret string, onPremise bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, error) {
 	daasClient := &CitrixDaasClient{}
 
 	/* ------ Setup API Client ------ */
 	localCfg := openapiclient.NewConfiguration()
 	localCfg.Host = hostname
 	localCfg.Scheme = "https"
-	// When running against on-prem, ignore SSL verification and override the API Gateway API Server path
+	// When running against on-prem, set disableSslVerification to true when the DDC does not have a valid TLS/SSL certificate
 	if onPremise {
 		tr := &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: disableSslVerification},
 		}
 		client := &http.Client{Transport: tr}
 		localCfg.HTTPClient = client
