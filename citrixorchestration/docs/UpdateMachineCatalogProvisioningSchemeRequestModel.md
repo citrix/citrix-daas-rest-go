@@ -12,7 +12,8 @@ Name | Type | Description | Notes
 **CpuCount** | Pointer to **NullableInt32** | &#x60;DEPRECATED.&#x60; The number of processors that virtual machines created from the provisioning scheme should use. | [optional] 
 **MemoryMB** | Pointer to **NullableInt32** | &#x60;DEPRECATED.&#x60; The maximum amount of memory that virtual machines created from the provisioning scheme should use. | [optional] 
 **ServiceOfferingPath** | Pointer to **NullableString** | &#x60;DEPRECATED.&#x60; The hypervisor resource path of the Cloud service offering to use when creating machines. | [optional] 
-**CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | &#x60;DEPRECATED.&#x60; The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
+**CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
+**CustomPropertiesInString** | Pointer to **NullableString** | The properties of the provisioning scheme in a single string, that are specific to the target hosting infrastructure. This is an optional method to set the custom properties which are not in the form of an array. | [optional] 
 **RebootOptions** | Pointer to [**RebootMachinesRequestModel**](RebootMachinesRequestModel.md) |  | [optional] 
 **NumTotalMachines** | Pointer to **NullableInt32** | &#x60;DEPRECATED.&#x60; Total number of machines desired within the catalog. Optional; default is to leave the number of machines in the catalog unchanged. | [optional] 
 **MachineAccountCreationRules** | Pointer to [**UpdateMachineAccountCreationRulesRequestModel**](UpdateMachineAccountCreationRulesRequestModel.md) |  | [optional] 
@@ -345,6 +346,41 @@ HasCustomProperties returns a boolean if a field has been set.
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetCustomProperties()`
 
 UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+### GetCustomPropertiesInString
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetCustomPropertiesInString() string`
+
+GetCustomPropertiesInString returns the CustomPropertiesInString field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesInStringOk
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetCustomPropertiesInStringOk() (*string, bool)`
+
+GetCustomPropertiesInStringOk returns a tuple with the CustomPropertiesInString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomPropertiesInString
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInString(v string)`
+
+SetCustomPropertiesInString sets CustomPropertiesInString field to given value.
+
+### HasCustomPropertiesInString
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasCustomPropertiesInString() bool`
+
+HasCustomPropertiesInString returns a boolean if a field has been set.
+
+### SetCustomPropertiesInStringNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInStringNil(b bool)`
+
+ SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
+
+### UnsetCustomPropertiesInString
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetCustomPropertiesInString()`
+
+UnsetCustomPropertiesInString ensures that no value is present for CustomPropertiesInString, not even an explicit nil
 ### GetRebootOptions
 
 `func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetRebootOptions() RebootMachinesRequestModel`

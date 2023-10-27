@@ -40,7 +40,11 @@ Name | Type | Description | Notes
 **ApplicationGroupCompatibility** | [**AppGroupCompatibility**](AppGroupCompatibility.md) |  | 
 **ApplicationCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
 **DesktopCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
+**RequiredSleepCapability** | Pointer to [**RequiredSleepCapability**](RequiredSleepCapability.md) |  | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType&#x3D;&#x3D;Virtual meant the same thing as \&quot;power-managed\&quot;; however that&#39;s not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType&#x3D;&#x3D;Physical). | [optional] 
+**AutoscalingEnabled** | Pointer to **bool** | Specifies whether machines in this desktop group can be Autoscaled. | [optional] 
+**ReuseMachinesWithoutShutdownInOutage** | Pointer to **bool** | Whether machines will be reused without a shutdown in case of an outage. | [optional] 
 **AppAccessPolicy** | Pointer to [**AppAccessPolicyResponseModel**](AppAccessPolicyResponseModel.md) |  | [optional] 
 **AppProtectionKeyLoggingRequired** | Pointer to **NullableBool** | Specifies whether key logging app protection is required. | [optional] 
 **AppProtectionScreenCaptureRequired** | Pointer to **NullableBool** | Specifies whether screen capture app protection is required. | [optional] 
@@ -55,7 +59,6 @@ Name | Type | Description | Notes
 **DesktopsNeverRegistered** | **int32** | Number of machines in the delivery group which have never successfully registered. | 
 **DesktopsPreparing** | **int32** | Number of machines in the delivery group which are preparing for a connection. | 
 **HdxSslEnabled** | Pointer to **NullableBool** | Whether connections to machines in the delivery group will use SSL. CHANGE: add: | [optional] 
-**IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType&#x3D;&#x3D;Virtual meant the same thing as \&quot;power-managed\&quot;; however that&#39;s not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType&#x3D;&#x3D;Physical). | [optional] 
 **LingerSettings** | Pointer to [**FastApplicationSettingsResponseModel**](FastApplicationSettingsResponseModel.md) |  | [optional] 
 **PowerOffDelayMinutes** | Pointer to **NullableInt32** | Delay before machines are powered off, when scaling down.  Specified in minutes.  Applies only to multi-session machines. | [optional] 
 **MachineCost** | Pointer to **NullableFloat64** | Indicates the estimated per-hour cost for machines in the delivery group, as set by the administrator. | [optional] 
@@ -70,6 +73,8 @@ Name | Type | Description | Notes
 **OffPeakExtendedDisconnectTimeoutMinutes** | Pointer to **int32** | The number of minutes before the second configured action should be performed after a user session disconnects outside peak hours. | [optional] 
 **OffPeakLogOffAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
 **OffPeakLogOffTimeoutMinutes** | Pointer to **int32** | The number of minutes before the configured action should be performed after a user session ends outside peak hours. | [optional] 
+**PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the configured action is performed on an assigned machine previously started by autoscale that subsequently remains unused. | [optional] 
+**PeakAutoscaleAssignedPowerOnIdleAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
 **PeakBufferSizePercent** | Pointer to **int32** | The percentage of machines in the delivery group that should be kept available in an idle state in peak hours. | [optional] 
 **PeakDisconnectAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
 **PeakDisconnectTimeoutMinutes** | Pointer to **int32** | The number of minutes before the second configured action should be performed after a user session disconnects in peak hours. | [optional] 
@@ -85,7 +90,6 @@ Name | Type | Description | Notes
 **PowerTimeSchemes** | Pointer to [**[]PowerTimeSchemeResponseModel**](PowerTimeSchemeResponseModel.md) | Power management time schemes.  No two schemes will cover the same day of the week. | [optional] 
 **ProtocolPriority** | Pointer to [**[]ProtocolType**](ProtocolType.md) | A list of protocols in the order in which they will be attempted for use during connection. | [optional] 
 **RegisteredMachines** | **int32** | Number of machines in the delivery group that have registered. | 
-**ReuseMachinesWithoutShutdownInOutage** | Pointer to **bool** | Whether machines will be reused without a shutdown in case of an outage. | [optional] 
 **SecureIcaRequired** | **bool** | Whether HDX connections to machines in the delivery group require the use of the SecureICA protocol. | 
 **SettlementPeriodBeforeAutoShutdownSeconds** | Pointer to **int32** | Time after a session ends during which automatic shutdown requests (for example, shutdown after use, idle pool management) are deferred. Any outstanding shutdown request takes effect after the settlement period expires. This is typically used to configure time to allow logoff scripts to complete. | [optional] 
 **SettlementPeriodBeforeUseSeconds** | Pointer to **int32** | Idle period before a machine can be selected to host a new session after registration or the end of a previous session. This is typically used to allow a machine to become idle following processing associated with start-up or logoff actions. A machine may still be selected during the idle period if no other machine is available for immediate use. | [optional] 
@@ -107,6 +111,7 @@ Name | Type | Description | Notes
 **RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak** | Pointer to **NullableInt32** | Represents the percentage that the number of untagged single-session machines in an idle state, or for multi-session machines, the untagged available load capacity must fall below before Autoscale powers on and manages &#39;tagged&#39; machines, as per policy, in off-peak. If the number of untagged machines in an idle state, or the untagged available load capacity goes above this threshold value, Autoscale will attempt to shut down &#39;tagged&#39; machines. | [optional] 
 **LogOffWarningMessage** | Pointer to **NullableString** | The warning message to display to users in active sessions prior to logging off users, whether in peak time or off-peak. | [optional] 
 **LogOffWarningTitle** | Pointer to **NullableString** | The title of the warning message dialog. | [optional] 
+**LoadBalanceType** | Pointer to [**LoadBalanceType**](LoadBalanceType.md) |  | [optional] 
 **AutoscaleLogOffReminderEnabled** | Pointer to **NullableBool** | Boolean value indicating whether the warning messages should be sent on an interval to nudge a logoff should be sent on an interval when autoscale is enabled. | [optional] 
 **AutoscaleLogOffReminderIntervalSecondsOffPeak** | Pointer to **NullableInt32** | Represents the time interval at which messages are  sent to the user during off peak time when Autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
 **AutoscaleLogOffReminderIntervalSecondsPeak** | Pointer to **NullableInt32** | Represents the time interval at which messages are  sent to the user during peak time when autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
@@ -972,6 +977,31 @@ and a boolean to check if the value has been set.
 SetDesktopCompatibility sets DesktopCompatibility field to given value.
 
 
+### GetRequiredSleepCapability
+
+`func (o *DeliveryGroupDetailResponseModel) GetRequiredSleepCapability() RequiredSleepCapability`
+
+GetRequiredSleepCapability returns the RequiredSleepCapability field if non-nil, zero value otherwise.
+
+### GetRequiredSleepCapabilityOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetRequiredSleepCapabilityOk() (*RequiredSleepCapability, bool)`
+
+GetRequiredSleepCapabilityOk returns a tuple with the RequiredSleepCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredSleepCapability
+
+`func (o *DeliveryGroupDetailResponseModel) SetRequiredSleepCapability(v RequiredSleepCapability)`
+
+SetRequiredSleepCapability sets RequiredSleepCapability field to given value.
+
+### HasRequiredSleepCapability
+
+`func (o *DeliveryGroupDetailResponseModel) HasRequiredSleepCapability() bool`
+
+HasRequiredSleepCapability returns a boolean if a field has been set.
+
 ### GetAdminFolder
 
 `func (o *DeliveryGroupDetailResponseModel) GetAdminFolder() RefResponseModel`
@@ -996,6 +1026,81 @@ SetAdminFolder sets AdminFolder field to given value.
 `func (o *DeliveryGroupDetailResponseModel) HasAdminFolder() bool`
 
 HasAdminFolder returns a boolean if a field has been set.
+
+### GetIsPowerManaged
+
+`func (o *DeliveryGroupDetailResponseModel) GetIsPowerManaged() bool`
+
+GetIsPowerManaged returns the IsPowerManaged field if non-nil, zero value otherwise.
+
+### GetIsPowerManagedOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetIsPowerManagedOk() (*bool, bool)`
+
+GetIsPowerManagedOk returns a tuple with the IsPowerManaged field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPowerManaged
+
+`func (o *DeliveryGroupDetailResponseModel) SetIsPowerManaged(v bool)`
+
+SetIsPowerManaged sets IsPowerManaged field to given value.
+
+### HasIsPowerManaged
+
+`func (o *DeliveryGroupDetailResponseModel) HasIsPowerManaged() bool`
+
+HasIsPowerManaged returns a boolean if a field has been set.
+
+### GetAutoscalingEnabled
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscalingEnabled() bool`
+
+GetAutoscalingEnabled returns the AutoscalingEnabled field if non-nil, zero value otherwise.
+
+### GetAutoscalingEnabledOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscalingEnabledOk() (*bool, bool)`
+
+GetAutoscalingEnabledOk returns a tuple with the AutoscalingEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscalingEnabled
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscalingEnabled(v bool)`
+
+SetAutoscalingEnabled sets AutoscalingEnabled field to given value.
+
+### HasAutoscalingEnabled
+
+`func (o *DeliveryGroupDetailResponseModel) HasAutoscalingEnabled() bool`
+
+HasAutoscalingEnabled returns a boolean if a field has been set.
+
+### GetReuseMachinesWithoutShutdownInOutage
+
+`func (o *DeliveryGroupDetailResponseModel) GetReuseMachinesWithoutShutdownInOutage() bool`
+
+GetReuseMachinesWithoutShutdownInOutage returns the ReuseMachinesWithoutShutdownInOutage field if non-nil, zero value otherwise.
+
+### GetReuseMachinesWithoutShutdownInOutageOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetReuseMachinesWithoutShutdownInOutageOk() (*bool, bool)`
+
+GetReuseMachinesWithoutShutdownInOutageOk returns a tuple with the ReuseMachinesWithoutShutdownInOutage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReuseMachinesWithoutShutdownInOutage
+
+`func (o *DeliveryGroupDetailResponseModel) SetReuseMachinesWithoutShutdownInOutage(v bool)`
+
+SetReuseMachinesWithoutShutdownInOutage sets ReuseMachinesWithoutShutdownInOutage field to given value.
+
+### HasReuseMachinesWithoutShutdownInOutage
+
+`func (o *DeliveryGroupDetailResponseModel) HasReuseMachinesWithoutShutdownInOutage() bool`
+
+HasReuseMachinesWithoutShutdownInOutage returns a boolean if a field has been set.
 
 ### GetAppAccessPolicy
 
@@ -1392,31 +1497,6 @@ HasHdxSslEnabled returns a boolean if a field has been set.
 `func (o *DeliveryGroupDetailResponseModel) UnsetHdxSslEnabled()`
 
 UnsetHdxSslEnabled ensures that no value is present for HdxSslEnabled, not even an explicit nil
-### GetIsPowerManaged
-
-`func (o *DeliveryGroupDetailResponseModel) GetIsPowerManaged() bool`
-
-GetIsPowerManaged returns the IsPowerManaged field if non-nil, zero value otherwise.
-
-### GetIsPowerManagedOk
-
-`func (o *DeliveryGroupDetailResponseModel) GetIsPowerManagedOk() (*bool, bool)`
-
-GetIsPowerManagedOk returns a tuple with the IsPowerManaged field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsPowerManaged
-
-`func (o *DeliveryGroupDetailResponseModel) SetIsPowerManaged(v bool)`
-
-SetIsPowerManaged sets IsPowerManaged field to given value.
-
-### HasIsPowerManaged
-
-`func (o *DeliveryGroupDetailResponseModel) HasIsPowerManaged() bool`
-
-HasIsPowerManaged returns a boolean if a field has been set.
-
 ### GetLingerSettings
 
 `func (o *DeliveryGroupDetailResponseModel) GetLingerSettings() FastApplicationSettingsResponseModel`
@@ -1766,6 +1846,66 @@ SetOffPeakLogOffTimeoutMinutes sets OffPeakLogOffTimeoutMinutes field to given v
 `func (o *DeliveryGroupDetailResponseModel) HasOffPeakLogOffTimeoutMinutes() bool`
 
 HasOffPeakLogOffTimeoutMinutes returns a boolean if a field has been set.
+
+### GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+
+`func (o *DeliveryGroupDetailResponseModel) GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes() int32`
+
+GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes returns the PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes field if non-nil, zero value otherwise.
+
+### GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesOk() (*int32, bool)`
+
+GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesOk returns a tuple with the PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+
+`func (o *DeliveryGroupDetailResponseModel) SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes(v int32)`
+
+SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes sets PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes field to given value.
+
+### HasPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+
+`func (o *DeliveryGroupDetailResponseModel) HasPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes() bool`
+
+HasPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes returns a boolean if a field has been set.
+
+### SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil(b bool)`
+
+ SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil sets the value for PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes to be an explicit nil
+
+### UnsetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+`func (o *DeliveryGroupDetailResponseModel) UnsetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes()`
+
+UnsetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes ensures that no value is present for PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes, not even an explicit nil
+### GetPeakAutoscaleAssignedPowerOnIdleAction
+
+`func (o *DeliveryGroupDetailResponseModel) GetPeakAutoscaleAssignedPowerOnIdleAction() SessionChangeHostingAction`
+
+GetPeakAutoscaleAssignedPowerOnIdleAction returns the PeakAutoscaleAssignedPowerOnIdleAction field if non-nil, zero value otherwise.
+
+### GetPeakAutoscaleAssignedPowerOnIdleActionOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetPeakAutoscaleAssignedPowerOnIdleActionOk() (*SessionChangeHostingAction, bool)`
+
+GetPeakAutoscaleAssignedPowerOnIdleActionOk returns a tuple with the PeakAutoscaleAssignedPowerOnIdleAction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeakAutoscaleAssignedPowerOnIdleAction
+
+`func (o *DeliveryGroupDetailResponseModel) SetPeakAutoscaleAssignedPowerOnIdleAction(v SessionChangeHostingAction)`
+
+SetPeakAutoscaleAssignedPowerOnIdleAction sets PeakAutoscaleAssignedPowerOnIdleAction field to given value.
+
+### HasPeakAutoscaleAssignedPowerOnIdleAction
+
+`func (o *DeliveryGroupDetailResponseModel) HasPeakAutoscaleAssignedPowerOnIdleAction() bool`
+
+HasPeakAutoscaleAssignedPowerOnIdleAction returns a boolean if a field has been set.
 
 ### GetPeakBufferSizePercent
 
@@ -2156,31 +2296,6 @@ and a boolean to check if the value has been set.
 
 SetRegisteredMachines sets RegisteredMachines field to given value.
 
-
-### GetReuseMachinesWithoutShutdownInOutage
-
-`func (o *DeliveryGroupDetailResponseModel) GetReuseMachinesWithoutShutdownInOutage() bool`
-
-GetReuseMachinesWithoutShutdownInOutage returns the ReuseMachinesWithoutShutdownInOutage field if non-nil, zero value otherwise.
-
-### GetReuseMachinesWithoutShutdownInOutageOk
-
-`func (o *DeliveryGroupDetailResponseModel) GetReuseMachinesWithoutShutdownInOutageOk() (*bool, bool)`
-
-GetReuseMachinesWithoutShutdownInOutageOk returns a tuple with the ReuseMachinesWithoutShutdownInOutage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetReuseMachinesWithoutShutdownInOutage
-
-`func (o *DeliveryGroupDetailResponseModel) SetReuseMachinesWithoutShutdownInOutage(v bool)`
-
-SetReuseMachinesWithoutShutdownInOutage sets ReuseMachinesWithoutShutdownInOutage field to given value.
-
-### HasReuseMachinesWithoutShutdownInOutage
-
-`func (o *DeliveryGroupDetailResponseModel) HasReuseMachinesWithoutShutdownInOutage() bool`
-
-HasReuseMachinesWithoutShutdownInOutage returns a boolean if a field has been set.
 
 ### GetSecureIcaRequired
 
@@ -2842,6 +2957,31 @@ HasLogOffWarningTitle returns a boolean if a field has been set.
 `func (o *DeliveryGroupDetailResponseModel) UnsetLogOffWarningTitle()`
 
 UnsetLogOffWarningTitle ensures that no value is present for LogOffWarningTitle, not even an explicit nil
+### GetLoadBalanceType
+
+`func (o *DeliveryGroupDetailResponseModel) GetLoadBalanceType() LoadBalanceType`
+
+GetLoadBalanceType returns the LoadBalanceType field if non-nil, zero value otherwise.
+
+### GetLoadBalanceTypeOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetLoadBalanceTypeOk() (*LoadBalanceType, bool)`
+
+GetLoadBalanceTypeOk returns a tuple with the LoadBalanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadBalanceType
+
+`func (o *DeliveryGroupDetailResponseModel) SetLoadBalanceType(v LoadBalanceType)`
+
+SetLoadBalanceType sets LoadBalanceType field to given value.
+
+### HasLoadBalanceType
+
+`func (o *DeliveryGroupDetailResponseModel) HasLoadBalanceType() bool`
+
+HasLoadBalanceType returns a boolean if a field has been set.
+
 ### GetAutoscaleLogOffReminderEnabled
 
 `func (o *DeliveryGroupDetailResponseModel) GetAutoscaleLogOffReminderEnabled() bool`

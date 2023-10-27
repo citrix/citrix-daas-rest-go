@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** | Policy name. | [optional] 
-**IsEnabled** | Pointer to **bool** | Is policy enabled | [optional] 
-**Description** | Pointer to **NullableString** | Policy description | [optional] 
-**Settings** | Pointer to [**[]SettingRequest**](SettingRequest.md) | Policy settings | [optional] 
-**Filters** | Pointer to [**[]FilterRequest**](FilterRequest.md) | Policy filters | [optional] 
+**IsEnabled** | Pointer to **bool** | Is policy enabled. | [optional] 
+**Description** | Pointer to **NullableString** | Policy description. | [optional] 
+**Settings** | Pointer to [**[]SettingRequest**](SettingRequest.md) | Policy settings. | [optional] 
+**Filters** | Pointer to [**[]FilterRequest**](FilterRequest.md) | Policy filters. | [optional] 
 
 ## Methods
 

@@ -4,10 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingName** | Pointer to **NullableString** | Setting name | [optional] 
-**SettingValue** | Pointer to **NullableString** | Setting value | [optional] 
-**WinningGpo** | Pointer to **NullableString** | Source GPO for the setting | [optional] 
-**WinningPolicy** | Pointer to **NullableString** | Source policy for the setting | [optional] 
+**SettingName** | Pointer to **NullableString** | Setting name. | [optional] 
+**SettingValue** | Pointer to **NullableString** | Setting value. | [optional] 
+**PolicyIdentity** | Pointer to [**PolicyIdentity**](PolicyIdentity.md) |  | [optional] 
 
 ## Methods
 
@@ -98,76 +97,31 @@ HasSettingValue returns a boolean if a field has been set.
 `func (o *AppliedSetting) UnsetSettingValue()`
 
 UnsetSettingValue ensures that no value is present for SettingValue, not even an explicit nil
-### GetWinningGpo
+### GetPolicyIdentity
 
-`func (o *AppliedSetting) GetWinningGpo() string`
+`func (o *AppliedSetting) GetPolicyIdentity() PolicyIdentity`
 
-GetWinningGpo returns the WinningGpo field if non-nil, zero value otherwise.
+GetPolicyIdentity returns the PolicyIdentity field if non-nil, zero value otherwise.
 
-### GetWinningGpoOk
+### GetPolicyIdentityOk
 
-`func (o *AppliedSetting) GetWinningGpoOk() (*string, bool)`
+`func (o *AppliedSetting) GetPolicyIdentityOk() (*PolicyIdentity, bool)`
 
-GetWinningGpoOk returns a tuple with the WinningGpo field if it's non-nil, zero value otherwise
+GetPolicyIdentityOk returns a tuple with the PolicyIdentity field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWinningGpo
+### SetPolicyIdentity
 
-`func (o *AppliedSetting) SetWinningGpo(v string)`
+`func (o *AppliedSetting) SetPolicyIdentity(v PolicyIdentity)`
 
-SetWinningGpo sets WinningGpo field to given value.
+SetPolicyIdentity sets PolicyIdentity field to given value.
 
-### HasWinningGpo
+### HasPolicyIdentity
 
-`func (o *AppliedSetting) HasWinningGpo() bool`
+`func (o *AppliedSetting) HasPolicyIdentity() bool`
 
-HasWinningGpo returns a boolean if a field has been set.
+HasPolicyIdentity returns a boolean if a field has been set.
 
-### SetWinningGpoNil
-
-`func (o *AppliedSetting) SetWinningGpoNil(b bool)`
-
- SetWinningGpoNil sets the value for WinningGpo to be an explicit nil
-
-### UnsetWinningGpo
-`func (o *AppliedSetting) UnsetWinningGpo()`
-
-UnsetWinningGpo ensures that no value is present for WinningGpo, not even an explicit nil
-### GetWinningPolicy
-
-`func (o *AppliedSetting) GetWinningPolicy() string`
-
-GetWinningPolicy returns the WinningPolicy field if non-nil, zero value otherwise.
-
-### GetWinningPolicyOk
-
-`func (o *AppliedSetting) GetWinningPolicyOk() (*string, bool)`
-
-GetWinningPolicyOk returns a tuple with the WinningPolicy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetWinningPolicy
-
-`func (o *AppliedSetting) SetWinningPolicy(v string)`
-
-SetWinningPolicy sets WinningPolicy field to given value.
-
-### HasWinningPolicy
-
-`func (o *AppliedSetting) HasWinningPolicy() bool`
-
-HasWinningPolicy returns a boolean if a field has been set.
-
-### SetWinningPolicyNil
-
-`func (o *AppliedSetting) SetWinningPolicyNil(b bool)`
-
- SetWinningPolicyNil sets the value for WinningPolicy to be an explicit nil
-
-### UnsetWinningPolicy
-`func (o *AppliedSetting) UnsetWinningPolicy()`
-
-UnsetWinningPolicy ensures that no value is present for WinningPolicy, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

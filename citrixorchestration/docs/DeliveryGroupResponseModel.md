@@ -40,7 +40,11 @@ Name | Type | Description | Notes
 **ApplicationGroupCompatibility** | [**AppGroupCompatibility**](AppGroupCompatibility.md) |  | 
 **ApplicationCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
 **DesktopCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
+**RequiredSleepCapability** | Pointer to [**RequiredSleepCapability**](RequiredSleepCapability.md) |  | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType&#x3D;&#x3D;Virtual meant the same thing as \&quot;power-managed\&quot;; however that&#39;s not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType&#x3D;&#x3D;Physical). | [optional] 
+**AutoscalingEnabled** | Pointer to **bool** | Specifies whether machines in this desktop group can be Autoscaled. | [optional] 
+**ReuseMachinesWithoutShutdownInOutage** | Pointer to **bool** | Whether machines will be reused without a shutdown in case of an outage. | [optional] 
 
 ## Methods
 
@@ -901,6 +905,31 @@ and a boolean to check if the value has been set.
 SetDesktopCompatibility sets DesktopCompatibility field to given value.
 
 
+### GetRequiredSleepCapability
+
+`func (o *DeliveryGroupResponseModel) GetRequiredSleepCapability() RequiredSleepCapability`
+
+GetRequiredSleepCapability returns the RequiredSleepCapability field if non-nil, zero value otherwise.
+
+### GetRequiredSleepCapabilityOk
+
+`func (o *DeliveryGroupResponseModel) GetRequiredSleepCapabilityOk() (*RequiredSleepCapability, bool)`
+
+GetRequiredSleepCapabilityOk returns a tuple with the RequiredSleepCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredSleepCapability
+
+`func (o *DeliveryGroupResponseModel) SetRequiredSleepCapability(v RequiredSleepCapability)`
+
+SetRequiredSleepCapability sets RequiredSleepCapability field to given value.
+
+### HasRequiredSleepCapability
+
+`func (o *DeliveryGroupResponseModel) HasRequiredSleepCapability() bool`
+
+HasRequiredSleepCapability returns a boolean if a field has been set.
+
 ### GetAdminFolder
 
 `func (o *DeliveryGroupResponseModel) GetAdminFolder() RefResponseModel`
@@ -925,6 +954,81 @@ SetAdminFolder sets AdminFolder field to given value.
 `func (o *DeliveryGroupResponseModel) HasAdminFolder() bool`
 
 HasAdminFolder returns a boolean if a field has been set.
+
+### GetIsPowerManaged
+
+`func (o *DeliveryGroupResponseModel) GetIsPowerManaged() bool`
+
+GetIsPowerManaged returns the IsPowerManaged field if non-nil, zero value otherwise.
+
+### GetIsPowerManagedOk
+
+`func (o *DeliveryGroupResponseModel) GetIsPowerManagedOk() (*bool, bool)`
+
+GetIsPowerManagedOk returns a tuple with the IsPowerManaged field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPowerManaged
+
+`func (o *DeliveryGroupResponseModel) SetIsPowerManaged(v bool)`
+
+SetIsPowerManaged sets IsPowerManaged field to given value.
+
+### HasIsPowerManaged
+
+`func (o *DeliveryGroupResponseModel) HasIsPowerManaged() bool`
+
+HasIsPowerManaged returns a boolean if a field has been set.
+
+### GetAutoscalingEnabled
+
+`func (o *DeliveryGroupResponseModel) GetAutoscalingEnabled() bool`
+
+GetAutoscalingEnabled returns the AutoscalingEnabled field if non-nil, zero value otherwise.
+
+### GetAutoscalingEnabledOk
+
+`func (o *DeliveryGroupResponseModel) GetAutoscalingEnabledOk() (*bool, bool)`
+
+GetAutoscalingEnabledOk returns a tuple with the AutoscalingEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscalingEnabled
+
+`func (o *DeliveryGroupResponseModel) SetAutoscalingEnabled(v bool)`
+
+SetAutoscalingEnabled sets AutoscalingEnabled field to given value.
+
+### HasAutoscalingEnabled
+
+`func (o *DeliveryGroupResponseModel) HasAutoscalingEnabled() bool`
+
+HasAutoscalingEnabled returns a boolean if a field has been set.
+
+### GetReuseMachinesWithoutShutdownInOutage
+
+`func (o *DeliveryGroupResponseModel) GetReuseMachinesWithoutShutdownInOutage() bool`
+
+GetReuseMachinesWithoutShutdownInOutage returns the ReuseMachinesWithoutShutdownInOutage field if non-nil, zero value otherwise.
+
+### GetReuseMachinesWithoutShutdownInOutageOk
+
+`func (o *DeliveryGroupResponseModel) GetReuseMachinesWithoutShutdownInOutageOk() (*bool, bool)`
+
+GetReuseMachinesWithoutShutdownInOutageOk returns a tuple with the ReuseMachinesWithoutShutdownInOutage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReuseMachinesWithoutShutdownInOutage
+
+`func (o *DeliveryGroupResponseModel) SetReuseMachinesWithoutShutdownInOutage(v bool)`
+
+SetReuseMachinesWithoutShutdownInOutage sets ReuseMachinesWithoutShutdownInOutage field to given value.
+
+### HasReuseMachinesWithoutShutdownInOutage
+
+`func (o *DeliveryGroupResponseModel) HasReuseMachinesWithoutShutdownInOutage() bool`
+
+HasReuseMachinesWithoutShutdownInOutage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

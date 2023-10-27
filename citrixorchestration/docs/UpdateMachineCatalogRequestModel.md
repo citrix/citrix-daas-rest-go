@@ -19,11 +19,14 @@ Name | Type | Description | Notes
 **CpuCount** | Pointer to **NullableInt32** | The number of processors that virtual machines created from the provisioning scheme should use. | [optional] 
 **MemoryMB** | Pointer to **NullableInt32** | The maximum amount of memory that virtual machines created from the provisioning scheme should use. | [optional] 
 **ServiceOfferingPath** | Pointer to **NullableString** | The hypervisor resource path of the Cloud service offering to use when creating machines. | [optional] 
+**SecurityGroups** | Pointer to **[]string** | The hypervisor resource path(s) of the Cloud security group(s) to use when creating machines. | [optional] 
 **NetworkMapping** | Pointer to [**[]NetworkMapRequestModel**](NetworkMapRequestModel.md) | Specifies how the attached NICs are mapped to networks. If this parameter is omitted, the current NICs setting is not updated. If an empty array is specified, new VMs will be created with a single NIC, which is mapped to the default network in the hosting unit. If an non-empty array is supplied, the NICs setting is updated, and new machines will be created with the number of NICs specified in the array, with each NIC attached to the specified network. | [optional] 
 **VdaUpgradeType** | Pointer to [**VdaUpgradeType**](VdaUpgradeType.md) |  | [optional] 
 **MachineProfilePath** | Pointer to **NullableString** | The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine catalog. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated. | [optional] 
+**WriteBackCacheDiskSizeGB** | Pointer to **NullableInt32** | The size in GB of any temporary storage disk used by the write back cache. Should be used in conjunction with WriteBackCacheMemorySizeMB. | [optional] 
+**WriteBackCacheMemorySizeMB** | Pointer to **NullableInt32** | The size in MB of any write back cache if required. Should be used in conjunction with WriteBackCacheDiskSizeGB. | [optional] 
 **AzureADSecurityGroupName** | Pointer to **NullableString** | Name of Azure AD security group to be created. | [optional] 
 **AzureADTenantId** | Pointer to **NullableString** | TenantId of Azure Directory. | [optional] 
 
@@ -561,6 +564,41 @@ HasServiceOfferingPath returns a boolean if a field has been set.
 `func (o *UpdateMachineCatalogRequestModel) UnsetServiceOfferingPath()`
 
 UnsetServiceOfferingPath ensures that no value is present for ServiceOfferingPath, not even an explicit nil
+### GetSecurityGroups
+
+`func (o *UpdateMachineCatalogRequestModel) GetSecurityGroups() []string`
+
+GetSecurityGroups returns the SecurityGroups field if non-nil, zero value otherwise.
+
+### GetSecurityGroupsOk
+
+`func (o *UpdateMachineCatalogRequestModel) GetSecurityGroupsOk() (*[]string, bool)`
+
+GetSecurityGroupsOk returns a tuple with the SecurityGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecurityGroups
+
+`func (o *UpdateMachineCatalogRequestModel) SetSecurityGroups(v []string)`
+
+SetSecurityGroups sets SecurityGroups field to given value.
+
+### HasSecurityGroups
+
+`func (o *UpdateMachineCatalogRequestModel) HasSecurityGroups() bool`
+
+HasSecurityGroups returns a boolean if a field has been set.
+
+### SetSecurityGroupsNil
+
+`func (o *UpdateMachineCatalogRequestModel) SetSecurityGroupsNil(b bool)`
+
+ SetSecurityGroupsNil sets the value for SecurityGroups to be an explicit nil
+
+### UnsetSecurityGroups
+`func (o *UpdateMachineCatalogRequestModel) UnsetSecurityGroups()`
+
+UnsetSecurityGroups ensures that no value is present for SecurityGroups, not even an explicit nil
 ### GetNetworkMapping
 
 `func (o *UpdateMachineCatalogRequestModel) GetNetworkMapping() []NetworkMapRequestModel`
@@ -726,6 +764,76 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *UpdateMachineCatalogRequestModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetWriteBackCacheDiskSizeGB
+
+`func (o *UpdateMachineCatalogRequestModel) GetWriteBackCacheDiskSizeGB() int32`
+
+GetWriteBackCacheDiskSizeGB returns the WriteBackCacheDiskSizeGB field if non-nil, zero value otherwise.
+
+### GetWriteBackCacheDiskSizeGBOk
+
+`func (o *UpdateMachineCatalogRequestModel) GetWriteBackCacheDiskSizeGBOk() (*int32, bool)`
+
+GetWriteBackCacheDiskSizeGBOk returns a tuple with the WriteBackCacheDiskSizeGB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWriteBackCacheDiskSizeGB
+
+`func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheDiskSizeGB(v int32)`
+
+SetWriteBackCacheDiskSizeGB sets WriteBackCacheDiskSizeGB field to given value.
+
+### HasWriteBackCacheDiskSizeGB
+
+`func (o *UpdateMachineCatalogRequestModel) HasWriteBackCacheDiskSizeGB() bool`
+
+HasWriteBackCacheDiskSizeGB returns a boolean if a field has been set.
+
+### SetWriteBackCacheDiskSizeGBNil
+
+`func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheDiskSizeGBNil(b bool)`
+
+ SetWriteBackCacheDiskSizeGBNil sets the value for WriteBackCacheDiskSizeGB to be an explicit nil
+
+### UnsetWriteBackCacheDiskSizeGB
+`func (o *UpdateMachineCatalogRequestModel) UnsetWriteBackCacheDiskSizeGB()`
+
+UnsetWriteBackCacheDiskSizeGB ensures that no value is present for WriteBackCacheDiskSizeGB, not even an explicit nil
+### GetWriteBackCacheMemorySizeMB
+
+`func (o *UpdateMachineCatalogRequestModel) GetWriteBackCacheMemorySizeMB() int32`
+
+GetWriteBackCacheMemorySizeMB returns the WriteBackCacheMemorySizeMB field if non-nil, zero value otherwise.
+
+### GetWriteBackCacheMemorySizeMBOk
+
+`func (o *UpdateMachineCatalogRequestModel) GetWriteBackCacheMemorySizeMBOk() (*int32, bool)`
+
+GetWriteBackCacheMemorySizeMBOk returns a tuple with the WriteBackCacheMemorySizeMB field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWriteBackCacheMemorySizeMB
+
+`func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheMemorySizeMB(v int32)`
+
+SetWriteBackCacheMemorySizeMB sets WriteBackCacheMemorySizeMB field to given value.
+
+### HasWriteBackCacheMemorySizeMB
+
+`func (o *UpdateMachineCatalogRequestModel) HasWriteBackCacheMemorySizeMB() bool`
+
+HasWriteBackCacheMemorySizeMB returns a boolean if a field has been set.
+
+### SetWriteBackCacheMemorySizeMBNil
+
+`func (o *UpdateMachineCatalogRequestModel) SetWriteBackCacheMemorySizeMBNil(b bool)`
+
+ SetWriteBackCacheMemorySizeMBNil sets the value for WriteBackCacheMemorySizeMB to be an explicit nil
+
+### UnsetWriteBackCacheMemorySizeMB
+`func (o *UpdateMachineCatalogRequestModel) UnsetWriteBackCacheMemorySizeMB()`
+
+UnsetWriteBackCacheMemorySizeMB ensures that no value is present for WriteBackCacheMemorySizeMB, not even an explicit nil
 ### GetAzureADSecurityGroupName
 
 `func (o *UpdateMachineCatalogRequestModel) GetAzureADSecurityGroupName() string`

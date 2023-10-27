@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | [**BackupRestoreActions**](BackupRestoreActions.md) |  | 
 **ExecutionId** | **string** | Execution ID of operation | 
-**Duration** | **int32** | Current operational duration in seconds | 
+**Duration** | **int32** | Current/Total duration in seconds | 
+**RestApiDuration** | **int32** | Current/Total Rest API duration in seconds | 
 **Status** | [**BackupRestoreStatus**](BackupRestoreStatus.md) |  | 
 **BackupName** | Pointer to **NullableString** | Backup name being created by backup operation or backup name being restored from | [optional] 
 **ScheduleName** | Pointer to **NullableString** | Schedule Name | [optional] 
@@ -20,17 +21,21 @@ Name | Type | Description | Notes
 **MemberCount** | Pointer to **int32** | Member Count | [optional] 
 **ComponentProgress** | Pointer to [**BackupRestorePlaybookActionState**](BackupRestorePlaybookActionState.md) |  | [optional] 
 **CheckMode** | Pointer to **bool** | Check Mode restore from backup | [optional] 
+**PreImportCheckMode** | Pointer to **bool** | Pre-Import Check Mode | [optional] 
 **Filters** | Pointer to **NullableString** | Filters used by restore from backup | [optional] 
 **AdministratrName** | Pointer to **NullableString** | AdministratorName | [optional] 
+**IsBackupRetry** | Pointer to **bool** | Is this a backup retry after a failed backup | [optional] 
 **BackupDetails** | Pointer to **map[string]string** | Backup Status Details | [optional] 
 **RestoreDetails** | Pointer to [**[]BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) | Restore Status Details | [optional] 
 **SimpleResults** | Pointer to **[]string** | Simple Results (such as Get backed up member names) | [optional] 
+**RestoreType** | Pointer to [**BackupRestoreRestoreTypes**](BackupRestoreRestoreTypes.md) |  | [optional] 
+**Fixups** | Pointer to [**[]BackupRestoreFixupModel**](BackupRestoreFixupModel.md) | Fixups  | [optional] 
 
 ## Methods
 
 ### NewBackupRestoreStatusResponseModel
 
-`func NewBackupRestoreStatusResponseModel(action BackupRestoreActions, executionId string, duration int32, status BackupRestoreStatus, ) *BackupRestoreStatusResponseModel`
+`func NewBackupRestoreStatusResponseModel(action BackupRestoreActions, executionId string, duration int32, restApiDuration int32, status BackupRestoreStatus, ) *BackupRestoreStatusResponseModel`
 
 NewBackupRestoreStatusResponseModel instantiates a new BackupRestoreStatusResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -103,6 +108,26 @@ and a boolean to check if the value has been set.
 `func (o *BackupRestoreStatusResponseModel) SetDuration(v int32)`
 
 SetDuration sets Duration field to given value.
+
+
+### GetRestApiDuration
+
+`func (o *BackupRestoreStatusResponseModel) GetRestApiDuration() int32`
+
+GetRestApiDuration returns the RestApiDuration field if non-nil, zero value otherwise.
+
+### GetRestApiDurationOk
+
+`func (o *BackupRestoreStatusResponseModel) GetRestApiDurationOk() (*int32, bool)`
+
+GetRestApiDurationOk returns a tuple with the RestApiDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestApiDuration
+
+`func (o *BackupRestoreStatusResponseModel) SetRestApiDuration(v int32)`
+
+SetRestApiDuration sets RestApiDuration field to given value.
 
 
 ### GetStatus
@@ -465,6 +490,31 @@ SetCheckMode sets CheckMode field to given value.
 
 HasCheckMode returns a boolean if a field has been set.
 
+### GetPreImportCheckMode
+
+`func (o *BackupRestoreStatusResponseModel) GetPreImportCheckMode() bool`
+
+GetPreImportCheckMode returns the PreImportCheckMode field if non-nil, zero value otherwise.
+
+### GetPreImportCheckModeOk
+
+`func (o *BackupRestoreStatusResponseModel) GetPreImportCheckModeOk() (*bool, bool)`
+
+GetPreImportCheckModeOk returns a tuple with the PreImportCheckMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPreImportCheckMode
+
+`func (o *BackupRestoreStatusResponseModel) SetPreImportCheckMode(v bool)`
+
+SetPreImportCheckMode sets PreImportCheckMode field to given value.
+
+### HasPreImportCheckMode
+
+`func (o *BackupRestoreStatusResponseModel) HasPreImportCheckMode() bool`
+
+HasPreImportCheckMode returns a boolean if a field has been set.
+
 ### GetFilters
 
 `func (o *BackupRestoreStatusResponseModel) GetFilters() string`
@@ -535,6 +585,31 @@ HasAdministratrName returns a boolean if a field has been set.
 `func (o *BackupRestoreStatusResponseModel) UnsetAdministratrName()`
 
 UnsetAdministratrName ensures that no value is present for AdministratrName, not even an explicit nil
+### GetIsBackupRetry
+
+`func (o *BackupRestoreStatusResponseModel) GetIsBackupRetry() bool`
+
+GetIsBackupRetry returns the IsBackupRetry field if non-nil, zero value otherwise.
+
+### GetIsBackupRetryOk
+
+`func (o *BackupRestoreStatusResponseModel) GetIsBackupRetryOk() (*bool, bool)`
+
+GetIsBackupRetryOk returns a tuple with the IsBackupRetry field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsBackupRetry
+
+`func (o *BackupRestoreStatusResponseModel) SetIsBackupRetry(v bool)`
+
+SetIsBackupRetry sets IsBackupRetry field to given value.
+
+### HasIsBackupRetry
+
+`func (o *BackupRestoreStatusResponseModel) HasIsBackupRetry() bool`
+
+HasIsBackupRetry returns a boolean if a field has been set.
+
 ### GetBackupDetails
 
 `func (o *BackupRestoreStatusResponseModel) GetBackupDetails() map[string]string`
@@ -640,6 +715,66 @@ HasSimpleResults returns a boolean if a field has been set.
 `func (o *BackupRestoreStatusResponseModel) UnsetSimpleResults()`
 
 UnsetSimpleResults ensures that no value is present for SimpleResults, not even an explicit nil
+### GetRestoreType
+
+`func (o *BackupRestoreStatusResponseModel) GetRestoreType() BackupRestoreRestoreTypes`
+
+GetRestoreType returns the RestoreType field if non-nil, zero value otherwise.
+
+### GetRestoreTypeOk
+
+`func (o *BackupRestoreStatusResponseModel) GetRestoreTypeOk() (*BackupRestoreRestoreTypes, bool)`
+
+GetRestoreTypeOk returns a tuple with the RestoreType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestoreType
+
+`func (o *BackupRestoreStatusResponseModel) SetRestoreType(v BackupRestoreRestoreTypes)`
+
+SetRestoreType sets RestoreType field to given value.
+
+### HasRestoreType
+
+`func (o *BackupRestoreStatusResponseModel) HasRestoreType() bool`
+
+HasRestoreType returns a boolean if a field has been set.
+
+### GetFixups
+
+`func (o *BackupRestoreStatusResponseModel) GetFixups() []BackupRestoreFixupModel`
+
+GetFixups returns the Fixups field if non-nil, zero value otherwise.
+
+### GetFixupsOk
+
+`func (o *BackupRestoreStatusResponseModel) GetFixupsOk() (*[]BackupRestoreFixupModel, bool)`
+
+GetFixupsOk returns a tuple with the Fixups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFixups
+
+`func (o *BackupRestoreStatusResponseModel) SetFixups(v []BackupRestoreFixupModel)`
+
+SetFixups sets Fixups field to given value.
+
+### HasFixups
+
+`func (o *BackupRestoreStatusResponseModel) HasFixups() bool`
+
+HasFixups returns a boolean if a field has been set.
+
+### SetFixupsNil
+
+`func (o *BackupRestoreStatusResponseModel) SetFixupsNil(b bool)`
+
+ SetFixupsNil sets the value for Fixups to be an explicit nil
+
+### UnsetFixups
+`func (o *BackupRestoreStatusResponseModel) UnsetFixups()`
+
+UnsetFixups ensures that no value is present for Fixups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

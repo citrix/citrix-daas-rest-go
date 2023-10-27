@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing MachinesAPIs Service
+Testing MachinesAPIsDAASService
 
 */
 
@@ -17,19 +17,19 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
+func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MachinesAPIs Service MachinesAddMachineTags", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesAddMachineTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesAddMachineTags(context.Background(), nameOrId, tagNameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesAddMachineTags(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -37,39 +37,39 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesCheckMachineExists", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesCheckMachineExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesCheckMachineExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesCheckMachineExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesCreateMachineUpgradeSchedule", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesCreateMachineUpgradeSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesCreateMachineUpgradeSchedule(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesCreateMachineUpgradeSchedule(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesDisconnectSessions", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesDisconnectSessions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesDisconnectSessions(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesDisconnectSessions(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -77,11 +77,11 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesDoMachineSearch", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesDoMachineSearch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesDoMachineSearch(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesDoMachineSearch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -89,27 +89,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachine", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachine(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MachinesAPIs Service MachinesGetMachineApplications", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineApplications(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -117,13 +103,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachineDeliveryGroup", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineDeliveryGroup(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -131,13 +117,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachineDesktop", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineDesktop(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineDeliveryGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -145,13 +131,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachineMachineCatalog", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineDesktop", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineMachineCatalog(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineDesktop(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -159,13 +145,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachinePowerActionSchedules", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineMachineCatalog", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachinePowerActionSchedules(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineMachineCatalog(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -173,13 +159,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachineSessions", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachinePowerActionSchedules", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineSessions(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachinePowerActionSchedules(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -187,13 +173,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachineStartMenuShortcutIcon", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineSessions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineStartMenuShortcutIcon(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineSessions(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -201,13 +187,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachineStartMenuShortcuts", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineStartMenuShortcutIcon", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineStartMenuShortcuts(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineStartMenuShortcutIcon(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -215,13 +201,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachineTags", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineStartMenuShortcuts", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachineTags(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineStartMenuShortcuts(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -229,25 +215,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetMachines", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachines(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MachinesAPIs Service MachinesGetMachinesAdministrators", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetMachinesAdministrators(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineTags(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -255,14 +229,40 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesGetTestMachineReport", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachines", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachines(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachinesAdministrators", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachinesAdministrators(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachinesAPIsDAASService MachinesGetTestMachineReport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var reportId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesGetTestMachineReport(context.Background(), nameOrId, reportId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetTestMachineReport(context.Background(), nameOrId, reportId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -270,13 +270,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesImportFileTypes", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesImportFileTypes", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesImportFileTypes(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesImportFileTypes(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -284,13 +284,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesLogoffMachineSessions", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesLogoffMachineSessions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesLogoffMachineSessions(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesLogoffMachineSessions(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -298,13 +298,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesRebootMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesRebootMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesRebootMachine(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesRebootMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -312,93 +312,79 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesRemoveMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesRemoveMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesRemoveMachine(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesRemoveMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesRemoveMachineTags", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesRemoveMachineTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesRemoveMachineTags(context.Background(), nameOrId, tagNameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesRemoveMachineTags(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesRemoveMachineUpgradeSchedule", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesRemoveMachineUpgradeSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesRemoveMachineUpgradeSchedule(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesRemoveMachineUpgradeSchedule(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesRemovePowerActionSchedule", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesRemovePowerActionSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesRemovePowerActionSchedule(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesRemovePowerActionSchedule(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesResumeMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesResetProvVMDisk", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesResumeMachine(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MachinesAPIs Service MachinesSetMachineTags", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.MachinesAPIs .MachinesSetMachineTags(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesResetProvVMDisk(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesShutdownMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesResumeMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesShutdownMachine(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesResumeMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -406,13 +392,26 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesStartMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesSetMachineTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesStartMachine(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesSetMachineTags(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachinesAPIsDAASService MachinesShutdownMachine", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesShutdownMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -420,13 +419,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesSuspendMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesStartMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesSuspendMachine(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesStartMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -434,13 +433,13 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesTestMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesSuspendMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.MachinesAPIs .MachinesTestMachine(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesSuspendMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -448,26 +447,40 @@ func Test_citrixorchestration_MachinesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesUpdateMachineCatalogMachine", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesTestMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesUpdateMachineCatalogMachine(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesTestMachine(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachinesAPIsDAASService MachinesUpdateMachineCatalogMachine", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesUpdateMachineCatalogMachine(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MachinesAPIs Service MachinesUpdateMachineUpgradeSchedule", func(t *testing.T) {
+	t.Run("Test MachinesAPIsDAASService MachinesUpdateMachineUpgradeSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.MachinesAPIs .MachinesUpdateMachineUpgradeSchedule(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesUpdateMachineUpgradeSchedule(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

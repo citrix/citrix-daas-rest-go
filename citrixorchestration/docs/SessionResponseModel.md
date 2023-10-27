@@ -4,30 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Id of the session. | 
+**Id** | Pointer to **NullableString** | Id of the session. | [optional] 
 **Uid** | Pointer to **NullableInt32** | &#x60;Deprecated, use Id.&#x60; DEPRECATED. Use Id. | [optional] 
 **ApplicationsInUse** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | List of applications in use in the session. | [optional] 
-**AppState** | [**AppState**](AppState.md) |  | 
+**AppState** | Pointer to [**AppState**](AppState.md) |  | [optional] 
 **AppStateLastChangeTime** | Pointer to **NullableString** | The time when the session entered the current app state. | [optional] 
 **FormattedAppStateLastChangeTime** | Pointer to **NullableString** | The formatted time when the session entered the current app state. RFC 3339 compatible format. | [optional] 
-**Brokering** | [**SessionBrokeringResponseModel**](SessionBrokeringResponseModel.md) |  | 
+**Brokering** | Pointer to [**SessionBrokeringResponseModel**](SessionBrokeringResponseModel.md) |  | [optional] 
 **Client** | Pointer to [**SessionClientResponseModel**](SessionClientResponseModel.md) |  | [optional] 
 **Connection** | Pointer to [**SessionConnectionResponseModel**](SessionConnectionResponseModel.md) |  | [optional] 
 **ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the session reside. | [optional] 
 **EstablishmentDurationMilliseconds** | Pointer to **NullableInt32** | Duration that it took to establish the session. | [optional] 
 **EstablishmentTime** | Pointer to **NullableString** | Time at which the session was established. | [optional] 
 **FormattedEstablishmentTime** | Pointer to **NullableString** | Formatted time at which the session was established. RFC 3339 compatible format. | [optional] 
-**IsAnonymousUser** | **bool** | Indicates whether the session was established anonymously (without user credentials), in this case a temporary local user account on the machine is used. | 
-**IsHidden** | **bool** | Flag to indicate if the session is currently hidden from the user and not to be reconnected to. | 
-**LogoffInProgress** | **bool** | Indicates whether the session is in the process of being logged off. | 
-**LogonInProgress** | **bool** | Indicates whether the session is still executing user logon processing or not. | 
-**Machine** | [**MachineResponseModel**](MachineResponseModel.md) |  | 
-**SessionType** | [**SessionType**](SessionType.md) |  | 
+**IsAnonymousUser** | Pointer to **bool** | Indicates whether the session was established anonymously (without user credentials), in this case a temporary local user account on the machine is used. | [optional] 
+**IsHidden** | Pointer to **bool** | Flag to indicate if the session is currently hidden from the user and not to be reconnected to. | [optional] 
+**LogoffInProgress** | Pointer to **bool** | Indicates whether the session is in the process of being logged off. | [optional] 
+**LogonInProgress** | Pointer to **bool** | Indicates whether the session is still executing user logon processing or not. | [optional] 
+**Machine** | Pointer to [**MachineResponseModel**](MachineResponseModel.md) |  | [optional] 
+**SessionType** | Pointer to [**SessionType**](SessionType.md) |  | [optional] 
 **StartTime** | Pointer to **NullableString** | The time indicates when the session was started. | [optional] 
 **FormattedStartTime** | Pointer to **NullableString** | The formatted time indicates when the session was started. RFC 3339 compatible format. | [optional] 
-**State** | [**SessionState**](SessionState.md) |  | 
-**StateChangeTime** | **string** | The time of the most recent state change for the session. | 
-**FormattedStateChangeTime** | **string** | The formatted time of the most recent state change for the session. RFC 3339 compatible format. | 
+**State** | Pointer to [**SessionState**](SessionState.md) |  | [optional] 
+**StateChangeTime** | Pointer to **NullableString** | The time of the most recent state change for the session. | [optional] 
+**FormattedStateChangeTime** | Pointer to **NullableString** | The formatted time of the most recent state change for the session. RFC 3339 compatible format. | [optional] 
 **UntrustedUserName** | Pointer to **NullableString** | The name of the logged-on user reported directly from the machine (in the form DOMAIN\\user). This may be useful where the user is logged in to a non-domain account, however the name cannot be verified and must therefore be considered untrusted. | [optional] 
 **User** | Pointer to [**IdentityUserResponseModel**](IdentityUserResponseModel.md) |  | [optional] 
 
@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 ### NewSessionResponseModel
 
-`func NewSessionResponseModel(id string, appState AppState, brokering SessionBrokeringResponseModel, isAnonymousUser bool, isHidden bool, logoffInProgress bool, logonInProgress bool, machine MachineResponseModel, sessionType SessionType, state SessionState, stateChangeTime string, formattedStateChangeTime string, ) *SessionResponseModel`
+`func NewSessionResponseModel() *SessionResponseModel`
 
 NewSessionResponseModel instantiates a new SessionResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -69,7 +69,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *SessionResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *SessionResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *SessionResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *SessionResponseModel) GetUid() int32`
@@ -159,6 +174,11 @@ and a boolean to check if the value has been set.
 
 SetAppState sets AppState field to given value.
 
+### HasAppState
+
+`func (o *SessionResponseModel) HasAppState() bool`
+
+HasAppState returns a boolean if a field has been set.
 
 ### GetAppStateLastChangeTime
 
@@ -249,6 +269,11 @@ and a boolean to check if the value has been set.
 
 SetBrokering sets Brokering field to given value.
 
+### HasBrokering
+
+`func (o *SessionResponseModel) HasBrokering() bool`
+
+HasBrokering returns a boolean if a field has been set.
 
 ### GetClient
 
@@ -459,6 +484,11 @@ and a boolean to check if the value has been set.
 
 SetIsAnonymousUser sets IsAnonymousUser field to given value.
 
+### HasIsAnonymousUser
+
+`func (o *SessionResponseModel) HasIsAnonymousUser() bool`
+
+HasIsAnonymousUser returns a boolean if a field has been set.
 
 ### GetIsHidden
 
@@ -479,6 +509,11 @@ and a boolean to check if the value has been set.
 
 SetIsHidden sets IsHidden field to given value.
 
+### HasIsHidden
+
+`func (o *SessionResponseModel) HasIsHidden() bool`
+
+HasIsHidden returns a boolean if a field has been set.
 
 ### GetLogoffInProgress
 
@@ -499,6 +534,11 @@ and a boolean to check if the value has been set.
 
 SetLogoffInProgress sets LogoffInProgress field to given value.
 
+### HasLogoffInProgress
+
+`func (o *SessionResponseModel) HasLogoffInProgress() bool`
+
+HasLogoffInProgress returns a boolean if a field has been set.
 
 ### GetLogonInProgress
 
@@ -519,6 +559,11 @@ and a boolean to check if the value has been set.
 
 SetLogonInProgress sets LogonInProgress field to given value.
 
+### HasLogonInProgress
+
+`func (o *SessionResponseModel) HasLogonInProgress() bool`
+
+HasLogonInProgress returns a boolean if a field has been set.
 
 ### GetMachine
 
@@ -539,6 +584,11 @@ and a boolean to check if the value has been set.
 
 SetMachine sets Machine field to given value.
 
+### HasMachine
+
+`func (o *SessionResponseModel) HasMachine() bool`
+
+HasMachine returns a boolean if a field has been set.
 
 ### GetSessionType
 
@@ -559,6 +609,11 @@ and a boolean to check if the value has been set.
 
 SetSessionType sets SessionType field to given value.
 
+### HasSessionType
+
+`func (o *SessionResponseModel) HasSessionType() bool`
+
+HasSessionType returns a boolean if a field has been set.
 
 ### GetStartTime
 
@@ -649,6 +704,11 @@ and a boolean to check if the value has been set.
 
 SetState sets State field to given value.
 
+### HasState
+
+`func (o *SessionResponseModel) HasState() bool`
+
+HasState returns a boolean if a field has been set.
 
 ### GetStateChangeTime
 
@@ -669,7 +729,22 @@ and a boolean to check if the value has been set.
 
 SetStateChangeTime sets StateChangeTime field to given value.
 
+### HasStateChangeTime
 
+`func (o *SessionResponseModel) HasStateChangeTime() bool`
+
+HasStateChangeTime returns a boolean if a field has been set.
+
+### SetStateChangeTimeNil
+
+`func (o *SessionResponseModel) SetStateChangeTimeNil(b bool)`
+
+ SetStateChangeTimeNil sets the value for StateChangeTime to be an explicit nil
+
+### UnsetStateChangeTime
+`func (o *SessionResponseModel) UnsetStateChangeTime()`
+
+UnsetStateChangeTime ensures that no value is present for StateChangeTime, not even an explicit nil
 ### GetFormattedStateChangeTime
 
 `func (o *SessionResponseModel) GetFormattedStateChangeTime() string`
@@ -689,7 +764,22 @@ and a boolean to check if the value has been set.
 
 SetFormattedStateChangeTime sets FormattedStateChangeTime field to given value.
 
+### HasFormattedStateChangeTime
 
+`func (o *SessionResponseModel) HasFormattedStateChangeTime() bool`
+
+HasFormattedStateChangeTime returns a boolean if a field has been set.
+
+### SetFormattedStateChangeTimeNil
+
+`func (o *SessionResponseModel) SetFormattedStateChangeTimeNil(b bool)`
+
+ SetFormattedStateChangeTimeNil sets the value for FormattedStateChangeTime to be an explicit nil
+
+### UnsetFormattedStateChangeTime
+`func (o *SessionResponseModel) UnsetFormattedStateChangeTime()`
+
+UnsetFormattedStateChangeTime ensures that no value is present for FormattedStateChangeTime, not even an explicit nil
 ### GetUntrustedUserName
 
 `func (o *SessionResponseModel) GetUntrustedUserName() string`

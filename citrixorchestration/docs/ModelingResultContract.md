@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IsMachineRsop** | Pointer to **bool** | The report is for machine or user | [optional] 
 **LastProcessTime** | Pointer to **time.Time** | The most recent simulation time | [optional] 
-**AppliedSettings** | Pointer to [**[]AppliedSetting**](AppliedSetting.md) | Applied settings | [optional] 
-**AppliedPolicies** | Pointer to [**[]AppliedPolicy**](AppliedPolicy.md) | Applied policies | [optional] 
+**AppliedSettings** | Pointer to [**[]AppliedSetting2**](AppliedSetting2.md) | Applied settings | [optional] 
+**AppliedPolicies** | Pointer to [**[]AppliedPolicy2**](AppliedPolicy2.md) | Applied policies | [optional] 
 **FilterEvidence** | Pointer to **map[string]string** | Filter evidence used for the simulation | [optional] 
-**LosingSettings** | Pointer to [**[]LosingSetting**](LosingSetting.md) | Settings that did not get applied. | [optional] 
+**LosingSettings** | Pointer to [**[]LosingSetting2**](LosingSetting2.md) | Settings that did not get applied. | [optional] 
+**LosingPolicies** | Pointer to [**[]LosingPolicy2**](LosingPolicy2.md) | Policies that did not get applied. Some of them should be applied in theory but not applied in practice. | [optional] 
 
 ## Methods
 
@@ -82,20 +83,20 @@ HasLastProcessTime returns a boolean if a field has been set.
 
 ### GetAppliedSettings
 
-`func (o *ModelingResultContract) GetAppliedSettings() []AppliedSetting`
+`func (o *ModelingResultContract) GetAppliedSettings() []AppliedSetting2`
 
 GetAppliedSettings returns the AppliedSettings field if non-nil, zero value otherwise.
 
 ### GetAppliedSettingsOk
 
-`func (o *ModelingResultContract) GetAppliedSettingsOk() (*[]AppliedSetting, bool)`
+`func (o *ModelingResultContract) GetAppliedSettingsOk() (*[]AppliedSetting2, bool)`
 
 GetAppliedSettingsOk returns a tuple with the AppliedSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppliedSettings
 
-`func (o *ModelingResultContract) SetAppliedSettings(v []AppliedSetting)`
+`func (o *ModelingResultContract) SetAppliedSettings(v []AppliedSetting2)`
 
 SetAppliedSettings sets AppliedSettings field to given value.
 
@@ -117,20 +118,20 @@ HasAppliedSettings returns a boolean if a field has been set.
 UnsetAppliedSettings ensures that no value is present for AppliedSettings, not even an explicit nil
 ### GetAppliedPolicies
 
-`func (o *ModelingResultContract) GetAppliedPolicies() []AppliedPolicy`
+`func (o *ModelingResultContract) GetAppliedPolicies() []AppliedPolicy2`
 
 GetAppliedPolicies returns the AppliedPolicies field if non-nil, zero value otherwise.
 
 ### GetAppliedPoliciesOk
 
-`func (o *ModelingResultContract) GetAppliedPoliciesOk() (*[]AppliedPolicy, bool)`
+`func (o *ModelingResultContract) GetAppliedPoliciesOk() (*[]AppliedPolicy2, bool)`
 
 GetAppliedPoliciesOk returns a tuple with the AppliedPolicies field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAppliedPolicies
 
-`func (o *ModelingResultContract) SetAppliedPolicies(v []AppliedPolicy)`
+`func (o *ModelingResultContract) SetAppliedPolicies(v []AppliedPolicy2)`
 
 SetAppliedPolicies sets AppliedPolicies field to given value.
 
@@ -187,20 +188,20 @@ HasFilterEvidence returns a boolean if a field has been set.
 UnsetFilterEvidence ensures that no value is present for FilterEvidence, not even an explicit nil
 ### GetLosingSettings
 
-`func (o *ModelingResultContract) GetLosingSettings() []LosingSetting`
+`func (o *ModelingResultContract) GetLosingSettings() []LosingSetting2`
 
 GetLosingSettings returns the LosingSettings field if non-nil, zero value otherwise.
 
 ### GetLosingSettingsOk
 
-`func (o *ModelingResultContract) GetLosingSettingsOk() (*[]LosingSetting, bool)`
+`func (o *ModelingResultContract) GetLosingSettingsOk() (*[]LosingSetting2, bool)`
 
 GetLosingSettingsOk returns a tuple with the LosingSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLosingSettings
 
-`func (o *ModelingResultContract) SetLosingSettings(v []LosingSetting)`
+`func (o *ModelingResultContract) SetLosingSettings(v []LosingSetting2)`
 
 SetLosingSettings sets LosingSettings field to given value.
 
@@ -220,6 +221,41 @@ HasLosingSettings returns a boolean if a field has been set.
 `func (o *ModelingResultContract) UnsetLosingSettings()`
 
 UnsetLosingSettings ensures that no value is present for LosingSettings, not even an explicit nil
+### GetLosingPolicies
+
+`func (o *ModelingResultContract) GetLosingPolicies() []LosingPolicy2`
+
+GetLosingPolicies returns the LosingPolicies field if non-nil, zero value otherwise.
+
+### GetLosingPoliciesOk
+
+`func (o *ModelingResultContract) GetLosingPoliciesOk() (*[]LosingPolicy2, bool)`
+
+GetLosingPoliciesOk returns a tuple with the LosingPolicies field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLosingPolicies
+
+`func (o *ModelingResultContract) SetLosingPolicies(v []LosingPolicy2)`
+
+SetLosingPolicies sets LosingPolicies field to given value.
+
+### HasLosingPolicies
+
+`func (o *ModelingResultContract) HasLosingPolicies() bool`
+
+HasLosingPolicies returns a boolean if a field has been set.
+
+### SetLosingPoliciesNil
+
+`func (o *ModelingResultContract) SetLosingPoliciesNil(b bool)`
+
+ SetLosingPoliciesNil sets the value for LosingPolicies to be an explicit nil
+
+### UnsetLosingPolicies
+`func (o *ModelingResultContract) UnsetLosingPolicies()`
+
+UnsetLosingPolicies ensures that no value is present for LosingPolicies, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing ZonesAPIs Service
+Testing ZonesAPIsDAASService
 
 */
 
@@ -17,29 +17,29 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
+func Test_citrixorchestration_ZonesAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ZonesAPIs Service ZonesAddItemsIntoZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesAddItemsIntoZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesAddItemsIntoZone(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesAddItemsIntoZone(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesCreateUserZonePreference", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesCreateUserZonePreference", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ZonesAPIs .ZonesCreateUserZonePreference(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ZonesAPIsDAAS.ZonesCreateUserZonePreference(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -47,48 +47,48 @@ func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesCreateZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesCreateZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesCreateZone(context.Background()).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesCreateZone(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesDeleteUserZonePreference", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesDeleteUserZonePreference", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesDeleteUserZonePreference(context.Background(), name).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesDeleteUserZonePreference(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesDeleteZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesDeleteZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesDeleteZone(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesDeleteZone(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesDoZoneSearch", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesDoZoneSearch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ZonesAPIs .ZonesDoZoneSearch(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ZonesAPIsDAAS.ZonesDoZoneSearch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -96,26 +96,26 @@ func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesEditZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesEditZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesEditZone(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesEditZone(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesGetUserZonePreference", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesGetUserZonePreference", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		resp, httpRes, err := apiClient.ZonesAPIs .ZonesGetUserZonePreference(context.Background(), name).Execute()
+		resp, httpRes, err := apiClient.ZonesAPIsDAAS.ZonesGetUserZonePreference(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -123,11 +123,11 @@ func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesGetUserZonePreferenceList", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesGetUserZonePreferenceList", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ZonesAPIs .ZonesGetUserZonePreferenceList(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ZonesAPIsDAAS.ZonesGetUserZonePreferenceList(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -135,13 +135,13 @@ func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesGetUserZonePreferencesByZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesGetUserZonePreferencesByZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ZonesAPIs .ZonesGetUserZonePreferencesByZone(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ZonesAPIsDAAS.ZonesGetUserZonePreferencesByZone(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -149,13 +149,13 @@ func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesGetZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesGetZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ZonesAPIs .ZonesGetZone(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ZonesAPIsDAAS.ZonesGetZone(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -163,11 +163,11 @@ func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesGetZones", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesGetZones", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ZonesAPIs .ZonesGetZones(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ZonesAPIsDAAS.ZonesGetZones(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -175,37 +175,37 @@ func Test_citrixorchestration_ZonesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesMoveItemsIntoZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesMoveItemsIntoZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesMoveItemsIntoZone(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesMoveItemsIntoZone(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesRemoveItemsFromZone", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesRemoveItemsFromZone", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesRemoveItemsFromZone(context.Background()).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesRemoveItemsFromZone(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ZonesAPIs Service ZonesUpdateUserZonePreference", func(t *testing.T) {
+	t.Run("Test ZonesAPIsDAASService ZonesUpdateUserZonePreference", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.ZonesAPIs .ZonesUpdateUserZonePreference(context.Background(), name).Execute()
+		httpRes, err := apiClient.ZonesAPIsDAAS.ZonesUpdateUserZonePreference(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

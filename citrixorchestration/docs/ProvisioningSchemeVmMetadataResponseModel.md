@@ -10,7 +10,11 @@ Name | Type | Description | Notes
 **BootDiagnostics** | Pointer to **NullableBool** | VmMetadata boot diagnostics configuration | [optional] 
 **AcceleratedNetwork** | Pointer to **NullableBool** | VmMetadata accelerated network configuration | [optional] 
 **SupportsHibernation** | Pointer to **NullableBool** | VmMetadata hibernation configuration. | [optional] 
+**SecurityType** | Pointer to **NullableString** | VmMetadata security type configuration | [optional] 
+**DiskSecurityType** | Pointer to **NullableString** | VmMetadata disk security type configuration | [optional] 
+**ConfidentialVmDiskEncryptionSetId** | Pointer to **NullableString** | VmMetadata confidential VM disk encryption set id configuration | [optional] 
 **Labels** | Pointer to **NullableString** | VmMetadata Labels | [optional] 
+**ZoneName** | Pointer to **NullableString** | VmMetadata zone name | [optional] 
 
 ## Methods
 
@@ -241,6 +245,111 @@ HasSupportsHibernation returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetSupportsHibernation()`
 
 UnsetSupportsHibernation ensures that no value is present for SupportsHibernation, not even an explicit nil
+### GetSecurityType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetSecurityType() string`
+
+GetSecurityType returns the SecurityType field if non-nil, zero value otherwise.
+
+### GetSecurityTypeOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetSecurityTypeOk() (*string, bool)`
+
+GetSecurityTypeOk returns a tuple with the SecurityType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecurityType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetSecurityType(v string)`
+
+SetSecurityType sets SecurityType field to given value.
+
+### HasSecurityType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasSecurityType() bool`
+
+HasSecurityType returns a boolean if a field has been set.
+
+### SetSecurityTypeNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetSecurityTypeNil(b bool)`
+
+ SetSecurityTypeNil sets the value for SecurityType to be an explicit nil
+
+### UnsetSecurityType
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetSecurityType()`
+
+UnsetSecurityType ensures that no value is present for SecurityType, not even an explicit nil
+### GetDiskSecurityType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetDiskSecurityType() string`
+
+GetDiskSecurityType returns the DiskSecurityType field if non-nil, zero value otherwise.
+
+### GetDiskSecurityTypeOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetDiskSecurityTypeOk() (*string, bool)`
+
+GetDiskSecurityTypeOk returns a tuple with the DiskSecurityType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiskSecurityType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetDiskSecurityType(v string)`
+
+SetDiskSecurityType sets DiskSecurityType field to given value.
+
+### HasDiskSecurityType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasDiskSecurityType() bool`
+
+HasDiskSecurityType returns a boolean if a field has been set.
+
+### SetDiskSecurityTypeNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetDiskSecurityTypeNil(b bool)`
+
+ SetDiskSecurityTypeNil sets the value for DiskSecurityType to be an explicit nil
+
+### UnsetDiskSecurityType
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetDiskSecurityType()`
+
+UnsetDiskSecurityType ensures that no value is present for DiskSecurityType, not even an explicit nil
+### GetConfidentialVmDiskEncryptionSetId
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetConfidentialVmDiskEncryptionSetId() string`
+
+GetConfidentialVmDiskEncryptionSetId returns the ConfidentialVmDiskEncryptionSetId field if non-nil, zero value otherwise.
+
+### GetConfidentialVmDiskEncryptionSetIdOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetConfidentialVmDiskEncryptionSetIdOk() (*string, bool)`
+
+GetConfidentialVmDiskEncryptionSetIdOk returns a tuple with the ConfidentialVmDiskEncryptionSetId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfidentialVmDiskEncryptionSetId
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetConfidentialVmDiskEncryptionSetId(v string)`
+
+SetConfidentialVmDiskEncryptionSetId sets ConfidentialVmDiskEncryptionSetId field to given value.
+
+### HasConfidentialVmDiskEncryptionSetId
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasConfidentialVmDiskEncryptionSetId() bool`
+
+HasConfidentialVmDiskEncryptionSetId returns a boolean if a field has been set.
+
+### SetConfidentialVmDiskEncryptionSetIdNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetConfidentialVmDiskEncryptionSetIdNil(b bool)`
+
+ SetConfidentialVmDiskEncryptionSetIdNil sets the value for ConfidentialVmDiskEncryptionSetId to be an explicit nil
+
+### UnsetConfidentialVmDiskEncryptionSetId
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetConfidentialVmDiskEncryptionSetId()`
+
+UnsetConfidentialVmDiskEncryptionSetId ensures that no value is present for ConfidentialVmDiskEncryptionSetId, not even an explicit nil
 ### GetLabels
 
 `func (o *ProvisioningSchemeVmMetadataResponseModel) GetLabels() string`
@@ -276,6 +385,41 @@ HasLabels returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetLabels()`
 
 UnsetLabels ensures that no value is present for Labels, not even an explicit nil
+### GetZoneName
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetZoneName() string`
+
+GetZoneName returns the ZoneName field if non-nil, zero value otherwise.
+
+### GetZoneNameOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetZoneNameOk() (*string, bool)`
+
+GetZoneNameOk returns a tuple with the ZoneName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetZoneName
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetZoneName(v string)`
+
+SetZoneName sets ZoneName field to given value.
+
+### HasZoneName
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasZoneName() bool`
+
+HasZoneName returns a boolean if a field has been set.
+
+### SetZoneNameNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetZoneNameNil(b bool)`
+
+ SetZoneNameNil sets the value for ZoneName to be an explicit nil
+
+### UnsetZoneName
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetZoneName()`
+
+UnsetZoneName ensures that no value is present for ZoneName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

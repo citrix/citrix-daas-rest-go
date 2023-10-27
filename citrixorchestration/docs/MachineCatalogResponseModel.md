@@ -38,10 +38,13 @@ Name | Type | Description | Notes
 **TotalCount** | **int32** | The total number of machines in the catalog. | 
 **IsBroken** | **bool** | Whether the machine catalog is currently in a \&quot;Broken\&quot; state. | 
 **IsMasterImageAssociated** | Pointer to **NullableBool** | Whether the machine catalog is associated with a master image. | [optional] 
+**ImageUpdateStatus** | Pointer to [**ImageUpdateStatus**](ImageUpdateStatus.md) |  | [optional] 
 **Errors** | Pointer to **[]string** | Gets the Errors of machines in this catalog | [optional] 
 **Warnings** | Pointer to [**[]MachineCatalogWarningResponseModel**](MachineCatalogWarningResponseModel.md) | List of warnings that are currently active on the machine catalog, if any.  If there are no warnings this will not be specified. | [optional] 
 **UnassignedCount** | **int32** | The number of unassigned machines (machines not assigned to users). | 
 **UsedCount** | **int32** | The number of machines in the catalog that are in a delivery group. | 
+**AvailableCountOfSuspend** | Pointer to **NullableInt32** | The number of available suspend-capable machines (those not in any delivery group). | [optional] 
+**AvailableAssignedCountOfSuspend** | Pointer to **NullableInt32** | The number of available suspend-capable machines (not in a delivery group), that are also assigned to users. | [optional] 
 **UpgradeInfo** | Pointer to [**MachineCatalogUpgradeInfo**](MachineCatalogUpgradeInfo.md) |  | [optional] 
 **Zone** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
@@ -965,6 +968,31 @@ HasIsMasterImageAssociated returns a boolean if a field has been set.
 `func (o *MachineCatalogResponseModel) UnsetIsMasterImageAssociated()`
 
 UnsetIsMasterImageAssociated ensures that no value is present for IsMasterImageAssociated, not even an explicit nil
+### GetImageUpdateStatus
+
+`func (o *MachineCatalogResponseModel) GetImageUpdateStatus() ImageUpdateStatus`
+
+GetImageUpdateStatus returns the ImageUpdateStatus field if non-nil, zero value otherwise.
+
+### GetImageUpdateStatusOk
+
+`func (o *MachineCatalogResponseModel) GetImageUpdateStatusOk() (*ImageUpdateStatus, bool)`
+
+GetImageUpdateStatusOk returns a tuple with the ImageUpdateStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageUpdateStatus
+
+`func (o *MachineCatalogResponseModel) SetImageUpdateStatus(v ImageUpdateStatus)`
+
+SetImageUpdateStatus sets ImageUpdateStatus field to given value.
+
+### HasImageUpdateStatus
+
+`func (o *MachineCatalogResponseModel) HasImageUpdateStatus() bool`
+
+HasImageUpdateStatus returns a boolean if a field has been set.
+
 ### GetErrors
 
 `func (o *MachineCatalogResponseModel) GetErrors() []string`
@@ -1075,6 +1103,76 @@ and a boolean to check if the value has been set.
 SetUsedCount sets UsedCount field to given value.
 
 
+### GetAvailableCountOfSuspend
+
+`func (o *MachineCatalogResponseModel) GetAvailableCountOfSuspend() int32`
+
+GetAvailableCountOfSuspend returns the AvailableCountOfSuspend field if non-nil, zero value otherwise.
+
+### GetAvailableCountOfSuspendOk
+
+`func (o *MachineCatalogResponseModel) GetAvailableCountOfSuspendOk() (*int32, bool)`
+
+GetAvailableCountOfSuspendOk returns a tuple with the AvailableCountOfSuspend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableCountOfSuspend
+
+`func (o *MachineCatalogResponseModel) SetAvailableCountOfSuspend(v int32)`
+
+SetAvailableCountOfSuspend sets AvailableCountOfSuspend field to given value.
+
+### HasAvailableCountOfSuspend
+
+`func (o *MachineCatalogResponseModel) HasAvailableCountOfSuspend() bool`
+
+HasAvailableCountOfSuspend returns a boolean if a field has been set.
+
+### SetAvailableCountOfSuspendNil
+
+`func (o *MachineCatalogResponseModel) SetAvailableCountOfSuspendNil(b bool)`
+
+ SetAvailableCountOfSuspendNil sets the value for AvailableCountOfSuspend to be an explicit nil
+
+### UnsetAvailableCountOfSuspend
+`func (o *MachineCatalogResponseModel) UnsetAvailableCountOfSuspend()`
+
+UnsetAvailableCountOfSuspend ensures that no value is present for AvailableCountOfSuspend, not even an explicit nil
+### GetAvailableAssignedCountOfSuspend
+
+`func (o *MachineCatalogResponseModel) GetAvailableAssignedCountOfSuspend() int32`
+
+GetAvailableAssignedCountOfSuspend returns the AvailableAssignedCountOfSuspend field if non-nil, zero value otherwise.
+
+### GetAvailableAssignedCountOfSuspendOk
+
+`func (o *MachineCatalogResponseModel) GetAvailableAssignedCountOfSuspendOk() (*int32, bool)`
+
+GetAvailableAssignedCountOfSuspendOk returns a tuple with the AvailableAssignedCountOfSuspend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableAssignedCountOfSuspend
+
+`func (o *MachineCatalogResponseModel) SetAvailableAssignedCountOfSuspend(v int32)`
+
+SetAvailableAssignedCountOfSuspend sets AvailableAssignedCountOfSuspend field to given value.
+
+### HasAvailableAssignedCountOfSuspend
+
+`func (o *MachineCatalogResponseModel) HasAvailableAssignedCountOfSuspend() bool`
+
+HasAvailableAssignedCountOfSuspend returns a boolean if a field has been set.
+
+### SetAvailableAssignedCountOfSuspendNil
+
+`func (o *MachineCatalogResponseModel) SetAvailableAssignedCountOfSuspendNil(b bool)`
+
+ SetAvailableAssignedCountOfSuspendNil sets the value for AvailableAssignedCountOfSuspend to be an explicit nil
+
+### UnsetAvailableAssignedCountOfSuspend
+`func (o *MachineCatalogResponseModel) UnsetAvailableAssignedCountOfSuspend()`
+
+UnsetAvailableAssignedCountOfSuspend ensures that no value is present for AvailableAssignedCountOfSuspend, not even an explicit nil
 ### GetUpgradeInfo
 
 `func (o *MachineCatalogResponseModel) GetUpgradeInfo() MachineCatalogUpgradeInfo`

@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | [**BackupRestoreActions**](BackupRestoreActions.md) |  | 
 **ExecutionId** | **string** | Execution Id | 
-**Duration** | **int32** | Current duration in seconds | 
+**Duration** | **int32** | Current/Total duration in seconds | 
+**RestApiDuration** | Pointer to **int32** | Current/Total Rest API duration in seconds | [optional] 
 **Status** | [**BackupRestoreStatus**](BackupRestoreStatus.md) |  | 
 **BackupName** | Pointer to **NullableString** | Backup Name | [optional] 
+**BackupSize** | Pointer to **int64** | Backup Size | [optional] 
 **ScheduleName** | Pointer to **NullableString** | Schedule Name | [optional] 
 **MemberCount** | Pointer to **int32** | Member Count | [optional] 
 **StartTime** | **time.Time** | Action Start UTC Time              | 
@@ -19,10 +21,13 @@ Name | Type | Description | Notes
 **CurrentMemberName** | Pointer to **NullableString** | Current component member being restored | [optional] 
 **ComponentProgress** | Pointer to [**BackupRestorePlaybookActionState**](BackupRestorePlaybookActionState.md) |  | [optional] 
 **CheckMode** | Pointer to **bool** | Check Mode | [optional] 
+**PreImportCheckMode** | Pointer to **bool** | Pre-Import Check Mode | [optional] 
 **AdministratrName** | Pointer to **NullableString** | AdministratorName | [optional] 
+**IsBackupRetry** | Pointer to **bool** | Is this backup a retry after a failed backup | [optional] 
 **BackupDetails** | Pointer to **map[string]string** | Backup Status Details | [optional] 
 **RestoreDetails** | Pointer to [**[]BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) | Restore Status Details | [optional] 
 **SimpleResults** | Pointer to **[]string** | Simple Results (such as Get backed up member names) | [optional] 
+**RestoreType** | Pointer to [**BackupRestoreRestoreTypes**](BackupRestoreRestoreTypes.md) |  | [optional] 
 
 ## Methods
 
@@ -103,6 +108,31 @@ and a boolean to check if the value has been set.
 SetDuration sets Duration field to given value.
 
 
+### GetRestApiDuration
+
+`func (o *BackupRestoreStatusRequestModel) GetRestApiDuration() int32`
+
+GetRestApiDuration returns the RestApiDuration field if non-nil, zero value otherwise.
+
+### GetRestApiDurationOk
+
+`func (o *BackupRestoreStatusRequestModel) GetRestApiDurationOk() (*int32, bool)`
+
+GetRestApiDurationOk returns a tuple with the RestApiDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestApiDuration
+
+`func (o *BackupRestoreStatusRequestModel) SetRestApiDuration(v int32)`
+
+SetRestApiDuration sets RestApiDuration field to given value.
+
+### HasRestApiDuration
+
+`func (o *BackupRestoreStatusRequestModel) HasRestApiDuration() bool`
+
+HasRestApiDuration returns a boolean if a field has been set.
+
 ### GetStatus
 
 `func (o *BackupRestoreStatusRequestModel) GetStatus() BackupRestoreStatus`
@@ -158,6 +188,31 @@ HasBackupName returns a boolean if a field has been set.
 `func (o *BackupRestoreStatusRequestModel) UnsetBackupName()`
 
 UnsetBackupName ensures that no value is present for BackupName, not even an explicit nil
+### GetBackupSize
+
+`func (o *BackupRestoreStatusRequestModel) GetBackupSize() int64`
+
+GetBackupSize returns the BackupSize field if non-nil, zero value otherwise.
+
+### GetBackupSizeOk
+
+`func (o *BackupRestoreStatusRequestModel) GetBackupSizeOk() (*int64, bool)`
+
+GetBackupSizeOk returns a tuple with the BackupSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupSize
+
+`func (o *BackupRestoreStatusRequestModel) SetBackupSize(v int64)`
+
+SetBackupSize sets BackupSize field to given value.
+
+### HasBackupSize
+
+`func (o *BackupRestoreStatusRequestModel) HasBackupSize() bool`
+
+HasBackupSize returns a boolean if a field has been set.
+
 ### GetScheduleName
 
 `func (o *BackupRestoreStatusRequestModel) GetScheduleName() string`
@@ -428,6 +483,31 @@ SetCheckMode sets CheckMode field to given value.
 
 HasCheckMode returns a boolean if a field has been set.
 
+### GetPreImportCheckMode
+
+`func (o *BackupRestoreStatusRequestModel) GetPreImportCheckMode() bool`
+
+GetPreImportCheckMode returns the PreImportCheckMode field if non-nil, zero value otherwise.
+
+### GetPreImportCheckModeOk
+
+`func (o *BackupRestoreStatusRequestModel) GetPreImportCheckModeOk() (*bool, bool)`
+
+GetPreImportCheckModeOk returns a tuple with the PreImportCheckMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPreImportCheckMode
+
+`func (o *BackupRestoreStatusRequestModel) SetPreImportCheckMode(v bool)`
+
+SetPreImportCheckMode sets PreImportCheckMode field to given value.
+
+### HasPreImportCheckMode
+
+`func (o *BackupRestoreStatusRequestModel) HasPreImportCheckMode() bool`
+
+HasPreImportCheckMode returns a boolean if a field has been set.
+
 ### GetAdministratrName
 
 `func (o *BackupRestoreStatusRequestModel) GetAdministratrName() string`
@@ -463,6 +543,31 @@ HasAdministratrName returns a boolean if a field has been set.
 `func (o *BackupRestoreStatusRequestModel) UnsetAdministratrName()`
 
 UnsetAdministratrName ensures that no value is present for AdministratrName, not even an explicit nil
+### GetIsBackupRetry
+
+`func (o *BackupRestoreStatusRequestModel) GetIsBackupRetry() bool`
+
+GetIsBackupRetry returns the IsBackupRetry field if non-nil, zero value otherwise.
+
+### GetIsBackupRetryOk
+
+`func (o *BackupRestoreStatusRequestModel) GetIsBackupRetryOk() (*bool, bool)`
+
+GetIsBackupRetryOk returns a tuple with the IsBackupRetry field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsBackupRetry
+
+`func (o *BackupRestoreStatusRequestModel) SetIsBackupRetry(v bool)`
+
+SetIsBackupRetry sets IsBackupRetry field to given value.
+
+### HasIsBackupRetry
+
+`func (o *BackupRestoreStatusRequestModel) HasIsBackupRetry() bool`
+
+HasIsBackupRetry returns a boolean if a field has been set.
+
 ### GetBackupDetails
 
 `func (o *BackupRestoreStatusRequestModel) GetBackupDetails() map[string]string`
@@ -568,6 +673,31 @@ HasSimpleResults returns a boolean if a field has been set.
 `func (o *BackupRestoreStatusRequestModel) UnsetSimpleResults()`
 
 UnsetSimpleResults ensures that no value is present for SimpleResults, not even an explicit nil
+### GetRestoreType
+
+`func (o *BackupRestoreStatusRequestModel) GetRestoreType() BackupRestoreRestoreTypes`
+
+GetRestoreType returns the RestoreType field if non-nil, zero value otherwise.
+
+### GetRestoreTypeOk
+
+`func (o *BackupRestoreStatusRequestModel) GetRestoreTypeOk() (*BackupRestoreRestoreTypes, bool)`
+
+GetRestoreTypeOk returns a tuple with the RestoreType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestoreType
+
+`func (o *BackupRestoreStatusRequestModel) SetRestoreType(v BackupRestoreRestoreTypes)`
+
+SetRestoreType sets RestoreType field to given value.
+
+### HasRestoreType
+
+`func (o *BackupRestoreStatusRequestModel) HasRestoreType() bool`
+
+HasRestoreType returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

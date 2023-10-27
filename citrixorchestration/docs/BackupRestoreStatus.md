@@ -21,6 +21,10 @@
 
 * `STALLED` (value: `"Stalled"`)
 
+* `RETRY_BACKUP` (value: `"RetryBackup"`)
+
+* `RETRY_RESTORE` (value: `"RetryRestore"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

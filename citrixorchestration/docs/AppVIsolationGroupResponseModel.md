@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**LibraryUid** | Pointer to **int32** | LibraryUid of IsolationGroup | [optional] 
 **Name** | Pointer to **NullableString** | Name of IsolationGroup | [optional] 
 **Description** | Pointer to **NullableString** | Description of IsolationGroup | [optional] 
 **Version** | Pointer to **NullableString** | Version of IsolationGroup | [optional] 
@@ -28,6 +29,31 @@ will change when the set of required properties is changed
 NewAppVIsolationGroupResponseModelWithDefaults instantiates a new AppVIsolationGroupResponseModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetLibraryUid
+
+`func (o *AppVIsolationGroupResponseModel) GetLibraryUid() int32`
+
+GetLibraryUid returns the LibraryUid field if non-nil, zero value otherwise.
+
+### GetLibraryUidOk
+
+`func (o *AppVIsolationGroupResponseModel) GetLibraryUidOk() (*int32, bool)`
+
+GetLibraryUidOk returns a tuple with the LibraryUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLibraryUid
+
+`func (o *AppVIsolationGroupResponseModel) SetLibraryUid(v int32)`
+
+SetLibraryUid sets LibraryUid field to given value.
+
+### HasLibraryUid
+
+`func (o *AppVIsolationGroupResponseModel) HasLibraryUid() bool`
+
+HasLibraryUid returns a boolean if a field has been set.
 
 ### GetName
 

@@ -4,12 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ADPasswordEnabled** | Pointer to **NullableBool** | Is AD password enabled. | [optional] 
 **DiskLocatorId** | Pointer to **NullableString** | Id of the PVS vDisk. | [optional] 
 **DiskLocatorName** | **string** | Name of the PVS vDisk. | 
 **SiteId** | Pointer to **NullableString** | Id of the PVS site. | [optional] 
 **SiteName** | Pointer to **NullableString** | Name of the PVS site. | [optional] 
 **StoreId** | Pointer to **NullableString** | Id of the PVS store. | [optional] 
 **StoreName** | Pointer to **NullableString** | Name of the PVS store. | [optional] 
+**StreamingEnabled** | Pointer to **NullableBool** | Is streaming enabled. | [optional] 
+**WriteCacheSize** | Pointer to **NullableInt32** | Write cache size of the vDisk. | [optional] 
+**WriteCacheType** | Pointer to **NullableInt32** | Write cache type of the vDisk. | [optional] 
 
 ## Methods
 
@@ -30,6 +34,41 @@ NewPvsStreamingVDiskResponseModelWithDefaults instantiates a new PvsStreamingVDi
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetADPasswordEnabled
+
+`func (o *PvsStreamingVDiskResponseModel) GetADPasswordEnabled() bool`
+
+GetADPasswordEnabled returns the ADPasswordEnabled field if non-nil, zero value otherwise.
+
+### GetADPasswordEnabledOk
+
+`func (o *PvsStreamingVDiskResponseModel) GetADPasswordEnabledOk() (*bool, bool)`
+
+GetADPasswordEnabledOk returns a tuple with the ADPasswordEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetADPasswordEnabled
+
+`func (o *PvsStreamingVDiskResponseModel) SetADPasswordEnabled(v bool)`
+
+SetADPasswordEnabled sets ADPasswordEnabled field to given value.
+
+### HasADPasswordEnabled
+
+`func (o *PvsStreamingVDiskResponseModel) HasADPasswordEnabled() bool`
+
+HasADPasswordEnabled returns a boolean if a field has been set.
+
+### SetADPasswordEnabledNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetADPasswordEnabledNil(b bool)`
+
+ SetADPasswordEnabledNil sets the value for ADPasswordEnabled to be an explicit nil
+
+### UnsetADPasswordEnabled
+`func (o *PvsStreamingVDiskResponseModel) UnsetADPasswordEnabled()`
+
+UnsetADPasswordEnabled ensures that no value is present for ADPasswordEnabled, not even an explicit nil
 ### GetDiskLocatorId
 
 `func (o *PvsStreamingVDiskResponseModel) GetDiskLocatorId() string`
@@ -225,6 +264,111 @@ HasStoreName returns a boolean if a field has been set.
 `func (o *PvsStreamingVDiskResponseModel) UnsetStoreName()`
 
 UnsetStoreName ensures that no value is present for StoreName, not even an explicit nil
+### GetStreamingEnabled
+
+`func (o *PvsStreamingVDiskResponseModel) GetStreamingEnabled() bool`
+
+GetStreamingEnabled returns the StreamingEnabled field if non-nil, zero value otherwise.
+
+### GetStreamingEnabledOk
+
+`func (o *PvsStreamingVDiskResponseModel) GetStreamingEnabledOk() (*bool, bool)`
+
+GetStreamingEnabledOk returns a tuple with the StreamingEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStreamingEnabled
+
+`func (o *PvsStreamingVDiskResponseModel) SetStreamingEnabled(v bool)`
+
+SetStreamingEnabled sets StreamingEnabled field to given value.
+
+### HasStreamingEnabled
+
+`func (o *PvsStreamingVDiskResponseModel) HasStreamingEnabled() bool`
+
+HasStreamingEnabled returns a boolean if a field has been set.
+
+### SetStreamingEnabledNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetStreamingEnabledNil(b bool)`
+
+ SetStreamingEnabledNil sets the value for StreamingEnabled to be an explicit nil
+
+### UnsetStreamingEnabled
+`func (o *PvsStreamingVDiskResponseModel) UnsetStreamingEnabled()`
+
+UnsetStreamingEnabled ensures that no value is present for StreamingEnabled, not even an explicit nil
+### GetWriteCacheSize
+
+`func (o *PvsStreamingVDiskResponseModel) GetWriteCacheSize() int32`
+
+GetWriteCacheSize returns the WriteCacheSize field if non-nil, zero value otherwise.
+
+### GetWriteCacheSizeOk
+
+`func (o *PvsStreamingVDiskResponseModel) GetWriteCacheSizeOk() (*int32, bool)`
+
+GetWriteCacheSizeOk returns a tuple with the WriteCacheSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWriteCacheSize
+
+`func (o *PvsStreamingVDiskResponseModel) SetWriteCacheSize(v int32)`
+
+SetWriteCacheSize sets WriteCacheSize field to given value.
+
+### HasWriteCacheSize
+
+`func (o *PvsStreamingVDiskResponseModel) HasWriteCacheSize() bool`
+
+HasWriteCacheSize returns a boolean if a field has been set.
+
+### SetWriteCacheSizeNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetWriteCacheSizeNil(b bool)`
+
+ SetWriteCacheSizeNil sets the value for WriteCacheSize to be an explicit nil
+
+### UnsetWriteCacheSize
+`func (o *PvsStreamingVDiskResponseModel) UnsetWriteCacheSize()`
+
+UnsetWriteCacheSize ensures that no value is present for WriteCacheSize, not even an explicit nil
+### GetWriteCacheType
+
+`func (o *PvsStreamingVDiskResponseModel) GetWriteCacheType() int32`
+
+GetWriteCacheType returns the WriteCacheType field if non-nil, zero value otherwise.
+
+### GetWriteCacheTypeOk
+
+`func (o *PvsStreamingVDiskResponseModel) GetWriteCacheTypeOk() (*int32, bool)`
+
+GetWriteCacheTypeOk returns a tuple with the WriteCacheType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWriteCacheType
+
+`func (o *PvsStreamingVDiskResponseModel) SetWriteCacheType(v int32)`
+
+SetWriteCacheType sets WriteCacheType field to given value.
+
+### HasWriteCacheType
+
+`func (o *PvsStreamingVDiskResponseModel) HasWriteCacheType() bool`
+
+HasWriteCacheType returns a boolean if a field has been set.
+
+### SetWriteCacheTypeNil
+
+`func (o *PvsStreamingVDiskResponseModel) SetWriteCacheTypeNil(b bool)`
+
+ SetWriteCacheTypeNil sets the value for WriteCacheType to be an explicit nil
+
+### UnsetWriteCacheType
+`func (o *PvsStreamingVDiskResponseModel) UnsetWriteCacheType()`
+
+UnsetWriteCacheType ensures that no value is present for WriteCacheType, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

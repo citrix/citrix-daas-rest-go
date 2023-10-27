@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]SettingResponse**](SettingResponse.md) | List of items. | [optional] 
-**ContinuationToken** | Pointer to **NullableString** | If present, indicates to the caller that the query was not complete, and they should call the API again specifying the continuation token as a query parameter. | [optional] 
-**TotalItems** | Pointer to **NullableInt32** | Indicates the total number of items in the collection, which may be more than the number of items returned, if there is a ContinuationToken. Only returned in the response to $search APIs. | [optional] 
+**Items** | Pointer to [**[]SettingResponse**](SettingResponse.md) | Items in the collection. | [optional] 
+**ContinuationToken** | Pointer to **NullableString** | If present, indicates to the caller that the query was not complete, and it should call the API again specifying the continuation token as a query parameter. | [optional] 
+**TotalItems** | Pointer to **NullableInt32** | Indicates the total number of items in the collection, which may be more than the number of items returned, if there is a ContinuationToken. This is returned only in the response to $search APIs. | [optional] 
 
 ## Methods
 

@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing ApplicationFoldersAPIs Service
+Testing ApplicationFoldersAPIsDAASService
 
 */
 
@@ -17,56 +17,29 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_ApplicationFoldersAPIs Service(t *testing.T) {
+func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ApplicationFoldersAPIs Service ApplicationFoldersCheckApplicationFolderPathExists", func(t *testing.T) {
+	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersCheckApplicationFolderPathExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var path string
 
-		httpRes, err := apiClient.ApplicationFoldersAPIs .ApplicationFoldersCheckApplicationFolderPathExists(context.Background(), path).Execute()
+		httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersCheckApplicationFolderPathExists(context.Background(), path).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationFoldersAPIs Service ApplicationFoldersCreateApplicationFolder", func(t *testing.T) {
+	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersCreateApplicationFolder", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApplicationFoldersAPIs .ApplicationFoldersCreateApplicationFolder(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationFoldersAPIs Service ApplicationFoldersDeleteApplicationFolder", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pathOrId string
-
-		httpRes, err := apiClient.ApplicationFoldersAPIs .ApplicationFoldersDeleteApplicationFolder(context.Background(), pathOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationFoldersAPIs Service ApplicationFoldersGetApplicationFolder", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var pathOrId string
-
-		resp, httpRes, err := apiClient.ApplicationFoldersAPIs .ApplicationFoldersGetApplicationFolder(context.Background(), pathOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersCreateApplicationFolder(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +47,26 @@ func Test_citrixorchestration_ApplicationFoldersAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationFoldersAPIs Service ApplicationFoldersGetApplicationFolderApplications", func(t *testing.T) {
+	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersDeleteApplicationFolder", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pathOrId string
 
-		resp, httpRes, err := apiClient.ApplicationFoldersAPIs .ApplicationFoldersGetApplicationFolderApplications(context.Background(), pathOrId).Execute()
+		httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersDeleteApplicationFolder(context.Background(), pathOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersGetApplicationFolder", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var pathOrId string
+
+		resp, httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersGetApplicationFolder(context.Background(), pathOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,11 +74,13 @@ func Test_citrixorchestration_ApplicationFoldersAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationFoldersAPIs Service ApplicationFoldersGetApplicationFolders", func(t *testing.T) {
+	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersGetApplicationFolderApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApplicationFoldersAPIs .ApplicationFoldersGetApplicationFolders(context.Background()).Execute()
+		var pathOrId string
+
+		resp, httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersGetApplicationFolderApplications(context.Background(), pathOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -100,13 +88,25 @@ func Test_citrixorchestration_ApplicationFoldersAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationFoldersAPIs Service ApplicationFoldersUpdateApplicationFolder", func(t *testing.T) {
+	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersGetApplicationFolders", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersGetApplicationFolders(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersUpdateApplicationFolder", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var pathOrId string
 
-		resp, httpRes, err := apiClient.ApplicationFoldersAPIs .ApplicationFoldersUpdateApplicationFolder(context.Background(), pathOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersUpdateApplicationFolder(context.Background(), pathOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

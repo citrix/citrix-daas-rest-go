@@ -1,6 +1,6 @@
 # \AppLibPackageDiscoveryAPIsDAAS
 
-All URIs are relative to *https://api-us.cloud.com/cvad/manage*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## AppLibPackageDiscoveryCreateAppLibPackageDiscovery
 
-> AppLibPackageDiscoveryResponseModel AppLibPackageDiscoveryCreateAppLibPackageDiscovery(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).AppLibPackageDiscoveryRequestModel(appLibPackageDiscoveryRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryResponseModel AppLibPackageDiscoveryCreateAppLibPackageDiscovery(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).AppLibPackageDiscoveryRequestModel(appLibPackageDiscoveryRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Create AppLib Package Discovery session
 
@@ -35,20 +35,19 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     appLibPackageDiscoveryRequestModel := *openapiclient.NewAppLibPackageDiscoveryRequestModel() // AppLibPackageDiscoveryRequestModel | Request model to create a new AppLib package discovery session.
-    async := true // bool | If `true`, the appLib package discovery session will be created as a background task. The task will have jobType CreateAppLibPackageDiscovery> (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery session will be created as a background task. The task will have jobType CreateAppLibPackageDiscovery> (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscovery(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).AppLibPackageDiscoveryRequestModel(appLibPackageDiscoveryRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscovery(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).AppLibPackageDiscoveryRequestModel(appLibPackageDiscoveryRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscovery``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -69,16 +68,15 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryCrea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **appLibPackageDiscoveryRequestModel** | [**AppLibPackageDiscoveryRequestModel**](AppLibPackageDiscoveryRequestModel.md) | Request model to create a new AppLib package discovery session. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery session will be created as a background task. The task will have jobType CreateAppLibPackageDiscovery&gt; | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery session will be created as a background task. The task will have jobType CreateAppLibPackageDiscovery&gt; | [default to false]
 
 ### Return type
 
@@ -100,7 +98,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile
 
-> AppLibPackageDiscoveryProfileResponseModel AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).AppLibPackageDiscoveryProfileRequestModel(appLibPackageDiscoveryProfileRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryProfileResponseModel AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).AppLibPackageDiscoveryProfileRequestModel(appLibPackageDiscoveryProfileRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Create an AppLib Package Discovery profile.
 
@@ -117,20 +115,19 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     appLibPackageDiscoveryProfileRequestModel := *openapiclient.NewAppLibPackageDiscoveryProfileRequestModel(openapiclient.AppLibPackageDiscoveryType("Unknown"), "Name_example", int32(123)) // AppLibPackageDiscoveryProfileRequestModel | Request model to create a new AppLib package discovery profile.
-    async := true // bool | If `true`, the appLib package discovery profile will be created as a background task. The task will have JobType CreateAppLibPackageDiscoveryProfile. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery profile will be created as a background task. The task will have JobType CreateAppLibPackageDiscoveryProfile. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).AppLibPackageDiscoveryProfileRequestModel(appLibPackageDiscoveryProfileRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).AppLibPackageDiscoveryProfileRequestModel(appLibPackageDiscoveryProfileRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -151,16 +148,15 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryCrea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **appLibPackageDiscoveryProfileRequestModel** | [**AppLibPackageDiscoveryProfileRequestModel**](AppLibPackageDiscoveryProfileRequestModel.md) | Request model to create a new AppLib package discovery profile. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be created as a background task. The task will have JobType CreateAppLibPackageDiscoveryProfile. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be created as a background task. The task will have JobType CreateAppLibPackageDiscoveryProfile. | [default to false]
 
 ### Return type
 
@@ -182,7 +178,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryGetAppLibPackageDiscovery
 
-> AppLibPackageDiscoveryResponseModel AppLibPackageDiscoveryGetAppLibPackageDiscovery(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryResponseModel AppLibPackageDiscoveryGetAppLibPackageDiscovery(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get details of an AppLib Package Discovery session.
 
@@ -199,20 +195,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | Guid of the applib package discovery session that need to be fetched.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the appLib package discovery session will be created as a background task. The task will have jobType GetAppLibPackageDiscovery> (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery session will be created as a background task. The task will have jobType GetAppLibPackageDiscovery> (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscovery(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscovery(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscovery``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -237,16 +232,15 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryGetA
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery session will be created as a background task. The task will have jobType GetAppLibPackageDiscovery&gt; | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery session will be created as a background task. The task will have jobType GetAppLibPackageDiscovery&gt; | [default to false]
 
 ### Return type
 
@@ -268,7 +262,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId
 
-> AppLibPackageDiscoveryResponseModel AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryResponseModel AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get the latest AppLib Package Discovery session for the specified profile id.
 
@@ -285,19 +279,18 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     uid := int32(56) // int32 | The profile id.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -322,13 +315,12 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryGetA
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -352,7 +344,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile
 
-> AppLibPackageDiscoveryProfileResponseModel AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryProfileResponseModel AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get details of an AppLib Package Discovery profile.
 
@@ -369,20 +361,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     uid := int32(56) // int32 | Uid of the appLib package discovery profile that need to be fetched.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the appLib package discovery profile will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfile. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery profile will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfile. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -407,16 +398,15 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryGetA
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfile. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfile. | [default to false]
 
 ### Return type
 
@@ -438,7 +428,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles
 
-> AppLibPackageDiscoveryProfileResponseModelCollection AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryProfileResponseModelCollection AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get a list of AppLib Package Discovery profiles.
 
@@ -455,19 +445,18 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the appLib package discovery profiles will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfiles. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery profiles will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfiles. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -488,15 +477,14 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryGetA
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profiles will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfiles. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profiles will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveryProfiles. | [default to false]
 
 ### Return type
 
@@ -518,7 +506,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions
 
-> AppLibPackageDiscoveryResponseModelCollection AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryResponseModelCollection AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get a list of AppLib Package Discovery sessions.
 
@@ -535,19 +523,18 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the appLib package discovery sessions will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveries. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery sessions will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveries. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -568,15 +555,14 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryGetA
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery sessions will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveries. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery sessions will be fetched as a background task. The task will have JobType GetAppLibPackageDiscoveries. | [default to false]
 
 ### Return type
 
@@ -598,7 +584,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile
 
-> AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Remove an AppLib Package Discovery profile.
 
@@ -615,20 +601,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     uid := int32(56) // int32 | Uid of the appLib package discovery profile that need to be removed.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the appLib package discovery profile will be removed as a background task. The task will have JobType RemoveAppLibPackageDiscoveryProfile. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery profile will be removed as a background task. The task will have JobType RemoveAppLibPackageDiscoveryProfile. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -651,16 +636,15 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryRemo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be removed as a background task. The task will have JobType RemoveAppLibPackageDiscoveryProfile. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be removed as a background task. The task will have JobType RemoveAppLibPackageDiscoveryProfile. | [default to false]
 
 ### Return type
 
@@ -682,7 +666,7 @@ Name | Type | Description  | Notes
 
 ## AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile
 
-> AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditAppLibPackageDiscoveryProfileRequestModel(editAppLibPackageDiscoveryProfileRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(ctx, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditAppLibPackageDiscoveryProfileRequestModel(editAppLibPackageDiscoveryProfileRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Update the specified AppLib Package Discovery profile.
 
@@ -699,21 +683,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     uid := int32(56) // int32 | Uid of the appLib package discovery profile that need to be fetched.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     editAppLibPackageDiscoveryProfileRequestModel := *openapiclient.NewEditAppLibPackageDiscoveryProfileRequestModel() // EditAppLibPackageDiscoveryProfileRequestModel | Request model to update a new AppLib package discovery profile.
-    async := true // bool | If `true`, the appLib package discovery profile will be fetched as a background task. The task will have JobType UpdateAppLibPackageDiscoveryProfile. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the appLib package discovery profile will be fetched as a background task. The task will have JobType UpdateAppLibPackageDiscoveryProfile. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditAppLibPackageDiscoveryProfileRequestModel(editAppLibPackageDiscoveryProfileRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(context.Background(), uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditAppLibPackageDiscoveryProfileRequestModel(editAppLibPackageDiscoveryProfileRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -736,17 +719,16 @@ Other parameters are passed through a pointer to a apiAppLibPackageDiscoveryUpda
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **editAppLibPackageDiscoveryProfileRequestModel** | [**EditAppLibPackageDiscoveryProfileRequestModel**](EditAppLibPackageDiscoveryProfileRequestModel.md) | Request model to update a new AppLib package discovery profile. | 
- **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be fetched as a background task. The task will have JobType UpdateAppLibPackageDiscoveryProfile. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the appLib package discovery profile will be fetched as a background task. The task will have JobType UpdateAppLibPackageDiscoveryProfile. | [default to false]
 
 ### Return type
 

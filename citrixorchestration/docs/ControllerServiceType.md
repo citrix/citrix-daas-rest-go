@@ -29,8 +29,6 @@
 
 * `APP_V` (value: `"AppV"`)
 
-* `VUS` (value: `"Vus"`)
-
 * `CONFIG` (value: `"Config"`)
 
 * `LOG` (value: `"Log"`)
@@ -40,8 +38,6 @@
 * `ADMIN` (value: `"Admin"`)
 
 * `APP_LIB` (value: `"AppLib"`)
-
-* `IDENTITY` (value: `"Identity"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

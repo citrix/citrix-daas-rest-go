@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyGuid** | Pointer to **string** | Policy GUID. | [optional] 
+**PolicyGuid** | Pointer to **string** | GUID of the policy that owns this filter. | [optional] 
 **FilterType** | Pointer to **NullableString** | The filter type. | [optional] 
 **FilterGuid** | Pointer to **string** | The filter Guid. | [optional] 
-**IsAllowed** | Pointer to **bool** | Allow or deny | [optional] 
-**IsEnabled** | Pointer to **bool** | Enabled or disabled | [optional] 
-**FilterData** | Pointer to **NullableString** | Serialized JSON string. | [optional] 
+**IsAllowed** | Pointer to **bool** | The filtered policy is allowed or denied if the filter condition is met. | [optional] 
+**IsEnabled** | Pointer to **bool** | Is filter enabled or disabled. | [optional] 
+**FilterData** | Pointer to **NullableString** | The data for the filter as a JSON string. This is ignored if the filter is Citrix SD-Wan. | [optional] 
 
 ## Methods
 

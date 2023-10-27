@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **CurrentDiskImage** | Pointer to [**VMImageResponseModel**](VMImageResponseModel.md) |  | [optional] 
 **HistoricalDiskImages** | Pointer to [**[]VMImageResponseModel**](VMImageResponseModel.md) | The historical disk images including current image used to provision new machines in the machine catalog. | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
-**ImageRuntimeInfo** | Pointer to [**ImageRuntimeInfoResponseModel**](ImageRuntimeInfoResponseModel.md) |  | [optional] 
+**ImageRuntimeEnvironment** | Pointer to [**ImageRuntimeEnvironmentResponseModel**](ImageRuntimeEnvironmentResponseModel.md) |  | [optional] 
 **Warning** | Pointer to **NullableString** | The warning message if parsing CustomProperties with error. | [optional] 
 **Warnings** | Pointer to [**[]ProvisioningSchemeWarningReponseModel**](ProvisioningSchemeWarningReponseModel.md) | The warning. | [optional] 
 **CustomPropertiesInString** | Pointer to **NullableString** | The properties of the provisioning scheme that are specific to the target hosting infrastructure in string format. | [optional] 
@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **MasterImage** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
 **MachineProfile** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
 **MemoryMB** | **int32** | The maximum amount of memory that VMs will be created with when using this scheme. | 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of provisioning scheme. | [optional] 
 **NetworkMaps** | [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Networks used by provisioned VMs. | 
 **NutanixContainer** | Pointer to **NullableString** | Nutanix container that the scheme uses. | [optional] 
 **ResetAdministratorPasswords** | **bool** | Indicates whether administrator passwords are reset automatically to a random password each time machines are provisioned. | 
@@ -41,10 +42,12 @@ Name | Type | Description | Notes
 **UseFullDiskCloneProvisioning** | **bool** | Indicates whether the machines are provisioned using the dedicated full disk clone feature. | 
 **UseWriteBackCache** | **bool** | True if the scheme will use the write back cache feature. | 
 **VMMetadata** | Pointer to [**ProvisioningSchemeVmMetadataResponseModel**](ProvisioningSchemeVmMetadataResponseModel.md) |  | [optional] 
+**WindowsActivationType** | Pointer to **NullableString** | Windows Activation Type set on the master image, maybe MultipleActivationKey. | [optional] 
 **WorkgroupMachines** | Pointer to **bool** | True if the provisioned machines are non-domain joined | [optional] 
 **WriteBackCacheDiskIndex** | Pointer to **NullableInt32** | The disk on which to place the write back cache.  &#x60;0&#x60; indicates the OS disk. | [optional] 
 **WriteBackCacheDiskSizeGB** | Pointer to **NullableInt32** | The size of the write back cache disk if specified in GB. | [optional] 
 **WriteBackCacheMemorySizeMB** | Pointer to **NullableInt32** | The size of the in-memory write back cache if specified in MB. | [optional] 
+**WriteBackCacheDriveLetter** | Pointer to **string** | Gets or sets the write back cache disk drive letter. | [optional] 
 **IsPreviousImageLegacyVda** | **bool** | True if the previous image is installed with a legacy VDA. | 
 **MachineAccountCreationRules** | Pointer to [**MachineAccountCreationRulesResponseModel**](MachineAccountCreationRulesResponseModel.md) |  | [optional] 
 **NumAvailableMachineAccounts** | **int32** | Number of machine accounts available to be used by machines that will be provisioned in the machine catalog.  This will be the identities associated with the machine catalog where State is Available. | 
@@ -291,30 +294,30 @@ HasCustomProperties returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeResponseModel) UnsetCustomProperties()`
 
 UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
-### GetImageRuntimeInfo
+### GetImageRuntimeEnvironment
 
-`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeInfo() ImageRuntimeInfoResponseModel`
+`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeEnvironment() ImageRuntimeEnvironmentResponseModel`
 
-GetImageRuntimeInfo returns the ImageRuntimeInfo field if non-nil, zero value otherwise.
+GetImageRuntimeEnvironment returns the ImageRuntimeEnvironment field if non-nil, zero value otherwise.
 
-### GetImageRuntimeInfoOk
+### GetImageRuntimeEnvironmentOk
 
-`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeInfoOk() (*ImageRuntimeInfoResponseModel, bool)`
+`func (o *ProvisioningSchemeResponseModel) GetImageRuntimeEnvironmentOk() (*ImageRuntimeEnvironmentResponseModel, bool)`
 
-GetImageRuntimeInfoOk returns a tuple with the ImageRuntimeInfo field if it's non-nil, zero value otherwise
+GetImageRuntimeEnvironmentOk returns a tuple with the ImageRuntimeEnvironment field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageRuntimeInfo
+### SetImageRuntimeEnvironment
 
-`func (o *ProvisioningSchemeResponseModel) SetImageRuntimeInfo(v ImageRuntimeInfoResponseModel)`
+`func (o *ProvisioningSchemeResponseModel) SetImageRuntimeEnvironment(v ImageRuntimeEnvironmentResponseModel)`
 
-SetImageRuntimeInfo sets ImageRuntimeInfo field to given value.
+SetImageRuntimeEnvironment sets ImageRuntimeEnvironment field to given value.
 
-### HasImageRuntimeInfo
+### HasImageRuntimeEnvironment
 
-`func (o *ProvisioningSchemeResponseModel) HasImageRuntimeInfo() bool`
+`func (o *ProvisioningSchemeResponseModel) HasImageRuntimeEnvironment() bool`
 
-HasImageRuntimeInfo returns a boolean if a field has been set.
+HasImageRuntimeEnvironment returns a boolean if a field has been set.
 
 ### GetWarning
 
@@ -846,6 +849,41 @@ and a boolean to check if the value has been set.
 SetMemoryMB sets MemoryMB field to given value.
 
 
+### GetMetadata
+
+`func (o *ProvisioningSchemeResponseModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *ProvisioningSchemeResponseModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *ProvisioningSchemeResponseModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *ProvisioningSchemeResponseModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *ProvisioningSchemeResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ProvisioningSchemeResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetNetworkMaps
 
 `func (o *ProvisioningSchemeResponseModel) GetNetworkMaps() []NetworkMapResponseModel`
@@ -1056,6 +1094,41 @@ SetVMMetadata sets VMMetadata field to given value.
 
 HasVMMetadata returns a boolean if a field has been set.
 
+### GetWindowsActivationType
+
+`func (o *ProvisioningSchemeResponseModel) GetWindowsActivationType() string`
+
+GetWindowsActivationType returns the WindowsActivationType field if non-nil, zero value otherwise.
+
+### GetWindowsActivationTypeOk
+
+`func (o *ProvisioningSchemeResponseModel) GetWindowsActivationTypeOk() (*string, bool)`
+
+GetWindowsActivationTypeOk returns a tuple with the WindowsActivationType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWindowsActivationType
+
+`func (o *ProvisioningSchemeResponseModel) SetWindowsActivationType(v string)`
+
+SetWindowsActivationType sets WindowsActivationType field to given value.
+
+### HasWindowsActivationType
+
+`func (o *ProvisioningSchemeResponseModel) HasWindowsActivationType() bool`
+
+HasWindowsActivationType returns a boolean if a field has been set.
+
+### SetWindowsActivationTypeNil
+
+`func (o *ProvisioningSchemeResponseModel) SetWindowsActivationTypeNil(b bool)`
+
+ SetWindowsActivationTypeNil sets the value for WindowsActivationType to be an explicit nil
+
+### UnsetWindowsActivationType
+`func (o *ProvisioningSchemeResponseModel) UnsetWindowsActivationType()`
+
+UnsetWindowsActivationType ensures that no value is present for WindowsActivationType, not even an explicit nil
 ### GetWorkgroupMachines
 
 `func (o *ProvisioningSchemeResponseModel) GetWorkgroupMachines() bool`
@@ -1186,6 +1259,31 @@ HasWriteBackCacheMemorySizeMB returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeResponseModel) UnsetWriteBackCacheMemorySizeMB()`
 
 UnsetWriteBackCacheMemorySizeMB ensures that no value is present for WriteBackCacheMemorySizeMB, not even an explicit nil
+### GetWriteBackCacheDriveLetter
+
+`func (o *ProvisioningSchemeResponseModel) GetWriteBackCacheDriveLetter() string`
+
+GetWriteBackCacheDriveLetter returns the WriteBackCacheDriveLetter field if non-nil, zero value otherwise.
+
+### GetWriteBackCacheDriveLetterOk
+
+`func (o *ProvisioningSchemeResponseModel) GetWriteBackCacheDriveLetterOk() (*string, bool)`
+
+GetWriteBackCacheDriveLetterOk returns a tuple with the WriteBackCacheDriveLetter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWriteBackCacheDriveLetter
+
+`func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDriveLetter(v string)`
+
+SetWriteBackCacheDriveLetter sets WriteBackCacheDriveLetter field to given value.
+
+### HasWriteBackCacheDriveLetter
+
+`func (o *ProvisioningSchemeResponseModel) HasWriteBackCacheDriveLetter() bool`
+
+HasWriteBackCacheDriveLetter returns a boolean if a field has been set.
+
 ### GetIsPreviousImageLegacyVda
 
 `func (o *ProvisioningSchemeResponseModel) GetIsPreviousImageLegacyVda() bool`

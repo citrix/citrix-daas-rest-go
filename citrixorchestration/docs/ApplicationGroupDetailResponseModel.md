@@ -9,14 +9,15 @@ Name | Type | Description | Notes
 **ContainerScopes** | [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application group reside. | 
 **Description** | Pointer to **NullableString** | Description of the application group. As with other facets of application groups, the description is not visible to end users. | [optional] 
 **Enabled** | **bool** | Indicates whether or not the applications in this application group can be launched. | 
-**Name** | Pointer to **NullableString** | Simple administrative name of application group within parent admin folder (if any). This property  is not guaranteed unique across all application groups. | [optional] 
+**Name** | Pointer to **NullableString** | Simple administrative name of application group within parent admin folder (if any). This property is not guaranteed unique across all application groups. | [optional] 
 **FullName** | Pointer to **NullableString** | Name of this application group. The name uniquely identifies the application group within the site. As with other facets of application groups, the name is not visible to end users. | [optional] 
 **Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | The list of the delegated admin scopes to which the application group belongs. | 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of application group. | [optional] 
 **Tags** | Pointer to **[]string** | Tags associated with this application group. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the application group is assigned to.  If &#x60;null&#x60;, the application group is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
 **NumApplications** | **int32** | Number of applications present in the application group. | 
 **NumMachines** | **int32** | Number of machines capable of hosting the applications in the application group. | 
-**NumMachinesWithTag** | Pointer to **int32** | Total number of machines across all desktop groups on  which the application group is published, and which are tagged with the tag given by the RestrictToTag property. | [optional] 
+**NumMachinesWithTag** | Pointer to **int32** | Total number of machines across all desktop groups on which the application group is published, and which are tagged with the tag given by the RestrictToTag property. | [optional] 
 **RestrictToTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **DeliveryGroups** | [**[]ApplicationGroupDeliveryGroupRefResponseModel**](ApplicationGroupDeliveryGroupRefResponseModel.md) | Delivery groups associated with the application group. | 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
@@ -265,6 +266,41 @@ and a boolean to check if the value has been set.
 SetScopes sets Scopes field to given value.
 
 
+### GetMetadata
+
+`func (o *ApplicationGroupDetailResponseModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *ApplicationGroupDetailResponseModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *ApplicationGroupDetailResponseModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *ApplicationGroupDetailResponseModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *ApplicationGroupDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ApplicationGroupDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetTags
 
 `func (o *ApplicationGroupDetailResponseModel) GetTags() []string`

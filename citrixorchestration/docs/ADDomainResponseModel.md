@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** | Domain name | [optional] 
 **ForestName** | Pointer to **NullableString** | Parent forest of this domain | [optional] 
-**Tag** | Pointer to **map[string]interface{}** | Cookie for use by the IActiveDirectoryService implementation | [optional] 
 
 ## Methods
 
@@ -97,41 +96,6 @@ HasForestName returns a boolean if a field has been set.
 `func (o *ADDomainResponseModel) UnsetForestName()`
 
 UnsetForestName ensures that no value is present for ForestName, not even an explicit nil
-### GetTag
-
-`func (o *ADDomainResponseModel) GetTag() map[string]interface{}`
-
-GetTag returns the Tag field if non-nil, zero value otherwise.
-
-### GetTagOk
-
-`func (o *ADDomainResponseModel) GetTagOk() (*map[string]interface{}, bool)`
-
-GetTagOk returns a tuple with the Tag field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTag
-
-`func (o *ADDomainResponseModel) SetTag(v map[string]interface{})`
-
-SetTag sets Tag field to given value.
-
-### HasTag
-
-`func (o *ADDomainResponseModel) HasTag() bool`
-
-HasTag returns a boolean if a field has been set.
-
-### SetTagNil
-
-`func (o *ADDomainResponseModel) SetTagNil(b bool)`
-
- SetTagNil sets the value for Tag to be an explicit nil
-
-### UnsetTag
-`func (o *ADDomainResponseModel) UnsetTag()`
-
-UnsetTag ensures that no value is present for Tag, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

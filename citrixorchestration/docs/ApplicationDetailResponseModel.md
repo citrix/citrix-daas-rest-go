@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
 **ApplicationFolder** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **ApplicationType** | [**ApplicationType**](ApplicationType.md) |  | 
+**PackagedApplicationType** | [**PackagedApplicationType**](PackagedApplicationType.md) |  | 
 **ClientFolder** | Pointer to **NullableString** | The folder that the application belongs to as the user sees it. | [optional] 
 **ContainerScopes** | [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application reside. | 
 **Description** | Pointer to **NullableString** | The description of the application. | [optional] 
@@ -15,10 +16,12 @@ Name | Type | Description | Notes
 **Enabled** | **bool** | Indicates whether or not this application can be launched. | 
 **IconId** | **string** | Id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid | 
 **InstalledAppProperties** | Pointer to [**InstalledAppResponseModel**](InstalledAppResponseModel.md) |  | [optional] 
+**PackagedAppProperties** | Pointer to [**AppVAppResponseModel**](AppVAppResponseModel.md) |  | [optional] 
 **AppVAppProperties** | Pointer to [**AppVAppResponseModel**](AppVAppResponseModel.md) |  | [optional] 
 **ContentLocation** | Pointer to **NullableString** | Location of published content. | [optional] 
 **Name** | **string** | Name of the application.  Only seen by administrators. | 
 **PublishedName** | **string** | The name seen by end users who have access to the application. | 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of application. | [optional] 
 **Visible** | **bool** | Indicates whether or not this application is visible to users. | 
 **SharingKind** | [**SharingKind**](SharingKind.md) |  | 
 **Tags** | Pointer to **[]string** | Tags associated with this application. | [optional] 
@@ -49,7 +52,7 @@ Name | Type | Description | Notes
 
 ### NewApplicationDetailResponseModel
 
-`func NewApplicationDetailResponseModel(id string, applicationFolder RefResponseModel, applicationType ApplicationType, containerScopes []ContainerScopeResponseModel, enabled bool, iconId string, name string, publishedName string, visible bool, sharingKind SharingKind, browserName string, cpuPriorityLevel CpuPriorityLevel, homeZone RefResponseModel, homeZoneMode HomeZoneMode, includedUserFilterEnabled bool, ) *ApplicationDetailResponseModel`
+`func NewApplicationDetailResponseModel(id string, applicationFolder RefResponseModel, applicationType ApplicationType, packagedApplicationType PackagedApplicationType, containerScopes []ContainerScopeResponseModel, enabled bool, iconId string, name string, publishedName string, visible bool, sharingKind SharingKind, browserName string, cpuPriorityLevel CpuPriorityLevel, homeZone RefResponseModel, homeZoneMode HomeZoneMode, includedUserFilterEnabled bool, ) *ApplicationDetailResponseModel`
 
 NewApplicationDetailResponseModel instantiates a new ApplicationDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -157,6 +160,26 @@ and a boolean to check if the value has been set.
 `func (o *ApplicationDetailResponseModel) SetApplicationType(v ApplicationType)`
 
 SetApplicationType sets ApplicationType field to given value.
+
+
+### GetPackagedApplicationType
+
+`func (o *ApplicationDetailResponseModel) GetPackagedApplicationType() PackagedApplicationType`
+
+GetPackagedApplicationType returns the PackagedApplicationType field if non-nil, zero value otherwise.
+
+### GetPackagedApplicationTypeOk
+
+`func (o *ApplicationDetailResponseModel) GetPackagedApplicationTypeOk() (*PackagedApplicationType, bool)`
+
+GetPackagedApplicationTypeOk returns a tuple with the PackagedApplicationType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedApplicationType
+
+`func (o *ApplicationDetailResponseModel) SetPackagedApplicationType(v PackagedApplicationType)`
+
+SetPackagedApplicationType sets PackagedApplicationType field to given value.
 
 
 ### GetClientFolder
@@ -339,6 +362,31 @@ SetInstalledAppProperties sets InstalledAppProperties field to given value.
 
 HasInstalledAppProperties returns a boolean if a field has been set.
 
+### GetPackagedAppProperties
+
+`func (o *ApplicationDetailResponseModel) GetPackagedAppProperties() AppVAppResponseModel`
+
+GetPackagedAppProperties returns the PackagedAppProperties field if non-nil, zero value otherwise.
+
+### GetPackagedAppPropertiesOk
+
+`func (o *ApplicationDetailResponseModel) GetPackagedAppPropertiesOk() (*AppVAppResponseModel, bool)`
+
+GetPackagedAppPropertiesOk returns a tuple with the PackagedAppProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedAppProperties
+
+`func (o *ApplicationDetailResponseModel) SetPackagedAppProperties(v AppVAppResponseModel)`
+
+SetPackagedAppProperties sets PackagedAppProperties field to given value.
+
+### HasPackagedAppProperties
+
+`func (o *ApplicationDetailResponseModel) HasPackagedAppProperties() bool`
+
+HasPackagedAppProperties returns a boolean if a field has been set.
+
 ### GetAppVAppProperties
 
 `func (o *ApplicationDetailResponseModel) GetAppVAppProperties() AppVAppResponseModel`
@@ -439,6 +487,41 @@ and a boolean to check if the value has been set.
 SetPublishedName sets PublishedName field to given value.
 
 
+### GetMetadata
+
+`func (o *ApplicationDetailResponseModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *ApplicationDetailResponseModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *ApplicationDetailResponseModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *ApplicationDetailResponseModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *ApplicationDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ApplicationDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetVisible
 
 `func (o *ApplicationDetailResponseModel) GetVisible() bool`

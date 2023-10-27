@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FilterType** | Pointer to **NullableString** | The filter filter type. | [optional] 
-**IsAllowed** | Pointer to **bool** | Allow or deny | [optional] 
-**IsEnabled** | Pointer to **bool** | Enabled or disabled | [optional] 
-**FilterData** | Pointer to **NullableString** | Serialized JSON string. | [optional] 
+**FilterType** | Pointer to **NullableString** | The filter type. | [optional] 
+**IsAllowed** | Pointer to **bool** | Filtered policy is allowed or denied if the filter condition is met. | [optional] 
+**IsEnabled** | Pointer to **bool** | Filter is enabled or disabled. | [optional] 
+**FilterData** | Pointer to **NullableString** | Filter data as a serialized JSON string. This is ignored if the filter is a Citrix SD-Wan filter. | [optional] 
 
 ## Methods
 

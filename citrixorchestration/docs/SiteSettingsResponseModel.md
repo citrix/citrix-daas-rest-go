@@ -8,7 +8,10 @@ Name | Type | Description | Notes
 **DnsResolutionEnabled** | Pointer to **NullableBool** |  | [optional] 
 **TrustRequestsSentToTheXmlServicePortEnabled** | Pointer to **NullableBool** |  | [optional] 
 **WebUiPolicySetEnabled** | Pointer to **NullableBool** | The policy set in web UI is enabled or not | [optional] 
+**ConsoleInactivityTimeoutMinutes** | Pointer to **NullableInt32** | The max number of minutes that console can be inactive. | [optional] 
 **SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
+**AllowedCorsOriginsForIwa** | Pointer to **[]string** | Application only for On-Premise. List of origins allowed to make cross-origin requests for Integrated Windows Authentication. | [optional] 
+**MultiSites** | Pointer to [**[]MultiSiteModel**](MultiSiteModel.md) | Applicable only for On-Premise Multiple sites configuration | [optional] 
 
 ## Methods
 
@@ -169,6 +172,41 @@ HasWebUiPolicySetEnabled returns a boolean if a field has been set.
 `func (o *SiteSettingsResponseModel) UnsetWebUiPolicySetEnabled()`
 
 UnsetWebUiPolicySetEnabled ensures that no value is present for WebUiPolicySetEnabled, not even an explicit nil
+### GetConsoleInactivityTimeoutMinutes
+
+`func (o *SiteSettingsResponseModel) GetConsoleInactivityTimeoutMinutes() int32`
+
+GetConsoleInactivityTimeoutMinutes returns the ConsoleInactivityTimeoutMinutes field if non-nil, zero value otherwise.
+
+### GetConsoleInactivityTimeoutMinutesOk
+
+`func (o *SiteSettingsResponseModel) GetConsoleInactivityTimeoutMinutesOk() (*int32, bool)`
+
+GetConsoleInactivityTimeoutMinutesOk returns a tuple with the ConsoleInactivityTimeoutMinutes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConsoleInactivityTimeoutMinutes
+
+`func (o *SiteSettingsResponseModel) SetConsoleInactivityTimeoutMinutes(v int32)`
+
+SetConsoleInactivityTimeoutMinutes sets ConsoleInactivityTimeoutMinutes field to given value.
+
+### HasConsoleInactivityTimeoutMinutes
+
+`func (o *SiteSettingsResponseModel) HasConsoleInactivityTimeoutMinutes() bool`
+
+HasConsoleInactivityTimeoutMinutes returns a boolean if a field has been set.
+
+### SetConsoleInactivityTimeoutMinutesNil
+
+`func (o *SiteSettingsResponseModel) SetConsoleInactivityTimeoutMinutesNil(b bool)`
+
+ SetConsoleInactivityTimeoutMinutesNil sets the value for ConsoleInactivityTimeoutMinutes to be an explicit nil
+
+### UnsetConsoleInactivityTimeoutMinutes
+`func (o *SiteSettingsResponseModel) UnsetConsoleInactivityTimeoutMinutes()`
+
+UnsetConsoleInactivityTimeoutMinutes ensures that no value is present for ConsoleInactivityTimeoutMinutes, not even an explicit nil
 ### GetSupportedAuthenticators
 
 `func (o *SiteSettingsResponseModel) GetSupportedAuthenticators() Authenticator`
@@ -194,6 +232,76 @@ SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
 
 HasSupportedAuthenticators returns a boolean if a field has been set.
 
+### GetAllowedCorsOriginsForIwa
+
+`func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwa() []string`
+
+GetAllowedCorsOriginsForIwa returns the AllowedCorsOriginsForIwa field if non-nil, zero value otherwise.
+
+### GetAllowedCorsOriginsForIwaOk
+
+`func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwaOk() (*[]string, bool)`
+
+GetAllowedCorsOriginsForIwaOk returns a tuple with the AllowedCorsOriginsForIwa field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllowedCorsOriginsForIwa
+
+`func (o *SiteSettingsResponseModel) SetAllowedCorsOriginsForIwa(v []string)`
+
+SetAllowedCorsOriginsForIwa sets AllowedCorsOriginsForIwa field to given value.
+
+### HasAllowedCorsOriginsForIwa
+
+`func (o *SiteSettingsResponseModel) HasAllowedCorsOriginsForIwa() bool`
+
+HasAllowedCorsOriginsForIwa returns a boolean if a field has been set.
+
+### SetAllowedCorsOriginsForIwaNil
+
+`func (o *SiteSettingsResponseModel) SetAllowedCorsOriginsForIwaNil(b bool)`
+
+ SetAllowedCorsOriginsForIwaNil sets the value for AllowedCorsOriginsForIwa to be an explicit nil
+
+### UnsetAllowedCorsOriginsForIwa
+`func (o *SiteSettingsResponseModel) UnsetAllowedCorsOriginsForIwa()`
+
+UnsetAllowedCorsOriginsForIwa ensures that no value is present for AllowedCorsOriginsForIwa, not even an explicit nil
+### GetMultiSites
+
+`func (o *SiteSettingsResponseModel) GetMultiSites() []MultiSiteModel`
+
+GetMultiSites returns the MultiSites field if non-nil, zero value otherwise.
+
+### GetMultiSitesOk
+
+`func (o *SiteSettingsResponseModel) GetMultiSitesOk() (*[]MultiSiteModel, bool)`
+
+GetMultiSitesOk returns a tuple with the MultiSites field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMultiSites
+
+`func (o *SiteSettingsResponseModel) SetMultiSites(v []MultiSiteModel)`
+
+SetMultiSites sets MultiSites field to given value.
+
+### HasMultiSites
+
+`func (o *SiteSettingsResponseModel) HasMultiSites() bool`
+
+HasMultiSites returns a boolean if a field has been set.
+
+### SetMultiSitesNil
+
+`func (o *SiteSettingsResponseModel) SetMultiSitesNil(b bool)`
+
+ SetMultiSitesNil sets the value for MultiSites to be an explicit nil
+
+### UnsetMultiSites
+`func (o *SiteSettingsResponseModel) UnsetMultiSites()`
+
+UnsetMultiSites ensures that no value is present for MultiSites, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

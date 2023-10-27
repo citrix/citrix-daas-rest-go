@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **Frequency** | Pointer to [**BackupRestoreScheduleFrequency**](BackupRestoreScheduleFrequency.md) |  | [optional] 
 **StartTime** | Pointer to **NullableString** | Start Time | [optional] 
 **TimeZoneId** | Pointer to **NullableString** | Time Zone Id              | [optional] 
+**Notes** | Pointer to **NullableString** | Notes added to backup  | [optional] 
 
 ## Methods
 
@@ -432,6 +433,41 @@ HasTimeZoneId returns a boolean if a field has been set.
 `func (o *BackupRestoreScheduleModel) UnsetTimeZoneId()`
 
 UnsetTimeZoneId ensures that no value is present for TimeZoneId, not even an explicit nil
+### GetNotes
+
+`func (o *BackupRestoreScheduleModel) GetNotes() string`
+
+GetNotes returns the Notes field if non-nil, zero value otherwise.
+
+### GetNotesOk
+
+`func (o *BackupRestoreScheduleModel) GetNotesOk() (*string, bool)`
+
+GetNotesOk returns a tuple with the Notes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotes
+
+`func (o *BackupRestoreScheduleModel) SetNotes(v string)`
+
+SetNotes sets Notes field to given value.
+
+### HasNotes
+
+`func (o *BackupRestoreScheduleModel) HasNotes() bool`
+
+HasNotes returns a boolean if a field has been set.
+
+### SetNotesNil
+
+`func (o *BackupRestoreScheduleModel) SetNotesNil(b bool)`
+
+ SetNotesNil sets the value for Notes to be an explicit nil
+
+### UnsetNotes
+`func (o *BackupRestoreScheduleModel) UnsetNotes()`
+
+UnsetNotes ensures that no value is present for Notes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,10 +21,12 @@ Name | Type | Description | Notes
 **IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access polic(ies) is implicitly granted access to the application. If not specified, will not be changed. | [optional] 
 **IncludedUsers** | Pointer to **[]string** | Specifies the included users filter of the application; that is, the users and groups who are explicitly granted access to the published application. If not specified, will not be changed. If specified, all users to be included must be specified. | [optional] 
 **InstalledAppProperties** | Pointer to [**EditInstalledAppRequestModel**](EditInstalledAppRequestModel.md) |  | [optional] 
+**PackagedAppProperties** | Pointer to [**AppVAppRequestModel**](AppVAppRequestModel.md) |  | [optional] 
 **AppVAppProperties** | Pointer to [**AppVAppRequestModel**](AppVAppRequestModel.md) |  | [optional] 
 **ContentLocation** | Pointer to **NullableString** | Location of published content. If not specified, will not be changed. | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of the application. When set the property value equal to null/empty means to remove this property. | [optional] 
 **MaxPerUserInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed concurrently running instances of the application that an individual user can have. If not specified, will not be changed. | [optional] 
-**MaxTotalInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed total ofconcurrently running instances of the application within the site. If not specified, will not be changed. | [optional] 
+**MaxTotalInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed total of concurrently running instances of the application within the site. If not specified, will not be changed. | [optional] 
 **Name** | Pointer to **NullableString** | Name of the application.  Only seen by administrators. If not specified, will not be changed. If specified, must be unique within the site. | [optional] 
 **PublishedName** | Pointer to **NullableString** | The name seen by end users who have access to the application. If not specified, will not be changed. | [optional] 
 **ShortcutAddedToDesktop** | Pointer to **NullableBool** | Specifies whether or not a shortcut to the application should be placed on the user device. If not specified, will not be changed. | [optional] 
@@ -617,6 +619,31 @@ SetInstalledAppProperties sets InstalledAppProperties field to given value.
 
 HasInstalledAppProperties returns a boolean if a field has been set.
 
+### GetPackagedAppProperties
+
+`func (o *EditApplicationRequestModel) GetPackagedAppProperties() AppVAppRequestModel`
+
+GetPackagedAppProperties returns the PackagedAppProperties field if non-nil, zero value otherwise.
+
+### GetPackagedAppPropertiesOk
+
+`func (o *EditApplicationRequestModel) GetPackagedAppPropertiesOk() (*AppVAppRequestModel, bool)`
+
+GetPackagedAppPropertiesOk returns a tuple with the PackagedAppProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedAppProperties
+
+`func (o *EditApplicationRequestModel) SetPackagedAppProperties(v AppVAppRequestModel)`
+
+SetPackagedAppProperties sets PackagedAppProperties field to given value.
+
+### HasPackagedAppProperties
+
+`func (o *EditApplicationRequestModel) HasPackagedAppProperties() bool`
+
+HasPackagedAppProperties returns a boolean if a field has been set.
+
 ### GetAppVAppProperties
 
 `func (o *EditApplicationRequestModel) GetAppVAppProperties() AppVAppRequestModel`
@@ -677,6 +704,41 @@ HasContentLocation returns a boolean if a field has been set.
 `func (o *EditApplicationRequestModel) UnsetContentLocation()`
 
 UnsetContentLocation ensures that no value is present for ContentLocation, not even an explicit nil
+### GetMetadata
+
+`func (o *EditApplicationRequestModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *EditApplicationRequestModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *EditApplicationRequestModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *EditApplicationRequestModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *EditApplicationRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *EditApplicationRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetMaxPerUserInstances
 
 `func (o *EditApplicationRequestModel) GetMaxPerUserInstances() int32`

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicySetGuid** | Pointer to **string** | The blob that this policy belongs to. | [optional] 
+**PolicySetGuid** | Pointer to **string** | The policy set that this policy belongs to. | [optional] 
 **PolicyGuid** | Pointer to **string** | Policy GUID. | [optional] 
-**PolicyName** | Pointer to **NullableString** | Policy name, translated. | [optional] 
-**Priority** | Pointer to **int32** | Policy priority | [optional] 
-**IsEnabled** | Pointer to **bool** | Is policy enabled | [optional] 
-**Description** | Pointer to **NullableString** | Policy description | [optional] 
-**Settings** | Pointer to [**[]SettingResponse**](SettingResponse.md) | Policy settings | [optional] 
-**Filters** | Pointer to [**[]FilterResponse**](FilterResponse.md) | Policy filters | [optional] 
+**PolicyName** | Pointer to **NullableString** | Policy name. | [optional] 
+**Priority** | Pointer to **int32** | Policy priority. | [optional] 
+**IsEnabled** | Pointer to **bool** | Is policy enabled. | [optional] 
+**Description** | Pointer to **NullableString** | Policy description. | [optional] 
+**Settings** | Pointer to [**[]SettingResponse**](SettingResponse.md) | Policy settings. | [optional] 
+**Filters** | Pointer to [**[]FilterResponse**](FilterResponse.md) | Policy filters. | [optional] 
 
 ## Methods
 

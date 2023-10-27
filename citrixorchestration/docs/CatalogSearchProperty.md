@@ -33,6 +33,8 @@
 
 * `USED_COUNT` (value: `"UsedCount"`)
 
+* `PERSIST_CHANGES` (value: `"PersistChanges"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

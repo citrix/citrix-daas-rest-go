@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **FormattedEndTime** | Pointer to **NullableString** | Formatted time when the operation ended. If the operation is incomplete, will be null. RFC 3339 compatible format. | [optional] 
 **IsSuccessful** | Pointer to **NullableBool** | Indicates whether the operation completed successfully.  If the operation is incomplete, will be null. | [optional] 
 **OperationType** | [**LogOperationType**](LogOperationType.md) |  | 
+**Labels** | Pointer to **[]string** | Labels attached to the operation. | [optional] 
 **Parameters** | [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Operation parameters. It is a list of parameter names. | 
 **Source** | **string** | Source of the operation. | 
 **StartTime** | **string** | Time when the operation started. | 
@@ -217,6 +218,41 @@ and a boolean to check if the value has been set.
 SetOperationType sets OperationType field to given value.
 
 
+### GetLabels
+
+`func (o *LogOperationResponseModel) GetLabels() []string`
+
+GetLabels returns the Labels field if non-nil, zero value otherwise.
+
+### GetLabelsOk
+
+`func (o *LogOperationResponseModel) GetLabelsOk() (*[]string, bool)`
+
+GetLabelsOk returns a tuple with the Labels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabels
+
+`func (o *LogOperationResponseModel) SetLabels(v []string)`
+
+SetLabels sets Labels field to given value.
+
+### HasLabels
+
+`func (o *LogOperationResponseModel) HasLabels() bool`
+
+HasLabels returns a boolean if a field has been set.
+
+### SetLabelsNil
+
+`func (o *LogOperationResponseModel) SetLabelsNil(b bool)`
+
+ SetLabelsNil sets the value for Labels to be an explicit nil
+
+### UnsetLabels
+`func (o *LogOperationResponseModel) UnsetLabels()`
+
+UnsetLabels ensures that no value is present for Labels, not even an explicit nil
 ### GetParameters
 
 `func (o *LogOperationResponseModel) GetParameters() []NameValueStringPairModel`

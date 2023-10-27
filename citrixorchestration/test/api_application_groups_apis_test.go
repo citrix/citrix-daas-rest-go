@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing ApplicationGroupsAPIs Service
+Testing ApplicationGroupsAPIsDAASService
 
 */
 
@@ -17,19 +17,19 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_ApplicationGroupsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsAddApplicationGroupTag", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsAddApplicationGroupTag", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsAddApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -37,37 +37,37 @@ func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsAddApplications", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsAddApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsAddApplications(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsAddApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsCheckApplicationGroupExists", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsCheckApplicationGroupExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsCheckApplicationGroupExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsCheckApplicationGroupExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsCreateApplicationGroup", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsCreateApplicationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsCreateApplicationGroup(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsCreateApplicationGroup(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -75,26 +75,38 @@ func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsDeleteApplicationGroup", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsDeleteApplicationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsDeleteApplicationGroup(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsDeleteApplicationGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsGetApplicationGroup", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsDoApplicationGroupSearch", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsDoApplicationGroupSearch(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsGetApplicationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsGetApplicationGroup(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +114,13 @@ func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsGetApplicationGroupApplications", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsGetApplicationGroupApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsGetApplicationGroupApplications(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +128,13 @@ func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsGetApplicationGroupDeliveryGroups", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsGetApplicationGroupDeliveryGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsGetApplicationGroupDeliveryGroups(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupDeliveryGroups(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +142,13 @@ func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsGetApplicationGroupTags", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsGetApplicationGroupTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsGetApplicationGroupTags(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupTags(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,11 +156,11 @@ func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsGetApplicationGroups", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsGetApplicationGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsGetApplicationGroups(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroups(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -156,65 +168,65 @@ func Test_citrixorchestration_ApplicationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsRemoveApplication", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsRemoveApplication", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var appNameOrId string
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsRemoveApplication(context.Background(), nameOrId, appNameOrId).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplication(context.Background(), nameOrId, appNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsRemoveApplicationGroupTag", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsRemoveApplicationGroupTag", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsRemoveApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsRemoveApplicationGroupTag(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsSetApplicationGroupTags", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsSetApplicationGroupTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsSetApplicationGroupTags(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsSetApplicationGroupTags(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsTestApplicationGroupExists", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsTestApplicationGroupExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsTestApplicationGroupExists(context.Background()).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsTestApplicationGroupExists(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationGroupsAPIs Service ApplicationGroupsUpdateApplicationGroup", func(t *testing.T) {
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsUpdateApplicationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ApplicationGroupsAPIs .ApplicationGroupsUpdateApplicationGroup(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsUpdateApplicationGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

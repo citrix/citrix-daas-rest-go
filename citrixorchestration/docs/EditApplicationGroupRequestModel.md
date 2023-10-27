@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the  filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery groups&#39; access polic(ies) is implicitly granted access to the applications within the application group.   If not specified, will not be changed. | [optional] 
 **IncludedUsers** | Pointer to **[]string** | Specifies the included users filter of the application group; that is, the users and groups who are explicitly granted access to the applications in the application group.   If not specified, will not be changed.   If specified, all desired users must be listed.  To remove all users, specify an empty array ([]). | [optional] 
 **DeliveryGroups** | Pointer to [**[]PriorityRefRequestModel**](PriorityRefRequestModel.md) | List of delivery groups to associate with the application group.   If not specified, will not be changed.   If specified, all desired delivery groups must be listed.  The application group must be associated with at least one delivery group. | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of the application group. When set the property value equal to null/empty means to remove this property. | [optional] 
 
 ## Methods
 
@@ -420,6 +421,41 @@ HasDeliveryGroups returns a boolean if a field has been set.
 `func (o *EditApplicationGroupRequestModel) UnsetDeliveryGroups()`
 
 UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
+### GetMetadata
+
+`func (o *EditApplicationGroupRequestModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *EditApplicationGroupRequestModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *EditApplicationGroupRequestModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *EditApplicationGroupRequestModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *EditApplicationGroupRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *EditApplicationGroupRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

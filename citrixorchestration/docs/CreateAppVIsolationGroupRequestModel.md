@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**LibraryUid** | **int32** | LibraryUid of IsolationGroup | 
 **Name** | **string** | Name of IsolationGroup | 
 **Description** | Pointer to **NullableString** | Description of IsolationGroup | [optional] 
 **IncludedAppVPackages** | Pointer to [**[]AppVIsolationGroupPackageRequestModel**](AppVIsolationGroupPackageRequestModel.md) | Included AppV packages | [optional] 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewCreateAppVIsolationGroupRequestModel
 
-`func NewCreateAppVIsolationGroupRequestModel(name string, ) *CreateAppVIsolationGroupRequestModel`
+`func NewCreateAppVIsolationGroupRequestModel(libraryUid int32, name string, ) *CreateAppVIsolationGroupRequestModel`
 
 NewCreateAppVIsolationGroupRequestModel instantiates a new CreateAppVIsolationGroupRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -26,6 +27,26 @@ will change when the set of required properties is changed
 NewCreateAppVIsolationGroupRequestModelWithDefaults instantiates a new CreateAppVIsolationGroupRequestModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetLibraryUid
+
+`func (o *CreateAppVIsolationGroupRequestModel) GetLibraryUid() int32`
+
+GetLibraryUid returns the LibraryUid field if non-nil, zero value otherwise.
+
+### GetLibraryUidOk
+
+`func (o *CreateAppVIsolationGroupRequestModel) GetLibraryUidOk() (*int32, bool)`
+
+GetLibraryUidOk returns a tuple with the LibraryUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLibraryUid
+
+`func (o *CreateAppVIsolationGroupRequestModel) SetLibraryUid(v int32)`
+
+SetLibraryUid sets LibraryUid field to given value.
+
 
 ### GetName
 

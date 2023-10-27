@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing AdminAPIs Service
+Testing AdminAPIsDAASService
 
 */
 
@@ -17,170 +17,116 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_AdminAPIs Service(t *testing.T) {
+func Test_citrixorchestration_AdminAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AdminAPIs Service AdminCheckRoleNameExists", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminCheckRoleNameExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.AdminAPIs .AdminCheckRoleNameExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminCheckRoleNameExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminCheckScopeNameExists", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminCheckScopeNameExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.AdminAPIs .AdminCheckScopeNameExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminCheckScopeNameExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminCreateAdminRole", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminCreateAdminAdministrator", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AdminAPIs .AdminCreateAdminRole(context.Background()).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminCreateAdminAdministrator(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminCreateAdminScope", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminCreateAdminRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AdminAPIs .AdminCreateAdminScope(context.Background()).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminCreateAdminRole(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminDeleteAdminRole", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminCreateAdminScope", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var nameOrId string
-
-		httpRes, err := apiClient.AdminAPIs .AdminDeleteAdminRole(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminCreateAdminScope(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminDeleteAdminScope", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.AdminAPIs .AdminDeleteAdminScope(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdminAPIs Service AdminGetAdminAdministrator", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminDeleteAdminAdministrator", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminAdministrator(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminDeleteAdminAdministrator(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminGetAdminAdministrators", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminAdministrators(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdminAPIs Service AdminGetAdminEffectiveRights", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminEffectiveRights(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdminAPIs Service AdminGetAdminRole", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminDeleteAdminRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminRole(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminDeleteAdminRole(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminGetAdminRoles", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminRoles(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdminAPIs Service AdminGetAdminScope", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminDeleteAdminScope", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminScope(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminDeleteAdminScope(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminGetAdminScopedObjects", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminGetAdminAdministrator", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminScopedObjects(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminAdministrator(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -188,11 +134,11 @@ func Test_citrixorchestration_AdminAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminGetAdminScopes", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminGetAdminAdministrators", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetAdminScopes(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminAdministrators(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -200,11 +146,11 @@ func Test_citrixorchestration_AdminAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminGetPredefinedPermissionGroups", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminGetAdminEffectiveRights", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetPredefinedPermissionGroups(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminEffectiveRights(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -212,11 +158,13 @@ func Test_citrixorchestration_AdminAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminGetPredefinedPermissions", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminGetAdminRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetPredefinedPermissions(context.Background()).Execute()
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminRole(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -224,13 +172,131 @@ func Test_citrixorchestration_AdminAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminGetPredefinedPermissionsForGroups", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminGetAdminRoles", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminRoles(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetAdminScope", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminScope(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetAdminScopedObjects", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminScopedObjects(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetAdminScopes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdminScopes(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetAdministratorNamePreview", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var name string
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdministratorNamePreview(context.Background(), name).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetAdministratorReport", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetAdministratorReport(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetDeleteAdministratorConsequence", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetDeleteAdministratorConsequence(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetPredefinedPermissionGroups", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetPredefinedPermissionGroups(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetPredefinedPermissions", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetPredefinedPermissions(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminGetPredefinedPermissionsForGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AdminAPIs .AdminGetPredefinedPermissionsForGroups(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminGetPredefinedPermissionsForGroups(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -238,26 +304,51 @@ func Test_citrixorchestration_AdminAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminUpdateAdminRole", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminPreviewAdministratorReport", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdminAPIsDAAS.AdminPreviewAdministratorReport(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminUpdateAdminAdministrator", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.AdminAPIs .AdminUpdateAdminRole(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminUpdateAdminAdministrator(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AdminAPIs Service AdminUpdateAdminScope", func(t *testing.T) {
+	t.Run("Test AdminAPIsDAASService AdminUpdateAdminRole", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.AdminAPIs .AdminUpdateAdminScope(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminUpdateAdminRole(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdminAPIsDAASService AdminUpdateAdminScope", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.AdminAPIsDAAS.AdminUpdateAdminScope(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

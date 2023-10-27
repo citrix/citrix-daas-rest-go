@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing AppLibPackageDiscoveryAPIs Service
+Testing AppLibPackageDiscoveryAPIsDAASService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
+func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryCreateAppLibPackageDiscovery", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryCreateAppLibPackageDiscovery", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryCreateAppLibPackageDiscovery(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscovery(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryGetAppLibPackageDiscovery", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscovery", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryGetAppLibPackageDiscovery(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscovery(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,13 +60,13 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uid int32
 
-		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(context.Background(), uid).Execute()
+		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId(context.Background(), uid).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +74,13 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uid int32
 
-		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(context.Background(), uid).Execute()
+		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile(context.Background(), uid).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,11 +88,11 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -100,11 +100,11 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -112,26 +112,26 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uid int32
 
-		httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(context.Background(), uid).Execute()
+		httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile(context.Background(), uid).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppLibPackageDiscoveryAPIs Service AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile", func(t *testing.T) {
+	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var uid int32
 
-		httpRes, err := apiClient.AppLibPackageDiscoveryAPIs .AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(context.Background(), uid).Execute()
+		httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile(context.Background(), uid).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **IsUserSetting** | Pointer to **bool** | true &#x3D; user, false &#x3D; machine | [optional] 
 **ValueType** | Pointer to **NullableString** | Type of setting value | [optional] 
 **IsEnableDisable** | Pointer to **bool** | Label test for a boolean setting, display enable/disable if true, otherwise allow/prohibit | [optional] 
+**IsToggled** | Pointer to **bool** | Indicate if the setting is toggled. | [optional] 
+**HideValueHint** | Pointer to **bool** | Indicate if the detailed validation message about the value should be shown. | [optional] 
 **DefaultValue** | Pointer to **NullableString** | Setting default value | [optional] 
 **DisabledValue** | Pointer to **NullableString** | Disabled value for toggled settings | [optional] 
 **InitialValue** | Pointer to **NullableString** | Initial value for toggled settings when value is not disabled. | [optional] 
@@ -342,6 +344,56 @@ SetIsEnableDisable sets IsEnableDisable field to given value.
 `func (o *SettingDefinitionContract) HasIsEnableDisable() bool`
 
 HasIsEnableDisable returns a boolean if a field has been set.
+
+### GetIsToggled
+
+`func (o *SettingDefinitionContract) GetIsToggled() bool`
+
+GetIsToggled returns the IsToggled field if non-nil, zero value otherwise.
+
+### GetIsToggledOk
+
+`func (o *SettingDefinitionContract) GetIsToggledOk() (*bool, bool)`
+
+GetIsToggledOk returns a tuple with the IsToggled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsToggled
+
+`func (o *SettingDefinitionContract) SetIsToggled(v bool)`
+
+SetIsToggled sets IsToggled field to given value.
+
+### HasIsToggled
+
+`func (o *SettingDefinitionContract) HasIsToggled() bool`
+
+HasIsToggled returns a boolean if a field has been set.
+
+### GetHideValueHint
+
+`func (o *SettingDefinitionContract) GetHideValueHint() bool`
+
+GetHideValueHint returns the HideValueHint field if non-nil, zero value otherwise.
+
+### GetHideValueHintOk
+
+`func (o *SettingDefinitionContract) GetHideValueHintOk() (*bool, bool)`
+
+GetHideValueHintOk returns a tuple with the HideValueHint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHideValueHint
+
+`func (o *SettingDefinitionContract) SetHideValueHint(v bool)`
+
+SetHideValueHint sets HideValueHint field to given value.
+
+### HasHideValueHint
+
+`func (o *SettingDefinitionContract) HasHideValueHint() bool`
+
+HasHideValueHint returns a boolean if a field has been set.
 
 ### GetDefaultValue
 

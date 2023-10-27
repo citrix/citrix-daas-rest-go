@@ -3,7 +3,7 @@
 ## Enum
 
 
-* `APPLICATION_CATEGORY` (value: `"ApplicationCategory"`)
+* `CLIENT_FOLDER` (value: `"ClientFolder"`)
 
 * `APPLICATION_GROUP` (value: `"ApplicationGroup"`)
 

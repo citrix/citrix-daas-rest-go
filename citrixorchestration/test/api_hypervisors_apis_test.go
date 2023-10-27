@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing HypervisorsAPIs Service
+Testing HypervisorsAPIsDAASService
 
 */
 
@@ -17,43 +17,43 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsCheckHypervisorExists", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsCheckHypervisorExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsCheckHypervisorExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCheckHypervisorExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsCheckHypervisorResourcePoolExists", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsCheckHypervisorResourcePoolExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var name string
 
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsCheckHypervisorResourcePoolExists(context.Background(), nameOrId, name).Execute()
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCheckHypervisorResourcePoolExists(context.Background(), nameOrId, name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsCreateHypervisor", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsCreateHypervisor", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsCreateHypervisor(context.Background()).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCreateHypervisor(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,13 +61,13 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsCreateResourcePool", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsCreateResourcePool", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsCreateResourcePool(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCreateResourcePool(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -75,152 +75,41 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsDeleteHypervisor", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsDeleteHypervisor", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsDeleteHypervisor(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDeleteHypervisor(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsDeleteHypervisorResourcePool", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-		var poolId string
-
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsDeleteHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsDoHypervisorResourceSearch", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsDeleteHypervisorResourcePool", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsDoHypervisorResourceSearch(context.Background(), nameOrId, poolId).Execute()
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDeleteHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisor", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisor(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorAdministrators", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorAdministrators(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorAllResources", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorAllResources(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorAllResourcesWithoutConnection", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorAllResourcesWithoutConnection(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorDeletePreview", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorDeletePreview(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorJobs", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorJobs(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorMachineCatalogs", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorMachineCatalogs(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePool", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsDoHypervisorResourceSearch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDoHypervisorResourceSearch(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -228,14 +117,124 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePoolAdministrators", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisor", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisor(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAdministrators", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAdministrators(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAllResources", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResources(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAllResourcesWithoutConnection", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorDeletePreview", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorDeletePreview(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorJobs", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorJobs(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorMachineCatalogs", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorMachineCatalogs(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorOrphanedResources", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorOrphanedResources(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePool", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePoolAdministrators(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -243,14 +242,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePoolDeletePreview", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolAdministrators", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePoolDeletePreview(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAdministrators(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -258,14 +257,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePoolJobs", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolDeletePreview", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePoolJobs(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolDeletePreview(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -273,14 +272,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePoolMachineCatalogs", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolJobs", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePoolMachineCatalogs(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolJobs(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -288,14 +287,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePoolPatchPreview", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolMachineCatalogs", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePoolPatchPreview(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolMachineCatalogs(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -303,14 +302,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePoolResources", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolPatchPreview", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePoolResources(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolPatchPreview(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -318,14 +317,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePoolTestReport", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolResources", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePoolTestReport(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolResources(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -333,156 +332,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorResourcePools", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorResourcePools(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorServerHAAddresses", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorServerHAAddresses(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorTestReport", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorTestReport(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorWithoutConnection", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorWithoutConnection(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisors", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisors(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetHypervisorsAndResourcePools", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetHypervisorsAndResourcePools(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsGetSupportHypervisors", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsGetSupportHypervisors(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsPatchHypervisor", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsPatchHypervisor(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsPatchHypervisorResourcePool", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolTestReport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsPatchHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsPutBrokerHypervisorConnection", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsPutBrokerHypervisorConnection(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsResetBrokerHypervisorConnection", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.HypervisorsAPIs .HypervisorsResetBrokerHypervisorConnection(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test HypervisorsAPIs Service HypervisorsTestHypervisor", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsTestHypervisor(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolTestReport(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -490,14 +347,156 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsTestHypervisorResourcePool", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePools", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePools(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorServerHAAddresses", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorServerHAAddresses(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorTestReport", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorTestReport(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorWithoutConnection", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorWithoutConnection(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisors", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisors(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorsAndResourcePools", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetSupportHypervisors", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsPatchHypervisor", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPatchHypervisor(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsPatchHypervisorResourcePool", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsTestHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPatchHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsPutBrokerHypervisorConnection", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPutBrokerHypervisorConnection(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsResetBrokerHypervisorConnection", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsResetBrokerHypervisorConnection(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsTestHypervisor", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsTestHypervisor(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -505,14 +504,14 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsValidateHypervisorResourcePoolResource", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsTestHypervisorResourcePool", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var poolId string
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsValidateHypervisorResourcePoolResource(context.Background(), nameOrId, poolId).Execute()
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsTestHypervisorResourcePool(context.Background(), nameOrId, poolId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -520,11 +519,26 @@ func Test_citrixorchestration_HypervisorsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test HypervisorsAPIs Service HypervisorsValidateVmPath", func(t *testing.T) {
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsValidateHypervisorResourcePoolResource", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.HypervisorsAPIs .HypervisorsValidateVmPath(context.Background()).Execute()
+		var nameOrId string
+		var poolId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsValidateHypervisorResourcePoolResource(context.Background(), nameOrId, poolId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsValidateVmPath", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsValidateVmPath(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

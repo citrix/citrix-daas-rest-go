@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **IncludedClientNames** | Pointer to **[]string** | The client names which will be granted access to the delivery group. | [optional] 
 **IncludedSmartAccessFilterEnabled** | Pointer to **bool** | Indicates whether the IncludedSmartAccessTags filter is enabled.  If the filter is disabled, it is ignored when the access policy is evaluated. CHANGE: was: public bool AccessGatewayConnectionsUseFilters { get; set; } | [optional] 
 **IncludedSmartAccessTags** | Pointer to [**[]SmartAccessTagResponseModel**](SmartAccessTagResponseModel.md) | The SmartAccess tags which grant access to the delivery group, if any occur in those provided by NetScaler Gateway with the user&#39;s connection. | [optional] 
+**IncludedSmartAccessFilterType** | Pointer to [**FilterMatchType**](FilterMatchType.md) |  | [optional] 
 **IncludedUserFilterEnabled** | Pointer to **bool** | Indicates whether the IncludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] 
 **IncludedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | The users and groups who are granted access to the delivery group. CHANGE: was: public ADAccount[] IncludedUsers { get; set; } | [optional] 
 
@@ -807,6 +808,31 @@ HasIncludedSmartAccessTags returns a boolean if a field has been set.
 `func (o *AdvancedAccessPolicyResponseModel) UnsetIncludedSmartAccessTags()`
 
 UnsetIncludedSmartAccessTags ensures that no value is present for IncludedSmartAccessTags, not even an explicit nil
+### GetIncludedSmartAccessFilterType
+
+`func (o *AdvancedAccessPolicyResponseModel) GetIncludedSmartAccessFilterType() FilterMatchType`
+
+GetIncludedSmartAccessFilterType returns the IncludedSmartAccessFilterType field if non-nil, zero value otherwise.
+
+### GetIncludedSmartAccessFilterTypeOk
+
+`func (o *AdvancedAccessPolicyResponseModel) GetIncludedSmartAccessFilterTypeOk() (*FilterMatchType, bool)`
+
+GetIncludedSmartAccessFilterTypeOk returns a tuple with the IncludedSmartAccessFilterType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIncludedSmartAccessFilterType
+
+`func (o *AdvancedAccessPolicyResponseModel) SetIncludedSmartAccessFilterType(v FilterMatchType)`
+
+SetIncludedSmartAccessFilterType sets IncludedSmartAccessFilterType field to given value.
+
+### HasIncludedSmartAccessFilterType
+
+`func (o *AdvancedAccessPolicyResponseModel) HasIncludedSmartAccessFilterType() bool`
+
+HasIncludedSmartAccessFilterType returns a boolean if a field has been set.
+
 ### GetIncludedUserFilterEnabled
 
 `func (o *AdvancedAccessPolicyResponseModel) GetIncludedUserFilterEnabled() bool`
