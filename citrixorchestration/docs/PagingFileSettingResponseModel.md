@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Location** | Pointer to **NullableString** | Paging file location like: ?:\\pagefile.sys, C:\\pagefile.sys | [optional] 
-**MinSize** | Pointer to **int32** | Paging file minimum size in MB. | [optional] 
-**MaxSize** | Pointer to **int32** | Paging file maximum size in MB. | [optional] 
+**Path** | Pointer to **NullableString** | Paging file location like: ?:\\pagefile.sys, C:\\pagefile.sys | [optional] 
+**InitialSizeInMb** | Pointer to **int32** | Paging file minimum size in MB. | [optional] 
+**MaxSizeInMb** | Pointer to **int32** | Paging file maximum size in MB. | [optional] 
+**IsSystemManaged** | Pointer to **bool** | If system managed, return true, OtherWise return false. | [optional] 
 
 ## Methods
 
@@ -27,90 +28,115 @@ NewPagingFileSettingResponseModelWithDefaults instantiates a new PagingFileSetti
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetLocation
+### GetPath
 
-`func (o *PagingFileSettingResponseModel) GetLocation() string`
+`func (o *PagingFileSettingResponseModel) GetPath() string`
 
-GetLocation returns the Location field if non-nil, zero value otherwise.
+GetPath returns the Path field if non-nil, zero value otherwise.
 
-### GetLocationOk
+### GetPathOk
 
-`func (o *PagingFileSettingResponseModel) GetLocationOk() (*string, bool)`
+`func (o *PagingFileSettingResponseModel) GetPathOk() (*string, bool)`
 
-GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
+GetPathOk returns a tuple with the Path field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLocation
+### SetPath
 
-`func (o *PagingFileSettingResponseModel) SetLocation(v string)`
+`func (o *PagingFileSettingResponseModel) SetPath(v string)`
 
-SetLocation sets Location field to given value.
+SetPath sets Path field to given value.
 
-### HasLocation
+### HasPath
 
-`func (o *PagingFileSettingResponseModel) HasLocation() bool`
+`func (o *PagingFileSettingResponseModel) HasPath() bool`
 
-HasLocation returns a boolean if a field has been set.
+HasPath returns a boolean if a field has been set.
 
-### SetLocationNil
+### SetPathNil
 
-`func (o *PagingFileSettingResponseModel) SetLocationNil(b bool)`
+`func (o *PagingFileSettingResponseModel) SetPathNil(b bool)`
 
- SetLocationNil sets the value for Location to be an explicit nil
+ SetPathNil sets the value for Path to be an explicit nil
 
-### UnsetLocation
-`func (o *PagingFileSettingResponseModel) UnsetLocation()`
+### UnsetPath
+`func (o *PagingFileSettingResponseModel) UnsetPath()`
 
-UnsetLocation ensures that no value is present for Location, not even an explicit nil
-### GetMinSize
+UnsetPath ensures that no value is present for Path, not even an explicit nil
+### GetInitialSizeInMb
 
-`func (o *PagingFileSettingResponseModel) GetMinSize() int32`
+`func (o *PagingFileSettingResponseModel) GetInitialSizeInMb() int32`
 
-GetMinSize returns the MinSize field if non-nil, zero value otherwise.
+GetInitialSizeInMb returns the InitialSizeInMb field if non-nil, zero value otherwise.
 
-### GetMinSizeOk
+### GetInitialSizeInMbOk
 
-`func (o *PagingFileSettingResponseModel) GetMinSizeOk() (*int32, bool)`
+`func (o *PagingFileSettingResponseModel) GetInitialSizeInMbOk() (*int32, bool)`
 
-GetMinSizeOk returns a tuple with the MinSize field if it's non-nil, zero value otherwise
+GetInitialSizeInMbOk returns a tuple with the InitialSizeInMb field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMinSize
+### SetInitialSizeInMb
 
-`func (o *PagingFileSettingResponseModel) SetMinSize(v int32)`
+`func (o *PagingFileSettingResponseModel) SetInitialSizeInMb(v int32)`
 
-SetMinSize sets MinSize field to given value.
+SetInitialSizeInMb sets InitialSizeInMb field to given value.
 
-### HasMinSize
+### HasInitialSizeInMb
 
-`func (o *PagingFileSettingResponseModel) HasMinSize() bool`
+`func (o *PagingFileSettingResponseModel) HasInitialSizeInMb() bool`
 
-HasMinSize returns a boolean if a field has been set.
+HasInitialSizeInMb returns a boolean if a field has been set.
 
-### GetMaxSize
+### GetMaxSizeInMb
 
-`func (o *PagingFileSettingResponseModel) GetMaxSize() int32`
+`func (o *PagingFileSettingResponseModel) GetMaxSizeInMb() int32`
 
-GetMaxSize returns the MaxSize field if non-nil, zero value otherwise.
+GetMaxSizeInMb returns the MaxSizeInMb field if non-nil, zero value otherwise.
 
-### GetMaxSizeOk
+### GetMaxSizeInMbOk
 
-`func (o *PagingFileSettingResponseModel) GetMaxSizeOk() (*int32, bool)`
+`func (o *PagingFileSettingResponseModel) GetMaxSizeInMbOk() (*int32, bool)`
 
-GetMaxSizeOk returns a tuple with the MaxSize field if it's non-nil, zero value otherwise
+GetMaxSizeInMbOk returns a tuple with the MaxSizeInMb field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxSize
+### SetMaxSizeInMb
 
-`func (o *PagingFileSettingResponseModel) SetMaxSize(v int32)`
+`func (o *PagingFileSettingResponseModel) SetMaxSizeInMb(v int32)`
 
-SetMaxSize sets MaxSize field to given value.
+SetMaxSizeInMb sets MaxSizeInMb field to given value.
 
-### HasMaxSize
+### HasMaxSizeInMb
 
-`func (o *PagingFileSettingResponseModel) HasMaxSize() bool`
+`func (o *PagingFileSettingResponseModel) HasMaxSizeInMb() bool`
 
-HasMaxSize returns a boolean if a field has been set.
+HasMaxSizeInMb returns a boolean if a field has been set.
+
+### GetIsSystemManaged
+
+`func (o *PagingFileSettingResponseModel) GetIsSystemManaged() bool`
+
+GetIsSystemManaged returns the IsSystemManaged field if non-nil, zero value otherwise.
+
+### GetIsSystemManagedOk
+
+`func (o *PagingFileSettingResponseModel) GetIsSystemManagedOk() (*bool, bool)`
+
+GetIsSystemManagedOk returns a tuple with the IsSystemManaged field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsSystemManaged
+
+`func (o *PagingFileSettingResponseModel) SetIsSystemManaged(v bool)`
+
+SetIsSystemManaged sets IsSystemManaged field to given value.
+
+### HasIsSystemManaged
+
+`func (o *PagingFileSettingResponseModel) HasIsSystemManaged() bool`
+
+HasIsSystemManaged returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

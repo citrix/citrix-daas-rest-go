@@ -5,10 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Path** | Pointer to **NullableString** | The path to retrieve contents from. | [optional] 
-**ResourceType** | Pointer to **NullableString** | The type of resources to get. | [optional] 
+**ResourceType** | Pointer to [**HypervisorResourceSearchResourceType**](HypervisorResourceSearchResourceType.md) |  | [optional] 
+**Template** | Pointer to **NullableString** | Used for the Machine Profile ResourceTypes only. It specifies a Template identifier or name to use in validation of the Machine Profile with the given Template. The validation will pass if the given Machine Profile resource is compatible with the given Template. Only Machine Profiles which pass this validation are included. | [optional] 
 **ForwardDirection** | Pointer to **NullableBool** | True if returning items which begin at the ContinuationToken, false if ending at the ContinuationToken. | [optional] 
 **NameContains** | Pointer to **NullableString** | Only return items which contain this string in their Name. | [optional] 
 **Tags** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | A list of key-value pairs, searching by a tag lets you filter the resources by a tag key or a tag value(value is optional). For example: [{\&quot;Name\&quot;: \&quot;Priority\&quot;, \&quot;Value\&quot;: \&quot;high\&quot;}, {\&quot;Name\&quot;: \&quot;Name\&quot;, \&quot;Value\&quot;: \&quot;test\&quot;}, {\&quot;Name\&quot;: \&quot;TestMachine\&quot;, \&quot;Value\&quot;: \&quot;\&quot;}, {\&quot;Name\&quot;: \&quot;ADBackup\&quot;, \&quot;Value\&quot;: \&quot;Not tagged\&quot;}] | [optional] 
+**AdditionalData** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | A list of key-value pairs, filtering resources based on the AdditionalData properties. All values given must match for an item to be included. For example: [{\&quot;Name\&quot;: \&quot;HibernationSupported\&quot;, \&quot;Value\&quot;: \&quot;True\&quot;}] | [optional] 
 **Id** | Pointer to **NullableString** | Only return the item with the matching Id. | [optional] 
 
 ## Methods
@@ -67,20 +69,20 @@ HasPath returns a boolean if a field has been set.
 UnsetPath ensures that no value is present for Path, not even an explicit nil
 ### GetResourceType
 
-`func (o *HypervisorResourceSearchRequestModel) GetResourceType() string`
+`func (o *HypervisorResourceSearchRequestModel) GetResourceType() HypervisorResourceSearchResourceType`
 
 GetResourceType returns the ResourceType field if non-nil, zero value otherwise.
 
 ### GetResourceTypeOk
 
-`func (o *HypervisorResourceSearchRequestModel) GetResourceTypeOk() (*string, bool)`
+`func (o *HypervisorResourceSearchRequestModel) GetResourceTypeOk() (*HypervisorResourceSearchResourceType, bool)`
 
 GetResourceTypeOk returns a tuple with the ResourceType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResourceType
 
-`func (o *HypervisorResourceSearchRequestModel) SetResourceType(v string)`
+`func (o *HypervisorResourceSearchRequestModel) SetResourceType(v HypervisorResourceSearchResourceType)`
 
 SetResourceType sets ResourceType field to given value.
 
@@ -90,16 +92,41 @@ SetResourceType sets ResourceType field to given value.
 
 HasResourceType returns a boolean if a field has been set.
 
-### SetResourceTypeNil
+### GetTemplate
 
-`func (o *HypervisorResourceSearchRequestModel) SetResourceTypeNil(b bool)`
+`func (o *HypervisorResourceSearchRequestModel) GetTemplate() string`
 
- SetResourceTypeNil sets the value for ResourceType to be an explicit nil
+GetTemplate returns the Template field if non-nil, zero value otherwise.
 
-### UnsetResourceType
-`func (o *HypervisorResourceSearchRequestModel) UnsetResourceType()`
+### GetTemplateOk
 
-UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil
+`func (o *HypervisorResourceSearchRequestModel) GetTemplateOk() (*string, bool)`
+
+GetTemplateOk returns a tuple with the Template field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTemplate
+
+`func (o *HypervisorResourceSearchRequestModel) SetTemplate(v string)`
+
+SetTemplate sets Template field to given value.
+
+### HasTemplate
+
+`func (o *HypervisorResourceSearchRequestModel) HasTemplate() bool`
+
+HasTemplate returns a boolean if a field has been set.
+
+### SetTemplateNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetTemplateNil(b bool)`
+
+ SetTemplateNil sets the value for Template to be an explicit nil
+
+### UnsetTemplate
+`func (o *HypervisorResourceSearchRequestModel) UnsetTemplate()`
+
+UnsetTemplate ensures that no value is present for Template, not even an explicit nil
 ### GetForwardDirection
 
 `func (o *HypervisorResourceSearchRequestModel) GetForwardDirection() bool`
@@ -205,6 +232,41 @@ HasTags returns a boolean if a field has been set.
 `func (o *HypervisorResourceSearchRequestModel) UnsetTags()`
 
 UnsetTags ensures that no value is present for Tags, not even an explicit nil
+### GetAdditionalData
+
+`func (o *HypervisorResourceSearchRequestModel) GetAdditionalData() []NameValueStringPairModel`
+
+GetAdditionalData returns the AdditionalData field if non-nil, zero value otherwise.
+
+### GetAdditionalDataOk
+
+`func (o *HypervisorResourceSearchRequestModel) GetAdditionalDataOk() (*[]NameValueStringPairModel, bool)`
+
+GetAdditionalDataOk returns a tuple with the AdditionalData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdditionalData
+
+`func (o *HypervisorResourceSearchRequestModel) SetAdditionalData(v []NameValueStringPairModel)`
+
+SetAdditionalData sets AdditionalData field to given value.
+
+### HasAdditionalData
+
+`func (o *HypervisorResourceSearchRequestModel) HasAdditionalData() bool`
+
+HasAdditionalData returns a boolean if a field has been set.
+
+### SetAdditionalDataNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetAdditionalDataNil(b bool)`
+
+ SetAdditionalDataNil sets the value for AdditionalData to be an explicit nil
+
+### UnsetAdditionalData
+`func (o *HypervisorResourceSearchRequestModel) UnsetAdditionalData()`
+
+UnsetAdditionalData ensures that no value is present for AdditionalData, not even an explicit nil
 ### GetId
 
 `func (o *HypervisorResourceSearchRequestModel) GetId() string`

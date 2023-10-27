@@ -3,7 +3,7 @@
 ## Enum
 
 
-* `NOT_DEFINED` (value: `"NotDefined"`)
+* `UNDEFINED` (value: `"Undefined"`)
 
 * `MISSING_ONLY` (value: `"MissingOnly"`)
 

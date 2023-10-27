@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ScopeId** | Pointer to **string** |  | [optional] 
-**ScopeName** | Pointer to **NullableString** |  | [optional] 
+**ScopeId** | Pointer to **string** | Scope unique Id. | [optional] 
+**ScopeName** | Pointer to **NullableString** | Scope name. | [optional] 
 
 ## Methods
 

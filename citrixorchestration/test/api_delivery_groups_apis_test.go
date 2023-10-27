@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing DeliveryGroupsAPIs Service
+Testing DeliveryGroupsAPIsDAASService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsAddDeliveryGroupMachineCatalog", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsAddDeliveryGroupMachineCatalog", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsAddDeliveryGroupMachineCatalog(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsAddDeliveryGroupMachineCatalog(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,14 +36,14 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsAddDeliveryGroupTags", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsAddDeliveryGroupTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsAddDeliveryGroupTags(context.Background(), nameOrId, tagNameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsAddDeliveryGroupTags(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -51,38 +51,38 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsCheckDeliveryGroupExists", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCheckDeliveryGroupExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsCheckDeliveryGroupExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCheckDeliveryGroupExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsCheckRebootScheduleNameExists", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCheckRebootScheduleNameExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var name string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsCheckRebootScheduleNameExists(context.Background(), nameOrId, name).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCheckRebootScheduleNameExists(context.Background(), nameOrId, name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsCreateDeliveryGroup", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsCreateDeliveryGroup(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroup(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -90,13 +90,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -104,13 +104,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsCreateDeliveryGroupPowerTimeScheme", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsCreateDeliveryGroupPowerTimeScheme(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroupPowerTimeScheme(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -118,13 +118,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsCreateDeliveryGroupRebootSchedule", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupRebootSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsCreateDeliveryGroupRebootSchedule(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroupRebootSchedule(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -132,81 +132,81 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDeleteDeliveryGroup", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDeleteDeliveryGroup(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var policyId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId, policyId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId, policyId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var schemeNameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme(context.Background(), nameOrId, schemeNameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme(context.Background(), nameOrId, schemeNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDeleteDeliveryGroupRebootSchedule", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupRebootSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var scheduleNameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDeleteDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDoAddApplications", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoAddApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDoAddApplications(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDoAddApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDoAddMachines", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoAddMachines", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDoAddMachines(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDoAddMachines(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -214,11 +214,11 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDoDeliveryGroupSearch", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoDeliveryGroupSearch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDoDeliveryGroupSearch(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDoDeliveryGroupSearch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -226,55 +226,55 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDoRemoveApplicationGroups", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoRemoveApplicationGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var appGroupNameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDoRemoveApplicationGroups(context.Background(), nameOrId, appGroupNameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDoRemoveApplicationGroups(context.Background(), nameOrId, appGroupNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDoRemoveApplications", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoRemoveApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var appNameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDoRemoveApplications(context.Background(), nameOrId, appNameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDoRemoveApplications(context.Background(), nameOrId, appNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsDoRemoveMachines", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoRemoveMachines", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var machineNameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsDoRemoveMachines(context.Background(), nameOrId, machineNameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDoRemoveMachines(context.Background(), nameOrId, machineNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -282,13 +282,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroup", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroup(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -296,13 +296,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -310,14 +310,14 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var policyId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId, policyId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId, policyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -325,13 +325,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupApplications", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupApplications(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -339,13 +339,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupMachines", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupMachines", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupMachines(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupMachines(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -353,14 +353,14 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupPowerTimeScheme", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var schemeNameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupPowerTimeScheme(context.Background(), nameOrId, schemeNameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupPowerTimeScheme(context.Background(), nameOrId, schemeNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -368,13 +368,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupPowerTimeSchemes", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupPowerTimeSchemes", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupPowerTimeSchemes(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupPowerTimeSchemes(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -382,14 +382,14 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupRebootSchedule", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupRebootSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var scheduleNameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -397,13 +397,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupRebootSchedules", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupRebootSchedules", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupRebootSchedules(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupRebootSchedules(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -411,13 +411,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupStartMenuApplications", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupStartMenuApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupStartMenuApplications(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupStartMenuApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -425,13 +425,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupTags", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupTags(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupTags(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -439,13 +439,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupTestReport", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupTestReport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupTestReport(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupTestReport(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -453,11 +453,11 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroups", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroups(context.Background()).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroups(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -465,27 +465,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupsAdministrators", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupsAdministrators(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupsApplicationGroups", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsAdministrators", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupsApplicationGroups(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsAdministrators(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -493,13 +479,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupsDesktops", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsApplicationGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupsDesktops(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsApplicationGroups(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -507,14 +493,28 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsDesktops", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsDesktops(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var id string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails(context.Background(), nameOrId, id).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails(context.Background(), nameOrId, id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -522,13 +522,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupsMachineCatalogs", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsMachineCatalogs", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupsMachineCatalogs(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsMachineCatalogs(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -536,13 +536,13 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsGetDeliveryGroupsUsage", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsUsage", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsGetDeliveryGroupsUsage(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsUsage(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -550,27 +550,27 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsPatchDeliveryGroup", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsPatchDeliveryGroup(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchDeliveryGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var policyId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId, policyId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId, policyId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -578,14 +578,14 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsPatchDeliveryGroupPowerTimeScheme", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var schemeNameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsPatchDeliveryGroupPowerTimeScheme(context.Background(), nameOrId, schemeNameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchDeliveryGroupPowerTimeScheme(context.Background(), nameOrId, schemeNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -593,14 +593,14 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsPatchDeliveryGroupRebootSchedule", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroupRebootSchedule", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var scheduleNameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsPatchDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsPatchDeliveryGroupRebootSchedule(context.Background(), nameOrId, scheduleNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -608,67 +608,67 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsRemoveDeliveryGroupMachineCatalog", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsRemoveDeliveryGroupMachineCatalog", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var catalogNameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsRemoveDeliveryGroupMachineCatalog(context.Background(), nameOrId, catalogNameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsRemoveDeliveryGroupMachineCatalog(context.Background(), nameOrId, catalogNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsRemoveDeliveryGroupTags", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsRemoveDeliveryGroupTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsRemoveDeliveryGroupTags(context.Background(), nameOrId, tagNameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsRemoveDeliveryGroupTags(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsSetDeliveryGroupTags", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsSetDeliveryGroupTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsSetDeliveryGroupTags(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsSetDeliveryGroupTags(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsStartDeliveryGroupRebootCycle", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsStartDeliveryGroupRebootCycle", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsStartDeliveryGroupRebootCycle(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsStartDeliveryGroupRebootCycle(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsTestDeliveryGroup", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsTestDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsTestDeliveryGroup(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsTestDeliveryGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -676,11 +676,11 @@ func Test_citrixorchestration_DeliveryGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test DeliveryGroupsAPIs Service DeliveryGroupsTestDeliveryGroupExists", func(t *testing.T) {
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsTestDeliveryGroupExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.DeliveryGroupsAPIs .DeliveryGroupsTestDeliveryGroupExists(context.Background()).Execute()
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsTestDeliveryGroupExists(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

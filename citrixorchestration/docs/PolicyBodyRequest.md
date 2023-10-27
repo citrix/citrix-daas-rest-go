@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **NullableString** | Policy name. | [optional] 
-**IsEnabled** | Pointer to **bool** | Is policy enabled | [optional] 
-**Description** | Pointer to **NullableString** | Policy description | [optional] 
+**IsEnabled** | Pointer to **bool** | Is policy enabled. | [optional] 
+**Description** | Pointer to **NullableString** | Policy description. | [optional] 
 
 ## Methods
 

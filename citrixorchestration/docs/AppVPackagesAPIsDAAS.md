@@ -1,6 +1,6 @@
 # \AppVPackagesAPIsDAAS
 
-All URIs are relative to *https://api-us.cloud.com/cvad/manage*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## AppVPackagesGetAppVPackage
 
-> AppVPackageResponseModel AppVPackagesGetAppVPackage(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).LibraryUid(libraryUid).VersionId(versionId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppVPackageResponseModel AppVPackagesGetAppVPackage(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).LibraryUid(libraryUid).VersionId(versionId).Execute()
 
 Get the details for a single App-V package within the site
 
@@ -38,21 +38,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    libraryUid := int32(56) // int32 | ID of the library where the package is present. (optional) (default to 0)
-    versionId := "versionId_example" // string | Package version guid. If not specified, return the first             package with id. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    libraryUid := int32(56) // int32 | ID of the library where the package is present. (optional) (default to 0)
+    versionId := "versionId_example" // string | Package version guid. If not specified, return the first             package with id. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackage(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).LibraryUid(libraryUid).VersionId(versionId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackage(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).LibraryUid(libraryUid).VersionId(versionId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -77,17 +76,16 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **libraryUid** | **int32** | ID of the library where the package is present. | [default to 0]
- **versionId** | **string** | Package version guid. If not specified, return the first             package with id. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **libraryUid** | **int32** | ID of the library where the package is present. | [default to 0]
+ **versionId** | **string** | Package version guid. If not specified, return the first             package with id. | 
 
 ### Return type
 
@@ -109,7 +107,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesGetAppVPackageApplication
 
-> AppVApplicationDetailResponseModel AppVPackagesGetAppVPackageApplication(ctx, id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppVApplicationDetailResponseModel AppVPackagesGetAppVPackageApplication(ctx, id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get details for a single App-V application within an App-V package
 
@@ -128,20 +126,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
     appId := "appId_example" // string | ID of the App-V application within the package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplication(context.Background(), id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplication(context.Background(), id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplication``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -167,14 +164,13 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -198,7 +194,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesGetAppVPackageApplicationIcon
 
-> IconDataResponseModel AppVPackagesGetAppVPackageApplicationIcon(ctx, id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).IconFormat(iconFormat).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> IconDataResponseModel AppVPackagesGetAppVPackageApplicationIcon(ctx, id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).IconFormat(iconFormat).Execute()
 
 Get the icon for a single App-V application within an App-V package within the site.
 
@@ -217,21 +213,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
     appId := "appId_example" // string | ID of the App-V application within the package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    iconFormat := "iconFormat_example" // string | Icon format.  Must be: `{mime-type};{width}x{height}x{colordepth}`  where:   * _mime-type_ must be `image/png`.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either `8` or `24`.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    iconFormat := "iconFormat_example" // string | Icon format.  Must be: `{mime-type};{width}x{height}x{colordepth}`  where:   * _mime-type_ must be `image/png`.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either `8` or `24`.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplicationIcon(context.Background(), id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).IconFormat(iconFormat).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplicationIcon(context.Background(), id, appId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).IconFormat(iconFormat).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplicationIcon``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -257,17 +252,16 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **iconFormat** | **string** | Icon format.  Must be: &#x60;{mime-type};{width}x{height}x{colordepth}&#x60;  where:   * _mime-type_ must be &#x60;image/png&#x60;.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either &#x60;8&#x60; or &#x60;24&#x60;.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **iconFormat** | **string** | Icon format.  Must be: &#x60;{mime-type};{width}x{height}x{colordepth}&#x60;  where:   * _mime-type_ must be &#x60;image/png&#x60;.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either &#x60;8&#x60; or &#x60;24&#x60;.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. | 
 
 ### Return type
 
@@ -289,7 +283,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesGetAppVPackageApplications
 
-> AppVApplicationResponseModelCollection AppVPackagesGetAppVPackageApplications(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppVApplicationResponseModelCollection AppVPackagesGetAppVPackageApplications(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get App-V applications within an App-V package
 
@@ -308,19 +302,18 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplications(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplications(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplications``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -345,13 +338,12 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -375,7 +367,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesGetAppVPackageBrokerApplications
 
-> ApplicationResponseModelCollection AppVPackagesGetAppVPackageBrokerApplications(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> ApplicationResponseModelCollection AppVPackagesGetAppVPackageBrokerApplications(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
 
 Get Broker applications delivered from the App-V package
 
@@ -394,25 +386,24 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     libraryUid := int32(56) // int32 | ID of the library where the package is present. (optional) (default to 0)
     versionId := "versionId_example" // string | Package version Id. (optional)
     limit := int32(56) // int32 | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
     fields := "Id,Uid,ApplicationFolder" // string | The required fields. (optional)
     async := true // bool | If `true`, the applications will be fetched as a background task. The task will have JobType GetAppVPackageBrokerApplications. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageBrokerApplications(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageBrokerApplications(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageBrokerApplications``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -437,21 +428,20 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **libraryUid** | **int32** | ID of the library where the package is present. | [default to 0]
  **versionId** | **string** | Package version Id. | 
  **limit** | **int32** | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
  **fields** | **string** | The required fields. | 
  **async** | **bool** | If &#x60;true&#x60;, the applications will be fetched as a background task. The task will have JobType GetAppVPackageBrokerApplications. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -473,7 +463,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesGetAppVPackageDeliveryGroups
 
-> DeliveryGroupResponseModelCollection AppVPackagesGetAppVPackageDeliveryGroups(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> DeliveryGroupResponseModelCollection AppVPackagesGetAppVPackageDeliveryGroups(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
 
 Get delivery groups which contain applications in the App-V package
 
@@ -492,25 +482,24 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     libraryUid := int32(56) // int32 | ID of the library where the package is present. (optional) (default to 0)
     versionId := "versionId_example" // string | Package version Id. If not specified, all delivery groups             that associated with id will be fetched. (optional)
     limit := int32(56) // int32 | The max number of delivery groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
     fields := "Id,Uid,UserManagement" // string | The required fields. (optional)
     async := true // bool | If `true`, the delivery groups will be fetched as a background task. The task will have JobType GetAppVPackageDelveryGroups. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageDeliveryGroups(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageDeliveryGroups(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).LibraryUid(libraryUid).VersionId(versionId).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageDeliveryGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -535,21 +524,20 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **libraryUid** | **int32** | ID of the library where the package is present. | [default to 0]
  **versionId** | **string** | Package version Id. If not specified, all delivery groups             that associated with id will be fetched. | 
  **limit** | **int32** | The max number of delivery groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
  **fields** | **string** | The required fields. | 
  **async** | **bool** | If &#x60;true&#x60;, the delivery groups will be fetched as a background task. The task will have JobType GetAppVPackageDelveryGroups. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -571,7 +559,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesGetAppVPackageIcon
 
-> IconDataResponseModel AppVPackagesGetAppVPackageIcon(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).IconFormat(iconFormat).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> IconDataResponseModel AppVPackagesGetAppVPackageIcon(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).IconFormat(iconFormat).Execute()
 
 Get the icon for a single App-V package within the site
 
@@ -590,20 +578,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    iconFormat := "iconFormat_example" // string | Icon format.  Must be: `{mime-type};{width}x{height}x{colordepth}`  where:   * _mime-type_ must be `image/png`.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either `8` or `24`.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    iconFormat := "iconFormat_example" // string | Icon format.  Must be: `{mime-type};{width}x{height}x{colordepth}`  where:   * _mime-type_ must be `image/png`.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either `8` or `24`.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageIcon(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).IconFormat(iconFormat).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageIcon(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).IconFormat(iconFormat).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageIcon``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -628,16 +615,15 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **iconFormat** | **string** | Icon format.  Must be: &#x60;{mime-type};{width}x{height}x{colordepth}&#x60;  where:   * _mime-type_ must be &#x60;image/png&#x60;.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either &#x60;8&#x60; or &#x60;24&#x60;.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **iconFormat** | **string** | Icon format.  Must be: &#x60;{mime-type};{width}x{height}x{colordepth}&#x60;  where:   * _mime-type_ must be &#x60;image/png&#x60;.  (Other formats may be supported in future.) * _width_ and _height_ are specified in pixels. * _colordepth_ (optional) is either &#x60;8&#x60; or &#x60;24&#x60;.   Optional. If not specified, only the raw icon data will be returned. Note that this is typically in ICO format, which some clients cannot display properly. | 
 
 ### Return type
 
@@ -659,7 +645,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesGetAppVPackages
 
-> AppVPackageResponseModelCollection AppVPackagesGetAppVPackages(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppVPackageResponseModelCollection AppVPackagesGetAppVPackages(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get the App-V packages configured in the site
 
@@ -678,19 +664,18 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the packages will be fetched as a background task. The task will have JobType GetAppVPackages. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the packages will be fetched as a background task. The task will have JobType GetAppVPackages. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackages(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackages(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -711,15 +696,14 @@ Other parameters are passed through a pointer to a apiAppVPackagesGetAppVPackage
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the packages will be fetched as a background task. The task will have JobType GetAppVPackages. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the packages will be fetched as a background task. The task will have JobType GetAppVPackages. | [default to false]
 
 ### Return type
 
@@ -741,7 +725,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesImportAppVPackages
 
-> AppVPackagesImportAppVPackages(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).AppVPackageRequestModel(appVPackageRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppVPackagesImportAppVPackages(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).AppVPackageRequestModel(appVPackageRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Import App-V packages to the site
 
@@ -760,20 +744,19 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     appVPackageRequestModel := *openapiclient.NewAppVPackageRequestModel() // AppVPackageRequestModel | Request model that includes packages path.
-    async := true // bool | If `true`, the packages will be imported as a background task. The task will have JobType ImportAppVPackages. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the packages will be imported as a background task. The task will have JobType ImportAppVPackages. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesImportAppVPackages(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).AppVPackageRequestModel(appVPackageRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesImportAppVPackages(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).AppVPackageRequestModel(appVPackageRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesImportAppVPackages``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -792,16 +775,15 @@ Other parameters are passed through a pointer to a apiAppVPackagesImportAppVPack
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **appVPackageRequestModel** | [**AppVPackageRequestModel**](AppVPackageRequestModel.md) | Request model that includes packages path. | 
- **async** | **bool** | If &#x60;true&#x60;, the packages will be imported as a background task. The task will have JobType ImportAppVPackages. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the packages will be imported as a background task. The task will have JobType ImportAppVPackages. | [default to false]
 
 ### Return type
 
@@ -823,7 +805,7 @@ Name | Type | Description  | Notes
 
 ## AppVPackagesRemoveAppVPackage
 
-> AppVPackagesRemoveAppVPackage(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).VersionId(versionId).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AppVPackagesRemoveAppVPackage(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).VersionId(versionId).Async(async).Execute()
 
 Remove a single App-V package within the site
 
@@ -842,21 +824,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     id := "id_example" // string | ID of the App-V package.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    versionId := "versionId_example" // string | Package version guid.             If not specified, the first package with the id will be removed. (optional)
-    async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType UpdateAppVIsolationGroup. When the task is complete it will redirect to GetAppVPackages. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    versionId := "versionId_example" // string | Package version guid.             If not specified, the first package with the id will be removed. (optional)
+    async := true // bool | If `true`, the tags will be modified as a background task. The task will have JobType UpdateAppVIsolationGroup. When the task is complete it will redirect to GetAppVPackages. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesRemoveAppVPackage(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).VersionId(versionId).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesRemoveAppVPackage(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).VersionId(versionId).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AppVPackagesAPIsDAAS.AppVPackagesRemoveAppVPackage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -879,17 +860,16 @@ Other parameters are passed through a pointer to a apiAppVPackagesRemoveAppVPack
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **versionId** | **string** | Package version guid.             If not specified, the first package with the id will be removed. | 
- **async** | **bool** | If &#x60;true&#x60;, the tags will be modified as a background task. The task will have JobType UpdateAppVIsolationGroup. When the task is complete it will redirect to GetAppVPackages. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **versionId** | **string** | Package version guid.             If not specified, the first package with the id will be removed. | 
+ **async** | **bool** | If &#x60;true&#x60;, the tags will be modified as a background task. The task will have JobType UpdateAppVIsolationGroup. When the task is complete it will redirect to GetAppVPackages. | [default to false]
 
 ### Return type
 

@@ -383,6 +383,12 @@
 
 * `V_CENTER_HTTPS_CONNECTION_REQUIRED_FOR_ENDPOINT` (value: `"VCenterHttpsConnectionRequiredForEndpoint"`)
 
+* `MOONSHOT_CONNECTION_SSL_FAILURE` (value: `"MoonshotConnectionSslFailure"`)
+
+* `MOONSHOT_CONNECTION_SSL_PRIVATE_CA_SIGNED_FAILURE` (value: `"MoonshotConnectionSslPrivateCASignedFailure"`)
+
+* `MOONSHOT_CONNECTION_SSL_PUBLIC_CA_SIGNED_FAILURE` (value: `"MoonshotConnectionSslPublicCASignedFailure"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

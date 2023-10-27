@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing MeAPIs Service
+Testing MeAPIsDAASService
 
 */
 
@@ -17,29 +17,29 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_MeAPIs Service(t *testing.T) {
+func Test_citrixorchestration_MeAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MeAPIs Service MeDeleteMyPreference", func(t *testing.T) {
+	t.Run("Test MeAPIsDAASService MeDeleteMyPreference", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.MeAPIs .MeDeleteMyPreference(context.Background(), name).Execute()
+		httpRes, err := apiClient.MeAPIsDAAS.MeDeleteMyPreference(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test MeAPIs Service MeGetMe", func(t *testing.T) {
+	t.Run("Test MeAPIsDAASService MeGetMe", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MeAPIs .MeGetMe(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MeAPIsDAAS.MeGetMe(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -47,13 +47,13 @@ func Test_citrixorchestration_MeAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MeAPIs Service MeGetMyPreference", func(t *testing.T) {
+	t.Run("Test MeAPIsDAASService MeGetMyPreference", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		resp, httpRes, err := apiClient.MeAPIs .MeGetMyPreference(context.Background(), name).Execute()
+		resp, httpRes, err := apiClient.MeAPIsDAAS.MeGetMyPreference(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -61,11 +61,11 @@ func Test_citrixorchestration_MeAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MeAPIs Service MeGetMyPreferences", func(t *testing.T) {
+	t.Run("Test MeAPIsDAASService MeGetMyPreferences", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.MeAPIs .MeGetMyPreferences(context.Background()).Execute()
+		resp, httpRes, err := apiClient.MeAPIsDAAS.MeGetMyPreferences(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -73,11 +73,11 @@ func Test_citrixorchestration_MeAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test MeAPIs Service MeSetMyPreference", func(t *testing.T) {
+	t.Run("Test MeAPIsDAASService MeSetMyPreference", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.MeAPIs .MeSetMyPreference(context.Background()).Execute()
+		httpRes, err := apiClient.MeAPIsDAAS.MeSetMyPreference(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

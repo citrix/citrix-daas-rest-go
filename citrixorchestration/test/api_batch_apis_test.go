@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing BatchAPIs Service
+Testing BatchAPIsDAASService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_BatchAPIs Service(t *testing.T) {
+func Test_citrixorchestration_BatchAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test BatchAPIs Service BatchDoBatchRequest", func(t *testing.T) {
+	t.Run("Test BatchAPIsDAASService BatchDoBatchRequest", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.BatchAPIs .BatchDoBatchRequest(context.Background()).Execute()
+		resp, httpRes, err := apiClient.BatchAPIsDAAS.BatchDoBatchRequest(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

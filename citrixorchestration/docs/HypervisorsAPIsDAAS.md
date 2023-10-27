@@ -1,6 +1,6 @@
 # \HypervisorsAPIsDAAS
 
-All URIs are relative to *https://api-us.cloud.com/cvad/manage*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**HypervisorsGetHypervisorDeletePreview**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorDeletePreview) | **Get** /hypervisors/{nameOrId}/deletePreview | Get the hypervisor delete preview.
 [**HypervisorsGetHypervisorJobs**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorJobs) | **Get** /hypervisors/{nameOrId}/jobs | Get the currently active jobs that are using a hypervisor.
 [**HypervisorsGetHypervisorMachineCatalogs**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorMachineCatalogs) | **Get** /hypervisors/{nameOrId}/machineCatalogs | Get the machine catalogs that are using a hypervisor.
+[**HypervisorsGetHypervisorOrphanedResources**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorOrphanedResources) | **Get** /Hypervisors/{nameOrId}/OrphanedResources | Run detect on a hypervisor and retrieve orphaned resources.
 [**HypervisorsGetHypervisorResourcePool**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePool) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId} | Get details about a hypervisor resource pool.
 [**HypervisorsGetHypervisorResourcePoolAdministrators**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePoolAdministrators) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/administrators | Get administrators who can administer a resource pool.
 [**HypervisorsGetHypervisorResourcePoolDeletePreview**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePoolDeletePreview) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/deletePreview | Get the hypervisor resource pool delete preview.
@@ -46,7 +47,7 @@ Method | HTTP request | Description
 
 ## HypervisorsCheckHypervisorExists
 
-> HypervisorsCheckHypervisorExists(ctx, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsCheckHypervisorExists(ctx, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Check for the existence of a hypervisor by name.
 
@@ -65,19 +66,18 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     name := "name_example" // string | Name of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCheckHypervisorExists(context.Background(), name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCheckHypervisorExists(context.Background(), name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsCheckHypervisorExists``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -100,13 +100,12 @@ Other parameters are passed through a pointer to a apiHypervisorsCheckHypervisor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -130,7 +129,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsCheckHypervisorResourcePoolExists
 
-> HypervisorsCheckHypervisorResourcePoolExists(ctx, nameOrId, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsCheckHypervisorResourcePoolExists(ctx, nameOrId, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Check for the existence of a resource pool by name.
 
@@ -149,20 +148,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     name := "name_example" // string | Name of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCheckHypervisorResourcePoolExists(context.Background(), nameOrId, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCheckHypervisorResourcePoolExists(context.Background(), nameOrId, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsCheckHypervisorResourcePoolExists``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,14 +184,13 @@ Other parameters are passed through a pointer to a apiHypervisorsCheckHypervisor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -217,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsCreateHypervisor
 
-> HypervisorDetailResponseModel HypervisorsCreateHypervisor(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).CreateHypervisorRequestModel(createHypervisorRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorDetailResponseModel HypervisorsCreateHypervisor(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateHypervisorRequestModel(createHypervisorRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Create a hypervisor, and optionally a resource pool on the hypervisor.
 
@@ -236,20 +233,19 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     createHypervisorRequestModel := *openapiclient.NewCreateHypervisorRequestModel(*openapiclient.NewHypervisorConnectionDetailRequestModel("Name of the hypervisor", openapiclient.HypervisorConnectionType("Unknown"))) // CreateHypervisorRequestModel | Details of the hypervisor to create.
-    async := true // bool | If `true`, the hypervisor (and associated objects) will be created as a background task. The task will have JobType CreateHypervisor. When the task is complete it will redirect to GetHypervisor. The job's Parameters will contain properties: * _Name_ - Name of the hypervisor being created. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the hypervisor (and associated objects) will be created as a background task. The task will have JobType CreateHypervisor. When the task is complete it will redirect to GetHypervisor. The job's Parameters will contain properties: * _Name_ - Name of the hypervisor being created. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCreateHypervisor(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).CreateHypervisorRequestModel(createHypervisorRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCreateHypervisor(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateHypervisorRequestModel(createHypervisorRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsCreateHypervisor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -270,16 +266,15 @@ Other parameters are passed through a pointer to a apiHypervisorsCreateHyperviso
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **createHypervisorRequestModel** | [**CreateHypervisorRequestModel**](CreateHypervisorRequestModel.md) | Details of the hypervisor to create. | 
- **async** | **bool** | If &#x60;true&#x60;, the hypervisor (and associated objects) will be created as a background task. The task will have JobType CreateHypervisor. When the task is complete it will redirect to GetHypervisor. The job&#39;s Parameters will contain properties: * _Name_ - Name of the hypervisor being created. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the hypervisor (and associated objects) will be created as a background task. The task will have JobType CreateHypervisor. When the task is complete it will redirect to GetHypervisor. The job&#39;s Parameters will contain properties: * _Name_ - Name of the hypervisor being created. | [default to false]
 
 ### Return type
 
@@ -301,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsCreateResourcePool
 
-> HypervisorResourcePoolDetailResponseModel HypervisorsCreateResourcePool(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).CreateHypervisorResourcePoolRequestModel(createHypervisorResourcePoolRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourcePoolDetailResponseModel HypervisorsCreateResourcePool(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateHypervisorResourcePoolRequestModel(createHypervisorResourcePoolRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Create a new resource pool on an existing hypervisor.
 
@@ -320,21 +315,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     createHypervisorResourcePoolRequestModel := *openapiclient.NewCreateHypervisorResourcePoolRequestModel("Name of the resource pool", openapiclient.HypervisorConnectionType("Unknown")) // CreateHypervisorResourcePoolRequestModel | Details of the resource pool to create.
-    async := true // bool | If `true`, the resource pool (and associated objects) will be created as a background task. The task will have JobType CreateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job's Parameters will contain properties: * _Name_ - Name of the resource pool being created. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the resource pool (and associated objects) will be created as a background task. The task will have JobType CreateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job's Parameters will contain properties: * _Name_ - Name of the resource pool being created. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCreateResourcePool(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).CreateHypervisorResourcePoolRequestModel(createHypervisorResourcePoolRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCreateResourcePool(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateHypervisorResourcePoolRequestModel(createHypervisorResourcePoolRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsCreateResourcePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -359,17 +353,16 @@ Other parameters are passed through a pointer to a apiHypervisorsCreateResourceP
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **createHypervisorResourcePoolRequestModel** | [**CreateHypervisorResourcePoolRequestModel**](CreateHypervisorResourcePoolRequestModel.md) | Details of the resource pool to create. | 
- **async** | **bool** | If &#x60;true&#x60;, the resource pool (and associated objects) will be created as a background task. The task will have JobType CreateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job&#39;s Parameters will contain properties: * _Name_ - Name of the resource pool being created. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the resource pool (and associated objects) will be created as a background task. The task will have JobType CreateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job&#39;s Parameters will contain properties: * _Name_ - Name of the resource pool being created. | [default to false]
 
 ### Return type
 
@@ -391,7 +384,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsDeleteHypervisor
 
-> HypervisorsDeleteHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsDeleteHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Delete a hypervisor and related resource pools.
 
@@ -408,20 +401,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | The hypervisor connection name or id. 
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If the api call with async type.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If the api call with async type.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDeleteHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDeleteHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsDeleteHypervisor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -444,16 +436,15 @@ Other parameters are passed through a pointer to a apiHypervisorsDeleteHyperviso
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If the api call with async type.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If the api call with async type.  | [default to false]
 
 ### Return type
 
@@ -475,7 +466,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsDeleteHypervisorResourcePool
 
-> HypervisorsDeleteHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsDeleteHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Delete a hypervisor resource pool.
 
@@ -492,21 +483,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | The name or id of hypervisor. 
     poolId := "poolId_example" // string | The hypervisor resource pool id. 
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If the api call with async type.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If the api call with async type.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDeleteHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDeleteHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsDeleteHypervisorResourcePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -530,17 +520,16 @@ Other parameters are passed through a pointer to a apiHypervisorsDeleteHyperviso
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If the api call with async type.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If the api call with async type.  | [default to false]
 
 ### Return type
 
@@ -562,7 +551,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsDoHypervisorResourceSearch
 
-> HypervisorResourceResponseModelCollection HypervisorsDoHypervisorResourceSearch(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel).Limit(limit).ContinuationToken(continuationToken).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourceResponseModelCollection HypervisorsDoHypervisorResourceSearch(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Detail(detail).Async(async).Execute()
 
 Search the resources within a hypervisor resource pool.
 
@@ -581,24 +570,24 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     hypervisorResourceSearchRequestModel := *openapiclient.NewHypervisorResourceSearchRequestModel() // HypervisorResourceSearchRequestModel | Specifies the advanced search parameters.
-    limit := int32(56) // int32 | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
-    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    async := true // bool | Async request to get the resources with *path.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    limit := int32(56) // int32 | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    detail := true // bool | If `true`, full details of templates will be retrieved. This can be very time consuming and will reduce the performance of the call. (optional) (default to false)
+    async := true // bool | Async request to get the resources with *path.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDoHypervisorResourceSearch(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel).Limit(limit).ContinuationToken(continuationToken).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDoHypervisorResourceSearch(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Detail(detail).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsDoHypervisorResourceSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -624,20 +613,20 @@ Other parameters are passed through a pointer to a apiHypervisorsDoHypervisorRes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **hypervisorResourceSearchRequestModel** | [**HypervisorResourceSearchRequestModel**](HypervisorResourceSearchRequestModel.md) | Specifies the advanced search parameters. | 
- **limit** | **int32** | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
- **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
- **async** | **bool** | Async request to get the resources with *path.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **limit** | **int32** | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **detail** | **bool** | If &#x60;true&#x60;, full details of templates will be retrieved. This can be very time consuming and will reduce the performance of the call. | [default to false]
+ **async** | **bool** | Async request to get the resources with *path.  | [default to false]
 
 ### Return type
 
@@ -659,7 +648,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisor
 
-> HypervisorDetailResponseModel HypervisorsGetHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorDetailResponseModel HypervisorsGetHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get the details for a single hypervisor.
 
@@ -678,20 +667,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | Async request to hypervisor.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | Async request to hypervisor.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -716,16 +704,15 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | Async request to hypervisor.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | Async request to hypervisor.  | [default to false]
 
 ### Return type
 
@@ -747,7 +734,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorAdministrators
 
-> AdministratorResponseModelCollection HypervisorsGetHypervisorAdministrators(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AdministratorResponseModelCollection HypervisorsGetHypervisorAdministrators(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
 
 Get administrators who can administer a hypervisor.
 
@@ -766,22 +753,21 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If async execute.  (optional) (default to false)
     limit := int32(56) // int32 | The max number of administrators returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAdministrators(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAdministrators(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorAdministrators``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -806,18 +792,17 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorAd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If async execute.  | [default to false]
  **limit** | **int32** | The max number of administrators returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -839,7 +824,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorAllResources
 
-> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResources(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResources(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
 
 Get all resources within a hypervisor.
 
@@ -858,25 +843,24 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     path := "path_example" // string | Path to the resource container within the hypervisor. The path may either be a relative path as specified by RelativePath, or may be a URL-encoded XenApp & XenDesktop resource path starting with `XDHyp:`; for example, as specified by XDPath. (optional)
     children := int32(56) // int32 | Specifies the number of levels of children to enumerate. Default is `0`, meaning that only the object referred to by `path` is returned and its Children array will be left null. A special value of `-1` indicates that the entire resource hierarchy should be enumerated.  Use with care!  It may take a very long time to enumerate a large number of resources from a hypervisor, and the call may time out before completing. (optional)
     type_ := []string{"Inner_example"} // []string | If specified, limits the results to the specified resource type(s). (optional)
     showTagged := true // bool | By default, items which are tagged by XenDesktop are not shown. Set this to `true` to override that behavior. (optional)
     detail := true // bool | If `true`, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if `path` refers to a VM, snapshot, or template resource. <!-- Internally this calls Get-HypConfigurationObjectForItem --> (optional)
     async := true // bool | Async request to get the resources with *path. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResources(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResources(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResources``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -901,21 +885,20 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorAl
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **path** | **string** | Path to the resource container within the hypervisor. The path may either be a relative path as specified by RelativePath, or may be a URL-encoded XenApp &amp; XenDesktop resource path starting with &#x60;XDHyp:&#x60;; for example, as specified by XDPath. | 
  **children** | **int32** | Specifies the number of levels of children to enumerate. Default is &#x60;0&#x60;, meaning that only the object referred to by &#x60;path&#x60; is returned and its Children array will be left null. A special value of &#x60;-1&#x60; indicates that the entire resource hierarchy should be enumerated.  Use with care!  It may take a very long time to enumerate a large number of resources from a hypervisor, and the call may time out before completing. | 
  **type_** | **[]string** | If specified, limits the results to the specified resource type(s). | 
  **showTagged** | **bool** | By default, items which are tagged by XenDesktop are not shown. Set this to &#x60;true&#x60; to override that behavior. | 
  **detail** | **bool** | If &#x60;true&#x60;, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if &#x60;path&#x60; refers to a VM, snapshot, or template resource. &lt;!-- Internally this calls Get-HypConfigurationObjectForItem --&gt; | 
  **async** | **bool** | Async request to get the resources with *path. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -937,7 +920,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorAllResourcesWithoutConnection
 
-> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResourcesWithoutConnection(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResourcesWithoutConnection(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
 
 Get all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
 
@@ -956,25 +939,24 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     hypervisorConnectionDetailRequestModel := *openapiclient.NewHypervisorConnectionDetailRequestModel("Name of the hypervisor", openapiclient.HypervisorConnectionType("Unknown")) // HypervisorConnectionDetailRequestModel | Details of how to connect to the hypervisor to enumerate resources from it.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     path := "path_example" // string | Path to the resource container within the hypervisor. The path may either be a relative path as specified by RelativePath, or may be a URL-encoded Virtual Apps & Desktops resource path starting with `XDHyp:`; for example, as specified by XDPath. (optional)
     children := int32(56) // int32 | Specifies the number of levels of children to enumerate. Default is `0`, meaning that only the object referred to by `path` is returned and its Children array will be left null. A special value of `-1` indicates that the entire resource hierarchy should be enumerated.  Use with care!  It may take a very long time to enumerate a large number of resources from a hypervisor, and the call may time out before completing. (optional)
     type_ := []string{"Inner_example"} // []string | If specified, limits the results to the specified resource type(s). (optional)
     showTagged := true // bool | By default, items which are tagged by XenDesktop are not shown. Set this to `true` to override that behavior. (optional)
     detail := true // bool | If `true`, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if `path` refers to a VM, snapshot, or template resource. <!-- Internally this calls Get-HypConfigurationObjectForItem --> (optional)
     async := true // bool | Async request to get the resources with *path. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -995,21 +977,20 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorAl
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **hypervisorConnectionDetailRequestModel** | [**HypervisorConnectionDetailRequestModel**](HypervisorConnectionDetailRequestModel.md) | Details of how to connect to the hypervisor to enumerate resources from it. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **path** | **string** | Path to the resource container within the hypervisor. The path may either be a relative path as specified by RelativePath, or may be a URL-encoded Virtual Apps &amp; Desktops resource path starting with &#x60;XDHyp:&#x60;; for example, as specified by XDPath. | 
  **children** | **int32** | Specifies the number of levels of children to enumerate. Default is &#x60;0&#x60;, meaning that only the object referred to by &#x60;path&#x60; is returned and its Children array will be left null. A special value of &#x60;-1&#x60; indicates that the entire resource hierarchy should be enumerated.  Use with care!  It may take a very long time to enumerate a large number of resources from a hypervisor, and the call may time out before completing. | 
  **type_** | **[]string** | If specified, limits the results to the specified resource type(s). | 
  **showTagged** | **bool** | By default, items which are tagged by XenDesktop are not shown. Set this to &#x60;true&#x60; to override that behavior. | 
  **detail** | **bool** | If &#x60;true&#x60;, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if &#x60;path&#x60; refers to a VM, snapshot, or template resource. &lt;!-- Internally this calls Get-HypConfigurationObjectForItem --&gt; | 
  **async** | **bool** | Async request to get the resources with *path. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -1031,7 +1012,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorDeletePreview
 
-> HypervisorDeletePreviewResponseModel HypervisorsGetHypervisorDeletePreview(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorDeletePreviewResponseModel HypervisorsGetHypervisorDeletePreview(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get the hypervisor delete preview.
 
@@ -1050,20 +1031,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If execute this API asynchronous.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If execute this API asynchronous.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorDeletePreview(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorDeletePreview(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorDeletePreview``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1088,16 +1068,15 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorDe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If execute this API asynchronous.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If execute this API asynchronous.  | [default to false]
 
 ### Return type
 
@@ -1119,7 +1098,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorJobs
 
-> JobResponseModelCollection HypervisorsGetHypervisorJobs(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> JobResponseModelCollection HypervisorsGetHypervisorJobs(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get the currently active jobs that are using a hypervisor.
 
@@ -1138,19 +1117,18 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorJobs(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorJobs(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorJobs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1175,13 +1153,12 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorJo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -1205,7 +1182,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorMachineCatalogs
 
-> HypervisorMachineCatalogResponseModelCollection HypervisorsGetHypervisorMachineCatalogs(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorMachineCatalogResponseModelCollection HypervisorsGetHypervisorMachineCatalogs(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
 
 Get the machine catalogs that are using a hypervisor.
 
@@ -1224,22 +1201,21 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If async execute.  (optional) (default to false)
     limit := int32(56) // int32 | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorMachineCatalogs(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorMachineCatalogs(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorMachineCatalogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1264,18 +1240,17 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorMa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If async execute.  | [default to false]
  **limit** | **int32** | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -1295,9 +1270,95 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## HypervisorsGetHypervisorOrphanedResources
+
+> DetectOrphanedResourcesResponseModel HypervisorsGetHypervisorOrphanedResources(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Run detect on a hypervisor and retrieve orphaned resources.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor to detect.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out.  * _Id_ - ID of the hypervisor being detected, * _Name_ - Name of the hypervisor being detected. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorOrphanedResources(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorOrphanedResources``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HypervisorsGetHypervisorOrphanedResources`: DetectOrphanedResourcesResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `HypervisorsAPIsDAAS.HypervisorsGetHypervisorOrphanedResources`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the hypervisor to detect. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorOrphanedResourcesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out.  * _Id_ - ID of the hypervisor being detected, * _Name_ - Name of the hypervisor being detected. | [default to false]
+
+### Return type
+
+[**DetectOrphanedResourcesResponseModel**](DetectOrphanedResourcesResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## HypervisorsGetHypervisorResourcePool
 
-> HypervisorResourcePoolDetailResponseModel HypervisorsGetHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourcePoolDetailResponseModel HypervisorsGetHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get details about a hypervisor resource pool.
 
@@ -1316,21 +1377,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | Async request to get the resource pool.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | Async request to get the resource pool.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1356,17 +1416,16 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | Async request to get the resource pool.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | Async request to get the resource pool.  | [default to false]
 
 ### Return type
 
@@ -1388,7 +1447,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolAdministrators
 
-> AdministratorResponseModelCollection HypervisorsGetHypervisorResourcePoolAdministrators(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AdministratorResponseModelCollection HypervisorsGetHypervisorResourcePoolAdministrators(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
 
 Get administrators who can administer a resource pool.
 
@@ -1407,23 +1466,22 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If async execute.  (optional) (default to false)
     limit := int32(56) // int32 | The max number of administrators returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAdministrators(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAdministrators(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAdministrators``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1449,19 +1507,18 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If async execute.  | [default to false]
  **limit** | **int32** | The max number of administrators returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -1483,7 +1540,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolDeletePreview
 
-> HypervisorDeletePreviewResponseModel HypervisorsGetHypervisorResourcePoolDeletePreview(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorDeletePreviewResponseModel HypervisorsGetHypervisorResourcePoolDeletePreview(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get the hypervisor resource pool delete preview.
 
@@ -1502,21 +1559,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If execute this API asynchronous.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If execute this API asynchronous.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolDeletePreview(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolDeletePreview(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolDeletePreview``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1542,17 +1598,16 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If execute this API asynchronous.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If execute this API asynchronous.  | [default to false]
 
 ### Return type
 
@@ -1574,7 +1629,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolJobs
 
-> JobResponseModelCollection HypervisorsGetHypervisorResourcePoolJobs(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> JobResponseModelCollection HypervisorsGetHypervisorResourcePoolJobs(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get the currently active jobs that are using a resource pool.
 
@@ -1593,20 +1648,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolJobs(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolJobs(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolJobs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1632,14 +1686,13 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -1663,7 +1716,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolMachineCatalogs
 
-> HypervisorMachineCatalogResponseModelCollection HypervisorsGetHypervisorResourcePoolMachineCatalogs(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorMachineCatalogResponseModelCollection HypervisorsGetHypervisorResourcePoolMachineCatalogs(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
 
 Get the machine catalogs that are using a resource pool.
 
@@ -1682,23 +1735,22 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If async execute.  (optional) (default to false)
     limit := int32(56) // int32 | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolMachineCatalogs(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolMachineCatalogs(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolMachineCatalogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1724,19 +1776,18 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If async execute.  | [default to false]
  **limit** | **int32** | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -1758,7 +1809,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolPatchPreview
 
-> HypervisorResourcePoolPatchPreviewResponseModel HypervisorsGetHypervisorResourcePoolPatchPreview(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorResourcePoolPatchPreviewRequestModel(hypervisorResourcePoolPatchPreviewRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourcePoolPatchPreviewResponseModel HypervisorsGetHypervisorResourcePoolPatchPreview(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourcePoolPatchPreviewRequestModel(hypervisorResourcePoolPatchPreviewRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get the hypervisor resource pool patch preview.
 
@@ -1775,22 +1826,21 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     hypervisorResourcePoolPatchPreviewRequestModel := *openapiclient.NewHypervisorResourcePoolPatchPreviewRequestModel() // HypervisorResourcePoolPatchPreviewRequestModel | New networks of the resource pool.
-    async := true // bool | If `true`, the preview job will run as a background task. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the preview job will run as a background task. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolPatchPreview(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorResourcePoolPatchPreviewRequestModel(hypervisorResourcePoolPatchPreviewRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolPatchPreview(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourcePoolPatchPreviewRequestModel(hypervisorResourcePoolPatchPreviewRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolPatchPreview``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1816,18 +1866,17 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **hypervisorResourcePoolPatchPreviewRequestModel** | [**HypervisorResourcePoolPatchPreviewRequestModel**](HypervisorResourcePoolPatchPreviewRequestModel.md) | New networks of the resource pool. | 
- **async** | **bool** | If &#x60;true&#x60;, the preview job will run as a background task. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the preview job will run as a background task. | [default to false]
 
 ### Return type
 
@@ -1849,7 +1898,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolResources
 
-> HypervisorResourceResponseModel HypervisorsGetHypervisorResourcePoolResources(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourceResponseModel HypervisorsGetHypervisorResourcePoolResources(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
 
 Get the resources within a hypervisor resource pool.
 
@@ -1868,26 +1917,25 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     path := "path_example" // string | Path to the resource container within the resource pool. The path may either be a relative path as specified by RelativePath, or may be a URL-encoded XenApp & XenDesktop resource path starting with `XDHyp:`; for example, as specified by XDPath. (optional)
     children := int32(56) // int32 | Specifies the number of levels of children to enumerate. Default is `0`, meaning that only the object referred to by `path` is returned and its Children array will be left null. A special value of `-1` indicates that the entire resource hierarchy should be enumerated.  Use with care!  It may take a very long time to enumerate a large number of resources from a hypervisor, and the call may time out before completing. (optional)
     type_ := []string{"Inner_example"} // []string | If specified, limits the results to the specified resource type(s). (optional)
     showTagged := true // bool | By default, items which are tagged by XenDesktop are not shown. Set this to `true` to override that behavior. (optional)
     detail := true // bool | If `true`, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if `path` refers to a VM, snapshot, or template resource. <!-- Internally this calls Get-HypConfigurationObjectForItem --> (optional)
     async := true // bool | Async request to get the resources with *path.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolResources(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolResources(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolResources``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1913,22 +1961,21 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **path** | **string** | Path to the resource container within the resource pool. The path may either be a relative path as specified by RelativePath, or may be a URL-encoded XenApp &amp; XenDesktop resource path starting with &#x60;XDHyp:&#x60;; for example, as specified by XDPath. | 
  **children** | **int32** | Specifies the number of levels of children to enumerate. Default is &#x60;0&#x60;, meaning that only the object referred to by &#x60;path&#x60; is returned and its Children array will be left null. A special value of &#x60;-1&#x60; indicates that the entire resource hierarchy should be enumerated.  Use with care!  It may take a very long time to enumerate a large number of resources from a hypervisor, and the call may time out before completing. | 
  **type_** | **[]string** | If specified, limits the results to the specified resource type(s). | 
  **showTagged** | **bool** | By default, items which are tagged by XenDesktop are not shown. Set this to &#x60;true&#x60; to override that behavior. | 
  **detail** | **bool** | If &#x60;true&#x60;, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if &#x60;path&#x60; refers to a VM, snapshot, or template resource. &lt;!-- Internally this calls Get-HypConfigurationObjectForItem --&gt; | 
  **async** | **bool** | Async request to get the resources with *path.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -1950,7 +1997,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolTestReport
 
-> TestReportResponseModel HypervisorsGetHypervisorResourcePoolTestReport(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> TestReportResponseModel HypervisorsGetHypervisorResourcePoolTestReport(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get the most recent test report for a resource pool.
 
@@ -1969,20 +2016,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolTestReport(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolTestReport(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolTestReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2008,14 +2054,13 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -2039,7 +2084,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePools
 
-> HypervisorResourcePoolResponseModelCollection HypervisorsGetHypervisorResourcePools(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourcePoolResponseModelCollection HypervisorsGetHypervisorResourcePools(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get the list of hypervisor resource pools.
 
@@ -2058,20 +2103,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | Async request to get the resource pool.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | Async request to get the resource pool.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePools(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePools(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePools``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2096,16 +2140,15 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | Async request to get the resource pool.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | Async request to get the resource pool.  | [default to false]
 
 ### Return type
 
@@ -2127,9 +2170,11 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorServerHAAddresses
 
-> HypervisorServerHAAddressesResponseModel HypervisorsGetHypervisorServerHAAddresses(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorServerHAAddressesResponseModel HypervisorsGetHypervisorServerHAAddresses(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get hypervisor server HA addresses. Currently, it only valid for Citrix hypervisors.
+
+
 
 ### Example
 
@@ -2144,20 +2189,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | The hypervisor connection name or id. 
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If the execution with async model.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If the execution with async model.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorServerHAAddresses(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorServerHAAddresses(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorServerHAAddresses``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2182,16 +2226,15 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorSe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If the execution with async model.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If the execution with async model.  | [default to false]
 
 ### Return type
 
@@ -2213,7 +2256,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorTestReport
 
-> TestReportResponseModel HypervisorsGetHypervisorTestReport(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> TestReportResponseModel HypervisorsGetHypervisorTestReport(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get the most recent test report for a hypervisor.
 
@@ -2232,19 +2275,18 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorTestReport(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorTestReport(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorTestReport``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2269,13 +2311,12 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorTe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -2299,7 +2340,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorWithoutConnection
 
-> HypervisorDetailResponseModel HypervisorsGetHypervisorWithoutConnection(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorDetailResponseModel HypervisorsGetHypervisorWithoutConnection(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get a hypervisor details without creating persistent connection.
 
@@ -2316,20 +2357,19 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     hypervisorConnectionDetailRequestModel := *openapiclient.NewHypervisorConnectionDetailRequestModel("Name of the hypervisor", openapiclient.HypervisorConnectionType("Unknown")) // HypervisorConnectionDetailRequestModel | Details of how to connect to the hypervisor to enumerate resources from it.
-    async := true // bool | Async request to get the hypervisor.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | Async request to get the hypervisor.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorWithoutConnection(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorWithoutConnection(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorWithoutConnection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2350,16 +2390,15 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorWi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **hypervisorConnectionDetailRequestModel** | [**HypervisorConnectionDetailRequestModel**](HypervisorConnectionDetailRequestModel.md) | Details of how to connect to the hypervisor to enumerate resources from it. | 
- **async** | **bool** | Async request to get the hypervisor.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | Async request to get the hypervisor.  | [default to false]
 
 ### Return type
 
@@ -2381,7 +2420,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisors
 
-> HypervisorResponseModelCollection HypervisorsGetHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResponseModelCollection HypervisorsGetHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get the hypervisors.
 
@@ -2400,19 +2439,18 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | Async request to hypervisor.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | Async request to hypervisor.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2433,15 +2471,14 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorsR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | Async request to hypervisor.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | Async request to hypervisor.  | [default to false]
 
 ### Return type
 
@@ -2463,9 +2500,11 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorsAndResourcePools
 
-> HypervisorsAndResourcePoolsResponseModelCollection HypervisorsGetHypervisorsAndResourcePools(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsAndResourcePoolsResponseModelCollection HypervisorsGetHypervisorsAndResourcePools(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Get hypervisors and resource pools. This API is used for the hosting main view.
+
+
 
 ### Example
 
@@ -2480,19 +2519,18 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If execute this API asynchronous.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If execute this API asynchronous.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2513,15 +2551,14 @@ Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorsA
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If execute this API asynchronous.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If execute this API asynchronous.  | [default to false]
 
 ### Return type
 
@@ -2543,9 +2580,11 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetSupportHypervisors
 
-> HypervisorPluginResponseModelCollection HypervisorsGetSupportHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorPluginResponseModelCollection HypervisorsGetSupportHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).Execute()
 
 Get current server support hypervisors.
+
+
 
 ### Example
 
@@ -2560,21 +2599,20 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If execute this API asynchronous.  (optional) (default to false)
     zoneNameOrId := "zoneNameOrId_example" // string | The zone name or id.  (optional)
     includeUnavailable := true // bool | Flag to show all supported hypervisor plugins. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2595,17 +2633,16 @@ Other parameters are passed through a pointer to a apiHypervisorsGetSupportHyper
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If execute this API asynchronous.  | [default to false]
  **zoneNameOrId** | **string** | The zone name or id.  | 
  **includeUnavailable** | **bool** | Flag to show all supported hypervisor plugins. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -2627,7 +2664,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsPatchHypervisor
 
-> HypervisorsPatchHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditHypervisorConnectionRequestModel(editHypervisorConnectionRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsPatchHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditHypervisorConnectionRequestModel(editHypervisorConnectionRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Update a hypervisor.
 
@@ -2646,21 +2683,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     editHypervisorConnectionRequestModel := *openapiclient.NewEditHypervisorConnectionRequestModel(openapiclient.HypervisorConnectionType("Unknown")) // EditHypervisorConnectionRequestModel | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel.
-    async := true // bool | If `true`, the hypervisor will be updated as a background task. The task will have JobType UpdateHypervisor. When the task is complete it will redirect to GetHypervisor. The job's Parameters will contain properties: * _Name_ - Name of the hypervisor being updated. * _Id_ - ID of the hypervisor being updated. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the hypervisor will be updated as a background task. The task will have JobType UpdateHypervisor. When the task is complete it will redirect to GetHypervisor. The job's Parameters will contain properties: * _Name_ - Name of the hypervisor being updated. * _Id_ - ID of the hypervisor being updated. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPatchHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditHypervisorConnectionRequestModel(editHypervisorConnectionRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPatchHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditHypervisorConnectionRequestModel(editHypervisorConnectionRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsPatchHypervisor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2683,17 +2719,16 @@ Other parameters are passed through a pointer to a apiHypervisorsPatchHypervisor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **editHypervisorConnectionRequestModel** | [**EditHypervisorConnectionRequestModel**](EditHypervisorConnectionRequestModel.md) | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel. | 
- **async** | **bool** | If &#x60;true&#x60;, the hypervisor will be updated as a background task. The task will have JobType UpdateHypervisor. When the task is complete it will redirect to GetHypervisor. The job&#39;s Parameters will contain properties: * _Name_ - Name of the hypervisor being updated. * _Id_ - ID of the hypervisor being updated. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the hypervisor will be updated as a background task. The task will have JobType UpdateHypervisor. When the task is complete it will redirect to GetHypervisor. The job&#39;s Parameters will contain properties: * _Name_ - Name of the hypervisor being updated. * _Id_ - ID of the hypervisor being updated. | [default to false]
 
 ### Return type
 
@@ -2715,7 +2750,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsPatchHypervisorResourcePool
 
-> HypervisorsPatchHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditHypervisorResourcePoolRequestModel(editHypervisorResourcePoolRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsPatchHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditHypervisorResourcePoolRequestModel(editHypervisorResourcePoolRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Update a hypervisor resource pool.
 
@@ -2734,22 +2769,21 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
     poolId := "poolId_example" // string | Name or ID of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     editHypervisorResourcePoolRequestModel := *openapiclient.NewEditHypervisorResourcePoolRequestModel(openapiclient.HypervisorConnectionType("Unknown")) // EditHypervisorResourcePoolRequestModel | Details of the resource pool to update.
-    async := true // bool | If `true`, the resource pool will be updated as a background task. The task will have JobType UpdateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job's Parameters will contain properties: * _Name_ - Name of the resource pool being updated. * _Id_ - ID of the resource pool being updated. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the resource pool will be updated as a background task. The task will have JobType UpdateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job's Parameters will contain properties: * _Name_ - Name of the resource pool being updated. * _Id_ - ID of the resource pool being updated. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPatchHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditHypervisorResourcePoolRequestModel(editHypervisorResourcePoolRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPatchHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditHypervisorResourcePoolRequestModel(editHypervisorResourcePoolRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsPatchHypervisorResourcePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2773,18 +2807,17 @@ Other parameters are passed through a pointer to a apiHypervisorsPatchHypervisor
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **editHypervisorResourcePoolRequestModel** | [**EditHypervisorResourcePoolRequestModel**](EditHypervisorResourcePoolRequestModel.md) | Details of the resource pool to update. | 
- **async** | **bool** | If &#x60;true&#x60;, the resource pool will be updated as a background task. The task will have JobType UpdateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job&#39;s Parameters will contain properties: * _Name_ - Name of the resource pool being updated. * _Id_ - ID of the resource pool being updated. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the resource pool will be updated as a background task. The task will have JobType UpdateHypervisorResourcePool. When the task is complete it will redirect to GetHypervisorResourcePool. The job&#39;s Parameters will contain properties: * _Name_ - Name of the resource pool being updated. * _Id_ - ID of the resource pool being updated. | [default to false]
 
 ### Return type
 
@@ -2806,7 +2839,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsPutBrokerHypervisorConnection
 
-> HypervisorsPutBrokerHypervisorConnection(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditBrokerHypervisorConnectionRequestModel(editBrokerHypervisorConnectionRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsPutBrokerHypervisorConnection(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditBrokerHypervisorConnectionRequestModel(editBrokerHypervisorConnectionRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Set the properties on a broker hypervisor connection.
 
@@ -2823,21 +2856,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Hypervisor connection name or id. 
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     editBrokerHypervisorConnectionRequestModel := *openapiclient.NewEditBrokerHypervisorConnectionRequestModel() // EditBrokerHypervisorConnectionRequestModel | EditBrokerHypervisorConnectionRequestModel or derived objects. 
-    async := true // bool | If async calling.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If async calling.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPutBrokerHypervisorConnection(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditBrokerHypervisorConnectionRequestModel(editBrokerHypervisorConnectionRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsPutBrokerHypervisorConnection(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditBrokerHypervisorConnectionRequestModel(editBrokerHypervisorConnectionRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsPutBrokerHypervisorConnection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2860,17 +2892,16 @@ Other parameters are passed through a pointer to a apiHypervisorsPutBrokerHyperv
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **editBrokerHypervisorConnectionRequestModel** | [**EditBrokerHypervisorConnectionRequestModel**](EditBrokerHypervisorConnectionRequestModel.md) | EditBrokerHypervisorConnectionRequestModel or derived objects.  | 
- **async** | **bool** | If async calling.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If async calling.  | [default to false]
 
 ### Return type
 
@@ -2892,7 +2923,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsResetBrokerHypervisorConnection
 
-> HypervisorsResetBrokerHypervisorConnection(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorsResetBrokerHypervisorConnection(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Requests the broker hypervisor connection to be reset. The connection is dropped, details including credentials refreshed and the connection reestablished. The reset request is asynchronous and may take a moment to occur.
 
@@ -2909,20 +2940,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Hypervisor connection name or id. 
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If async calling.  (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If async calling.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsResetBrokerHypervisorConnection(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsResetBrokerHypervisorConnection(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsResetBrokerHypervisorConnection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2945,16 +2975,15 @@ Other parameters are passed through a pointer to a apiHypervisorsResetBrokerHype
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If async calling.  | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If async calling.  | [default to false]
 
 ### Return type
 
@@ -2976,7 +3005,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsTestHypervisor
 
-> HypervisorTestResponseModel HypervisorsTestHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorTestResponseModel HypervisorsTestHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Run tests on a hypervisor and create a test report.
 
@@ -2995,20 +3024,19 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor to test.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisor. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the hypervisor being tested, * _Name_ - Name of the hypervisor being tested. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisor. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the hypervisor being tested, * _Name_ - Name of the hypervisor being tested. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsTestHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsTestHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsTestHypervisor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3033,16 +3061,15 @@ Other parameters are passed through a pointer to a apiHypervisorsTestHypervisorR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisor. When the task is complete it will redirect to GetJobResults. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the hypervisor being tested, * _Name_ - Name of the hypervisor being tested. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisor. When the task is complete it will redirect to GetJobResults. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the hypervisor being tested, * _Name_ - Name of the hypervisor being tested. | [default to false]
 
 ### Return type
 
@@ -3064,7 +3091,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsTestHypervisorResourcePool
 
-> HypervisorResourcePoolTestResponseModel HypervisorsTestHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourcePoolTestResponseModel HypervisorsTestHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Run tests on a resource pool and create a test report.
 
@@ -3083,21 +3110,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor containing the resource pool.
     poolId := "poolId_example" // string | Name or ID of the resource pool to test.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    async := true // bool | If `true`, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisorResourcePool. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the resource pool being tested, * _Name_ - Name of the resource pool being tested. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisorResourcePool. When the task is complete it will redirect to GetJobResults. The job's Parameters will contain properties:  * _Id_ - ID of the resource pool being tested, * _Name_ - Name of the resource pool being tested. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsTestHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsTestHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsTestHypervisorResourcePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3123,17 +3149,16 @@ Other parameters are passed through a pointer to a apiHypervisorsTestHypervisorR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisorResourcePool. When the task is complete it will redirect to GetJobResults. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the resource pool being tested, * _Name_ - Name of the resource pool being tested. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the tests will run as a background task. This is recommended as the tests may take some time to run, and if it exceeds 90 seconds the request may time out. The task will have JobType TestHypervisorResourcePool. When the task is complete it will redirect to GetJobResults. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the resource pool being tested, * _Name_ - Name of the resource pool being tested. | [default to false]
 
 ### Return type
 
@@ -3155,7 +3180,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsValidateHypervisorResourcePoolResource
 
-> HypervisorResourceValidationResponseModel HypervisorsValidateHypervisorResourcePoolResource(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorResourceValidationRequestModel(hypervisorResourceValidationRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorResourceValidationResponseModel HypervisorsValidateHypervisorResourcePoolResource(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourceValidationRequestModel(hypervisorResourceValidationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Validate a resource for certain usages, currently default and only usage is for Machine Profile.
 
@@ -3172,22 +3197,21 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or Id of the hypervisor.
     poolId := "poolId_example" // string | Name or Id of the resource pool.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     hypervisorResourceValidationRequestModel := *openapiclient.NewHypervisorResourceValidationRequestModel("Path_example") // HypervisorResourceValidationRequestModel | More details attached to this validation.
-    async := true // bool | If async execute. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If async execute. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsValidateHypervisorResourcePoolResource(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorResourceValidationRequestModel(hypervisorResourceValidationRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsValidateHypervisorResourcePoolResource(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourceValidationRequestModel(hypervisorResourceValidationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsValidateHypervisorResourcePoolResource``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3213,18 +3237,17 @@ Other parameters are passed through a pointer to a apiHypervisorsValidateHypervi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **hypervisorResourceValidationRequestModel** | [**HypervisorResourceValidationRequestModel**](HypervisorResourceValidationRequestModel.md) | More details attached to this validation. | 
- **async** | **bool** | If async execute. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If async execute. | [default to false]
 
 ### Return type
 
@@ -3246,7 +3269,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsValidateVmPath
 
-> HypervisorVmValidationResponseModelCollection HypervisorsValidateVmPath(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorVmValidationRequestModel(hypervisorVmValidationRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> HypervisorVmValidationResponseModelCollection HypervisorsValidateVmPath(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorVmValidationRequestModel(hypervisorVmValidationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Validate a list of hypervisor Vm Path.
 
@@ -3265,20 +3288,19 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     hypervisorVmValidationRequestModel := *openapiclient.NewHypervisorVmValidationRequestModel() // HypervisorVmValidationRequestModel | A list of Vm path.
-    async := true // bool | If `true`, the resource pool will be updated as a background task. The task will have JobType HypervisorVmValidation. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the resource pool will be updated as a background task. The task will have JobType HypervisorVmValidation. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsValidateVmPath(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).HypervisorVmValidationRequestModel(hypervisorVmValidationRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsValidateVmPath(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorVmValidationRequestModel(hypervisorVmValidationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsValidateVmPath``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3299,16 +3321,15 @@ Other parameters are passed through a pointer to a apiHypervisorsValidateVmPathR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **hypervisorVmValidationRequestModel** | [**HypervisorVmValidationRequestModel**](HypervisorVmValidationRequestModel.md) | A list of Vm path. | 
- **async** | **bool** | If &#x60;true&#x60;, the resource pool will be updated as a background task. The task will have JobType HypervisorVmValidation. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the resource pool will be updated as a background task. The task will have JobType HypervisorVmValidation. | [default to false]
 
 ### Return type
 

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Component** | Pointer to [**BckRstrAutoConfigComponents**](BckRstrAutoConfigComponents.md) |  | [optional] 
 **ExecutionId** | Pointer to **NullableString** | Execution Id | [optional] 
 **BackupName** | Pointer to **NullableString** | Backup name | [optional] 
+**BackupSize** | Pointer to **int64** | Backup size | [optional] 
 **BackupFileSpec** | Pointer to **NullableString** | Backup File Specification | [optional] 
 **RelatedUid** | Pointer to **int32** | Related History UID for restore with checkmode set to true | [optional] 
 **RelatedDate** | Pointer to **time.Time** | Related History date for restore with checkmode set to true | [optional] 
@@ -29,6 +30,7 @@ Name | Type | Description | Notes
 **BackupDetails** | Pointer to **map[string]string** | Backup Status Details | [optional] 
 **RestoreDetails** | Pointer to [**[]BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) | Restore Status Details | [optional] 
 **SimpleResults** | Pointer to **[]string** | Simple Results (such as Get backed up member names) | [optional] 
+**Fixups** | Pointer to [**[]BackupRestoreFixupModel**](BackupRestoreFixupModel.md) | Fixups  | [optional] 
 
 ## Methods
 
@@ -484,6 +486,31 @@ HasBackupName returns a boolean if a field has been set.
 `func (o *BackupRestoreHistoryInformation) UnsetBackupName()`
 
 UnsetBackupName ensures that no value is present for BackupName, not even an explicit nil
+### GetBackupSize
+
+`func (o *BackupRestoreHistoryInformation) GetBackupSize() int64`
+
+GetBackupSize returns the BackupSize field if non-nil, zero value otherwise.
+
+### GetBackupSizeOk
+
+`func (o *BackupRestoreHistoryInformation) GetBackupSizeOk() (*int64, bool)`
+
+GetBackupSizeOk returns a tuple with the BackupSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupSize
+
+`func (o *BackupRestoreHistoryInformation) SetBackupSize(v int64)`
+
+SetBackupSize sets BackupSize field to given value.
+
+### HasBackupSize
+
+`func (o *BackupRestoreHistoryInformation) HasBackupSize() bool`
+
+HasBackupSize returns a boolean if a field has been set.
+
 ### GetBackupFileSpec
 
 `func (o *BackupRestoreHistoryInformation) GetBackupFileSpec() string`
@@ -759,6 +786,41 @@ HasSimpleResults returns a boolean if a field has been set.
 `func (o *BackupRestoreHistoryInformation) UnsetSimpleResults()`
 
 UnsetSimpleResults ensures that no value is present for SimpleResults, not even an explicit nil
+### GetFixups
+
+`func (o *BackupRestoreHistoryInformation) GetFixups() []BackupRestoreFixupModel`
+
+GetFixups returns the Fixups field if non-nil, zero value otherwise.
+
+### GetFixupsOk
+
+`func (o *BackupRestoreHistoryInformation) GetFixupsOk() (*[]BackupRestoreFixupModel, bool)`
+
+GetFixupsOk returns a tuple with the Fixups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFixups
+
+`func (o *BackupRestoreHistoryInformation) SetFixups(v []BackupRestoreFixupModel)`
+
+SetFixups sets Fixups field to given value.
+
+### HasFixups
+
+`func (o *BackupRestoreHistoryInformation) HasFixups() bool`
+
+HasFixups returns a boolean if a field has been set.
+
+### SetFixupsNil
+
+`func (o *BackupRestoreHistoryInformation) SetFixupsNil(b bool)`
+
+ SetFixupsNil sets the value for Fixups to be an explicit nil
+
+### UnsetFixups
+`func (o *BackupRestoreHistoryInformation) UnsetFixups()`
+
+UnsetFixups ensures that no value is present for Fixups, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

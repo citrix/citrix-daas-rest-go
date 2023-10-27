@@ -9,6 +9,8 @@
 
 * `ADMIN_ROLES` (value: `"AdminRoles"`)
 
+* `ADMIN_ADMINISTRATORS` (value: `"AdminAdministrators"`)
+
 * `HOST_CONNECTIONS` (value: `"HostConnections"`)
 
 * `ICONS` (value: `"Icons"`)

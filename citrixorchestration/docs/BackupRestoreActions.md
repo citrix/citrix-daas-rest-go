@@ -23,6 +23,10 @@
 
 * `EDIT_SCHEDULE` (value: `"EditSchedule"`)
 
+* `ENABLE_SCHEDULE` (value: `"EnableSchedule"`)
+
+* `DISABLE_SCHEDULE` (value: `"DisableSchedule"`)
+
 * `GET_MEMBERS_IN_FILE` (value: `"GetMembersInFile"`)
 
 * `UNDEFINED` (value: `"Undefined"`)

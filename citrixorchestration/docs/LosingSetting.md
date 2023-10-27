@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyGuid** | Pointer to **string** | Policy GUID. | [optional] 
-**PolicyName** | Pointer to **NullableString** | The policy that has the setting. | [optional] 
+**PolicyIdentity** | Pointer to [**PolicyIdentity**](PolicyIdentity.md) |  | [optional] 
 **SettingName** | Pointer to **NullableString** | The setting that is not applied. | [optional] 
 
 ## Methods
@@ -27,66 +26,31 @@ NewLosingSettingWithDefaults instantiates a new LosingSetting object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetPolicyGuid
+### GetPolicyIdentity
 
-`func (o *LosingSetting) GetPolicyGuid() string`
+`func (o *LosingSetting) GetPolicyIdentity() PolicyIdentity`
 
-GetPolicyGuid returns the PolicyGuid field if non-nil, zero value otherwise.
+GetPolicyIdentity returns the PolicyIdentity field if non-nil, zero value otherwise.
 
-### GetPolicyGuidOk
+### GetPolicyIdentityOk
 
-`func (o *LosingSetting) GetPolicyGuidOk() (*string, bool)`
+`func (o *LosingSetting) GetPolicyIdentityOk() (*PolicyIdentity, bool)`
 
-GetPolicyGuidOk returns a tuple with the PolicyGuid field if it's non-nil, zero value otherwise
+GetPolicyIdentityOk returns a tuple with the PolicyIdentity field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPolicyGuid
+### SetPolicyIdentity
 
-`func (o *LosingSetting) SetPolicyGuid(v string)`
+`func (o *LosingSetting) SetPolicyIdentity(v PolicyIdentity)`
 
-SetPolicyGuid sets PolicyGuid field to given value.
+SetPolicyIdentity sets PolicyIdentity field to given value.
 
-### HasPolicyGuid
+### HasPolicyIdentity
 
-`func (o *LosingSetting) HasPolicyGuid() bool`
+`func (o *LosingSetting) HasPolicyIdentity() bool`
 
-HasPolicyGuid returns a boolean if a field has been set.
+HasPolicyIdentity returns a boolean if a field has been set.
 
-### GetPolicyName
-
-`func (o *LosingSetting) GetPolicyName() string`
-
-GetPolicyName returns the PolicyName field if non-nil, zero value otherwise.
-
-### GetPolicyNameOk
-
-`func (o *LosingSetting) GetPolicyNameOk() (*string, bool)`
-
-GetPolicyNameOk returns a tuple with the PolicyName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPolicyName
-
-`func (o *LosingSetting) SetPolicyName(v string)`
-
-SetPolicyName sets PolicyName field to given value.
-
-### HasPolicyName
-
-`func (o *LosingSetting) HasPolicyName() bool`
-
-HasPolicyName returns a boolean if a field has been set.
-
-### SetPolicyNameNil
-
-`func (o *LosingSetting) SetPolicyNameNil(b bool)`
-
- SetPolicyNameNil sets the value for PolicyName to be an explicit nil
-
-### UnsetPolicyName
-`func (o *LosingSetting) UnsetPolicyName()`
-
-UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
 ### GetSettingName
 
 `func (o *LosingSetting) GetSettingName() string`

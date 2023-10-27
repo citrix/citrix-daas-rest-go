@@ -1,6 +1,6 @@
 # \AdminFoldersAPIsDAAS
 
-All URIs are relative to *https://api-us.cloud.com/cvad/manage*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## AdminFoldersCreateAdminFolder
 
-> AdminFolderResponseModel AdminFoldersCreateAdminFolder(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).CreateAdminFolderRequestModel(createAdminFolderRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AdminFolderResponseModel AdminFoldersCreateAdminFolder(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateAdminFolderRequestModel(createAdminFolderRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Create an admin folder
 
@@ -35,20 +35,19 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     createAdminFolderRequestModel := *openapiclient.NewCreateAdminFolderRequestModel("Name of the admin folder", []openapiclient.AdminFolderObjectIdentifier{openapiclient.AdminFolderObjectIdentifier("Unknown")}) // CreateAdminFolderRequestModel | Details of the admin folder to create.
-    async := true // bool | If `true`, the admin folder will be created as a background task. The task will have JobType \"JobType.CreateAdminFolder\". When the task is complete it will redirect to \"GetAdminFolder(string)\" The job Parameters will contain properties:  * _Name_ - Name of the folder being created. * _Path_ - Path to the folder being created. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the admin folder will be created as a background task. The task will have JobType \"JobType.CreateAdminFolder\". When the task is complete it will redirect to \"GetAdminFolder(string)\" The job Parameters will contain properties:  * _Name_ - Name of the folder being created. * _Path_ - Path to the folder being created. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersCreateAdminFolder(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).CreateAdminFolderRequestModel(createAdminFolderRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersCreateAdminFolder(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateAdminFolderRequestModel(createAdminFolderRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminFoldersAPIsDAAS.AdminFoldersCreateAdminFolder``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -69,16 +68,15 @@ Other parameters are passed through a pointer to a apiAdminFoldersCreateAdminFol
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **createAdminFolderRequestModel** | [**CreateAdminFolderRequestModel**](CreateAdminFolderRequestModel.md) | Details of the admin folder to create. | 
- **async** | **bool** | If &#x60;true&#x60;, the admin folder will be created as a background task. The task will have JobType \&quot;JobType.CreateAdminFolder\&quot;. When the task is complete it will redirect to \&quot;GetAdminFolder(string)\&quot; The job Parameters will contain properties:  * _Name_ - Name of the folder being created. * _Path_ - Path to the folder being created. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the admin folder will be created as a background task. The task will have JobType \&quot;JobType.CreateAdminFolder\&quot;. When the task is complete it will redirect to \&quot;GetAdminFolder(string)\&quot; The job Parameters will contain properties:  * _Name_ - Name of the folder being created. * _Path_ - Path to the folder being created. | [default to false]
 
 ### Return type
 
@@ -100,7 +98,7 @@ Name | Type | Description  | Notes
 
 ## AdminFoldersDeleteAdminFolder
 
-> AdminFoldersDeleteAdminFolder(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).ObjectsToRemove(objectsToRemove).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AdminFoldersDeleteAdminFolder(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ObjectsToRemove(objectsToRemove).Async(async).Execute()
 
 Delete an admin folder.
 
@@ -119,21 +117,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     pathOrId := "pathOrId_example" // string | Name or ID of the admin folder to delete.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    objectsToRemove := []openapiclient.AdminFolderObjects{openapiclient.AdminFolderObjects("Unknown")} // []AdminFolderObjects | Identify which object should be removed from the adminFolder. If set to null, then the admin folder will be deleted if it hosts no object and no folder metaData with keys AdminFolderObjectIdentifier.  If set to Applications, the applications in the folder will be deleted. The folder will be deleted if it do not host other objects(MachineCatalogs, or DeliveryGroup, or ApplicationGroups) and no folder metaData with keysAdminFolderObjectIdentifier.; If the folder hosts any other objects, then this folder will not be deleted, folder metadata with key ContainsApplications will be removed.  If set to MachineCatalogs and this folder still hosts some MachineCatalogs, then this folder is not allowed to be deleted; If this folder do not host any MachineCatalogs but host other objects(Applications, DeliveryGroups, ApplicationGroups), the folder metaData with key ContainsMachineCatalogs will be removed; If this folder do not host any objects and no folder metaData with keys AdminFolderObjectIdentifier, the folder will be deleted.              If set to DeliveryGroups or ApplicationGroups, have the same behavior as set to MachineCatalogs. (optional)
-    async := true // bool | If `true`, the admin folder will be deleted as a background task. The task will have JobType DeleteAdminFolder. When the task is complete it will redirect to GetAdminFolders. The job's Parameters will contain properties:  * _Id_ - ID of the admin folder being deleted, * _Path_ - Path of the admin folder being deleted. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    objectsToRemove := []openapiclient.AdminFolderObjects{openapiclient.AdminFolderObjects("Unknown")} // []AdminFolderObjects | Identify which object should be removed from the adminFolder. If set to null, then the admin folder will be deleted if it hosts no object and no folder metaData with keys AdminFolderObjectIdentifier.              If set to Applications, the applications in the folder will be deleted. The folder will be deleted if it do not host other objects(MachineCatalogs, or DeliveryGroup, or ApplicationGroups) and no folder metaData with keysAdminFolderObjectIdentifier.; If the folder hosts any other objects, then this folder will not be deleted, folder metadata with key ContainsApplications will be removed.              If set to MachineCatalogs and this folder still hosts some MachineCatalogs, then this folder is not allowed to be deleted; If this folder do not host any MachineCatalogs but host other objects(Applications, DeliveryGroups, ApplicationGroups), the folder metaData with key ContainsMachineCatalogs will be removed; If this folder do not host any objects and no folder metaData with keys AdminFolderObjectIdentifier, the folder will be deleted.              If set to DeliveryGroups or ApplicationGroups, have the same behavior as set to MachineCatalogs. (optional)
+    async := true // bool | If `true`, the admin folder will be deleted as a background task. The task will have JobType DeleteAdminFolder. When the task is complete it will redirect to GetAdminFolders. The job's Parameters will contain properties:  * _Id_ - ID of the admin folder being deleted, * _Path_ - Path of the admin folder being deleted. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersDeleteAdminFolder(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).ObjectsToRemove(objectsToRemove).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersDeleteAdminFolder(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ObjectsToRemove(objectsToRemove).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminFoldersAPIsDAAS.AdminFoldersDeleteAdminFolder``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -156,17 +153,16 @@ Other parameters are passed through a pointer to a apiAdminFoldersDeleteAdminFol
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **objectsToRemove** | [**[]AdminFolderObjects**](AdminFolderObjects.md) | Identify which object should be removed from the adminFolder. If set to null, then the admin folder will be deleted if it hosts no object and no folder metaData with keys AdminFolderObjectIdentifier.  If set to Applications, the applications in the folder will be deleted. The folder will be deleted if it do not host other objects(MachineCatalogs, or DeliveryGroup, or ApplicationGroups) and no folder metaData with keysAdminFolderObjectIdentifier.; If the folder hosts any other objects, then this folder will not be deleted, folder metadata with key ContainsApplications will be removed.  If set to MachineCatalogs and this folder still hosts some MachineCatalogs, then this folder is not allowed to be deleted; If this folder do not host any MachineCatalogs but host other objects(Applications, DeliveryGroups, ApplicationGroups), the folder metaData with key ContainsMachineCatalogs will be removed; If this folder do not host any objects and no folder metaData with keys AdminFolderObjectIdentifier, the folder will be deleted.              If set to DeliveryGroups or ApplicationGroups, have the same behavior as set to MachineCatalogs. | 
- **async** | **bool** | If &#x60;true&#x60;, the admin folder will be deleted as a background task. The task will have JobType DeleteAdminFolder. When the task is complete it will redirect to GetAdminFolders. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the admin folder being deleted, * _Path_ - Path of the admin folder being deleted. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **objectsToRemove** | [**[]AdminFolderObjects**](AdminFolderObjects.md) | Identify which object should be removed from the adminFolder. If set to null, then the admin folder will be deleted if it hosts no object and no folder metaData with keys AdminFolderObjectIdentifier.              If set to Applications, the applications in the folder will be deleted. The folder will be deleted if it do not host other objects(MachineCatalogs, or DeliveryGroup, or ApplicationGroups) and no folder metaData with keysAdminFolderObjectIdentifier.; If the folder hosts any other objects, then this folder will not be deleted, folder metadata with key ContainsApplications will be removed.              If set to MachineCatalogs and this folder still hosts some MachineCatalogs, then this folder is not allowed to be deleted; If this folder do not host any MachineCatalogs but host other objects(Applications, DeliveryGroups, ApplicationGroups), the folder metaData with key ContainsMachineCatalogs will be removed; If this folder do not host any objects and no folder metaData with keys AdminFolderObjectIdentifier, the folder will be deleted.              If set to DeliveryGroups or ApplicationGroups, have the same behavior as set to MachineCatalogs. | 
+ **async** | **bool** | If &#x60;true&#x60;, the admin folder will be deleted as a background task. The task will have JobType DeleteAdminFolder. When the task is complete it will redirect to GetAdminFolders. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the admin folder being deleted, * _Path_ - Path of the admin folder being deleted. | [default to false]
 
 ### Return type
 
@@ -188,7 +184,7 @@ Name | Type | Description  | Notes
 
 ## AdminFoldersGetAdminFolder
 
-> AdminFolderResponseModel AdminFoldersGetAdminFolder(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AdminFolderResponseModel AdminFoldersGetAdminFolder(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get details about a single admin folder.
 
@@ -207,19 +203,18 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     pathOrId := "pathOrId_example" // string | Path (URL-encoded) or ID of the admin folder.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolder(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolder(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolder``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -244,13 +239,12 @@ Other parameters are passed through a pointer to a apiAdminFoldersGetAdminFolder
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
 
@@ -274,7 +268,7 @@ Name | Type | Description  | Notes
 
 ## AdminFoldersGetAdminFolderApplications
 
-> ApplicationResponseModelCollection AdminFoldersGetAdminFolderApplications(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> ApplicationResponseModelCollection AdminFoldersGetAdminFolderApplications(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
 
 Get the applications in an admin folder.
 
@@ -293,23 +287,22 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     pathOrId := "pathOrId_example" // string | Path (URL-encoded) or ID of the admin folder.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     limit := int32(56) // int32 | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
     fields := "Id,Uid,ApplicationFolder" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server. (optional)
     async := true // bool | If `true`, Fetch applications under admin folder will be a background task. The task will have JobType GetAdminFolderApplications (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolderApplications(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolderApplications(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolderApplications``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -334,19 +327,18 @@ Other parameters are passed through a pointer to a apiAdminFoldersGetAdminFolder
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **limit** | **int32** | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
  **fields** | **string** | Optional filter, removing unspecified properties that otherwise would have been sent by the server. | 
  **async** | **bool** | If &#x60;true&#x60;, Fetch applications under admin folder will be a background task. The task will have JobType GetAdminFolderApplications | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -368,7 +360,7 @@ Name | Type | Description  | Notes
 
 ## AdminFoldersGetAdminFolderMachineCatalogs
 
-> MachineCatalogResponseModelCollection AdminFoldersGetAdminFolderMachineCatalogs(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> MachineCatalogResponseModelCollection AdminFoldersGetAdminFolderMachineCatalogs(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
 
 Get the machineCatalogs in an admin folder.
 
@@ -387,23 +379,22 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     pathOrId := "pathOrId_example" // string | Path (URL-encoded) or ID of the admin folder.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     limit := int32(56) // int32 | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional) (default to 2147483647)
     continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
     fields := "Name,FullName,Id" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server. (optional)
     async := true // bool | If `true`, Fetch machineCatalogs under admin folder will be a background task. The task will have JobType GetAdminFolderMachineCatalogs (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolderMachineCatalogs(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolderMachineCatalogs(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolderMachineCatalogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -428,19 +419,18 @@ Other parameters are passed through a pointer to a apiAdminFoldersGetAdminFolder
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **limit** | **int32** | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | [default to 2147483647]
  **continuationToken** | **string** | The continuationToken returned by the previous query. | 
  **fields** | **string** | Optional filter, removing unspecified properties that otherwise would have been sent by the server. | 
  **async** | **bool** | If &#x60;true&#x60;, Fetch machineCatalogs under admin folder will be a background task. The task will have JobType GetAdminFolderMachineCatalogs | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -462,7 +452,7 @@ Name | Type | Description  | Notes
 
 ## AdminFoldersGetAdminFolders
 
-> AdminFolderResponseModelCollection AdminFoldersGetAdminFolders(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AdminFolderResponseModelCollection AdminFoldersGetAdminFolders(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
 
 Get admin folders.
 
@@ -481,21 +471,20 @@ import (
 )
 
 func main() {
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If `true`, the admin folders will be fetched as a background task. The task will have JobType GetAdminFolders. (optional) (default to false)
     limit := int32(56) // int32 | The max number of admin folders returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | The continuationToken returned by the previous query. (optional)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolders(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Async(async).Limit(limit).ContinuationToken(continuationToken).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolders(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Limit(limit).ContinuationToken(continuationToken).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminFoldersAPIsDAAS.AdminFoldersGetAdminFolders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -516,17 +505,16 @@ Other parameters are passed through a pointer to a apiAdminFoldersGetAdminFolder
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
  **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If &#x60;true&#x60;, the admin folders will be fetched as a background task. The task will have JobType GetAdminFolders. | [default to false]
  **limit** | **int32** | The max number of admin folders returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | The continuationToken returned by the previous query. | 
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -548,7 +536,7 @@ Name | Type | Description  | Notes
 
 ## AdminFoldersUpdateAdminFolder
 
-> AdminFolderResponseModel AdminFoldersUpdateAdminFolder(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditAdminFolderRequestModel(editAdminFolderRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AdminFolderResponseModel AdminFoldersUpdateAdminFolder(ctx, pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditAdminFolderRequestModel(editAdminFolderRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Update an admin folder.
 
@@ -567,21 +555,20 @@ import (
 )
 
 func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     pathOrId := "pathOrId_example" // string | Path or ID of the admin folder path to update.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud Customer ID.
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Cloud Instance (Site) ID.
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request.
     editAdminFolderRequestModel := *openapiclient.NewEditAdminFolderRequestModel() // EditAdminFolderRequestModel | Details of the admin folder to update.
-    async := true // bool | If `true`, the admin folder will be updated as a background task. The task will have JobType UpdateAdminFolder. When the task is complete it will redirect to GetAdminFolder. The job's Parameters will contain properties:  * _Id_ - ID of the admin folder being updated. * _Path_ - Path of the admin folder being updated. (optional) (default to false)
-    authorization := "authorization_example" // string | Citrix Cloud authorization header: CWSAuth Bearer={token} (optional)
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    xActionName := "xActionName_example" // string | Orchestration Action Name (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the admin folder will be updated as a background task. The task will have JobType UpdateAdminFolder. When the task is complete it will redirect to GetAdminFolder. The job's Parameters will contain properties:  * _Id_ - ID of the admin folder being updated. * _Path_ - Path of the admin folder being updated. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersUpdateAdminFolder(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).EditAdminFolderRequestModel(editAdminFolderRequestModel).Async(async).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XActionName(xActionName).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.AdminFoldersAPIsDAAS.AdminFoldersUpdateAdminFolder(context.Background(), pathOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).EditAdminFolderRequestModel(editAdminFolderRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AdminFoldersAPIsDAAS.AdminFoldersUpdateAdminFolder``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -606,17 +593,16 @@ Other parameters are passed through a pointer to a apiAdminFoldersUpdateAdminFol
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **citrixCustomerId** | **string** | Citrix Cloud Customer ID. | 
- **citrixInstanceId** | **string** | Citrix Cloud Instance (Site) ID. | 
- **userAgent** | **string** | User Agent type of the request. | 
  **editAdminFolderRequestModel** | [**EditAdminFolderRequestModel**](EditAdminFolderRequestModel.md) | Details of the admin folder to update. | 
- **async** | **bool** | If &#x60;true&#x60;, the admin folder will be updated as a background task. The task will have JobType UpdateAdminFolder. When the task is complete it will redirect to GetAdminFolder. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the admin folder being updated. * _Path_ - Path of the admin folder being updated. | [default to false]
- **authorization** | **string** | Citrix Cloud authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **xActionName** | **string** | Orchestration Action Name | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the admin folder will be updated as a background task. The task will have JobType UpdateAdminFolder. When the task is complete it will redirect to GetAdminFolder. The job&#39;s Parameters will contain properties:  * _Id_ - ID of the admin folder being updated. * _Path_ - Path of the admin folder being updated. | [default to false]
 
 ### Return type
 

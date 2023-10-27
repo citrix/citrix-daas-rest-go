@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing AppVIsolationGroupsAPIs Service
+Testing AppVIsolationGroupsAPIsDAASService
 
 */
 
@@ -17,42 +17,42 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_AppVIsolationGroupsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_AppVIsolationGroupsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppVIsolationGroupsAPIs Service AppVIsolationGroupsCreateAppVIsolationGroup", func(t *testing.T) {
+	t.Run("Test AppVIsolationGroupsAPIsDAASService AppVIsolationGroupsCreateAppVIsolationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AppVIsolationGroupsAPIs .AppVIsolationGroupsCreateAppVIsolationGroup(context.Background()).Execute()
+		httpRes, err := apiClient.AppVIsolationGroupsAPIsDAAS.AppVIsolationGroupsCreateAppVIsolationGroup(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppVIsolationGroupsAPIs Service AppVIsolationGroupsDeleteAppVIsolationGroup", func(t *testing.T) {
+	t.Run("Test AppVIsolationGroupsAPIsDAASService AppVIsolationGroupsDeleteAppVIsolationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.AppVIsolationGroupsAPIs .AppVIsolationGroupsDeleteAppVIsolationGroup(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AppVIsolationGroupsAPIsDAAS.AppVIsolationGroupsDeleteAppVIsolationGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppVIsolationGroupsAPIs Service AppVIsolationGroupsGetAppVIsolationGroup", func(t *testing.T) {
+	t.Run("Test AppVIsolationGroupsAPIsDAASService AppVIsolationGroupsGetAppVIsolationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.AppVIsolationGroupsAPIs .AppVIsolationGroupsGetAppVIsolationGroup(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.AppVIsolationGroupsAPIsDAAS.AppVIsolationGroupsGetAppVIsolationGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,11 +60,11 @@ func Test_citrixorchestration_AppVIsolationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVIsolationGroupsAPIs Service AppVIsolationGroupsGetAppVIsolationGroups", func(t *testing.T) {
+	t.Run("Test AppVIsolationGroupsAPIsDAASService AppVIsolationGroupsGetAppVIsolationGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppVIsolationGroupsAPIs .AppVIsolationGroupsGetAppVIsolationGroups(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppVIsolationGroupsAPIsDAAS.AppVIsolationGroupsGetAppVIsolationGroups(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +72,13 @@ func Test_citrixorchestration_AppVIsolationGroupsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVIsolationGroupsAPIs Service AppVIsolationGroupsUpdateAppVIsolationGroup", func(t *testing.T) {
+	t.Run("Test AppVIsolationGroupsAPIsDAASService AppVIsolationGroupsUpdateAppVIsolationGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.AppVIsolationGroupsAPIs .AppVIsolationGroupsUpdateAppVIsolationGroup(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.AppVIsolationGroupsAPIsDAAS.AppVIsolationGroupsUpdateAppVIsolationGroup(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

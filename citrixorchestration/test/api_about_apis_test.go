@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing AboutAPIs Service
+Testing AboutAPIsDAASService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_AboutAPIs Service(t *testing.T) {
+func Test_citrixorchestration_AboutAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AboutAPIs Service AboutGetAbout", func(t *testing.T) {
+	t.Run("Test AboutAPIsDAASService AboutGetAbout", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AboutAPIs .AboutGetAbout(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AboutAPIsDAAS.AboutGetAbout(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

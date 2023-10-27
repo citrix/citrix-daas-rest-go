@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ServiceSource** | Pointer to **NullableString** | The service source of any error information present in this record. Typically, this will be the service that ran the test.  In some cases, particularly where an orphaned object target was detected and the test could not be run at all, the service source may be the framework itself, EnvTestService. | [optional] 
 **Serverity** | Pointer to **NullableString** | The severity of the problem. | [optional] 
 **Explanation** | Pointer to **NullableString** | The explanation of the problem. | [optional] 
+**ExplanationParametersStr** | Pointer to **NullableString** | The details items of the problem. | [optional] 
 **Action** | Pointer to **NullableString** | The action to be take to fix this problem. | [optional] 
 
 ## Methods
@@ -133,6 +134,41 @@ HasExplanation returns a boolean if a field has been set.
 `func (o *TestComponentResultDetailModel) UnsetExplanation()`
 
 UnsetExplanation ensures that no value is present for Explanation, not even an explicit nil
+### GetExplanationParametersStr
+
+`func (o *TestComponentResultDetailModel) GetExplanationParametersStr() string`
+
+GetExplanationParametersStr returns the ExplanationParametersStr field if non-nil, zero value otherwise.
+
+### GetExplanationParametersStrOk
+
+`func (o *TestComponentResultDetailModel) GetExplanationParametersStrOk() (*string, bool)`
+
+GetExplanationParametersStrOk returns a tuple with the ExplanationParametersStr field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExplanationParametersStr
+
+`func (o *TestComponentResultDetailModel) SetExplanationParametersStr(v string)`
+
+SetExplanationParametersStr sets ExplanationParametersStr field to given value.
+
+### HasExplanationParametersStr
+
+`func (o *TestComponentResultDetailModel) HasExplanationParametersStr() bool`
+
+HasExplanationParametersStr returns a boolean if a field has been set.
+
+### SetExplanationParametersStrNil
+
+`func (o *TestComponentResultDetailModel) SetExplanationParametersStrNil(b bool)`
+
+ SetExplanationParametersStrNil sets the value for ExplanationParametersStr to be an explicit nil
+
+### UnsetExplanationParametersStr
+`func (o *TestComponentResultDetailModel) UnsetExplanationParametersStr()`
+
+UnsetExplanationParametersStr ensures that no value is present for ExplanationParametersStr, not even an explicit nil
 ### GetAction
 
 `func (o *TestComponentResultDetailModel) GetAction() string`

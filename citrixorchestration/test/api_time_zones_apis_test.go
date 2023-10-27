@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing TimeZonesAPIs Service
+Testing TimeZonesAPIsDAASService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_TimeZonesAPIs Service(t *testing.T) {
+func Test_citrixorchestration_TimeZonesAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TimeZonesAPIs Service TimeZonesGetTimeZones", func(t *testing.T) {
+	t.Run("Test TimeZonesAPIsDAASService TimeZonesGetTimeZones", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TimeZonesAPIs .TimeZonesGetTimeZones(context.Background()).Execute()
+		resp, httpRes, err := apiClient.TimeZonesAPIsDAAS.TimeZonesGetTimeZones(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

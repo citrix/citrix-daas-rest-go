@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **PolicyCount** | Pointer to **int32** | Number of policies in the policy set. | [optional] 
 **Policies** | Pointer to [**[]PolicyResponse**](PolicyResponse.md) | Policies in the policy set. | [optional] 
 **Scopes** | Pointer to **[]string** | Delegated admin scopes. | [optional] 
+**IsAssigned** | Pointer to **bool** | Indicate if policy set is assigned to at least one delivery group. | [optional] 
 
 ## Methods
 
@@ -246,6 +247,31 @@ HasScopes returns a boolean if a field has been set.
 `func (o *PolicySetResponse) UnsetScopes()`
 
 UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
+### GetIsAssigned
+
+`func (o *PolicySetResponse) GetIsAssigned() bool`
+
+GetIsAssigned returns the IsAssigned field if non-nil, zero value otherwise.
+
+### GetIsAssignedOk
+
+`func (o *PolicySetResponse) GetIsAssignedOk() (*bool, bool)`
+
+GetIsAssignedOk returns a tuple with the IsAssigned field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsAssigned
+
+`func (o *PolicySetResponse) SetIsAssigned(v bool)`
+
+SetIsAssigned sets IsAssigned field to given value.
+
+### HasIsAssigned
+
+`func (o *PolicySetResponse) HasIsAssigned() bool`
+
+HasIsAssigned returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

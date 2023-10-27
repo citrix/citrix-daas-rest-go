@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Checkmode** | Pointer to **bool** | Determine what should be restored but to not do the actual restore; report only              | [optional] 
 **Notes** | Pointer to **NullableString** | Admin entered notes | [optional] 
 **RestoreType** | Pointer to [**BackupRestoreRestoreTypes**](BackupRestoreRestoreTypes.md) |  | [optional] 
+**CvadSecurityInfo** | Pointer to [**[]BackupRestoreCvadSecurityInfo**](BackupRestoreCvadSecurityInfo.md) | Cvad Security info valid only when Component is HostConnections | [optional] 
 
 ## Methods
 
@@ -237,6 +238,41 @@ SetRestoreType sets RestoreType field to given value.
 
 HasRestoreType returns a boolean if a field has been set.
 
+### GetCvadSecurityInfo
+
+`func (o *BackupRestoreRestoreBackupRequestModel) GetCvadSecurityInfo() []BackupRestoreCvadSecurityInfo`
+
+GetCvadSecurityInfo returns the CvadSecurityInfo field if non-nil, zero value otherwise.
+
+### GetCvadSecurityInfoOk
+
+`func (o *BackupRestoreRestoreBackupRequestModel) GetCvadSecurityInfoOk() (*[]BackupRestoreCvadSecurityInfo, bool)`
+
+GetCvadSecurityInfoOk returns a tuple with the CvadSecurityInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCvadSecurityInfo
+
+`func (o *BackupRestoreRestoreBackupRequestModel) SetCvadSecurityInfo(v []BackupRestoreCvadSecurityInfo)`
+
+SetCvadSecurityInfo sets CvadSecurityInfo field to given value.
+
+### HasCvadSecurityInfo
+
+`func (o *BackupRestoreRestoreBackupRequestModel) HasCvadSecurityInfo() bool`
+
+HasCvadSecurityInfo returns a boolean if a field has been set.
+
+### SetCvadSecurityInfoNil
+
+`func (o *BackupRestoreRestoreBackupRequestModel) SetCvadSecurityInfoNil(b bool)`
+
+ SetCvadSecurityInfoNil sets the value for CvadSecurityInfo to be an explicit nil
+
+### UnsetCvadSecurityInfo
+`func (o *BackupRestoreRestoreBackupRequestModel) UnsetCvadSecurityInfo()`
+
+UnsetCvadSecurityInfo ensures that no value is present for CvadSecurityInfo, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

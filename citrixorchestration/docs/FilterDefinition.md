@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FilterType** | Pointer to [**FilterType**](FilterType.md) |  | [optional] 
-**FilterName** | Pointer to **NullableString** | Localized filter name | [optional] 
-**Explanation** | Pointer to **NullableString** | Localized explanation | [optional] 
-**IsUserFilter** | Pointer to **bool** | True &#x3D; user filter, False &#x3D; machine filter | [optional] 
-**IsSingleton** | Pointer to **bool** | Is filter a singleton, only the NetScaler SD-Wan filter is singleton. | [optional] 
+**FilterName** | Pointer to **NullableString** | Localized filter name. | [optional] 
+**Explanation** | Pointer to **NullableString** | Localized explanation. | [optional] 
+**IsUserFilter** | Pointer to **bool** | True &#x3D; user filter, False &#x3D; machine filter. | [optional] 
+**IsSingleton** | Pointer to **bool** | Is filter a singleton, only the Citrix SD-Wan filter is singleton. | [optional] 
 
 ## Methods
 

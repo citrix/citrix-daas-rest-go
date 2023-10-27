@@ -12,9 +12,11 @@ Name | Type | Description | Notes
 **RelatedUid** | Pointer to **int32** | Related history UID | [optional] 
 **RelatedDate** | Pointer to **time.Time** | Related history Date/Time | [optional] 
 **RelatedIsCheckMode** | Pointer to **bool** | Related Restore was run in check mode | [optional] 
-**Duration** | Pointer to **int32** | Duration in seconds              | [optional] 
+**Duration** | Pointer to **int32** | Duration in seconds | [optional] 
 **AdministratorName** | Pointer to **NullableString** | Administrator Name | [optional] 
 **Details** | Pointer to **map[string]string** | Details | [optional] 
+**Result** | Pointer to **bool** | Result | [optional] 
+**BackupSize** | Pointer to **int64** | Backup size in bytes | [optional] 
 
 ## Methods
 
@@ -350,6 +352,56 @@ HasDetails returns a boolean if a field has been set.
 `func (o *BackupRestoreBackupResponseModel) UnsetDetails()`
 
 UnsetDetails ensures that no value is present for Details, not even an explicit nil
+### GetResult
+
+`func (o *BackupRestoreBackupResponseModel) GetResult() bool`
+
+GetResult returns the Result field if non-nil, zero value otherwise.
+
+### GetResultOk
+
+`func (o *BackupRestoreBackupResponseModel) GetResultOk() (*bool, bool)`
+
+GetResultOk returns a tuple with the Result field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResult
+
+`func (o *BackupRestoreBackupResponseModel) SetResult(v bool)`
+
+SetResult sets Result field to given value.
+
+### HasResult
+
+`func (o *BackupRestoreBackupResponseModel) HasResult() bool`
+
+HasResult returns a boolean if a field has been set.
+
+### GetBackupSize
+
+`func (o *BackupRestoreBackupResponseModel) GetBackupSize() int64`
+
+GetBackupSize returns the BackupSize field if non-nil, zero value otherwise.
+
+### GetBackupSizeOk
+
+`func (o *BackupRestoreBackupResponseModel) GetBackupSizeOk() (*int64, bool)`
+
+GetBackupSizeOk returns a tuple with the BackupSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackupSize
+
+`func (o *BackupRestoreBackupResponseModel) SetBackupSize(v int64)`
+
+SetBackupSize sets BackupSize field to given value.
+
+### HasBackupSize
+
+`func (o *BackupRestoreBackupResponseModel) HasBackupSize() bool`
+
+HasBackupSize returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

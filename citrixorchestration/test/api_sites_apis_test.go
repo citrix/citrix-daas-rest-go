@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing SitesAPIs Service
+Testing SitesAPIsDAASService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
+func Test_citrixorchestration_SitesAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SitesAPIs Service SitesGetLocalAppAccessConfig", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetMultipleRemotePCAssignments", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetLocalAppAccessConfig(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetMultipleRemotePCAssignments(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetMultipleRemotePCAssignments", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetSessionsTrend", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetMultipleRemotePCAssignments(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSessionsTrend(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,13 +50,13 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetNewSiteSecurityKey", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetSite", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetNewSiteSecurityKey(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSite(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -64,13 +64,13 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetSessionsTrend", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetSiteSettings", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetSessionsTrend(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSiteSettings(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -78,13 +78,13 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetSite", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetSiteStatus", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetSite(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSiteStatus(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -92,13 +92,13 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetSiteLicense", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetSiteTestReport", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetSiteLicense(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSiteTestReport(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -106,13 +106,11 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetSiteSecurityKeyConfiguration", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetSites", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetSiteSecurityKeyConfiguration(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSites(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -120,13 +118,13 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetSiteSecurityKeyManagementConfig", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesGetUpgradePackageVersions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetSiteSecurityKeyManagementConfig(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetUpgradePackageVersions(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -134,96 +132,42 @@ func Test_citrixorchestration_SitesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SitesAPIs Service SitesGetSiteSettings", func(t *testing.T) {
+	t.Run("Test SitesAPIsDAASService SitesPatchMultipleRemotePCAssignments", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetSiteSettings(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.SitesAPIsDAAS.SitesPatchMultipleRemotePCAssignments(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SitesAPIsDAASService SitesPatchSiteSettings", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.SitesAPIsDAAS.SitesPatchSiteSettings(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SitesAPIsDAASService SitesTestSite", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesTestSite(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SitesAPIs Service SitesGetSiteValidLicenses", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetSiteValidLicenses(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SitesAPIs Service SitesGetUpgradePackageVersions", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.SitesAPIs .SitesGetUpgradePackageVersions(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SitesAPIs Service SitesPatchMultipleRemotePCAssignments", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.SitesAPIs .SitesPatchMultipleRemotePCAssignments(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SitesAPIs Service SitesPatchSiteLicense", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.SitesAPIs .SitesPatchSiteLicense(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SitesAPIs Service SitesPatchSiteSecurityKeyConfiguration", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.SitesAPIs .SitesPatchSiteSecurityKeyConfiguration(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SitesAPIs Service SitesPatchSiteSettings", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.SitesAPIs .SitesPatchSiteSettings(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

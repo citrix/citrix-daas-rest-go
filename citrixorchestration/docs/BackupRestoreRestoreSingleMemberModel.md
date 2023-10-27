@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ComponentName** | Pointer to **NullableString** | Component Name | [optional] 
 **MemberName** | Pointer to **NullableString** | Member Name | [optional] 
+**MemberType** | Pointer to **NullableString** | Member Type (Host Connections Only) | [optional] 
 **PlaybookActionState** | Pointer to [**BackupRestorePlaybookActionState**](BackupRestorePlaybookActionState.md) |  | [optional] 
 **Result** | Pointer to **bool** | Result | [optional] 
 **Details** | Pointer to **NullableString** | Details or Error Message | [optional] 
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 **DateTime** | Pointer to **time.Time** | Date Time stamps | [optional] 
 **MemberCount** | Pointer to **int32** | Member Count | [optional] 
 **CurrentMemberIndex** | Pointer to **int32** |  | [optional] 
+**Fixups** | Pointer to **NullableString** | Json string containing ACT internal Fixups data. Must be exchanged with ACT to obtain human readable fixups. | [optional] 
 **CheckMode** | Pointer to **bool** | Check Mode | [optional] 
 
 ## Methods
@@ -104,6 +106,41 @@ HasMemberName returns a boolean if a field has been set.
 `func (o *BackupRestoreRestoreSingleMemberModel) UnsetMemberName()`
 
 UnsetMemberName ensures that no value is present for MemberName, not even an explicit nil
+### GetMemberType
+
+`func (o *BackupRestoreRestoreSingleMemberModel) GetMemberType() string`
+
+GetMemberType returns the MemberType field if non-nil, zero value otherwise.
+
+### GetMemberTypeOk
+
+`func (o *BackupRestoreRestoreSingleMemberModel) GetMemberTypeOk() (*string, bool)`
+
+GetMemberTypeOk returns a tuple with the MemberType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMemberType
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetMemberType(v string)`
+
+SetMemberType sets MemberType field to given value.
+
+### HasMemberType
+
+`func (o *BackupRestoreRestoreSingleMemberModel) HasMemberType() bool`
+
+HasMemberType returns a boolean if a field has been set.
+
+### SetMemberTypeNil
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetMemberTypeNil(b bool)`
+
+ SetMemberTypeNil sets the value for MemberType to be an explicit nil
+
+### UnsetMemberType
+`func (o *BackupRestoreRestoreSingleMemberModel) UnsetMemberType()`
+
+UnsetMemberType ensures that no value is present for MemberType, not even an explicit nil
 ### GetPlaybookActionState
 
 `func (o *BackupRestoreRestoreSingleMemberModel) GetPlaybookActionState() BackupRestorePlaybookActionState`
@@ -299,6 +336,41 @@ SetCurrentMemberIndex sets CurrentMemberIndex field to given value.
 
 HasCurrentMemberIndex returns a boolean if a field has been set.
 
+### GetFixups
+
+`func (o *BackupRestoreRestoreSingleMemberModel) GetFixups() string`
+
+GetFixups returns the Fixups field if non-nil, zero value otherwise.
+
+### GetFixupsOk
+
+`func (o *BackupRestoreRestoreSingleMemberModel) GetFixupsOk() (*string, bool)`
+
+GetFixupsOk returns a tuple with the Fixups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFixups
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetFixups(v string)`
+
+SetFixups sets Fixups field to given value.
+
+### HasFixups
+
+`func (o *BackupRestoreRestoreSingleMemberModel) HasFixups() bool`
+
+HasFixups returns a boolean if a field has been set.
+
+### SetFixupsNil
+
+`func (o *BackupRestoreRestoreSingleMemberModel) SetFixupsNil(b bool)`
+
+ SetFixupsNil sets the value for Fixups to be an explicit nil
+
+### UnsetFixups
+`func (o *BackupRestoreRestoreSingleMemberModel) UnsetFixups()`
+
+UnsetFixups ensures that no value is present for Fixups, not even an explicit nil
 ### GetCheckMode
 
 `func (o *BackupRestoreRestoreSingleMemberModel) GetCheckMode() bool`

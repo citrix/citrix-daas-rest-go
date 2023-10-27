@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyGuid** | Pointer to **string** | The policy GUID. | [optional] 
+**PolicyGuid** | Pointer to **string** | The GUID of the policy that owns this setting. | [optional] 
 **SettingGuid** | Pointer to **string** | The setting GUID. | [optional] 
 **SettingName** | Pointer to **NullableString** | Setting name. Is globally unique. | [optional] 
 **UseDefault** | Pointer to **bool** | Indicate if the default setting value is used. If the setting data type is bool, this is ignored. For all other settings, if this value is true, the setting value is ignored and if this value is false, the setting value is used. | [optional] 

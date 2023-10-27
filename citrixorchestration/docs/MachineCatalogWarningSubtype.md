@@ -49,6 +49,12 @@
 
 * `MACHINE_VDA_UPGRADE_FAILED` (value: `"MachineVdaUpgradeFailed"`)
 
+* `AZURE_AD_JOIN_UNSUPPORTED_OS_VERSION` (value: `"AzureADJoinUnsupportedOsVersion"`)
+
+* `HYBRID_AZURE_AD_JOIN_UNSUPPORTED_OS_VERSION` (value: `"HybridAzureADJoinUnsupportedOsVersion"`)
+
+* `MICROSOFT_INTUNE_ENROLLMENT_UNSUPPORTED_OS_VERSION` (value: `"MicrosoftIntuneEnrollmentUnsupportedOsVersion"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

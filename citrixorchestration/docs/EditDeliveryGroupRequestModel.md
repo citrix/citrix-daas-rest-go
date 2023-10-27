@@ -15,8 +15,10 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | The name of the new delivery group. | [optional] 
 **PublishedName** | Pointer to **NullableString** | The name of the desktop group as it is to appear to the user in StoreFront. | [optional] 
 **RequireUserHomeZone** | Pointer to **NullableBool** | Whether to require the resources from this delivery group to launch within the user&#39;s home zone. | [optional] 
+**ReuseMachinesWithoutShutdownInOutage** | Pointer to **NullableBool** | Whether machines will be reused without a shutdown in case of an outage. | [optional] 
 **Scopes** | Pointer to **[]string** | Administrative scopes which the delivery group should be a part of. If not specified, don&#39;t change. If specified, *all* desired scopes must be listed.  Any scope that the delivery group was part of previously, but which is not passed, will be removed. | [optional] 
 **Tenants** | Pointer to **[]string** | Tenants to associate with the delivery group. | [optional] 
+**LoadBalanceType** | Pointer to [**LoadBalanceType**](LoadBalanceType.md) |  | [optional] 
 **AppProtectionKeyLoggingRequired** | Pointer to **NullableBool** | Specifies whether key logging app protection is required. | [optional] 
 **AppProtectionScreenCaptureRequired** | Pointer to **NullableBool** | Specifies whether screen capture app protection is required. | [optional] 
 **AppAccessPolicy** | Pointer to [**AppAccessPolicyRequestModel**](AppAccessPolicyRequestModel.md) |  | [optional] 
@@ -40,6 +42,8 @@ Name | Type | Description | Notes
 **OffPeakExtendedDisconnectTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the second configured action should be performed after a user session disconnects outside peak hours. | [optional] 
 **OffPeakLogOffAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
 **OffPeakLogOffTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the configured action should be performed after a user session ends outside peak hours. | [optional] 
+**PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the configured action is performed on an assigned machine previously started by autoscale that subsequently remains unused. | [optional] 
+**PeakAutoscaleAssignedPowerOnIdleAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
 **PeakBufferSizePercent** | Pointer to **NullableInt32** | The percentage of machines in the delivery group that should be kept available in an idle state in peak hours. | [optional] 
 **PeakDisconnectAction** | Pointer to [**SessionChangeHostingAction**](SessionChangeHostingAction.md) |  | [optional] 
 **PeakDisconnectTimeoutMinutes** | Pointer to **NullableInt32** | The number of minutes before the configured action should be performed after a user session disconnects in peak hours. | [optional] 
@@ -71,13 +75,14 @@ Name | Type | Description | Notes
 **SettlementPeriodBeforeUseSeconds** | Pointer to **NullableInt32** | Idle period before a machine can be selected to host a new session after registration or the end of a previous session. This is typically used to allow a machine to become idle following processing associated with start-up or logoff actions. A machine may still be selected during the idle period if no other machine is available for immediate use. | [optional] 
 **ShutdownDesktopsAfterUse** | Pointer to **NullableBool** | Whether machines in this delivery group should be automatically shut down when each user session completes. | [optional] 
 **SimpleAccessPolicy** | Pointer to [**SimplifiedAccessPolicyRequestModel**](SimplifiedAccessPolicyRequestModel.md) |  | [optional] 
-**AdvancedAccessPolicy** | Pointer to [**[]AdvancedAccessPolicyRequestModel**](AdvancedAccessPolicyRequestModel.md) | Advanced access policy for connections to the delivery group. | [optional] 
+**AdvancedAccessPolicy** | Pointer to [**[]AdvancedAccessPolicyRequestModel**](AdvancedAccessPolicyRequestModel.md) | Advanced access policy for connections to the delivery group. If you want to edit access policies through AdvancedAccessPolicy, then SimpleAccessPolicy in the request should be null. | [optional] 
 **StoreFrontServersForHostedReceiver** | Pointer to [**[]StoreFrontServerRequestModel**](StoreFrontServerRequestModel.md) | List of StoreFront server addresses to configure within hosted receivers that are delivered from the delivery group. | [optional] 
 **TimeZone** | Pointer to **NullableString** | The time zone in which this delivery group&#39;s machines reside. | [optional] 
 **TurnOnAddedMachines** | Pointer to **NullableBool** | Whether to attempt to power on machines when they are added to the delivery group. | [optional] 
 **ZonePreferences** | Pointer to [**[]ZonePreference**](ZonePreference.md) | Ordered list of zone preferences to be applied when launching resources from this delivery group. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of the delivery group. | [optional] 
 **PolicySetGuid** | Pointer to **NullableString** | The GUID of the policy set assigned to this desktop group. Change if not null. Use Guid.Empty to clear the value stored in the database. A non-null and non-empty GUID assigns the policy set to this desktop group. | [optional] 
+**RequiredSleepCapability** | Pointer to [**RequiredSleepCapability**](RequiredSleepCapability.md) |  | [optional] 
 
 ## Methods
 
@@ -463,6 +468,41 @@ HasRequireUserHomeZone returns a boolean if a field has been set.
 `func (o *EditDeliveryGroupRequestModel) UnsetRequireUserHomeZone()`
 
 UnsetRequireUserHomeZone ensures that no value is present for RequireUserHomeZone, not even an explicit nil
+### GetReuseMachinesWithoutShutdownInOutage
+
+`func (o *EditDeliveryGroupRequestModel) GetReuseMachinesWithoutShutdownInOutage() bool`
+
+GetReuseMachinesWithoutShutdownInOutage returns the ReuseMachinesWithoutShutdownInOutage field if non-nil, zero value otherwise.
+
+### GetReuseMachinesWithoutShutdownInOutageOk
+
+`func (o *EditDeliveryGroupRequestModel) GetReuseMachinesWithoutShutdownInOutageOk() (*bool, bool)`
+
+GetReuseMachinesWithoutShutdownInOutageOk returns a tuple with the ReuseMachinesWithoutShutdownInOutage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReuseMachinesWithoutShutdownInOutage
+
+`func (o *EditDeliveryGroupRequestModel) SetReuseMachinesWithoutShutdownInOutage(v bool)`
+
+SetReuseMachinesWithoutShutdownInOutage sets ReuseMachinesWithoutShutdownInOutage field to given value.
+
+### HasReuseMachinesWithoutShutdownInOutage
+
+`func (o *EditDeliveryGroupRequestModel) HasReuseMachinesWithoutShutdownInOutage() bool`
+
+HasReuseMachinesWithoutShutdownInOutage returns a boolean if a field has been set.
+
+### SetReuseMachinesWithoutShutdownInOutageNil
+
+`func (o *EditDeliveryGroupRequestModel) SetReuseMachinesWithoutShutdownInOutageNil(b bool)`
+
+ SetReuseMachinesWithoutShutdownInOutageNil sets the value for ReuseMachinesWithoutShutdownInOutage to be an explicit nil
+
+### UnsetReuseMachinesWithoutShutdownInOutage
+`func (o *EditDeliveryGroupRequestModel) UnsetReuseMachinesWithoutShutdownInOutage()`
+
+UnsetReuseMachinesWithoutShutdownInOutage ensures that no value is present for ReuseMachinesWithoutShutdownInOutage, not even an explicit nil
 ### GetScopes
 
 `func (o *EditDeliveryGroupRequestModel) GetScopes() []string`
@@ -533,6 +573,31 @@ HasTenants returns a boolean if a field has been set.
 `func (o *EditDeliveryGroupRequestModel) UnsetTenants()`
 
 UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
+### GetLoadBalanceType
+
+`func (o *EditDeliveryGroupRequestModel) GetLoadBalanceType() LoadBalanceType`
+
+GetLoadBalanceType returns the LoadBalanceType field if non-nil, zero value otherwise.
+
+### GetLoadBalanceTypeOk
+
+`func (o *EditDeliveryGroupRequestModel) GetLoadBalanceTypeOk() (*LoadBalanceType, bool)`
+
+GetLoadBalanceTypeOk returns a tuple with the LoadBalanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadBalanceType
+
+`func (o *EditDeliveryGroupRequestModel) SetLoadBalanceType(v LoadBalanceType)`
+
+SetLoadBalanceType sets LoadBalanceType field to given value.
+
+### HasLoadBalanceType
+
+`func (o *EditDeliveryGroupRequestModel) HasLoadBalanceType() bool`
+
+HasLoadBalanceType returns a boolean if a field has been set.
+
 ### GetAppProtectionKeyLoggingRequired
 
 `func (o *EditDeliveryGroupRequestModel) GetAppProtectionKeyLoggingRequired() bool`
@@ -1268,6 +1333,66 @@ HasOffPeakLogOffTimeoutMinutes returns a boolean if a field has been set.
 `func (o *EditDeliveryGroupRequestModel) UnsetOffPeakLogOffTimeoutMinutes()`
 
 UnsetOffPeakLogOffTimeoutMinutes ensures that no value is present for OffPeakLogOffTimeoutMinutes, not even an explicit nil
+### GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+
+`func (o *EditDeliveryGroupRequestModel) GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes() int32`
+
+GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes returns the PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes field if non-nil, zero value otherwise.
+
+### GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesOk
+
+`func (o *EditDeliveryGroupRequestModel) GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesOk() (*int32, bool)`
+
+GetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesOk returns a tuple with the PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+
+`func (o *EditDeliveryGroupRequestModel) SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes(v int32)`
+
+SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes sets PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes field to given value.
+
+### HasPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+
+`func (o *EditDeliveryGroupRequestModel) HasPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes() bool`
+
+HasPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes returns a boolean if a field has been set.
+
+### SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil
+
+`func (o *EditDeliveryGroupRequestModel) SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil(b bool)`
+
+ SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil sets the value for PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes to be an explicit nil
+
+### UnsetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes
+`func (o *EditDeliveryGroupRequestModel) UnsetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes()`
+
+UnsetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes ensures that no value is present for PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes, not even an explicit nil
+### GetPeakAutoscaleAssignedPowerOnIdleAction
+
+`func (o *EditDeliveryGroupRequestModel) GetPeakAutoscaleAssignedPowerOnIdleAction() SessionChangeHostingAction`
+
+GetPeakAutoscaleAssignedPowerOnIdleAction returns the PeakAutoscaleAssignedPowerOnIdleAction field if non-nil, zero value otherwise.
+
+### GetPeakAutoscaleAssignedPowerOnIdleActionOk
+
+`func (o *EditDeliveryGroupRequestModel) GetPeakAutoscaleAssignedPowerOnIdleActionOk() (*SessionChangeHostingAction, bool)`
+
+GetPeakAutoscaleAssignedPowerOnIdleActionOk returns a tuple with the PeakAutoscaleAssignedPowerOnIdleAction field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPeakAutoscaleAssignedPowerOnIdleAction
+
+`func (o *EditDeliveryGroupRequestModel) SetPeakAutoscaleAssignedPowerOnIdleAction(v SessionChangeHostingAction)`
+
+SetPeakAutoscaleAssignedPowerOnIdleAction sets PeakAutoscaleAssignedPowerOnIdleAction field to given value.
+
+### HasPeakAutoscaleAssignedPowerOnIdleAction
+
+`func (o *EditDeliveryGroupRequestModel) HasPeakAutoscaleAssignedPowerOnIdleAction() bool`
+
+HasPeakAutoscaleAssignedPowerOnIdleAction returns a boolean if a field has been set.
+
 ### GetPeakBufferSizePercent
 
 `func (o *EditDeliveryGroupRequestModel) GetPeakBufferSizePercent() int32`
@@ -2538,6 +2663,31 @@ HasPolicySetGuid returns a boolean if a field has been set.
 `func (o *EditDeliveryGroupRequestModel) UnsetPolicySetGuid()`
 
 UnsetPolicySetGuid ensures that no value is present for PolicySetGuid, not even an explicit nil
+### GetRequiredSleepCapability
+
+`func (o *EditDeliveryGroupRequestModel) GetRequiredSleepCapability() RequiredSleepCapability`
+
+GetRequiredSleepCapability returns the RequiredSleepCapability field if non-nil, zero value otherwise.
+
+### GetRequiredSleepCapabilityOk
+
+`func (o *EditDeliveryGroupRequestModel) GetRequiredSleepCapabilityOk() (*RequiredSleepCapability, bool)`
+
+GetRequiredSleepCapabilityOk returns a tuple with the RequiredSleepCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredSleepCapability
+
+`func (o *EditDeliveryGroupRequestModel) SetRequiredSleepCapability(v RequiredSleepCapability)`
+
+SetRequiredSleepCapability sets RequiredSleepCapability field to given value.
+
+### HasRequiredSleepCapability
+
+`func (o *EditDeliveryGroupRequestModel) HasRequiredSleepCapability() bool`
+
+HasRequiredSleepCapability returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

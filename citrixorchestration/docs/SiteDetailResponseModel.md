@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Site name.  Not guaranteed to be unique. | 
 **OrchestationApiVersion** | **int32** | Orchestration API version | 
 **AppProtectionAuthorized** | Pointer to **bool** |  | [optional] 
+**ConfigurationServiceGroupUid** | Pointer to **NullableString** | The Uid for the Configuration Service Group. | [optional] 
 **LicenseServerName** | Pointer to **NullableString** | Hostname of the licensing server for the site. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 **LicenseServerPort** | Pointer to **NullableInt32** | License server port. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 **LicenseServerUri** | Pointer to **NullableString** | License server URI. Will be null for XenApp &amp; XenDesktop service. | [optional] 
@@ -141,6 +142,41 @@ SetAppProtectionAuthorized sets AppProtectionAuthorized field to given value.
 
 HasAppProtectionAuthorized returns a boolean if a field has been set.
 
+### GetConfigurationServiceGroupUid
+
+`func (o *SiteDetailResponseModel) GetConfigurationServiceGroupUid() string`
+
+GetConfigurationServiceGroupUid returns the ConfigurationServiceGroupUid field if non-nil, zero value otherwise.
+
+### GetConfigurationServiceGroupUidOk
+
+`func (o *SiteDetailResponseModel) GetConfigurationServiceGroupUidOk() (*string, bool)`
+
+GetConfigurationServiceGroupUidOk returns a tuple with the ConfigurationServiceGroupUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigurationServiceGroupUid
+
+`func (o *SiteDetailResponseModel) SetConfigurationServiceGroupUid(v string)`
+
+SetConfigurationServiceGroupUid sets ConfigurationServiceGroupUid field to given value.
+
+### HasConfigurationServiceGroupUid
+
+`func (o *SiteDetailResponseModel) HasConfigurationServiceGroupUid() bool`
+
+HasConfigurationServiceGroupUid returns a boolean if a field has been set.
+
+### SetConfigurationServiceGroupUidNil
+
+`func (o *SiteDetailResponseModel) SetConfigurationServiceGroupUidNil(b bool)`
+
+ SetConfigurationServiceGroupUidNil sets the value for ConfigurationServiceGroupUid to be an explicit nil
+
+### UnsetConfigurationServiceGroupUid
+`func (o *SiteDetailResponseModel) UnsetConfigurationServiceGroupUid()`
+
+UnsetConfigurationServiceGroupUid ensures that no value is present for ConfigurationServiceGroupUid, not even an explicit nil
 ### GetLicenseServerName
 
 `func (o *SiteDetailResponseModel) GetLicenseServerName() string`

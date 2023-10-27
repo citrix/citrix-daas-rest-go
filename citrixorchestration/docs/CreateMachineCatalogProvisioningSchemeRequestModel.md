@@ -15,8 +15,10 @@ Name | Type | Description | Notes
 **UseWriteBackCache** | Pointer to **NullableBool** | Indicates whether or not write back cache is enabled for the VMs created from this provisioning scheme. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
 **WriteBackCacheDiskSizeGB** | Pointer to **NullableInt32** | The size in GB of any temporary storage disk used by the write back cache. Should be used in conjunction with WriteBackCacheMemorySizeMB. | [optional] 
 **WriteBackCacheMemorySizeMB** | Pointer to **NullableInt32** | The size in MB of any write back cache if required. Should be used in conjunction with WriteBackCacheDiskSizeGB. | [optional] 
+**WriteBackCacheDriveLetter** | Pointer to **string** | The drive letter assigned for write back cache disk when UseWriteBackCache is &#x60;true&#x60;. | [optional] 
 **PrepareImage** | Pointer to **NullableBool** | Indicates whether image preparation should be performed on this provisioning scheme. Optional; default is &#x60;true&#x60;. | [optional] [default to true]
 **NetworkMapping** | Pointer to [**[]NetworkMapRequestModel**](NetworkMapRequestModel.md) | Specifies how the attached NICs are mapped to networks.  If this parameter is omitted, provisioned VMs are created with a single NIC, which is mapped to the default network in the hypervisor resource pool.  If this parameter is supplied, machines are created with the number of NICs specified in the map, and each NIC is attached to the specified network. | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for provisioning scheme | [optional] 
 **ServiceOfferingPath** | Pointer to **NullableString** | The hypervisor resource path of the Cloud service offering to use when creating machines. | [optional] 
 **SecurityGroups** | Pointer to **[]string** | The hypervisor resource path(s) of the Cloud security group(s) to use when creating machines. | [optional] 
 **DedicatedTenancy** | Pointer to **NullableBool** | Indicates whether to use dedicated tenancy when creating machines in Cloud Hypervisors. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
@@ -25,9 +27,11 @@ Name | Type | Description | Notes
 **IdentityType** | Pointer to [**IdentityType**](IdentityType.md) |  | [optional] 
 **DeviceManagementType** | Pointer to [**DeviceManagementType**](DeviceManagementType.md) |  | [optional] 
 **AzureADSecurityGroupName** | Pointer to **NullableString** | Name of Azure AD security group to be created. | [optional] 
-**AzureADSecurityGroupNestId** | Pointer to **NullableString** | The object id of the Azure AD security group to nest.  Only valid for Azure. | [optional] 
+**AzureADSecurityGroupNestId** | Pointer to **NullableString** | The object id of the Azure AD security group to nest.  Only valid for Azure. Mandatory when to nest created security group. | [optional] 
+**AzureADSecurityGroupNestName** | Pointer to **NullableString** | The object name of the Azure AD security group to nest. Only valid for Azure. If specified, AzureADSecurityGroupNestId is required. | [optional] 
 **AzureADTenantId** | Pointer to **NullableString** | TenantId of Azure Directory. | [optional] 
 **CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the provisioning scheme that are specific to the target hosting infrastructure. | [optional] 
+**CustomPropertiesInString** | Pointer to **NullableString** | The properties of the provisioning scheme in a single string, that are specific to the target hosting infrastructure. This is an optional method to set the custom properties which are not in the form of an array. | [optional] 
 **ResetAdministratorPasswords** | Pointer to **NullableBool** | Indicates whether to reset the password for the administrator accounts on provisioned machines. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
 **UseFullDiskCloneProvisioning** | Pointer to **NullableBool** | Indicates that the virtual machines created from the provisioning scheme should be created using the dedicated full disk clone feature. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
 **WorkGroupMachines** | Pointer to **NullableBool** | Indicates whether to provision workgroup virtual machines e.g. non-domain joined. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
@@ -431,6 +435,31 @@ HasWriteBackCacheMemorySizeMB returns a boolean if a field has been set.
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetWriteBackCacheMemorySizeMB()`
 
 UnsetWriteBackCacheMemorySizeMB ensures that no value is present for WriteBackCacheMemorySizeMB, not even an explicit nil
+### GetWriteBackCacheDriveLetter
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetWriteBackCacheDriveLetter() string`
+
+GetWriteBackCacheDriveLetter returns the WriteBackCacheDriveLetter field if non-nil, zero value otherwise.
+
+### GetWriteBackCacheDriveLetterOk
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetWriteBackCacheDriveLetterOk() (*string, bool)`
+
+GetWriteBackCacheDriveLetterOk returns a tuple with the WriteBackCacheDriveLetter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWriteBackCacheDriveLetter
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWriteBackCacheDriveLetter(v string)`
+
+SetWriteBackCacheDriveLetter sets WriteBackCacheDriveLetter field to given value.
+
+### HasWriteBackCacheDriveLetter
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasWriteBackCacheDriveLetter() bool`
+
+HasWriteBackCacheDriveLetter returns a boolean if a field has been set.
+
 ### GetPrepareImage
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetPrepareImage() bool`
@@ -501,6 +530,41 @@ HasNetworkMapping returns a boolean if a field has been set.
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetNetworkMapping()`
 
 UnsetNetworkMapping ensures that no value is present for NetworkMapping, not even an explicit nil
+### GetMetadata
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetServiceOfferingPath
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetServiceOfferingPath() string`
@@ -776,6 +840,41 @@ HasAzureADSecurityGroupNestId returns a boolean if a field has been set.
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetAzureADSecurityGroupNestId()`
 
 UnsetAzureADSecurityGroupNestId ensures that no value is present for AzureADSecurityGroupNestId, not even an explicit nil
+### GetAzureADSecurityGroupNestName
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAzureADSecurityGroupNestName() string`
+
+GetAzureADSecurityGroupNestName returns the AzureADSecurityGroupNestName field if non-nil, zero value otherwise.
+
+### GetAzureADSecurityGroupNestNameOk
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAzureADSecurityGroupNestNameOk() (*string, bool)`
+
+GetAzureADSecurityGroupNestNameOk returns a tuple with the AzureADSecurityGroupNestName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAzureADSecurityGroupNestName
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNestName(v string)`
+
+SetAzureADSecurityGroupNestName sets AzureADSecurityGroupNestName field to given value.
+
+### HasAzureADSecurityGroupNestName
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAzureADSecurityGroupNestName() bool`
+
+HasAzureADSecurityGroupNestName returns a boolean if a field has been set.
+
+### SetAzureADSecurityGroupNestNameNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNestNameNil(b bool)`
+
+ SetAzureADSecurityGroupNestNameNil sets the value for AzureADSecurityGroupNestName to be an explicit nil
+
+### UnsetAzureADSecurityGroupNestName
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetAzureADSecurityGroupNestName()`
+
+UnsetAzureADSecurityGroupNestName ensures that no value is present for AzureADSecurityGroupNestName, not even an explicit nil
 ### GetAzureADTenantId
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAzureADTenantId() string`
@@ -846,6 +945,41 @@ HasCustomProperties returns a boolean if a field has been set.
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetCustomProperties()`
 
 UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+### GetCustomPropertiesInString
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetCustomPropertiesInString() string`
+
+GetCustomPropertiesInString returns the CustomPropertiesInString field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesInStringOk
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetCustomPropertiesInStringOk() (*string, bool)`
+
+GetCustomPropertiesInStringOk returns a tuple with the CustomPropertiesInString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomPropertiesInString
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInString(v string)`
+
+SetCustomPropertiesInString sets CustomPropertiesInString field to given value.
+
+### HasCustomPropertiesInString
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasCustomPropertiesInString() bool`
+
+HasCustomPropertiesInString returns a boolean if a field has been set.
+
+### SetCustomPropertiesInStringNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInStringNil(b bool)`
+
+ SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
+
+### UnsetCustomPropertiesInString
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetCustomPropertiesInString()`
+
+UnsetCustomPropertiesInString ensures that no value is present for CustomPropertiesInString, not even an explicit nil
 ### GetResetAdministratorPasswords
 
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetResetAdministratorPasswords() bool`

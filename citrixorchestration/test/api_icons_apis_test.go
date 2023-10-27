@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing IconsAPIs Service
+Testing IconsAPIsDAASService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_IconsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_IconsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test IconsAPIs Service IconsAddIcon", func(t *testing.T) {
+	t.Run("Test IconsAPIsDAASService IconsAddIcon", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.IconsAPIs .IconsAddIcon(context.Background()).Execute()
+		resp, httpRes, err := apiClient.IconsAPIsDAAS.IconsAddIcon(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_citrixorchestration_IconsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test IconsAPIs Service IconsGetAppVServerPackageApplicationIcon", func(t *testing.T) {
+	t.Run("Test IconsAPIsDAASService IconsGetAppVServerPackageApplicationIcon", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.IconsAPIs .IconsGetAppVServerPackageApplicationIcon(context.Background()).Execute()
+		resp, httpRes, err := apiClient.IconsAPIsDAAS.IconsGetAppVServerPackageApplicationIcon(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,13 @@ func Test_citrixorchestration_IconsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test IconsAPIs Service IconsGetIcon", func(t *testing.T) {
+	t.Run("Test IconsAPIsDAASService IconsGetIcon", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.IconsAPIs .IconsGetIcon(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.IconsAPIsDAAS.IconsGetIcon(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -60,11 +60,11 @@ func Test_citrixorchestration_IconsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test IconsAPIs Service IconsGetIcons", func(t *testing.T) {
+	t.Run("Test IconsAPIsDAASService IconsGetIcons", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.IconsAPIs .IconsGetIcons(context.Background()).Execute()
+		resp, httpRes, err := apiClient.IconsAPIsDAAS.IconsGetIcons(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +72,13 @@ func Test_citrixorchestration_IconsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test IconsAPIs Service IconsRemoveIcon", func(t *testing.T) {
+	t.Run("Test IconsAPIsDAASService IconsRemoveIcon", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id int32
 
-		httpRes, err := apiClient.IconsAPIs .IconsRemoveIcon(context.Background(), id).Execute()
+		httpRes, err := apiClient.IconsAPIsDAAS.IconsRemoveIcon(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

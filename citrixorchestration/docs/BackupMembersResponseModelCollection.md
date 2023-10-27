@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | **[]string** | List of items. | 
+**Items** | [**[]BackupRestoreMemberResponseModel**](BackupRestoreMemberResponseModel.md) | List of items. | 
 **ContinuationToken** | Pointer to **NullableString** | If present, indicates to the caller that the query was not complete, and they should call the API again specifying the continuation token as a query parameter. | [optional] 
 **TotalItems** | Pointer to **NullableInt32** | Indicates the total number of items in the collection, which may be more than the number of Items returned, if there is a ContinuationToken.  Only returned in the response to &#x60;$search&#x60; APIs. | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewBackupMembersResponseModelCollection
 
-`func NewBackupMembersResponseModelCollection(items []string, ) *BackupMembersResponseModelCollection`
+`func NewBackupMembersResponseModelCollection(items []BackupRestoreMemberResponseModel, ) *BackupMembersResponseModelCollection`
 
 NewBackupMembersResponseModelCollection instantiates a new BackupMembersResponseModelCollection object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *BackupMembersResponseModelCollection) GetItems() []string`
+`func (o *BackupMembersResponseModelCollection) GetItems() []BackupRestoreMemberResponseModel`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *BackupMembersResponseModelCollection) GetItemsOk() (*[]string, bool)`
+`func (o *BackupMembersResponseModelCollection) GetItemsOk() (*[]BackupRestoreMemberResponseModel, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *BackupMembersResponseModelCollection) SetItems(v []string)`
+`func (o *BackupMembersResponseModelCollection) SetItems(v []BackupRestoreMemberResponseModel)`
 
 SetItems sets Items field to given value.
 

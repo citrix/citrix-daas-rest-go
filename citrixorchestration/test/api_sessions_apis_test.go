@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing SessionsAPIs Service
+Testing SessionsAPIsDAASService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_SessionsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test SessionsAPIs Service SessionsDisconnectSession", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsDisconnectSession", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsDisconnectSession(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsDisconnectSession(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,11 +36,11 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsDoSessionSearch", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsDoSessionSearch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsDoSessionSearch(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsDoSessionSearch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -48,13 +48,13 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsGetSession", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsGetSession", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsGetSession(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSession(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,13 +62,13 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsGetSessionApplications", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsGetSessionApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsGetSessionApplications(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSessionApplications(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -76,13 +76,13 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsGetSessionMachine", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsGetSessionMachine", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsGetSessionMachine(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSessionMachine(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -90,11 +90,11 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsGetSessionRecordingStatus", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsGetSessionRecordingStatus", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsGetSessionRecordingStatus(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSessionRecordingStatus(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,11 +102,11 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsGetSessions", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsGetSessions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsGetSessions(context.Background()).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsGetSessions(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -114,53 +114,39 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsHideSession", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsHideSession", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.SessionsAPIs .SessionsHideSession(context.Background(), id).Execute()
+		httpRes, err := apiClient.SessionsAPIsDAAS.SessionsHideSession(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsLogoffSession", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsLogoffSession", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.SessionsAPIs .SessionsLogoffSession(context.Background(), id).Execute()
+		httpRes, err := apiClient.SessionsAPIsDAAS.SessionsLogoffSession(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsSendSessionMessage", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsSendSessionMessage", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsSendSessionMessage(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test SessionsAPIs Service SessionsStartSessionRecording", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsStartSessionRecording(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsSendSessionMessage(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -168,13 +154,13 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsStopSessionRecording", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsStartSessionRecording", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.SessionsAPIs .SessionsStopSessionRecording(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsStartSessionRecording(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -182,13 +168,27 @@ func Test_citrixorchestration_SessionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test SessionsAPIs Service SessionsUnhideSession", func(t *testing.T) {
+	t.Run("Test SessionsAPIsDAASService SessionsStopSessionRecording", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.SessionsAPIs .SessionsUnhideSession(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.SessionsAPIsDAAS.SessionsStopSessionRecording(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SessionsAPIsDAASService SessionsUnhideSession", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.SessionsAPIsDAAS.SessionsUnhideSession(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

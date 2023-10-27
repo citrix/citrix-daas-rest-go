@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing AppVPackagesAPIs Service
+Testing AppVPackagesAPIsDAASService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
+func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackage", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackage", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackage(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackage(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,29 +36,14 @@ func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackageApplication", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-		var appId string
-
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackageApplication(context.Background(), id, appId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackageApplicationIcon", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageApplication", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 		var appId string
 
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackageApplicationIcon(context.Background(), id, appId).Execute()
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplication(context.Background(), id, appId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -66,13 +51,28 @@ func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackageApplications", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageApplicationIcon", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+		var appId string
+
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplicationIcon(context.Background(), id, appId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackageApplications(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageApplications(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -80,13 +80,13 @@ func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackageBrokerApplications", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageBrokerApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackageBrokerApplications(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageBrokerApplications(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -94,13 +94,13 @@ func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackageDeliveryGroups", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageDeliveryGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackageDeliveryGroups(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageDeliveryGroups(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -108,13 +108,13 @@ func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackageIcon", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackageIcon", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackageIcon(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackageIcon(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -122,11 +122,11 @@ func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesGetAppVPackages", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetAppVPackages", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesGetAppVPackages(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetAppVPackages(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -134,24 +134,24 @@ func Test_citrixorchestration_AppVPackagesAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesImportAppVPackages", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesImportAppVPackages", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesImportAppVPackages(context.Background()).Execute()
+		httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesImportAppVPackages(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test AppVPackagesAPIs Service AppVPackagesRemoveAppVPackage", func(t *testing.T) {
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesRemoveAppVPackage", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.AppVPackagesAPIs .AppVPackagesRemoveAppVPackage(context.Background(), id).Execute()
+		httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesRemoveAppVPackage(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

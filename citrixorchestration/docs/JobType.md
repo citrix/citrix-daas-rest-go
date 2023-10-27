@@ -147,6 +147,8 @@
 
 * `DELETE_APPLICATION_GROUP` (value: `"DeleteApplicationGroup"`)
 
+* `SEARCH_APPLICATION_GROUPS` (value: `"SearchApplicationGroups"`)
+
 * `DELETE_ADMIN_FOLDER` (value: `"DeleteAdminFolder"`)
 
 * `DELETE_APPLICATION_FOLDER` (value: `"DeleteApplicationFolder"`)
@@ -188,6 +190,8 @@
 * `HYPERVISOR_VM_VALIDATION` (value: `"HypervisorVmValidation"`)
 
 * `TEST_HYPERVISOR` (value: `"TestHypervisor"`)
+
+* `GET_HYPERVISOR_ORPHANED_RESOURCES` (value: `"GetHypervisorOrphanedResources"`)
 
 * `TEST_HYPERVISOR_RESOURCE_POOL` (value: `"TestHypervisorResourcePool"`)
 
@@ -238,6 +242,10 @@
 * `GET_OPERATIONS` (value: `"GetOperations"`)
 
 * `DO_OPERATION_SEARCH` (value: `"DoOperationSearch"`)
+
+* `FETCH_EXISTING_OPERATION_LABELS` (value: `"FetchExistingOperationLabels"`)
+
+* `UPDATE_OPERATION` (value: `"UpdateOperation"`)
 
 * `GET_SESSIONS` (value: `"GetSessions"`)
 
@@ -435,11 +443,21 @@
 
 * `REMOVE_IMAGE_DEFINITION` (value: `"RemoveImageDefinition"`)
 
+* `REMOVE_IMAGE_VERSION` (value: `"RemoveImageVersion"`)
+
 * `GET_ALL_MACHINE_IDENTITY_POOLS` (value: `"GetAllMachineIdentityPools"`)
+
+* `GET_ALL_MACHINE_IDENTITY_POOL` (value: `"GetAllMachineIdentityPool"`)
 
 * `GET_PROV_SCHEME_REFERENCES` (value: `"GetProvSchemeReferences"`)
 
 * `REQUEST_PROV_VM_UPDATE` (value: `"RequestProvVmUpdate"`)
+
+* `CREATE_ADMIN` (value: `"CreateAdmin"`)
+
+* `UPDATE_ADMIN` (value: `"UpdateAdmin"`)
+
+* `DELETE_ADMIN` (value: `"DeleteAdmin"`)
 
 * `GET_BACKUPS` (value: `"GetBackups"`)
 
@@ -454,6 +472,22 @@
 * `GET_PVS_V_DISK` (value: `"GetPvsVDisk"`)
 
 * `GET_PVS_STORE` (value: `"GetPvsStore"`)
+
+* `RESET_VM_DISK` (value: `"ResetVMDisk"`)
+
+* `GET_GPO_POLICY_SETS` (value: `"GetGpoPolicySets"`)
+
+* `GET_GPO_POLICIES` (value: `"GetGpoPolicies"`)
+
+* `GET_GPO_FILTERS` (value: `"GetGpoFilters"`)
+
+* `GET_GPO_SETTINGS` (value: `"GetGpoSettings"`)
+
+* `REPAIR_MACHINE_CATALOG_ACCOUNTS` (value: `"RepairMachineCatalogAccounts"`)
+
+* `IMPORT_PROVISIONED_VIRTUAL_MACHINES` (value: `"ImportProvisionedVirtualMachines"`)
+
+* `VALIDATE_MACHINE_CATALOG_CREATION` (value: `"ValidateMachineCatalogCreation"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

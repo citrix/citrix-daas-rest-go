@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Targets** | Pointer to **[]string** | A target is either a policy or polilate. This list stores the target names. | [optional] 
-**Result** | Pointer to [**[]ComparisonRowContract**](ComparisonRowContract.md) | Rows in the report | [optional] 
-**WithDefaults** | Pointer to **bool** | If true, first column is setting default values | [optional] 
+**Targets** | Pointer to **[]string** | A target is either a policy or template. This list stores the target names. | [optional] 
+**Result** | Pointer to [**[]ComparisonRowContract**](ComparisonRowContract.md) | Rows in the report. | [optional] 
+**WithDefaults** | Pointer to **bool** | If true, first column is setting default values. | [optional] 
 
 ## Methods
 

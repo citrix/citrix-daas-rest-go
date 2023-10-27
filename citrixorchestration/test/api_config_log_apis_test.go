@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing ConfigLogAPIs Service
+Testing ConfigLogAPIsDAASService
 
 */
 
@@ -17,16 +17,27 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_ConfigLogAPIs Service(t *testing.T) {
+func Test_citrixorchestration_ConfigLogAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ConfigLogAPIs Service ConfigLogDoConfigLogSearch", func(t *testing.T) {
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogDeleteLogs", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConfigLogAPIs .ConfigLogDoConfigLogSearch(context.Background()).Execute()
+		httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDeleteLogs(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogDoConfigLogSearch", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +45,11 @@ func Test_citrixorchestration_ConfigLogAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ConfigLogAPIs Service ConfigLogExportReportData", func(t *testing.T) {
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogExportReportData", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConfigLogAPIs .ConfigLogExportReportData(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogExportReportData(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,11 +57,11 @@ func Test_citrixorchestration_ConfigLogAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ConfigLogAPIs Service ConfigLogGetFirstLogDate", func(t *testing.T) {
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogFetchExistingOperationLabels", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConfigLogAPIs .ConfigLogGetFirstLogDate(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogFetchExistingOperationLabels(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -58,13 +69,37 @@ func Test_citrixorchestration_ConfigLogAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ConfigLogAPIs Service ConfigLogGetLowLevelOperations", func(t *testing.T) {
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetFirstLogDate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetFirstLogDate(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetLogSite", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetLogSite(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetLowLevelOperations", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.ConfigLogAPIs .ConfigLogGetLowLevelOperations(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetLowLevelOperations(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -72,13 +107,13 @@ func Test_citrixorchestration_ConfigLogAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ConfigLogAPIs Service ConfigLogGetOperationById", func(t *testing.T) {
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetOperation", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.ConfigLogAPIs .ConfigLogGetOperationById(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperation(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,11 +121,36 @@ func Test_citrixorchestration_ConfigLogAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ConfigLogAPIs Service ConfigLogGetOperations", func(t *testing.T) {
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogGetOperations", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ConfigLogAPIs .ConfigLogGetOperations(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperations(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogPatchOperation", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogPatchOperation(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ConfigLogAPIsDAASService ConfigLogSetLogSite", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ConfigLogAPIsDAAS.ConfigLogSetLogSite(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

@@ -23,12 +23,12 @@ Name | Type | Description | Notes
 **DnsName** | Pointer to **NullableString** | The DNS host name of the machine. | [optional] 
 **FunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
 **Hosting** | Pointer to [**MachineHostingResponseModel**](MachineHostingResponseModel.md) |  | [optional] 
-**InMaintenanceMode** | **bool** | Denotes if the machine is in maintenance mode. Machines in maintenance mode will not accept new sessions. | 
+**InMaintenanceMode** | Pointer to **bool** | Denotes if the machine is in maintenance mode. Machines in maintenance mode will not accept new sessions. | [optional] 
 **MaintenanceModeReason** | Pointer to [**MaintenanceModeReason**](MaintenanceModeReason.md) |  | [optional] 
-**DrainingUntilShutdown** | **bool** | Denotes if the machine is placed to drain until shutdown | 
+**DrainingUntilShutdown** | Pointer to **bool** | Denotes if the machine is placed to drain until shutdown | [optional] 
 **IPAddress** | Pointer to **NullableString** | The IP address of the machine. | [optional] 
 **IsAssigned** | Pointer to **NullableBool** | Denotes whether a private desktop has been assigned to a user/users, or a client name/address. Users can be assigned explicitly or by assigning on first use of the machine. Only relevant for privately assigned machines. | [optional] 
-**MachineType** | [**MachineType**](MachineType.md) |  | 
+**MachineType** | Pointer to [**MachineType**](MachineType.md) |  | [optional] 
 **LastConnectionFailure** | Pointer to [**ConnectionFailureReason**](ConnectionFailureReason.md) |  | [optional] 
 **LastConnectionTime** | Pointer to **NullableString** | Time of the last detected connection attempt that either failed or succeeded. | [optional] 
 **FormattedLastConnectionTime** | Pointer to **NullableString** | Formatted time of the last detected connection attempt that either failed or succeeded. RFC 3339 compatible format. | [optional] 
@@ -45,8 +45,8 @@ Name | Type | Description | Notes
 **OSVersion** | Pointer to **NullableString** | A string that can be used to identify the version of the operating system running on the machine, if known. | [optional] 
 **PersistUserChanges** | Pointer to [**PersistChanges**](PersistChanges.md) |  | [optional] 
 **PowerActionPending** | Pointer to **NullableBool** | Indicates if there are any pending power actions for the machine. Only relevant for power-managed machines. | [optional] 
-**PowerState** | [**PowerState**](PowerState.md) |  | 
-**ProvisioningType** | [**ProvisioningType**](ProvisioningType.md) |  | 
+**PowerState** | Pointer to [**PowerState**](PowerState.md) |  | [optional] 
+**ProvisioningType** | Pointer to [**ProvisioningType**](ProvisioningType.md) |  | [optional] 
 **PublishedApplications** | Pointer to **[]string** | Indicates the published applications. | [optional] 
 **PublishedName** | Pointer to **NullableString** | The name of the machine that is displayed in Receiver, if the machine has been published. | [optional] 
 **RegistrationState** | Pointer to [**RegistrationState**](RegistrationState.md) |  | [optional] 
@@ -67,15 +67,19 @@ Name | Type | Description | Notes
 **SessionState** | Pointer to [**SessionState**](SessionState.md) |  | [optional] 
 **SessionStateChangeTime** | Pointer to **NullableString** | The time of the most recent state change for the session. | [optional] 
 **FormattedSessionStateChangeTime** | Pointer to **NullableString** | The formatted time of the most recent state change for the session. RFC 3339 compatible format. | [optional] 
-**SessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
+**SessionSupport** | Pointer to [**SessionSupport**](SessionSupport.md) |  | [optional] 
 **SessionUserName** | Pointer to **NullableString** | The session user name. | [optional] 
-**Sid** | **string** | The SID of the machine. Used to be: DesktopSid or SID (based on the context) | 
-**SummaryState** | [**SummaryState**](SummaryState.md) |  | 
+**Sid** | Pointer to **NullableString** | The SID of the machine. Used to be: DesktopSid or SID (based on the context) | [optional] 
+**SummaryState** | Pointer to [**SummaryState**](SummaryState.md) |  | [optional] 
 **WillShutdownAfterUse** | Pointer to **NullableBool** | Flag indicating if this machine is tainted and will be shut down after all sessions on the machine have ended. This flag is only ever non-null on power-managed, single-session machines. | [optional] 
 **WindowsConnectionSetting** | Pointer to [**WindowsConnectionSetting**](WindowsConnectionSetting.md) |  | [optional] 
-**Zone** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**WindowsActivationStatus** | Pointer to **NullableString** | Windows Activation Status of the provisioned virtual machine. This is by default set to unknown and is updated when the vda registers with the DDC. | [optional] 
+**WindowsActivationStatusErrorCode** | Pointer to **NullableString** | The default value is Unknown. If successful, it displays as Success, else it displays with the associated error code. | [optional] 
+**WindowsActivationStatusVirtualMachineError** | Pointer to **NullableString** | Provides a detailed information of potential error message seen while activating the windows system. | [optional] 
+**WindowsActivationTypeProvisionedVirtualMachine** | Pointer to **NullableString** | Windows Activation Type of the Provisioned Virtual Machine. The default value is unknown and the field is populated once the virtual machine registers with DDC. This is supported only on 2303 and successive versions. | [optional] 
+**Zone** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **SupportedPowerActions** | Pointer to [**[]SupportedPowerAction**](SupportedPowerAction.md) | A list of power actions supported by this machine. | [optional] 
-**FaultState** | [**FaultState**](FaultState.md) |  | 
+**FaultState** | Pointer to [**FaultState**](FaultState.md) |  | [optional] 
 **ContainerMetadata** | Pointer to [**ContainerMetadataModel**](ContainerMetadataModel.md) |  | [optional] 
 **Tags** | Pointer to **[]string** | The tags for this machine. | [optional] 
 **UpgradeType** | Pointer to [**VdaUpgradeType**](VdaUpgradeType.md) |  | [optional] 
@@ -87,7 +91,7 @@ Name | Type | Description | Notes
 
 ### NewMachineResponseModel
 
-`func NewMachineResponseModel(id string, inMaintenanceMode bool, drainingUntilShutdown bool, machineType MachineType, powerState PowerState, provisioningType ProvisioningType, sessionSupport SessionSupport, sid string, summaryState SummaryState, zone RefResponseModel, faultState FaultState, ) *MachineResponseModel`
+`func NewMachineResponseModel(id string, ) *MachineResponseModel`
 
 NewMachineResponseModel instantiates a new MachineResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -701,6 +705,11 @@ and a boolean to check if the value has been set.
 
 SetInMaintenanceMode sets InMaintenanceMode field to given value.
 
+### HasInMaintenanceMode
+
+`func (o *MachineResponseModel) HasInMaintenanceMode() bool`
+
+HasInMaintenanceMode returns a boolean if a field has been set.
 
 ### GetMaintenanceModeReason
 
@@ -746,6 +755,11 @@ and a boolean to check if the value has been set.
 
 SetDrainingUntilShutdown sets DrainingUntilShutdown field to given value.
 
+### HasDrainingUntilShutdown
+
+`func (o *MachineResponseModel) HasDrainingUntilShutdown() bool`
+
+HasDrainingUntilShutdown returns a boolean if a field has been set.
 
 ### GetIPAddress
 
@@ -836,6 +850,11 @@ and a boolean to check if the value has been set.
 
 SetMachineType sets MachineType field to given value.
 
+### HasMachineType
+
+`func (o *MachineResponseModel) HasMachineType() bool`
+
+HasMachineType returns a boolean if a field has been set.
 
 ### GetLastConnectionFailure
 
@@ -1366,6 +1385,11 @@ and a boolean to check if the value has been set.
 
 SetPowerState sets PowerState field to given value.
 
+### HasPowerState
+
+`func (o *MachineResponseModel) HasPowerState() bool`
+
+HasPowerState returns a boolean if a field has been set.
 
 ### GetProvisioningType
 
@@ -1386,6 +1410,11 @@ and a boolean to check if the value has been set.
 
 SetProvisioningType sets ProvisioningType field to given value.
 
+### HasProvisioningType
+
+`func (o *MachineResponseModel) HasProvisioningType() bool`
+
+HasProvisioningType returns a boolean if a field has been set.
 
 ### GetPublishedApplications
 
@@ -2066,6 +2095,11 @@ and a boolean to check if the value has been set.
 
 SetSessionSupport sets SessionSupport field to given value.
 
+### HasSessionSupport
+
+`func (o *MachineResponseModel) HasSessionSupport() bool`
+
+HasSessionSupport returns a boolean if a field has been set.
 
 ### GetSessionUserName
 
@@ -2121,7 +2155,22 @@ and a boolean to check if the value has been set.
 
 SetSid sets Sid field to given value.
 
+### HasSid
 
+`func (o *MachineResponseModel) HasSid() bool`
+
+HasSid returns a boolean if a field has been set.
+
+### SetSidNil
+
+`func (o *MachineResponseModel) SetSidNil(b bool)`
+
+ SetSidNil sets the value for Sid to be an explicit nil
+
+### UnsetSid
+`func (o *MachineResponseModel) UnsetSid()`
+
+UnsetSid ensures that no value is present for Sid, not even an explicit nil
 ### GetSummaryState
 
 `func (o *MachineResponseModel) GetSummaryState() SummaryState`
@@ -2141,6 +2190,11 @@ and a boolean to check if the value has been set.
 
 SetSummaryState sets SummaryState field to given value.
 
+### HasSummaryState
+
+`func (o *MachineResponseModel) HasSummaryState() bool`
+
+HasSummaryState returns a boolean if a field has been set.
 
 ### GetWillShutdownAfterUse
 
@@ -2202,6 +2256,146 @@ SetWindowsConnectionSetting sets WindowsConnectionSetting field to given value.
 
 HasWindowsConnectionSetting returns a boolean if a field has been set.
 
+### GetWindowsActivationStatus
+
+`func (o *MachineResponseModel) GetWindowsActivationStatus() string`
+
+GetWindowsActivationStatus returns the WindowsActivationStatus field if non-nil, zero value otherwise.
+
+### GetWindowsActivationStatusOk
+
+`func (o *MachineResponseModel) GetWindowsActivationStatusOk() (*string, bool)`
+
+GetWindowsActivationStatusOk returns a tuple with the WindowsActivationStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWindowsActivationStatus
+
+`func (o *MachineResponseModel) SetWindowsActivationStatus(v string)`
+
+SetWindowsActivationStatus sets WindowsActivationStatus field to given value.
+
+### HasWindowsActivationStatus
+
+`func (o *MachineResponseModel) HasWindowsActivationStatus() bool`
+
+HasWindowsActivationStatus returns a boolean if a field has been set.
+
+### SetWindowsActivationStatusNil
+
+`func (o *MachineResponseModel) SetWindowsActivationStatusNil(b bool)`
+
+ SetWindowsActivationStatusNil sets the value for WindowsActivationStatus to be an explicit nil
+
+### UnsetWindowsActivationStatus
+`func (o *MachineResponseModel) UnsetWindowsActivationStatus()`
+
+UnsetWindowsActivationStatus ensures that no value is present for WindowsActivationStatus, not even an explicit nil
+### GetWindowsActivationStatusErrorCode
+
+`func (o *MachineResponseModel) GetWindowsActivationStatusErrorCode() string`
+
+GetWindowsActivationStatusErrorCode returns the WindowsActivationStatusErrorCode field if non-nil, zero value otherwise.
+
+### GetWindowsActivationStatusErrorCodeOk
+
+`func (o *MachineResponseModel) GetWindowsActivationStatusErrorCodeOk() (*string, bool)`
+
+GetWindowsActivationStatusErrorCodeOk returns a tuple with the WindowsActivationStatusErrorCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWindowsActivationStatusErrorCode
+
+`func (o *MachineResponseModel) SetWindowsActivationStatusErrorCode(v string)`
+
+SetWindowsActivationStatusErrorCode sets WindowsActivationStatusErrorCode field to given value.
+
+### HasWindowsActivationStatusErrorCode
+
+`func (o *MachineResponseModel) HasWindowsActivationStatusErrorCode() bool`
+
+HasWindowsActivationStatusErrorCode returns a boolean if a field has been set.
+
+### SetWindowsActivationStatusErrorCodeNil
+
+`func (o *MachineResponseModel) SetWindowsActivationStatusErrorCodeNil(b bool)`
+
+ SetWindowsActivationStatusErrorCodeNil sets the value for WindowsActivationStatusErrorCode to be an explicit nil
+
+### UnsetWindowsActivationStatusErrorCode
+`func (o *MachineResponseModel) UnsetWindowsActivationStatusErrorCode()`
+
+UnsetWindowsActivationStatusErrorCode ensures that no value is present for WindowsActivationStatusErrorCode, not even an explicit nil
+### GetWindowsActivationStatusVirtualMachineError
+
+`func (o *MachineResponseModel) GetWindowsActivationStatusVirtualMachineError() string`
+
+GetWindowsActivationStatusVirtualMachineError returns the WindowsActivationStatusVirtualMachineError field if non-nil, zero value otherwise.
+
+### GetWindowsActivationStatusVirtualMachineErrorOk
+
+`func (o *MachineResponseModel) GetWindowsActivationStatusVirtualMachineErrorOk() (*string, bool)`
+
+GetWindowsActivationStatusVirtualMachineErrorOk returns a tuple with the WindowsActivationStatusVirtualMachineError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWindowsActivationStatusVirtualMachineError
+
+`func (o *MachineResponseModel) SetWindowsActivationStatusVirtualMachineError(v string)`
+
+SetWindowsActivationStatusVirtualMachineError sets WindowsActivationStatusVirtualMachineError field to given value.
+
+### HasWindowsActivationStatusVirtualMachineError
+
+`func (o *MachineResponseModel) HasWindowsActivationStatusVirtualMachineError() bool`
+
+HasWindowsActivationStatusVirtualMachineError returns a boolean if a field has been set.
+
+### SetWindowsActivationStatusVirtualMachineErrorNil
+
+`func (o *MachineResponseModel) SetWindowsActivationStatusVirtualMachineErrorNil(b bool)`
+
+ SetWindowsActivationStatusVirtualMachineErrorNil sets the value for WindowsActivationStatusVirtualMachineError to be an explicit nil
+
+### UnsetWindowsActivationStatusVirtualMachineError
+`func (o *MachineResponseModel) UnsetWindowsActivationStatusVirtualMachineError()`
+
+UnsetWindowsActivationStatusVirtualMachineError ensures that no value is present for WindowsActivationStatusVirtualMachineError, not even an explicit nil
+### GetWindowsActivationTypeProvisionedVirtualMachine
+
+`func (o *MachineResponseModel) GetWindowsActivationTypeProvisionedVirtualMachine() string`
+
+GetWindowsActivationTypeProvisionedVirtualMachine returns the WindowsActivationTypeProvisionedVirtualMachine field if non-nil, zero value otherwise.
+
+### GetWindowsActivationTypeProvisionedVirtualMachineOk
+
+`func (o *MachineResponseModel) GetWindowsActivationTypeProvisionedVirtualMachineOk() (*string, bool)`
+
+GetWindowsActivationTypeProvisionedVirtualMachineOk returns a tuple with the WindowsActivationTypeProvisionedVirtualMachine field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWindowsActivationTypeProvisionedVirtualMachine
+
+`func (o *MachineResponseModel) SetWindowsActivationTypeProvisionedVirtualMachine(v string)`
+
+SetWindowsActivationTypeProvisionedVirtualMachine sets WindowsActivationTypeProvisionedVirtualMachine field to given value.
+
+### HasWindowsActivationTypeProvisionedVirtualMachine
+
+`func (o *MachineResponseModel) HasWindowsActivationTypeProvisionedVirtualMachine() bool`
+
+HasWindowsActivationTypeProvisionedVirtualMachine returns a boolean if a field has been set.
+
+### SetWindowsActivationTypeProvisionedVirtualMachineNil
+
+`func (o *MachineResponseModel) SetWindowsActivationTypeProvisionedVirtualMachineNil(b bool)`
+
+ SetWindowsActivationTypeProvisionedVirtualMachineNil sets the value for WindowsActivationTypeProvisionedVirtualMachine to be an explicit nil
+
+### UnsetWindowsActivationTypeProvisionedVirtualMachine
+`func (o *MachineResponseModel) UnsetWindowsActivationTypeProvisionedVirtualMachine()`
+
+UnsetWindowsActivationTypeProvisionedVirtualMachine ensures that no value is present for WindowsActivationTypeProvisionedVirtualMachine, not even an explicit nil
 ### GetZone
 
 `func (o *MachineResponseModel) GetZone() RefResponseModel`
@@ -2221,6 +2415,11 @@ and a boolean to check if the value has been set.
 
 SetZone sets Zone field to given value.
 
+### HasZone
+
+`func (o *MachineResponseModel) HasZone() bool`
+
+HasZone returns a boolean if a field has been set.
 
 ### GetSupportedPowerActions
 
@@ -2276,6 +2475,11 @@ and a boolean to check if the value has been set.
 
 SetFaultState sets FaultState field to given value.
 
+### HasFaultState
+
+`func (o *MachineResponseModel) HasFaultState() bool`
+
+HasFaultState returns a boolean if a field has been set.
 
 ### GetContainerMetadata
 

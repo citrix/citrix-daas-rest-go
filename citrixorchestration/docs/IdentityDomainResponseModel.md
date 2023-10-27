@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **DefaultController** | Pointer to **NullableString** | The default controller/directory server for the domain. | [optional] 
 **TrustedDomains** | Pointer to **[]string** | Other Domains that have trusts with this Domain. | [optional] 
 **UpnSuffixes** | Pointer to **[]string** | The UPN suffixes of the domain. | [optional] 
+**ServiceConnectionPointConfigurations** | Pointer to [**[]ADSCPConfigurationModel**](ADSCPConfigurationModel.md) | The SCP configuration of the domain. | [optional] 
 **PossibleLookupFailure** | Pointer to **bool** | Set to True during a bulk identity lookup operation. For individual identity lookup, usually an exception will be throw. | [optional] 
 **PropertiesFetched** | **int32** | Properties fetched and populated in the Domain object.  This is a bitfield indicating the fetched properties. | 
 
@@ -458,6 +459,41 @@ HasUpnSuffixes returns a boolean if a field has been set.
 `func (o *IdentityDomainResponseModel) UnsetUpnSuffixes()`
 
 UnsetUpnSuffixes ensures that no value is present for UpnSuffixes, not even an explicit nil
+### GetServiceConnectionPointConfigurations
+
+`func (o *IdentityDomainResponseModel) GetServiceConnectionPointConfigurations() []ADSCPConfigurationModel`
+
+GetServiceConnectionPointConfigurations returns the ServiceConnectionPointConfigurations field if non-nil, zero value otherwise.
+
+### GetServiceConnectionPointConfigurationsOk
+
+`func (o *IdentityDomainResponseModel) GetServiceConnectionPointConfigurationsOk() (*[]ADSCPConfigurationModel, bool)`
+
+GetServiceConnectionPointConfigurationsOk returns a tuple with the ServiceConnectionPointConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceConnectionPointConfigurations
+
+`func (o *IdentityDomainResponseModel) SetServiceConnectionPointConfigurations(v []ADSCPConfigurationModel)`
+
+SetServiceConnectionPointConfigurations sets ServiceConnectionPointConfigurations field to given value.
+
+### HasServiceConnectionPointConfigurations
+
+`func (o *IdentityDomainResponseModel) HasServiceConnectionPointConfigurations() bool`
+
+HasServiceConnectionPointConfigurations returns a boolean if a field has been set.
+
+### SetServiceConnectionPointConfigurationsNil
+
+`func (o *IdentityDomainResponseModel) SetServiceConnectionPointConfigurationsNil(b bool)`
+
+ SetServiceConnectionPointConfigurationsNil sets the value for ServiceConnectionPointConfigurations to be an explicit nil
+
+### UnsetServiceConnectionPointConfigurations
+`func (o *IdentityDomainResponseModel) UnsetServiceConnectionPointConfigurations()`
+
+UnsetServiceConnectionPointConfigurations ensures that no value is present for ServiceConnectionPointConfigurations, not even an explicit nil
 ### GetPossibleLookupFailure
 
 `func (o *IdentityDomainResponseModel) GetPossibleLookupFailure() bool`

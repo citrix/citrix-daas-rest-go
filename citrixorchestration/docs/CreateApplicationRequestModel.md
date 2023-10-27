@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApplicationFolder** | Pointer to **NullableString** | The application folder in which the application should be created. | [optional] 
 **ApplicationType** | Pointer to [**ApplicationType**](ApplicationType.md) |  | [optional] 
+**PackagedApplicationType** | Pointer to [**PackagedApplicationType**](PackagedApplicationType.md) |  | [optional] 
 **BrowserName** | Pointer to **NullableString** | Internal name of the application. | [optional] 
 **ClientFolder** | Pointer to **NullableString** | Specifies the folder that the application belongs to as the user sees it. | [optional] 
 **CpuPriorityLevel** | Pointer to [**CpuPriorityLevel**](CpuPriorityLevel.md) |  | [optional] 
@@ -20,10 +21,11 @@ Name | Type | Description | Notes
 **IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access polic(ies) is implicitly granted access to the application. | [optional] [default to false]
 **IncludedUsers** | Pointer to **[]string** | Specifies the included users filter of the application; that is, the users and groups who are explicitly granted access to the published application. | [optional] 
 **InstalledAppProperties** | Pointer to [**CreateInstalledAppRequestModel**](CreateInstalledAppRequestModel.md) |  | [optional] 
+**PackagedAppProperties** | Pointer to [**AppVAppRequestModel**](AppVAppRequestModel.md) |  | [optional] 
 **AppVAppProperties** | Pointer to [**AppVAppRequestModel**](AppVAppRequestModel.md) |  | [optional] 
 **ContentLocation** | Pointer to **NullableString** | Location of published content. | [optional] 
 **MaxPerUserInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed concurrently running instances of the application that an individual user can have. | [optional] [default to 0]
-**MaxTotalInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed total ofconcurrently running instances of the application within the site. | [optional] [default to 0]
+**MaxTotalInstances** | Pointer to **NullableInt32** | Specifies the maximum allowed total of concurrently running instances of the application within the site. | [optional] [default to 0]
 **Name** | **string** | Specifies the name of the application. | 
 **PublishedName** | Pointer to **NullableString** | The name seen by end users who have access to the application. | [optional] 
 **ShortcutAddedToDesktop** | Pointer to **NullableBool** | Specifies whether or not a shortcut to the application should be placed on the user device. | [optional] [default to false]
@@ -31,6 +33,7 @@ Name | Type | Description | Notes
 **StartMenuFolder** | Pointer to **NullableString** | Specifies the name of the start menu folder that holds the application shortcut (if any). | [optional] 
 **Visible** | Pointer to **NullableBool** | Specifies whether or not this application is visible to users. | [optional] [default to true]
 **WaitForPrinterCreation** | Pointer to **NullableBool** | Specifies whether or not the session waits for the printers to be created before allowing the user to interact with the session. | [optional] [default to false]
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of the new application. | [optional] 
 
 ## Methods
 
@@ -110,6 +113,31 @@ SetApplicationType sets ApplicationType field to given value.
 `func (o *CreateApplicationRequestModel) HasApplicationType() bool`
 
 HasApplicationType returns a boolean if a field has been set.
+
+### GetPackagedApplicationType
+
+`func (o *CreateApplicationRequestModel) GetPackagedApplicationType() PackagedApplicationType`
+
+GetPackagedApplicationType returns the PackagedApplicationType field if non-nil, zero value otherwise.
+
+### GetPackagedApplicationTypeOk
+
+`func (o *CreateApplicationRequestModel) GetPackagedApplicationTypeOk() (*PackagedApplicationType, bool)`
+
+GetPackagedApplicationTypeOk returns a tuple with the PackagedApplicationType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedApplicationType
+
+`func (o *CreateApplicationRequestModel) SetPackagedApplicationType(v PackagedApplicationType)`
+
+SetPackagedApplicationType sets PackagedApplicationType field to given value.
+
+### HasPackagedApplicationType
+
+`func (o *CreateApplicationRequestModel) HasPackagedApplicationType() bool`
+
+HasPackagedApplicationType returns a boolean if a field has been set.
 
 ### GetBrowserName
 
@@ -571,6 +599,31 @@ SetInstalledAppProperties sets InstalledAppProperties field to given value.
 
 HasInstalledAppProperties returns a boolean if a field has been set.
 
+### GetPackagedAppProperties
+
+`func (o *CreateApplicationRequestModel) GetPackagedAppProperties() AppVAppRequestModel`
+
+GetPackagedAppProperties returns the PackagedAppProperties field if non-nil, zero value otherwise.
+
+### GetPackagedAppPropertiesOk
+
+`func (o *CreateApplicationRequestModel) GetPackagedAppPropertiesOk() (*AppVAppRequestModel, bool)`
+
+GetPackagedAppPropertiesOk returns a tuple with the PackagedAppProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedAppProperties
+
+`func (o *CreateApplicationRequestModel) SetPackagedAppProperties(v AppVAppRequestModel)`
+
+SetPackagedAppProperties sets PackagedAppProperties field to given value.
+
+### HasPackagedAppProperties
+
+`func (o *CreateApplicationRequestModel) HasPackagedAppProperties() bool`
+
+HasPackagedAppProperties returns a boolean if a field has been set.
+
 ### GetAppVAppProperties
 
 `func (o *CreateApplicationRequestModel) GetAppVAppProperties() AppVAppRequestModel`
@@ -931,6 +984,41 @@ HasWaitForPrinterCreation returns a boolean if a field has been set.
 `func (o *CreateApplicationRequestModel) UnsetWaitForPrinterCreation()`
 
 UnsetWaitForPrinterCreation ensures that no value is present for WaitForPrinterCreation, not even an explicit nil
+### GetMetadata
+
+`func (o *CreateApplicationRequestModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *CreateApplicationRequestModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *CreateApplicationRequestModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *CreateApplicationRequestModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *CreateApplicationRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *CreateApplicationRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

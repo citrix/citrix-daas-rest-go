@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing TagsAPIs Service
+Testing TagsAPIsDAASService
 
 */
 
@@ -17,56 +17,29 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test TagsAPIs Service TagsCheckTagExists", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsCheckTagExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.TagsAPIs .TagsCheckTagExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.TagsAPIsDAAS.TagsCheckTagExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsCreateTag", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsCreateTag", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TagsAPIs .TagsCreateTag(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test TagsAPIs Service TagsDeleteTag", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.TagsAPIs .TagsDeleteTag(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test TagsAPIs Service TagsGetTag", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.TagsAPIs .TagsGetTag(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsCreateTag(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,13 +47,26 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsGetTagApplicationGroups", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsDeleteTag", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.TagsAPIs .TagsGetTagApplicationGroups(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.TagsAPIsDAAS.TagsDeleteTag(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test TagsAPIsDAASService TagsGetTag", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTag(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -88,13 +74,13 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsGetTagApplications", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsGetTagApplicationGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.TagsAPIs .TagsGetTagApplications(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTagApplicationGroups(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -102,13 +88,13 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsGetTagDeliveryGroups", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsGetTagApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.TagsAPIs .TagsGetTagDeliveryGroups(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTagApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -116,13 +102,13 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsGetTagMachineCatalogs", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsGetTagDeliveryGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.TagsAPIs .TagsGetTagMachineCatalogs(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTagDeliveryGroups(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -130,13 +116,13 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsGetTagMachines", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsGetTagMachineCatalogs", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.TagsAPIs .TagsGetTagMachines(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTagMachineCatalogs(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -144,11 +130,13 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsGetTags", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsGetTagMachines", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.TagsAPIs .TagsGetTags(context.Background()).Execute()
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTagMachines(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -156,13 +144,11 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsPatchTag", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsGetTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.TagsAPIs .TagsPatchTag(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTags(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -170,26 +156,40 @@ func Test_citrixorchestration_TagsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsSetTagApplications", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsPatchTag", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.TagsAPIs .TagsSetTagApplications(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsPatchTag(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test TagsAPIsDAASService TagsSetTagApplications", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.TagsAPIsDAAS.TagsSetTagApplications(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test TagsAPIs Service TagsSetTagDeliveryGroups", func(t *testing.T) {
+	t.Run("Test TagsAPIsDAASService TagsSetTagDeliveryGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.TagsAPIs .TagsSetTagDeliveryGroups(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.TagsAPIsDAAS.TagsSetTagDeliveryGroups(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

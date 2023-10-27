@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Id of the desktop. | 
+**Id** | Pointer to **NullableString** | Id of the desktop. | [optional] 
 **Uid** | Pointer to **int32** | &#x60;DEPRECATED&#x60; DEPRECATED. Use Id. | [optional] 
-**ColorDepth** | [**ColorDepth**](ColorDepth.md) |  | 
+**ColorDepth** | Pointer to [**ColorDepth**](ColorDepth.md) |  | [optional] 
 **Description** | Pointer to **NullableString** | Optional description of the desktop. The text may be visible to the end user, for example, as a tooltip associated with the desktop within receiver. | [optional] 
-**Enabled** | **bool** | Whether the published desktop is enabled. A disabled desktop is ignored when determining which desktops are available for a user. | 
-**ExcludedUserFilterEnabled** | **bool** | Indicates whether the ExcludedUsers filter is enabled.  If the filter is disabled then any user entries in the filter are ignored when determining which desktops are available for a user. | 
+**Enabled** | Pointer to **bool** | Whether the published desktop is enabled. A disabled desktop is ignored when determining which desktops are available for a user. | [optional] 
+**ExcludedUserFilterEnabled** | Pointer to **bool** | Indicates whether the ExcludedUsers filter is enabled.  If the filter is disabled then any user entries in the filter are ignored when determining which desktops are available for a user. | [optional] 
 **ExcludedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | The excluded users filter of the desktop; that is, the users and groups who are explicitly denied access to the published desktop. | [optional] 
-**IconId** | **string** | Id of the icon used to display the published desktop to the user, and of assigned desktop(s) in the case where SharingKind is equal to Private. | 
-**IncludedUserFilterEnabled** | **bool** | Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access policy is implicitly granted an entitlement to the published desktop. | 
+**IconId** | Pointer to **NullableString** | Id of the icon used to display the published desktop to the user, and of assigned desktop(s) in the case where SharingKind is equal to Private. | [optional] 
+**IncludedUserFilterEnabled** | Pointer to **bool** | Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access policy is implicitly granted an entitlement to the published desktop. | [optional] 
 **IncludedUsers** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | The included users filter of the desktop; that is, the users and groups who are explicitly granted access to the published desktop. | [optional] 
 **LeasingBehavior** | Pointer to [**LeasingBehavior**](LeasingBehavior.md) |  | [optional] 
 **MaxDesktops** | Pointer to **NullableInt32** | The number of machines from the delivery group which a user may privately allocate. | [optional] 
 **Name** | Pointer to **NullableString** | The administrative name of the desktop. | [optional] 
-**PublishedName** | **string** | The name of the published desktop as seen by the user, and of assigned desktop(s) in the case where SharingKind is equal to Private. | 
+**PublishedName** | Pointer to **NullableString** | The name of the published desktop as seen by the user, and of assigned desktop(s) in the case where SharingKind is equal to Private. | [optional] 
 **RestrictToTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
-**SecureIcaRequired** | **bool** | Indicates whether the desktop requires the SecureICA protocol for desktop sessions. | 
+**SecureIcaRequired** | Pointer to **bool** | Indicates whether the desktop requires the SecureICA protocol for desktop sessions. | [optional] 
 **SessionReconnection** | Pointer to [**SessionReconnection**](SessionReconnection.md) |  | [optional] 
 **MachinesForAssignment** | Pointer to **NullableInt32** | Indicates the number of machines which are available for assignment based on this desktop configuration. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the desktop is assigned to.  If &#x60;null&#x60;, the desktop is not assigned to any tenants, and may be used by any tenant. | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewDesktopResponseModel
 
-`func NewDesktopResponseModel(id string, colorDepth ColorDepth, enabled bool, excludedUserFilterEnabled bool, iconId string, includedUserFilterEnabled bool, publishedName string, secureIcaRequired bool, ) *DesktopResponseModel`
+`func NewDesktopResponseModel() *DesktopResponseModel`
 
 NewDesktopResponseModel instantiates a new DesktopResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -62,7 +62,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *DesktopResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *DesktopResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *DesktopResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *DesktopResponseModel) GetUid() int32`
@@ -107,6 +122,11 @@ and a boolean to check if the value has been set.
 
 SetColorDepth sets ColorDepth field to given value.
 
+### HasColorDepth
+
+`func (o *DesktopResponseModel) HasColorDepth() bool`
+
+HasColorDepth returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -162,6 +182,11 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
+### HasEnabled
+
+`func (o *DesktopResponseModel) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetExcludedUserFilterEnabled
 
@@ -182,6 +207,11 @@ and a boolean to check if the value has been set.
 
 SetExcludedUserFilterEnabled sets ExcludedUserFilterEnabled field to given value.
 
+### HasExcludedUserFilterEnabled
+
+`func (o *DesktopResponseModel) HasExcludedUserFilterEnabled() bool`
+
+HasExcludedUserFilterEnabled returns a boolean if a field has been set.
 
 ### GetExcludedUsers
 
@@ -237,7 +267,22 @@ and a boolean to check if the value has been set.
 
 SetIconId sets IconId field to given value.
 
+### HasIconId
 
+`func (o *DesktopResponseModel) HasIconId() bool`
+
+HasIconId returns a boolean if a field has been set.
+
+### SetIconIdNil
+
+`func (o *DesktopResponseModel) SetIconIdNil(b bool)`
+
+ SetIconIdNil sets the value for IconId to be an explicit nil
+
+### UnsetIconId
+`func (o *DesktopResponseModel) UnsetIconId()`
+
+UnsetIconId ensures that no value is present for IconId, not even an explicit nil
 ### GetIncludedUserFilterEnabled
 
 `func (o *DesktopResponseModel) GetIncludedUserFilterEnabled() bool`
@@ -257,6 +302,11 @@ and a boolean to check if the value has been set.
 
 SetIncludedUserFilterEnabled sets IncludedUserFilterEnabled field to given value.
 
+### HasIncludedUserFilterEnabled
+
+`func (o *DesktopResponseModel) HasIncludedUserFilterEnabled() bool`
+
+HasIncludedUserFilterEnabled returns a boolean if a field has been set.
 
 ### GetIncludedUsers
 
@@ -407,7 +457,22 @@ and a boolean to check if the value has been set.
 
 SetPublishedName sets PublishedName field to given value.
 
+### HasPublishedName
 
+`func (o *DesktopResponseModel) HasPublishedName() bool`
+
+HasPublishedName returns a boolean if a field has been set.
+
+### SetPublishedNameNil
+
+`func (o *DesktopResponseModel) SetPublishedNameNil(b bool)`
+
+ SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+
+### UnsetPublishedName
+`func (o *DesktopResponseModel) UnsetPublishedName()`
+
+UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 ### GetRestrictToTag
 
 `func (o *DesktopResponseModel) GetRestrictToTag() RefResponseModel`
@@ -452,6 +517,11 @@ and a boolean to check if the value has been set.
 
 SetSecureIcaRequired sets SecureIcaRequired field to given value.
 
+### HasSecureIcaRequired
+
+`func (o *DesktopResponseModel) HasSecureIcaRequired() bool`
+
+HasSecureIcaRequired returns a boolean if a field has been set.
 
 ### GetSessionReconnection
 

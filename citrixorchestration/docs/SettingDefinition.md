@@ -4,31 +4,36 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingName** | Pointer to **NullableString** | Setting name; Is globally unique | [optional] 
+**SettingName** | Pointer to **NullableString** | Setting name. This is globally unique. | [optional] 
 **EditorName** | Pointer to **NullableString** | The setting editor name. | [optional] 
 **DisplayName** | Pointer to **NullableString** | Translated setting name. Is globally unique. | [optional] 
 **Category** | Pointer to **NullableString** | Setting category, e.g., ICA\\Printing. | [optional] 
-**Explanation** | Pointer to **NullableString** | Setting detailed description | [optional] 
-**IsUserSetting** | Pointer to **bool** | true &#x3D; user, false &#x3D; machine | [optional] 
-**ValueType** | Pointer to **NullableString** | Type of setting value | [optional] 
-**IsEnableDisable** | Pointer to **bool** | Label test for a boolean setting, display enable/disable if true, otherwise allow/prohibit | [optional] 
+**Explanation** | Pointer to **NullableString** | Setting detailed description. | [optional] 
+**IsUserSetting** | Pointer to **bool** | true &#x3D; user, false &#x3D; machine. | [optional] 
+**ValueType** | Pointer to **NullableString** | Type of setting value. | [optional] 
+**IsEnableDisable** | Pointer to **bool** | Label test for a boolean setting, display enable/disable if true, otherwise allow/prohibit. | [optional] 
 **IsToggled** | Pointer to **bool** | Indicate if the integer, string, enum or multiline string is toggled. | [optional] 
-**DefaultValue** | Pointer to **NullableString** | Setting default value | [optional] 
-**DisabledValue** | Pointer to **NullableString** | Disabled value for toggled settings | [optional] 
+**HideValueHint** | Pointer to **bool** | Indicate if the validation message for the value should be shown. | [optional] 
+**ValueAsArray** | Pointer to **bool** | For a string setting, if this is true, it indicates the value should be treated as a JSON array of strings. | [optional] 
+**DefaultValue** | Pointer to **NullableString** | Setting default value. | [optional] 
+**SecureDefaultValue** | Pointer to **NullableString** | Setting secure default value | [optional] 
+**DefaultSnip** | Pointer to **NullableString** | An abbreviated shortened version of the default value. | [optional] 
+**DisabledValue** | Pointer to **NullableString** | Disabled value for toggled settings. | [optional] 
 **InitialValue** | Pointer to **NullableString** | Initial value for toggled settings when value is not disabled. | [optional] 
-**ValueMinimum** | Pointer to **NullableString** | Minimal value for integer setting | [optional] 
-**ValueMaximum** | Pointer to **NullableString** | Maximal value for integer setting | [optional] 
-**ValueValidator** | Pointer to **NullableString** | An expression executed to validate the value | [optional] 
-**ValidatorError** | Pointer to **NullableString** | Warning message issued when validator fails (throws exception) | [optional] 
-**RelatedSettings** | Pointer to **[]string** | Related settings. | [optional] 
-**ValueUnit** | Pointer to **NullableString** | Unit of value in translated text | [optional] 
+**ValueMinimum** | Pointer to **NullableString** | Minimal value for integer setting. | [optional] 
+**ValueMaximum** | Pointer to **NullableString** | Maximal value for integer setting. | [optional] 
+**ValueValidator** | Pointer to **NullableString** | An expression executed to validate the value. | [optional] 
+**ValidatorError** | Pointer to **NullableString** | Warning message issued when validator fails (throws exception). | [optional] 
+**RelatedSettings** | Pointer to **map[string]string** | Related settings. | [optional] 
+**DependsOn** | Pointer to **NullableString** | The setting that must be enabled for this setting to work. | [optional] 
+**ValueUnit** | Pointer to **NullableString** | Unit of value in translated text. | [optional] 
 **AllowedText** | Pointer to **NullableString** | Custom text for the allowed explanation for some boolean settings. | [optional] 
 **DeniedText** | Pointer to **NullableString** | Custom text for the denied explanation for some boolean settings. | [optional] 
 **EnumType** | Pointer to [**EnumerationType**](EnumerationType.md) |  | [optional] 
 **VersionDetails** | Pointer to [**[]VersionDetail**](VersionDetail.md) | VDA versions honoring this setting. | [optional] 
 **VersionCode** | Pointer to **NullableString** | The version string in GPFX file, e.g., XD&#x3D;7.8,*,B. | [optional] 
 **VdaVersions** | Pointer to **[]string** | Array of VDA versions, e.g., 7.8S, 7.8M. This is much lighter than VersionDetails. | [optional] 
-**GpoScope** | Pointer to **NullableString** | Scope, e.g. ConfigSlot | [optional] 
+**GpoScope** | Pointer to **NullableString** | Scope, e.g. ConfigSlot. | [optional] 
 **ProductGroup** | Pointer to **NullableString** | Group, e.g., UPM. | [optional] 
 
 ## Methods
@@ -335,6 +340,56 @@ SetIsToggled sets IsToggled field to given value.
 
 HasIsToggled returns a boolean if a field has been set.
 
+### GetHideValueHint
+
+`func (o *SettingDefinition) GetHideValueHint() bool`
+
+GetHideValueHint returns the HideValueHint field if non-nil, zero value otherwise.
+
+### GetHideValueHintOk
+
+`func (o *SettingDefinition) GetHideValueHintOk() (*bool, bool)`
+
+GetHideValueHintOk returns a tuple with the HideValueHint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHideValueHint
+
+`func (o *SettingDefinition) SetHideValueHint(v bool)`
+
+SetHideValueHint sets HideValueHint field to given value.
+
+### HasHideValueHint
+
+`func (o *SettingDefinition) HasHideValueHint() bool`
+
+HasHideValueHint returns a boolean if a field has been set.
+
+### GetValueAsArray
+
+`func (o *SettingDefinition) GetValueAsArray() bool`
+
+GetValueAsArray returns the ValueAsArray field if non-nil, zero value otherwise.
+
+### GetValueAsArrayOk
+
+`func (o *SettingDefinition) GetValueAsArrayOk() (*bool, bool)`
+
+GetValueAsArrayOk returns a tuple with the ValueAsArray field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValueAsArray
+
+`func (o *SettingDefinition) SetValueAsArray(v bool)`
+
+SetValueAsArray sets ValueAsArray field to given value.
+
+### HasValueAsArray
+
+`func (o *SettingDefinition) HasValueAsArray() bool`
+
+HasValueAsArray returns a boolean if a field has been set.
+
 ### GetDefaultValue
 
 `func (o *SettingDefinition) GetDefaultValue() string`
@@ -370,6 +425,76 @@ HasDefaultValue returns a boolean if a field has been set.
 `func (o *SettingDefinition) UnsetDefaultValue()`
 
 UnsetDefaultValue ensures that no value is present for DefaultValue, not even an explicit nil
+### GetSecureDefaultValue
+
+`func (o *SettingDefinition) GetSecureDefaultValue() string`
+
+GetSecureDefaultValue returns the SecureDefaultValue field if non-nil, zero value otherwise.
+
+### GetSecureDefaultValueOk
+
+`func (o *SettingDefinition) GetSecureDefaultValueOk() (*string, bool)`
+
+GetSecureDefaultValueOk returns a tuple with the SecureDefaultValue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecureDefaultValue
+
+`func (o *SettingDefinition) SetSecureDefaultValue(v string)`
+
+SetSecureDefaultValue sets SecureDefaultValue field to given value.
+
+### HasSecureDefaultValue
+
+`func (o *SettingDefinition) HasSecureDefaultValue() bool`
+
+HasSecureDefaultValue returns a boolean if a field has been set.
+
+### SetSecureDefaultValueNil
+
+`func (o *SettingDefinition) SetSecureDefaultValueNil(b bool)`
+
+ SetSecureDefaultValueNil sets the value for SecureDefaultValue to be an explicit nil
+
+### UnsetSecureDefaultValue
+`func (o *SettingDefinition) UnsetSecureDefaultValue()`
+
+UnsetSecureDefaultValue ensures that no value is present for SecureDefaultValue, not even an explicit nil
+### GetDefaultSnip
+
+`func (o *SettingDefinition) GetDefaultSnip() string`
+
+GetDefaultSnip returns the DefaultSnip field if non-nil, zero value otherwise.
+
+### GetDefaultSnipOk
+
+`func (o *SettingDefinition) GetDefaultSnipOk() (*string, bool)`
+
+GetDefaultSnipOk returns a tuple with the DefaultSnip field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultSnip
+
+`func (o *SettingDefinition) SetDefaultSnip(v string)`
+
+SetDefaultSnip sets DefaultSnip field to given value.
+
+### HasDefaultSnip
+
+`func (o *SettingDefinition) HasDefaultSnip() bool`
+
+HasDefaultSnip returns a boolean if a field has been set.
+
+### SetDefaultSnipNil
+
+`func (o *SettingDefinition) SetDefaultSnipNil(b bool)`
+
+ SetDefaultSnipNil sets the value for DefaultSnip to be an explicit nil
+
+### UnsetDefaultSnip
+`func (o *SettingDefinition) UnsetDefaultSnip()`
+
+UnsetDefaultSnip ensures that no value is present for DefaultSnip, not even an explicit nil
 ### GetDisabledValue
 
 `func (o *SettingDefinition) GetDisabledValue() string`
@@ -582,20 +707,20 @@ HasValidatorError returns a boolean if a field has been set.
 UnsetValidatorError ensures that no value is present for ValidatorError, not even an explicit nil
 ### GetRelatedSettings
 
-`func (o *SettingDefinition) GetRelatedSettings() []string`
+`func (o *SettingDefinition) GetRelatedSettings() map[string]string`
 
 GetRelatedSettings returns the RelatedSettings field if non-nil, zero value otherwise.
 
 ### GetRelatedSettingsOk
 
-`func (o *SettingDefinition) GetRelatedSettingsOk() (*[]string, bool)`
+`func (o *SettingDefinition) GetRelatedSettingsOk() (*map[string]string, bool)`
 
 GetRelatedSettingsOk returns a tuple with the RelatedSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelatedSettings
 
-`func (o *SettingDefinition) SetRelatedSettings(v []string)`
+`func (o *SettingDefinition) SetRelatedSettings(v map[string]string)`
 
 SetRelatedSettings sets RelatedSettings field to given value.
 
@@ -615,6 +740,41 @@ HasRelatedSettings returns a boolean if a field has been set.
 `func (o *SettingDefinition) UnsetRelatedSettings()`
 
 UnsetRelatedSettings ensures that no value is present for RelatedSettings, not even an explicit nil
+### GetDependsOn
+
+`func (o *SettingDefinition) GetDependsOn() string`
+
+GetDependsOn returns the DependsOn field if non-nil, zero value otherwise.
+
+### GetDependsOnOk
+
+`func (o *SettingDefinition) GetDependsOnOk() (*string, bool)`
+
+GetDependsOnOk returns a tuple with the DependsOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDependsOn
+
+`func (o *SettingDefinition) SetDependsOn(v string)`
+
+SetDependsOn sets DependsOn field to given value.
+
+### HasDependsOn
+
+`func (o *SettingDefinition) HasDependsOn() bool`
+
+HasDependsOn returns a boolean if a field has been set.
+
+### SetDependsOnNil
+
+`func (o *SettingDefinition) SetDependsOnNil(b bool)`
+
+ SetDependsOnNil sets the value for DependsOn to be an explicit nil
+
+### UnsetDependsOn
+`func (o *SettingDefinition) UnsetDependsOn()`
+
+UnsetDependsOn ensures that no value is present for DependsOn, not even an explicit nil
 ### GetValueUnit
 
 `func (o *SettingDefinition) GetValueUnit() string`

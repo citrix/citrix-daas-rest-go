@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing ApplicationsAPIs Service
+Testing ApplicationsAPIsDAASService
 
 */
 
@@ -17,19 +17,19 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsAddApplicationTags", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsAddApplicationTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsAddApplicationTags(context.Background(), nameOrId, tagNameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsAddApplicationTags(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -37,160 +37,62 @@ func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsAddApplications", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsAddApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsAddApplications(context.Background()).Execute()
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsAddApplications(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsCheckApplicationExists", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsCheckApplicationExists", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var name string
 
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsCheckApplicationExists(context.Background(), name).Execute()
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsCheckApplicationExists(context.Background(), name).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsDeleteApplication", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsDeleteApplication", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsDeleteApplication(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsDeleteApplication(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsDisableApplicationFta", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-		var extensionName string
-
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsDisableApplicationFta(context.Background(), nameOrId, extensionName).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsDoApplicationSearch", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsDoApplicationSearch(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsDuplicateApplication", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsDuplicateApplication(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsEnableApplicationFta", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsEnableApplicationFta(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplication", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplication(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationAdministrators", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationAdministrators(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationApplicationGroups", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationApplicationGroups(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationDeliveryGroups", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationDeliveryGroups(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationFta", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsDisableApplicationFta", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var extensionName string
 
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationFta(context.Background(), nameOrId, extensionName).Execute()
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsDisableApplicationFta(context.Background(), nameOrId, extensionName).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsDoApplicationSearch", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsDoApplicationSearch(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -198,13 +100,13 @@ func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationFtas", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsDuplicateApplication", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationFtas(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsDuplicateApplication(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -212,27 +114,26 @@ func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationRecommendName", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsEnableApplicationFta", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationRecommendName(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsEnableApplicationFta(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationSessions", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplication", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationSessions(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplication(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -240,13 +141,13 @@ func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplicationTags", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationAdministrators", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplicationTags(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationAdministrators(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -254,49 +155,13 @@ func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsGetApplications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsGetApplications(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsImportFileTypes", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationApplicationGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsImportFileTypes(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsPatchApplication", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsPatchApplication(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationsAPIs Service ApplicationsRefreshAppVApplications", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsRefreshAppVApplications(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationApplicationGroups(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -304,25 +169,160 @@ func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsRemoveApplicationTags", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationDeliveryGroups", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationDeliveryGroups(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationFta", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+		var extensionName string
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationFta(context.Background(), nameOrId, extensionName).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationFtas", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationFtas(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationRecommendName", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationRecommendName(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationSessions", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationSessions(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationTags", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationTags(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplications", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplications(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsImportFileTypes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsImportFileTypes(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsPatchApplication", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsPatchApplication(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsRefreshAppVApplications", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsRefreshAppVApplications(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsRemoveApplicationTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
 
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsRemoveApplicationTags(context.Background(), nameOrId, tagNameOrId).Execute()
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsRemoveApplicationTags(context.Background(), nameOrId, tagNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsSearchStartMenuApplications", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsSearchStartMenuApplications", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ApplicationsAPIs .ApplicationsSearchStartMenuApplications(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsSearchStartMenuApplications(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -330,13 +330,13 @@ func Test_citrixorchestration_ApplicationsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationsAPIs Service ApplicationsSetApplicationTags", func(t *testing.T) {
+	t.Run("Test ApplicationsAPIsDAASService ApplicationsSetApplicationTags", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.ApplicationsAPIs .ApplicationsSetApplicationTags(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsSetApplicationTags(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

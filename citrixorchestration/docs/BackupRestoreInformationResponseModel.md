@@ -4,20 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AverageBackupDurationInSeconds** | **int32** | Average backup time in seconds used to control the WebStudio backup progress bar | 
-**TotalBackupDurationSamples** | **int32** | Total backup duration samples | 
-**MaxPinnedBackups** | **int32** | Max pinned backups. Pinned backups cannot be deleted; tjey must first be unpinned and then they can be manually deleted or automatically deleted if old and a new backup is done and the max backups exceeded | 
+**MaxAutoPinnedBackups** | **int32** | Max automatic pinned backups via schedules. | 
+**MaxPinnedBackups** | **int32** | Max pinned backups. Pinned backups cannot be deleted; they must first be unpinned and then they can be manually deleted or automatically deleted if old and a new backup is done and the max backups exceeded | 
 **MaxSavedBackups** | **int32** | Max saved backups. Unpinned backups will be removed when a new backup is completed and the number of saved backups exceeds this value | 
-**TimeZone** | **string** | Customer&#39;s selected time zone | 
-**TimeZoneOffset** | **int32** | Customer&#39;s selected time zone offset in seconds | 
-**Initialized** | **bool** | Backup process initialized when true, uninitilized when false When true, tells WebStudio to prompt the admin to select the time zone to  schedule backups in and create the first backups schedule | 
 **StaleStatusTimeoutInSeconds** | Pointer to **int32** | Stale status timeout in seconds; when current status is to old to be balid | [optional] 
+**ComponentInformation** | Pointer to [**[]BackupRestoreSingleComponentInfo**](BackupRestoreSingleComponentInfo.md) | Component information | [optional] 
 
 ## Methods
 
 ### NewBackupRestoreInformationResponseModel
 
-`func NewBackupRestoreInformationResponseModel(averageBackupDurationInSeconds int32, totalBackupDurationSamples int32, maxPinnedBackups int32, maxSavedBackups int32, timeZone string, timeZoneOffset int32, initialized bool, ) *BackupRestoreInformationResponseModel`
+`func NewBackupRestoreInformationResponseModel(maxAutoPinnedBackups int32, maxPinnedBackups int32, maxSavedBackups int32, ) *BackupRestoreInformationResponseModel`
 
 NewBackupRestoreInformationResponseModel instantiates a new BackupRestoreInformationResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -32,44 +29,24 @@ NewBackupRestoreInformationResponseModelWithDefaults instantiates a new BackupRe
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAverageBackupDurationInSeconds
+### GetMaxAutoPinnedBackups
 
-`func (o *BackupRestoreInformationResponseModel) GetAverageBackupDurationInSeconds() int32`
+`func (o *BackupRestoreInformationResponseModel) GetMaxAutoPinnedBackups() int32`
 
-GetAverageBackupDurationInSeconds returns the AverageBackupDurationInSeconds field if non-nil, zero value otherwise.
+GetMaxAutoPinnedBackups returns the MaxAutoPinnedBackups field if non-nil, zero value otherwise.
 
-### GetAverageBackupDurationInSecondsOk
+### GetMaxAutoPinnedBackupsOk
 
-`func (o *BackupRestoreInformationResponseModel) GetAverageBackupDurationInSecondsOk() (*int32, bool)`
+`func (o *BackupRestoreInformationResponseModel) GetMaxAutoPinnedBackupsOk() (*int32, bool)`
 
-GetAverageBackupDurationInSecondsOk returns a tuple with the AverageBackupDurationInSeconds field if it's non-nil, zero value otherwise
+GetMaxAutoPinnedBackupsOk returns a tuple with the MaxAutoPinnedBackups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAverageBackupDurationInSeconds
+### SetMaxAutoPinnedBackups
 
-`func (o *BackupRestoreInformationResponseModel) SetAverageBackupDurationInSeconds(v int32)`
+`func (o *BackupRestoreInformationResponseModel) SetMaxAutoPinnedBackups(v int32)`
 
-SetAverageBackupDurationInSeconds sets AverageBackupDurationInSeconds field to given value.
-
-
-### GetTotalBackupDurationSamples
-
-`func (o *BackupRestoreInformationResponseModel) GetTotalBackupDurationSamples() int32`
-
-GetTotalBackupDurationSamples returns the TotalBackupDurationSamples field if non-nil, zero value otherwise.
-
-### GetTotalBackupDurationSamplesOk
-
-`func (o *BackupRestoreInformationResponseModel) GetTotalBackupDurationSamplesOk() (*int32, bool)`
-
-GetTotalBackupDurationSamplesOk returns a tuple with the TotalBackupDurationSamples field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotalBackupDurationSamples
-
-`func (o *BackupRestoreInformationResponseModel) SetTotalBackupDurationSamples(v int32)`
-
-SetTotalBackupDurationSamples sets TotalBackupDurationSamples field to given value.
+SetMaxAutoPinnedBackups sets MaxAutoPinnedBackups field to given value.
 
 
 ### GetMaxPinnedBackups
@@ -112,66 +89,6 @@ and a boolean to check if the value has been set.
 SetMaxSavedBackups sets MaxSavedBackups field to given value.
 
 
-### GetTimeZone
-
-`func (o *BackupRestoreInformationResponseModel) GetTimeZone() string`
-
-GetTimeZone returns the TimeZone field if non-nil, zero value otherwise.
-
-### GetTimeZoneOk
-
-`func (o *BackupRestoreInformationResponseModel) GetTimeZoneOk() (*string, bool)`
-
-GetTimeZoneOk returns a tuple with the TimeZone field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimeZone
-
-`func (o *BackupRestoreInformationResponseModel) SetTimeZone(v string)`
-
-SetTimeZone sets TimeZone field to given value.
-
-
-### GetTimeZoneOffset
-
-`func (o *BackupRestoreInformationResponseModel) GetTimeZoneOffset() int32`
-
-GetTimeZoneOffset returns the TimeZoneOffset field if non-nil, zero value otherwise.
-
-### GetTimeZoneOffsetOk
-
-`func (o *BackupRestoreInformationResponseModel) GetTimeZoneOffsetOk() (*int32, bool)`
-
-GetTimeZoneOffsetOk returns a tuple with the TimeZoneOffset field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimeZoneOffset
-
-`func (o *BackupRestoreInformationResponseModel) SetTimeZoneOffset(v int32)`
-
-SetTimeZoneOffset sets TimeZoneOffset field to given value.
-
-
-### GetInitialized
-
-`func (o *BackupRestoreInformationResponseModel) GetInitialized() bool`
-
-GetInitialized returns the Initialized field if non-nil, zero value otherwise.
-
-### GetInitializedOk
-
-`func (o *BackupRestoreInformationResponseModel) GetInitializedOk() (*bool, bool)`
-
-GetInitializedOk returns a tuple with the Initialized field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInitialized
-
-`func (o *BackupRestoreInformationResponseModel) SetInitialized(v bool)`
-
-SetInitialized sets Initialized field to given value.
-
-
 ### GetStaleStatusTimeoutInSeconds
 
 `func (o *BackupRestoreInformationResponseModel) GetStaleStatusTimeoutInSeconds() int32`
@@ -197,6 +114,41 @@ SetStaleStatusTimeoutInSeconds sets StaleStatusTimeoutInSeconds field to given v
 
 HasStaleStatusTimeoutInSeconds returns a boolean if a field has been set.
 
+### GetComponentInformation
+
+`func (o *BackupRestoreInformationResponseModel) GetComponentInformation() []BackupRestoreSingleComponentInfo`
+
+GetComponentInformation returns the ComponentInformation field if non-nil, zero value otherwise.
+
+### GetComponentInformationOk
+
+`func (o *BackupRestoreInformationResponseModel) GetComponentInformationOk() (*[]BackupRestoreSingleComponentInfo, bool)`
+
+GetComponentInformationOk returns a tuple with the ComponentInformation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComponentInformation
+
+`func (o *BackupRestoreInformationResponseModel) SetComponentInformation(v []BackupRestoreSingleComponentInfo)`
+
+SetComponentInformation sets ComponentInformation field to given value.
+
+### HasComponentInformation
+
+`func (o *BackupRestoreInformationResponseModel) HasComponentInformation() bool`
+
+HasComponentInformation returns a boolean if a field has been set.
+
+### SetComponentInformationNil
+
+`func (o *BackupRestoreInformationResponseModel) SetComponentInformationNil(b bool)`
+
+ SetComponentInformationNil sets the value for ComponentInformation to be an explicit nil
+
+### UnsetComponentInformation
+`func (o *BackupRestoreInformationResponseModel) UnsetComponentInformation()`
+
+UnsetComponentInformation ensures that no value is present for ComponentInformation, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

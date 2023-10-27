@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing JobsAPIs Service
+Testing JobsAPIsDAASService
 
 */
 
@@ -17,18 +17,18 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_JobsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_JobsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test JobsAPIs Service JobsCancelJob", func(t *testing.T) {
+	t.Run("Test JobsAPIsDAASService JobsCancelJob", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.JobsAPIs .JobsCancelJob(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.JobsAPIsDAAS.JobsCancelJob(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,40 +36,26 @@ func Test_citrixorchestration_JobsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test JobsAPIs Service JobsDeleteJob", func(t *testing.T) {
+	t.Run("Test JobsAPIsDAASService JobsDeleteJob", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		httpRes, err := apiClient.JobsAPIs .JobsDeleteJob(context.Background(), id).Execute()
+		httpRes, err := apiClient.JobsAPIsDAAS.JobsDeleteJob(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test JobsAPIs Service JobsGetJob", func(t *testing.T) {
+	t.Run("Test JobsAPIsDAASService JobsGetJob", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.JobsAPIs .JobsGetJob(context.Background(), id).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test JobsAPIs Service JobsGetJobResults", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var id string
-
-		resp, httpRes, err := apiClient.JobsAPIs .JobsGetJobResults(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.JobsAPIsDAAS.JobsGetJob(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -77,11 +63,13 @@ func Test_citrixorchestration_JobsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test JobsAPIs Service JobsGetJobs", func(t *testing.T) {
+	t.Run("Test JobsAPIsDAASService JobsGetJobResults", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.JobsAPIs .JobsGetJobs(context.Background()).Execute()
+		var id string
+
+		resp, httpRes, err := apiClient.JobsAPIsDAAS.JobsGetJobResults(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -89,13 +77,25 @@ func Test_citrixorchestration_JobsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test JobsAPIs Service JobsSkipRemainingSubtasks", func(t *testing.T) {
+	t.Run("Test JobsAPIsDAASService JobsGetJobs", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.JobsAPIsDAAS.JobsGetJobs(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test JobsAPIsDAASService JobsSkipRemainingSubtasks", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
 
-		resp, httpRes, err := apiClient.JobsAPIs .JobsSkipRemainingSubtasks(context.Background(), id).Execute()
+		resp, httpRes, err := apiClient.JobsAPIsDAAS.JobsSkipRemainingSubtasks(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

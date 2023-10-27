@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing ActionsAPIs Service
+Testing ActionsAPIsDAASService
 
 */
 
@@ -17,56 +17,56 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_ActionsAPIs Service(t *testing.T) {
+func Test_citrixorchestration_ActionsAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ActionsAPIs Service ActionsCancelAction", func(t *testing.T) {
+	t.Run("Test ActionsAPIsDAASService ActionsCancelAction", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var catalogNameOrId string
 		var actionId string
 
-		httpRes, err := apiClient.ActionsAPIs .ActionsCancelAction(context.Background(), catalogNameOrId, actionId).Execute()
+		httpRes, err := apiClient.ActionsAPIsDAAS.ActionsCancelAction(context.Background(), catalogNameOrId, actionId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ActionsAPIs Service ActionsDeleteAction", func(t *testing.T) {
+	t.Run("Test ActionsAPIsDAASService ActionsDeleteAction", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var catalogNameOrId string
 
-		httpRes, err := apiClient.ActionsAPIs .ActionsDeleteAction(context.Background(), catalogNameOrId).Execute()
+		httpRes, err := apiClient.ActionsAPIsDAAS.ActionsDeleteAction(context.Background(), catalogNameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ActionsAPIs Service ActionsDeleteActions", func(t *testing.T) {
+	t.Run("Test ActionsAPIsDAASService ActionsDeleteActions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		httpRes, err := apiClient.ActionsAPIs .ActionsDeleteActions(context.Background()).Execute()
+		httpRes, err := apiClient.ActionsAPIsDAAS.ActionsDeleteActions(context.Background()).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test ActionsAPIs Service ActionsGetAction", func(t *testing.T) {
+	t.Run("Test ActionsAPIsDAASService ActionsGetAction", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var catalogNameOrId string
 
-		resp, httpRes, err := apiClient.ActionsAPIs .ActionsGetAction(context.Background(), catalogNameOrId).Execute()
+		resp, httpRes, err := apiClient.ActionsAPIsDAAS.ActionsGetAction(context.Background(), catalogNameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,14 +74,14 @@ func Test_citrixorchestration_ActionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ActionsAPIs Service ActionsGetActionById", func(t *testing.T) {
+	t.Run("Test ActionsAPIsDAASService ActionsGetActionById", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var catalogNameOrId string
 		var actionId string
 
-		resp, httpRes, err := apiClient.ActionsAPIs .ActionsGetActionById(context.Background(), catalogNameOrId, actionId).Execute()
+		resp, httpRes, err := apiClient.ActionsAPIsDAAS.ActionsGetActionById(context.Background(), catalogNameOrId, actionId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -89,11 +89,11 @@ func Test_citrixorchestration_ActionsAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test ActionsAPIs Service ActionsGetActions", func(t *testing.T) {
+	t.Run("Test ActionsAPIsDAASService ActionsGetActions", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.ActionsAPIs .ActionsGetActions(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ActionsAPIsDAAS.ActionsGetActions(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

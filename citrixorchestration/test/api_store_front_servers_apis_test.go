@@ -1,7 +1,7 @@
 /*
 Citrix Virtual Apps and Desktops Rest API for Developer Portal
 
-Testing StoreFrontServersAPIs Service
+Testing StoreFrontServersAPIsDAASService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
-func Test_citrixorchestration_StoreFrontServersAPIs Service(t *testing.T) {
+func Test_citrixorchestration_StoreFrontServersAPIsDAASService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test StoreFrontServersAPIs Service StoreFrontServersCreateStoreFrontServer", func(t *testing.T) {
+	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersCreateStoreFrontServer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.StoreFrontServersAPIs .StoreFrontServersCreateStoreFrontServer(context.Background()).Execute()
+		resp, httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersCreateStoreFrontServer(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,40 +34,26 @@ func Test_citrixorchestration_StoreFrontServersAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test StoreFrontServersAPIs Service StoreFrontServersDeleteStoreFrontServer", func(t *testing.T) {
+	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersDeleteStoreFrontServer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		httpRes, err := apiClient.StoreFrontServersAPIs .StoreFrontServersDeleteStoreFrontServer(context.Background(), nameOrId).Execute()
+		httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersDeleteStoreFrontServer(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
 
-	t.Run("Test StoreFrontServersAPIs Service StoreFrontServersGetStoreFrontDeliveryGroups", func(t *testing.T) {
+	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersGetStoreFrontDeliveryGroups", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.StoreFrontServersAPIs .StoreFrontServersGetStoreFrontDeliveryGroups(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test StoreFrontServersAPIs Service StoreFrontServersGetStoreFrontServer", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		resp, httpRes, err := apiClient.StoreFrontServersAPIs .StoreFrontServersGetStoreFrontServer(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersGetStoreFrontDeliveryGroups(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -75,11 +61,13 @@ func Test_citrixorchestration_StoreFrontServersAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test StoreFrontServersAPIs Service StoreFrontServersGetStoreFrontServers", func(t *testing.T) {
+	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersGetStoreFrontServer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.StoreFrontServersAPIs .StoreFrontServersGetStoreFrontServers(context.Background()).Execute()
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersGetStoreFrontServer(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -87,13 +75,25 @@ func Test_citrixorchestration_StoreFrontServersAPIs Service(t *testing.T) {
 
 	})
 
-	t.Run("Test StoreFrontServersAPIs Service StoreFrontServersUpdateStoreFrontServer", func(t *testing.T) {
+	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersGetStoreFrontServers", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersGetStoreFrontServers(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test StoreFrontServersAPIsDAASService StoreFrontServersUpdateStoreFrontServer", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var nameOrId string
 
-		resp, httpRes, err := apiClient.StoreFrontServersAPIs .StoreFrontServersUpdateStoreFrontServer(context.Background(), nameOrId).Execute()
+		resp, httpRes, err := apiClient.StoreFrontServersAPIsDAAS.StoreFrontServersUpdateStoreFrontServer(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

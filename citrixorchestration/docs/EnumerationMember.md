@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** | Member name | [optional] 
+**Name** | Pointer to **NullableString** | Member name. | [optional] 
 **Value** | Pointer to **int32** | Integer value of the member. | [optional] 
 **DisplayName** | Pointer to **NullableString** | localized name of the member. | [optional] 
 
