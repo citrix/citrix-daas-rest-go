@@ -8,11 +8,10 @@ import (
 	"time"
 
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 type CitrixDaasClient struct {
-	ApiClient    *openapiclient.APIClient
+	ApiClient    *citrixorchestration.APIClient
 	AuthConfig   *AuthenticationConfiguration
 	ClientConfig *ClientConfiguration
 	AuthToken    *AuthTokenModel
@@ -32,11 +31,11 @@ func getMiddlewareWithClient(authClient *CitrixDaasClient, middlewareAuthFunc Mi
 	}
 }
 
-func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret string, onPremise bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, error) {
+func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret string, onPremise bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
 	daasClient := &CitrixDaasClient{}
 
 	/* ------ Setup API Client ------ */
-	localCfg := openapiclient.NewConfiguration()
+	localCfg := citrixorchestration.NewConfiguration()
 	localCfg.Host = hostname
 	localCfg.Scheme = "https"
 	// When running against on-prem, set disableSslVerification to true when the DDC does not have a valid TLS/SSL certificate
@@ -47,14 +46,14 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 		client := &http.Client{Transport: tr}
 		localCfg.HTTPClient = client
 
-		localCfg.Servers = openapiclient.ServerConfigurations{
+		localCfg.Servers = citrixorchestration.ServerConfigurations{
 			{
 				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api/techpreview",
 			},
 		}
 	}
 
-	daasClient.ApiClient = openapiclient.NewAPIClient(localCfg)
+	daasClient.ApiClient = citrixorchestration.NewAPIClient(localCfg)
 	localCfg.Middleware = getMiddlewareWithClient(daasClient, middlewareFunc)
 
 	/* ------ Setup Authentication Configuration ------ */
@@ -68,14 +67,14 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 
 	/* ------ Setup Client Configuration ------*/
 	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(context.Background())
-	token, err := daasClient.SignIn()
+	token, httpResp, err := daasClient.SignIn()
 	if err != nil {
-		return nil, err
+		return nil, httpResp, err
 	}
 	req = req.Authorization(token).CitrixCustomerId(customerId)
-	resp, _, err := req.Execute()
+	resp, httpResp, err := req.Execute()
 	if err != nil {
-		return nil, err
+		return nil, httpResp, err
 	}
 
 	localClientCfg := &ClientConfiguration{}
@@ -95,14 +94,14 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 		localCfg.Servers[0].URL += "/" + localClientCfg.CustomerId + "/" + localClientCfg.SiteId
 	}
 
-	return daasClient, nil
+	return daasClient, httpResp, nil
 }
 
-func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int) (*openapiclient.JobResponseModel, error) {
+func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int) (*citrixorchestration.JobResponseModel, error) {
 
 	maxWaitTime := time.Now().UTC().Add(time.Minute * time.Duration(maxWaitTimeInMinutes))
 	getJobIdRequest := c.ApiClient.JobsAPIsDAAS.JobsGetJob(ctx, jobId)
-	var jobResponseModel *openapiclient.JobResponseModel
+	var jobResponseModel *citrixorchestration.JobResponseModel
 	var err error
 
 	for {
@@ -115,7 +114,7 @@ func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWait
 			return jobResponseModel, err
 		}
 
-		if jobResponseModel.Status == openapiclient.JOBSTATUS_UNKNOWN || jobResponseModel.Status == openapiclient.JOBSTATUS_NOT_STARTED || jobResponseModel.Status == openapiclient.JOBSTATUS_IN_PROGRESS {
+		if jobResponseModel.Status == citrixorchestration.JOBSTATUS_UNKNOWN || jobResponseModel.Status == citrixorchestration.JOBSTATUS_NOT_STARTED || jobResponseModel.Status == citrixorchestration.JOBSTATUS_IN_PROGRESS {
 			time.Sleep(time.Second * time.Duration(30))
 			continue
 		}

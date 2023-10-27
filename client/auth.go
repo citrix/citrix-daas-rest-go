@@ -1,7 +1,6 @@
 package citrixclient
 
 import (
-	"crypto/tls"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -30,16 +29,16 @@ type TrustAuthResponse struct {
 }
 
 // SignIn - Get a new token for user
-func (c *CitrixDaasClient) SignIn() (string, error) {
+func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 	if c.AuthConfig.ClientId == "" || c.AuthConfig.ClientSecret == "" {
-		return "", fmt.Errorf("make sure customerid, clientid and clientsecret are not null")
+		return "", nil, fmt.Errorf("make sure customerid, clientid and clientsecret are not null")
 	}
 
 	if c.AuthToken != nil {
 		tokenExpirationTime, err := time.Parse(time.RFC3339, c.AuthToken.ExpiresAt)
 
 		if err == nil && tokenExpirationTime.After(time.Now().UTC().Add(time.Minute*time.Duration(1))) {
-			return c.AuthToken.Token, nil
+			return c.AuthToken.Token, nil, nil
 		}
 	}
 
@@ -47,31 +46,32 @@ func (c *CitrixDaasClient) SignIn() (string, error) {
 	var expiresAt string
 
 	if c.AuthConfig.OnPremise {
-		tr := &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-		}
-		client := &http.Client{Transport: tr}
+		// tr := &http.Transport{
+		// 	TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		// }
+		// client := &http.Client{Transport: tr}
+		client := c.ApiClient.GetConfig().HTTPClient
 		req, _ := http.NewRequest("POST", c.AuthConfig.AuthUrl, nil)
 		req.SetBasicAuth(c.AuthConfig.ClientId, c.AuthConfig.ClientSecret)
 		resp, err := client.Do(req)
 		if err != nil {
-			return "", err
+			return "", nil, err
 		}
 
 		defer resp.Body.Close()
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
-			return "", err
+			return "", nil, err
 		}
 
 		if resp.StatusCode > 200 {
-			return "", fmt.Errorf("Could not sign into DDC, %s", string(body))
+			return "", resp, fmt.Errorf("could not sign into DDC, %s", string(body))
 		}
 
 		ar := TrustAuthResponse{}
 		err = json.Unmarshal(body, &ar)
 		if err != nil {
-			return "", err
+			return "", nil, err
 		}
 
 		token = fmt.Sprintf("CWSAuth bearer=%s", ar.Token)
@@ -81,27 +81,27 @@ func (c *CitrixDaasClient) SignIn() (string, error) {
 		grant_type := "client_credentials"
 		resp, err := http.PostForm(c.AuthConfig.AuthUrl, url.Values{"grant_type": {grant_type}, "client_id": {c.AuthConfig.ClientId}, "client_secret": {c.AuthConfig.ClientSecret}})
 		if err != nil {
-			return "", err
+			return "", nil, err
 		}
 
 		defer resp.Body.Close()
 		body, err := io.ReadAll(resp.Body)
 		if err != nil {
-			return "", err
+			return "", nil, err
 		}
 
 		if resp.StatusCode > 200 {
-			return "", fmt.Errorf("Could not sign into Citrix Cloud, %s", string(body))
+			return "", resp, fmt.Errorf("could not sign into Citrix Cloud, %s", string(body))
 		}
 
 		ar := CCAuthResponse{}
 		err = json.Unmarshal(body, &ar)
 		if err != nil {
-			return "", err
+			return "", nil, err
 		}
 
 		if ar.Error != "" {
-			return "", fmt.Errorf("Could not sign into Citrix Cloud, %s: %s", ar.Error, ar.ErrorDescription)
+			return "", nil, fmt.Errorf("could not sign into Citrix Cloud, %s: %s", ar.Error, ar.ErrorDescription)
 		}
 
 		token = fmt.Sprintf("CWSAuth bearer=%s", ar.Token)
@@ -115,5 +115,5 @@ func (c *CitrixDaasClient) SignIn() (string, error) {
 	authTokenModel.ExpiresAt = expiresAt
 	c.AuthToken = &authTokenModel
 
-	return token, nil
+	return token, nil, nil
 }
