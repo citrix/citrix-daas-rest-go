@@ -79,7 +79,11 @@ func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 
 	} else {
 		grant_type := "client_credentials"
-		resp, err := http.PostForm(c.AuthConfig.AuthUrl, url.Values{"grant_type": {grant_type}, "client_id": {c.AuthConfig.ClientId}, "client_secret": {c.AuthConfig.ClientSecret}})
+		operation := func() (*http.Response, error) {
+			return http.PostForm(c.AuthConfig.AuthUrl, url.Values{"grant_type": {grant_type}, "client_id": {c.AuthConfig.ClientId}, "client_secret": {c.AuthConfig.ClientSecret}})
+		}
+
+		resp, err := RetryOperationWithExponentialBackOff(operation, 10, 3)
 		if err != nil {
 			return "", nil, err
 		}

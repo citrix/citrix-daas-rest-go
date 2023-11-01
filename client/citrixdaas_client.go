@@ -3,6 +3,7 @@ package citrixclient
 import (
 	"context"
 	"crypto/tls"
+	"math"
 	"net/http"
 	"reflect"
 	"time"
@@ -145,4 +146,26 @@ func AddRequestData[T any](request T, c *CitrixDaasClient) T {
 		requestValue = method.Func.Call([]reflect.Value{requestValue, reflect.ValueOf(c.ClientConfig.UserAgent)})[0]
 	}
 	return requestValue.Interface().(T)
+}
+
+func RetryOperationWithExponentialBackOff(operation func() (*http.Response, error), baseDelayInSeconds int, maxRetries int) (*http.Response, error) {
+	var resp *http.Response
+	var err error
+	baseDelay := time.Duration(baseDelayInSeconds) * time.Second
+	for i := 0; i < maxRetries; i++ {
+		resp, err = operation()
+		if resp.StatusCode == 200 {
+			return resp, err
+		}
+
+		if resp.StatusCode == 429 {
+			delay := math.Pow(2, float64(i))
+			time.Sleep(time.Duration(delay) * baseDelay)
+		} else {
+			return resp, err
+		}
+
+	}
+
+	return resp, err
 }
