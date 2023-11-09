@@ -154,6 +154,10 @@ func RetryOperationWithExponentialBackOff(operation func() (*http.Response, erro
 	baseDelay := time.Duration(baseDelayInSeconds) * time.Second
 	for i := 0; i < maxRetries; i++ {
 		resp, err = operation()
+		if err != nil {
+			return resp, err
+		}
+
 		if resp.StatusCode == 200 {
 			return resp, err
 		}
