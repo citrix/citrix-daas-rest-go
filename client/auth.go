@@ -45,7 +45,7 @@ func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 	var token string
 	var expiresAt string
 
-	if c.AuthConfig.OnPremise {
+	if c.AuthConfig.OnPremises {
 		// tr := &http.Transport{
 		// 	TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 		// }
@@ -79,37 +79,18 @@ func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 
 	} else {
 		grant_type := "client_credentials"
-		operation := func() (*http.Response, error) {
-			return http.PostForm(c.AuthConfig.AuthUrl, url.Values{"grant_type": {grant_type}, "client_id": {c.AuthConfig.ClientId}, "client_secret": {c.AuthConfig.ClientSecret}})
+		operation := func() (CCAuthResponse, *http.Response, error) {
+			return performCCAuth(c.AuthConfig.AuthUrl, url.Values{"grant_type": {grant_type}, "client_id": {c.AuthConfig.ClientId}, "client_secret": {c.AuthConfig.ClientSecret}})
 		}
 
-		resp, err := RetryOperationWithExponentialBackOff(operation, 10, 3)
+		ccAuthResponse, resp, err := RetryOperationWithExponentialBackOff(operation, 10, 3)
+
 		if err != nil {
-			return "", nil, err
+			return "", resp, err
 		}
 
-		defer resp.Body.Close()
-		body, err := io.ReadAll(resp.Body)
-		if err != nil {
-			return "", nil, err
-		}
-
-		if resp.StatusCode > 200 {
-			return "", resp, fmt.Errorf("could not sign into Citrix Cloud, %s", string(body))
-		}
-
-		ar := CCAuthResponse{}
-		err = json.Unmarshal(body, &ar)
-		if err != nil {
-			return "", nil, err
-		}
-
-		if ar.Error != "" {
-			return "", nil, fmt.Errorf("could not sign into Citrix Cloud, %s: %s", ar.Error, ar.ErrorDescription)
-		}
-
-		token = fmt.Sprintf("CWSAuth bearer=%s", ar.Token)
-		expiryInSeconds, _ := strconv.Atoi(ar.Expiration)
+		token = fmt.Sprintf("CWSAuth bearer=%s", ccAuthResponse.Token)
+		expiryInSeconds, _ := strconv.Atoi(ccAuthResponse.Expiration)
 		expiresAtTime := time.Now().UTC().Add(time.Second * time.Duration(expiryInSeconds))
 		expiresAt = expiresAtTime.Format(time.RFC3339)
 	}
@@ -120,4 +101,32 @@ func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 	c.AuthToken = &authTokenModel
 
 	return token, nil, nil
+}
+
+func performCCAuth(authUrl string, urlValues url.Values) (CCAuthResponse, *http.Response, error) {
+	ccAuthResonse := CCAuthResponse{}
+	httpResp, err := http.PostForm(authUrl, urlValues)
+	if err != nil {
+		return ccAuthResonse, httpResp, err
+	}
+	defer httpResp.Body.Close()
+	body, err := io.ReadAll(httpResp.Body)
+	if err != nil {
+		return ccAuthResonse, httpResp, err
+	}
+
+	if httpResp.StatusCode > 200 {
+		return ccAuthResonse, httpResp, fmt.Errorf("could not sign into Citrix Cloud, %s", string(body))
+	}
+
+	err = json.Unmarshal(body, &ccAuthResonse)
+	if err != nil {
+		return ccAuthResonse, httpResp, err
+	}
+
+	if ccAuthResonse.Error != "" {
+		return ccAuthResonse, httpResp, fmt.Errorf("could not sign into Citrix Cloud, %s: %s", ccAuthResonse.Error, ccAuthResonse.ErrorDescription)
+	}
+
+	return ccAuthResonse, httpResp, err
 }
