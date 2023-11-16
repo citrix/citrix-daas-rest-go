@@ -5,7 +5,7 @@ type AuthenticationConfiguration struct {
 	AuthUrl      string `json:"auth_url"`
 	ClientId     string `json:"client_id"`
 	ClientSecret string `json:"client_secret"`
-	OnPremise    bool   `json:"on_premise"`
+	OnPremises   bool   `json:"on_premises"`
 }
 
 // ClientConfiguration provides Citrix DaaS customer context

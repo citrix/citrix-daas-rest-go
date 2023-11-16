@@ -3,6 +3,7 @@ package citrixclient
 import (
 	"context"
 	"crypto/tls"
+	"fmt"
 	"math"
 	"net/http"
 	"reflect"
@@ -32,15 +33,15 @@ func getMiddlewareWithClient(authClient *CitrixDaasClient, middlewareAuthFunc Mi
 	}
 }
 
-func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret string, onPremise bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
+func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
 	daasClient := &CitrixDaasClient{}
 
 	/* ------ Setup API Client ------ */
 	localCfg := citrixorchestration.NewConfiguration()
 	localCfg.Host = hostname
 	localCfg.Scheme = "https"
-	// When running against on-prem, set disableSslVerification to true when the DDC does not have a valid TLS/SSL certificate
-	if onPremise {
+	// When running against on-premises, set disableSslVerification to true when the DDC does not have a valid TLS/SSL certificate
+	if onPremises {
 		tr := &http.Transport{
 			TLSClientConfig: &tls.Config{InsecureSkipVerify: disableSslVerification},
 		}
@@ -62,16 +63,17 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 	localAuthCfg.AuthUrl = authUrl
 	localAuthCfg.ClientId = clientId
 	localAuthCfg.ClientSecret = clientSecret
-	localAuthCfg.OnPremise = onPremise
+	localAuthCfg.OnPremises = onPremises
 
 	daasClient.AuthConfig = localAuthCfg
 
 	/* ------ Setup Client Configuration ------*/
-	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(context.Background())
+	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
 	token, httpResp, err := daasClient.SignIn()
 	if err != nil {
 		return nil, httpResp, err
 	}
+
 	req = req.Authorization(token).CitrixCustomerId(customerId)
 	resp, httpResp, err := req.Execute()
 	if err != nil {
@@ -90,7 +92,7 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 
 	daasClient.ClientConfig = localClientCfg
 
-	if onPremise {
+	if onPremises {
 		// add CustomerId and SiteId to base path for on-prem. The Me Api will no longer work.
 		localCfg.Servers[0].URL += "/" + localClientCfg.CustomerId + "/" + localClientCfg.SiteId
 	}
@@ -99,14 +101,19 @@ func NewCitrixDaasClient(authUrl, hostname, customerId, clientId, clientSecret s
 }
 
 func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int) (*citrixorchestration.JobResponseModel, error) {
-
-	maxWaitTime := time.Now().UTC().Add(time.Minute * time.Duration(maxWaitTimeInMinutes))
+	// default polling to every 10 seconds
+	pollInterval := 10
+	if maxWaitTimeInMinutes >= 30 {
+		// if we're expecting a long job we can poll less frequently
+		pollInterval = 30
+	}
+	startTime := time.Now()
 	getJobIdRequest := c.ApiClient.JobsAPIsDAAS.JobsGetJob(ctx, jobId)
 	var jobResponseModel *citrixorchestration.JobResponseModel
 	var err error
 
 	for {
-		if time.Now().UTC().After(maxWaitTime) {
+		if time.Since(startTime) > time.Minute*time.Duration(maxWaitTimeInMinutes) {
 			break
 		}
 
@@ -116,7 +123,11 @@ func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWait
 		}
 
 		if jobResponseModel.Status == citrixorchestration.JOBSTATUS_UNKNOWN || jobResponseModel.Status == citrixorchestration.JOBSTATUS_NOT_STARTED || jobResponseModel.Status == citrixorchestration.JOBSTATUS_IN_PROGRESS {
-			time.Sleep(time.Second * time.Duration(30))
+			if pollInterval < 30 && time.Since(startTime) > time.Second*30 {
+				// increase poll interval after the first 30 seconds of processing
+				pollInterval = 30
+			}
+			time.Sleep(time.Second * time.Duration(pollInterval))
 			continue
 		}
 
@@ -148,28 +159,57 @@ func AddRequestData[T any](request T, c *CitrixDaasClient) T {
 	return requestValue.Interface().(T)
 }
 
-func RetryOperationWithExponentialBackOff(operation func() (*http.Response, error), baseDelayInSeconds int, maxRetries int) (*http.Response, error) {
+func ExecuteWithRetry[ResponseBodyType any](request any, c *CitrixDaasClient) (ResponseBodyType, *http.Response, error) {
+	request = AddRequestData(request, c)
+	requestValue := reflect.ValueOf(request)
+	requestType := reflect.TypeOf(request)
+	var result ResponseBodyType
+	method, ok := requestType.MethodByName("Execute")
+	if ok {
+		operation := func() (ResponseBodyType, *http.Response, error) {
+			values := method.Func.Call([]reflect.Value{requestValue})
+			responseBody, _ := values[0].Interface().(ResponseBodyType)
+			httpResp, _ := values[1].Interface().(*http.Response)
+			err, _ := values[2].Interface().(error)
+
+			return responseBody, httpResp, err
+		}
+		return RetryOperationWithExponentialBackOffDefault(operation)
+	}
+
+	return result, nil, fmt.Errorf("an unexpected error occurred")
+}
+
+func RetryOperationWithExponentialBackOffDefault[T any](operation func() (T, *http.Response, error)) (T, *http.Response, error) {
+	return RetryOperationWithExponentialBackOff(operation, 15, 3)
+}
+
+func RetryOperationWithExponentialBackOff[T any](operation func() (T, *http.Response, error), baseDelayInSeconds int, maxRetries int) (T, *http.Response, error) {
+
 	var resp *http.Response
 	var err error
+	var responseBody T
 	baseDelay := time.Duration(baseDelayInSeconds) * time.Second
 	for i := 0; i < maxRetries; i++ {
-		resp, err = operation()
-		if err != nil {
-			return resp, err
+		responseBody, resp, err = operation()
+
+		if resp == nil {
+			// error in http call. caller will handle err
+			return responseBody, resp, err
 		}
 
 		if resp.StatusCode == 200 {
-			return resp, err
+			return responseBody, resp, err
 		}
 
-		if resp.StatusCode == 429 {
+		if resp.StatusCode == 429 || resp.StatusCode >= 500 {
+			defer resp.Body.Close()
 			delay := math.Pow(2, float64(i))
 			time.Sleep(time.Duration(delay) * baseDelay)
 		} else {
-			return resp, err
+			return responseBody, resp, err
 		}
-
 	}
 
-	return resp, err
+	return responseBody, resp, err
 }
