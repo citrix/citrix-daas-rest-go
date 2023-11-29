@@ -1,3 +1,5 @@
+// Copyright © 2023. Citrix Systems, Inc.
+
 package citrixclient
 
 import (
@@ -51,7 +53,7 @@ func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 		// }
 		// client := &http.Client{Transport: tr}
 		client := c.ApiClient.GetConfig().HTTPClient
-		req, _ := http.NewRequest("POST", c.AuthConfig.AuthUrl, nil)
+		req, _ := http.NewRequest(http.MethodPost, c.AuthConfig.AuthUrl, nil)
 		req.SetBasicAuth(c.AuthConfig.ClientId, c.AuthConfig.ClientSecret)
 		resp, err := client.Do(req)
 		if err != nil {
