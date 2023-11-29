@@ -1,3 +1,5 @@
+// Copyright © 2023. Citrix Systems, Inc.
+
 package citrixclient
 
 // AuthenticationConfiguration provides authentication settings for CC Athena / on-prem trust service

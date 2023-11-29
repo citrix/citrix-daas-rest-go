@@ -1,12 +1,18 @@
+// Copyright © 2023. Citrix Systems, Inc.
+
 package citrixclient
 
 import (
 	"context"
 	"crypto/tls"
+	"encoding/json"
 	"fmt"
+	"io"
 	"math"
 	"net/http"
+	"os"
 	"reflect"
+	"strings"
 	"time"
 
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
@@ -82,6 +88,9 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 
 	localClientCfg := &ClientConfiguration{}
 	localClientCfg.CustomerId = customerId
+	if len(resp.Customers) == 0 || len(resp.Customers[0].Sites) == 0 {
+		return nil, httpResp, fmt.Errorf("Customer does not exist or does not have a valid site.")
+	}
 	localClientCfg.SiteId = resp.Customers[0].Sites[0].Id
 
 	if userAgent == nil {
@@ -122,7 +131,9 @@ func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWait
 			return jobResponseModel, err
 		}
 
-		if jobResponseModel.Status == citrixorchestration.JOBSTATUS_UNKNOWN || jobResponseModel.Status == citrixorchestration.JOBSTATUS_NOT_STARTED || jobResponseModel.Status == citrixorchestration.JOBSTATUS_IN_PROGRESS {
+		jobStatus := jobResponseModel.GetStatus()
+
+		if jobStatus == citrixorchestration.JOBSTATUS_UNKNOWN || jobStatus == citrixorchestration.JOBSTATUS_NOT_STARTED || jobStatus == citrixorchestration.JOBSTATUS_IN_PROGRESS {
 			if pollInterval < 30 && time.Since(startTime) > time.Second*30 {
 				// increase poll interval after the first 30 seconds of processing
 				pollInterval = 30
@@ -212,4 +223,79 @@ func RetryOperationWithExponentialBackOff[T any](operation func() (T, *http.Resp
 	}
 
 	return responseBody, resp, err
+}
+
+func GetJobIdFromHttpResponse(httpResponse http.Response) string {
+	locationHeader := httpResponse.Header.Get("Location")
+	locationHeaderParts := strings.Split(locationHeader, "/")
+	jobId := locationHeaderParts[len(locationHeaderParts)-1]
+
+	return jobId
+}
+
+func GetTransactionIdFromHttpResponse(httpResponse *http.Response) string {
+	if httpResponse == nil {
+		return "failed before request was sent"
+	}
+	return httpResponse.Header.Get("Citrix-TransactionId")
+}
+
+func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchRequestModel citrixorchestration.BatchRequestModel) (int, string, error) {
+
+	successCount := 0
+
+	batchRequest := client.ApiClient.BatchAPIsDAAS.BatchDoBatchRequest(ctx).BatchRequestModel(batchRequestModel).Async(true)
+	_, httpResp, err := AddRequestData(batchRequest, client).Execute()
+	txnId := GetTransactionIdFromHttpResponse(httpResp)
+	if err != nil {
+		return successCount, txnId, err
+	}
+	jobId := GetJobIdFromHttpResponse(*httpResp)
+	jobResponseModel, err := client.WaitForJob(ctx, jobId, 30)
+	if err != nil {
+		return successCount, txnId, err
+	}
+
+	jobStatus := jobResponseModel.GetStatus()
+
+	if jobStatus != citrixorchestration.JOBSTATUS_COMPLETE {
+		if jobStatus == citrixorchestration.JOBSTATUS_FAILED {
+			return successCount, txnId, fmt.Errorf(jobResponseModel.GetErrorString())
+		}
+
+		return successCount, txnId, fmt.Errorf("An unexpected error occurred.")
+	}
+
+	getJobResultsRequest := client.ApiClient.JobsAPIsDAAS.JobsGetJobResults(ctx, jobId)
+	jobResultsResponseContents, _, _ := ExecuteWithRetry[*os.File](getJobResultsRequest, client)
+	if jobResultsResponseContents == nil {
+		return successCount, txnId, fmt.Errorf("An unexpected error occurred.")
+	}
+
+	data, err := io.ReadAll(jobResultsResponseContents)
+	if err != nil {
+		return successCount, txnId, err
+	}
+
+	var batchJobResponse map[string][]citrixorchestration.BatchResponseItemModel
+	json.Unmarshal(data, &batchJobResponse)
+	subJobs := batchJobResponse["Items"]
+	for i := 0; i < len(subJobs); i++ {
+		subJob := subJobs[i]
+		subJobCode := subJob.GetCode()
+		if subJobCode == 202 {
+			locationValues := strings.Split(subJob.Headers[0].GetValue(), "/")
+			jobResponseModel, err := client.WaitForJob(ctx, locationValues[len(locationValues)-1], 60)
+
+			if err != nil || jobResponseModel == nil || jobResponseModel.GetStatus() != citrixorchestration.JOBSTATUS_COMPLETE {
+				continue
+			}
+
+			successCount++
+		} else if subJobCode == 204 {
+			successCount++
+		}
+	}
+
+	return successCount, txnId, err
 }
