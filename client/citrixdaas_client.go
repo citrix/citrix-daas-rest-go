@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"os"
 	"reflect"
+	"slices"
 	"strings"
 	"time"
 
@@ -39,7 +40,7 @@ func getMiddlewareWithClient(authClient *CitrixDaasClient, middlewareAuthFunc Mi
 	}
 }
 
-func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
+func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
 	daasClient := &CitrixDaasClient{}
 
 	/* ------ Setup API Client ------ */
@@ -59,6 +60,12 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api/techpreview",
 			},
 		}
+	} else if !apiGateway {
+		localCfg.Servers = citrixorchestration.ServerConfigurations{
+			{
+				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api/techpreview",
+			},
+		}
 	}
 
 	daasClient.ApiClient = citrixorchestration.NewAPIClient(localCfg)
@@ -70,6 +77,8 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 	localAuthCfg.ClientId = clientId
 	localAuthCfg.ClientSecret = clientSecret
 	localAuthCfg.OnPremises = onPremises
+	localAuthCfg.ApiGateway = apiGateway
+	localAuthCfg.IsGov = isGov
 
 	daasClient.AuthConfig = localAuthCfg
 
@@ -88,8 +97,8 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 
 	localClientCfg := &ClientConfiguration{}
 	localClientCfg.CustomerId = customerId
-	if len(resp.Customers) == 0 || len(resp.Customers[0].Sites) == 0 {
-		return nil, httpResp, fmt.Errorf("Customer does not exist or does not have a valid site.")
+	if resp == nil || len(resp.Customers) == 0 || len(resp.Customers[0].Sites) == 0 {
+		return nil, httpResp, fmt.Errorf("customer does not exist or does not have a valid site")
 	}
 	localClientCfg.SiteId = resp.Customers[0].Sites[0].Id
 
@@ -101,7 +110,7 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 
 	daasClient.ClientConfig = localClientCfg
 
-	if onPremises {
+	if onPremises || !apiGateway {
 		// add CustomerId and SiteId to base path for on-prem. The Me Api will no longer work.
 		localCfg.Servers[0].URL += "/" + localClientCfg.CustomerId + "/" + localClientCfg.SiteId
 	}
@@ -240,6 +249,17 @@ func GetTransactionIdFromHttpResponse(httpResponse *http.Response) string {
 	return httpResponse.Header.Get("Citrix-TransactionId")
 }
 
+func (c *CitrixDaasClient) GetBatchRequestItemRelativeUrl(relativeUrl string) string {
+	if !c.AuthConfig.OnPremises && c.AuthConfig.ApiGateway {
+		// In case of Cloud customer going through API Gateway, use path as is
+		return relativeUrl
+	}
+
+	// In case of on-premises customer or Cloud customer bypassing API Gateway, append customerId and siteId to the path
+	path := fmt.Sprintf("%s/%s/%s", c.ClientConfig.CustomerId, c.ClientConfig.SiteId, relativeUrl)
+	return path
+}
+
 func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchRequestModel citrixorchestration.BatchRequestModel) (int, string, error) {
 
 	successCount := 0
@@ -263,13 +283,13 @@ func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchR
 			return successCount, txnId, fmt.Errorf(jobResponseModel.GetErrorString())
 		}
 
-		return successCount, txnId, fmt.Errorf("An unexpected error occurred.")
+		return successCount, txnId, fmt.Errorf("an unexpected error occurred")
 	}
 
 	getJobResultsRequest := client.ApiClient.JobsAPIsDAAS.JobsGetJobResults(ctx, jobId)
 	jobResultsResponseContents, _, _ := ExecuteWithRetry[*os.File](getJobResultsRequest, client)
 	if jobResultsResponseContents == nil {
-		return successCount, txnId, fmt.Errorf("An unexpected error occurred.")
+		return successCount, txnId, fmt.Errorf("an unexpected error occurred")
 	}
 
 	data, err := io.ReadAll(jobResultsResponseContents)
@@ -284,7 +304,8 @@ func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchR
 		subJob := subJobs[i]
 		subJobCode := subJob.GetCode()
 		if subJobCode == 202 {
-			locationValues := strings.Split(subJob.Headers[0].GetValue(), "/")
+			locationHeader := slices.IndexFunc(subJob.Headers, func(pair citrixorchestration.NameValueStringPairModel) bool { return pair.GetName() == "Location" })
+			locationValues := strings.Split(subJob.Headers[locationHeader].GetValue(), "/")
 			jobResponseModel, err := client.WaitForJob(ctx, locationValues[len(locationValues)-1], 60)
 
 			if err != nil || jobResponseModel == nil || jobResponseModel.GetStatus() != citrixorchestration.JOBSTATUS_COMPLETE {
@@ -292,7 +313,7 @@ func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchR
 			}
 
 			successCount++
-		} else if subJobCode == 204 {
+		} else if subJobCode == 204 || subJobCode == 200 {
 			successCount++
 		}
 	}
