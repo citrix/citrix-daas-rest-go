@@ -489,6 +489,10 @@
 
 * `VALIDATE_MACHINE_CATALOG_CREATION` (value: `"ValidateMachineCatalogCreation"`)
 
+* `SEARCH_PROVISIONED_VIRTUAL_MACHINES` (value: `"SearchProvisionedVirtualMachines"`)
+
+* `GET_PROVISIONED_VIRTUAL_MACHINE_DETAILS` (value: `"GetProvisionedVirtualMachineDetails"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

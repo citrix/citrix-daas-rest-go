@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **HostedMachineId** | Pointer to **NullableString** | The unique ID by which the hypervisor recognizes the machine. Omit this for machines that are not power-managed. | [optional] 
 **HypervisorConnection** | Pointer to **NullableString** | Hypervisor connection to use for power management of the machine. | [optional] 
 **InMaintenanceMode** | Pointer to **NullableBool** | Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is not available for new sessions, and for managed machines all automatic power management is disabled. Optional; default is &#x60;false&#x60;. | [optional] [default to false]
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine. | [optional] 
 **PvsAddress** | Pointer to **NullableString** | IP address of the PVS server to be used.  This only applies if the ProvisioningType is PVS. | [optional] 
 **PvsDomain** | Pointer to **NullableString** | The domain of the PVS server to be used. This only applies if the ProvisioningType is PVS. | [optional] 
 **PvsCollectionIds** | Pointer to **[]string** | Collection IDs of PVS collections containing machines that should be added to the catalog.  This only applies if the ProvisioningType is PVS, and is required in that case.  Each item must be a valid PVS collection ID residing on the PVS server located at the specified . | [optional] 
@@ -281,6 +282,41 @@ HasInMaintenanceMode returns a boolean if a field has been set.
 `func (o *AddMachineToMachineCatalogDetailRequestModel) UnsetInMaintenanceMode()`
 
 UnsetInMaintenanceMode ensures that no value is present for InMaintenanceMode, not even an explicit nil
+### GetMetadata
+
+`func (o *AddMachineToMachineCatalogDetailRequestModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *AddMachineToMachineCatalogDetailRequestModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *AddMachineToMachineCatalogDetailRequestModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *AddMachineToMachineCatalogDetailRequestModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *AddMachineToMachineCatalogDetailRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *AddMachineToMachineCatalogDetailRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetPvsAddress
 
 `func (o *AddMachineToMachineCatalogDetailRequestModel) GetPvsAddress() string`

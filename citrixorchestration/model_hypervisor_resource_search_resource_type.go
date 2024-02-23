@@ -23,6 +23,7 @@ const (
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE HypervisorResourceSearchResourceType = "Template"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_VM HypervisorResourceSearchResourceType = "Vm"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_LAUNCH_TEMPLATE_VERSION HypervisorResourceSearchResourceType = "LaunchTemplateVersion"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_FOLDER HypervisorResourceSearchResourceType = "Folder"
 )
 
 // All allowed values of HypervisorResourceSearchResourceType enum
@@ -30,6 +31,7 @@ var AllowedHypervisorResourceSearchResourceTypeEnumValues = []HypervisorResource
 	"Template",
 	"Vm",
 	"LaunchTemplateVersion",
+	"Folder",
 }
 
 func (v *HypervisorResourceSearchResourceType) UnmarshalJSON(src []byte) error {

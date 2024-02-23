@@ -77,6 +77,8 @@ type APIClient struct {
 
 	DeliveryGroupsAPIsDAAS *DeliveryGroupsAPIsDAASService
 
+	GpoDAAS *GpoDAASService
+
 	HealthCheckAPIsDAAS *HealthCheckAPIsDAASService
 
 	HypervisorsAPIsDAAS *HypervisorsAPIsDAASService
@@ -138,6 +140,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BatchAPIsDAAS = (*BatchAPIsDAASService)(&c.common)
 	c.ConfigLogAPIsDAAS = (*ConfigLogAPIsDAASService)(&c.common)
 	c.DeliveryGroupsAPIsDAAS = (*DeliveryGroupsAPIsDAASService)(&c.common)
+	c.GpoDAAS = (*GpoDAASService)(&c.common)
 	c.HealthCheckAPIsDAAS = (*HealthCheckAPIsDAASService)(&c.common)
 	c.HypervisorsAPIsDAAS = (*HypervisorsAPIsDAASService)(&c.common)
 	c.IconsAPIsDAAS = (*IconsAPIsDAASService)(&c.common)
