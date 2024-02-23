@@ -20,6 +20,7 @@ type AppSearchProperty string
 
 // List of AppSearchProperty
 const (
+	APPSEARCHPROPERTY_UID AppSearchProperty = "Uid"
 	APPSEARCHPROPERTY_CLIENT_FOLDER AppSearchProperty = "ClientFolder"
 	APPSEARCHPROPERTY_APPLICATION_GROUP AppSearchProperty = "ApplicationGroup"
 	APPSEARCHPROPERTY_NAME AppSearchProperty = "Name"
@@ -44,6 +45,7 @@ const (
 
 // All allowed values of AppSearchProperty enum
 var AllowedAppSearchPropertyEnumValues = []AppSearchProperty{
+	"Uid",
 	"ClientFolder",
 	"ApplicationGroup",
 	"Name",

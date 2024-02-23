@@ -13,8 +13,13 @@ Name | Type | Description | Notes
 **SecurityType** | Pointer to **NullableString** | VmMetadata security type configuration | [optional] 
 **DiskSecurityType** | Pointer to **NullableString** | VmMetadata disk security type configuration | [optional] 
 **ConfidentialVmDiskEncryptionSetId** | Pointer to **NullableString** | VmMetadata confidential VM disk encryption set id configuration | [optional] 
+**EnableSecureBoot** | Pointer to **NullableBool** | VmMetadata VirtualMachine.Resources.Properties.SecurityProfile.UefiSettings.secureBootEnabled | [optional] 
+**EnableVTPM** | Pointer to **NullableBool** | VmMetadata VirtualMachine.Resources.Properties.SecurityProfile.UefiSettings.vTpmEnabled | [optional] 
+**EncryptionAtHost** | Pointer to **NullableBool** | VmMetadata VirtualMachine.Resources.Properties.SecurityProfile.EncryptionAtHost | [optional] 
 **Labels** | Pointer to **NullableString** | VmMetadata Labels | [optional] 
 **ZoneName** | Pointer to **NullableString** | VmMetadata zone name | [optional] 
+**StorageType** | Pointer to **NullableString** | VmMetadata storage type | [optional] 
+**EncryptionKeyId** | Pointer to **NullableString** | VmMetadata encryption key | [optional] 
 
 ## Methods
 
@@ -350,6 +355,111 @@ HasConfidentialVmDiskEncryptionSetId returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetConfidentialVmDiskEncryptionSetId()`
 
 UnsetConfidentialVmDiskEncryptionSetId ensures that no value is present for ConfidentialVmDiskEncryptionSetId, not even an explicit nil
+### GetEnableSecureBoot
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableSecureBoot() bool`
+
+GetEnableSecureBoot returns the EnableSecureBoot field if non-nil, zero value otherwise.
+
+### GetEnableSecureBootOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableSecureBootOk() (*bool, bool)`
+
+GetEnableSecureBootOk returns a tuple with the EnableSecureBoot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableSecureBoot
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableSecureBoot(v bool)`
+
+SetEnableSecureBoot sets EnableSecureBoot field to given value.
+
+### HasEnableSecureBoot
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasEnableSecureBoot() bool`
+
+HasEnableSecureBoot returns a boolean if a field has been set.
+
+### SetEnableSecureBootNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableSecureBootNil(b bool)`
+
+ SetEnableSecureBootNil sets the value for EnableSecureBoot to be an explicit nil
+
+### UnsetEnableSecureBoot
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEnableSecureBoot()`
+
+UnsetEnableSecureBoot ensures that no value is present for EnableSecureBoot, not even an explicit nil
+### GetEnableVTPM
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableVTPM() bool`
+
+GetEnableVTPM returns the EnableVTPM field if non-nil, zero value otherwise.
+
+### GetEnableVTPMOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableVTPMOk() (*bool, bool)`
+
+GetEnableVTPMOk returns a tuple with the EnableVTPM field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableVTPM
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableVTPM(v bool)`
+
+SetEnableVTPM sets EnableVTPM field to given value.
+
+### HasEnableVTPM
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasEnableVTPM() bool`
+
+HasEnableVTPM returns a boolean if a field has been set.
+
+### SetEnableVTPMNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableVTPMNil(b bool)`
+
+ SetEnableVTPMNil sets the value for EnableVTPM to be an explicit nil
+
+### UnsetEnableVTPM
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEnableVTPM()`
+
+UnsetEnableVTPM ensures that no value is present for EnableVTPM, not even an explicit nil
+### GetEncryptionAtHost
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionAtHost() bool`
+
+GetEncryptionAtHost returns the EncryptionAtHost field if non-nil, zero value otherwise.
+
+### GetEncryptionAtHostOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionAtHostOk() (*bool, bool)`
+
+GetEncryptionAtHostOk returns a tuple with the EncryptionAtHost field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEncryptionAtHost
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionAtHost(v bool)`
+
+SetEncryptionAtHost sets EncryptionAtHost field to given value.
+
+### HasEncryptionAtHost
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasEncryptionAtHost() bool`
+
+HasEncryptionAtHost returns a boolean if a field has been set.
+
+### SetEncryptionAtHostNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionAtHostNil(b bool)`
+
+ SetEncryptionAtHostNil sets the value for EncryptionAtHost to be an explicit nil
+
+### UnsetEncryptionAtHost
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEncryptionAtHost()`
+
+UnsetEncryptionAtHost ensures that no value is present for EncryptionAtHost, not even an explicit nil
 ### GetLabels
 
 `func (o *ProvisioningSchemeVmMetadataResponseModel) GetLabels() string`
@@ -420,6 +530,76 @@ HasZoneName returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetZoneName()`
 
 UnsetZoneName ensures that no value is present for ZoneName, not even an explicit nil
+### GetStorageType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetStorageType() string`
+
+GetStorageType returns the StorageType field if non-nil, zero value otherwise.
+
+### GetStorageTypeOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetStorageTypeOk() (*string, bool)`
+
+GetStorageTypeOk returns a tuple with the StorageType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetStorageType(v string)`
+
+SetStorageType sets StorageType field to given value.
+
+### HasStorageType
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasStorageType() bool`
+
+HasStorageType returns a boolean if a field has been set.
+
+### SetStorageTypeNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetStorageTypeNil(b bool)`
+
+ SetStorageTypeNil sets the value for StorageType to be an explicit nil
+
+### UnsetStorageType
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetStorageType()`
+
+UnsetStorageType ensures that no value is present for StorageType, not even an explicit nil
+### GetEncryptionKeyId
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionKeyId() string`
+
+GetEncryptionKeyId returns the EncryptionKeyId field if non-nil, zero value otherwise.
+
+### GetEncryptionKeyIdOk
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionKeyIdOk() (*string, bool)`
+
+GetEncryptionKeyIdOk returns a tuple with the EncryptionKeyId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEncryptionKeyId
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionKeyId(v string)`
+
+SetEncryptionKeyId sets EncryptionKeyId field to given value.
+
+### HasEncryptionKeyId
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) HasEncryptionKeyId() bool`
+
+HasEncryptionKeyId returns a boolean if a field has been set.
+
+### SetEncryptionKeyIdNil
+
+`func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionKeyIdNil(b bool)`
+
+ SetEncryptionKeyIdNil sets the value for EncryptionKeyId to be an explicit nil
+
+### UnsetEncryptionKeyId
+`func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEncryptionKeyId()`
+
+UnsetEncryptionKeyId ensures that no value is present for EncryptionKeyId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

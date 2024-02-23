@@ -86,6 +86,7 @@ Name | Type | Description | Notes
 **UpgradeState** | Pointer to [**VdaUpgradeState**](VdaUpgradeState.md) |  | [optional] 
 **MachineConfigurationOutOfSync** | Pointer to **NullableBool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
 **UpgradeDetail** | Pointer to [**MachineUpgradeDetail**](MachineUpgradeDetail.md) |  | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The meta data of this machine. | [optional] 
 **AssignedClientName** | Pointer to **NullableString** | The name of the endpoint client device that the machine has been assigned to. | [optional] 
 **AssignedIPAddress** | Pointer to **NullableString** | The IP address of the endpoint client device that the machine has been assigned to. | [optional] 
 **BrowserName** | Pointer to **NullableString** | Site-wide unique name identifying associated desktop to other components (for example StoreFront). This is typically non-null only for machines backing assigned private desktops. | [optional] 
@@ -2664,6 +2665,41 @@ SetUpgradeDetail sets UpgradeDetail field to given value.
 
 HasUpgradeDetail returns a boolean if a field has been set.
 
+### GetMetadata
+
+`func (o *MachineDetailResponseModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *MachineDetailResponseModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *MachineDetailResponseModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *MachineDetailResponseModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *MachineDetailResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *MachineDetailResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetAssignedClientName
 
 `func (o *MachineDetailResponseModel) GetAssignedClientName() string`

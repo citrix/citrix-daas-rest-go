@@ -263,6 +263,8 @@ const (
 	JOBTYPE_REPAIR_MACHINE_CATALOG_ACCOUNTS JobType = "RepairMachineCatalogAccounts"
 	JOBTYPE_IMPORT_PROVISIONED_VIRTUAL_MACHINES JobType = "ImportProvisionedVirtualMachines"
 	JOBTYPE_VALIDATE_MACHINE_CATALOG_CREATION JobType = "ValidateMachineCatalogCreation"
+	JOBTYPE_SEARCH_PROVISIONED_VIRTUAL_MACHINES JobType = "SearchProvisionedVirtualMachines"
+	JOBTYPE_GET_PROVISIONED_VIRTUAL_MACHINE_DETAILS JobType = "GetProvisionedVirtualMachineDetails"
 )
 
 // All allowed values of JobType enum
@@ -510,6 +512,8 @@ var AllowedJobTypeEnumValues = []JobType{
 	"RepairMachineCatalogAccounts",
 	"ImportProvisionedVirtualMachines",
 	"ValidateMachineCatalogCreation",
+	"SearchProvisionedVirtualMachines",
+	"GetProvisionedVirtualMachineDetails",
 }
 
 func (v *JobType) UnmarshalJSON(src []byte) error {

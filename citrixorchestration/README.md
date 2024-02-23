@@ -255,6 +255,43 @@ Class | Method | HTTP request | Description
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsStartDeliveryGroupRebootCycle**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsstartdeliverygrouprebootcycle) | **Post** /DeliveryGroups/{nameOrId}/$StartRebootCycle | Start a reboot cycle for machines in a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsTestDeliveryGroup**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupstestdeliverygroup) | **Post** /DeliveryGroups/{nameOrId}/$test | Run tests on a delivery group and create a test report.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsTestDeliveryGroupExists**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupstestdeliverygroupexists) | **Post** /DeliveryGroups/$checkName | Test the existence of a delivery group by name.
+*GpoDAAS* | [**GpoComparePolicies**](docs/GpoDAAS.md#gpocomparepolicies) | **Post** /gpo/comparePolicies | Compare policies. The policies can be from different policy sets.
+*GpoDAAS* | [**GpoCopyGpoPolicies**](docs/GpoDAAS.md#gpocopygpopolicies) | **Post** /gpo/policies/$copy | Copy some policies of a policy set to other policy sets.
+*GpoDAAS* | [**GpoCopyGpoPolicySet**](docs/GpoDAAS.md#gpocopygpopolicyset) | **Post** /gpo/policySets/{policySetGuid} | Create a new GPO policy set by copying an existing policy set. The policies and settings in each policy are copied to the new policy set. Optionally, the filters in the policies may be copied. Regardless of the type of the source policy set, the resulting policy set is always of type DeliveryGroupPolicies.
+*GpoDAAS* | [**GpoCreateGpoFilter**](docs/GpoDAAS.md#gpocreategpofilter) | **Post** /gpo/filters | Create a filter in a policy. Filters cannot be created in a policy in a policy set of type SiteTemplates or CustomTemplates.
+*GpoDAAS* | [**GpoCreateGpoPolicy**](docs/GpoDAAS.md#gpocreategpopolicy) | **Post** /gpo/policies | Create a new policy. Policies cannot be created in the policy set of type SiteTemplates.
+*GpoDAAS* | [**GpoCreateGpoPolicySet**](docs/GpoDAAS.md#gpocreategpopolicyset) | **Post** /gpo/policySets | Create a new GPO policy set. Only a policy set of type DeliveryGroupPolicies can be created.
+*GpoDAAS* | [**GpoCreateGpoSetting**](docs/GpoDAAS.md#gpocreategposetting) | **Post** /gpo/settings | Create a setting in a policy. Settings cannot be created in the policy set of type SiteTemplates.
+*GpoDAAS* | [**GpoDeleteGpoFilter**](docs/GpoDAAS.md#gpodeletegpofilter) | **Delete** /gpo/filters/{filterGuid} | Delete an existing filter.
+*GpoDAAS* | [**GpoDeleteGpoPolicy**](docs/GpoDAAS.md#gpodeletegpopolicy) | **Delete** /gpo/policies/{policyGuid} | Delete an existing GPO policy. A policy in the policy set of type SiteTemplates cannot be deleted. The Unfiltered policy in the policy set of type SitePolicies cannot be deleted.
+*GpoDAAS* | [**GpoDeleteGpoPolicySet**](docs/GpoDAAS.md#gpodeletegpopolicyset) | **Delete** /gpo/policySets/{policySetGuid} | Delete an existing GPO policy set. Only policy sets of type DeliveryGroupPolicies can be deleted. Policies in the policy set are deleted if a policy set is deleted.
+*GpoDAAS* | [**GpoDeleteGpoSetting**](docs/GpoDAAS.md#gpodeletegposetting) | **Delete** /gpo/settings/{settingGuid} | Delete a setting. Settings in the policy set of type SiteTemplates cannot be deleted.
+*GpoDAAS* | [**GpoDisableGpoPolicies**](docs/GpoDAAS.md#gpodisablegpopolicies) | **Post** /gpo/policies/$disable | Disable some policies of a policy set.
+*GpoDAAS* | [**GpoEnableGpoPolicies**](docs/GpoDAAS.md#gpoenablegpopolicies) | **Post** /gpo/policies/$enable | Enable some policies of a policy set.
+*GpoDAAS* | [**GpoGetFilterDefinitions**](docs/GpoDAAS.md#gpogetfilterdefinitions) | **Get** /gpo/filterDefinitions | Get all filter definitions.
+*GpoDAAS* | [**GpoGetSettingDefinitions**](docs/GpoDAAS.md#gpogetsettingdefinitions) | **Get** /gpo/settingDefinitions | Get setting definitions. If isLean is set to true, only basic session information is returned. EnumType, VdaVersions, VersionDetails, and Explanation are not retrieved. If limit is set to -1 or a number larger than the number of settings available, all entries are retrieved. If limit is set to a positive integer smaller than the number of settings available, the specified number of settings are retrieved.
+*GpoDAAS* | [**GpoGetSettingFullDetail**](docs/GpoDAAS.md#gpogetsettingfulldetail) | **Get** /gpo/settingFullDetail | Get full detail of a setting definition.
+*GpoDAAS* | [**GpoMoveGpoPolicies**](docs/GpoDAAS.md#gpomovegpopolicies) | **Post** /gpo/policies/$move | Move some policies of a policy set to another policy set.
+*GpoDAAS* | [**GpoRankGpoPolicies**](docs/GpoDAAS.md#gporankgpopolicies) | **Post** /gpo/policyPriorities | Specify new priority order for all existing policies in a policy set. All the policies in the policy set must be specified, even if the priorities of only some of the policies are changed.
+*GpoDAAS* | [**GpoReadGpoFilter**](docs/GpoDAAS.md#gporeadgpofilter) | **Get** /gpo/filters/{filterGuid} | Read a specific filter.
+*GpoDAAS* | [**GpoReadGpoFilters**](docs/GpoDAAS.md#gporeadgpofilters) | **Get** /gpo/filters | Read filters defined in a policy. A policy in a policy set of type SiteTemplates or CustomTemplates does not have filters.
+*GpoDAAS* | [**GpoReadGpoPolicies**](docs/GpoDAAS.md#gporeadgpopolicies) | **Get** /gpo/policies | Read all policies defined in a policy set. Policy templates don&#39;t have filters.
+*GpoDAAS* | [**GpoReadGpoPolicy**](docs/GpoDAAS.md#gporeadgpopolicy) | **Get** /gpo/policies/{policyGuid} | Read a policy. A policy template doesn&#39;t have filters.
+*GpoDAAS* | [**GpoReadGpoPolicySet**](docs/GpoDAAS.md#gporeadgpopolicyset) | **Get** /gpo/policySets/{policySetGuid} | Read a GPO policy set.
+*GpoDAAS* | [**GpoReadGpoPolicySets**](docs/GpoDAAS.md#gporeadgpopolicysets) | **Get** /gpo/policySets | Get all GPO policy sets in the site.
+*GpoDAAS* | [**GpoReadGpoSetting**](docs/GpoDAAS.md#gporeadgposetting) | **Get** /gpo/settings/{settingGuid} | Read a specific setting.
+*GpoDAAS* | [**GpoReadGpoSettings**](docs/GpoDAAS.md#gporeadgposettings) | **Get** /gpo/settings | Read settings defined in a policy.
+*GpoDAAS* | [**GpoRemoveGpoPolicies**](docs/GpoDAAS.md#gporemovegpopolicies) | **Post** /gpo/policies/$remove | Remove some policies of a policy set.
+*GpoDAAS* | [**GpoRunSimulation**](docs/GpoDAAS.md#gporunsimulation) | **Post** /gpo/simulation | Simulate policy application.
+*GpoDAAS* | [**GpoSearchFilters**](docs/GpoDAAS.md#gposearchfilters) | **Post** /gpo/filters/$search | Perform an advanced search for GPO filters.
+*GpoDAAS* | [**GpoSearchPolicies**](docs/GpoDAAS.md#gposearchpolicies) | **Post** /gpo/policies/$search | Perform an advanced search for GPO policies.
+*GpoDAAS* | [**GpoSearchPolicySets**](docs/GpoDAAS.md#gposearchpolicysets) | **Post** /gpo/policySets/$search | Perform an advanced search for GPO policy sets.
+*GpoDAAS* | [**GpoSearchSettings**](docs/GpoDAAS.md#gposearchsettings) | **Post** /gpo/settings/$search | Perform an advanced search for GPO settings.
+*GpoDAAS* | [**GpoUpdateGpoFilter**](docs/GpoDAAS.md#gpoupdategpofilter) | **Patch** /gpo/filters/{filterGuid} | Update an existing filter.
+*GpoDAAS* | [**GpoUpdateGpoPolicy**](docs/GpoDAAS.md#gpoupdategpopolicy) | **Patch** /gpo/policies/{policyGuid} | Update a policy. Only the policy body is updated.
+*GpoDAAS* | [**GpoUpdateGpoPolicySet**](docs/GpoDAAS.md#gpoupdategpopolicyset) | **Patch** /gpo/policySets/{policySetGuid} | Update an existing GPO policy set.
+*GpoDAAS* | [**GpoUpdateGpoSetting**](docs/GpoDAAS.md#gpoupdategposetting) | **Patch** /gpo/settings/{settingGuid} | Update a setting. Settings in the policy set of type SiteTemplates cannot be updated.
+*GpoDAAS* | [**GpoUpdatePolicySetBlob**](docs/GpoDAAS.md#gpoupdatepolicysetblob) | **Put** /gpo/policySets/{policySetGuid} | Force serialization of policy set. The data of a policy set is serialized into a byte stream before it is sent to VDAs. The serialization is done automatically in the background at 5 minute intervals. A change made to the data in a policy set may not be in the serialized data for up to 5 minutes. This call tells the background thread to serialize the data immediately. No serialization is done if there have been no changes to the policy set data since the last time the data was serialized.
 *HealthCheckAPIsDAAS* | [**HealthCheckHealthCheck**](docs/HealthCheckAPIsDAAS.md#healthcheckhealthcheck) | **Get** /HealthCheck | The health check endpoint.
 *HypervisorsAPIsDAAS* | [**HypervisorsCheckHypervisorExists**](docs/HypervisorsAPIsDAAS.md#hypervisorscheckhypervisorexists) | **Head** /hypervisors/{name} | Check for the existence of a hypervisor by name.
 *HypervisorsAPIsDAAS* | [**HypervisorsCheckHypervisorResourcePoolExists**](docs/HypervisorsAPIsDAAS.md#hypervisorscheckhypervisorresourcepoolexists) | **Head** /hypervisors/{nameOrId}/resourcePools/{name} | Check for the existence of a resource pool by name.
@@ -697,6 +734,7 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfPowerTimeSchemeResponseModel](docs/CollectionModelOfPowerTimeSchemeResponseModel.md)
  - [CollectionModelOfPredefinedPermissionGroupResponseModel](docs/CollectionModelOfPredefinedPermissionGroupResponseModel.md)
  - [CollectionModelOfPredefinedPermissionResponseModel](docs/CollectionModelOfPredefinedPermissionResponseModel.md)
+ - [CollectionModelOfProvisionedVirtualMachineSearchResponseModel](docs/CollectionModelOfProvisionedVirtualMachineSearchResponseModel.md)
  - [CollectionModelOfProvisioningSchemeMachineAccountResponseModel](docs/CollectionModelOfProvisioningSchemeMachineAccountResponseModel.md)
  - [CollectionModelOfProvisioningSchemeResponseModel](docs/CollectionModelOfProvisioningSchemeResponseModel.md)
  - [CollectionModelOfPvsCollectionResponseModel](docs/CollectionModelOfPvsCollectionResponseModel.md)
@@ -1147,6 +1185,19 @@ Class | Method | HTTP request | Description
  - [ProjectedMachinesTimeSlotResponseModel](docs/ProjectedMachinesTimeSlotResponseModel.md)
  - [ProtocolType](docs/ProtocolType.md)
  - [ProvSchemeWarningType](docs/ProvSchemeWarningType.md)
+ - [ProvisionedVirtualMachineCustomVmDataResponseModel](docs/ProvisionedVirtualMachineCustomVmDataResponseModel.md)
+ - [ProvisionedVirtualMachineDetailsResponseModel](docs/ProvisionedVirtualMachineDetailsResponseModel.md)
+ - [ProvisionedVirtualMachineDetailsWarningReponseModel](docs/ProvisionedVirtualMachineDetailsWarningReponseModel.md)
+ - [ProvisionedVirtualMachineDetailsWarningType](docs/ProvisionedVirtualMachineDetailsWarningType.md)
+ - [ProvisionedVirtualMachineSearchFilterGroupRequestModel](docs/ProvisionedVirtualMachineSearchFilterGroupRequestModel.md)
+ - [ProvisionedVirtualMachineSearchFilterGroupType](docs/ProvisionedVirtualMachineSearchFilterGroupType.md)
+ - [ProvisionedVirtualMachineSearchFilterGroupsType](docs/ProvisionedVirtualMachineSearchFilterGroupsType.md)
+ - [ProvisionedVirtualMachineSearchFilterRequestModel](docs/ProvisionedVirtualMachineSearchFilterRequestModel.md)
+ - [ProvisionedVirtualMachineSearchProperty](docs/ProvisionedVirtualMachineSearchProperty.md)
+ - [ProvisionedVirtualMachineSearchRequestModel](docs/ProvisionedVirtualMachineSearchRequestModel.md)
+ - [ProvisionedVirtualMachineSearchResponseModel](docs/ProvisionedVirtualMachineSearchResponseModel.md)
+ - [ProvisionedVirtualMachineSearchResponseModelCollection](docs/ProvisionedVirtualMachineSearchResponseModelCollection.md)
+ - [ProvisionedVirtualMachineSortCriteriaRequestModel](docs/ProvisionedVirtualMachineSortCriteriaRequestModel.md)
  - [ProvisioningProgressResponseModel](docs/ProvisioningProgressResponseModel.md)
  - [ProvisioningSchemeMachineAccountResponseModel](docs/ProvisioningSchemeMachineAccountResponseModel.md)
  - [ProvisioningSchemeMachineAccountResponseModelCollection](docs/ProvisioningSchemeMachineAccountResponseModelCollection.md)

@@ -87,7 +87,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *MachineCatalogResponseModel) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *MachineCatalogResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MachineCatalogResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFullName
 
 `func (o *MachineCatalogResponseModel) GetFullName() string`
@@ -142,7 +157,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *MachineCatalogResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *MachineCatalogResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *MachineCatalogResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *MachineCatalogResponseModel) GetUid() int32`
@@ -187,6 +217,11 @@ and a boolean to check if the value has been set.
 
 SetAllocationType sets AllocationType field to given value.
 
+### HasAllocationType
+
+`func (o *MachineCatalogResponseModel) HasAllocationType() bool`
+
+HasAllocationType returns a boolean if a field has been set.
 
 ### GetAssignedCount
 
@@ -277,6 +312,11 @@ and a boolean to check if the value has been set.
 
 SetAvailableCount sets AvailableCount field to given value.
 
+### HasAvailableCount
+
+`func (o *MachineCatalogResponseModel) HasAvailableCount() bool`
+
+HasAvailableCount returns a boolean if a field has been set.
 
 ### GetAvailableUnassignedCount
 
@@ -392,6 +432,11 @@ and a boolean to check if the value has been set.
 
 SetIsRemotePC sets IsRemotePC field to given value.
 
+### HasIsRemotePC
+
+`func (o *MachineCatalogResponseModel) HasIsRemotePC() bool`
+
+HasIsRemotePC returns a boolean if a field has been set.
 
 ### GetJobsInProgress
 
@@ -447,6 +492,11 @@ and a boolean to check if the value has been set.
 
 SetMachineType sets MachineType field to given value.
 
+### HasMachineType
+
+`func (o *MachineCatalogResponseModel) HasMachineType() bool`
+
+HasMachineType returns a boolean if a field has been set.
 
 ### GetMetadata
 
@@ -502,6 +552,11 @@ and a boolean to check if the value has been set.
 
 SetMinimumFunctionalLevel sets MinimumFunctionalLevel field to given value.
 
+### HasMinimumFunctionalLevel
+
+`func (o *MachineCatalogResponseModel) HasMinimumFunctionalLevel() bool`
+
+HasMinimumFunctionalLevel returns a boolean if a field has been set.
 
 ### GetHasBeenPromoted
 
@@ -522,6 +577,11 @@ and a boolean to check if the value has been set.
 
 SetHasBeenPromoted sets HasBeenPromoted field to given value.
 
+### HasHasBeenPromoted
+
+`func (o *MachineCatalogResponseModel) HasHasBeenPromoted() bool`
+
+HasHasBeenPromoted returns a boolean if a field has been set.
 
 ### GetHasBeenPromotedFrom
 
@@ -567,6 +627,11 @@ and a boolean to check if the value has been set.
 
 SetCanRollbackVMImage sets CanRollbackVMImage field to given value.
 
+### HasCanRollbackVMImage
+
+`func (o *MachineCatalogResponseModel) HasCanRollbackVMImage() bool`
+
+HasCanRollbackVMImage returns a boolean if a field has been set.
 
 ### GetCanRecreateCatalog
 
@@ -587,6 +652,11 @@ and a boolean to check if the value has been set.
 
 SetCanRecreateCatalog sets CanRecreateCatalog field to given value.
 
+### HasCanRecreateCatalog
+
+`func (o *MachineCatalogResponseModel) HasCanRecreateCatalog() bool`
+
+HasCanRecreateCatalog returns a boolean if a field has been set.
 
 ### GetPersistChanges
 
@@ -607,6 +677,11 @@ and a boolean to check if the value has been set.
 
 SetPersistChanges sets PersistChanges field to given value.
 
+### HasPersistChanges
+
+`func (o *MachineCatalogResponseModel) HasPersistChanges() bool`
+
+HasPersistChanges returns a boolean if a field has been set.
 
 ### GetProvisioningScheme
 
@@ -652,6 +727,11 @@ and a boolean to check if the value has been set.
 
 SetProvisioningType sets ProvisioningType field to given value.
 
+### HasProvisioningType
+
+`func (o *MachineCatalogResponseModel) HasProvisioningType() bool`
+
+HasProvisioningType returns a boolean if a field has been set.
 
 ### GetProvisioningProgress
 
@@ -872,6 +952,11 @@ and a boolean to check if the value has been set.
 
 SetSessionSupport sets SessionSupport field to given value.
 
+### HasSessionSupport
+
+`func (o *MachineCatalogResponseModel) HasSessionSupport() bool`
+
+HasSessionSupport returns a boolean if a field has been set.
 
 ### GetSharingKind
 
@@ -892,6 +977,11 @@ and a boolean to check if the value has been set.
 
 SetSharingKind sets SharingKind field to given value.
 
+### HasSharingKind
+
+`func (o *MachineCatalogResponseModel) HasSharingKind() bool`
+
+HasSharingKind returns a boolean if a field has been set.
 
 ### GetTotalCount
 
@@ -912,6 +1002,11 @@ and a boolean to check if the value has been set.
 
 SetTotalCount sets TotalCount field to given value.
 
+### HasTotalCount
+
+`func (o *MachineCatalogResponseModel) HasTotalCount() bool`
+
+HasTotalCount returns a boolean if a field has been set.
 
 ### GetIsBroken
 
@@ -932,6 +1027,11 @@ and a boolean to check if the value has been set.
 
 SetIsBroken sets IsBroken field to given value.
 
+### HasIsBroken
+
+`func (o *MachineCatalogResponseModel) HasIsBroken() bool`
+
+HasIsBroken returns a boolean if a field has been set.
 
 ### GetIsMasterImageAssociated
 
@@ -1082,6 +1182,11 @@ and a boolean to check if the value has been set.
 
 SetUnassignedCount sets UnassignedCount field to given value.
 
+### HasUnassignedCount
+
+`func (o *MachineCatalogResponseModel) HasUnassignedCount() bool`
+
+HasUnassignedCount returns a boolean if a field has been set.
 
 ### GetUsedCount
 
@@ -1102,6 +1207,11 @@ and a boolean to check if the value has been set.
 
 SetUsedCount sets UsedCount field to given value.
 
+### HasUsedCount
+
+`func (o *MachineCatalogResponseModel) HasUsedCount() bool`
+
+HasUsedCount returns a boolean if a field has been set.
 
 ### GetAvailableCountOfSuspend
 
@@ -1217,6 +1327,11 @@ and a boolean to check if the value has been set.
 
 SetZone sets Zone field to given value.
 
+### HasZone
+
+`func (o *MachineCatalogResponseModel) HasZone() bool`
+
+HasZone returns a boolean if a field has been set.
 
 ### GetAdminFolder
 
