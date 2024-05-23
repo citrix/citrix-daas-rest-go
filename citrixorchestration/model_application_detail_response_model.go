@@ -20,39 +20,39 @@ var _ MappedNullable = &ApplicationDetailResponseModel{}
 // ApplicationDetailResponseModel struct for ApplicationDetailResponseModel
 type ApplicationDetailResponseModel struct {
 	// Id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
-	Id NullableString `json:"Id,omitempty"`
+	Id string `json:"Id"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED. Use Id.
 	// Deprecated
 	Uid NullableInt32 `json:"Uid,omitempty"`
-	ApplicationFolder *RefResponseModel `json:"ApplicationFolder,omitempty"`
-	ApplicationType *ApplicationType `json:"ApplicationType,omitempty"`
-	PackagedApplicationType *PackagedApplicationType `json:"PackagedApplicationType,omitempty"`
+	ApplicationFolder RefResponseModel `json:"ApplicationFolder"`
+	ApplicationType ApplicationType `json:"ApplicationType"`
+	PackagedApplicationType PackagedApplicationType `json:"PackagedApplicationType"`
 	// The folder that the application belongs to as the user sees it.
 	ClientFolder NullableString `json:"ClientFolder,omitempty"`
 	// Delegated admin scopes in which the containers of the application reside.
-	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
+	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes"`
 	// The description of the application.
 	Description NullableString `json:"Description,omitempty"`
 	// Indicates whether or not this application is enumerable
 	DoNotEnumerate *bool `json:"DoNotEnumerate,omitempty"`
 	// Indicates whether or not this application can be launched.
-	Enabled *bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 	// Id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid
-	IconId NullableString `json:"IconId,omitempty"`
+	IconId string `json:"IconId"`
 	InstalledAppProperties *InstalledAppResponseModel `json:"InstalledAppProperties,omitempty"`
 	PackagedAppProperties *AppVAppResponseModel `json:"PackagedAppProperties,omitempty"`
 	AppVAppProperties *AppVAppResponseModel `json:"AppVAppProperties,omitempty"`
 	// Location of published content.
 	ContentLocation NullableString `json:"ContentLocation,omitempty"`
 	// Name of the application.  Only seen by administrators.
-	Name NullableString `json:"Name,omitempty"`
+	Name string `json:"Name"`
 	// The name seen by end users who have access to the application.
-	PublishedName NullableString `json:"PublishedName,omitempty"`
+	PublishedName string `json:"PublishedName"`
 	// The metadata of application.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Indicates whether or not this application is visible to users.
-	Visible *bool `json:"Visible,omitempty"`
-	SharingKind *SharingKind `json:"SharingKind,omitempty"`
+	Visible bool `json:"Visible"`
+	SharingKind SharingKind `json:"SharingKind"`
 	// Tags associated with this application.
 	Tags []string `json:"Tags,omitempty"`
 	// The tenant(s) that the application is assigned to.  If `null`, the application is not assigned to any tenants, and may be used by any tenant.
@@ -102,8 +102,19 @@ type ApplicationDetailResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationDetailResponseModel(browserName string, cpuPriorityLevel CpuPriorityLevel, homeZone RefResponseModel, homeZoneMode HomeZoneMode, includedUserFilterEnabled bool) *ApplicationDetailResponseModel {
+func NewApplicationDetailResponseModel(id string, applicationFolder RefResponseModel, applicationType ApplicationType, packagedApplicationType PackagedApplicationType, containerScopes []ContainerScopeResponseModel, enabled bool, iconId string, name string, publishedName string, visible bool, sharingKind SharingKind, browserName string, cpuPriorityLevel CpuPriorityLevel, homeZone RefResponseModel, homeZoneMode HomeZoneMode, includedUserFilterEnabled bool) *ApplicationDetailResponseModel {
 	this := ApplicationDetailResponseModel{}
+	this.Id = id
+	this.ApplicationFolder = applicationFolder
+	this.ApplicationType = applicationType
+	this.PackagedApplicationType = packagedApplicationType
+	this.ContainerScopes = containerScopes
+	this.Enabled = enabled
+	this.IconId = iconId
+	this.Name = name
+	this.PublishedName = publishedName
+	this.Visible = visible
+	this.SharingKind = sharingKind
 	this.BrowserName = browserName
 	this.CpuPriorityLevel = cpuPriorityLevel
 	this.HomeZone = homeZone
@@ -120,46 +131,28 @@ func NewApplicationDetailResponseModelWithDefaults() *ApplicationDetailResponseM
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetId returns the Id field value
 func (o *ApplicationDetailResponseModel) GetId() string {
-	if o == nil || IsNil(o.Id.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id.Get()
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationDetailResponseModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Id.Get(), o.Id.IsSet()
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasId() bool {
-	if o != nil && o.Id.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given NullableString and assigns it to the Id field.
+// SetId sets field value
 func (o *ApplicationDetailResponseModel) SetId(v string) {
-	o.Id.Set(&v)
-}
-// SetIdNil sets the value for Id to be an explicit nil
-func (o *ApplicationDetailResponseModel) SetIdNil() {
-	o.Id.Set(nil)
-}
-
-// UnsetId ensures that no value is present for Id, not even an explicit nil
-func (o *ApplicationDetailResponseModel) UnsetId() {
-	o.Id.Unset()
+	o.Id = v
 }
 
 // GetUid returns the Uid field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -207,100 +200,76 @@ func (o *ApplicationDetailResponseModel) UnsetUid() {
 	o.Uid.Unset()
 }
 
-// GetApplicationFolder returns the ApplicationFolder field value if set, zero value otherwise.
+// GetApplicationFolder returns the ApplicationFolder field value
 func (o *ApplicationDetailResponseModel) GetApplicationFolder() RefResponseModel {
-	if o == nil || IsNil(o.ApplicationFolder) {
+	if o == nil {
 		var ret RefResponseModel
 		return ret
 	}
-	return *o.ApplicationFolder
+
+	return o.ApplicationFolder
 }
 
-// GetApplicationFolderOk returns a tuple with the ApplicationFolder field value if set, nil otherwise
+// GetApplicationFolderOk returns a tuple with the ApplicationFolder field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationDetailResponseModel) GetApplicationFolderOk() (*RefResponseModel, bool) {
-	if o == nil || IsNil(o.ApplicationFolder) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ApplicationFolder, true
+	return &o.ApplicationFolder, true
 }
 
-// HasApplicationFolder returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasApplicationFolder() bool {
-	if o != nil && !IsNil(o.ApplicationFolder) {
-		return true
-	}
-
-	return false
-}
-
-// SetApplicationFolder gets a reference to the given RefResponseModel and assigns it to the ApplicationFolder field.
+// SetApplicationFolder sets field value
 func (o *ApplicationDetailResponseModel) SetApplicationFolder(v RefResponseModel) {
-	o.ApplicationFolder = &v
+	o.ApplicationFolder = v
 }
 
-// GetApplicationType returns the ApplicationType field value if set, zero value otherwise.
+// GetApplicationType returns the ApplicationType field value
 func (o *ApplicationDetailResponseModel) GetApplicationType() ApplicationType {
-	if o == nil || IsNil(o.ApplicationType) {
+	if o == nil {
 		var ret ApplicationType
 		return ret
 	}
-	return *o.ApplicationType
+
+	return o.ApplicationType
 }
 
-// GetApplicationTypeOk returns a tuple with the ApplicationType field value if set, nil otherwise
+// GetApplicationTypeOk returns a tuple with the ApplicationType field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationDetailResponseModel) GetApplicationTypeOk() (*ApplicationType, bool) {
-	if o == nil || IsNil(o.ApplicationType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ApplicationType, true
+	return &o.ApplicationType, true
 }
 
-// HasApplicationType returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasApplicationType() bool {
-	if o != nil && !IsNil(o.ApplicationType) {
-		return true
-	}
-
-	return false
-}
-
-// SetApplicationType gets a reference to the given ApplicationType and assigns it to the ApplicationType field.
+// SetApplicationType sets field value
 func (o *ApplicationDetailResponseModel) SetApplicationType(v ApplicationType) {
-	o.ApplicationType = &v
+	o.ApplicationType = v
 }
 
-// GetPackagedApplicationType returns the PackagedApplicationType field value if set, zero value otherwise.
+// GetPackagedApplicationType returns the PackagedApplicationType field value
 func (o *ApplicationDetailResponseModel) GetPackagedApplicationType() PackagedApplicationType {
-	if o == nil || IsNil(o.PackagedApplicationType) {
+	if o == nil {
 		var ret PackagedApplicationType
 		return ret
 	}
-	return *o.PackagedApplicationType
+
+	return o.PackagedApplicationType
 }
 
-// GetPackagedApplicationTypeOk returns a tuple with the PackagedApplicationType field value if set, nil otherwise
+// GetPackagedApplicationTypeOk returns a tuple with the PackagedApplicationType field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationDetailResponseModel) GetPackagedApplicationTypeOk() (*PackagedApplicationType, bool) {
-	if o == nil || IsNil(o.PackagedApplicationType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PackagedApplicationType, true
+	return &o.PackagedApplicationType, true
 }
 
-// HasPackagedApplicationType returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasPackagedApplicationType() bool {
-	if o != nil && !IsNil(o.PackagedApplicationType) {
-		return true
-	}
-
-	return false
-}
-
-// SetPackagedApplicationType gets a reference to the given PackagedApplicationType and assigns it to the PackagedApplicationType field.
+// SetPackagedApplicationType sets field value
 func (o *ApplicationDetailResponseModel) SetPackagedApplicationType(v PackagedApplicationType) {
-	o.PackagedApplicationType = &v
+	o.PackagedApplicationType = v
 }
 
 // GetClientFolder returns the ClientFolder field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -345,35 +314,26 @@ func (o *ApplicationDetailResponseModel) UnsetClientFolder() {
 	o.ClientFolder.Unset()
 }
 
-// GetContainerScopes returns the ContainerScopes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContainerScopes returns the ContainerScopes field value
 func (o *ApplicationDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel {
 	if o == nil {
 		var ret []ContainerScopeResponseModel
 		return ret
 	}
+
 	return o.ContainerScopes
 }
 
-// GetContainerScopesOk returns a tuple with the ContainerScopes field value if set, nil otherwise
+// GetContainerScopesOk returns a tuple with the ContainerScopes field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationDetailResponseModel) GetContainerScopesOk() ([]ContainerScopeResponseModel, bool) {
-	if o == nil || IsNil(o.ContainerScopes) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ContainerScopes, true
 }
 
-// HasContainerScopes returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
-		return true
-	}
-
-	return false
-}
-
-// SetContainerScopes gets a reference to the given []ContainerScopeResponseModel and assigns it to the ContainerScopes field.
+// SetContainerScopes sets field value
 func (o *ApplicationDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel) {
 	o.ContainerScopes = v
 }
@@ -452,78 +412,52 @@ func (o *ApplicationDetailResponseModel) SetDoNotEnumerate(v bool) {
 	o.DoNotEnumerate = &v
 }
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise.
+// GetEnabled returns the Enabled field value
 func (o *ApplicationDetailResponseModel) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled
+
+	return o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationDetailResponseModel) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled, true
+	return &o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasEnabled() bool {
-	if o != nil && !IsNil(o.Enabled) {
-		return true
-	}
-
-	return false
-}
-
-// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+// SetEnabled sets field value
 func (o *ApplicationDetailResponseModel) SetEnabled(v bool) {
-	o.Enabled = &v
+	o.Enabled = v
 }
 
-// GetIconId returns the IconId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIconId returns the IconId field value
 func (o *ApplicationDetailResponseModel) GetIconId() string {
-	if o == nil || IsNil(o.IconId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.IconId.Get()
+
+	return o.IconId
 }
 
-// GetIconIdOk returns a tuple with the IconId field value if set, nil otherwise
+// GetIconIdOk returns a tuple with the IconId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationDetailResponseModel) GetIconIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.IconId.Get(), o.IconId.IsSet()
+	return &o.IconId, true
 }
 
-// HasIconId returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasIconId() bool {
-	if o != nil && o.IconId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIconId gets a reference to the given NullableString and assigns it to the IconId field.
+// SetIconId sets field value
 func (o *ApplicationDetailResponseModel) SetIconId(v string) {
-	o.IconId.Set(&v)
-}
-// SetIconIdNil sets the value for IconId to be an explicit nil
-func (o *ApplicationDetailResponseModel) SetIconIdNil() {
-	o.IconId.Set(nil)
-}
-
-// UnsetIconId ensures that no value is present for IconId, not even an explicit nil
-func (o *ApplicationDetailResponseModel) UnsetIconId() {
-	o.IconId.Unset()
+	o.IconId = v
 }
 
 // GetInstalledAppProperties returns the InstalledAppProperties field value if set, zero value otherwise.
@@ -664,88 +598,52 @@ func (o *ApplicationDetailResponseModel) UnsetContentLocation() {
 	o.ContentLocation.Unset()
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetName returns the Name field value
 func (o *ApplicationDetailResponseModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Name.Get()
+
+	return o.Name
 }
 
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationDetailResponseModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Name.Get(), o.Name.IsSet()
+	return &o.Name, true
 }
 
-// HasName returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
+// SetName sets field value
 func (o *ApplicationDetailResponseModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ApplicationDetailResponseModel) SetNameNil() {
-	o.Name.Set(nil)
+	o.Name = v
 }
 
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ApplicationDetailResponseModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetPublishedName returns the PublishedName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetPublishedName returns the PublishedName field value
 func (o *ApplicationDetailResponseModel) GetPublishedName() string {
-	if o == nil || IsNil(o.PublishedName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.PublishedName.Get()
+
+	return o.PublishedName
 }
 
-// GetPublishedNameOk returns a tuple with the PublishedName field value if set, nil otherwise
+// GetPublishedNameOk returns a tuple with the PublishedName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationDetailResponseModel) GetPublishedNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.PublishedName.Get(), o.PublishedName.IsSet()
+	return &o.PublishedName, true
 }
 
-// HasPublishedName returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasPublishedName() bool {
-	if o != nil && o.PublishedName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPublishedName gets a reference to the given NullableString and assigns it to the PublishedName field.
+// SetPublishedName sets field value
 func (o *ApplicationDetailResponseModel) SetPublishedName(v string) {
-	o.PublishedName.Set(&v)
-}
-// SetPublishedNameNil sets the value for PublishedName to be an explicit nil
-func (o *ApplicationDetailResponseModel) SetPublishedNameNil() {
-	o.PublishedName.Set(nil)
-}
-
-// UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
-func (o *ApplicationDetailResponseModel) UnsetPublishedName() {
-	o.PublishedName.Unset()
+	o.PublishedName = v
 }
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -781,68 +679,52 @@ func (o *ApplicationDetailResponseModel) SetMetadata(v []NameValueStringPairMode
 	o.Metadata = v
 }
 
-// GetVisible returns the Visible field value if set, zero value otherwise.
+// GetVisible returns the Visible field value
 func (o *ApplicationDetailResponseModel) GetVisible() bool {
-	if o == nil || IsNil(o.Visible) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Visible
+
+	return o.Visible
 }
 
-// GetVisibleOk returns a tuple with the Visible field value if set, nil otherwise
+// GetVisibleOk returns a tuple with the Visible field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationDetailResponseModel) GetVisibleOk() (*bool, bool) {
-	if o == nil || IsNil(o.Visible) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Visible, true
+	return &o.Visible, true
 }
 
-// HasVisible returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasVisible() bool {
-	if o != nil && !IsNil(o.Visible) {
-		return true
-	}
-
-	return false
-}
-
-// SetVisible gets a reference to the given bool and assigns it to the Visible field.
+// SetVisible sets field value
 func (o *ApplicationDetailResponseModel) SetVisible(v bool) {
-	o.Visible = &v
+	o.Visible = v
 }
 
-// GetSharingKind returns the SharingKind field value if set, zero value otherwise.
+// GetSharingKind returns the SharingKind field value
 func (o *ApplicationDetailResponseModel) GetSharingKind() SharingKind {
-	if o == nil || IsNil(o.SharingKind) {
+	if o == nil {
 		var ret SharingKind
 		return ret
 	}
-	return *o.SharingKind
+
+	return o.SharingKind
 }
 
-// GetSharingKindOk returns a tuple with the SharingKind field value if set, nil otherwise
+// GetSharingKindOk returns a tuple with the SharingKind field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationDetailResponseModel) GetSharingKindOk() (*SharingKind, bool) {
-	if o == nil || IsNil(o.SharingKind) {
+	if o == nil {
 		return nil, false
 	}
-	return o.SharingKind, true
+	return &o.SharingKind, true
 }
 
-// HasSharingKind returns a boolean if a field has been set.
-func (o *ApplicationDetailResponseModel) HasSharingKind() bool {
-	if o != nil && !IsNil(o.SharingKind) {
-		return true
-	}
-
-	return false
-}
-
-// SetSharingKind gets a reference to the given SharingKind and assigns it to the SharingKind field.
+// SetSharingKind sets field value
 func (o *ApplicationDetailResponseModel) SetSharingKind(v SharingKind) {
-	o.SharingKind = &v
+	o.SharingKind = v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1638,39 +1520,25 @@ func (o ApplicationDetailResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id.IsSet() {
-		toSerialize["Id"] = o.Id.Get()
-	}
+	toSerialize["Id"] = o.Id
 	if o.Uid.IsSet() {
 		toSerialize["Uid"] = o.Uid.Get()
 	}
-	if !IsNil(o.ApplicationFolder) {
-		toSerialize["ApplicationFolder"] = o.ApplicationFolder
-	}
-	if !IsNil(o.ApplicationType) {
-		toSerialize["ApplicationType"] = o.ApplicationType
-	}
-	if !IsNil(o.PackagedApplicationType) {
-		toSerialize["PackagedApplicationType"] = o.PackagedApplicationType
-	}
+	toSerialize["ApplicationFolder"] = o.ApplicationFolder
+	toSerialize["ApplicationType"] = o.ApplicationType
+	toSerialize["PackagedApplicationType"] = o.PackagedApplicationType
 	if o.ClientFolder.IsSet() {
 		toSerialize["ClientFolder"] = o.ClientFolder.Get()
 	}
-	if o.ContainerScopes != nil {
-		toSerialize["ContainerScopes"] = o.ContainerScopes
-	}
+	toSerialize["ContainerScopes"] = o.ContainerScopes
 	if o.Description.IsSet() {
 		toSerialize["Description"] = o.Description.Get()
 	}
 	if !IsNil(o.DoNotEnumerate) {
 		toSerialize["DoNotEnumerate"] = o.DoNotEnumerate
 	}
-	if !IsNil(o.Enabled) {
-		toSerialize["Enabled"] = o.Enabled
-	}
-	if o.IconId.IsSet() {
-		toSerialize["IconId"] = o.IconId.Get()
-	}
+	toSerialize["Enabled"] = o.Enabled
+	toSerialize["IconId"] = o.IconId
 	if !IsNil(o.InstalledAppProperties) {
 		toSerialize["InstalledAppProperties"] = o.InstalledAppProperties
 	}
@@ -1683,21 +1551,13 @@ func (o ApplicationDetailResponseModel) ToMap() (map[string]interface{}, error) 
 	if o.ContentLocation.IsSet() {
 		toSerialize["ContentLocation"] = o.ContentLocation.Get()
 	}
-	if o.Name.IsSet() {
-		toSerialize["Name"] = o.Name.Get()
-	}
-	if o.PublishedName.IsSet() {
-		toSerialize["PublishedName"] = o.PublishedName.Get()
-	}
+	toSerialize["Name"] = o.Name
+	toSerialize["PublishedName"] = o.PublishedName
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
 	}
-	if !IsNil(o.Visible) {
-		toSerialize["Visible"] = o.Visible
-	}
-	if !IsNil(o.SharingKind) {
-		toSerialize["SharingKind"] = o.SharingKind
-	}
+	toSerialize["Visible"] = o.Visible
+	toSerialize["SharingKind"] = o.SharingKind
 	if o.Tags != nil {
 		toSerialize["Tags"] = o.Tags
 	}

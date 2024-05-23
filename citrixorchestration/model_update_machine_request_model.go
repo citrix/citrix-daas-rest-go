@@ -33,8 +33,6 @@ type UpdateMachineRequestModel struct {
 	InMaintenanceMode NullableBool `json:"InMaintenanceMode,omitempty"`
 	// Customized name of the machine that is displayed in StoreFront, if the machine has been published. It can be set only for private desktops. If `null`, will not be changed. If empty string (`\"\"`), the machine will be unassigned from any published name.
 	PublishedName NullableString `json:"PublishedName,omitempty"`
-	// The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated.
-	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
 // NewUpdateMachineRequestModel instantiates a new UpdateMachineRequestModel object
@@ -339,39 +337,6 @@ func (o *UpdateMachineRequestModel) UnsetPublishedName() {
 	o.PublishedName.Unset()
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpdateMachineRequestModel) GetMetadata() []NameValueStringPairModel {
-	if o == nil {
-		var ret []NameValueStringPairModel
-		return ret
-	}
-	return o.Metadata
-}
-
-// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpdateMachineRequestModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
-	if o == nil || IsNil(o.Metadata) {
-		return nil, false
-	}
-	return o.Metadata, true
-}
-
-// HasMetadata returns a boolean if a field has been set.
-func (o *UpdateMachineRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
-		return true
-	}
-
-	return false
-}
-
-// SetMetadata gets a reference to the given []NameValueStringPairModel and assigns it to the Metadata field.
-func (o *UpdateMachineRequestModel) SetMetadata(v []NameValueStringPairModel) {
-	o.Metadata = v
-}
-
 func (o UpdateMachineRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -402,9 +367,6 @@ func (o UpdateMachineRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.PublishedName.IsSet() {
 		toSerialize["PublishedName"] = o.PublishedName.Get()
-	}
-	if o.Metadata != nil {
-		toSerialize["Metadata"] = o.Metadata
 	}
 	return toSerialize, nil
 }

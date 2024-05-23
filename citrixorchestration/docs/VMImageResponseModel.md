@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
 **Image** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
-**ImageVersion** | Pointer to [**ImageVersionRefResponseModel**](ImageVersionRefResponseModel.md) |  | [optional] 
 **ImageStatus** | [**VMImageStatus**](VMImageStatus.md) |  | 
 **Date** | **string** | The date and time when the snapshot was used in the provisioning scheme. | 
 **MasterImageNote** | Pointer to **NullableString** | The note of the provisioning scheme image. | [optional] 
@@ -79,31 +78,6 @@ SetImage sets Image field to given value.
 `func (o *VMImageResponseModel) HasImage() bool`
 
 HasImage returns a boolean if a field has been set.
-
-### GetImageVersion
-
-`func (o *VMImageResponseModel) GetImageVersion() ImageVersionRefResponseModel`
-
-GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
-
-### GetImageVersionOk
-
-`func (o *VMImageResponseModel) GetImageVersionOk() (*ImageVersionRefResponseModel, bool)`
-
-GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetImageVersion
-
-`func (o *VMImageResponseModel) SetImageVersion(v ImageVersionRefResponseModel)`
-
-SetImageVersion sets ImageVersion field to given value.
-
-### HasImageVersion
-
-`func (o *VMImageResponseModel) HasImageVersion() bool`
-
-HasImageVersion returns a boolean if a field has been set.
 
 ### GetImageStatus
 

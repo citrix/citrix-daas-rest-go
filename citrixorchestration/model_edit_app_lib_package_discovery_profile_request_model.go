@@ -42,8 +42,6 @@ type EditAppLibPackageDiscoveryProfileRequestModel struct {
 	DiscoverMsix NullableBool `json:"DiscoverMsix,omitempty"`
 	// A value indicating whether or not to search should discover AppAttach Packages.
 	DiscoverAppAttach NullableBool `json:"DiscoverAppAttach,omitempty"`
-	// A value indicating whether or not to search should discover FlexApp Packages.
-	DiscoverFlexApp NullableBool `json:"DiscoverFlexApp,omitempty"`
 	// A value indicating whether or not the discovery should run automatically.
 	AutomateDiscovery NullableBool `json:"AutomateDiscovery,omitempty"`
 	AutoDiscoveryPeriod *AutoDiscoveryPeriod `json:"AutoDiscoveryPeriod,omitempty"`
@@ -562,48 +560,6 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverAppAttach()
 	o.DiscoverAppAttach.Unset()
 }
 
-// GetDiscoverFlexApp returns the DiscoverFlexApp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *EditAppLibPackageDiscoveryProfileRequestModel) GetDiscoverFlexApp() bool {
-	if o == nil || IsNil(o.DiscoverFlexApp.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.DiscoverFlexApp.Get()
-}
-
-// GetDiscoverFlexAppOk returns a tuple with the DiscoverFlexApp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EditAppLibPackageDiscoveryProfileRequestModel) GetDiscoverFlexAppOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.DiscoverFlexApp.Get(), o.DiscoverFlexApp.IsSet()
-}
-
-// HasDiscoverFlexApp returns a boolean if a field has been set.
-func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDiscoverFlexApp() bool {
-	if o != nil && o.DiscoverFlexApp.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDiscoverFlexApp gets a reference to the given NullableBool and assigns it to the DiscoverFlexApp field.
-func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexApp(v bool) {
-	o.DiscoverFlexApp.Set(&v)
-}
-// SetDiscoverFlexAppNil sets the value for DiscoverFlexApp to be an explicit nil
-func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexAppNil() {
-	o.DiscoverFlexApp.Set(nil)
-}
-
-// UnsetDiscoverFlexApp ensures that no value is present for DiscoverFlexApp, not even an explicit nil
-func (o *EditAppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverFlexApp() {
-	o.DiscoverFlexApp.Unset()
-}
-
 // GetAutomateDiscovery returns the AutomateDiscovery field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) GetAutomateDiscovery() bool {
 	if o == nil || IsNil(o.AutomateDiscovery.Get()) {
@@ -765,9 +721,6 @@ func (o EditAppLibPackageDiscoveryProfileRequestModel) ToMap() (map[string]inter
 	}
 	if o.DiscoverAppAttach.IsSet() {
 		toSerialize["DiscoverAppAttach"] = o.DiscoverAppAttach.Get()
-	}
-	if o.DiscoverFlexApp.IsSet() {
-		toSerialize["DiscoverFlexApp"] = o.DiscoverFlexApp.Get()
 	}
 	if o.AutomateDiscovery.IsSet() {
 		toSerialize["AutomateDiscovery"] = o.AutomateDiscovery.Get()

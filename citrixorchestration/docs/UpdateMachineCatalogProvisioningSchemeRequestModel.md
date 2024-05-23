@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **AddAvailableMachineAccounts** | Pointer to [**[]MachineAccountRequestModel**](MachineAccountRequestModel.md) | &#x60;DEPRECATED.&#x60; List of Active Directory machine accounts to add to the pool of available accounts that are to be used when machines are provisioned. | [optional] 
 **RemoveAvailableMachineAccounts** | Pointer to **[]string** | &#x60;DEPRECATED.&#x60; List of Active Directory machine accounts to remove from the pool of available accounts that are used when machines are provisioned. | [optional] 
 **MachineAccountDeleteOption** | Pointer to [**MachineAccountDeleteOption**](MachineAccountDeleteOption.md) |  | [optional] 
-**ImageVersion** | Pointer to [**AssignImageVersionToMachineCatalogRequestModel**](AssignImageVersionToMachineCatalogRequestModel.md) |  | [optional] 
+**AssignImageVersionToProvisioningScheme** | Pointer to [**AssignImageVersionToProvisioningSchemeRequestModel**](AssignImageVersionToProvisioningSchemeRequestModel.md) |  | [optional] 
 
 ## Methods
 
@@ -561,30 +561,30 @@ SetMachineAccountDeleteOption sets MachineAccountDeleteOption field to given val
 
 HasMachineAccountDeleteOption returns a boolean if a field has been set.
 
-### GetImageVersion
+### GetAssignImageVersionToProvisioningScheme
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() AssignImageVersionToMachineCatalogRequestModel`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningScheme() AssignImageVersionToProvisioningSchemeRequestModel`
 
-GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
+GetAssignImageVersionToProvisioningScheme returns the AssignImageVersionToProvisioningScheme field if non-nil, zero value otherwise.
 
-### GetImageVersionOk
+### GetAssignImageVersionToProvisioningSchemeOk
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*AssignImageVersionToMachineCatalogRequestModel, bool)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningSchemeOk() (*AssignImageVersionToProvisioningSchemeRequestModel, bool)`
 
-GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
+GetAssignImageVersionToProvisioningSchemeOk returns a tuple with the AssignImageVersionToProvisioningScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageVersion
+### SetAssignImageVersionToProvisioningScheme
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v AssignImageVersionToMachineCatalogRequestModel)`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetAssignImageVersionToProvisioningScheme(v AssignImageVersionToProvisioningSchemeRequestModel)`
 
-SetImageVersion sets ImageVersion field to given value.
+SetAssignImageVersionToProvisioningScheme sets AssignImageVersionToProvisioningScheme field to given value.
 
-### HasImageVersion
+### HasAssignImageVersionToProvisioningScheme
 
-`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasImageVersion() bool`
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasAssignImageVersionToProvisioningScheme() bool`
 
-HasImageVersion returns a boolean if a field has been set.
+HasAssignImageVersionToProvisioningScheme returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

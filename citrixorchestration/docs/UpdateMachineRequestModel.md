@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **HypervisorConnection** | Pointer to **NullableString** | Hypervisor connection to use for power management of the machine. | [optional] 
 **InMaintenanceMode** | Pointer to **NullableBool** | Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is not available for new sessions, and for managed machines all automatic power management is disabled. If &#x60;null&#x60;, will not be changed. | [optional] 
 **PublishedName** | Pointer to **NullableString** | Customized name of the machine that is displayed in StoreFront, if the machine has been published. It can be set only for private desktops. If &#x60;null&#x60;, will not be changed. If empty string (&#x60;\&quot;\&quot;&#x60;), the machine will be unassigned from any published name. | [optional] 
-**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated. | [optional] 
 
 ## Methods
 
@@ -277,41 +276,6 @@ HasPublishedName returns a boolean if a field has been set.
 `func (o *UpdateMachineRequestModel) UnsetPublishedName()`
 
 UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
-### GetMetadata
-
-`func (o *UpdateMachineRequestModel) GetMetadata() []NameValueStringPairModel`
-
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
-
-### GetMetadataOk
-
-`func (o *UpdateMachineRequestModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
-
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetadata
-
-`func (o *UpdateMachineRequestModel) SetMetadata(v []NameValueStringPairModel)`
-
-SetMetadata sets Metadata field to given value.
-
-### HasMetadata
-
-`func (o *UpdateMachineRequestModel) HasMetadata() bool`
-
-HasMetadata returns a boolean if a field has been set.
-
-### SetMetadataNil
-
-`func (o *UpdateMachineRequestModel) SetMetadataNil(b bool)`
-
- SetMetadataNil sets the value for Metadata to be an explicit nil
-
-### UnsetMetadata
-`func (o *UpdateMachineRequestModel) UnsetMetadata()`
-
-UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

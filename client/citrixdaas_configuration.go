@@ -14,7 +14,11 @@ type AuthenticationConfiguration struct {
 
 // ClientConfiguration provides Citrix DaaS customer context
 type ClientConfiguration struct {
-	CustomerId string
-	SiteId     string
-	UserAgent  string
+	CustomerId              string
+	SiteId                  string
+	UserAgent               string
+	Accept                  string
+	Authorization           string
+	OrchestrationApiVersion int32
+	ProductVersion          string
 }

@@ -17,40 +17,33 @@ import (
 // checks if the ImageVersionResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ImageVersionResponseModel{}
 
-// ImageVersionResponseModel struct for ImageVersionResponseModel
+// ImageVersionResponseModel Response object for image version.
 type ImageVersionResponseModel struct {
-	// The version number associated with the image version.
-	Version NullableString `json:"Version,omitempty"`
 	// The Id of the image version.
-	Id *string `json:"Id,omitempty"`
-	// The MasterImageVM of the image version.
-	MasterImagePath NullableString `json:"MasterImagePath,omitempty"`
+	Id string `json:"Id"`
+	// The version number associated with the image version.
+	Number int32 `json:"Number"`
+	// Time when the image version was created.
+	CreationTime NullableString `json:"CreationTime,omitempty"`
 	// The Description of the image version.
 	Description NullableString `json:"Description,omitempty"`
-	// Size of the VM's OS disk, in GB.
-	DiskSizeGB *int32 `json:"DiskSizeGB,omitempty"`
-	// The create time of the image version.
-	CreateTime NullableString `json:"CreateTime,omitempty"`
-	// The WriteBackCacheDiskSize of the image version.
-	WriteBackCacheDiskSize *int32 `json:"WriteBackCacheDiskSize,omitempty"`
-	// The WriteBackCacheMemorySize of the image version.
-	WriteBackCacheMemorySize *int32 `json:"WriteBackCacheMemorySize,omitempty"`
-	// The image status of the image version.
-	ImageStatus NullableString `json:"ImageStatus,omitempty"`
-	// The error info of the image version.
-	Error NullableString `json:"Error,omitempty"`
-	// The additional data of the image version.
-	AdditionalData map[string]string `json:"AdditionalData,omitempty"`
-	ImageDefinition *RefResponseModel `json:"ImageDefinition,omitempty"`
-	ImageScheme *ImageSchemeResponseModel `json:"ImageScheme,omitempty"`
+	ImageVersionStatus *ImageVersionStatus `json:"ImageVersionStatus,omitempty"`
+	ImageDefinition RefResponseModel `json:"ImageDefinition"`
+	// The image version specifications associated with this image version.
+	ImageVersionSpecs []ImageVersionSpecResponseModel `json:"ImageVersionSpecs,omitempty"`
+	// The count of provisioning schemes
+	ProvisioningSchemeCount *int32 `json:"ProvisioningSchemeCount,omitempty"`
 }
 
 // NewImageVersionResponseModel instantiates a new ImageVersionResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageVersionResponseModel() *ImageVersionResponseModel {
+func NewImageVersionResponseModel(id string, number int32, imageDefinition RefResponseModel) *ImageVersionResponseModel {
 	this := ImageVersionResponseModel{}
+	this.Id = id
+	this.Number = number
+	this.ImageDefinition = imageDefinition
 	return &this
 }
 
@@ -62,120 +55,94 @@ func NewImageVersionResponseModelWithDefaults() *ImageVersionResponseModel {
 	return &this
 }
 
-// GetVersion returns the Version field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionResponseModel) GetVersion() string {
-	if o == nil || IsNil(o.Version.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Version.Get()
-}
-
-// GetVersionOk returns a tuple with the Version field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionResponseModel) GetVersionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Version.Get(), o.Version.IsSet()
-}
-
-// HasVersion returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasVersion() bool {
-	if o != nil && o.Version.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetVersion gets a reference to the given NullableString and assigns it to the Version field.
-func (o *ImageVersionResponseModel) SetVersion(v string) {
-	o.Version.Set(&v)
-}
-// SetVersionNil sets the value for Version to be an explicit nil
-func (o *ImageVersionResponseModel) SetVersionNil() {
-	o.Version.Set(nil)
-}
-
-// UnsetVersion ensures that no value is present for Version, not even an explicit nil
-func (o *ImageVersionResponseModel) UnsetVersion() {
-	o.Version.Unset()
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ImageVersionResponseModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ImageVersionResponseModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ImageVersionResponseModel) SetId(v string) {
-	o.Id = &v
-}
-
-// GetMasterImagePath returns the MasterImagePath field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionResponseModel) GetMasterImagePath() string {
-	if o == nil || IsNil(o.MasterImagePath.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.MasterImagePath.Get()
-}
-
-// GetMasterImagePathOk returns a tuple with the MasterImagePath field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionResponseModel) GetMasterImagePathOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MasterImagePath.Get(), o.MasterImagePath.IsSet()
+	return &o.Id, true
 }
 
-// HasMasterImagePath returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasMasterImagePath() bool {
-	if o != nil && o.MasterImagePath.IsSet() {
+// SetId sets field value
+func (o *ImageVersionResponseModel) SetId(v string) {
+	o.Id = v
+}
+
+// GetNumber returns the Number field value
+func (o *ImageVersionResponseModel) GetNumber() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Number
+}
+
+// GetNumberOk returns a tuple with the Number field value
+// and a boolean to check if the value has been set.
+func (o *ImageVersionResponseModel) GetNumberOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Number, true
+}
+
+// SetNumber sets field value
+func (o *ImageVersionResponseModel) SetNumber(v int32) {
+	o.Number = v
+}
+
+// GetCreationTime returns the CreationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageVersionResponseModel) GetCreationTime() string {
+	if o == nil || IsNil(o.CreationTime.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CreationTime.Get()
+}
+
+// GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageVersionResponseModel) GetCreationTimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CreationTime.Get(), o.CreationTime.IsSet()
+}
+
+// HasCreationTime returns a boolean if a field has been set.
+func (o *ImageVersionResponseModel) HasCreationTime() bool {
+	if o != nil && o.CreationTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMasterImagePath gets a reference to the given NullableString and assigns it to the MasterImagePath field.
-func (o *ImageVersionResponseModel) SetMasterImagePath(v string) {
-	o.MasterImagePath.Set(&v)
+// SetCreationTime gets a reference to the given NullableString and assigns it to the CreationTime field.
+func (o *ImageVersionResponseModel) SetCreationTime(v string) {
+	o.CreationTime.Set(&v)
 }
-// SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
-func (o *ImageVersionResponseModel) SetMasterImagePathNil() {
-	o.MasterImagePath.Set(nil)
+// SetCreationTimeNil sets the value for CreationTime to be an explicit nil
+func (o *ImageVersionResponseModel) SetCreationTimeNil() {
+	o.CreationTime.Set(nil)
 }
 
-// UnsetMasterImagePath ensures that no value is present for MasterImagePath, not even an explicit nil
-func (o *ImageVersionResponseModel) UnsetMasterImagePath() {
-	o.MasterImagePath.Unset()
+// UnsetCreationTime ensures that no value is present for CreationTime, not even an explicit nil
+func (o *ImageVersionResponseModel) UnsetCreationTime() {
+	o.CreationTime.Unset()
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -220,323 +187,125 @@ func (o *ImageVersionResponseModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetDiskSizeGB returns the DiskSizeGB field value if set, zero value otherwise.
-func (o *ImageVersionResponseModel) GetDiskSizeGB() int32 {
-	if o == nil || IsNil(o.DiskSizeGB) {
-		var ret int32
+// GetImageVersionStatus returns the ImageVersionStatus field value if set, zero value otherwise.
+func (o *ImageVersionResponseModel) GetImageVersionStatus() ImageVersionStatus {
+	if o == nil || IsNil(o.ImageVersionStatus) {
+		var ret ImageVersionStatus
 		return ret
 	}
-	return *o.DiskSizeGB
+	return *o.ImageVersionStatus
 }
 
-// GetDiskSizeGBOk returns a tuple with the DiskSizeGB field value if set, nil otherwise
+// GetImageVersionStatusOk returns a tuple with the ImageVersionStatus field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ImageVersionResponseModel) GetDiskSizeGBOk() (*int32, bool) {
-	if o == nil || IsNil(o.DiskSizeGB) {
+func (o *ImageVersionResponseModel) GetImageVersionStatusOk() (*ImageVersionStatus, bool) {
+	if o == nil || IsNil(o.ImageVersionStatus) {
 		return nil, false
 	}
-	return o.DiskSizeGB, true
+	return o.ImageVersionStatus, true
 }
 
-// HasDiskSizeGB returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasDiskSizeGB() bool {
-	if o != nil && !IsNil(o.DiskSizeGB) {
+// HasImageVersionStatus returns a boolean if a field has been set.
+func (o *ImageVersionResponseModel) HasImageVersionStatus() bool {
+	if o != nil && !IsNil(o.ImageVersionStatus) {
 		return true
 	}
 
 	return false
 }
 
-// SetDiskSizeGB gets a reference to the given int32 and assigns it to the DiskSizeGB field.
-func (o *ImageVersionResponseModel) SetDiskSizeGB(v int32) {
-	o.DiskSizeGB = &v
+// SetImageVersionStatus gets a reference to the given ImageVersionStatus and assigns it to the ImageVersionStatus field.
+func (o *ImageVersionResponseModel) SetImageVersionStatus(v ImageVersionStatus) {
+	o.ImageVersionStatus = &v
 }
 
-// GetCreateTime returns the CreateTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionResponseModel) GetCreateTime() string {
-	if o == nil || IsNil(o.CreateTime.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CreateTime.Get()
-}
-
-// GetCreateTimeOk returns a tuple with the CreateTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionResponseModel) GetCreateTimeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CreateTime.Get(), o.CreateTime.IsSet()
-}
-
-// HasCreateTime returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasCreateTime() bool {
-	if o != nil && o.CreateTime.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCreateTime gets a reference to the given NullableString and assigns it to the CreateTime field.
-func (o *ImageVersionResponseModel) SetCreateTime(v string) {
-	o.CreateTime.Set(&v)
-}
-// SetCreateTimeNil sets the value for CreateTime to be an explicit nil
-func (o *ImageVersionResponseModel) SetCreateTimeNil() {
-	o.CreateTime.Set(nil)
-}
-
-// UnsetCreateTime ensures that no value is present for CreateTime, not even an explicit nil
-func (o *ImageVersionResponseModel) UnsetCreateTime() {
-	o.CreateTime.Unset()
-}
-
-// GetWriteBackCacheDiskSize returns the WriteBackCacheDiskSize field value if set, zero value otherwise.
-func (o *ImageVersionResponseModel) GetWriteBackCacheDiskSize() int32 {
-	if o == nil || IsNil(o.WriteBackCacheDiskSize) {
-		var ret int32
-		return ret
-	}
-	return *o.WriteBackCacheDiskSize
-}
-
-// GetWriteBackCacheDiskSizeOk returns a tuple with the WriteBackCacheDiskSize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageVersionResponseModel) GetWriteBackCacheDiskSizeOk() (*int32, bool) {
-	if o == nil || IsNil(o.WriteBackCacheDiskSize) {
-		return nil, false
-	}
-	return o.WriteBackCacheDiskSize, true
-}
-
-// HasWriteBackCacheDiskSize returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasWriteBackCacheDiskSize() bool {
-	if o != nil && !IsNil(o.WriteBackCacheDiskSize) {
-		return true
-	}
-
-	return false
-}
-
-// SetWriteBackCacheDiskSize gets a reference to the given int32 and assigns it to the WriteBackCacheDiskSize field.
-func (o *ImageVersionResponseModel) SetWriteBackCacheDiskSize(v int32) {
-	o.WriteBackCacheDiskSize = &v
-}
-
-// GetWriteBackCacheMemorySize returns the WriteBackCacheMemorySize field value if set, zero value otherwise.
-func (o *ImageVersionResponseModel) GetWriteBackCacheMemorySize() int32 {
-	if o == nil || IsNil(o.WriteBackCacheMemorySize) {
-		var ret int32
-		return ret
-	}
-	return *o.WriteBackCacheMemorySize
-}
-
-// GetWriteBackCacheMemorySizeOk returns a tuple with the WriteBackCacheMemorySize field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageVersionResponseModel) GetWriteBackCacheMemorySizeOk() (*int32, bool) {
-	if o == nil || IsNil(o.WriteBackCacheMemorySize) {
-		return nil, false
-	}
-	return o.WriteBackCacheMemorySize, true
-}
-
-// HasWriteBackCacheMemorySize returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasWriteBackCacheMemorySize() bool {
-	if o != nil && !IsNil(o.WriteBackCacheMemorySize) {
-		return true
-	}
-
-	return false
-}
-
-// SetWriteBackCacheMemorySize gets a reference to the given int32 and assigns it to the WriteBackCacheMemorySize field.
-func (o *ImageVersionResponseModel) SetWriteBackCacheMemorySize(v int32) {
-	o.WriteBackCacheMemorySize = &v
-}
-
-// GetImageStatus returns the ImageStatus field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionResponseModel) GetImageStatus() string {
-	if o == nil || IsNil(o.ImageStatus.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ImageStatus.Get()
-}
-
-// GetImageStatusOk returns a tuple with the ImageStatus field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionResponseModel) GetImageStatusOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ImageStatus.Get(), o.ImageStatus.IsSet()
-}
-
-// HasImageStatus returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasImageStatus() bool {
-	if o != nil && o.ImageStatus.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetImageStatus gets a reference to the given NullableString and assigns it to the ImageStatus field.
-func (o *ImageVersionResponseModel) SetImageStatus(v string) {
-	o.ImageStatus.Set(&v)
-}
-// SetImageStatusNil sets the value for ImageStatus to be an explicit nil
-func (o *ImageVersionResponseModel) SetImageStatusNil() {
-	o.ImageStatus.Set(nil)
-}
-
-// UnsetImageStatus ensures that no value is present for ImageStatus, not even an explicit nil
-func (o *ImageVersionResponseModel) UnsetImageStatus() {
-	o.ImageStatus.Unset()
-}
-
-// GetError returns the Error field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionResponseModel) GetError() string {
-	if o == nil || IsNil(o.Error.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Error.Get()
-}
-
-// GetErrorOk returns a tuple with the Error field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionResponseModel) GetErrorOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Error.Get(), o.Error.IsSet()
-}
-
-// HasError returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasError() bool {
-	if o != nil && o.Error.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetError gets a reference to the given NullableString and assigns it to the Error field.
-func (o *ImageVersionResponseModel) SetError(v string) {
-	o.Error.Set(&v)
-}
-// SetErrorNil sets the value for Error to be an explicit nil
-func (o *ImageVersionResponseModel) SetErrorNil() {
-	o.Error.Set(nil)
-}
-
-// UnsetError ensures that no value is present for Error, not even an explicit nil
-func (o *ImageVersionResponseModel) UnsetError() {
-	o.Error.Unset()
-}
-
-// GetAdditionalData returns the AdditionalData field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionResponseModel) GetAdditionalData() map[string]string {
-	if o == nil {
-		var ret map[string]string
-		return ret
-	}
-	return o.AdditionalData
-}
-
-// GetAdditionalDataOk returns a tuple with the AdditionalData field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionResponseModel) GetAdditionalDataOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.AdditionalData) {
-		return nil, false
-	}
-	return &o.AdditionalData, true
-}
-
-// HasAdditionalData returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasAdditionalData() bool {
-	if o != nil && IsNil(o.AdditionalData) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdditionalData gets a reference to the given map[string]string and assigns it to the AdditionalData field.
-func (o *ImageVersionResponseModel) SetAdditionalData(v map[string]string) {
-	o.AdditionalData = v
-}
-
-// GetImageDefinition returns the ImageDefinition field value if set, zero value otherwise.
+// GetImageDefinition returns the ImageDefinition field value
 func (o *ImageVersionResponseModel) GetImageDefinition() RefResponseModel {
-	if o == nil || IsNil(o.ImageDefinition) {
+	if o == nil {
 		var ret RefResponseModel
 		return ret
 	}
-	return *o.ImageDefinition
+
+	return o.ImageDefinition
 }
 
-// GetImageDefinitionOk returns a tuple with the ImageDefinition field value if set, nil otherwise
+// GetImageDefinitionOk returns a tuple with the ImageDefinition field value
 // and a boolean to check if the value has been set.
 func (o *ImageVersionResponseModel) GetImageDefinitionOk() (*RefResponseModel, bool) {
-	if o == nil || IsNil(o.ImageDefinition) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ImageDefinition, true
+	return &o.ImageDefinition, true
 }
 
-// HasImageDefinition returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasImageDefinition() bool {
-	if o != nil && !IsNil(o.ImageDefinition) {
-		return true
-	}
-
-	return false
-}
-
-// SetImageDefinition gets a reference to the given RefResponseModel and assigns it to the ImageDefinition field.
+// SetImageDefinition sets field value
 func (o *ImageVersionResponseModel) SetImageDefinition(v RefResponseModel) {
-	o.ImageDefinition = &v
+	o.ImageDefinition = v
 }
 
-// GetImageScheme returns the ImageScheme field value if set, zero value otherwise.
-func (o *ImageVersionResponseModel) GetImageScheme() ImageSchemeResponseModel {
-	if o == nil || IsNil(o.ImageScheme) {
-		var ret ImageSchemeResponseModel
+// GetImageVersionSpecs returns the ImageVersionSpecs field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageVersionResponseModel) GetImageVersionSpecs() []ImageVersionSpecResponseModel {
+	if o == nil {
+		var ret []ImageVersionSpecResponseModel
 		return ret
 	}
-	return *o.ImageScheme
+	return o.ImageVersionSpecs
 }
 
-// GetImageSchemeOk returns a tuple with the ImageScheme field value if set, nil otherwise
+// GetImageVersionSpecsOk returns a tuple with the ImageVersionSpecs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ImageVersionResponseModel) GetImageSchemeOk() (*ImageSchemeResponseModel, bool) {
-	if o == nil || IsNil(o.ImageScheme) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageVersionResponseModel) GetImageVersionSpecsOk() ([]ImageVersionSpecResponseModel, bool) {
+	if o == nil || IsNil(o.ImageVersionSpecs) {
 		return nil, false
 	}
-	return o.ImageScheme, true
+	return o.ImageVersionSpecs, true
 }
 
-// HasImageScheme returns a boolean if a field has been set.
-func (o *ImageVersionResponseModel) HasImageScheme() bool {
-	if o != nil && !IsNil(o.ImageScheme) {
+// HasImageVersionSpecs returns a boolean if a field has been set.
+func (o *ImageVersionResponseModel) HasImageVersionSpecs() bool {
+	if o != nil && IsNil(o.ImageVersionSpecs) {
 		return true
 	}
 
 	return false
 }
 
-// SetImageScheme gets a reference to the given ImageSchemeResponseModel and assigns it to the ImageScheme field.
-func (o *ImageVersionResponseModel) SetImageScheme(v ImageSchemeResponseModel) {
-	o.ImageScheme = &v
+// SetImageVersionSpecs gets a reference to the given []ImageVersionSpecResponseModel and assigns it to the ImageVersionSpecs field.
+func (o *ImageVersionResponseModel) SetImageVersionSpecs(v []ImageVersionSpecResponseModel) {
+	o.ImageVersionSpecs = v
+}
+
+// GetProvisioningSchemeCount returns the ProvisioningSchemeCount field value if set, zero value otherwise.
+func (o *ImageVersionResponseModel) GetProvisioningSchemeCount() int32 {
+	if o == nil || IsNil(o.ProvisioningSchemeCount) {
+		var ret int32
+		return ret
+	}
+	return *o.ProvisioningSchemeCount
+}
+
+// GetProvisioningSchemeCountOk returns a tuple with the ProvisioningSchemeCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImageVersionResponseModel) GetProvisioningSchemeCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.ProvisioningSchemeCount) {
+		return nil, false
+	}
+	return o.ProvisioningSchemeCount, true
+}
+
+// HasProvisioningSchemeCount returns a boolean if a field has been set.
+func (o *ImageVersionResponseModel) HasProvisioningSchemeCount() bool {
+	if o != nil && !IsNil(o.ProvisioningSchemeCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvisioningSchemeCount gets a reference to the given int32 and assigns it to the ProvisioningSchemeCount field.
+func (o *ImageVersionResponseModel) SetProvisioningSchemeCount(v int32) {
+	o.ProvisioningSchemeCount = &v
 }
 
 func (o ImageVersionResponseModel) MarshalJSON() ([]byte, error) {
@@ -549,44 +318,23 @@ func (o ImageVersionResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o ImageVersionResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Version.IsSet() {
-		toSerialize["Version"] = o.Version.Get()
-	}
-	if !IsNil(o.Id) {
-		toSerialize["Id"] = o.Id
-	}
-	if o.MasterImagePath.IsSet() {
-		toSerialize["MasterImagePath"] = o.MasterImagePath.Get()
+	toSerialize["Id"] = o.Id
+	toSerialize["Number"] = o.Number
+	if o.CreationTime.IsSet() {
+		toSerialize["CreationTime"] = o.CreationTime.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["Description"] = o.Description.Get()
 	}
-	if !IsNil(o.DiskSizeGB) {
-		toSerialize["DiskSizeGB"] = o.DiskSizeGB
+	if !IsNil(o.ImageVersionStatus) {
+		toSerialize["ImageVersionStatus"] = o.ImageVersionStatus
 	}
-	if o.CreateTime.IsSet() {
-		toSerialize["CreateTime"] = o.CreateTime.Get()
+	toSerialize["ImageDefinition"] = o.ImageDefinition
+	if o.ImageVersionSpecs != nil {
+		toSerialize["ImageVersionSpecs"] = o.ImageVersionSpecs
 	}
-	if !IsNil(o.WriteBackCacheDiskSize) {
-		toSerialize["WriteBackCacheDiskSize"] = o.WriteBackCacheDiskSize
-	}
-	if !IsNil(o.WriteBackCacheMemorySize) {
-		toSerialize["WriteBackCacheMemorySize"] = o.WriteBackCacheMemorySize
-	}
-	if o.ImageStatus.IsSet() {
-		toSerialize["ImageStatus"] = o.ImageStatus.Get()
-	}
-	if o.Error.IsSet() {
-		toSerialize["Error"] = o.Error.Get()
-	}
-	if o.AdditionalData != nil {
-		toSerialize["AdditionalData"] = o.AdditionalData
-	}
-	if !IsNil(o.ImageDefinition) {
-		toSerialize["ImageDefinition"] = o.ImageDefinition
-	}
-	if !IsNil(o.ImageScheme) {
-		toSerialize["ImageScheme"] = o.ImageScheme
+	if !IsNil(o.ProvisioningSchemeCount) {
+		toSerialize["ProvisioningSchemeCount"] = o.ProvisioningSchemeCount
 	}
 	return toSerialize, nil
 }

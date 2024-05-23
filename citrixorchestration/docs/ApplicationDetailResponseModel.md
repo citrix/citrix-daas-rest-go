@@ -86,22 +86,7 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
 
-`func (o *ApplicationDetailResponseModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### SetIdNil
-
-`func (o *ApplicationDetailResponseModel) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *ApplicationDetailResponseModel) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *ApplicationDetailResponseModel) GetUid() int32`
@@ -156,11 +141,6 @@ and a boolean to check if the value has been set.
 
 SetApplicationFolder sets ApplicationFolder field to given value.
 
-### HasApplicationFolder
-
-`func (o *ApplicationDetailResponseModel) HasApplicationFolder() bool`
-
-HasApplicationFolder returns a boolean if a field has been set.
 
 ### GetApplicationType
 
@@ -181,11 +161,6 @@ and a boolean to check if the value has been set.
 
 SetApplicationType sets ApplicationType field to given value.
 
-### HasApplicationType
-
-`func (o *ApplicationDetailResponseModel) HasApplicationType() bool`
-
-HasApplicationType returns a boolean if a field has been set.
 
 ### GetPackagedApplicationType
 
@@ -206,11 +181,6 @@ and a boolean to check if the value has been set.
 
 SetPackagedApplicationType sets PackagedApplicationType field to given value.
 
-### HasPackagedApplicationType
-
-`func (o *ApplicationDetailResponseModel) HasPackagedApplicationType() bool`
-
-HasPackagedApplicationType returns a boolean if a field has been set.
 
 ### GetClientFolder
 
@@ -266,22 +236,7 @@ and a boolean to check if the value has been set.
 
 SetContainerScopes sets ContainerScopes field to given value.
 
-### HasContainerScopes
 
-`func (o *ApplicationDetailResponseModel) HasContainerScopes() bool`
-
-HasContainerScopes returns a boolean if a field has been set.
-
-### SetContainerScopesNil
-
-`func (o *ApplicationDetailResponseModel) SetContainerScopesNil(b bool)`
-
- SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
-
-### UnsetContainerScopes
-`func (o *ApplicationDetailResponseModel) UnsetContainerScopes()`
-
-UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 ### GetDescription
 
 `func (o *ApplicationDetailResponseModel) GetDescription() string`
@@ -361,11 +316,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *ApplicationDetailResponseModel) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 ### GetIconId
 
@@ -386,22 +336,7 @@ and a boolean to check if the value has been set.
 
 SetIconId sets IconId field to given value.
 
-### HasIconId
 
-`func (o *ApplicationDetailResponseModel) HasIconId() bool`
-
-HasIconId returns a boolean if a field has been set.
-
-### SetIconIdNil
-
-`func (o *ApplicationDetailResponseModel) SetIconIdNil(b bool)`
-
- SetIconIdNil sets the value for IconId to be an explicit nil
-
-### UnsetIconId
-`func (o *ApplicationDetailResponseModel) UnsetIconId()`
-
-UnsetIconId ensures that no value is present for IconId, not even an explicit nil
 ### GetInstalledAppProperties
 
 `func (o *ApplicationDetailResponseModel) GetInstalledAppProperties() InstalledAppResponseModel`
@@ -531,22 +466,7 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
-### HasName
 
-`func (o *ApplicationDetailResponseModel) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### SetNameNil
-
-`func (o *ApplicationDetailResponseModel) SetNameNil(b bool)`
-
- SetNameNil sets the value for Name to be an explicit nil
-
-### UnsetName
-`func (o *ApplicationDetailResponseModel) UnsetName()`
-
-UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPublishedName
 
 `func (o *ApplicationDetailResponseModel) GetPublishedName() string`
@@ -566,22 +486,7 @@ and a boolean to check if the value has been set.
 
 SetPublishedName sets PublishedName field to given value.
 
-### HasPublishedName
 
-`func (o *ApplicationDetailResponseModel) HasPublishedName() bool`
-
-HasPublishedName returns a boolean if a field has been set.
-
-### SetPublishedNameNil
-
-`func (o *ApplicationDetailResponseModel) SetPublishedNameNil(b bool)`
-
- SetPublishedNameNil sets the value for PublishedName to be an explicit nil
-
-### UnsetPublishedName
-`func (o *ApplicationDetailResponseModel) UnsetPublishedName()`
-
-UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 ### GetMetadata
 
 `func (o *ApplicationDetailResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -636,11 +541,6 @@ and a boolean to check if the value has been set.
 
 SetVisible sets Visible field to given value.
 
-### HasVisible
-
-`func (o *ApplicationDetailResponseModel) HasVisible() bool`
-
-HasVisible returns a boolean if a field has been set.
 
 ### GetSharingKind
 
@@ -661,11 +561,6 @@ and a boolean to check if the value has been set.
 
 SetSharingKind sets SharingKind field to given value.
 
-### HasSharingKind
-
-`func (o *ApplicationDetailResponseModel) HasSharingKind() bool`
-
-HasSharingKind returns a boolean if a field has been set.
 
 ### GetTags
 

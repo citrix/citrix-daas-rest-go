@@ -16,14 +16,20 @@ import (
 	"strings"
 	"time"
 
+	resourcelocations "github.com/citrix/citrix-daas-rest-go/ccresourcelocations"
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	storefrontapis "github.com/citrix/citrix-daas-rest-go/citrixstorefront/apis"
+	globalappconfiguration "github.com/citrix/citrix-daas-rest-go/globalappconfiguration"
 )
 
 type CitrixDaasClient struct {
-	ApiClient    *citrixorchestration.APIClient
-	AuthConfig   *AuthenticationConfiguration
-	ClientConfig *ClientConfiguration
-	AuthToken    *AuthTokenModel
+	ApiClient               *citrixorchestration.APIClient
+	GacClient               *globalappconfiguration.APIClient
+	ResourceLocationsClient *resourcelocations.APIClient
+	AuthConfig              *AuthenticationConfiguration
+	ClientConfig            *ClientConfiguration
+	AuthToken               *AuthTokenModel
+	StorefrontClient        *storefrontapis.APIClient
 }
 
 type AuthTokenModel struct {
@@ -40,7 +46,28 @@ func getMiddlewareWithClient(authClient *CitrixDaasClient, middlewareAuthFunc Mi
 	}
 }
 
-func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
+func getMiddlewareWithGacClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) globalappconfiguration.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
+func getMiddlewareWithResourceLocationsClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) resourcelocations.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
+func NewStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string, daasClient *CitrixDaasClient) *CitrixDaasClient {
+	daasClient.StorefrontClient = storefrontapis.NewAPIClient()
+	daasClient.StorefrontClient.SetComputerName(computerName)
+	daasClient.StorefrontClient.SetAdUserName(adUserName)
+	daasClient.StorefrontClient.SetAdPassword(adUserPass)
+
+	return daasClient
+}
+
+func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
 	daasClient := &CitrixDaasClient{}
 
 	/* ------ Setup API Client ------ */
@@ -69,7 +96,21 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 	}
 
 	daasClient.ApiClient = citrixorchestration.NewAPIClient(localCfg)
+
 	localCfg.Middleware = getMiddlewareWithClient(daasClient, middlewareFunc)
+
+	/* ------ Setup Resource Locations Client ------ */
+	localResourceLocationsCfg := resourcelocations.NewConfiguration()
+	localResourceLocationsCfg.Scheme = "https"
+
+	localResourceLocationsCfg.Servers = resourcelocations.ServerConfigurations{
+		{
+			URL: localResourceLocationsCfg.Scheme + "://" + ccUrl + "/resourcelocations",
+		},
+	}
+
+	localResourceLocationsCfg.Middleware = getMiddlewareWithResourceLocationsClient(daasClient, middlewareFunc)
+	daasClient.ResourceLocationsClient = resourcelocations.NewAPIClient(localResourceLocationsCfg)
 
 	/* ------ Setup Authentication Configuration ------ */
 	localAuthCfg := &AuthenticationConfiguration{}
@@ -81,6 +122,28 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 	localAuthCfg.IsGov = isGov
 
 	daasClient.AuthConfig = localAuthCfg
+
+	/* ------ Setup GAC Client ------ */
+
+	gacUrlTranslator := map[string]bool{
+		"api.dev.cloud.com":    false,
+		"api.cloudburrito.com": false,
+	}
+
+	localGacCfg := globalappconfiguration.NewConfiguration()
+	localGacCfg.Scheme = "https"
+
+	_, exists := gacUrlTranslator[hostname]
+	if exists {
+		localGacCfg.Servers = globalappconfiguration.ServerConfigurations{
+			{
+				URL: localGacCfg.Scheme + "://wsaca.cloudburrito.com",
+			},
+		}
+
+	}
+	localGacCfg.Middleware = getMiddlewareWithGacClient(daasClient, middlewareFunc)
+	daasClient.GacClient = globalappconfiguration.NewAPIClient(localGacCfg)
 
 	/* ------ Setup Client Configuration ------*/
 	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
@@ -102,6 +165,8 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 	}
 	localClientCfg.SiteId = resp.Customers[0].Sites[0].Id
 
+	localClientCfg.Accept = "application/json"
+
 	if userAgent == nil {
 		defaultUserAgent := "citrix-daas-rest-go (https://github.com/citrix/citrix-daas-rest-go)"
 		userAgent = &defaultUserAgent
@@ -111,8 +176,31 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, hostname, customerId, cli
 	daasClient.ClientConfig = localClientCfg
 
 	if onPremises || !apiGateway {
-		// add CustomerId and SiteId to base path for on-prem. The Me Api will no longer work.
-		localCfg.Servers[0].URL += "/" + localClientCfg.CustomerId + "/" + localClientCfg.SiteId
+		// add CustomerId and SiteId to base path for on-prem. The following APIs will no longer work.
+		// HealthCheck, Me, and Ping
+		localCfg.Servers[0].URL += "/" + localClientCfg.CustomerId
+	}
+
+	siteRequest := daasClient.ApiClient.SitesAPIsDAAS.SitesGetSite(ctx, localClientCfg.SiteId)
+	token, httpResp, err = daasClient.SignIn()
+	if err != nil {
+		return nil, httpResp, err
+	}
+
+	siteRequest = siteRequest.Authorization(token).CitrixCustomerId(customerId)
+	siteResp, httpResp, err := siteRequest.Execute()
+	if err != nil {
+		return nil, httpResp, err
+	}
+
+	localClientCfg.ProductVersion = siteResp.GetProductVersion()
+	localClientCfg.OrchestrationApiVersion = siteResp.GetOrchestationApiVersion()
+
+	daasClient.ClientConfig = localClientCfg
+
+	if onPremises || !apiGateway {
+		// add CustomerId and SiteId to base path for on-prem. The Sites API will no longer work.
+		localCfg.Servers[0].URL += "/" + localClientCfg.SiteId
 	}
 
 	return daasClient, httpResp, nil
@@ -175,6 +263,16 @@ func AddRequestData[T any](request T, c *CitrixDaasClient) T {
 	method, ok = requestType.MethodByName("UserAgent")
 	if ok {
 		requestValue = method.Func.Call([]reflect.Value{requestValue, reflect.ValueOf(c.ClientConfig.UserAgent)})[0]
+	}
+
+	method, ok = requestType.MethodByName("Accept")
+	if ok {
+		requestValue = method.Func.Call([]reflect.Value{requestValue, reflect.ValueOf(c.ClientConfig.Accept)})[0]
+	}
+
+	method, ok = requestType.MethodByName("Authorization")
+	if ok {
+		requestValue = method.Func.Call([]reflect.Value{requestValue, reflect.ValueOf(c.ClientConfig.Authorization)})[0]
 	}
 	return requestValue.Interface().(T)
 }

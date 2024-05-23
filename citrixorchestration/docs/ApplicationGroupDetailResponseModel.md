@@ -65,22 +65,7 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
-### HasId
 
-`func (o *ApplicationGroupDetailResponseModel) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### SetIdNil
-
-`func (o *ApplicationGroupDetailResponseModel) SetIdNil(b bool)`
-
- SetIdNil sets the value for Id to be an explicit nil
-
-### UnsetId
-`func (o *ApplicationGroupDetailResponseModel) UnsetId()`
-
-UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *ApplicationGroupDetailResponseModel) GetUid() int32`
@@ -135,22 +120,7 @@ and a boolean to check if the value has been set.
 
 SetContainerScopes sets ContainerScopes field to given value.
 
-### HasContainerScopes
 
-`func (o *ApplicationGroupDetailResponseModel) HasContainerScopes() bool`
-
-HasContainerScopes returns a boolean if a field has been set.
-
-### SetContainerScopesNil
-
-`func (o *ApplicationGroupDetailResponseModel) SetContainerScopesNil(b bool)`
-
- SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
-
-### UnsetContainerScopes
-`func (o *ApplicationGroupDetailResponseModel) UnsetContainerScopes()`
-
-UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 ### GetDescription
 
 `func (o *ApplicationGroupDetailResponseModel) GetDescription() string`
@@ -205,11 +175,6 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
-### HasEnabled
-
-`func (o *ApplicationGroupDetailResponseModel) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
 
 ### GetName
 
@@ -300,22 +265,7 @@ and a boolean to check if the value has been set.
 
 SetScopes sets Scopes field to given value.
 
-### HasScopes
 
-`func (o *ApplicationGroupDetailResponseModel) HasScopes() bool`
-
-HasScopes returns a boolean if a field has been set.
-
-### SetScopesNil
-
-`func (o *ApplicationGroupDetailResponseModel) SetScopesNil(b bool)`
-
- SetScopesNil sets the value for Scopes to be an explicit nil
-
-### UnsetScopes
-`func (o *ApplicationGroupDetailResponseModel) UnsetScopes()`
-
-UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetMetadata
 
 `func (o *ApplicationGroupDetailResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -440,11 +390,6 @@ and a boolean to check if the value has been set.
 
 SetNumApplications sets NumApplications field to given value.
 
-### HasNumApplications
-
-`func (o *ApplicationGroupDetailResponseModel) HasNumApplications() bool`
-
-HasNumApplications returns a boolean if a field has been set.
 
 ### GetNumMachines
 
@@ -465,11 +410,6 @@ and a boolean to check if the value has been set.
 
 SetNumMachines sets NumMachines field to given value.
 
-### HasNumMachines
-
-`func (o *ApplicationGroupDetailResponseModel) HasNumMachines() bool`
-
-HasNumMachines returns a boolean if a field has been set.
 
 ### GetNumMachinesWithTag
 
@@ -540,22 +480,7 @@ and a boolean to check if the value has been set.
 
 SetDeliveryGroups sets DeliveryGroups field to given value.
 
-### HasDeliveryGroups
 
-`func (o *ApplicationGroupDetailResponseModel) HasDeliveryGroups() bool`
-
-HasDeliveryGroups returns a boolean if a field has been set.
-
-### SetDeliveryGroupsNil
-
-`func (o *ApplicationGroupDetailResponseModel) SetDeliveryGroupsNil(b bool)`
-
- SetDeliveryGroupsNil sets the value for DeliveryGroups to be an explicit nil
-
-### UnsetDeliveryGroups
-`func (o *ApplicationGroupDetailResponseModel) UnsetDeliveryGroups()`
-
-UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
 ### GetAdminFolder
 
 `func (o *ApplicationGroupDetailResponseModel) GetAdminFolder() RefResponseModel`

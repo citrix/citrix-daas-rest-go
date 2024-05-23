@@ -17,7 +17,7 @@ import (
 // checks if the UpdateImageDefinitionRequestModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateImageDefinitionRequestModel{}
 
-// UpdateImageDefinitionRequestModel struct for UpdateImageDefinitionRequestModel
+// UpdateImageDefinitionRequestModel Request object for updating image definition.
 type UpdateImageDefinitionRequestModel struct {
 	// The name associated with the image definition.
 	Name NullableString `json:"Name,omitempty"`

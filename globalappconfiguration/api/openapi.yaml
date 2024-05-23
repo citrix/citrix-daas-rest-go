@@ -1,0 +1,4387 @@
+openapi: 3.0.1
+info:
+  description: Describes API used by Global App Config Admin Service
+  termsOfService: https://developer.cloud.com/citrix-developer-terms-of-use
+  title: Global App Config Admin
+  version: "1.0"
+servers:
+- url: https://wsaca.cloud.com/
+tags:
+- description: Access discovery records for an app.
+  name: DiscoveryController
+- description: Access settings records for an app.
+  name: SettingsController
+paths:
+  /aca/discovery:
+    get:
+      deprecated: false
+      operationId: getAllDiscoveryApiUsingGET
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllDiscoveryResponse'
+          description: Success.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested customer id is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested customer id is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts application/json and UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the service and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Retrieve All Discovery Records For The Specified Customer Id
+      tags:
+      - DiscoveryController
+  /aca/discovery/app/{app}/domain:
+    post:
+      deprecated: false
+      operationId: postDiscoveryApiUsingPOST
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: "App Name. ['Workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscoveryRecordModel'
+        description: Discovery record to be created.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscoveryRecordModel'
+          description: Created.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+            Location:
+              description: URI of the created resource.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The specified Discovery record/Customer ID is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The specified document/part of the document already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Request body is unacceptable.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Create A New Discovery Record.
+      tags:
+      - DiscoveryController
+      x-codegen-request-body-name: discoveryRecord
+  /aca/discovery/app/{app}/domain/{domain}:
+    delete:
+      deprecated: false
+      operationId: deleteDiscoveryApiUsingDELETE
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: "App Name. ['Workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Domain used for user's email address.
+        in: path
+        name: domain
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: Deleted.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested domain/customer id is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content: {}
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Conflict
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Delete Discovery Record For App And Email Domain Suffix.
+      tags:
+      - DiscoveryController
+      x-summary: Delete Discovery Record
+    get:
+      deprecated: false
+      operationId: getDiscoveryApiUsingGET
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: "App Name. ['Workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Domain used for user's email address.
+        in: path
+        name: domain
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllDiscoveryResponse'
+          description: Success.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested domain/customer id is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Retrieve Discovery Record For App And Email Domain Suffix.
+      tags:
+      - DiscoveryController
+    put:
+      deprecated: false
+      operationId: putDiscoveryApiUsingPUT
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: "App Name. ['Workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Domain used for user's email address.
+        in: path
+        name: domain
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscoveryRecordModel'
+        description: Discovery record to be created.
+        required: true
+      responses:
+        "204":
+          content: {}
+          description: Updated.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested domain name/customer id is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The record to be updated is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The specified document/part of the document already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "415":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Request body is unacceptable.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Update Discovery Record For An App And Email Domain Suffix.
+      tags:
+      - DiscoveryController
+      x-codegen-request-body-name: discoveryRecord
+  /aca/settings:
+    get:
+      deprecated: false
+      operationId: getAllSettingsApiUsingGET
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllSettingResponse'
+          description: Success.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested customer id is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested customer id is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the service and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Retrieve All Settings Records For The Specified Customer Id.
+      tags:
+      - SettingsController
+  /aca/settings/app/{app}/url:
+    post:
+      deprecated: false
+      operationId: postSettingsApiUsingPOST
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: Application Name.
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsRecordModel'
+        description: Settings record to be created.
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllSettingResponse'
+          description: Created.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+            Location:
+              description: URI of the created resource.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The specified Discovery record/Customer ID is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The specified document/part of the document already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Request body is unacceptable.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Create A New Settings Record.
+      tags:
+      - SettingsController
+      x-codegen-request-body-name: settingsRecord
+  /aca/settings/app/{app}/url/{url}:
+    delete:
+      deprecated: false
+      operationId: deleteSettingsApiUsingDELETE
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: Application Name.
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Service URL for settings (based 64 url encoded)
+        in: path
+        name: url
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: Deleted.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested app/service/customer id is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content: {}
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Conflict
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Delete Record For App And Service-url.
+      tags:
+      - SettingsController
+    get:
+      deprecated: false
+      operationId: getSettingsApiUsingGET
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: "App Name. ['Workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Service URL for settings (based 64 url encoded)
+        in: path
+        name: url
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllSettingResponse'
+          description: Success.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested service or app name is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested document is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Retrieve Settings Record For App And Service-URL.
+      tags:
+      - SettingsController
+    put:
+      deprecated: false
+      operationId: putSettingsApiUsingPUT
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: "App Name. ['Workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Service URL for settings (based 64 url encoded)
+        in: path
+        name: url
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingsRecordModel'
+        description: Settings record to be created.
+        required: true
+      responses:
+        "204":
+          content: {}
+          description: Updated.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested app/service/customer id is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Conflict
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "415":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Request body is unacceptable.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Update Settings Record For An App And Service-URL.
+      tags:
+      - SettingsController
+      x-codegen-request-body-name: settingsRecord
+  /aca/settings/app/{app}/url/{url}/channel:
+    get:
+      deprecated: false
+      operationId: RetrieveAllChannelSettings
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: "App Name. ['workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: Service URL for settings (based 64 url encoded)
+        in: path
+        name: url
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllSettingResponse'
+          description: Success.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested service or app name is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested document is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unsupported Media Type
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: Retrieve All Channels Settings Records For The Specified Customer Id
+        and url
+      tags:
+      - SettingsController
+  /aca/settings/app/{app}/url/{url}/channel/{channelName}:
+    delete:
+      deprecated: false
+      operationId: DeleteSettingsForChannel
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: "App Name. ['workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Channel Name
+        in: path
+        name: channelName
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: Service URL for settings (based 64 url encoded)
+        in: path
+        name: url
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: Deleted.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested app/service/customer id/channel name is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content: {}
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Conflict
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "415":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unsupported Media Type
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: "Delete Settings Record For The Specified Customer Id, Product, Service\
+        \ And Channel."
+      tags:
+      - SettingsController
+    get:
+      deprecated: false
+      operationId: RetrieveSettingsForChannel
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Valid Citrix Cloud Authorization header.
+        example: CWSAuth bearer="<bearer_token>"
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: "App Name. ['workspace']"
+        in: path
+        name: app
+        required: true
+        schema:
+          type: string
+      - description: Channel Name
+        in: path
+        name: channelName
+        required: true
+        schema:
+          type: string
+      - description: Citrix Cloud Customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          type: string
+      - description: Service URL for settings (based 64 url encoded)
+        in: path
+        name: url
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllSettingResponse'
+          description: Success.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested service or app name is invalid.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unauthorized request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Forbidden request.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested record is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            Etag:
+              description: The API response will have Etag header
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Vary:
+              description: The API response will have Vary header
+              schema:
+                type: string
+            Expires:
+              description: The API response will have Expires header
+              schema:
+                type: string
+            Last-Modified:
+              description: The API response will have Last-Modified header
+              schema:
+                type: string
+            cache-control:
+              description: The API response will have CACHE_CONTROL header
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Only accepts UTF-8 Charset
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The requested document is not found.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: Unsupported Media Type
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The caller has overloaded the server and is being rate-limited.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CitrixErrorModel'
+          description: The service is unavailable at this time.
+          headers:
+            Citrix-TransactionId:
+              description: Citrix Transaction ID that uniquely identifies each transaction.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: The API response will have X-Content-Type-Options header
+                set to nosniff value.
+              schema:
+                type: string
+            Content-Type:
+              description: "Content type of the response. Currently, the API only\
+                \ supports application/json (type) and utf-8 (charset)."
+              schema:
+                type: string
+      security:
+      - BearerTokenAuth: []
+      summary: "Retrieve Settings Record For The Specified Customer Id, Product, Service\
+        \ And Channel."
+      tags:
+      - SettingsController
+components:
+  schemas:
+    AppSettings:
+      example:
+        html5:
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        android:
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        chromeos:
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        ios:
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        windows:
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        macos:
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+        - settings:
+          - name: name
+            value: "{}"
+          - name: name
+            value: "{}"
+          assignmentPriority: 6
+          userOverride: true
+          category: category
+          assignedTo:
+          - assignedTo
+          - assignedTo
+      properties:
+        android:
+          items:
+            $ref: '#/components/schemas/PlatformSettings'
+          type: array
+        chromeos:
+          items:
+            $ref: '#/components/schemas/PlatformSettings'
+          type: array
+        html5:
+          items:
+            $ref: '#/components/schemas/PlatformSettings'
+          type: array
+        ios:
+          items:
+            $ref: '#/components/schemas/PlatformSettings'
+          type: array
+        macos:
+          items:
+            $ref: '#/components/schemas/PlatformSettings'
+          type: array
+        windows:
+          items:
+            $ref: '#/components/schemas/PlatformSettings'
+          type: array
+      title: AppSettings
+      type: object
+    Apps:
+      example:
+        workspace:
+          serviceURLs:
+          - url: url
+          - url: url
+          allowedWebStoreURLs:
+          - url: url
+          - url: url
+      properties:
+        workspace:
+          $ref: '#/components/schemas/Workspace'
+      title: Apps
+      type: object
+    Callable«ResponseEntity«string»»:
+      title: Callable«ResponseEntity«string»»
+      type: object
+    CategorySettings:
+      example:
+        name: name
+        value: "{}"
+      properties:
+        name:
+          type: string
+        value:
+          properties: {}
+          type: object
+      title: CategorySettings
+      type: object
+    CitrixErrorModel:
+      example:
+        detail: detail
+        type: type
+        parameters:
+        - name: name
+          value: value
+        - name: name
+          value: value
+      properties:
+        detail:
+          type: string
+        parameters:
+          items:
+            $ref: '#/components/schemas/Parameter'
+          type: array
+        type:
+          type: string
+      title: CitrixErrorModel
+      type: object
+    DiscoveryRecordModel:
+      example:
+        app:
+          workspace:
+            serviceURLs:
+            - url: url
+            - url: url
+            allowedWebStoreURLs:
+            - url: url
+            - url: url
+        domain:
+          name: name
+      properties:
+        app:
+          $ref: '#/components/schemas/Apps'
+        domain:
+          $ref: '#/components/schemas/Domain'
+      title: DiscoveryRecordModel
+      type: object
+    DiscoveryServiceURL:
+      example:
+        url: url
+      properties:
+        url:
+          type: string
+      title: DiscoveryServiceURL
+      type: object
+    Domain:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      title: Domain
+      type: object
+    GetAllDiscoveryResponse:
+      example:
+        nextToken: nextToken
+        count: 0
+        items:
+        - app:
+            workspace:
+              serviceURLs:
+              - url: url
+              - url: url
+              allowedWebStoreURLs:
+              - url: url
+              - url: url
+          domain:
+            name: name
+        - app:
+            workspace:
+              serviceURLs:
+              - url: url
+              - url: url
+              allowedWebStoreURLs:
+              - url: url
+              - url: url
+          domain:
+            name: name
+      properties:
+        count:
+          format: int32
+          type: integer
+        items:
+          items:
+            $ref: '#/components/schemas/DiscoveryRecordModel'
+          type: array
+        nextToken:
+          type: string
+      title: GetAllDiscoveryResponse
+      type: object
+    GetAllSettingResponse:
+      example:
+        nextToken: nextToken
+        count: 0
+        items:
+        - settings:
+            appSettings:
+              html5:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              android:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              chromeos:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              ios:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              windows:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              macos:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+            name: name
+            description: description
+            useForAppConfig: true
+          serviceURL:
+            migrationUrl:
+            - storeFrontValidUntil: storeFrontValidUntil
+              url: url
+            - storeFrontValidUntil: storeFrontValidUntil
+              url: url
+            url: url
+          settingsChannel:
+            channelName: channelName
+        - settings:
+            appSettings:
+              html5:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              android:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              chromeos:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              ios:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              windows:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              macos:
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+              - settings:
+                - name: name
+                  value: "{}"
+                - name: name
+                  value: "{}"
+                assignmentPriority: 6
+                userOverride: true
+                category: category
+                assignedTo:
+                - assignedTo
+                - assignedTo
+            name: name
+            description: description
+            useForAppConfig: true
+          serviceURL:
+            migrationUrl:
+            - storeFrontValidUntil: storeFrontValidUntil
+              url: url
+            - storeFrontValidUntil: storeFrontValidUntil
+              url: url
+            url: url
+          settingsChannel:
+            channelName: channelName
+      properties:
+        count:
+          format: int32
+          type: integer
+        items:
+          items:
+            $ref: '#/components/schemas/SettingsRecordModel'
+          type: array
+        nextToken:
+          type: string
+      title: GetAllSettingResponse
+      type: object
+    MigrationUrl:
+      example:
+        storeFrontValidUntil: storeFrontValidUntil
+        url: url
+      properties:
+        storeFrontValidUntil:
+          type: string
+        url:
+          type: string
+      title: MigrationUrl
+      type: object
+    Parameter:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      title: Parameter
+      type: object
+    PlatformSettings:
+      example:
+        settings:
+        - name: name
+          value: "{}"
+        - name: name
+          value: "{}"
+        assignmentPriority: 6
+        userOverride: true
+        category: category
+        assignedTo:
+        - assignedTo
+        - assignedTo
+      properties:
+        assignedTo:
+          items:
+            type: string
+          type: array
+        assignmentPriority:
+          format: int32
+          type: integer
+        category:
+          type: string
+        settings:
+          items:
+            $ref: '#/components/schemas/CategorySettings'
+          type: array
+        userOverride:
+          type: boolean
+      title: PlatformSettings
+      type: object
+    ServiceURL:
+      example:
+        migrationUrl:
+        - storeFrontValidUntil: storeFrontValidUntil
+          url: url
+        - storeFrontValidUntil: storeFrontValidUntil
+          url: url
+        url: url
+      properties:
+        migrationUrl:
+          items:
+            $ref: '#/components/schemas/MigrationUrl'
+          type: array
+        url:
+          type: string
+      title: ServiceURL
+      type: object
+    Settings:
+      example:
+        appSettings:
+          html5:
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          android:
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          chromeos:
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          ios:
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          windows:
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          macos:
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+          - settings:
+            - name: name
+              value: "{}"
+            - name: name
+              value: "{}"
+            assignmentPriority: 6
+            userOverride: true
+            category: category
+            assignedTo:
+            - assignedTo
+            - assignedTo
+        name: name
+        description: description
+        useForAppConfig: true
+      properties:
+        appSettings:
+          $ref: '#/components/schemas/AppSettings'
+        description:
+          type: string
+        name:
+          type: string
+        useForAppConfig:
+          type: boolean
+      title: Settings
+      type: object
+    SettingsChannel:
+      example:
+        channelName: channelName
+      properties:
+        channelName:
+          type: string
+      title: SettingsChannel
+      type: object
+    SettingsRecordModel:
+      example:
+        settings:
+          appSettings:
+            html5:
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            android:
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            chromeos:
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            ios:
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            windows:
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            macos:
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+            - settings:
+              - name: name
+                value: "{}"
+              - name: name
+                value: "{}"
+              assignmentPriority: 6
+              userOverride: true
+              category: category
+              assignedTo:
+              - assignedTo
+              - assignedTo
+          name: name
+          description: description
+          useForAppConfig: true
+        serviceURL:
+          migrationUrl:
+          - storeFrontValidUntil: storeFrontValidUntil
+            url: url
+          - storeFrontValidUntil: storeFrontValidUntil
+            url: url
+          url: url
+        settingsChannel:
+          channelName: channelName
+      properties:
+        serviceURL:
+          $ref: '#/components/schemas/ServiceURL'
+        settings:
+          $ref: '#/components/schemas/Settings'
+        settingsChannel:
+          $ref: '#/components/schemas/SettingsChannel'
+      title: SettingsRecordModel
+      type: object
+    Workspace:
+      example:
+        serviceURLs:
+        - url: url
+        - url: url
+        allowedWebStoreURLs:
+        - url: url
+        - url: url
+      properties:
+        serviceURLs:
+          items:
+            $ref: '#/components/schemas/DiscoveryServiceURL'
+          type: array
+        allowedWebStoreURLs:
+          items:
+            $ref: '#/components/schemas/allowedWebStoreURL'
+          type: array
+      title: Workspace
+      type: object
+    allowedWebStoreURL:
+      example:
+        url: url
+      properties:
+        url:
+          type: string
+      title: allowedWebStoreURL
+      type: object
+  securitySchemes:
+    BearerTokenAuth:
+      in: header
+      name: Authorization
+      type: apiKey
+x-original-swagger-version: "2.0"

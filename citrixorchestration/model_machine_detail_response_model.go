@@ -155,8 +155,6 @@ type MachineDetailResponseModel struct {
 	// Flag indicating whether the machine's configuration is out of sync with the catalog's latest configuration
 	MachineConfigurationOutOfSync NullableBool `json:"MachineConfigurationOutOfSync,omitempty"`
 	UpgradeDetail *MachineUpgradeDetail `json:"UpgradeDetail,omitempty"`
-	// The meta data of this machine.
-	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// The name of the endpoint client device that the machine has been assigned to.
 	AssignedClientName NullableString `json:"AssignedClientName,omitempty"`
 	// The IP address of the endpoint client device that the machine has been assigned to.
@@ -3242,39 +3240,6 @@ func (o *MachineDetailResponseModel) SetUpgradeDetail(v MachineUpgradeDetail) {
 	o.UpgradeDetail = &v
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MachineDetailResponseModel) GetMetadata() []NameValueStringPairModel {
-	if o == nil {
-		var ret []NameValueStringPairModel
-		return ret
-	}
-	return o.Metadata
-}
-
-// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MachineDetailResponseModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
-	if o == nil || IsNil(o.Metadata) {
-		return nil, false
-	}
-	return o.Metadata, true
-}
-
-// HasMetadata returns a boolean if a field has been set.
-func (o *MachineDetailResponseModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
-		return true
-	}
-
-	return false
-}
-
-// SetMetadata gets a reference to the given []NameValueStringPairModel and assigns it to the Metadata field.
-func (o *MachineDetailResponseModel) SetMetadata(v []NameValueStringPairModel) {
-	o.Metadata = v
-}
-
 // GetAssignedClientName returns the AssignedClientName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MachineDetailResponseModel) GetAssignedClientName() string {
 	if o == nil || IsNil(o.AssignedClientName.Get()) {
@@ -3982,9 +3947,6 @@ func (o MachineDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UpgradeDetail) {
 		toSerialize["UpgradeDetail"] = o.UpgradeDetail
-	}
-	if o.Metadata != nil {
-		toSerialize["Metadata"] = o.Metadata
 	}
 	if o.AssignedClientName.IsSet() {
 		toSerialize["AssignedClientName"] = o.AssignedClientName.Get()

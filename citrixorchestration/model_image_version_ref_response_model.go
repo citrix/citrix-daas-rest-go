@@ -19,20 +19,26 @@ var _ MappedNullable = &ImageVersionRefResponseModel{}
 
 // ImageVersionRefResponseModel Image version reference.
 type ImageVersionRefResponseModel struct {
-	// The image definition name.
-	ImageDefinitionName NullableString `json:"ImageDefinitionName,omitempty"`
-	// The image version number.
-	ImageVersionNumber NullableString `json:"ImageVersionNumber,omitempty"`
-	// The image version uid.
-	ImageVersionUid *string `json:"ImageVersionUid,omitempty"`
+	// The Id of the image version.
+	Id string `json:"Id"`
+	// The version number associated with the image version.
+	Number int32 `json:"Number"`
+	ImageDefinition RefResponseModel `json:"ImageDefinition"`
+	// The image version's description
+	Description NullableString `json:"Description,omitempty"`
+	// The image version specifications associated with this image version.
+	ImageVersionSpecs []ImageVersionSpecRefResponseModel `json:"ImageVersionSpecs,omitempty"`
 }
 
 // NewImageVersionRefResponseModel instantiates a new ImageVersionRefResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageVersionRefResponseModel() *ImageVersionRefResponseModel {
+func NewImageVersionRefResponseModel(id string, number int32, imageDefinition RefResponseModel) *ImageVersionRefResponseModel {
 	this := ImageVersionRefResponseModel{}
+	this.Id = id
+	this.Number = number
+	this.ImageDefinition = imageDefinition
 	return &this
 }
 
@@ -44,120 +50,151 @@ func NewImageVersionRefResponseModelWithDefaults() *ImageVersionRefResponseModel
 	return &this
 }
 
-// GetImageDefinitionName returns the ImageDefinitionName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionRefResponseModel) GetImageDefinitionName() string {
-	if o == nil || IsNil(o.ImageDefinitionName.Get()) {
+// GetId returns the Id field value
+func (o *ImageVersionRefResponseModel) GetId() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ImageDefinitionName.Get()
+
+	return o.Id
 }
 
-// GetImageDefinitionNameOk returns a tuple with the ImageDefinitionName field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionRefResponseModel) GetImageDefinitionNameOk() (*string, bool) {
+func (o *ImageVersionRefResponseModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ImageDefinitionName.Get(), o.ImageDefinitionName.IsSet()
+	return &o.Id, true
 }
 
-// HasImageDefinitionName returns a boolean if a field has been set.
-func (o *ImageVersionRefResponseModel) HasImageDefinitionName() bool {
-	if o != nil && o.ImageDefinitionName.IsSet() {
-		return true
-	}
-
-	return false
+// SetId sets field value
+func (o *ImageVersionRefResponseModel) SetId(v string) {
+	o.Id = v
 }
 
-// SetImageDefinitionName gets a reference to the given NullableString and assigns it to the ImageDefinitionName field.
-func (o *ImageVersionRefResponseModel) SetImageDefinitionName(v string) {
-	o.ImageDefinitionName.Set(&v)
-}
-// SetImageDefinitionNameNil sets the value for ImageDefinitionName to be an explicit nil
-func (o *ImageVersionRefResponseModel) SetImageDefinitionNameNil() {
-	o.ImageDefinitionName.Set(nil)
-}
-
-// UnsetImageDefinitionName ensures that no value is present for ImageDefinitionName, not even an explicit nil
-func (o *ImageVersionRefResponseModel) UnsetImageDefinitionName() {
-	o.ImageDefinitionName.Unset()
-}
-
-// GetImageVersionNumber returns the ImageVersionNumber field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageVersionRefResponseModel) GetImageVersionNumber() string {
-	if o == nil || IsNil(o.ImageVersionNumber.Get()) {
-		var ret string
+// GetNumber returns the Number field value
+func (o *ImageVersionRefResponseModel) GetNumber() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.ImageVersionNumber.Get()
+
+	return o.Number
 }
 
-// GetImageVersionNumberOk returns a tuple with the ImageVersionNumber field value if set, nil otherwise
+// GetNumberOk returns a tuple with the Number field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageVersionRefResponseModel) GetImageVersionNumberOk() (*string, bool) {
+func (o *ImageVersionRefResponseModel) GetNumberOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ImageVersionNumber.Get(), o.ImageVersionNumber.IsSet()
+	return &o.Number, true
 }
 
-// HasImageVersionNumber returns a boolean if a field has been set.
-func (o *ImageVersionRefResponseModel) HasImageVersionNumber() bool {
-	if o != nil && o.ImageVersionNumber.IsSet() {
-		return true
+// SetNumber sets field value
+func (o *ImageVersionRefResponseModel) SetNumber(v int32) {
+	o.Number = v
+}
+
+// GetImageDefinition returns the ImageDefinition field value
+func (o *ImageVersionRefResponseModel) GetImageDefinition() RefResponseModel {
+	if o == nil {
+		var ret RefResponseModel
+		return ret
 	}
 
-	return false
+	return o.ImageDefinition
 }
 
-// SetImageVersionNumber gets a reference to the given NullableString and assigns it to the ImageVersionNumber field.
-func (o *ImageVersionRefResponseModel) SetImageVersionNumber(v string) {
-	o.ImageVersionNumber.Set(&v)
-}
-// SetImageVersionNumberNil sets the value for ImageVersionNumber to be an explicit nil
-func (o *ImageVersionRefResponseModel) SetImageVersionNumberNil() {
-	o.ImageVersionNumber.Set(nil)
-}
-
-// UnsetImageVersionNumber ensures that no value is present for ImageVersionNumber, not even an explicit nil
-func (o *ImageVersionRefResponseModel) UnsetImageVersionNumber() {
-	o.ImageVersionNumber.Unset()
+// GetImageDefinitionOk returns a tuple with the ImageDefinition field value
+// and a boolean to check if the value has been set.
+func (o *ImageVersionRefResponseModel) GetImageDefinitionOk() (*RefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ImageDefinition, true
 }
 
-// GetImageVersionUid returns the ImageVersionUid field value if set, zero value otherwise.
-func (o *ImageVersionRefResponseModel) GetImageVersionUid() string {
-	if o == nil || IsNil(o.ImageVersionUid) {
+// SetImageDefinition sets field value
+func (o *ImageVersionRefResponseModel) SetImageDefinition(v RefResponseModel) {
+	o.ImageDefinition = v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageVersionRefResponseModel) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ImageVersionUid
+	return *o.Description.Get()
 }
 
-// GetImageVersionUidOk returns a tuple with the ImageVersionUid field value if set, nil otherwise
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ImageVersionRefResponseModel) GetImageVersionUidOk() (*string, bool) {
-	if o == nil || IsNil(o.ImageVersionUid) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageVersionRefResponseModel) GetDescriptionOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ImageVersionUid, true
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// HasImageVersionUid returns a boolean if a field has been set.
-func (o *ImageVersionRefResponseModel) HasImageVersionUid() bool {
-	if o != nil && !IsNil(o.ImageVersionUid) {
+// HasDescription returns a boolean if a field has been set.
+func (o *ImageVersionRefResponseModel) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetImageVersionUid gets a reference to the given string and assigns it to the ImageVersionUid field.
-func (o *ImageVersionRefResponseModel) SetImageVersionUid(v string) {
-	o.ImageVersionUid = &v
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *ImageVersionRefResponseModel) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *ImageVersionRefResponseModel) SetDescriptionNil() {
+	o.Description.Set(nil)
+}
+
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *ImageVersionRefResponseModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetImageVersionSpecs returns the ImageVersionSpecs field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageVersionRefResponseModel) GetImageVersionSpecs() []ImageVersionSpecRefResponseModel {
+	if o == nil {
+		var ret []ImageVersionSpecRefResponseModel
+		return ret
+	}
+	return o.ImageVersionSpecs
+}
+
+// GetImageVersionSpecsOk returns a tuple with the ImageVersionSpecs field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageVersionRefResponseModel) GetImageVersionSpecsOk() ([]ImageVersionSpecRefResponseModel, bool) {
+	if o == nil || IsNil(o.ImageVersionSpecs) {
+		return nil, false
+	}
+	return o.ImageVersionSpecs, true
+}
+
+// HasImageVersionSpecs returns a boolean if a field has been set.
+func (o *ImageVersionRefResponseModel) HasImageVersionSpecs() bool {
+	if o != nil && IsNil(o.ImageVersionSpecs) {
+		return true
+	}
+
+	return false
+}
+
+// SetImageVersionSpecs gets a reference to the given []ImageVersionSpecRefResponseModel and assigns it to the ImageVersionSpecs field.
+func (o *ImageVersionRefResponseModel) SetImageVersionSpecs(v []ImageVersionSpecRefResponseModel) {
+	o.ImageVersionSpecs = v
 }
 
 func (o ImageVersionRefResponseModel) MarshalJSON() ([]byte, error) {
@@ -170,14 +207,14 @@ func (o ImageVersionRefResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o ImageVersionRefResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.ImageDefinitionName.IsSet() {
-		toSerialize["ImageDefinitionName"] = o.ImageDefinitionName.Get()
+	toSerialize["Id"] = o.Id
+	toSerialize["Number"] = o.Number
+	toSerialize["ImageDefinition"] = o.ImageDefinition
+	if o.Description.IsSet() {
+		toSerialize["Description"] = o.Description.Get()
 	}
-	if o.ImageVersionNumber.IsSet() {
-		toSerialize["ImageVersionNumber"] = o.ImageVersionNumber.Get()
-	}
-	if !IsNil(o.ImageVersionUid) {
-		toSerialize["ImageVersionUid"] = o.ImageVersionUid
+	if o.ImageVersionSpecs != nil {
+		toSerialize["ImageVersionSpecs"] = o.ImageVersionSpecs
 	}
 	return toSerialize, nil
 }

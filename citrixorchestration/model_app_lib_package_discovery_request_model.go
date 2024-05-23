@@ -34,8 +34,6 @@ type AppLibPackageDiscoveryRequestModel struct {
 	DiscoverMsiX NullableBool `json:"DiscoverMsiX,omitempty"`
 	// A value indicating whether or not to discover AppAttach packages
 	DiscoverAppAttach NullableBool `json:"DiscoverAppAttach,omitempty"`
-	// A value indicating whether or not to discover FlexApp packages
-	DiscoverFlexApp NullableBool `json:"DiscoverFlexApp,omitempty"`
 	// The url of the App-V Management Server that packages will be discovered from.
 	ManagementServer NullableString `json:"ManagementServer,omitempty"`
 	// A value indicating whether or not to discover AppAttach packages
@@ -61,8 +59,6 @@ func NewAppLibPackageDiscoveryRequestModel() *AppLibPackageDiscoveryRequestModel
 	this.DiscoverMsiX = *NewNullableBool(&discoverMsiX)
 	var discoverAppAttach bool = false
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
-	var discoverFlexApp bool = false
-	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
 	return &this
 }
 
@@ -79,8 +75,6 @@ func NewAppLibPackageDiscoveryRequestModelWithDefaults() *AppLibPackageDiscovery
 	this.DiscoverMsiX = *NewNullableBool(&discoverMsiX)
 	var discoverAppAttach bool = false
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
-	var discoverFlexApp bool = false
-	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
 	return &this
 }
 
@@ -410,48 +404,6 @@ func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverAppAttach() {
 	o.DiscoverAppAttach.Unset()
 }
 
-// GetDiscoverFlexApp returns the DiscoverFlexApp field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverFlexApp() bool {
-	if o == nil || IsNil(o.DiscoverFlexApp.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.DiscoverFlexApp.Get()
-}
-
-// GetDiscoverFlexAppOk returns a tuple with the DiscoverFlexApp field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverFlexAppOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.DiscoverFlexApp.Get(), o.DiscoverFlexApp.IsSet()
-}
-
-// HasDiscoverFlexApp returns a boolean if a field has been set.
-func (o *AppLibPackageDiscoveryRequestModel) HasDiscoverFlexApp() bool {
-	if o != nil && o.DiscoverFlexApp.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDiscoverFlexApp gets a reference to the given NullableBool and assigns it to the DiscoverFlexApp field.
-func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverFlexApp(v bool) {
-	o.DiscoverFlexApp.Set(&v)
-}
-// SetDiscoverFlexAppNil sets the value for DiscoverFlexApp to be an explicit nil
-func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverFlexAppNil() {
-	o.DiscoverFlexApp.Set(nil)
-}
-
-// UnsetDiscoverFlexApp ensures that no value is present for DiscoverFlexApp, not even an explicit nil
-func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverFlexApp() {
-	o.DiscoverFlexApp.Unset()
-}
-
 // GetManagementServer returns the ManagementServer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppLibPackageDiscoveryRequestModel) GetManagementServer() string {
 	if o == nil || IsNil(o.ManagementServer.Get()) {
@@ -685,9 +637,6 @@ func (o AppLibPackageDiscoveryRequestModel) ToMap() (map[string]interface{}, err
 	}
 	if o.DiscoverAppAttach.IsSet() {
 		toSerialize["DiscoverAppAttach"] = o.DiscoverAppAttach.Get()
-	}
-	if o.DiscoverFlexApp.IsSet() {
-		toSerialize["DiscoverFlexApp"] = o.DiscoverFlexApp.Get()
 	}
 	if o.ManagementServer.IsSet() {
 		toSerialize["ManagementServer"] = o.ManagementServer.Get()

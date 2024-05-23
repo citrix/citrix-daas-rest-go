@@ -21,8 +21,6 @@
 
 * `APP_ATTACH` (value: `"AppAttach"`)
 
-* `FLEX_APP` (value: `"FlexApp"`)
-
 * `PACKAGED_APPLICATION` (value: `"PackagedApplication"`)
 
 

@@ -29,7 +29,6 @@ const (
 	APPLICATIONTYPE_APP_LIBRARY_APP_V ApplicationType = "AppLibraryAppV"
 	APPLICATIONTYPE_MSIX ApplicationType = "Msix"
 	APPLICATIONTYPE_APP_ATTACH ApplicationType = "AppAttach"
-	APPLICATIONTYPE_FLEX_APP ApplicationType = "FlexApp"
 	APPLICATIONTYPE_PACKAGED_APPLICATION ApplicationType = "PackagedApplication"
 )
 
@@ -44,7 +43,6 @@ var AllowedApplicationTypeEnumValues = []ApplicationType{
 	"AppLibraryAppV",
 	"Msix",
 	"AppAttach",
-	"FlexApp",
 	"PackagedApplication",
 }
 

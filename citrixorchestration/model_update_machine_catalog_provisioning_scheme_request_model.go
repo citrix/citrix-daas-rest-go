@@ -53,7 +53,7 @@ type UpdateMachineCatalogProvisioningSchemeRequestModel struct {
 	// Deprecated
 	RemoveAvailableMachineAccounts []string `json:"RemoveAvailableMachineAccounts,omitempty"`
 	MachineAccountDeleteOption *MachineAccountDeleteOption `json:"MachineAccountDeleteOption,omitempty"`
-	ImageVersion *AssignImageVersionToMachineCatalogRequestModel `json:"ImageVersion,omitempty"`
+	AssignImageVersionToProvisioningScheme *AssignImageVersionToProvisioningSchemeRequestModel `json:"AssignImageVersionToProvisioningScheme,omitempty"`
 }
 
 // NewUpdateMachineCatalogProvisioningSchemeRequestModel instantiates a new UpdateMachineCatalogProvisioningSchemeRequestModel object
@@ -696,36 +696,36 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMachineAccountDe
 	o.MachineAccountDeleteOption = &v
 }
 
-// GetImageVersion returns the ImageVersion field value if set, zero value otherwise.
-func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() AssignImageVersionToMachineCatalogRequestModel {
-	if o == nil || IsNil(o.ImageVersion) {
-		var ret AssignImageVersionToMachineCatalogRequestModel
+// GetAssignImageVersionToProvisioningScheme returns the AssignImageVersionToProvisioningScheme field value if set, zero value otherwise.
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningScheme() AssignImageVersionToProvisioningSchemeRequestModel {
+	if o == nil || IsNil(o.AssignImageVersionToProvisioningScheme) {
+		var ret AssignImageVersionToProvisioningSchemeRequestModel
 		return ret
 	}
-	return *o.ImageVersion
+	return *o.AssignImageVersionToProvisioningScheme
 }
 
-// GetImageVersionOk returns a tuple with the ImageVersion field value if set, nil otherwise
+// GetAssignImageVersionToProvisioningSchemeOk returns a tuple with the AssignImageVersionToProvisioningScheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*AssignImageVersionToMachineCatalogRequestModel, bool) {
-	if o == nil || IsNil(o.ImageVersion) {
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningSchemeOk() (*AssignImageVersionToProvisioningSchemeRequestModel, bool) {
+	if o == nil || IsNil(o.AssignImageVersionToProvisioningScheme) {
 		return nil, false
 	}
-	return o.ImageVersion, true
+	return o.AssignImageVersionToProvisioningScheme, true
 }
 
-// HasImageVersion returns a boolean if a field has been set.
-func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasImageVersion() bool {
-	if o != nil && !IsNil(o.ImageVersion) {
+// HasAssignImageVersionToProvisioningScheme returns a boolean if a field has been set.
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasAssignImageVersionToProvisioningScheme() bool {
+	if o != nil && !IsNil(o.AssignImageVersionToProvisioningScheme) {
 		return true
 	}
 
 	return false
 }
 
-// SetImageVersion gets a reference to the given AssignImageVersionToMachineCatalogRequestModel and assigns it to the ImageVersion field.
-func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v AssignImageVersionToMachineCatalogRequestModel) {
-	o.ImageVersion = &v
+// SetAssignImageVersionToProvisioningScheme gets a reference to the given AssignImageVersionToProvisioningSchemeRequestModel and assigns it to the AssignImageVersionToProvisioningScheme field.
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetAssignImageVersionToProvisioningScheme(v AssignImageVersionToProvisioningSchemeRequestModel) {
+	o.AssignImageVersionToProvisioningScheme = &v
 }
 
 func (o UpdateMachineCatalogProvisioningSchemeRequestModel) MarshalJSON() ([]byte, error) {
@@ -786,8 +786,8 @@ func (o UpdateMachineCatalogProvisioningSchemeRequestModel) ToMap() (map[string]
 	if !IsNil(o.MachineAccountDeleteOption) {
 		toSerialize["MachineAccountDeleteOption"] = o.MachineAccountDeleteOption
 	}
-	if !IsNil(o.ImageVersion) {
-		toSerialize["ImageVersion"] = o.ImageVersion
+	if !IsNil(o.AssignImageVersionToProvisioningScheme) {
+		toSerialize["AssignImageVersionToProvisioningScheme"] = o.AssignImageVersionToProvisioningScheme
 	}
 	return toSerialize, nil
 }

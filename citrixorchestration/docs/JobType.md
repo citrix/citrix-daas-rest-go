@@ -437,13 +437,13 @@
 
 * `VALIDATE_MACHINE_CATALOG_VDA_COMPONENTS_AND_FEATURES_SELECTION` (value: `"ValidateMachineCatalogVDAComponentsAndFeaturesSelection"`)
 
-* `NEW_IMAGE_DEFINITION` (value: `"NewImageDefinition"`)
-
-* `ADD_IMAGE_VERSION` (value: `"AddImageVersion"`)
-
 * `REMOVE_IMAGE_DEFINITION` (value: `"RemoveImageDefinition"`)
 
-* `REMOVE_IMAGE_VERSION` (value: `"RemoveImageVersion"`)
+* `CREATE_IMAGE_VERSION` (value: `"CreateImageVersion"`)
+
+* `SET_IMAGE_VERSION` (value: `"SetImageVersion"`)
+
+* `DELETE_IMAGE_VERSION` (value: `"DeleteImageVersion"`)
 
 * `GET_ALL_MACHINE_IDENTITY_POOLS` (value: `"GetAllMachineIdentityPools"`)
 
@@ -488,10 +488,6 @@
 * `IMPORT_PROVISIONED_VIRTUAL_MACHINES` (value: `"ImportProvisionedVirtualMachines"`)
 
 * `VALIDATE_MACHINE_CATALOG_CREATION` (value: `"ValidateMachineCatalogCreation"`)
-
-* `SEARCH_PROVISIONED_VIRTUAL_MACHINES` (value: `"SearchProvisionedVirtualMachines"`)
-
-* `GET_PROVISIONED_VIRTUAL_MACHINE_DETAILS` (value: `"GetProvisionedVirtualMachineDetails"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

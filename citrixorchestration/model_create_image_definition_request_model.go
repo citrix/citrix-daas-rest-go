@@ -19,16 +19,23 @@ var _ MappedNullable = &CreateImageDefinitionRequestModel{}
 
 // CreateImageDefinitionRequestModel Request object for creation of image definitions.
 type CreateImageDefinitionRequestModel struct {
-	ImageDefinition *CreateImageDefinitionDetailRequestModel `json:"ImageDefinition,omitempty"`
-	ImageVersion *CreateImageVersionRequestModel `json:"ImageVersion,omitempty"`
+	// The name associated with the image definition.
+	Name string `json:"Name"`
+	// The description associated with the image definition.
+	Description NullableString `json:"Description,omitempty"`
+	OsType OsType `json:"OsType"`
+	VDASessionSupport SessionSupport `json:"VDASessionSupport"`
 }
 
 // NewCreateImageDefinitionRequestModel instantiates a new CreateImageDefinitionRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateImageDefinitionRequestModel() *CreateImageDefinitionRequestModel {
+func NewCreateImageDefinitionRequestModel(name string, osType OsType, vDASessionSupport SessionSupport) *CreateImageDefinitionRequestModel {
 	this := CreateImageDefinitionRequestModel{}
+	this.Name = name
+	this.OsType = osType
+	this.VDASessionSupport = vDASessionSupport
 	return &this
 }
 
@@ -40,68 +47,118 @@ func NewCreateImageDefinitionRequestModelWithDefaults() *CreateImageDefinitionRe
 	return &this
 }
 
-// GetImageDefinition returns the ImageDefinition field value if set, zero value otherwise.
-func (o *CreateImageDefinitionRequestModel) GetImageDefinition() CreateImageDefinitionDetailRequestModel {
-	if o == nil || IsNil(o.ImageDefinition) {
-		var ret CreateImageDefinitionDetailRequestModel
+// GetName returns the Name field value
+func (o *CreateImageDefinitionRequestModel) GetName() string {
+	if o == nil {
+		var ret string
 		return ret
 	}
-	return *o.ImageDefinition
+
+	return o.Name
 }
 
-// GetImageDefinitionOk returns a tuple with the ImageDefinition field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *CreateImageDefinitionRequestModel) GetImageDefinitionOk() (*CreateImageDefinitionDetailRequestModel, bool) {
-	if o == nil || IsNil(o.ImageDefinition) {
+func (o *CreateImageDefinitionRequestModel) GetNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ImageDefinition, true
+	return &o.Name, true
 }
 
-// HasImageDefinition returns a boolean if a field has been set.
-func (o *CreateImageDefinitionRequestModel) HasImageDefinition() bool {
-	if o != nil && !IsNil(o.ImageDefinition) {
+// SetName sets field value
+func (o *CreateImageDefinitionRequestModel) SetName(v string) {
+	o.Name = v
+}
+
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateImageDefinitionRequestModel) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Description.Get()
+}
+
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateImageDefinitionRequestModel) GetDescriptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Description.Get(), o.Description.IsSet()
+}
+
+// HasDescription returns a boolean if a field has been set.
+func (o *CreateImageDefinitionRequestModel) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetImageDefinition gets a reference to the given CreateImageDefinitionDetailRequestModel and assigns it to the ImageDefinition field.
-func (o *CreateImageDefinitionRequestModel) SetImageDefinition(v CreateImageDefinitionDetailRequestModel) {
-	o.ImageDefinition = &v
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *CreateImageDefinitionRequestModel) SetDescription(v string) {
+	o.Description.Set(&v)
+}
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *CreateImageDefinitionRequestModel) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetImageVersion returns the ImageVersion field value if set, zero value otherwise.
-func (o *CreateImageDefinitionRequestModel) GetImageVersion() CreateImageVersionRequestModel {
-	if o == nil || IsNil(o.ImageVersion) {
-		var ret CreateImageVersionRequestModel
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *CreateImageDefinitionRequestModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetOsType returns the OsType field value
+func (o *CreateImageDefinitionRequestModel) GetOsType() OsType {
+	if o == nil {
+		var ret OsType
 		return ret
 	}
-	return *o.ImageVersion
+
+	return o.OsType
 }
 
-// GetImageVersionOk returns a tuple with the ImageVersion field value if set, nil otherwise
+// GetOsTypeOk returns a tuple with the OsType field value
 // and a boolean to check if the value has been set.
-func (o *CreateImageDefinitionRequestModel) GetImageVersionOk() (*CreateImageVersionRequestModel, bool) {
-	if o == nil || IsNil(o.ImageVersion) {
+func (o *CreateImageDefinitionRequestModel) GetOsTypeOk() (*OsType, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ImageVersion, true
+	return &o.OsType, true
 }
 
-// HasImageVersion returns a boolean if a field has been set.
-func (o *CreateImageDefinitionRequestModel) HasImageVersion() bool {
-	if o != nil && !IsNil(o.ImageVersion) {
-		return true
+// SetOsType sets field value
+func (o *CreateImageDefinitionRequestModel) SetOsType(v OsType) {
+	o.OsType = v
+}
+
+// GetVDASessionSupport returns the VDASessionSupport field value
+func (o *CreateImageDefinitionRequestModel) GetVDASessionSupport() SessionSupport {
+	if o == nil {
+		var ret SessionSupport
+		return ret
 	}
 
-	return false
+	return o.VDASessionSupport
 }
 
-// SetImageVersion gets a reference to the given CreateImageVersionRequestModel and assigns it to the ImageVersion field.
-func (o *CreateImageDefinitionRequestModel) SetImageVersion(v CreateImageVersionRequestModel) {
-	o.ImageVersion = &v
+// GetVDASessionSupportOk returns a tuple with the VDASessionSupport field value
+// and a boolean to check if the value has been set.
+func (o *CreateImageDefinitionRequestModel) GetVDASessionSupportOk() (*SessionSupport, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VDASessionSupport, true
+}
+
+// SetVDASessionSupport sets field value
+func (o *CreateImageDefinitionRequestModel) SetVDASessionSupport(v SessionSupport) {
+	o.VDASessionSupport = v
 }
 
 func (o CreateImageDefinitionRequestModel) MarshalJSON() ([]byte, error) {
@@ -114,12 +171,12 @@ func (o CreateImageDefinitionRequestModel) MarshalJSON() ([]byte, error) {
 
 func (o CreateImageDefinitionRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.ImageDefinition) {
-		toSerialize["ImageDefinition"] = o.ImageDefinition
+	toSerialize["Name"] = o.Name
+	if o.Description.IsSet() {
+		toSerialize["Description"] = o.Description.Get()
 	}
-	if !IsNil(o.ImageVersion) {
-		toSerialize["ImageVersion"] = o.ImageVersion
-	}
+	toSerialize["OsType"] = o.OsType
+	toSerialize["VDASessionSupport"] = o.VDASessionSupport
 	return toSerialize, nil
 }
 

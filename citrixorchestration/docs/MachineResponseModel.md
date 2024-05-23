@@ -86,7 +86,6 @@ Name | Type | Description | Notes
 **UpgradeState** | Pointer to [**VdaUpgradeState**](VdaUpgradeState.md) |  | [optional] 
 **MachineConfigurationOutOfSync** | Pointer to **NullableBool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
 **UpgradeDetail** | Pointer to [**MachineUpgradeDetail**](MachineUpgradeDetail.md) |  | [optional] 
-**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The meta data of this machine. | [optional] 
 
 ## Methods
 
@@ -2652,41 +2651,6 @@ SetUpgradeDetail sets UpgradeDetail field to given value.
 
 HasUpgradeDetail returns a boolean if a field has been set.
 
-### GetMetadata
-
-`func (o *MachineResponseModel) GetMetadata() []NameValueStringPairModel`
-
-GetMetadata returns the Metadata field if non-nil, zero value otherwise.
-
-### GetMetadataOk
-
-`func (o *MachineResponseModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
-
-GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMetadata
-
-`func (o *MachineResponseModel) SetMetadata(v []NameValueStringPairModel)`
-
-SetMetadata sets Metadata field to given value.
-
-### HasMetadata
-
-`func (o *MachineResponseModel) HasMetadata() bool`
-
-HasMetadata returns a boolean if a field has been set.
-
-### SetMetadataNil
-
-`func (o *MachineResponseModel) SetMetadataNil(b bool)`
-
- SetMetadataNil sets the value for Metadata to be an explicit nil
-
-### UnsetMetadata
-`func (o *MachineResponseModel) UnsetMetadata()`
-
-UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

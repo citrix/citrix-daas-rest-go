@@ -336,6 +336,29 @@ Class | Method | HTTP request | Description
 *IconsAPIsDAAS* | [**IconsGetIcon**](docs/IconsAPIsDAAS.md#iconsgeticon) | **Get** /Icons/{id} | Get a single icon from the site.
 *IconsAPIsDAAS* | [**IconsGetIcons**](docs/IconsAPIsDAAS.md#iconsgeticons) | **Get** /Icons | Get all icons in the site.
 *IconsAPIsDAAS* | [**IconsRemoveIcon**](docs/IconsAPIsDAAS.md#iconsremoveicon) | **Delete** /Icons/{id} | Remove a customized icon.
+*IdentityAPIsDAAS* | [**IdentityAddAzureAdSecurityGroupMember**](docs/IdentityAPIsDAAS.md#identityaddazureadsecuritygroupmember) | **Put** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId}/members/{refGroupId} | Add a security group to an assigned security as it&#39;s member
+*IdentityAPIsDAAS* | [**IdentityCreateMachine**](docs/IdentityAPIsDAAS.md#identitycreatemachine) | **Post** /Identity/Machines | Create machine identity
+*IdentityAPIsDAAS* | [**IdentityDeleteMachine**](docs/IdentityAPIsDAAS.md#identitydeletemachine) | **Delete** /Identity/Machines/{machine} | Delete a machine identity
+*IdentityAPIsDAAS* | [**IdentityGetAzureADSecurityGroups**](docs/IdentityAPIsDAAS.md#identitygetazureadsecuritygroups) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId} | Get Azure AD security group by group id.
+*IdentityAPIsDAAS* | [**IdentityGetAzureAdSecurityGroupMember**](docs/IdentityAPIsDAAS.md#identitygetazureadsecuritygroupmember) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId}/members | Retrieves all the group type of members of a specific group
+*IdentityAPIsDAAS* | [**IdentityGetContainer**](docs/IdentityAPIsDAAS.md#identitygetcontainer) | **Get** /Identity/Containers/{container} | Get a single container (e.g. OU)
+*IdentityAPIsDAAS* | [**IdentityGetContainers**](docs/IdentityAPIsDAAS.md#identitygetcontainers) | **Get** /Identity/Containers | Get containers from identity provider.
+*IdentityAPIsDAAS* | [**IdentityGetDirectories**](docs/IdentityAPIsDAAS.md#identitygetdirectories) | **Get** /Identity/Directories | Get list of directories from all identity providers
+*IdentityAPIsDAAS* | [**IdentityGetDomain**](docs/IdentityAPIsDAAS.md#identitygetdomain) | **Get** /Identity/Domains/{domain} | Get a single domain from the identity provider
+*IdentityAPIsDAAS* | [**IdentityGetDomainAzureADCustomDomain**](docs/IdentityAPIsDAAS.md#identitygetdomainazureadcustomdomain) | **Get** /Identity/Domains/{domain}/AzureADCustomDomain | Gets the Azure AD custom domain with the specified domain name.
+*IdentityAPIsDAAS* | [**IdentityGetDomains**](docs/IdentityAPIsDAAS.md#identitygetdomains) | **Get** /Identity/Domains | Get list of domains from the identity provider
+*IdentityAPIsDAAS* | [**IdentityGetForest**](docs/IdentityAPIsDAAS.md#identitygetforest) | **Get** /Identity/Forests/{forest} | Get information about a single forest
+*IdentityAPIsDAAS* | [**IdentityGetForests**](docs/IdentityAPIsDAAS.md#identitygetforests) | **Get** /Identity/Forests | Get the list of forests from the identity provider
+*IdentityAPIsDAAS* | [**IdentityGetMachine**](docs/IdentityAPIsDAAS.md#identitygetmachine) | **Get** /Identity/Machines/{machine} | Get a single machine account from identity provider
+*IdentityAPIsDAAS* | [**IdentityGetMachines**](docs/IdentityAPIsDAAS.md#identitygetmachines) | **Get** /Identity/Machines | Get machine accounts from identity provider
+*IdentityAPIsDAAS* | [**IdentityGetSite**](docs/IdentityAPIsDAAS.md#identitygetsite) | **Get** /Identity/Sites/{site} | Get information about a single site
+*IdentityAPIsDAAS* | [**IdentityGetSites**](docs/IdentityAPIsDAAS.md#identitygetsites) | **Get** /Identity/Sites | Get list of sites from the identity provider
+*IdentityAPIsDAAS* | [**IdentityGetUser**](docs/IdentityAPIsDAAS.md#identitygetuser) | **Get** /Identity/Users/{userOrGroup} | Get a single user or group
+*IdentityAPIsDAAS* | [**IdentityGetUsers**](docs/IdentityAPIsDAAS.md#identitygetusers) | **Get** /Identity/Users | Get users from identity provider
+*IdentityAPIsDAAS* | [**IdentityQueryAzureAdSecurityGroups**](docs/IdentityAPIsDAAS.md#identityqueryazureadsecuritygroups) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups | Query AzureAD security group by user&#39;s input.
+*IdentityAPIsDAAS* | [**IdentityUpdateMachine**](docs/IdentityAPIsDAAS.md#identityupdatemachine) | **Patch** /Identity/Machines/{machine} | Update a machine identity
+*IdentityAPIsDAAS* | [**IdentityUpdateUser**](docs/IdentityAPIsDAAS.md#identityupdateuser) | **Patch** /Identity/Users/{user} | Update a user identity
+*IdentityAPIsDAAS* | [**IdentityValidateUser**](docs/IdentityAPIsDAAS.md#identityvalidateuser) | **Post** /Identity/Users/$validate | Validate a user&#39;s credentials
 *JobsAPIsDAAS* | [**JobsCancelJob**](docs/JobsAPIsDAAS.md#jobscanceljob) | **Post** /Jobs/{id}/$cancel | Cancel a job.
 *JobsAPIsDAAS* | [**JobsDeleteJob**](docs/JobsAPIsDAAS.md#jobsdeletejob) | **Delete** /Jobs/{id} | Removes the job record.
 *JobsAPIsDAAS* | [**JobsGetJob**](docs/JobsAPIsDAAS.md#jobsgetjob) | **Get** /Jobs/{id} | Get the details of a single job.
@@ -420,6 +443,10 @@ Class | Method | HTTP request | Description
 *MeAPIsDAAS* | [**MeGetMyPreference**](docs/MeAPIsDAAS.md#megetmypreference) | **Get** /me/Preferences/{name} | Get one of my preferences by name.
 *MeAPIsDAAS* | [**MeGetMyPreferences**](docs/MeAPIsDAAS.md#megetmypreferences) | **Get** /me/Preferences | Get my preferences.
 *MeAPIsDAAS* | [**MeSetMyPreference**](docs/MeAPIsDAAS.md#mesetmypreference) | **Put** /me/Preferences | Set a preference value.
+*PvsStreamingAPIsDAAS* | [**PvsStreamingGetPvsStreamingSites**](docs/PvsStreamingAPIsDAAS.md#pvsstreaminggetpvsstreamingsites) | **Get** /PvsStreaming/Sites | Get the list of PVS sites.
+*PvsStreamingAPIsDAAS* | [**PvsStreamingGetPvsStreamingStores**](docs/PvsStreamingAPIsDAAS.md#pvsstreaminggetpvsstreamingstores) | **Get** /PvsStreaming/Stores/{farmId} | Get the list of PVS stores.
+*PvsStreamingAPIsDAAS* | [**PvsStreamingGetPvsStreamingVDisks**](docs/PvsStreamingAPIsDAAS.md#pvsstreaminggetpvsstreamingvdisks) | **Get** /PvsStreaming/vDisks | Get the list of PVS vDisks.
+*PvsStreamingAPIsDAAS* | [**PvsStreamingTestDeviceCollectionExists**](docs/PvsStreamingAPIsDAAS.md#pvsstreamingtestdevicecollectionexists) | **Post** /PvsStreaming/$checkDeviceCollectionName | Test the existence of a device collection by name.
 *RebootSchedulesAPIsDAAS* | [**RebootSchedulesGetRebootSchedules**](docs/RebootSchedulesAPIsDAAS.md#rebootschedulesgetrebootschedules) | **Get** /RebootSchedules | Get all reboot schedules in the site.
 *SessionsAPIsDAAS* | [**SessionsDisconnectSession**](docs/SessionsAPIsDAAS.md#sessionsdisconnectsession) | **Post** /Sessions/{id}/$disconnect | Disconnect a session.
 *SessionsAPIsDAAS* | [**SessionsDoSessionSearch**](docs/SessionsAPIsDAAS.md#sessionsdosessionsearch) | **Post** /Sessions/$search | Perform an advanced search for sessions.
@@ -590,7 +617,7 @@ Class | Method | HTTP request | Description
  - [AppliedSetting](docs/AppliedSetting.md)
  - [AppliedSetting2](docs/AppliedSetting2.md)
  - [AppvServerPackageApplicationIconRequestModel](docs/AppvServerPackageApplicationIconRequestModel.md)
- - [AssignImageVersionToMachineCatalogRequestModel](docs/AssignImageVersionToMachineCatalogRequestModel.md)
+ - [AssignImageVersionToProvisioningSchemeRequestModel](docs/AssignImageVersionToProvisioningSchemeRequestModel.md)
  - [AssignMachineToUserRequestModel](docs/AssignMachineToUserRequestModel.md)
  - [AttachedDiskResponseModel](docs/AttachedDiskResponseModel.md)
  - [Attribute](docs/Attribute.md)
@@ -641,7 +668,6 @@ Class | Method | HTTP request | Description
  - [BackupRestoreStorageModel](docs/BackupRestoreStorageModel.md)
  - [BackupRestoreStorageRequestModel](docs/BackupRestoreStorageRequestModel.md)
  - [BackupRestoreStorageResponseModel](docs/BackupRestoreStorageResponseModel.md)
- - [BackupRestoreTest565Response](docs/BackupRestoreTest565Response.md)
  - [BackupRestoreUpdateNotesRequestModel](docs/BackupRestoreUpdateNotesRequestModel.md)
  - [BatchRequestItemModel](docs/BatchRequestItemModel.md)
  - [BatchRequestModel](docs/BatchRequestModel.md)
@@ -714,7 +740,7 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfIdentitySiteResponseModel](docs/CollectionModelOfIdentitySiteResponseModel.md)
  - [CollectionModelOfIdentityUserResponseModel](docs/CollectionModelOfIdentityUserResponseModel.md)
  - [CollectionModelOfImageDefinitionResponseModel](docs/CollectionModelOfImageDefinitionResponseModel.md)
- - [CollectionModelOfImageVersionCatalogResponseModel](docs/CollectionModelOfImageVersionCatalogResponseModel.md)
+ - [CollectionModelOfImageVersionProvisioningSchemeRefResponseModel](docs/CollectionModelOfImageVersionProvisioningSchemeRefResponseModel.md)
  - [CollectionModelOfImageVersionResponseModel](docs/CollectionModelOfImageVersionResponseModel.md)
  - [CollectionModelOfImportProvisionedVirtualMachineResponseModel](docs/CollectionModelOfImportProvisionedVirtualMachineResponseModel.md)
  - [CollectionModelOfJobResponseModel](docs/CollectionModelOfJobResponseModel.md)
@@ -734,7 +760,6 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfPowerTimeSchemeResponseModel](docs/CollectionModelOfPowerTimeSchemeResponseModel.md)
  - [CollectionModelOfPredefinedPermissionGroupResponseModel](docs/CollectionModelOfPredefinedPermissionGroupResponseModel.md)
  - [CollectionModelOfPredefinedPermissionResponseModel](docs/CollectionModelOfPredefinedPermissionResponseModel.md)
- - [CollectionModelOfProvisionedVirtualMachineSearchResponseModel](docs/CollectionModelOfProvisionedVirtualMachineSearchResponseModel.md)
  - [CollectionModelOfProvisioningSchemeMachineAccountResponseModel](docs/CollectionModelOfProvisioningSchemeMachineAccountResponseModel.md)
  - [CollectionModelOfProvisioningSchemeResponseModel](docs/CollectionModelOfProvisioningSchemeResponseModel.md)
  - [CollectionModelOfPvsCollectionResponseModel](docs/CollectionModelOfPvsCollectionResponseModel.md)
@@ -792,8 +817,8 @@ Class | Method | HTTP request | Description
  - [CreateHypervisorResourcePoolGcpRequestModel](docs/CreateHypervisorResourcePoolGcpRequestModel.md)
  - [CreateHypervisorResourcePoolRequestModel](docs/CreateHypervisorResourcePoolRequestModel.md)
  - [CreateHypervisorResourcePoolTraditionalRequestModel](docs/CreateHypervisorResourcePoolTraditionalRequestModel.md)
- - [CreateImageDefinitionDetailRequestModel](docs/CreateImageDefinitionDetailRequestModel.md)
  - [CreateImageDefinitionRequestModel](docs/CreateImageDefinitionRequestModel.md)
+ - [CreateImageSchemeRequestModel](docs/CreateImageSchemeRequestModel.md)
  - [CreateImageVersionRequestModel](docs/CreateImageVersionRequestModel.md)
  - [CreateInstalledAppRequestModel](docs/CreateInstalledAppRequestModel.md)
  - [CreateLicensingAdminRequestModel](docs/CreateLicensingAdminRequestModel.md)
@@ -945,6 +970,7 @@ Class | Method | HTTP request | Description
  - [HypervisorOciConnectionDetailRequestModel](docs/HypervisorOciConnectionDetailRequestModel.md)
  - [HypervisorPluginResponseModel](docs/HypervisorPluginResponseModel.md)
  - [HypervisorPluginResponseModelCollection](docs/HypervisorPluginResponseModelCollection.md)
+ - [HypervisorRefResponseModel](docs/HypervisorRefResponseModel.md)
  - [HypervisorResourcePoolAWSDetailResponseModel](docs/HypervisorResourcePoolAWSDetailResponseModel.md)
  - [HypervisorResourcePoolAzureDetailResponseModel](docs/HypervisorResourcePoolAzureDetailResponseModel.md)
  - [HypervisorResourcePoolDetailResponseModel](docs/HypervisorResourcePoolDetailResponseModel.md)
@@ -1019,13 +1045,18 @@ Class | Method | HTTP request | Description
  - [ImageRuntimeEnvironmentResponseModel](docs/ImageRuntimeEnvironmentResponseModel.md)
  - [ImageSchemeResponseModel](docs/ImageSchemeResponseModel.md)
  - [ImageUpdateStatus](docs/ImageUpdateStatus.md)
- - [ImageVersionBaseResponseModel](docs/ImageVersionBaseResponseModel.md)
- - [ImageVersionCatalogResponseModel](docs/ImageVersionCatalogResponseModel.md)
- - [ImageVersionCatalogResponseModelCollection](docs/ImageVersionCatalogResponseModelCollection.md)
- - [ImageVersionDetailResponseModel](docs/ImageVersionDetailResponseModel.md)
+ - [ImageVersionProvisioningSchemeRefResponseModel](docs/ImageVersionProvisioningSchemeRefResponseModel.md)
+ - [ImageVersionProvisioningSchemeRefResponseModelCollection](docs/ImageVersionProvisioningSchemeRefResponseModelCollection.md)
  - [ImageVersionRefResponseModel](docs/ImageVersionRefResponseModel.md)
  - [ImageVersionResponseModel](docs/ImageVersionResponseModel.md)
  - [ImageVersionResponseModelCollection](docs/ImageVersionResponseModelCollection.md)
+ - [ImageVersionSpecContextResponseModel](docs/ImageVersionSpecContextResponseModel.md)
+ - [ImageVersionSpecRefResponseModel](docs/ImageVersionSpecRefResponseModel.md)
+ - [ImageVersionSpecResponseModel](docs/ImageVersionSpecResponseModel.md)
+ - [ImageVersionSpecStatus](docs/ImageVersionSpecStatus.md)
+ - [ImageVersionSpecWarningResponseModel](docs/ImageVersionSpecWarningResponseModel.md)
+ - [ImageVersionSpecWarningType](docs/ImageVersionSpecWarningType.md)
+ - [ImageVersionStatus](docs/ImageVersionStatus.md)
  - [ImportMachineStatus](docs/ImportMachineStatus.md)
  - [ImportProvisionedVirtualMachineResponseModel](docs/ImportProvisionedVirtualMachineResponseModel.md)
  - [ImportProvisionedVirtualMachineResponseModelCollection](docs/ImportProvisionedVirtualMachineResponseModelCollection.md)
@@ -1083,6 +1114,7 @@ Class | Method | HTTP request | Description
  - [MachineAccountDeleteOption](docs/MachineAccountDeleteOption.md)
  - [MachineAccountRepairOption](docs/MachineAccountRepairOption.md)
  - [MachineAccountRequestModel](docs/MachineAccountRequestModel.md)
+ - [MachineAgentOptions](docs/MachineAgentOptions.md)
  - [MachineAndSessionSearchFilterGroupRequestModel](docs/MachineAndSessionSearchFilterGroupRequestModel.md)
  - [MachineAndSessionSearchFilterGroupType](docs/MachineAndSessionSearchFilterGroupType.md)
  - [MachineAndSessionSearchFilterGroupsType](docs/MachineAndSessionSearchFilterGroupsType.md)
@@ -1113,6 +1145,7 @@ Class | Method | HTTP request | Description
  - [MachineIdentityPoolResponseModel](docs/MachineIdentityPoolResponseModel.md)
  - [MachineIdentityPoolResponseModelCollection](docs/MachineIdentityPoolResponseModelCollection.md)
  - [MachineLogOnType](docs/MachineLogOnType.md)
+ - [MachineProfileMetadataResponseModel](docs/MachineProfileMetadataResponseModel.md)
  - [MachineResponseModel](docs/MachineResponseModel.md)
  - [MachineResponseModelCollection](docs/MachineResponseModelCollection.md)
  - [MachineTestResponseModel](docs/MachineTestResponseModel.md)
@@ -1136,6 +1169,7 @@ Class | Method | HTTP request | Description
  - [NetworkMapResponseModel](docs/NetworkMapResponseModel.md)
  - [OciEnvironment](docs/OciEnvironment.md)
  - [OperatingSystemInfoResponseModel](docs/OperatingSystemInfoResponseModel.md)
+ - [OsType](docs/OsType.md)
  - [PackagedApplicationType](docs/PackagedApplicationType.md)
  - [PagingFileSettingResponseModel](docs/PagingFileSettingResponseModel.md)
  - [PersistChanges](docs/PersistChanges.md)
@@ -1168,6 +1202,7 @@ Class | Method | HTTP request | Description
  - [PredefinedPermissionGroupResponseModelCollection](docs/PredefinedPermissionGroupResponseModelCollection.md)
  - [PredefinedPermissionResponseModel](docs/PredefinedPermissionResponseModel.md)
  - [PredefinedPermissionResponseModelCollection](docs/PredefinedPermissionResponseModelCollection.md)
+ - [PreparationType](docs/PreparationType.md)
  - [PrintDuplexSetting](docs/PrintDuplexSetting.md)
  - [PrintOrientationSetting](docs/PrintOrientationSetting.md)
  - [PrintQualitySetting](docs/PrintQualitySetting.md)
@@ -1185,20 +1220,8 @@ Class | Method | HTTP request | Description
  - [ProjectedMachinesTimeSlotResponseModel](docs/ProjectedMachinesTimeSlotResponseModel.md)
  - [ProtocolType](docs/ProtocolType.md)
  - [ProvSchemeWarningType](docs/ProvSchemeWarningType.md)
- - [ProvisionedVirtualMachineCustomVmDataResponseModel](docs/ProvisionedVirtualMachineCustomVmDataResponseModel.md)
- - [ProvisionedVirtualMachineDetailsResponseModel](docs/ProvisionedVirtualMachineDetailsResponseModel.md)
- - [ProvisionedVirtualMachineDetailsWarningReponseModel](docs/ProvisionedVirtualMachineDetailsWarningReponseModel.md)
- - [ProvisionedVirtualMachineDetailsWarningType](docs/ProvisionedVirtualMachineDetailsWarningType.md)
- - [ProvisionedVirtualMachineSearchFilterGroupRequestModel](docs/ProvisionedVirtualMachineSearchFilterGroupRequestModel.md)
- - [ProvisionedVirtualMachineSearchFilterGroupType](docs/ProvisionedVirtualMachineSearchFilterGroupType.md)
- - [ProvisionedVirtualMachineSearchFilterGroupsType](docs/ProvisionedVirtualMachineSearchFilterGroupsType.md)
- - [ProvisionedVirtualMachineSearchFilterRequestModel](docs/ProvisionedVirtualMachineSearchFilterRequestModel.md)
- - [ProvisionedVirtualMachineSearchProperty](docs/ProvisionedVirtualMachineSearchProperty.md)
- - [ProvisionedVirtualMachineSearchRequestModel](docs/ProvisionedVirtualMachineSearchRequestModel.md)
- - [ProvisionedVirtualMachineSearchResponseModel](docs/ProvisionedVirtualMachineSearchResponseModel.md)
- - [ProvisionedVirtualMachineSearchResponseModelCollection](docs/ProvisionedVirtualMachineSearchResponseModelCollection.md)
- - [ProvisionedVirtualMachineSortCriteriaRequestModel](docs/ProvisionedVirtualMachineSortCriteriaRequestModel.md)
  - [ProvisioningProgressResponseModel](docs/ProvisioningProgressResponseModel.md)
+ - [ProvisioningSchemeImageVersionHistoryResponseModel](docs/ProvisioningSchemeImageVersionHistoryResponseModel.md)
  - [ProvisioningSchemeMachineAccountResponseModel](docs/ProvisioningSchemeMachineAccountResponseModel.md)
  - [ProvisioningSchemeMachineAccountResponseModelCollection](docs/ProvisioningSchemeMachineAccountResponseModelCollection.md)
  - [ProvisioningSchemeMachineAccountState](docs/ProvisioningSchemeMachineAccountState.md)

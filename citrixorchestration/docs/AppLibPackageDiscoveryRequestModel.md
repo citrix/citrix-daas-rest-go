@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **DiscoverAppV** | Pointer to **NullableBool** | A value indicating whether or not to discover App-V packages | [optional] [default to false]
 **DiscoverMsiX** | Pointer to **NullableBool** | A value indicating whether or not to discover MSIX packages | [optional] [default to false]
 **DiscoverAppAttach** | Pointer to **NullableBool** | A value indicating whether or not to discover AppAttach packages | [optional] [default to false]
-**DiscoverFlexApp** | Pointer to **NullableBool** | A value indicating whether or not to discover FlexApp packages | [optional] [default to false]
 **ManagementServer** | Pointer to **NullableString** | The url of the App-V Management Server that packages will be discovered from. | [optional] 
 **PublishingServer** | Pointer to **NullableString** | A value indicating whether or not to discover AppAttach packages | [optional] 
 **Username** | Pointer to **NullableString** | the username of App-V server admin | [optional] 
@@ -308,41 +307,6 @@ HasDiscoverAppAttach returns a boolean if a field has been set.
 `func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverAppAttach()`
 
 UnsetDiscoverAppAttach ensures that no value is present for DiscoverAppAttach, not even an explicit nil
-### GetDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverFlexApp() bool`
-
-GetDiscoverFlexApp returns the DiscoverFlexApp field if non-nil, zero value otherwise.
-
-### GetDiscoverFlexAppOk
-
-`func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverFlexAppOk() (*bool, bool)`
-
-GetDiscoverFlexAppOk returns a tuple with the DiscoverFlexApp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverFlexApp(v bool)`
-
-SetDiscoverFlexApp sets DiscoverFlexApp field to given value.
-
-### HasDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryRequestModel) HasDiscoverFlexApp() bool`
-
-HasDiscoverFlexApp returns a boolean if a field has been set.
-
-### SetDiscoverFlexAppNil
-
-`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverFlexAppNil(b bool)`
-
- SetDiscoverFlexAppNil sets the value for DiscoverFlexApp to be an explicit nil
-
-### UnsetDiscoverFlexApp
-`func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverFlexApp()`
-
-UnsetDiscoverFlexApp ensures that no value is present for DiscoverFlexApp, not even an explicit nil
 ### GetManagementServer
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetManagementServer() string`
