@@ -27,7 +27,6 @@ Name | Type | Description | Notes
 **BackupDetails** | Pointer to **map[string]string** | Backup Status Details | [optional] 
 **RestoreDetails** | Pointer to [**[]BackupRestoreRestoreSingleMemberModel**](BackupRestoreRestoreSingleMemberModel.md) | Restore Status Details | [optional] 
 **SimpleResults** | Pointer to **[]string** | Simple Results (such as Get backed up member names) | [optional] 
-**Fixups** | Pointer to **NullableString** | Fixups from backups or restores | [optional] 
 **RestoreType** | Pointer to [**BackupRestoreRestoreTypes**](BackupRestoreRestoreTypes.md) |  | [optional] 
 
 ## Methods
@@ -674,41 +673,6 @@ HasSimpleResults returns a boolean if a field has been set.
 `func (o *BackupRestoreStatusRequestModel) UnsetSimpleResults()`
 
 UnsetSimpleResults ensures that no value is present for SimpleResults, not even an explicit nil
-### GetFixups
-
-`func (o *BackupRestoreStatusRequestModel) GetFixups() string`
-
-GetFixups returns the Fixups field if non-nil, zero value otherwise.
-
-### GetFixupsOk
-
-`func (o *BackupRestoreStatusRequestModel) GetFixupsOk() (*string, bool)`
-
-GetFixupsOk returns a tuple with the Fixups field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFixups
-
-`func (o *BackupRestoreStatusRequestModel) SetFixups(v string)`
-
-SetFixups sets Fixups field to given value.
-
-### HasFixups
-
-`func (o *BackupRestoreStatusRequestModel) HasFixups() bool`
-
-HasFixups returns a boolean if a field has been set.
-
-### SetFixupsNil
-
-`func (o *BackupRestoreStatusRequestModel) SetFixupsNil(b bool)`
-
- SetFixupsNil sets the value for Fixups to be an explicit nil
-
-### UnsetFixups
-`func (o *BackupRestoreStatusRequestModel) UnsetFixups()`
-
-UnsetFixups ensures that no value is present for Fixups, not even an explicit nil
 ### GetRestoreType
 
 `func (o *BackupRestoreStatusRequestModel) GetRestoreType() BackupRestoreRestoreTypes`

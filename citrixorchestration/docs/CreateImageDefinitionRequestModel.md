@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageDefinition** | Pointer to [**CreateImageDefinitionDetailRequestModel**](CreateImageDefinitionDetailRequestModel.md) |  | [optional] 
-**ImageVersion** | Pointer to [**CreateImageVersionRequestModel**](CreateImageVersionRequestModel.md) |  | [optional] 
+**Name** | **string** | The name associated with the image definition. | 
+**Description** | Pointer to **NullableString** | The description associated with the image definition. | [optional] 
+**OsType** | [**OsType**](OsType.md) |  | 
+**VDASessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
 
 ## Methods
 
 ### NewCreateImageDefinitionRequestModel
 
-`func NewCreateImageDefinitionRequestModel() *CreateImageDefinitionRequestModel`
+`func NewCreateImageDefinitionRequestModel(name string, osType OsType, vDASessionSupport SessionSupport, ) *CreateImageDefinitionRequestModel`
 
 NewCreateImageDefinitionRequestModel instantiates a new CreateImageDefinitionRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -26,55 +28,100 @@ NewCreateImageDefinitionRequestModelWithDefaults instantiates a new CreateImageD
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetImageDefinition
+### GetName
 
-`func (o *CreateImageDefinitionRequestModel) GetImageDefinition() CreateImageDefinitionDetailRequestModel`
+`func (o *CreateImageDefinitionRequestModel) GetName() string`
 
-GetImageDefinition returns the ImageDefinition field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetImageDefinitionOk
+### GetNameOk
 
-`func (o *CreateImageDefinitionRequestModel) GetImageDefinitionOk() (*CreateImageDefinitionDetailRequestModel, bool)`
+`func (o *CreateImageDefinitionRequestModel) GetNameOk() (*string, bool)`
 
-GetImageDefinitionOk returns a tuple with the ImageDefinition field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageDefinition
+### SetName
 
-`func (o *CreateImageDefinitionRequestModel) SetImageDefinition(v CreateImageDefinitionDetailRequestModel)`
+`func (o *CreateImageDefinitionRequestModel) SetName(v string)`
 
-SetImageDefinition sets ImageDefinition field to given value.
+SetName sets Name field to given value.
 
-### HasImageDefinition
 
-`func (o *CreateImageDefinitionRequestModel) HasImageDefinition() bool`
+### GetDescription
 
-HasImageDefinition returns a boolean if a field has been set.
+`func (o *CreateImageDefinitionRequestModel) GetDescription() string`
 
-### GetImageVersion
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-`func (o *CreateImageDefinitionRequestModel) GetImageVersion() CreateImageVersionRequestModel`
+### GetDescriptionOk
 
-GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
+`func (o *CreateImageDefinitionRequestModel) GetDescriptionOk() (*string, bool)`
 
-### GetImageVersionOk
-
-`func (o *CreateImageDefinitionRequestModel) GetImageVersionOk() (*CreateImageVersionRequestModel, bool)`
-
-GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageVersion
+### SetDescription
 
-`func (o *CreateImageDefinitionRequestModel) SetImageVersion(v CreateImageVersionRequestModel)`
+`func (o *CreateImageDefinitionRequestModel) SetDescription(v string)`
 
-SetImageVersion sets ImageVersion field to given value.
+SetDescription sets Description field to given value.
 
-### HasImageVersion
+### HasDescription
 
-`func (o *CreateImageDefinitionRequestModel) HasImageVersion() bool`
+`func (o *CreateImageDefinitionRequestModel) HasDescription() bool`
 
-HasImageVersion returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *CreateImageDefinitionRequestModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *CreateImageDefinitionRequestModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetOsType
+
+`func (o *CreateImageDefinitionRequestModel) GetOsType() OsType`
+
+GetOsType returns the OsType field if non-nil, zero value otherwise.
+
+### GetOsTypeOk
+
+`func (o *CreateImageDefinitionRequestModel) GetOsTypeOk() (*OsType, bool)`
+
+GetOsTypeOk returns a tuple with the OsType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOsType
+
+`func (o *CreateImageDefinitionRequestModel) SetOsType(v OsType)`
+
+SetOsType sets OsType field to given value.
+
+
+### GetVDASessionSupport
+
+`func (o *CreateImageDefinitionRequestModel) GetVDASessionSupport() SessionSupport`
+
+GetVDASessionSupport returns the VDASessionSupport field if non-nil, zero value otherwise.
+
+### GetVDASessionSupportOk
+
+`func (o *CreateImageDefinitionRequestModel) GetVDASessionSupportOk() (*SessionSupport, bool)`
+
+GetVDASessionSupportOk returns a tuple with the VDASessionSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVDASessionSupport
+
+`func (o *CreateImageDefinitionRequestModel) SetVDASessionSupport(v SessionSupport)`
+
+SetVDASessionSupport sets VDASessionSupport field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

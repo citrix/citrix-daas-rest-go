@@ -19,30 +19,29 @@ var _ MappedNullable = &ImageDefinitionResponseModel{}
 
 // ImageDefinitionResponseModel Response object for image definition.
 type ImageDefinitionResponseModel struct {
-	// The name associated with the image definition.
+	Id string `json:"Id"`
+	// the name of the image definition
 	Name NullableString `json:"Name,omitempty"`
-	// The Id of the image definition.
-	Id *string `json:"Id,omitempty"`
-	// The os type of image definition.
-	OsType NullableString `json:"OsType,omitempty"`
-	// The hosting unit name of image definition.
-	HostingUnitName NullableString `json:"HostingUnitName,omitempty"`
-	// The hosting unit id of image definition.
-	HostingUnitUid *string `json:"HostingUnitUid,omitempty"`
-	// The description of the image definition.
+	// the create date for this image definition
+	CreationTime NullableString `json:"CreationTime,omitempty"`
+	// description
 	Description NullableString `json:"Description,omitempty"`
-	// The UseWriteBackCache of the image definition.
-	UseWriteBackCache *bool `json:"UseWriteBackCache,omitempty"`
-	// The custom properties of the image definition. Currently only resource group.
-	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
+	OsType OsType `json:"OsType"`
+	// the latest version for the image definition
+	LatestVersion int32 `json:"LatestVersion"`
+	VDASessionSupport SessionSupport `json:"VDASessionSupport"`
 }
 
 // NewImageDefinitionResponseModel instantiates a new ImageDefinitionResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageDefinitionResponseModel() *ImageDefinitionResponseModel {
+func NewImageDefinitionResponseModel(id string, osType OsType, latestVersion int32, vDASessionSupport SessionSupport) *ImageDefinitionResponseModel {
 	this := ImageDefinitionResponseModel{}
+	this.Id = id
+	this.OsType = osType
+	this.LatestVersion = latestVersion
+	this.VDASessionSupport = vDASessionSupport
 	return &this
 }
 
@@ -52,6 +51,30 @@ func NewImageDefinitionResponseModel() *ImageDefinitionResponseModel {
 func NewImageDefinitionResponseModelWithDefaults() *ImageDefinitionResponseModel {
 	this := ImageDefinitionResponseModel{}
 	return &this
+}
+
+// GetId returns the Id field value
+func (o *ImageDefinitionResponseModel) GetId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *ImageDefinitionResponseModel) GetIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *ImageDefinitionResponseModel) SetId(v string) {
+	o.Id = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -96,152 +119,46 @@ func (o *ImageDefinitionResponseModel) UnsetName() {
 	o.Name.Unset()
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *ImageDefinitionResponseModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+// GetCreationTime returns the CreationTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageDefinitionResponseModel) GetCreationTime() string {
+	if o == nil || IsNil(o.CreationTime.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Id
+	return *o.CreationTime.Get()
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageDefinitionResponseModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *ImageDefinitionResponseModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ImageDefinitionResponseModel) SetId(v string) {
-	o.Id = &v
-}
-
-// GetOsType returns the OsType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageDefinitionResponseModel) GetOsType() string {
-	if o == nil || IsNil(o.OsType.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.OsType.Get()
-}
-
-// GetOsTypeOk returns a tuple with the OsType field value if set, nil otherwise
+// GetCreationTimeOk returns a tuple with the CreationTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageDefinitionResponseModel) GetOsTypeOk() (*string, bool) {
+func (o *ImageDefinitionResponseModel) GetCreationTimeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.OsType.Get(), o.OsType.IsSet()
+	return o.CreationTime.Get(), o.CreationTime.IsSet()
 }
 
-// HasOsType returns a boolean if a field has been set.
-func (o *ImageDefinitionResponseModel) HasOsType() bool {
-	if o != nil && o.OsType.IsSet() {
+// HasCreationTime returns a boolean if a field has been set.
+func (o *ImageDefinitionResponseModel) HasCreationTime() bool {
+	if o != nil && o.CreationTime.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOsType gets a reference to the given NullableString and assigns it to the OsType field.
-func (o *ImageDefinitionResponseModel) SetOsType(v string) {
-	o.OsType.Set(&v)
+// SetCreationTime gets a reference to the given NullableString and assigns it to the CreationTime field.
+func (o *ImageDefinitionResponseModel) SetCreationTime(v string) {
+	o.CreationTime.Set(&v)
 }
-// SetOsTypeNil sets the value for OsType to be an explicit nil
-func (o *ImageDefinitionResponseModel) SetOsTypeNil() {
-	o.OsType.Set(nil)
-}
-
-// UnsetOsType ensures that no value is present for OsType, not even an explicit nil
-func (o *ImageDefinitionResponseModel) UnsetOsType() {
-	o.OsType.Unset()
+// SetCreationTimeNil sets the value for CreationTime to be an explicit nil
+func (o *ImageDefinitionResponseModel) SetCreationTimeNil() {
+	o.CreationTime.Set(nil)
 }
 
-// GetHostingUnitName returns the HostingUnitName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageDefinitionResponseModel) GetHostingUnitName() string {
-	if o == nil || IsNil(o.HostingUnitName.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.HostingUnitName.Get()
-}
-
-// GetHostingUnitNameOk returns a tuple with the HostingUnitName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageDefinitionResponseModel) GetHostingUnitNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.HostingUnitName.Get(), o.HostingUnitName.IsSet()
-}
-
-// HasHostingUnitName returns a boolean if a field has been set.
-func (o *ImageDefinitionResponseModel) HasHostingUnitName() bool {
-	if o != nil && o.HostingUnitName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHostingUnitName gets a reference to the given NullableString and assigns it to the HostingUnitName field.
-func (o *ImageDefinitionResponseModel) SetHostingUnitName(v string) {
-	o.HostingUnitName.Set(&v)
-}
-// SetHostingUnitNameNil sets the value for HostingUnitName to be an explicit nil
-func (o *ImageDefinitionResponseModel) SetHostingUnitNameNil() {
-	o.HostingUnitName.Set(nil)
-}
-
-// UnsetHostingUnitName ensures that no value is present for HostingUnitName, not even an explicit nil
-func (o *ImageDefinitionResponseModel) UnsetHostingUnitName() {
-	o.HostingUnitName.Unset()
-}
-
-// GetHostingUnitUid returns the HostingUnitUid field value if set, zero value otherwise.
-func (o *ImageDefinitionResponseModel) GetHostingUnitUid() string {
-	if o == nil || IsNil(o.HostingUnitUid) {
-		var ret string
-		return ret
-	}
-	return *o.HostingUnitUid
-}
-
-// GetHostingUnitUidOk returns a tuple with the HostingUnitUid field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageDefinitionResponseModel) GetHostingUnitUidOk() (*string, bool) {
-	if o == nil || IsNil(o.HostingUnitUid) {
-		return nil, false
-	}
-	return o.HostingUnitUid, true
-}
-
-// HasHostingUnitUid returns a boolean if a field has been set.
-func (o *ImageDefinitionResponseModel) HasHostingUnitUid() bool {
-	if o != nil && !IsNil(o.HostingUnitUid) {
-		return true
-	}
-
-	return false
-}
-
-// SetHostingUnitUid gets a reference to the given string and assigns it to the HostingUnitUid field.
-func (o *ImageDefinitionResponseModel) SetHostingUnitUid(v string) {
-	o.HostingUnitUid = &v
+// UnsetCreationTime ensures that no value is present for CreationTime, not even an explicit nil
+func (o *ImageDefinitionResponseModel) UnsetCreationTime() {
+	o.CreationTime.Unset()
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -286,69 +203,76 @@ func (o *ImageDefinitionResponseModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetUseWriteBackCache returns the UseWriteBackCache field value if set, zero value otherwise.
-func (o *ImageDefinitionResponseModel) GetUseWriteBackCache() bool {
-	if o == nil || IsNil(o.UseWriteBackCache) {
-		var ret bool
-		return ret
-	}
-	return *o.UseWriteBackCache
-}
-
-// GetUseWriteBackCacheOk returns a tuple with the UseWriteBackCache field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageDefinitionResponseModel) GetUseWriteBackCacheOk() (*bool, bool) {
-	if o == nil || IsNil(o.UseWriteBackCache) {
-		return nil, false
-	}
-	return o.UseWriteBackCache, true
-}
-
-// HasUseWriteBackCache returns a boolean if a field has been set.
-func (o *ImageDefinitionResponseModel) HasUseWriteBackCache() bool {
-	if o != nil && !IsNil(o.UseWriteBackCache) {
-		return true
-	}
-
-	return false
-}
-
-// SetUseWriteBackCache gets a reference to the given bool and assigns it to the UseWriteBackCache field.
-func (o *ImageDefinitionResponseModel) SetUseWriteBackCache(v bool) {
-	o.UseWriteBackCache = &v
-}
-
-// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageDefinitionResponseModel) GetCustomProperties() []NameValueStringPairModel {
+// GetOsType returns the OsType field value
+func (o *ImageDefinitionResponseModel) GetOsType() OsType {
 	if o == nil {
-		var ret []NameValueStringPairModel
+		var ret OsType
 		return ret
 	}
-	return o.CustomProperties
+
+	return o.OsType
 }
 
-// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
+// GetOsTypeOk returns a tuple with the OsType field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageDefinitionResponseModel) GetCustomPropertiesOk() ([]NameValueStringPairModel, bool) {
-	if o == nil || IsNil(o.CustomProperties) {
+func (o *ImageDefinitionResponseModel) GetOsTypeOk() (*OsType, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CustomProperties, true
+	return &o.OsType, true
 }
 
-// HasCustomProperties returns a boolean if a field has been set.
-func (o *ImageDefinitionResponseModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
-		return true
+// SetOsType sets field value
+func (o *ImageDefinitionResponseModel) SetOsType(v OsType) {
+	o.OsType = v
+}
+
+// GetLatestVersion returns the LatestVersion field value
+func (o *ImageDefinitionResponseModel) GetLatestVersion() int32 {
+	if o == nil {
+		var ret int32
+		return ret
 	}
 
-	return false
+	return o.LatestVersion
 }
 
-// SetCustomProperties gets a reference to the given []NameValueStringPairModel and assigns it to the CustomProperties field.
-func (o *ImageDefinitionResponseModel) SetCustomProperties(v []NameValueStringPairModel) {
-	o.CustomProperties = v
+// GetLatestVersionOk returns a tuple with the LatestVersion field value
+// and a boolean to check if the value has been set.
+func (o *ImageDefinitionResponseModel) GetLatestVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LatestVersion, true
+}
+
+// SetLatestVersion sets field value
+func (o *ImageDefinitionResponseModel) SetLatestVersion(v int32) {
+	o.LatestVersion = v
+}
+
+// GetVDASessionSupport returns the VDASessionSupport field value
+func (o *ImageDefinitionResponseModel) GetVDASessionSupport() SessionSupport {
+	if o == nil {
+		var ret SessionSupport
+		return ret
+	}
+
+	return o.VDASessionSupport
+}
+
+// GetVDASessionSupportOk returns a tuple with the VDASessionSupport field value
+// and a boolean to check if the value has been set.
+func (o *ImageDefinitionResponseModel) GetVDASessionSupportOk() (*SessionSupport, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VDASessionSupport, true
+}
+
+// SetVDASessionSupport sets field value
+func (o *ImageDefinitionResponseModel) SetVDASessionSupport(v SessionSupport) {
+	o.VDASessionSupport = v
 }
 
 func (o ImageDefinitionResponseModel) MarshalJSON() ([]byte, error) {
@@ -361,30 +285,19 @@ func (o ImageDefinitionResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o ImageDefinitionResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["Id"] = o.Id
 	if o.Name.IsSet() {
 		toSerialize["Name"] = o.Name.Get()
 	}
-	if !IsNil(o.Id) {
-		toSerialize["Id"] = o.Id
-	}
-	if o.OsType.IsSet() {
-		toSerialize["OsType"] = o.OsType.Get()
-	}
-	if o.HostingUnitName.IsSet() {
-		toSerialize["HostingUnitName"] = o.HostingUnitName.Get()
-	}
-	if !IsNil(o.HostingUnitUid) {
-		toSerialize["HostingUnitUid"] = o.HostingUnitUid
+	if o.CreationTime.IsSet() {
+		toSerialize["CreationTime"] = o.CreationTime.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["Description"] = o.Description.Get()
 	}
-	if !IsNil(o.UseWriteBackCache) {
-		toSerialize["UseWriteBackCache"] = o.UseWriteBackCache
-	}
-	if o.CustomProperties != nil {
-		toSerialize["CustomProperties"] = o.CustomProperties
-	}
+	toSerialize["OsType"] = o.OsType
+	toSerialize["LatestVersion"] = o.LatestVersion
+	toSerialize["VDASessionSupport"] = o.VDASessionSupport
 	return toSerialize, nil
 }
 

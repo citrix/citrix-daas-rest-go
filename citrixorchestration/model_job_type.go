@@ -237,10 +237,10 @@ const (
 	JOBTYPE_GET_LICENSE_ENTITLEMENT JobType = "GetLicenseEntitlement"
 	JOBTYPE_ALLOCATE_LICENSE JobType = "AllocateLicense"
 	JOBTYPE_VALIDATE_MACHINE_CATALOG_VDA_COMPONENTS_AND_FEATURES_SELECTION JobType = "ValidateMachineCatalogVDAComponentsAndFeaturesSelection"
-	JOBTYPE_NEW_IMAGE_DEFINITION JobType = "NewImageDefinition"
-	JOBTYPE_ADD_IMAGE_VERSION JobType = "AddImageVersion"
 	JOBTYPE_REMOVE_IMAGE_DEFINITION JobType = "RemoveImageDefinition"
-	JOBTYPE_REMOVE_IMAGE_VERSION JobType = "RemoveImageVersion"
+	JOBTYPE_CREATE_IMAGE_VERSION JobType = "CreateImageVersion"
+	JOBTYPE_SET_IMAGE_VERSION JobType = "SetImageVersion"
+	JOBTYPE_DELETE_IMAGE_VERSION JobType = "DeleteImageVersion"
 	JOBTYPE_GET_ALL_MACHINE_IDENTITY_POOLS JobType = "GetAllMachineIdentityPools"
 	JOBTYPE_GET_ALL_MACHINE_IDENTITY_POOL JobType = "GetAllMachineIdentityPool"
 	JOBTYPE_GET_PROV_SCHEME_REFERENCES JobType = "GetProvSchemeReferences"
@@ -263,8 +263,6 @@ const (
 	JOBTYPE_REPAIR_MACHINE_CATALOG_ACCOUNTS JobType = "RepairMachineCatalogAccounts"
 	JOBTYPE_IMPORT_PROVISIONED_VIRTUAL_MACHINES JobType = "ImportProvisionedVirtualMachines"
 	JOBTYPE_VALIDATE_MACHINE_CATALOG_CREATION JobType = "ValidateMachineCatalogCreation"
-	JOBTYPE_SEARCH_PROVISIONED_VIRTUAL_MACHINES JobType = "SearchProvisionedVirtualMachines"
-	JOBTYPE_GET_PROVISIONED_VIRTUAL_MACHINE_DETAILS JobType = "GetProvisionedVirtualMachineDetails"
 )
 
 // All allowed values of JobType enum
@@ -486,10 +484,10 @@ var AllowedJobTypeEnumValues = []JobType{
 	"GetLicenseEntitlement",
 	"AllocateLicense",
 	"ValidateMachineCatalogVDAComponentsAndFeaturesSelection",
-	"NewImageDefinition",
-	"AddImageVersion",
 	"RemoveImageDefinition",
-	"RemoveImageVersion",
+	"CreateImageVersion",
+	"SetImageVersion",
+	"DeleteImageVersion",
 	"GetAllMachineIdentityPools",
 	"GetAllMachineIdentityPool",
 	"GetProvSchemeReferences",
@@ -512,8 +510,6 @@ var AllowedJobTypeEnumValues = []JobType{
 	"RepairMachineCatalogAccounts",
 	"ImportProvisionedVirtualMachines",
 	"ValidateMachineCatalogCreation",
-	"SearchProvisionedVirtualMachines",
-	"GetProvisionedVirtualMachineDetails",
 }
 
 func (v *JobType) UnmarshalJSON(src []byte) error {

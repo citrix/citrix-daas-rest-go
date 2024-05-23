@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
 **XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
 **FullRelativePath** | **string** | Full path to the resources within the resource pool, including the hypervisor, relative to the root of the API. Example: &#x60;Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources&#x60; | 
-**Hypervisor** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**Hypervisor** | [**HypervisorRefResponseModel**](HypervisorRefResponseModel.md) |  | 
 
 ## Methods
 
 ### NewHypervisorResourcePoolRefResponseModel
 
-`func NewHypervisorResourcePoolRefResponseModel(fullRelativePath string, hypervisor RefResponseModel, ) *HypervisorResourcePoolRefResponseModel`
+`func NewHypervisorResourcePoolRefResponseModel(fullRelativePath string, hypervisor HypervisorRefResponseModel, ) *HypervisorResourcePoolRefResponseModel`
 
 NewHypervisorResourcePoolRefResponseModel instantiates a new HypervisorResourcePoolRefResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -156,20 +156,20 @@ SetFullRelativePath sets FullRelativePath field to given value.
 
 ### GetHypervisor
 
-`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisor() RefResponseModel`
+`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisor() HypervisorRefResponseModel`
 
 GetHypervisor returns the Hypervisor field if non-nil, zero value otherwise.
 
 ### GetHypervisorOk
 
-`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisorOk() (*RefResponseModel, bool)`
+`func (o *HypervisorResourcePoolRefResponseModel) GetHypervisorOk() (*HypervisorRefResponseModel, bool)`
 
 GetHypervisorOk returns a tuple with the Hypervisor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHypervisor
 
-`func (o *HypervisorResourcePoolRefResponseModel) SetHypervisor(v RefResponseModel)`
+`func (o *HypervisorResourcePoolRefResponseModel) SetHypervisor(v HypervisorRefResponseModel)`
 
 SetHypervisor sets Hypervisor field to given value.
 

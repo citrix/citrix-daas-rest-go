@@ -33,13 +33,11 @@ const (
 	CONTROLLERSERVICETYPE_ORCH ControllerServiceType = "Orch"
 	CONTROLLERSERVICETYPE_TRUST ControllerServiceType = "Trust"
 	CONTROLLERSERVICETYPE_APP_V ControllerServiceType = "AppV"
-	CONTROLLERSERVICETYPE_VUS ControllerServiceType = "Vus"
 	CONTROLLERSERVICETYPE_CONFIG ControllerServiceType = "Config"
 	CONTROLLERSERVICETYPE_LOG ControllerServiceType = "Log"
 	CONTROLLERSERVICETYPE_ANALYTICS ControllerServiceType = "Analytics"
 	CONTROLLERSERVICETYPE_ADMIN ControllerServiceType = "Admin"
 	CONTROLLERSERVICETYPE_APP_LIB ControllerServiceType = "AppLib"
-	CONTROLLERSERVICETYPE_IDENTITY ControllerServiceType = "Identity"
 )
 
 // All allowed values of ControllerServiceType enum
@@ -57,13 +55,11 @@ var AllowedControllerServiceTypeEnumValues = []ControllerServiceType{
 	"Orch",
 	"Trust",
 	"AppV",
-	"Vus",
 	"Config",
 	"Log",
 	"Analytics",
 	"Admin",
 	"AppLib",
-	"Identity",
 }
 
 func (v *ControllerServiceType) UnmarshalJSON(src []byte) error {

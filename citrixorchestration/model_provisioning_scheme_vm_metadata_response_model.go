@@ -37,20 +37,10 @@ type ProvisioningSchemeVmMetadataResponseModel struct {
 	DiskSecurityType NullableString `json:"DiskSecurityType,omitempty"`
 	// VmMetadata confidential VM disk encryption set id configuration
 	ConfidentialVmDiskEncryptionSetId NullableString `json:"ConfidentialVmDiskEncryptionSetId,omitempty"`
-	// VmMetadata VirtualMachine.Resources.Properties.SecurityProfile.UefiSettings.secureBootEnabled
-	EnableSecureBoot NullableBool `json:"EnableSecureBoot,omitempty"`
-	// VmMetadata VirtualMachine.Resources.Properties.SecurityProfile.UefiSettings.vTpmEnabled
-	EnableVTPM NullableBool `json:"EnableVTPM,omitempty"`
-	// VmMetadata VirtualMachine.Resources.Properties.SecurityProfile.EncryptionAtHost
-	EncryptionAtHost NullableBool `json:"EncryptionAtHost,omitempty"`
 	// VmMetadata Labels
 	Labels NullableString `json:"Labels,omitempty"`
 	// VmMetadata zone name
 	ZoneName NullableString `json:"ZoneName,omitempty"`
-	// VmMetadata storage type
-	StorageType NullableString `json:"StorageType,omitempty"`
-	// VmMetadata encryption key
-	EncryptionKeyId NullableString `json:"EncryptionKeyId,omitempty"`
 }
 
 // NewProvisioningSchemeVmMetadataResponseModel instantiates a new ProvisioningSchemeVmMetadataResponseModel object
@@ -448,132 +438,6 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetConfidentialVmDiskEncry
 	o.ConfidentialVmDiskEncryptionSetId.Unset()
 }
 
-// GetEnableSecureBoot returns the EnableSecureBoot field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableSecureBoot() bool {
-	if o == nil || IsNil(o.EnableSecureBoot.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.EnableSecureBoot.Get()
-}
-
-// GetEnableSecureBootOk returns a tuple with the EnableSecureBoot field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableSecureBootOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableSecureBoot.Get(), o.EnableSecureBoot.IsSet()
-}
-
-// HasEnableSecureBoot returns a boolean if a field has been set.
-func (o *ProvisioningSchemeVmMetadataResponseModel) HasEnableSecureBoot() bool {
-	if o != nil && o.EnableSecureBoot.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableSecureBoot gets a reference to the given NullableBool and assigns it to the EnableSecureBoot field.
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableSecureBoot(v bool) {
-	o.EnableSecureBoot.Set(&v)
-}
-// SetEnableSecureBootNil sets the value for EnableSecureBoot to be an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableSecureBootNil() {
-	o.EnableSecureBoot.Set(nil)
-}
-
-// UnsetEnableSecureBoot ensures that no value is present for EnableSecureBoot, not even an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEnableSecureBoot() {
-	o.EnableSecureBoot.Unset()
-}
-
-// GetEnableVTPM returns the EnableVTPM field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableVTPM() bool {
-	if o == nil || IsNil(o.EnableVTPM.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.EnableVTPM.Get()
-}
-
-// GetEnableVTPMOk returns a tuple with the EnableVTPM field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEnableVTPMOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableVTPM.Get(), o.EnableVTPM.IsSet()
-}
-
-// HasEnableVTPM returns a boolean if a field has been set.
-func (o *ProvisioningSchemeVmMetadataResponseModel) HasEnableVTPM() bool {
-	if o != nil && o.EnableVTPM.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableVTPM gets a reference to the given NullableBool and assigns it to the EnableVTPM field.
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableVTPM(v bool) {
-	o.EnableVTPM.Set(&v)
-}
-// SetEnableVTPMNil sets the value for EnableVTPM to be an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableVTPMNil() {
-	o.EnableVTPM.Set(nil)
-}
-
-// UnsetEnableVTPM ensures that no value is present for EnableVTPM, not even an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEnableVTPM() {
-	o.EnableVTPM.Unset()
-}
-
-// GetEncryptionAtHost returns the EncryptionAtHost field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionAtHost() bool {
-	if o == nil || IsNil(o.EncryptionAtHost.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.EncryptionAtHost.Get()
-}
-
-// GetEncryptionAtHostOk returns a tuple with the EncryptionAtHost field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionAtHostOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EncryptionAtHost.Get(), o.EncryptionAtHost.IsSet()
-}
-
-// HasEncryptionAtHost returns a boolean if a field has been set.
-func (o *ProvisioningSchemeVmMetadataResponseModel) HasEncryptionAtHost() bool {
-	if o != nil && o.EncryptionAtHost.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEncryptionAtHost gets a reference to the given NullableBool and assigns it to the EncryptionAtHost field.
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionAtHost(v bool) {
-	o.EncryptionAtHost.Set(&v)
-}
-// SetEncryptionAtHostNil sets the value for EncryptionAtHost to be an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionAtHostNil() {
-	o.EncryptionAtHost.Set(nil)
-}
-
-// UnsetEncryptionAtHost ensures that no value is present for EncryptionAtHost, not even an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEncryptionAtHost() {
-	o.EncryptionAtHost.Unset()
-}
-
 // GetLabels returns the Labels field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisioningSchemeVmMetadataResponseModel) GetLabels() string {
 	if o == nil || IsNil(o.Labels.Get()) {
@@ -658,90 +522,6 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetZoneName() {
 	o.ZoneName.Unset()
 }
 
-// GetStorageType returns the StorageType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetStorageType() string {
-	if o == nil || IsNil(o.StorageType.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.StorageType.Get()
-}
-
-// GetStorageTypeOk returns a tuple with the StorageType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetStorageTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.StorageType.Get(), o.StorageType.IsSet()
-}
-
-// HasStorageType returns a boolean if a field has been set.
-func (o *ProvisioningSchemeVmMetadataResponseModel) HasStorageType() bool {
-	if o != nil && o.StorageType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetStorageType gets a reference to the given NullableString and assigns it to the StorageType field.
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetStorageType(v string) {
-	o.StorageType.Set(&v)
-}
-// SetStorageTypeNil sets the value for StorageType to be an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetStorageTypeNil() {
-	o.StorageType.Set(nil)
-}
-
-// UnsetStorageType ensures that no value is present for StorageType, not even an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetStorageType() {
-	o.StorageType.Unset()
-}
-
-// GetEncryptionKeyId returns the EncryptionKeyId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionKeyId() string {
-	if o == nil || IsNil(o.EncryptionKeyId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.EncryptionKeyId.Get()
-}
-
-// GetEncryptionKeyIdOk returns a tuple with the EncryptionKeyId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisioningSchemeVmMetadataResponseModel) GetEncryptionKeyIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EncryptionKeyId.Get(), o.EncryptionKeyId.IsSet()
-}
-
-// HasEncryptionKeyId returns a boolean if a field has been set.
-func (o *ProvisioningSchemeVmMetadataResponseModel) HasEncryptionKeyId() bool {
-	if o != nil && o.EncryptionKeyId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEncryptionKeyId gets a reference to the given NullableString and assigns it to the EncryptionKeyId field.
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionKeyId(v string) {
-	o.EncryptionKeyId.Set(&v)
-}
-// SetEncryptionKeyIdNil sets the value for EncryptionKeyId to be an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionKeyIdNil() {
-	o.EncryptionKeyId.Set(nil)
-}
-
-// UnsetEncryptionKeyId ensures that no value is present for EncryptionKeyId, not even an explicit nil
-func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEncryptionKeyId() {
-	o.EncryptionKeyId.Unset()
-}
-
 func (o ProvisioningSchemeVmMetadataResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -779,26 +559,11 @@ func (o ProvisioningSchemeVmMetadataResponseModel) ToMap() (map[string]interface
 	if o.ConfidentialVmDiskEncryptionSetId.IsSet() {
 		toSerialize["ConfidentialVmDiskEncryptionSetId"] = o.ConfidentialVmDiskEncryptionSetId.Get()
 	}
-	if o.EnableSecureBoot.IsSet() {
-		toSerialize["EnableSecureBoot"] = o.EnableSecureBoot.Get()
-	}
-	if o.EnableVTPM.IsSet() {
-		toSerialize["EnableVTPM"] = o.EnableVTPM.Get()
-	}
-	if o.EncryptionAtHost.IsSet() {
-		toSerialize["EncryptionAtHost"] = o.EncryptionAtHost.Get()
-	}
 	if o.Labels.IsSet() {
 		toSerialize["Labels"] = o.Labels.Get()
 	}
 	if o.ZoneName.IsSet() {
 		toSerialize["ZoneName"] = o.ZoneName.Get()
-	}
-	if o.StorageType.IsSet() {
-		toSerialize["StorageType"] = o.StorageType.Get()
-	}
-	if o.EncryptionKeyId.IsSet() {
-		toSerialize["EncryptionKeyId"] = o.EncryptionKeyId.Get()
 	}
 	return toSerialize, nil
 }

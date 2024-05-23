@@ -23,7 +23,7 @@ type CreateMachineCatalogProvisioningSchemeRequestModel struct {
 	ResourcePool NullableString `json:"ResourcePool,omitempty"`
 	// The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated.
 	MasterImagePath NullableString `json:"MasterImagePath,omitempty"`
-	ImageVersion *AssignImageVersionToMachineCatalogRequestModel `json:"ImageVersion,omitempty"`
+	AssignImageVersionToProvisioningScheme *AssignImageVersionToProvisioningSchemeRequestModel `json:"AssignImageVersionToProvisioningScheme,omitempty"`
 	// The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated.
 	MachineProfilePath NullableString `json:"MachineProfilePath,omitempty"`
 	// The note for the master image.
@@ -216,36 +216,36 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetMasterImagePat
 	o.MasterImagePath.Unset()
 }
 
-// GetImageVersion returns the ImageVersion field value if set, zero value otherwise.
-func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() AssignImageVersionToMachineCatalogRequestModel {
-	if o == nil || IsNil(o.ImageVersion) {
-		var ret AssignImageVersionToMachineCatalogRequestModel
+// GetAssignImageVersionToProvisioningScheme returns the AssignImageVersionToProvisioningScheme field value if set, zero value otherwise.
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningScheme() AssignImageVersionToProvisioningSchemeRequestModel {
+	if o == nil || IsNil(o.AssignImageVersionToProvisioningScheme) {
+		var ret AssignImageVersionToProvisioningSchemeRequestModel
 		return ret
 	}
-	return *o.ImageVersion
+	return *o.AssignImageVersionToProvisioningScheme
 }
 
-// GetImageVersionOk returns a tuple with the ImageVersion field value if set, nil otherwise
+// GetAssignImageVersionToProvisioningSchemeOk returns a tuple with the AssignImageVersionToProvisioningScheme field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*AssignImageVersionToMachineCatalogRequestModel, bool) {
-	if o == nil || IsNil(o.ImageVersion) {
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningSchemeOk() (*AssignImageVersionToProvisioningSchemeRequestModel, bool) {
+	if o == nil || IsNil(o.AssignImageVersionToProvisioningScheme) {
 		return nil, false
 	}
-	return o.ImageVersion, true
+	return o.AssignImageVersionToProvisioningScheme, true
 }
 
-// HasImageVersion returns a boolean if a field has been set.
-func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasImageVersion() bool {
-	if o != nil && !IsNil(o.ImageVersion) {
+// HasAssignImageVersionToProvisioningScheme returns a boolean if a field has been set.
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAssignImageVersionToProvisioningScheme() bool {
+	if o != nil && !IsNil(o.AssignImageVersionToProvisioningScheme) {
 		return true
 	}
 
 	return false
 }
 
-// SetImageVersion gets a reference to the given AssignImageVersionToMachineCatalogRequestModel and assigns it to the ImageVersion field.
-func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v AssignImageVersionToMachineCatalogRequestModel) {
-	o.ImageVersion = &v
+// SetAssignImageVersionToProvisioningScheme gets a reference to the given AssignImageVersionToProvisioningSchemeRequestModel and assigns it to the AssignImageVersionToProvisioningScheme field.
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAssignImageVersionToProvisioningScheme(v AssignImageVersionToProvisioningSchemeRequestModel) {
+	o.AssignImageVersionToProvisioningScheme = &v
 }
 
 // GetMachineProfilePath returns the MachineProfilePath field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1545,8 +1545,8 @@ func (o CreateMachineCatalogProvisioningSchemeRequestModel) ToMap() (map[string]
 	if o.MasterImagePath.IsSet() {
 		toSerialize["MasterImagePath"] = o.MasterImagePath.Get()
 	}
-	if !IsNil(o.ImageVersion) {
-		toSerialize["ImageVersion"] = o.ImageVersion
+	if !IsNil(o.AssignImageVersionToProvisioningScheme) {
+		toSerialize["AssignImageVersionToProvisioningScheme"] = o.AssignImageVersionToProvisioningScheme
 	}
 	if o.MachineProfilePath.IsSet() {
 		toSerialize["MachineProfilePath"] = o.MachineProfilePath.Get()

@@ -78,6 +78,8 @@ type SiteDetailResponseModel struct {
 	TotalUniqueLicenseUsers NullableInt32 `json:"TotalUniqueLicenseUsers,omitempty"`
 	// Indicates whether the XML service trusts the caller to specify user identity.
 	TrustRequestsSentToTheXmlServicePort NullableBool `json:"TrustRequestsSentToTheXmlServicePort,omitempty"`
+	// The list of licenses with expired software maintenance dates.
+	LicensesWithExpiredSwm NullableString `json:"LicensesWithExpiredSwm,omitempty"`
 	// Get active licensing alerts in the site. Will be null for XenApp & XenDesktop service.
 	LicensingAlerts []LicensingAlertResponseModel `json:"LicensingAlerts,omitempty"`
 }
@@ -1167,6 +1169,48 @@ func (o *SiteDetailResponseModel) UnsetTrustRequestsSentToTheXmlServicePort() {
 	o.TrustRequestsSentToTheXmlServicePort.Unset()
 }
 
+// GetLicensesWithExpiredSwm returns the LicensesWithExpiredSwm field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteDetailResponseModel) GetLicensesWithExpiredSwm() string {
+	if o == nil || IsNil(o.LicensesWithExpiredSwm.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LicensesWithExpiredSwm.Get()
+}
+
+// GetLicensesWithExpiredSwmOk returns a tuple with the LicensesWithExpiredSwm field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteDetailResponseModel) GetLicensesWithExpiredSwmOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LicensesWithExpiredSwm.Get(), o.LicensesWithExpiredSwm.IsSet()
+}
+
+// HasLicensesWithExpiredSwm returns a boolean if a field has been set.
+func (o *SiteDetailResponseModel) HasLicensesWithExpiredSwm() bool {
+	if o != nil && o.LicensesWithExpiredSwm.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLicensesWithExpiredSwm gets a reference to the given NullableString and assigns it to the LicensesWithExpiredSwm field.
+func (o *SiteDetailResponseModel) SetLicensesWithExpiredSwm(v string) {
+	o.LicensesWithExpiredSwm.Set(&v)
+}
+// SetLicensesWithExpiredSwmNil sets the value for LicensesWithExpiredSwm to be an explicit nil
+func (o *SiteDetailResponseModel) SetLicensesWithExpiredSwmNil() {
+	o.LicensesWithExpiredSwm.Set(nil)
+}
+
+// UnsetLicensesWithExpiredSwm ensures that no value is present for LicensesWithExpiredSwm, not even an explicit nil
+func (o *SiteDetailResponseModel) UnsetLicensesWithExpiredSwm() {
+	o.LicensesWithExpiredSwm.Unset()
+}
+
 // GetLicensingAlerts returns the LicensingAlerts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteDetailResponseModel) GetLicensingAlerts() []LicensingAlertResponseModel {
 	if o == nil {
@@ -1283,6 +1327,9 @@ func (o SiteDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TrustRequestsSentToTheXmlServicePort.IsSet() {
 		toSerialize["TrustRequestsSentToTheXmlServicePort"] = o.TrustRequestsSentToTheXmlServicePort.Get()
+	}
+	if o.LicensesWithExpiredSwm.IsSet() {
+		toSerialize["LicensesWithExpiredSwm"] = o.LicensesWithExpiredSwm.Get()
 	}
 	if o.LicensingAlerts != nil {
 		toSerialize["LicensingAlerts"] = o.LicensingAlerts

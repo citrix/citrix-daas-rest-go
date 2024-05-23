@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **DefaultSecureIcaRequired** | Pointer to **bool** | The default SecureICA usage for new delivery groups. | [optional] 
 **TotalUniqueLicenseUsers** | Pointer to **NullableInt32** | The total count of unique license users. | [optional] 
 **TrustRequestsSentToTheXmlServicePort** | Pointer to **NullableBool** | Indicates whether the XML service trusts the caller to specify user identity. | [optional] 
+**LicensesWithExpiredSwm** | Pointer to **NullableString** | The list of licenses with expired software maintenance dates. | [optional] 
 **LicensingAlerts** | Pointer to [**[]LicensingAlertResponseModel**](LicensingAlertResponseModel.md) | Get active licensing alerts in the site. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 
 ## Methods
@@ -932,6 +933,41 @@ HasTrustRequestsSentToTheXmlServicePort returns a boolean if a field has been se
 `func (o *SiteDetailResponseModel) UnsetTrustRequestsSentToTheXmlServicePort()`
 
 UnsetTrustRequestsSentToTheXmlServicePort ensures that no value is present for TrustRequestsSentToTheXmlServicePort, not even an explicit nil
+### GetLicensesWithExpiredSwm
+
+`func (o *SiteDetailResponseModel) GetLicensesWithExpiredSwm() string`
+
+GetLicensesWithExpiredSwm returns the LicensesWithExpiredSwm field if non-nil, zero value otherwise.
+
+### GetLicensesWithExpiredSwmOk
+
+`func (o *SiteDetailResponseModel) GetLicensesWithExpiredSwmOk() (*string, bool)`
+
+GetLicensesWithExpiredSwmOk returns a tuple with the LicensesWithExpiredSwm field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicensesWithExpiredSwm
+
+`func (o *SiteDetailResponseModel) SetLicensesWithExpiredSwm(v string)`
+
+SetLicensesWithExpiredSwm sets LicensesWithExpiredSwm field to given value.
+
+### HasLicensesWithExpiredSwm
+
+`func (o *SiteDetailResponseModel) HasLicensesWithExpiredSwm() bool`
+
+HasLicensesWithExpiredSwm returns a boolean if a field has been set.
+
+### SetLicensesWithExpiredSwmNil
+
+`func (o *SiteDetailResponseModel) SetLicensesWithExpiredSwmNil(b bool)`
+
+ SetLicensesWithExpiredSwmNil sets the value for LicensesWithExpiredSwm to be an explicit nil
+
+### UnsetLicensesWithExpiredSwm
+`func (o *SiteDetailResponseModel) UnsetLicensesWithExpiredSwm()`
+
+UnsetLicensesWithExpiredSwm ensures that no value is present for LicensesWithExpiredSwm, not even an explicit nil
 ### GetLicensingAlerts
 
 `func (o *SiteDetailResponseModel) GetLicensingAlerts() []LicensingAlertResponseModel`

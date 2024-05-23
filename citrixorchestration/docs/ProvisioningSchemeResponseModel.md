@@ -54,6 +54,8 @@ Name | Type | Description | Notes
 **PVSSite** | Pointer to **NullableString** | PVS Site. | [optional] 
 **PVSVDisk** | Pointer to **NullableString** | PVS vDisk. | [optional] 
 **ProvisioningSchemeType** | Pointer to **NullableString** | Provisioning scheme type. | [optional] 
+**CurrentImageVersion** | Pointer to [**ProvisioningSchemeImageVersionHistoryResponseModel**](ProvisioningSchemeImageVersionHistoryResponseModel.md) |  | [optional] 
+**HistoricalImageVersions** | Pointer to [**[]ProvisioningSchemeImageVersionHistoryResponseModel**](ProvisioningSchemeImageVersionHistoryResponseModel.md) | The image version of a provision scheme. | [optional] 
 
 ## Methods
 
@@ -1454,6 +1456,66 @@ HasProvisioningSchemeType returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeResponseModel) UnsetProvisioningSchemeType()`
 
 UnsetProvisioningSchemeType ensures that no value is present for ProvisioningSchemeType, not even an explicit nil
+### GetCurrentImageVersion
+
+`func (o *ProvisioningSchemeResponseModel) GetCurrentImageVersion() ProvisioningSchemeImageVersionHistoryResponseModel`
+
+GetCurrentImageVersion returns the CurrentImageVersion field if non-nil, zero value otherwise.
+
+### GetCurrentImageVersionOk
+
+`func (o *ProvisioningSchemeResponseModel) GetCurrentImageVersionOk() (*ProvisioningSchemeImageVersionHistoryResponseModel, bool)`
+
+GetCurrentImageVersionOk returns a tuple with the CurrentImageVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentImageVersion
+
+`func (o *ProvisioningSchemeResponseModel) SetCurrentImageVersion(v ProvisioningSchemeImageVersionHistoryResponseModel)`
+
+SetCurrentImageVersion sets CurrentImageVersion field to given value.
+
+### HasCurrentImageVersion
+
+`func (o *ProvisioningSchemeResponseModel) HasCurrentImageVersion() bool`
+
+HasCurrentImageVersion returns a boolean if a field has been set.
+
+### GetHistoricalImageVersions
+
+`func (o *ProvisioningSchemeResponseModel) GetHistoricalImageVersions() []ProvisioningSchemeImageVersionHistoryResponseModel`
+
+GetHistoricalImageVersions returns the HistoricalImageVersions field if non-nil, zero value otherwise.
+
+### GetHistoricalImageVersionsOk
+
+`func (o *ProvisioningSchemeResponseModel) GetHistoricalImageVersionsOk() (*[]ProvisioningSchemeImageVersionHistoryResponseModel, bool)`
+
+GetHistoricalImageVersionsOk returns a tuple with the HistoricalImageVersions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHistoricalImageVersions
+
+`func (o *ProvisioningSchemeResponseModel) SetHistoricalImageVersions(v []ProvisioningSchemeImageVersionHistoryResponseModel)`
+
+SetHistoricalImageVersions sets HistoricalImageVersions field to given value.
+
+### HasHistoricalImageVersions
+
+`func (o *ProvisioningSchemeResponseModel) HasHistoricalImageVersions() bool`
+
+HasHistoricalImageVersions returns a boolean if a field has been set.
+
+### SetHistoricalImageVersionsNil
+
+`func (o *ProvisioningSchemeResponseModel) SetHistoricalImageVersionsNil(b bool)`
+
+ SetHistoricalImageVersionsNil sets the value for HistoricalImageVersions to be an explicit nil
+
+### UnsetHistoricalImageVersions
+`func (o *ProvisioningSchemeResponseModel) UnsetHistoricalImageVersions()`
+
+UnsetHistoricalImageVersions ensures that no value is present for HistoricalImageVersions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

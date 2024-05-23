@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ResourcePool** | Pointer to **NullableString** | The HostingUnit name or Id in which machine catalog locates | [optional] 
 **MasterImagePath** | Pointer to **NullableString** | The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
-**ImageVersion** | Pointer to [**AssignImageVersionToMachineCatalogRequestModel**](AssignImageVersionToMachineCatalogRequestModel.md) |  | [optional] 
+**AssignImageVersionToProvisioningScheme** | Pointer to [**AssignImageVersionToProvisioningSchemeRequestModel**](AssignImageVersionToProvisioningSchemeRequestModel.md) |  | [optional] 
 **MachineProfilePath** | Pointer to **NullableString** | The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated. | [optional] 
 **MasterImageNote** | Pointer to **NullableString** | The note for the master image. | [optional] 
 **CpuCount** | Pointer to **NullableInt32** | The number of processors that virtual machines created from the provisioning scheme should use. | [optional] 
@@ -130,30 +130,30 @@ HasMasterImagePath returns a boolean if a field has been set.
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetMasterImagePath()`
 
 UnsetMasterImagePath ensures that no value is present for MasterImagePath, not even an explicit nil
-### GetImageVersion
+### GetAssignImageVersionToProvisioningScheme
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersion() AssignImageVersionToMachineCatalogRequestModel`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningScheme() AssignImageVersionToProvisioningSchemeRequestModel`
 
-GetImageVersion returns the ImageVersion field if non-nil, zero value otherwise.
+GetAssignImageVersionToProvisioningScheme returns the AssignImageVersionToProvisioningScheme field if non-nil, zero value otherwise.
 
-### GetImageVersionOk
+### GetAssignImageVersionToProvisioningSchemeOk
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetImageVersionOk() (*AssignImageVersionToMachineCatalogRequestModel, bool)`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetAssignImageVersionToProvisioningSchemeOk() (*AssignImageVersionToProvisioningSchemeRequestModel, bool)`
 
-GetImageVersionOk returns a tuple with the ImageVersion field if it's non-nil, zero value otherwise
+GetAssignImageVersionToProvisioningSchemeOk returns a tuple with the AssignImageVersionToProvisioningScheme field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageVersion
+### SetAssignImageVersionToProvisioningScheme
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetImageVersion(v AssignImageVersionToMachineCatalogRequestModel)`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAssignImageVersionToProvisioningScheme(v AssignImageVersionToProvisioningSchemeRequestModel)`
 
-SetImageVersion sets ImageVersion field to given value.
+SetAssignImageVersionToProvisioningScheme sets AssignImageVersionToProvisioningScheme field to given value.
 
-### HasImageVersion
+### HasAssignImageVersionToProvisioningScheme
 
-`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasImageVersion() bool`
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAssignImageVersionToProvisioningScheme() bool`
 
-HasImageVersion returns a boolean if a field has been set.
+HasAssignImageVersionToProvisioningScheme returns a boolean if a field has been set.
 
 ### GetMachineProfilePath
 

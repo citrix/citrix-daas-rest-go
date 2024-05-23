@@ -109,6 +109,9 @@ type ProvisioningSchemeResponseModel struct {
 	PVSVDisk NullableString `json:"PVSVDisk,omitempty"`
 	// Provisioning scheme type.
 	ProvisioningSchemeType NullableString `json:"ProvisioningSchemeType,omitempty"`
+	CurrentImageVersion *ProvisioningSchemeImageVersionHistoryResponseModel `json:"CurrentImageVersion,omitempty"`
+	// The image version of a provision scheme.
+	HistoricalImageVersions []ProvisioningSchemeImageVersionHistoryResponseModel `json:"HistoricalImageVersions,omitempty"`
 }
 
 // NewProvisioningSchemeResponseModel instantiates a new ProvisioningSchemeResponseModel object
@@ -1777,6 +1780,71 @@ func (o *ProvisioningSchemeResponseModel) UnsetProvisioningSchemeType() {
 	o.ProvisioningSchemeType.Unset()
 }
 
+// GetCurrentImageVersion returns the CurrentImageVersion field value if set, zero value otherwise.
+func (o *ProvisioningSchemeResponseModel) GetCurrentImageVersion() ProvisioningSchemeImageVersionHistoryResponseModel {
+	if o == nil || IsNil(o.CurrentImageVersion) {
+		var ret ProvisioningSchemeImageVersionHistoryResponseModel
+		return ret
+	}
+	return *o.CurrentImageVersion
+}
+
+// GetCurrentImageVersionOk returns a tuple with the CurrentImageVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisioningSchemeResponseModel) GetCurrentImageVersionOk() (*ProvisioningSchemeImageVersionHistoryResponseModel, bool) {
+	if o == nil || IsNil(o.CurrentImageVersion) {
+		return nil, false
+	}
+	return o.CurrentImageVersion, true
+}
+
+// HasCurrentImageVersion returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasCurrentImageVersion() bool {
+	if o != nil && !IsNil(o.CurrentImageVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentImageVersion gets a reference to the given ProvisioningSchemeImageVersionHistoryResponseModel and assigns it to the CurrentImageVersion field.
+func (o *ProvisioningSchemeResponseModel) SetCurrentImageVersion(v ProvisioningSchemeImageVersionHistoryResponseModel) {
+	o.CurrentImageVersion = &v
+}
+
+// GetHistoricalImageVersions returns the HistoricalImageVersions field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisioningSchemeResponseModel) GetHistoricalImageVersions() []ProvisioningSchemeImageVersionHistoryResponseModel {
+	if o == nil {
+		var ret []ProvisioningSchemeImageVersionHistoryResponseModel
+		return ret
+	}
+	return o.HistoricalImageVersions
+}
+
+// GetHistoricalImageVersionsOk returns a tuple with the HistoricalImageVersions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisioningSchemeResponseModel) GetHistoricalImageVersionsOk() ([]ProvisioningSchemeImageVersionHistoryResponseModel, bool) {
+	if o == nil || IsNil(o.HistoricalImageVersions) {
+		return nil, false
+	}
+	return o.HistoricalImageVersions, true
+}
+
+// HasHistoricalImageVersions returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasHistoricalImageVersions() bool {
+	if o != nil && IsNil(o.HistoricalImageVersions) {
+		return true
+	}
+
+	return false
+}
+
+// SetHistoricalImageVersions gets a reference to the given []ProvisioningSchemeImageVersionHistoryResponseModel and assigns it to the HistoricalImageVersions field.
+func (o *ProvisioningSchemeResponseModel) SetHistoricalImageVersions(v []ProvisioningSchemeImageVersionHistoryResponseModel) {
+	o.HistoricalImageVersions = v
+}
+
 func (o ProvisioningSchemeResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1900,6 +1968,12 @@ func (o ProvisioningSchemeResponseModel) ToMap() (map[string]interface{}, error)
 	}
 	if o.ProvisioningSchemeType.IsSet() {
 		toSerialize["ProvisioningSchemeType"] = o.ProvisioningSchemeType.Get()
+	}
+	if !IsNil(o.CurrentImageVersion) {
+		toSerialize["CurrentImageVersion"] = o.CurrentImageVersion
+	}
+	if o.HistoricalImageVersions != nil {
+		toSerialize["HistoricalImageVersions"] = o.HistoricalImageVersions
 	}
 	return toSerialize, nil
 }

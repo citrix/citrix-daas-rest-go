@@ -33,8 +33,6 @@ type AddMachineToMachineCatalogDetailRequestModel struct {
 	HypervisorConnection NullableString `json:"HypervisorConnection,omitempty"`
 	// Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is not available for new sessions, and for managed machines all automatic power management is disabled. Optional; default is `false`.
 	InMaintenanceMode NullableBool `json:"InMaintenanceMode,omitempty"`
-	// The metadata of machine.
-	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// IP address of the PVS server to be used.  This only applies if the ProvisioningType is PVS.
 	PvsAddress NullableString `json:"PvsAddress,omitempty"`
 	// The domain of the PVS server to be used. This only applies if the ProvisioningType is PVS.
@@ -351,39 +349,6 @@ func (o *AddMachineToMachineCatalogDetailRequestModel) UnsetInMaintenanceMode() 
 	o.InMaintenanceMode.Unset()
 }
 
-// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddMachineToMachineCatalogDetailRequestModel) GetMetadata() []NameValueStringPairModel {
-	if o == nil {
-		var ret []NameValueStringPairModel
-		return ret
-	}
-	return o.Metadata
-}
-
-// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddMachineToMachineCatalogDetailRequestModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
-	if o == nil || IsNil(o.Metadata) {
-		return nil, false
-	}
-	return o.Metadata, true
-}
-
-// HasMetadata returns a boolean if a field has been set.
-func (o *AddMachineToMachineCatalogDetailRequestModel) HasMetadata() bool {
-	if o != nil && IsNil(o.Metadata) {
-		return true
-	}
-
-	return false
-}
-
-// SetMetadata gets a reference to the given []NameValueStringPairModel and assigns it to the Metadata field.
-func (o *AddMachineToMachineCatalogDetailRequestModel) SetMetadata(v []NameValueStringPairModel) {
-	o.Metadata = v
-}
-
 // GetPvsAddress returns the PvsAddress field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AddMachineToMachineCatalogDetailRequestModel) GetPvsAddress() string {
 	if o == nil || IsNil(o.PvsAddress.Get()) {
@@ -595,9 +560,6 @@ func (o AddMachineToMachineCatalogDetailRequestModel) ToMap() (map[string]interf
 	}
 	if o.InMaintenanceMode.IsSet() {
 		toSerialize["InMaintenanceMode"] = o.InMaintenanceMode.Get()
-	}
-	if o.Metadata != nil {
-		toSerialize["Metadata"] = o.Metadata
 	}
 	if o.PvsAddress.IsSet() {
 		toSerialize["PvsAddress"] = o.PvsAddress.Get()

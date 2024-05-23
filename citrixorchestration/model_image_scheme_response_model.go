@@ -19,36 +19,30 @@ var _ MappedNullable = &ImageSchemeResponseModel{}
 
 // ImageSchemeResponseModel Response object for image scheme.
 type ImageSchemeResponseModel struct {
-	// The name associated with the image scheme.
-	Name NullableString `json:"Name,omitempty"`
 	// The Id of the image scheme.
-	Id *string `json:"Id,omitempty"`
-	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
-	// The name of HostingUnit where image preparing happens
-	HostingUnitName NullableString `json:"HostingUnitName,omitempty"`
-	// The ID of HostingUnit where image preparing happens
-	HostingUnitId *string `json:"HostingUnitId,omitempty"`
+	Id string `json:"Id"`
 	// The number of processors that VMs will be created with when using this scheme.
 	CpuCount *int32 `json:"CpuCount,omitempty"`
-	// The maximum amount of memory that VMs will be created with when using this scheme.
-	MemoryMB *int32 `json:"MemoryMB,omitempty"`
-	// Service offering used by Cloud provisioned VMs.
-	ServiceOffering NullableString `json:"ServiceOffering,omitempty"`
-	// Networks used by image scheme.
-	NetworkMaps []NetworkMapResponseModel `json:"NetworkMaps,omitempty"`
-	MachineProfile *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
 	// The properties of the image scheme that are specific to the target hosting infrastructure.
 	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
 	// The properties of the image scheme that are specific to the target hosting infrastructure in string format.
 	CustomPropertiesInString NullableString `json:"CustomPropertiesInString,omitempty"`
+	MachineProfile *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
+	// The maximum amount of memory that VMs will be created with when using this scheme.
+	MemoryMB *int32 `json:"MemoryMB,omitempty"`
+	// Networks used by image scheme.
+	NetworkMaps []NetworkMapResponseModel `json:"NetworkMaps,omitempty"`
+	// Service offering used by Cloud provisioned VMs.
+	ServiceOffering NullableString `json:"ServiceOffering,omitempty"`
 }
 
 // NewImageSchemeResponseModel instantiates a new ImageSchemeResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageSchemeResponseModel() *ImageSchemeResponseModel {
+func NewImageSchemeResponseModel(id string) *ImageSchemeResponseModel {
 	this := ImageSchemeResponseModel{}
+	this.Id = id
 	return &this
 }
 
@@ -60,184 +54,28 @@ func NewImageSchemeResponseModelWithDefaults() *ImageSchemeResponseModel {
 	return &this
 }
 
-// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageSchemeResponseModel) GetName() string {
-	if o == nil || IsNil(o.Name.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Name.Get()
-}
-
-// GetNameOk returns a tuple with the Name field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageSchemeResponseModel) GetNameOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Name.Get(), o.Name.IsSet()
-}
-
-// HasName returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasName() bool {
-	if o != nil && o.Name.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetName gets a reference to the given NullableString and assigns it to the Name field.
-func (o *ImageSchemeResponseModel) SetName(v string) {
-	o.Name.Set(&v)
-}
-// SetNameNil sets the value for Name to be an explicit nil
-func (o *ImageSchemeResponseModel) SetNameNil() {
-	o.Name.Set(nil)
-}
-
-// UnsetName ensures that no value is present for Name, not even an explicit nil
-func (o *ImageSchemeResponseModel) UnsetName() {
-	o.Name.Unset()
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *ImageSchemeResponseModel) GetId() string {
-	if o == nil || IsNil(o.Id) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ImageSchemeResponseModel) GetIdOk() (*string, bool) {
-	if o == nil || IsNil(o.Id) {
-		return nil, false
-	}
-	return o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasId() bool {
-	if o != nil && !IsNil(o.Id) {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *ImageSchemeResponseModel) SetId(v string) {
-	o.Id = &v
-}
-
-// GetResourcePool returns the ResourcePool field value if set, zero value otherwise.
-func (o *ImageSchemeResponseModel) GetResourcePool() HypervisorResourcePoolRefResponseModel {
-	if o == nil || IsNil(o.ResourcePool) {
-		var ret HypervisorResourcePoolRefResponseModel
-		return ret
-	}
-	return *o.ResourcePool
-}
-
-// GetResourcePoolOk returns a tuple with the ResourcePool field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageSchemeResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolRefResponseModel, bool) {
-	if o == nil || IsNil(o.ResourcePool) {
-		return nil, false
-	}
-	return o.ResourcePool, true
-}
-
-// HasResourcePool returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasResourcePool() bool {
-	if o != nil && !IsNil(o.ResourcePool) {
-		return true
-	}
-
-	return false
-}
-
-// SetResourcePool gets a reference to the given HypervisorResourcePoolRefResponseModel and assigns it to the ResourcePool field.
-func (o *ImageSchemeResponseModel) SetResourcePool(v HypervisorResourcePoolRefResponseModel) {
-	o.ResourcePool = &v
-}
-
-// GetHostingUnitName returns the HostingUnitName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageSchemeResponseModel) GetHostingUnitName() string {
-	if o == nil || IsNil(o.HostingUnitName.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.HostingUnitName.Get()
-}
-
-// GetHostingUnitNameOk returns a tuple with the HostingUnitName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageSchemeResponseModel) GetHostingUnitNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.HostingUnitName.Get(), o.HostingUnitName.IsSet()
+	return &o.Id, true
 }
 
-// HasHostingUnitName returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasHostingUnitName() bool {
-	if o != nil && o.HostingUnitName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetHostingUnitName gets a reference to the given NullableString and assigns it to the HostingUnitName field.
-func (o *ImageSchemeResponseModel) SetHostingUnitName(v string) {
-	o.HostingUnitName.Set(&v)
-}
-// SetHostingUnitNameNil sets the value for HostingUnitName to be an explicit nil
-func (o *ImageSchemeResponseModel) SetHostingUnitNameNil() {
-	o.HostingUnitName.Set(nil)
-}
-
-// UnsetHostingUnitName ensures that no value is present for HostingUnitName, not even an explicit nil
-func (o *ImageSchemeResponseModel) UnsetHostingUnitName() {
-	o.HostingUnitName.Unset()
-}
-
-// GetHostingUnitId returns the HostingUnitId field value if set, zero value otherwise.
-func (o *ImageSchemeResponseModel) GetHostingUnitId() string {
-	if o == nil || IsNil(o.HostingUnitId) {
-		var ret string
-		return ret
-	}
-	return *o.HostingUnitId
-}
-
-// GetHostingUnitIdOk returns a tuple with the HostingUnitId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageSchemeResponseModel) GetHostingUnitIdOk() (*string, bool) {
-	if o == nil || IsNil(o.HostingUnitId) {
-		return nil, false
-	}
-	return o.HostingUnitId, true
-}
-
-// HasHostingUnitId returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasHostingUnitId() bool {
-	if o != nil && !IsNil(o.HostingUnitId) {
-		return true
-	}
-
-	return false
-}
-
-// SetHostingUnitId gets a reference to the given string and assigns it to the HostingUnitId field.
-func (o *ImageSchemeResponseModel) SetHostingUnitId(v string) {
-	o.HostingUnitId = &v
+// SetId sets field value
+func (o *ImageSchemeResponseModel) SetId(v string) {
+	o.Id = v
 }
 
 // GetCpuCount returns the CpuCount field value if set, zero value otherwise.
@@ -270,145 +108,6 @@ func (o *ImageSchemeResponseModel) HasCpuCount() bool {
 // SetCpuCount gets a reference to the given int32 and assigns it to the CpuCount field.
 func (o *ImageSchemeResponseModel) SetCpuCount(v int32) {
 	o.CpuCount = &v
-}
-
-// GetMemoryMB returns the MemoryMB field value if set, zero value otherwise.
-func (o *ImageSchemeResponseModel) GetMemoryMB() int32 {
-	if o == nil || IsNil(o.MemoryMB) {
-		var ret int32
-		return ret
-	}
-	return *o.MemoryMB
-}
-
-// GetMemoryMBOk returns a tuple with the MemoryMB field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageSchemeResponseModel) GetMemoryMBOk() (*int32, bool) {
-	if o == nil || IsNil(o.MemoryMB) {
-		return nil, false
-	}
-	return o.MemoryMB, true
-}
-
-// HasMemoryMB returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasMemoryMB() bool {
-	if o != nil && !IsNil(o.MemoryMB) {
-		return true
-	}
-
-	return false
-}
-
-// SetMemoryMB gets a reference to the given int32 and assigns it to the MemoryMB field.
-func (o *ImageSchemeResponseModel) SetMemoryMB(v int32) {
-	o.MemoryMB = &v
-}
-
-// GetServiceOffering returns the ServiceOffering field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageSchemeResponseModel) GetServiceOffering() string {
-	if o == nil || IsNil(o.ServiceOffering.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ServiceOffering.Get()
-}
-
-// GetServiceOfferingOk returns a tuple with the ServiceOffering field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageSchemeResponseModel) GetServiceOfferingOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ServiceOffering.Get(), o.ServiceOffering.IsSet()
-}
-
-// HasServiceOffering returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasServiceOffering() bool {
-	if o != nil && o.ServiceOffering.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetServiceOffering gets a reference to the given NullableString and assigns it to the ServiceOffering field.
-func (o *ImageSchemeResponseModel) SetServiceOffering(v string) {
-	o.ServiceOffering.Set(&v)
-}
-// SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
-func (o *ImageSchemeResponseModel) SetServiceOfferingNil() {
-	o.ServiceOffering.Set(nil)
-}
-
-// UnsetServiceOffering ensures that no value is present for ServiceOffering, not even an explicit nil
-func (o *ImageSchemeResponseModel) UnsetServiceOffering() {
-	o.ServiceOffering.Unset()
-}
-
-// GetNetworkMaps returns the NetworkMaps field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ImageSchemeResponseModel) GetNetworkMaps() []NetworkMapResponseModel {
-	if o == nil {
-		var ret []NetworkMapResponseModel
-		return ret
-	}
-	return o.NetworkMaps
-}
-
-// GetNetworkMapsOk returns a tuple with the NetworkMaps field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ImageSchemeResponseModel) GetNetworkMapsOk() ([]NetworkMapResponseModel, bool) {
-	if o == nil || IsNil(o.NetworkMaps) {
-		return nil, false
-	}
-	return o.NetworkMaps, true
-}
-
-// HasNetworkMaps returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasNetworkMaps() bool {
-	if o != nil && IsNil(o.NetworkMaps) {
-		return true
-	}
-
-	return false
-}
-
-// SetNetworkMaps gets a reference to the given []NetworkMapResponseModel and assigns it to the NetworkMaps field.
-func (o *ImageSchemeResponseModel) SetNetworkMaps(v []NetworkMapResponseModel) {
-	o.NetworkMaps = v
-}
-
-// GetMachineProfile returns the MachineProfile field value if set, zero value otherwise.
-func (o *ImageSchemeResponseModel) GetMachineProfile() HypervisorResourceRefResponseModel {
-	if o == nil || IsNil(o.MachineProfile) {
-		var ret HypervisorResourceRefResponseModel
-		return ret
-	}
-	return *o.MachineProfile
-}
-
-// GetMachineProfileOk returns a tuple with the MachineProfile field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ImageSchemeResponseModel) GetMachineProfileOk() (*HypervisorResourceRefResponseModel, bool) {
-	if o == nil || IsNil(o.MachineProfile) {
-		return nil, false
-	}
-	return o.MachineProfile, true
-}
-
-// HasMachineProfile returns a boolean if a field has been set.
-func (o *ImageSchemeResponseModel) HasMachineProfile() bool {
-	if o != nil && !IsNil(o.MachineProfile) {
-		return true
-	}
-
-	return false
-}
-
-// SetMachineProfile gets a reference to the given HypervisorResourceRefResponseModel and assigns it to the MachineProfile field.
-func (o *ImageSchemeResponseModel) SetMachineProfile(v HypervisorResourceRefResponseModel) {
-	o.MachineProfile = &v
 }
 
 // GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -486,6 +185,145 @@ func (o *ImageSchemeResponseModel) UnsetCustomPropertiesInString() {
 	o.CustomPropertiesInString.Unset()
 }
 
+// GetMachineProfile returns the MachineProfile field value if set, zero value otherwise.
+func (o *ImageSchemeResponseModel) GetMachineProfile() HypervisorResourceRefResponseModel {
+	if o == nil || IsNil(o.MachineProfile) {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+	return *o.MachineProfile
+}
+
+// GetMachineProfileOk returns a tuple with the MachineProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImageSchemeResponseModel) GetMachineProfileOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil || IsNil(o.MachineProfile) {
+		return nil, false
+	}
+	return o.MachineProfile, true
+}
+
+// HasMachineProfile returns a boolean if a field has been set.
+func (o *ImageSchemeResponseModel) HasMachineProfile() bool {
+	if o != nil && !IsNil(o.MachineProfile) {
+		return true
+	}
+
+	return false
+}
+
+// SetMachineProfile gets a reference to the given HypervisorResourceRefResponseModel and assigns it to the MachineProfile field.
+func (o *ImageSchemeResponseModel) SetMachineProfile(v HypervisorResourceRefResponseModel) {
+	o.MachineProfile = &v
+}
+
+// GetMemoryMB returns the MemoryMB field value if set, zero value otherwise.
+func (o *ImageSchemeResponseModel) GetMemoryMB() int32 {
+	if o == nil || IsNil(o.MemoryMB) {
+		var ret int32
+		return ret
+	}
+	return *o.MemoryMB
+}
+
+// GetMemoryMBOk returns a tuple with the MemoryMB field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ImageSchemeResponseModel) GetMemoryMBOk() (*int32, bool) {
+	if o == nil || IsNil(o.MemoryMB) {
+		return nil, false
+	}
+	return o.MemoryMB, true
+}
+
+// HasMemoryMB returns a boolean if a field has been set.
+func (o *ImageSchemeResponseModel) HasMemoryMB() bool {
+	if o != nil && !IsNil(o.MemoryMB) {
+		return true
+	}
+
+	return false
+}
+
+// SetMemoryMB gets a reference to the given int32 and assigns it to the MemoryMB field.
+func (o *ImageSchemeResponseModel) SetMemoryMB(v int32) {
+	o.MemoryMB = &v
+}
+
+// GetNetworkMaps returns the NetworkMaps field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageSchemeResponseModel) GetNetworkMaps() []NetworkMapResponseModel {
+	if o == nil {
+		var ret []NetworkMapResponseModel
+		return ret
+	}
+	return o.NetworkMaps
+}
+
+// GetNetworkMapsOk returns a tuple with the NetworkMaps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageSchemeResponseModel) GetNetworkMapsOk() ([]NetworkMapResponseModel, bool) {
+	if o == nil || IsNil(o.NetworkMaps) {
+		return nil, false
+	}
+	return o.NetworkMaps, true
+}
+
+// HasNetworkMaps returns a boolean if a field has been set.
+func (o *ImageSchemeResponseModel) HasNetworkMaps() bool {
+	if o != nil && IsNil(o.NetworkMaps) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkMaps gets a reference to the given []NetworkMapResponseModel and assigns it to the NetworkMaps field.
+func (o *ImageSchemeResponseModel) SetNetworkMaps(v []NetworkMapResponseModel) {
+	o.NetworkMaps = v
+}
+
+// GetServiceOffering returns the ServiceOffering field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageSchemeResponseModel) GetServiceOffering() string {
+	if o == nil || IsNil(o.ServiceOffering.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ServiceOffering.Get()
+}
+
+// GetServiceOfferingOk returns a tuple with the ServiceOffering field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageSchemeResponseModel) GetServiceOfferingOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ServiceOffering.Get(), o.ServiceOffering.IsSet()
+}
+
+// HasServiceOffering returns a boolean if a field has been set.
+func (o *ImageSchemeResponseModel) HasServiceOffering() bool {
+	if o != nil && o.ServiceOffering.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceOffering gets a reference to the given NullableString and assigns it to the ServiceOffering field.
+func (o *ImageSchemeResponseModel) SetServiceOffering(v string) {
+	o.ServiceOffering.Set(&v)
+}
+// SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
+func (o *ImageSchemeResponseModel) SetServiceOfferingNil() {
+	o.ServiceOffering.Set(nil)
+}
+
+// UnsetServiceOffering ensures that no value is present for ServiceOffering, not even an explicit nil
+func (o *ImageSchemeResponseModel) UnsetServiceOffering() {
+	o.ServiceOffering.Unset()
+}
+
 func (o ImageSchemeResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -496,41 +334,27 @@ func (o ImageSchemeResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o ImageSchemeResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Name.IsSet() {
-		toSerialize["Name"] = o.Name.Get()
-	}
-	if !IsNil(o.Id) {
-		toSerialize["Id"] = o.Id
-	}
-	if !IsNil(o.ResourcePool) {
-		toSerialize["ResourcePool"] = o.ResourcePool
-	}
-	if o.HostingUnitName.IsSet() {
-		toSerialize["HostingUnitName"] = o.HostingUnitName.Get()
-	}
-	if !IsNil(o.HostingUnitId) {
-		toSerialize["HostingUnitId"] = o.HostingUnitId
-	}
+	toSerialize["Id"] = o.Id
 	if !IsNil(o.CpuCount) {
 		toSerialize["CpuCount"] = o.CpuCount
-	}
-	if !IsNil(o.MemoryMB) {
-		toSerialize["MemoryMB"] = o.MemoryMB
-	}
-	if o.ServiceOffering.IsSet() {
-		toSerialize["ServiceOffering"] = o.ServiceOffering.Get()
-	}
-	if o.NetworkMaps != nil {
-		toSerialize["NetworkMaps"] = o.NetworkMaps
-	}
-	if !IsNil(o.MachineProfile) {
-		toSerialize["MachineProfile"] = o.MachineProfile
 	}
 	if o.CustomProperties != nil {
 		toSerialize["CustomProperties"] = o.CustomProperties
 	}
 	if o.CustomPropertiesInString.IsSet() {
 		toSerialize["CustomPropertiesInString"] = o.CustomPropertiesInString.Get()
+	}
+	if !IsNil(o.MachineProfile) {
+		toSerialize["MachineProfile"] = o.MachineProfile
+	}
+	if !IsNil(o.MemoryMB) {
+		toSerialize["MemoryMB"] = o.MemoryMB
+	}
+	if o.NetworkMaps != nil {
+		toSerialize["NetworkMaps"] = o.NetworkMaps
+	}
+	if o.ServiceOffering.IsSet() {
+		toSerialize["ServiceOffering"] = o.ServiceOffering.Get()
 	}
 	return toSerialize, nil
 }

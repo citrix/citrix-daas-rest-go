@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **DiscoverAppV** | Pointer to **bool** | A value indicating whether or not to search should Discover App-V Packages. | [optional] 
 **DiscoverMsix** | Pointer to **bool** | A value indicating whether or not to search should Discover Msix Packages. | [optional] 
 **DiscoverAppAttach** | Pointer to **bool** | A value indicating whether or not to search should Discover AppAttach Packages. | [optional] 
-**DiscoverFlexApp** | Pointer to **bool** | A value indicating whether or not to search should Discover FlexApp Packages. | [optional] 
 **AutomateDiscovery** | Pointer to **bool** | A value indicating whether or not the discovery should run automatically. | [optional] 
 **AutoDiscoveryPeriod** | Pointer to **NullableString** | A value indicating what time period should used to trigger the discovery. | [optional] 
 **AutoDiscoveryCadence** | Pointer to **int32** | A value indicating how often to trigger the discovery. | [optional] 
@@ -373,31 +372,6 @@ SetDiscoverAppAttach sets DiscoverAppAttach field to given value.
 `func (o *AppLibPackageDiscoveryProfileResponseModel) HasDiscoverAppAttach() bool`
 
 HasDiscoverAppAttach returns a boolean if a field has been set.
-
-### GetDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverFlexApp() bool`
-
-GetDiscoverFlexApp returns the DiscoverFlexApp field if non-nil, zero value otherwise.
-
-### GetDiscoverFlexAppOk
-
-`func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverFlexAppOk() (*bool, bool)`
-
-GetDiscoverFlexAppOk returns a tuple with the DiscoverFlexApp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryProfileResponseModel) SetDiscoverFlexApp(v bool)`
-
-SetDiscoverFlexApp sets DiscoverFlexApp field to given value.
-
-### HasDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryProfileResponseModel) HasDiscoverFlexApp() bool`
-
-HasDiscoverFlexApp returns a boolean if a field has been set.
 
 ### GetAutomateDiscovery
 

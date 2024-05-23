@@ -20,22 +20,22 @@ var _ MappedNullable = &ApplicationGroupDetailResponseModel{}
 // ApplicationGroupDetailResponseModel struct for ApplicationGroupDetailResponseModel
 type ApplicationGroupDetailResponseModel struct {
 	// Id of the application group. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
-	Id NullableString `json:"Id,omitempty"`
+	Id string `json:"Id"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED. Use Id.
 	// Deprecated
 	Uid NullableInt32 `json:"Uid,omitempty"`
 	// Delegated admin scopes in which the containers of the application group reside.
-	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
+	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes"`
 	// Description of the application group. As with other facets of application groups, the description is not visible to end users.
 	Description NullableString `json:"Description,omitempty"`
 	// Indicates whether or not the applications in this application group can be launched.
-	Enabled *bool `json:"Enabled,omitempty"`
+	Enabled bool `json:"Enabled"`
 	// Simple administrative name of application group within parent admin folder (if any). This property is not guaranteed unique across all application groups.
 	Name NullableString `json:"Name,omitempty"`
 	// Name of this application group. The name uniquely identifies the application group within the site. As with other facets of application groups, the name is not visible to end users.
 	FullName NullableString `json:"FullName,omitempty"`
 	// The list of the delegated admin scopes to which the application group belongs.
-	Scopes []ScopeResponseModel `json:"Scopes,omitempty"`
+	Scopes []ScopeResponseModel `json:"Scopes"`
 	// The metadata of application group.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Tags associated with this application group.
@@ -43,14 +43,14 @@ type ApplicationGroupDetailResponseModel struct {
 	// The tenant(s) that the application group is assigned to.  If `null`, the application group is not assigned to tenants, and may be used by any tenant, including future added tenants.
 	Tenants []RefResponseModel `json:"Tenants,omitempty"`
 	// Number of applications present in the application group.
-	NumApplications *int32 `json:"NumApplications,omitempty"`
+	NumApplications int32 `json:"NumApplications"`
 	// Number of machines capable of hosting the applications in the application group.
-	NumMachines *int32 `json:"NumMachines,omitempty"`
+	NumMachines int32 `json:"NumMachines"`
 	// Total number of machines across all desktop groups on which the application group is published, and which are tagged with the tag given by the RestrictToTag property.
 	NumMachinesWithTag *int32 `json:"NumMachinesWithTag,omitempty"`
 	RestrictToTag *RefResponseModel `json:"RestrictToTag,omitempty"`
 	// Delivery groups associated with the application group.
-	DeliveryGroups []ApplicationGroupDeliveryGroupRefResponseModel `json:"DeliveryGroups,omitempty"`
+	DeliveryGroups []ApplicationGroupDeliveryGroupRefResponseModel `json:"DeliveryGroups"`
 	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
 	// Number of applications in the group.
 	ApplicationCount int32 `json:"ApplicationCount"`
@@ -68,8 +68,15 @@ type ApplicationGroupDetailResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewApplicationGroupDetailResponseModel(applicationCount int32, includedUsersFilterEnabled bool, sessionSharingEnabled bool, totalMachines int32) *ApplicationGroupDetailResponseModel {
+func NewApplicationGroupDetailResponseModel(id string, containerScopes []ContainerScopeResponseModel, enabled bool, scopes []ScopeResponseModel, numApplications int32, numMachines int32, deliveryGroups []ApplicationGroupDeliveryGroupRefResponseModel, applicationCount int32, includedUsersFilterEnabled bool, sessionSharingEnabled bool, totalMachines int32) *ApplicationGroupDetailResponseModel {
 	this := ApplicationGroupDetailResponseModel{}
+	this.Id = id
+	this.ContainerScopes = containerScopes
+	this.Enabled = enabled
+	this.Scopes = scopes
+	this.NumApplications = numApplications
+	this.NumMachines = numMachines
+	this.DeliveryGroups = deliveryGroups
 	this.ApplicationCount = applicationCount
 	this.IncludedUsersFilterEnabled = includedUsersFilterEnabled
 	this.SessionSharingEnabled = sessionSharingEnabled
@@ -85,46 +92,28 @@ func NewApplicationGroupDetailResponseModelWithDefaults() *ApplicationGroupDetai
 	return &this
 }
 
-// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetId returns the Id field value
 func (o *ApplicationGroupDetailResponseModel) GetId() string {
-	if o == nil || IsNil(o.Id.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id.Get()
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, nil otherwise
+// GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationGroupDetailResponseModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Id.Get(), o.Id.IsSet()
+	return &o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *ApplicationGroupDetailResponseModel) HasId() bool {
-	if o != nil && o.Id.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given NullableString and assigns it to the Id field.
+// SetId sets field value
 func (o *ApplicationGroupDetailResponseModel) SetId(v string) {
-	o.Id.Set(&v)
-}
-// SetIdNil sets the value for Id to be an explicit nil
-func (o *ApplicationGroupDetailResponseModel) SetIdNil() {
-	o.Id.Set(nil)
-}
-
-// UnsetId ensures that no value is present for Id, not even an explicit nil
-func (o *ApplicationGroupDetailResponseModel) UnsetId() {
-	o.Id.Unset()
+	o.Id = v
 }
 
 // GetUid returns the Uid field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -172,35 +161,26 @@ func (o *ApplicationGroupDetailResponseModel) UnsetUid() {
 	o.Uid.Unset()
 }
 
-// GetContainerScopes returns the ContainerScopes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetContainerScopes returns the ContainerScopes field value
 func (o *ApplicationGroupDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel {
 	if o == nil {
 		var ret []ContainerScopeResponseModel
 		return ret
 	}
+
 	return o.ContainerScopes
 }
 
-// GetContainerScopesOk returns a tuple with the ContainerScopes field value if set, nil otherwise
+// GetContainerScopesOk returns a tuple with the ContainerScopes field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationGroupDetailResponseModel) GetContainerScopesOk() ([]ContainerScopeResponseModel, bool) {
-	if o == nil || IsNil(o.ContainerScopes) {
+	if o == nil {
 		return nil, false
 	}
 	return o.ContainerScopes, true
 }
 
-// HasContainerScopes returns a boolean if a field has been set.
-func (o *ApplicationGroupDetailResponseModel) HasContainerScopes() bool {
-	if o != nil && IsNil(o.ContainerScopes) {
-		return true
-	}
-
-	return false
-}
-
-// SetContainerScopes gets a reference to the given []ContainerScopeResponseModel and assigns it to the ContainerScopes field.
+// SetContainerScopes sets field value
 func (o *ApplicationGroupDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel) {
 	o.ContainerScopes = v
 }
@@ -247,36 +227,28 @@ func (o *ApplicationGroupDetailResponseModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
-// GetEnabled returns the Enabled field value if set, zero value otherwise.
+// GetEnabled returns the Enabled field value
 func (o *ApplicationGroupDetailResponseModel) GetEnabled() bool {
-	if o == nil || IsNil(o.Enabled) {
+	if o == nil {
 		var ret bool
 		return ret
 	}
-	return *o.Enabled
+
+	return o.Enabled
 }
 
-// GetEnabledOk returns a tuple with the Enabled field value if set, nil otherwise
+// GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationGroupDetailResponseModel) GetEnabledOk() (*bool, bool) {
-	if o == nil || IsNil(o.Enabled) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Enabled, true
+	return &o.Enabled, true
 }
 
-// HasEnabled returns a boolean if a field has been set.
-func (o *ApplicationGroupDetailResponseModel) HasEnabled() bool {
-	if o != nil && !IsNil(o.Enabled) {
-		return true
-	}
-
-	return false
-}
-
-// SetEnabled gets a reference to the given bool and assigns it to the Enabled field.
+// SetEnabled sets field value
 func (o *ApplicationGroupDetailResponseModel) SetEnabled(v bool) {
-	o.Enabled = &v
+	o.Enabled = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -363,35 +335,26 @@ func (o *ApplicationGroupDetailResponseModel) UnsetFullName() {
 	o.FullName.Unset()
 }
 
-// GetScopes returns the Scopes field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetScopes returns the Scopes field value
 func (o *ApplicationGroupDetailResponseModel) GetScopes() []ScopeResponseModel {
 	if o == nil {
 		var ret []ScopeResponseModel
 		return ret
 	}
+
 	return o.Scopes
 }
 
-// GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
+// GetScopesOk returns a tuple with the Scopes field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationGroupDetailResponseModel) GetScopesOk() ([]ScopeResponseModel, bool) {
-	if o == nil || IsNil(o.Scopes) {
+	if o == nil {
 		return nil, false
 	}
 	return o.Scopes, true
 }
 
-// HasScopes returns a boolean if a field has been set.
-func (o *ApplicationGroupDetailResponseModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
-		return true
-	}
-
-	return false
-}
-
-// SetScopes gets a reference to the given []ScopeResponseModel and assigns it to the Scopes field.
+// SetScopes sets field value
 func (o *ApplicationGroupDetailResponseModel) SetScopes(v []ScopeResponseModel) {
 	o.Scopes = v
 }
@@ -495,68 +458,52 @@ func (o *ApplicationGroupDetailResponseModel) SetTenants(v []RefResponseModel) {
 	o.Tenants = v
 }
 
-// GetNumApplications returns the NumApplications field value if set, zero value otherwise.
+// GetNumApplications returns the NumApplications field value
 func (o *ApplicationGroupDetailResponseModel) GetNumApplications() int32 {
-	if o == nil || IsNil(o.NumApplications) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NumApplications
+
+	return o.NumApplications
 }
 
-// GetNumApplicationsOk returns a tuple with the NumApplications field value if set, nil otherwise
+// GetNumApplicationsOk returns a tuple with the NumApplications field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationGroupDetailResponseModel) GetNumApplicationsOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumApplications) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumApplications, true
+	return &o.NumApplications, true
 }
 
-// HasNumApplications returns a boolean if a field has been set.
-func (o *ApplicationGroupDetailResponseModel) HasNumApplications() bool {
-	if o != nil && !IsNil(o.NumApplications) {
-		return true
-	}
-
-	return false
-}
-
-// SetNumApplications gets a reference to the given int32 and assigns it to the NumApplications field.
+// SetNumApplications sets field value
 func (o *ApplicationGroupDetailResponseModel) SetNumApplications(v int32) {
-	o.NumApplications = &v
+	o.NumApplications = v
 }
 
-// GetNumMachines returns the NumMachines field value if set, zero value otherwise.
+// GetNumMachines returns the NumMachines field value
 func (o *ApplicationGroupDetailResponseModel) GetNumMachines() int32 {
-	if o == nil || IsNil(o.NumMachines) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.NumMachines
+
+	return o.NumMachines
 }
 
-// GetNumMachinesOk returns a tuple with the NumMachines field value if set, nil otherwise
+// GetNumMachinesOk returns a tuple with the NumMachines field value
 // and a boolean to check if the value has been set.
 func (o *ApplicationGroupDetailResponseModel) GetNumMachinesOk() (*int32, bool) {
-	if o == nil || IsNil(o.NumMachines) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NumMachines, true
+	return &o.NumMachines, true
 }
 
-// HasNumMachines returns a boolean if a field has been set.
-func (o *ApplicationGroupDetailResponseModel) HasNumMachines() bool {
-	if o != nil && !IsNil(o.NumMachines) {
-		return true
-	}
-
-	return false
-}
-
-// SetNumMachines gets a reference to the given int32 and assigns it to the NumMachines field.
+// SetNumMachines sets field value
 func (o *ApplicationGroupDetailResponseModel) SetNumMachines(v int32) {
-	o.NumMachines = &v
+	o.NumMachines = v
 }
 
 // GetNumMachinesWithTag returns the NumMachinesWithTag field value if set, zero value otherwise.
@@ -623,35 +570,26 @@ func (o *ApplicationGroupDetailResponseModel) SetRestrictToTag(v RefResponseMode
 	o.RestrictToTag = &v
 }
 
-// GetDeliveryGroups returns the DeliveryGroups field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetDeliveryGroups returns the DeliveryGroups field value
 func (o *ApplicationGroupDetailResponseModel) GetDeliveryGroups() []ApplicationGroupDeliveryGroupRefResponseModel {
 	if o == nil {
 		var ret []ApplicationGroupDeliveryGroupRefResponseModel
 		return ret
 	}
+
 	return o.DeliveryGroups
 }
 
-// GetDeliveryGroupsOk returns a tuple with the DeliveryGroups field value if set, nil otherwise
+// GetDeliveryGroupsOk returns a tuple with the DeliveryGroups field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ApplicationGroupDetailResponseModel) GetDeliveryGroupsOk() ([]ApplicationGroupDeliveryGroupRefResponseModel, bool) {
-	if o == nil || IsNil(o.DeliveryGroups) {
+	if o == nil {
 		return nil, false
 	}
 	return o.DeliveryGroups, true
 }
 
-// HasDeliveryGroups returns a boolean if a field has been set.
-func (o *ApplicationGroupDetailResponseModel) HasDeliveryGroups() bool {
-	if o != nil && IsNil(o.DeliveryGroups) {
-		return true
-	}
-
-	return false
-}
-
-// SetDeliveryGroups gets a reference to the given []ApplicationGroupDeliveryGroupRefResponseModel and assigns it to the DeliveryGroups field.
+// SetDeliveryGroups sets field value
 func (o *ApplicationGroupDetailResponseModel) SetDeliveryGroups(v []ApplicationGroupDeliveryGroupRefResponseModel) {
 	o.DeliveryGroups = v
 }
@@ -827,30 +765,22 @@ func (o ApplicationGroupDetailResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o ApplicationGroupDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Id.IsSet() {
-		toSerialize["Id"] = o.Id.Get()
-	}
+	toSerialize["Id"] = o.Id
 	if o.Uid.IsSet() {
 		toSerialize["Uid"] = o.Uid.Get()
 	}
-	if o.ContainerScopes != nil {
-		toSerialize["ContainerScopes"] = o.ContainerScopes
-	}
+	toSerialize["ContainerScopes"] = o.ContainerScopes
 	if o.Description.IsSet() {
 		toSerialize["Description"] = o.Description.Get()
 	}
-	if !IsNil(o.Enabled) {
-		toSerialize["Enabled"] = o.Enabled
-	}
+	toSerialize["Enabled"] = o.Enabled
 	if o.Name.IsSet() {
 		toSerialize["Name"] = o.Name.Get()
 	}
 	if o.FullName.IsSet() {
 		toSerialize["FullName"] = o.FullName.Get()
 	}
-	if o.Scopes != nil {
-		toSerialize["Scopes"] = o.Scopes
-	}
+	toSerialize["Scopes"] = o.Scopes
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
 	}
@@ -860,21 +790,15 @@ func (o ApplicationGroupDetailResponseModel) ToMap() (map[string]interface{}, er
 	if o.Tenants != nil {
 		toSerialize["Tenants"] = o.Tenants
 	}
-	if !IsNil(o.NumApplications) {
-		toSerialize["NumApplications"] = o.NumApplications
-	}
-	if !IsNil(o.NumMachines) {
-		toSerialize["NumMachines"] = o.NumMachines
-	}
+	toSerialize["NumApplications"] = o.NumApplications
+	toSerialize["NumMachines"] = o.NumMachines
 	if !IsNil(o.NumMachinesWithTag) {
 		toSerialize["NumMachinesWithTag"] = o.NumMachinesWithTag
 	}
 	if !IsNil(o.RestrictToTag) {
 		toSerialize["RestrictToTag"] = o.RestrictToTag
 	}
-	if o.DeliveryGroups != nil {
-		toSerialize["DeliveryGroups"] = o.DeliveryGroups
-	}
+	toSerialize["DeliveryGroups"] = o.DeliveryGroups
 	if !IsNil(o.AdminFolder) {
 		toSerialize["AdminFolder"] = o.AdminFolder
 	}

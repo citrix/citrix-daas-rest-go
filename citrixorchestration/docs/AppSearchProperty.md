@@ -3,8 +3,6 @@
 ## Enum
 
 
-* `UID` (value: `"Uid"`)
-
 * `CLIENT_FOLDER` (value: `"ClientFolder"`)
 
 * `APPLICATION_GROUP` (value: `"ApplicationGroup"`)

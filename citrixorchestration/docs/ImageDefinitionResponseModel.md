@@ -4,20 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** | The name associated with the image definition. | [optional] 
-**Id** | Pointer to **string** | The Id of the image definition. | [optional] 
-**OsType** | Pointer to **NullableString** | The os type of image definition. | [optional] 
-**HostingUnitName** | Pointer to **NullableString** | The hosting unit name of image definition. | [optional] 
-**HostingUnitUid** | Pointer to **string** | The hosting unit id of image definition. | [optional] 
-**Description** | Pointer to **NullableString** | The description of the image definition. | [optional] 
-**UseWriteBackCache** | Pointer to **bool** | The UseWriteBackCache of the image definition. | [optional] 
-**CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The custom properties of the image definition. Currently only resource group. | [optional] 
+**Id** | **string** |  | 
+**Name** | Pointer to **NullableString** | the name of the image definition | [optional] 
+**CreationTime** | Pointer to **NullableString** | the create date for this image definition | [optional] 
+**Description** | Pointer to **NullableString** | description | [optional] 
+**OsType** | [**OsType**](OsType.md) |  | 
+**LatestVersion** | **int32** | the latest version for the image definition | 
+**VDASessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
 
 ## Methods
 
 ### NewImageDefinitionResponseModel
 
-`func NewImageDefinitionResponseModel() *ImageDefinitionResponseModel`
+`func NewImageDefinitionResponseModel(id string, osType OsType, latestVersion int32, vDASessionSupport SessionSupport, ) *ImageDefinitionResponseModel`
 
 NewImageDefinitionResponseModel instantiates a new ImageDefinitionResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -31,6 +30,26 @@ will change when the set of required properties is changed
 NewImageDefinitionResponseModelWithDefaults instantiates a new ImageDefinitionResponseModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *ImageDefinitionResponseModel) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *ImageDefinitionResponseModel) GetIdOk() (*string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *ImageDefinitionResponseModel) SetId(v string)`
+
+SetId sets Id field to given value.
+
 
 ### GetName
 
@@ -67,126 +86,41 @@ HasName returns a boolean if a field has been set.
 `func (o *ImageDefinitionResponseModel) UnsetName()`
 
 UnsetName ensures that no value is present for Name, not even an explicit nil
-### GetId
+### GetCreationTime
 
-`func (o *ImageDefinitionResponseModel) GetId() string`
+`func (o *ImageDefinitionResponseModel) GetCreationTime() string`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetCreationTime returns the CreationTime field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetCreationTimeOk
 
-`func (o *ImageDefinitionResponseModel) GetIdOk() (*string, bool)`
+`func (o *ImageDefinitionResponseModel) GetCreationTimeOk() (*string, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetCreationTimeOk returns a tuple with the CreationTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetId
+### SetCreationTime
 
-`func (o *ImageDefinitionResponseModel) SetId(v string)`
+`func (o *ImageDefinitionResponseModel) SetCreationTime(v string)`
 
-SetId sets Id field to given value.
+SetCreationTime sets CreationTime field to given value.
 
-### HasId
+### HasCreationTime
 
-`func (o *ImageDefinitionResponseModel) HasId() bool`
+`func (o *ImageDefinitionResponseModel) HasCreationTime() bool`
 
-HasId returns a boolean if a field has been set.
+HasCreationTime returns a boolean if a field has been set.
 
-### GetOsType
+### SetCreationTimeNil
 
-`func (o *ImageDefinitionResponseModel) GetOsType() string`
+`func (o *ImageDefinitionResponseModel) SetCreationTimeNil(b bool)`
 
-GetOsType returns the OsType field if non-nil, zero value otherwise.
+ SetCreationTimeNil sets the value for CreationTime to be an explicit nil
 
-### GetOsTypeOk
+### UnsetCreationTime
+`func (o *ImageDefinitionResponseModel) UnsetCreationTime()`
 
-`func (o *ImageDefinitionResponseModel) GetOsTypeOk() (*string, bool)`
-
-GetOsTypeOk returns a tuple with the OsType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOsType
-
-`func (o *ImageDefinitionResponseModel) SetOsType(v string)`
-
-SetOsType sets OsType field to given value.
-
-### HasOsType
-
-`func (o *ImageDefinitionResponseModel) HasOsType() bool`
-
-HasOsType returns a boolean if a field has been set.
-
-### SetOsTypeNil
-
-`func (o *ImageDefinitionResponseModel) SetOsTypeNil(b bool)`
-
- SetOsTypeNil sets the value for OsType to be an explicit nil
-
-### UnsetOsType
-`func (o *ImageDefinitionResponseModel) UnsetOsType()`
-
-UnsetOsType ensures that no value is present for OsType, not even an explicit nil
-### GetHostingUnitName
-
-`func (o *ImageDefinitionResponseModel) GetHostingUnitName() string`
-
-GetHostingUnitName returns the HostingUnitName field if non-nil, zero value otherwise.
-
-### GetHostingUnitNameOk
-
-`func (o *ImageDefinitionResponseModel) GetHostingUnitNameOk() (*string, bool)`
-
-GetHostingUnitNameOk returns a tuple with the HostingUnitName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHostingUnitName
-
-`func (o *ImageDefinitionResponseModel) SetHostingUnitName(v string)`
-
-SetHostingUnitName sets HostingUnitName field to given value.
-
-### HasHostingUnitName
-
-`func (o *ImageDefinitionResponseModel) HasHostingUnitName() bool`
-
-HasHostingUnitName returns a boolean if a field has been set.
-
-### SetHostingUnitNameNil
-
-`func (o *ImageDefinitionResponseModel) SetHostingUnitNameNil(b bool)`
-
- SetHostingUnitNameNil sets the value for HostingUnitName to be an explicit nil
-
-### UnsetHostingUnitName
-`func (o *ImageDefinitionResponseModel) UnsetHostingUnitName()`
-
-UnsetHostingUnitName ensures that no value is present for HostingUnitName, not even an explicit nil
-### GetHostingUnitUid
-
-`func (o *ImageDefinitionResponseModel) GetHostingUnitUid() string`
-
-GetHostingUnitUid returns the HostingUnitUid field if non-nil, zero value otherwise.
-
-### GetHostingUnitUidOk
-
-`func (o *ImageDefinitionResponseModel) GetHostingUnitUidOk() (*string, bool)`
-
-GetHostingUnitUidOk returns a tuple with the HostingUnitUid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHostingUnitUid
-
-`func (o *ImageDefinitionResponseModel) SetHostingUnitUid(v string)`
-
-SetHostingUnitUid sets HostingUnitUid field to given value.
-
-### HasHostingUnitUid
-
-`func (o *ImageDefinitionResponseModel) HasHostingUnitUid() bool`
-
-HasHostingUnitUid returns a boolean if a field has been set.
-
+UnsetCreationTime ensures that no value is present for CreationTime, not even an explicit nil
 ### GetDescription
 
 `func (o *ImageDefinitionResponseModel) GetDescription() string`
@@ -222,66 +156,66 @@ HasDescription returns a boolean if a field has been set.
 `func (o *ImageDefinitionResponseModel) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
-### GetUseWriteBackCache
+### GetOsType
 
-`func (o *ImageDefinitionResponseModel) GetUseWriteBackCache() bool`
+`func (o *ImageDefinitionResponseModel) GetOsType() OsType`
 
-GetUseWriteBackCache returns the UseWriteBackCache field if non-nil, zero value otherwise.
+GetOsType returns the OsType field if non-nil, zero value otherwise.
 
-### GetUseWriteBackCacheOk
+### GetOsTypeOk
 
-`func (o *ImageDefinitionResponseModel) GetUseWriteBackCacheOk() (*bool, bool)`
+`func (o *ImageDefinitionResponseModel) GetOsTypeOk() (*OsType, bool)`
 
-GetUseWriteBackCacheOk returns a tuple with the UseWriteBackCache field if it's non-nil, zero value otherwise
+GetOsTypeOk returns a tuple with the OsType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUseWriteBackCache
+### SetOsType
 
-`func (o *ImageDefinitionResponseModel) SetUseWriteBackCache(v bool)`
+`func (o *ImageDefinitionResponseModel) SetOsType(v OsType)`
 
-SetUseWriteBackCache sets UseWriteBackCache field to given value.
+SetOsType sets OsType field to given value.
 
-### HasUseWriteBackCache
 
-`func (o *ImageDefinitionResponseModel) HasUseWriteBackCache() bool`
+### GetLatestVersion
 
-HasUseWriteBackCache returns a boolean if a field has been set.
+`func (o *ImageDefinitionResponseModel) GetLatestVersion() int32`
 
-### GetCustomProperties
+GetLatestVersion returns the LatestVersion field if non-nil, zero value otherwise.
 
-`func (o *ImageDefinitionResponseModel) GetCustomProperties() []NameValueStringPairModel`
+### GetLatestVersionOk
 
-GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+`func (o *ImageDefinitionResponseModel) GetLatestVersionOk() (*int32, bool)`
 
-### GetCustomPropertiesOk
-
-`func (o *ImageDefinitionResponseModel) GetCustomPropertiesOk() (*[]NameValueStringPairModel, bool)`
-
-GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+GetLatestVersionOk returns a tuple with the LatestVersion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCustomProperties
+### SetLatestVersion
 
-`func (o *ImageDefinitionResponseModel) SetCustomProperties(v []NameValueStringPairModel)`
+`func (o *ImageDefinitionResponseModel) SetLatestVersion(v int32)`
 
-SetCustomProperties sets CustomProperties field to given value.
+SetLatestVersion sets LatestVersion field to given value.
 
-### HasCustomProperties
 
-`func (o *ImageDefinitionResponseModel) HasCustomProperties() bool`
+### GetVDASessionSupport
 
-HasCustomProperties returns a boolean if a field has been set.
+`func (o *ImageDefinitionResponseModel) GetVDASessionSupport() SessionSupport`
 
-### SetCustomPropertiesNil
+GetVDASessionSupport returns the VDASessionSupport field if non-nil, zero value otherwise.
 
-`func (o *ImageDefinitionResponseModel) SetCustomPropertiesNil(b bool)`
+### GetVDASessionSupportOk
 
- SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+`func (o *ImageDefinitionResponseModel) GetVDASessionSupportOk() (*SessionSupport, bool)`
 
-### UnsetCustomProperties
-`func (o *ImageDefinitionResponseModel) UnsetCustomProperties()`
+GetVDASessionSupportOk returns a tuple with the VDASessionSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
 
-UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+### SetVDASessionSupport
+
+`func (o *ImageDefinitionResponseModel) SetVDASessionSupport(v SessionSupport)`
+
+SetVDASessionSupport sets VDASessionSupport field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

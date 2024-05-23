@@ -27,14 +27,14 @@ type HypervisorResourcePoolRefResponseModel struct {
 	XDPath NullableString `json:"XDPath,omitempty"`
 	// Full path to the resources within the resource pool, including the hypervisor, relative to the root of the API. Example: `Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources`
 	FullRelativePath string `json:"FullRelativePath"`
-	Hypervisor RefResponseModel `json:"Hypervisor"`
+	Hypervisor HypervisorRefResponseModel `json:"Hypervisor"`
 }
 
 // NewHypervisorResourcePoolRefResponseModel instantiates a new HypervisorResourcePoolRefResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHypervisorResourcePoolRefResponseModel(fullRelativePath string, hypervisor RefResponseModel) *HypervisorResourcePoolRefResponseModel {
+func NewHypervisorResourcePoolRefResponseModel(fullRelativePath string, hypervisor HypervisorRefResponseModel) *HypervisorResourcePoolRefResponseModel {
 	this := HypervisorResourcePoolRefResponseModel{}
 	this.FullRelativePath = fullRelativePath
 	this.Hypervisor = hypervisor
@@ -200,9 +200,9 @@ func (o *HypervisorResourcePoolRefResponseModel) SetFullRelativePath(v string) {
 }
 
 // GetHypervisor returns the Hypervisor field value
-func (o *HypervisorResourcePoolRefResponseModel) GetHypervisor() RefResponseModel {
+func (o *HypervisorResourcePoolRefResponseModel) GetHypervisor() HypervisorRefResponseModel {
 	if o == nil {
-		var ret RefResponseModel
+		var ret HypervisorRefResponseModel
 		return ret
 	}
 
@@ -211,7 +211,7 @@ func (o *HypervisorResourcePoolRefResponseModel) GetHypervisor() RefResponseMode
 
 // GetHypervisorOk returns a tuple with the Hypervisor field value
 // and a boolean to check if the value has been set.
-func (o *HypervisorResourcePoolRefResponseModel) GetHypervisorOk() (*RefResponseModel, bool) {
+func (o *HypervisorResourcePoolRefResponseModel) GetHypervisorOk() (*HypervisorRefResponseModel, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -219,7 +219,7 @@ func (o *HypervisorResourcePoolRefResponseModel) GetHypervisorOk() (*RefResponse
 }
 
 // SetHypervisor sets field value
-func (o *HypervisorResourcePoolRefResponseModel) SetHypervisor(v RefResponseModel) {
+func (o *HypervisorResourcePoolRefResponseModel) SetHypervisor(v HypervisorRefResponseModel) {
 	o.Hypervisor = v
 }
 

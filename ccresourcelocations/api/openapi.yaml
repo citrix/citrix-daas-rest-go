@@ -1,0 +1,302 @@
+openapi: 3.0.1
+info:
+  title: Resource Locations APIs
+  version: v1
+servers:
+- url: https://api.cloud.com/resourcelocations
+security:
+- CWSAuth: []
+- Basic: []
+tags:
+- description: Requests for Resource Locations.
+  name: Locations
+paths:
+  /:
+    get:
+      operationId: Locations_GetAll
+      parameters:
+      - description: The access token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: ID of the customer.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationsResultsModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationsResultsModel'
+          description: OK
+      security:
+      - CWSAuth: []
+      - Basic: []
+      summary: Get all resource locations for a customer.
+      tags:
+      - Locations
+    post:
+      operationId: Locations_Create
+      parameters:
+      - description: The access token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: ID of the customer.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+        description: The resource location model.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+          description: OK
+      summary: Create a resource location for a customer.
+      tags:
+      - Locations
+      x-codegen-request-body-name: Model
+  /{Id}:
+    delete:
+      operationId: Locations_Delete
+      parameters:
+      - description: The access token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: The resource location id.
+        in: path
+        name: Id
+        required: true
+        schema:
+          type: string
+      - description: ID of the customer.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: No Content
+      summary: Delete a resource location.
+      tags:
+      - Locations
+    get:
+      operationId: Locations_Get
+      parameters:
+      - description: The access token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: The resource location id
+        in: path
+        name: Id
+        required: true
+        schema:
+          type: string
+      - description: ID of the customer.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+          description: OK
+      security:
+      - CWSAuth: []
+      - Basic: []
+      summary: Get a resource location from id.
+      tags:
+      - Locations
+    put:
+      operationId: Locations_Update
+      parameters:
+      - description: The access token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: ID of the customer.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      - description: Only supports application/json
+        in: header
+        name: Accept
+        required: true
+        schema:
+          type: string
+      - description: The resource location id.
+        in: path
+        name: Id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationUpdateModel'
+        description: The resource location model.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+          description: OK
+      summary: Update the customer resource location information.
+      tags:
+      - Locations
+      x-codegen-request-body-name: Model
+components:
+  schemas:
+    Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationsResultsModel:
+      description: ""
+      example:
+        items:
+        - internalOnly: true
+          name: name
+          timeZone: timeZone
+          readOnly: true
+          id: id
+        - internalOnly: true
+          name: name
+          timeZone: timeZone
+          readOnly: true
+          id: id
+      properties:
+        items:
+          description: A list of resource locations.
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel'
+          type: array
+      type: object
+    Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationModel:
+      description: ""
+      example:
+        internalOnly: true
+        name: name
+        timeZone: timeZone
+        readOnly: true
+        id: id
+      properties:
+        id:
+          description: Id used for API calls regarding resource location.
+          type: string
+        name:
+          description: Resource Location Name
+          pattern: "[^\\/\\\\#?%|\\[\\]{}<>$^&+]+"
+          type: string
+        internalOnly:
+          description: Resource Location Connectivity
+          type: boolean
+        timeZone:
+          description: Time zone.
+          type: string
+        readOnly:
+          description: If true means the resource location is managed by citrix.
+          type: boolean
+      required:
+      - name
+      type: object
+    Citrix.CloudServices.Registry.Api.Models.Locations.ResourceLocationUpdateModel:
+      description: Information used to update a customer resource location.
+      properties:
+        name:
+          description: The new Resource Location Name.
+          pattern: "[^\\/\\\\#?%|\\[\\]{}<>$^&+]+"
+          type: string
+        internalOnly:
+          description: Resource Location Connectivity
+          type: boolean
+        timeZone:
+          description: Time zone.
+          type: string
+        readOnly:
+          description: If true means the resource location is managed by citrix.
+          type: boolean
+      type: object
+  securitySchemes:
+    CWSAuth:
+      in: header
+      name: Authorization
+      type: apiKey
+    Basic:
+      scheme: basic
+      type: http
+x-original-swagger-version: "2.0"

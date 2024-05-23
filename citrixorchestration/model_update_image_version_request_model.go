@@ -17,7 +17,7 @@ import (
 // checks if the UpdateImageVersionRequestModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateImageVersionRequestModel{}
 
-// UpdateImageVersionRequestModel struct for UpdateImageVersionRequestModel
+// UpdateImageVersionRequestModel Request object for updating image version.
 type UpdateImageVersionRequestModel struct {
 	// The description associated with the image version.
 	Description NullableString `json:"Description,omitempty"`

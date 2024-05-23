@@ -4,15 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageDefinitionName** | Pointer to **NullableString** | The image definition name. | [optional] 
-**ImageVersionNumber** | Pointer to **NullableString** | The image version number. | [optional] 
-**ImageVersionUid** | Pointer to **string** | The image version uid. | [optional] 
+**Id** | **string** | The Id of the image version. | 
+**Number** | **int32** | The version number associated with the image version. | 
+**ImageDefinition** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**Description** | Pointer to **NullableString** | The image version&#39;s description | [optional] 
+**ImageVersionSpecs** | Pointer to [**[]ImageVersionSpecRefResponseModel**](ImageVersionSpecRefResponseModel.md) | The image version specifications associated with this image version. | [optional] 
 
 ## Methods
 
 ### NewImageVersionRefResponseModel
 
-`func NewImageVersionRefResponseModel() *ImageVersionRefResponseModel`
+`func NewImageVersionRefResponseModel(id string, number int32, imageDefinition RefResponseModel, ) *ImageVersionRefResponseModel`
 
 NewImageVersionRefResponseModel instantiates a new ImageVersionRefResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -27,101 +29,136 @@ NewImageVersionRefResponseModelWithDefaults instantiates a new ImageVersionRefRe
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetImageDefinitionName
+### GetId
 
-`func (o *ImageVersionRefResponseModel) GetImageDefinitionName() string`
+`func (o *ImageVersionRefResponseModel) GetId() string`
 
-GetImageDefinitionName returns the ImageDefinitionName field if non-nil, zero value otherwise.
+GetId returns the Id field if non-nil, zero value otherwise.
 
-### GetImageDefinitionNameOk
+### GetIdOk
 
-`func (o *ImageVersionRefResponseModel) GetImageDefinitionNameOk() (*string, bool)`
+`func (o *ImageVersionRefResponseModel) GetIdOk() (*string, bool)`
 
-GetImageDefinitionNameOk returns a tuple with the ImageDefinitionName field if it's non-nil, zero value otherwise
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageDefinitionName
+### SetId
 
-`func (o *ImageVersionRefResponseModel) SetImageDefinitionName(v string)`
+`func (o *ImageVersionRefResponseModel) SetId(v string)`
 
-SetImageDefinitionName sets ImageDefinitionName field to given value.
+SetId sets Id field to given value.
 
-### HasImageDefinitionName
 
-`func (o *ImageVersionRefResponseModel) HasImageDefinitionName() bool`
+### GetNumber
 
-HasImageDefinitionName returns a boolean if a field has been set.
+`func (o *ImageVersionRefResponseModel) GetNumber() int32`
 
-### SetImageDefinitionNameNil
+GetNumber returns the Number field if non-nil, zero value otherwise.
 
-`func (o *ImageVersionRefResponseModel) SetImageDefinitionNameNil(b bool)`
+### GetNumberOk
 
- SetImageDefinitionNameNil sets the value for ImageDefinitionName to be an explicit nil
+`func (o *ImageVersionRefResponseModel) GetNumberOk() (*int32, bool)`
 
-### UnsetImageDefinitionName
-`func (o *ImageVersionRefResponseModel) UnsetImageDefinitionName()`
-
-UnsetImageDefinitionName ensures that no value is present for ImageDefinitionName, not even an explicit nil
-### GetImageVersionNumber
-
-`func (o *ImageVersionRefResponseModel) GetImageVersionNumber() string`
-
-GetImageVersionNumber returns the ImageVersionNumber field if non-nil, zero value otherwise.
-
-### GetImageVersionNumberOk
-
-`func (o *ImageVersionRefResponseModel) GetImageVersionNumberOk() (*string, bool)`
-
-GetImageVersionNumberOk returns a tuple with the ImageVersionNumber field if it's non-nil, zero value otherwise
+GetNumberOk returns a tuple with the Number field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageVersionNumber
+### SetNumber
 
-`func (o *ImageVersionRefResponseModel) SetImageVersionNumber(v string)`
+`func (o *ImageVersionRefResponseModel) SetNumber(v int32)`
 
-SetImageVersionNumber sets ImageVersionNumber field to given value.
+SetNumber sets Number field to given value.
 
-### HasImageVersionNumber
 
-`func (o *ImageVersionRefResponseModel) HasImageVersionNumber() bool`
+### GetImageDefinition
 
-HasImageVersionNumber returns a boolean if a field has been set.
+`func (o *ImageVersionRefResponseModel) GetImageDefinition() RefResponseModel`
 
-### SetImageVersionNumberNil
+GetImageDefinition returns the ImageDefinition field if non-nil, zero value otherwise.
 
-`func (o *ImageVersionRefResponseModel) SetImageVersionNumberNil(b bool)`
+### GetImageDefinitionOk
 
- SetImageVersionNumberNil sets the value for ImageVersionNumber to be an explicit nil
+`func (o *ImageVersionRefResponseModel) GetImageDefinitionOk() (*RefResponseModel, bool)`
 
-### UnsetImageVersionNumber
-`func (o *ImageVersionRefResponseModel) UnsetImageVersionNumber()`
-
-UnsetImageVersionNumber ensures that no value is present for ImageVersionNumber, not even an explicit nil
-### GetImageVersionUid
-
-`func (o *ImageVersionRefResponseModel) GetImageVersionUid() string`
-
-GetImageVersionUid returns the ImageVersionUid field if non-nil, zero value otherwise.
-
-### GetImageVersionUidOk
-
-`func (o *ImageVersionRefResponseModel) GetImageVersionUidOk() (*string, bool)`
-
-GetImageVersionUidOk returns a tuple with the ImageVersionUid field if it's non-nil, zero value otherwise
+GetImageDefinitionOk returns a tuple with the ImageDefinition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImageVersionUid
+### SetImageDefinition
 
-`func (o *ImageVersionRefResponseModel) SetImageVersionUid(v string)`
+`func (o *ImageVersionRefResponseModel) SetImageDefinition(v RefResponseModel)`
 
-SetImageVersionUid sets ImageVersionUid field to given value.
+SetImageDefinition sets ImageDefinition field to given value.
 
-### HasImageVersionUid
 
-`func (o *ImageVersionRefResponseModel) HasImageVersionUid() bool`
+### GetDescription
 
-HasImageVersionUid returns a boolean if a field has been set.
+`func (o *ImageVersionRefResponseModel) GetDescription() string`
 
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ImageVersionRefResponseModel) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ImageVersionRefResponseModel) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *ImageVersionRefResponseModel) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *ImageVersionRefResponseModel) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *ImageVersionRefResponseModel) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetImageVersionSpecs
+
+`func (o *ImageVersionRefResponseModel) GetImageVersionSpecs() []ImageVersionSpecRefResponseModel`
+
+GetImageVersionSpecs returns the ImageVersionSpecs field if non-nil, zero value otherwise.
+
+### GetImageVersionSpecsOk
+
+`func (o *ImageVersionRefResponseModel) GetImageVersionSpecsOk() (*[]ImageVersionSpecRefResponseModel, bool)`
+
+GetImageVersionSpecsOk returns a tuple with the ImageVersionSpecs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageVersionSpecs
+
+`func (o *ImageVersionRefResponseModel) SetImageVersionSpecs(v []ImageVersionSpecRefResponseModel)`
+
+SetImageVersionSpecs sets ImageVersionSpecs field to given value.
+
+### HasImageVersionSpecs
+
+`func (o *ImageVersionRefResponseModel) HasImageVersionSpecs() bool`
+
+HasImageVersionSpecs returns a boolean if a field has been set.
+
+### SetImageVersionSpecsNil
+
+`func (o *ImageVersionRefResponseModel) SetImageVersionSpecsNil(b bool)`
+
+ SetImageVersionSpecsNil sets the value for ImageVersionSpecs to be an explicit nil
+
+### UnsetImageVersionSpecs
+`func (o *ImageVersionRefResponseModel) UnsetImageVersionSpecs()`
+
+UnsetImageVersionSpecs ensures that no value is present for ImageVersionSpecs, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

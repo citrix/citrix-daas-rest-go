@@ -19,36 +19,24 @@ var _ MappedNullable = &CreateImageVersionRequestModel{}
 
 // CreateImageVersionRequestModel Request object for creation of image versions.
 type CreateImageVersionRequestModel struct {
-	// The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Image Version is associated.
-	MasterImageVM NullableString `json:"MasterImageVM,omitempty"`
-	// The hypervisor resource path of the Cloud service offering to use when creating machines.
-	ServiceOffering NullableString `json:"ServiceOffering,omitempty"`
-	// The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Image Version is associated.
-	MachineProfile NullableString `json:"MachineProfile,omitempty"`
-	// The number of processors that virtual machines created for the image preparing should use.
-	VMCpuCount NullableInt32 `json:"VMCpuCount,omitempty"`
-	// The maximum amount of memory that virtual machines created for the image preparing should use.
-	VMMemoryMB NullableInt32 `json:"VMMemoryMB,omitempty"`
-	// The size in GB of any temporary storage disk used by the write back cache. Should be used in conjunction with WriteBackCacheMemorySizeMB.
-	WriteBackCacheDiskSizeGB NullableInt32 `json:"WriteBackCacheDiskSizeGB,omitempty"`
-	// The size in MB of any write back cache if required. Should be used in conjunction with WriteBackCacheDiskSizeGB.
-	WriteBackCacheMemorySizeMB NullableInt32 `json:"WriteBackCacheMemorySizeMB,omitempty"`
-	// Administrative scopes which the newly created image version will be a part of.
-	Scopes []string `json:"Scopes,omitempty"`
-	// Specifies how the attached NICs are mapped to networks.  If this parameter is omitted, provisioned VMs are created with a single NIC, which is mapped to the default network in the hypervisor resource pool.  If this parameter is supplied, machines are created with the number of NICs specified in the map, and each NIC is attached to the specified network.
-	NetworkMapping []NetworkMapRequestModel `json:"NetworkMapping,omitempty"`
-	// The properties of the image version that are specific to the target hosting infrastructure.
-	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
 	// The description associated with the image version.
-	ImageVersionDescription NullableString `json:"ImageVersionDescription,omitempty"`
+	Description NullableString `json:"Description,omitempty"`
+	ImageScheme CreateImageSchemeRequestModel `json:"ImageScheme"`
+	// The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Image Version Specification is associated.
+	MasterImagePath string `json:"MasterImagePath"`
+	// Hypervisor resource pool Id or name in which image version specification locates
+	ResourcePool string `json:"ResourcePool"`
 }
 
 // NewCreateImageVersionRequestModel instantiates a new CreateImageVersionRequestModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateImageVersionRequestModel() *CreateImageVersionRequestModel {
+func NewCreateImageVersionRequestModel(imageScheme CreateImageSchemeRequestModel, masterImagePath string, resourcePool string) *CreateImageVersionRequestModel {
 	this := CreateImageVersionRequestModel{}
+	this.ImageScheme = imageScheme
+	this.MasterImagePath = masterImagePath
+	this.ResourcePool = resourcePool
 	return &this
 }
 
@@ -60,439 +48,118 @@ func NewCreateImageVersionRequestModelWithDefaults() *CreateImageVersionRequestM
 	return &this
 }
 
-// GetMasterImageVM returns the MasterImageVM field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetMasterImageVM() string {
-	if o == nil || IsNil(o.MasterImageVM.Get()) {
+// GetDescription returns the Description field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateImageVersionRequestModel) GetDescription() string {
+	if o == nil || IsNil(o.Description.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.MasterImageVM.Get()
+	return *o.Description.Get()
 }
 
-// GetMasterImageVMOk returns a tuple with the MasterImageVM field value if set, nil otherwise
+// GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetMasterImageVMOk() (*string, bool) {
+func (o *CreateImageVersionRequestModel) GetDescriptionOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MasterImageVM.Get(), o.MasterImageVM.IsSet()
+	return o.Description.Get(), o.Description.IsSet()
 }
 
-// HasMasterImageVM returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasMasterImageVM() bool {
-	if o != nil && o.MasterImageVM.IsSet() {
+// HasDescription returns a boolean if a field has been set.
+func (o *CreateImageVersionRequestModel) HasDescription() bool {
+	if o != nil && o.Description.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetMasterImageVM gets a reference to the given NullableString and assigns it to the MasterImageVM field.
-func (o *CreateImageVersionRequestModel) SetMasterImageVM(v string) {
-	o.MasterImageVM.Set(&v)
+// SetDescription gets a reference to the given NullableString and assigns it to the Description field.
+func (o *CreateImageVersionRequestModel) SetDescription(v string) {
+	o.Description.Set(&v)
 }
-// SetMasterImageVMNil sets the value for MasterImageVM to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetMasterImageVMNil() {
-	o.MasterImageVM.Set(nil)
-}
-
-// UnsetMasterImageVM ensures that no value is present for MasterImageVM, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetMasterImageVM() {
-	o.MasterImageVM.Unset()
+// SetDescriptionNil sets the value for Description to be an explicit nil
+func (o *CreateImageVersionRequestModel) SetDescriptionNil() {
+	o.Description.Set(nil)
 }
 
-// GetServiceOffering returns the ServiceOffering field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetServiceOffering() string {
-	if o == nil || IsNil(o.ServiceOffering.Get()) {
+// UnsetDescription ensures that no value is present for Description, not even an explicit nil
+func (o *CreateImageVersionRequestModel) UnsetDescription() {
+	o.Description.Unset()
+}
+
+// GetImageScheme returns the ImageScheme field value
+func (o *CreateImageVersionRequestModel) GetImageScheme() CreateImageSchemeRequestModel {
+	if o == nil {
+		var ret CreateImageSchemeRequestModel
+		return ret
+	}
+
+	return o.ImageScheme
+}
+
+// GetImageSchemeOk returns a tuple with the ImageScheme field value
+// and a boolean to check if the value has been set.
+func (o *CreateImageVersionRequestModel) GetImageSchemeOk() (*CreateImageSchemeRequestModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ImageScheme, true
+}
+
+// SetImageScheme sets field value
+func (o *CreateImageVersionRequestModel) SetImageScheme(v CreateImageSchemeRequestModel) {
+	o.ImageScheme = v
+}
+
+// GetMasterImagePath returns the MasterImagePath field value
+func (o *CreateImageVersionRequestModel) GetMasterImagePath() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ServiceOffering.Get()
+
+	return o.MasterImagePath
 }
 
-// GetServiceOfferingOk returns a tuple with the ServiceOffering field value if set, nil otherwise
+// GetMasterImagePathOk returns a tuple with the MasterImagePath field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetServiceOfferingOk() (*string, bool) {
+func (o *CreateImageVersionRequestModel) GetMasterImagePathOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ServiceOffering.Get(), o.ServiceOffering.IsSet()
+	return &o.MasterImagePath, true
 }
 
-// HasServiceOffering returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasServiceOffering() bool {
-	if o != nil && o.ServiceOffering.IsSet() {
-		return true
-	}
-
-	return false
+// SetMasterImagePath sets field value
+func (o *CreateImageVersionRequestModel) SetMasterImagePath(v string) {
+	o.MasterImagePath = v
 }
 
-// SetServiceOffering gets a reference to the given NullableString and assigns it to the ServiceOffering field.
-func (o *CreateImageVersionRequestModel) SetServiceOffering(v string) {
-	o.ServiceOffering.Set(&v)
-}
-// SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetServiceOfferingNil() {
-	o.ServiceOffering.Set(nil)
-}
-
-// UnsetServiceOffering ensures that no value is present for ServiceOffering, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetServiceOffering() {
-	o.ServiceOffering.Unset()
-}
-
-// GetMachineProfile returns the MachineProfile field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetMachineProfile() string {
-	if o == nil || IsNil(o.MachineProfile.Get()) {
+// GetResourcePool returns the ResourcePool field value
+func (o *CreateImageVersionRequestModel) GetResourcePool() string {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.MachineProfile.Get()
+
+	return o.ResourcePool
 }
 
-// GetMachineProfileOk returns a tuple with the MachineProfile field value if set, nil otherwise
+// GetResourcePoolOk returns a tuple with the ResourcePool field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetMachineProfileOk() (*string, bool) {
+func (o *CreateImageVersionRequestModel) GetResourcePoolOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MachineProfile.Get(), o.MachineProfile.IsSet()
+	return &o.ResourcePool, true
 }
 
-// HasMachineProfile returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasMachineProfile() bool {
-	if o != nil && o.MachineProfile.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMachineProfile gets a reference to the given NullableString and assigns it to the MachineProfile field.
-func (o *CreateImageVersionRequestModel) SetMachineProfile(v string) {
-	o.MachineProfile.Set(&v)
-}
-// SetMachineProfileNil sets the value for MachineProfile to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetMachineProfileNil() {
-	o.MachineProfile.Set(nil)
-}
-
-// UnsetMachineProfile ensures that no value is present for MachineProfile, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetMachineProfile() {
-	o.MachineProfile.Unset()
-}
-
-// GetVMCpuCount returns the VMCpuCount field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetVMCpuCount() int32 {
-	if o == nil || IsNil(o.VMCpuCount.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.VMCpuCount.Get()
-}
-
-// GetVMCpuCountOk returns a tuple with the VMCpuCount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetVMCpuCountOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.VMCpuCount.Get(), o.VMCpuCount.IsSet()
-}
-
-// HasVMCpuCount returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasVMCpuCount() bool {
-	if o != nil && o.VMCpuCount.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetVMCpuCount gets a reference to the given NullableInt32 and assigns it to the VMCpuCount field.
-func (o *CreateImageVersionRequestModel) SetVMCpuCount(v int32) {
-	o.VMCpuCount.Set(&v)
-}
-// SetVMCpuCountNil sets the value for VMCpuCount to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetVMCpuCountNil() {
-	o.VMCpuCount.Set(nil)
-}
-
-// UnsetVMCpuCount ensures that no value is present for VMCpuCount, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetVMCpuCount() {
-	o.VMCpuCount.Unset()
-}
-
-// GetVMMemoryMB returns the VMMemoryMB field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetVMMemoryMB() int32 {
-	if o == nil || IsNil(o.VMMemoryMB.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.VMMemoryMB.Get()
-}
-
-// GetVMMemoryMBOk returns a tuple with the VMMemoryMB field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetVMMemoryMBOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.VMMemoryMB.Get(), o.VMMemoryMB.IsSet()
-}
-
-// HasVMMemoryMB returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasVMMemoryMB() bool {
-	if o != nil && o.VMMemoryMB.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetVMMemoryMB gets a reference to the given NullableInt32 and assigns it to the VMMemoryMB field.
-func (o *CreateImageVersionRequestModel) SetVMMemoryMB(v int32) {
-	o.VMMemoryMB.Set(&v)
-}
-// SetVMMemoryMBNil sets the value for VMMemoryMB to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetVMMemoryMBNil() {
-	o.VMMemoryMB.Set(nil)
-}
-
-// UnsetVMMemoryMB ensures that no value is present for VMMemoryMB, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetVMMemoryMB() {
-	o.VMMemoryMB.Unset()
-}
-
-// GetWriteBackCacheDiskSizeGB returns the WriteBackCacheDiskSizeGB field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetWriteBackCacheDiskSizeGB() int32 {
-	if o == nil || IsNil(o.WriteBackCacheDiskSizeGB.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.WriteBackCacheDiskSizeGB.Get()
-}
-
-// GetWriteBackCacheDiskSizeGBOk returns a tuple with the WriteBackCacheDiskSizeGB field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetWriteBackCacheDiskSizeGBOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.WriteBackCacheDiskSizeGB.Get(), o.WriteBackCacheDiskSizeGB.IsSet()
-}
-
-// HasWriteBackCacheDiskSizeGB returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasWriteBackCacheDiskSizeGB() bool {
-	if o != nil && o.WriteBackCacheDiskSizeGB.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWriteBackCacheDiskSizeGB gets a reference to the given NullableInt32 and assigns it to the WriteBackCacheDiskSizeGB field.
-func (o *CreateImageVersionRequestModel) SetWriteBackCacheDiskSizeGB(v int32) {
-	o.WriteBackCacheDiskSizeGB.Set(&v)
-}
-// SetWriteBackCacheDiskSizeGBNil sets the value for WriteBackCacheDiskSizeGB to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetWriteBackCacheDiskSizeGBNil() {
-	o.WriteBackCacheDiskSizeGB.Set(nil)
-}
-
-// UnsetWriteBackCacheDiskSizeGB ensures that no value is present for WriteBackCacheDiskSizeGB, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetWriteBackCacheDiskSizeGB() {
-	o.WriteBackCacheDiskSizeGB.Unset()
-}
-
-// GetWriteBackCacheMemorySizeMB returns the WriteBackCacheMemorySizeMB field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetWriteBackCacheMemorySizeMB() int32 {
-	if o == nil || IsNil(o.WriteBackCacheMemorySizeMB.Get()) {
-		var ret int32
-		return ret
-	}
-	return *o.WriteBackCacheMemorySizeMB.Get()
-}
-
-// GetWriteBackCacheMemorySizeMBOk returns a tuple with the WriteBackCacheMemorySizeMB field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetWriteBackCacheMemorySizeMBOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.WriteBackCacheMemorySizeMB.Get(), o.WriteBackCacheMemorySizeMB.IsSet()
-}
-
-// HasWriteBackCacheMemorySizeMB returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasWriteBackCacheMemorySizeMB() bool {
-	if o != nil && o.WriteBackCacheMemorySizeMB.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWriteBackCacheMemorySizeMB gets a reference to the given NullableInt32 and assigns it to the WriteBackCacheMemorySizeMB field.
-func (o *CreateImageVersionRequestModel) SetWriteBackCacheMemorySizeMB(v int32) {
-	o.WriteBackCacheMemorySizeMB.Set(&v)
-}
-// SetWriteBackCacheMemorySizeMBNil sets the value for WriteBackCacheMemorySizeMB to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetWriteBackCacheMemorySizeMBNil() {
-	o.WriteBackCacheMemorySizeMB.Set(nil)
-}
-
-// UnsetWriteBackCacheMemorySizeMB ensures that no value is present for WriteBackCacheMemorySizeMB, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetWriteBackCacheMemorySizeMB() {
-	o.WriteBackCacheMemorySizeMB.Unset()
-}
-
-// GetScopes returns the Scopes field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetScopes() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.Scopes
-}
-
-// GetScopesOk returns a tuple with the Scopes field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetScopesOk() ([]string, bool) {
-	if o == nil || IsNil(o.Scopes) {
-		return nil, false
-	}
-	return o.Scopes, true
-}
-
-// HasScopes returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasScopes() bool {
-	if o != nil && IsNil(o.Scopes) {
-		return true
-	}
-
-	return false
-}
-
-// SetScopes gets a reference to the given []string and assigns it to the Scopes field.
-func (o *CreateImageVersionRequestModel) SetScopes(v []string) {
-	o.Scopes = v
-}
-
-// GetNetworkMapping returns the NetworkMapping field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetNetworkMapping() []NetworkMapRequestModel {
-	if o == nil {
-		var ret []NetworkMapRequestModel
-		return ret
-	}
-	return o.NetworkMapping
-}
-
-// GetNetworkMappingOk returns a tuple with the NetworkMapping field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetNetworkMappingOk() ([]NetworkMapRequestModel, bool) {
-	if o == nil || IsNil(o.NetworkMapping) {
-		return nil, false
-	}
-	return o.NetworkMapping, true
-}
-
-// HasNetworkMapping returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasNetworkMapping() bool {
-	if o != nil && IsNil(o.NetworkMapping) {
-		return true
-	}
-
-	return false
-}
-
-// SetNetworkMapping gets a reference to the given []NetworkMapRequestModel and assigns it to the NetworkMapping field.
-func (o *CreateImageVersionRequestModel) SetNetworkMapping(v []NetworkMapRequestModel) {
-	o.NetworkMapping = v
-}
-
-// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetCustomProperties() []NameValueStringPairModel {
-	if o == nil {
-		var ret []NameValueStringPairModel
-		return ret
-	}
-	return o.CustomProperties
-}
-
-// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetCustomPropertiesOk() ([]NameValueStringPairModel, bool) {
-	if o == nil || IsNil(o.CustomProperties) {
-		return nil, false
-	}
-	return o.CustomProperties, true
-}
-
-// HasCustomProperties returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasCustomProperties() bool {
-	if o != nil && IsNil(o.CustomProperties) {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomProperties gets a reference to the given []NameValueStringPairModel and assigns it to the CustomProperties field.
-func (o *CreateImageVersionRequestModel) SetCustomProperties(v []NameValueStringPairModel) {
-	o.CustomProperties = v
-}
-
-// GetImageVersionDescription returns the ImageVersionDescription field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateImageVersionRequestModel) GetImageVersionDescription() string {
-	if o == nil || IsNil(o.ImageVersionDescription.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ImageVersionDescription.Get()
-}
-
-// GetImageVersionDescriptionOk returns a tuple with the ImageVersionDescription field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateImageVersionRequestModel) GetImageVersionDescriptionOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ImageVersionDescription.Get(), o.ImageVersionDescription.IsSet()
-}
-
-// HasImageVersionDescription returns a boolean if a field has been set.
-func (o *CreateImageVersionRequestModel) HasImageVersionDescription() bool {
-	if o != nil && o.ImageVersionDescription.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetImageVersionDescription gets a reference to the given NullableString and assigns it to the ImageVersionDescription field.
-func (o *CreateImageVersionRequestModel) SetImageVersionDescription(v string) {
-	o.ImageVersionDescription.Set(&v)
-}
-// SetImageVersionDescriptionNil sets the value for ImageVersionDescription to be an explicit nil
-func (o *CreateImageVersionRequestModel) SetImageVersionDescriptionNil() {
-	o.ImageVersionDescription.Set(nil)
-}
-
-// UnsetImageVersionDescription ensures that no value is present for ImageVersionDescription, not even an explicit nil
-func (o *CreateImageVersionRequestModel) UnsetImageVersionDescription() {
-	o.ImageVersionDescription.Unset()
+// SetResourcePool sets field value
+func (o *CreateImageVersionRequestModel) SetResourcePool(v string) {
+	o.ResourcePool = v
 }
 
 func (o CreateImageVersionRequestModel) MarshalJSON() ([]byte, error) {
@@ -505,39 +172,12 @@ func (o CreateImageVersionRequestModel) MarshalJSON() ([]byte, error) {
 
 func (o CreateImageVersionRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.MasterImageVM.IsSet() {
-		toSerialize["MasterImageVM"] = o.MasterImageVM.Get()
+	if o.Description.IsSet() {
+		toSerialize["Description"] = o.Description.Get()
 	}
-	if o.ServiceOffering.IsSet() {
-		toSerialize["ServiceOffering"] = o.ServiceOffering.Get()
-	}
-	if o.MachineProfile.IsSet() {
-		toSerialize["MachineProfile"] = o.MachineProfile.Get()
-	}
-	if o.VMCpuCount.IsSet() {
-		toSerialize["VMCpuCount"] = o.VMCpuCount.Get()
-	}
-	if o.VMMemoryMB.IsSet() {
-		toSerialize["VMMemoryMB"] = o.VMMemoryMB.Get()
-	}
-	if o.WriteBackCacheDiskSizeGB.IsSet() {
-		toSerialize["WriteBackCacheDiskSizeGB"] = o.WriteBackCacheDiskSizeGB.Get()
-	}
-	if o.WriteBackCacheMemorySizeMB.IsSet() {
-		toSerialize["WriteBackCacheMemorySizeMB"] = o.WriteBackCacheMemorySizeMB.Get()
-	}
-	if o.Scopes != nil {
-		toSerialize["Scopes"] = o.Scopes
-	}
-	if o.NetworkMapping != nil {
-		toSerialize["NetworkMapping"] = o.NetworkMapping
-	}
-	if o.CustomProperties != nil {
-		toSerialize["CustomProperties"] = o.CustomProperties
-	}
-	if o.ImageVersionDescription.IsSet() {
-		toSerialize["ImageVersionDescription"] = o.ImageVersionDescription.Get()
-	}
+	toSerialize["ImageScheme"] = o.ImageScheme
+	toSerialize["MasterImagePath"] = o.MasterImagePath
+	toSerialize["ResourcePool"] = o.ResourcePool
 	return toSerialize, nil
 }
 

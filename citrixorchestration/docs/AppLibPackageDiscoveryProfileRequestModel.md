@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **DiscoverAppV** | Pointer to **NullableBool** | A value indicating whether or not to search should Discover App-V Packages. | [optional] [default to true]
 **DiscoverMsix** | Pointer to **NullableBool** | A value indicating whether or not to search should Discover MSIX Packages. | [optional] [default to false]
 **DiscoverAppAttach** | Pointer to **NullableBool** | A value indicating whether or not to search should discover AppAttach Packages. | [optional] [default to false]
-**DiscoverFlexApp** | Pointer to **NullableBool** | A value indicating whether or not to search should discover FlexApp Packages. | [optional] [default to false]
 **AutomateDiscovery** | Pointer to **NullableBool** | A value indicating whether or not the discovery should run automatically. | [optional] [default to false]
 **AutoDiscoveryPeriod** | Pointer to [**AutoDiscoveryPeriod**](AutoDiscoveryPeriod.md) |  | [optional] 
 **AutoDiscoveryCadence** | Pointer to **int32** | A value indicating how often to trigger the discovery. | [optional] 
@@ -441,41 +440,6 @@ HasDiscoverAppAttach returns a boolean if a field has been set.
 `func (o *AppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverAppAttach()`
 
 UnsetDiscoverAppAttach ensures that no value is present for DiscoverAppAttach, not even an explicit nil
-### GetDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryProfileRequestModel) GetDiscoverFlexApp() bool`
-
-GetDiscoverFlexApp returns the DiscoverFlexApp field if non-nil, zero value otherwise.
-
-### GetDiscoverFlexAppOk
-
-`func (o *AppLibPackageDiscoveryProfileRequestModel) GetDiscoverFlexAppOk() (*bool, bool)`
-
-GetDiscoverFlexAppOk returns a tuple with the DiscoverFlexApp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexApp(v bool)`
-
-SetDiscoverFlexApp sets DiscoverFlexApp field to given value.
-
-### HasDiscoverFlexApp
-
-`func (o *AppLibPackageDiscoveryProfileRequestModel) HasDiscoverFlexApp() bool`
-
-HasDiscoverFlexApp returns a boolean if a field has been set.
-
-### SetDiscoverFlexAppNil
-
-`func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexAppNil(b bool)`
-
- SetDiscoverFlexAppNil sets the value for DiscoverFlexApp to be an explicit nil
-
-### UnsetDiscoverFlexApp
-`func (o *AppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverFlexApp()`
-
-UnsetDiscoverFlexApp ensures that no value is present for DiscoverFlexApp, not even an explicit nil
 ### GetAutomateDiscovery
 
 `func (o *AppLibPackageDiscoveryProfileRequestModel) GetAutomateDiscovery() bool`

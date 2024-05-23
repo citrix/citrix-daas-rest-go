@@ -21,7 +21,6 @@ var _ MappedNullable = &VMImageResponseModel{}
 type VMImageResponseModel struct {
 	FunctionalLevel *FunctionalLevel `json:"FunctionalLevel,omitempty"`
 	Image *HypervisorResourceRefResponseModel `json:"Image,omitempty"`
-	ImageVersion *ImageVersionRefResponseModel `json:"ImageVersion,omitempty"`
 	ImageStatus VMImageStatus `json:"ImageStatus"`
 	// The date and time when the snapshot was used in the provisioning scheme.
 	Date string `json:"Date"`
@@ -110,38 +109,6 @@ func (o *VMImageResponseModel) HasImage() bool {
 // SetImage gets a reference to the given HypervisorResourceRefResponseModel and assigns it to the Image field.
 func (o *VMImageResponseModel) SetImage(v HypervisorResourceRefResponseModel) {
 	o.Image = &v
-}
-
-// GetImageVersion returns the ImageVersion field value if set, zero value otherwise.
-func (o *VMImageResponseModel) GetImageVersion() ImageVersionRefResponseModel {
-	if o == nil || IsNil(o.ImageVersion) {
-		var ret ImageVersionRefResponseModel
-		return ret
-	}
-	return *o.ImageVersion
-}
-
-// GetImageVersionOk returns a tuple with the ImageVersion field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *VMImageResponseModel) GetImageVersionOk() (*ImageVersionRefResponseModel, bool) {
-	if o == nil || IsNil(o.ImageVersion) {
-		return nil, false
-	}
-	return o.ImageVersion, true
-}
-
-// HasImageVersion returns a boolean if a field has been set.
-func (o *VMImageResponseModel) HasImageVersion() bool {
-	if o != nil && !IsNil(o.ImageVersion) {
-		return true
-	}
-
-	return false
-}
-
-// SetImageVersion gets a reference to the given ImageVersionRefResponseModel and assigns it to the ImageVersion field.
-func (o *VMImageResponseModel) SetImageVersion(v ImageVersionRefResponseModel) {
-	o.ImageVersion = &v
 }
 
 // GetImageStatus returns the ImageStatus field value
@@ -249,9 +216,6 @@ func (o VMImageResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Image) {
 		toSerialize["Image"] = o.Image
-	}
-	if !IsNil(o.ImageVersion) {
-		toSerialize["ImageVersion"] = o.ImageVersion
 	}
 	toSerialize["ImageStatus"] = o.ImageStatus
 	toSerialize["Date"] = o.Date
