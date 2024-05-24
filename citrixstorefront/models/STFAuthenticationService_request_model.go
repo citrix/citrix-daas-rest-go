@@ -5,7 +5,7 @@ var _ MappedNullable = &AddSTFAuthenticationServiceRequestModel{}
 
 type AddSTFAuthenticationServiceRequestModel struct {
 	VirtualPath  NullableString `json:"VirtualPath,omitempty"`  // The IIS virtual path to use for the service
-	SiteId       NullableInt    `json:"SiteId,omitempty"`       // The ID of IIS site to configure the Authentication service for
+	SiteId       NullableInt64  `json:"SiteId,omitempty"`       // The ID of IIS site to configure the Authentication service for
 	FriendlyName NullableString `json:"FriendlyName,omitempty"` // The friendly name the service should be known as
 }
 
@@ -28,7 +28,7 @@ func (o *AddSTFAuthenticationServiceRequestModel) SetVirtualPath(v string) {
 	o.VirtualPath.Set(&v)
 }
 
-func (o *AddSTFAuthenticationServiceRequestModel) SetSiteId(v int) {
+func (o *AddSTFAuthenticationServiceRequestModel) SetSiteId(v int64) {
 	o.SiteId.Set(&v)
 }
 
@@ -41,7 +41,7 @@ var _ MappedNullable = &GetSTFAuthenticationServiceRequestModel{}
 
 type GetSTFAuthenticationServiceRequestModel struct {
 	VirtualPath NullableString `json:"VirtualPath,omitempty"` // Virtual path to the Authentication service website. Excluding the parameter will match on any virtual path
-	SiteId      NullableInt    `json:"SiteId,omitempty"`      // IIS site id of the web site in which the Autentication service is hosted
+	SiteId      NullableInt64  `json:"SiteId,omitempty"`      // IIS site id of the web site in which the Autentication service is hosted
 }
 
 // ToMap implements MappedNullable.
@@ -60,7 +60,7 @@ func (o *GetSTFAuthenticationServiceRequestModel) SetVirtualPath(v string) {
 	o.VirtualPath.Set(&v)
 }
 
-func (o *GetSTFAuthenticationServiceRequestModel) SetSiteId(v int) {
+func (o *GetSTFAuthenticationServiceRequestModel) SetSiteId(v int64) {
 	o.SiteId.Set(&v)
 }
 
