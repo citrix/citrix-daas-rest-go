@@ -1,3 +1,4 @@
+// Copyright © 2024. Citrix Systems, Inc.
 package apis
 
 type Service struct {
@@ -18,6 +19,7 @@ type APIClient struct {
 	AuthenticationServiceSF *STFAuthentication
 	WebReceiverSF           *STFWebReceiver
 	RoamingSF               *STFRoaming
+	MultiSiteSF             *STFMultiSite
 }
 
 func (o *APIClient) GetComputerName() string {
@@ -53,6 +55,7 @@ func NewAPIClient() *APIClient {
 	c.AuthenticationServiceSF = (*STFAuthentication)(&c.common)
 	c.WebReceiverSF = (*STFWebReceiver)(&c.common)
 	c.RoamingSF = (*STFRoaming)(&c.common)
+	c.MultiSiteSF = (*STFMultiSite)(&c.common)
 
 	return c
 }

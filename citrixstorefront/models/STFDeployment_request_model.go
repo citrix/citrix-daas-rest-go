@@ -1,6 +1,5 @@
+// Copyright © 2024. Citrix Systems, Inc.
 package models
-
-// Replace "your-username" with your actual GitHub username or the correct import path
 
 // Create Model
 var _ MappedNullable = &CreateSTFDeploymentRequestModel{}

@@ -668,6 +668,7 @@ Class | Method | HTTP request | Description
  - [BackupRestoreStorageModel](docs/BackupRestoreStorageModel.md)
  - [BackupRestoreStorageRequestModel](docs/BackupRestoreStorageRequestModel.md)
  - [BackupRestoreStorageResponseModel](docs/BackupRestoreStorageResponseModel.md)
+ - [BackupRestoreTest565Response](docs/BackupRestoreTest565Response.md)
  - [BackupRestoreUpdateNotesRequestModel](docs/BackupRestoreUpdateNotesRequestModel.md)
  - [BatchRequestItemModel](docs/BatchRequestItemModel.md)
  - [BatchRequestModel](docs/BatchRequestModel.md)
