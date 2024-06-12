@@ -1,3 +1,5 @@
+// Copyright © 2024. Citrix Systems, Inc.
+
 module github.com/citrix/citrix-daas-rest-go
 
 go 1.20

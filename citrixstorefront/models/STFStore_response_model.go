@@ -1,3 +1,4 @@
+// Copyright © 2024. Citrix Systems, Inc.
 package models
 
 type STFStoreDetailModel struct {

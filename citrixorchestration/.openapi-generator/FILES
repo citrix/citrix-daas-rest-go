@@ -202,6 +202,7 @@ docs/BackupRestoreStatusResponseModel.md
 docs/BackupRestoreStorageModel.md
 docs/BackupRestoreStorageRequestModel.md
 docs/BackupRestoreStorageResponseModel.md
+docs/BackupRestoreTest565Response.md
 docs/BackupRestoreUpdateNotesRequestModel.md
 docs/BatchAPIsDAAS.md
 docs/BatchRequestItemModel.md
@@ -1123,6 +1124,7 @@ model_backup_restore_status_response_model.go
 model_backup_restore_storage_model.go
 model_backup_restore_storage_request_model.go
 model_backup_restore_storage_response_model.go
+model_backup_restore_test565_response.go
 model_backup_restore_update_notes_request_model.go
 model_batch_request_item_model.go
 model_batch_request_model.go

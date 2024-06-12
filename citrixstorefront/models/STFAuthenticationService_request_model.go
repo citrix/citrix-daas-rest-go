@@ -1,3 +1,4 @@
+// Copyright © 2024. Citrix Systems, Inc.
 package models
 
 // checks if the AddSTFAuthenticationServiceRequestModel type satisfies the MappedNullable interface at compile time
