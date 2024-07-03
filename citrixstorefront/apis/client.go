@@ -20,6 +20,7 @@ type APIClient struct {
 	WebReceiverSF           *STFWebReceiver
 	RoamingSF               *STFRoaming
 	MultiSiteSF             *STFMultiSite
+	VersionSF               *STFVersion
 }
 
 func (o *APIClient) GetComputerName() string {
@@ -56,6 +57,7 @@ func NewAPIClient() *APIClient {
 	c.WebReceiverSF = (*STFWebReceiver)(&c.common)
 	c.RoamingSF = (*STFRoaming)(&c.common)
 	c.MultiSiteSF = (*STFMultiSite)(&c.common)
+	c.VersionSF = (*STFVersion)(&c.common)
 
 	return c
 }

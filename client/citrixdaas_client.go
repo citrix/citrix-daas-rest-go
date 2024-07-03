@@ -84,13 +84,13 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customer
 
 		localCfg.Servers = citrixorchestration.ServerConfigurations{
 			{
-				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api/techpreview",
+				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api",
 			},
 		}
 	} else if !apiGateway {
 		localCfg.Servers = citrixorchestration.ServerConfigurations{
 			{
-				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api/techpreview",
+				URL: localCfg.Scheme + "://" + hostname + "/citrix/orchestration/api",
 			},
 		}
 	}

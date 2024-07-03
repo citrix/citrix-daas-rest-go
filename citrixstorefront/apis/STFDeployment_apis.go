@@ -4,6 +4,8 @@ package apis
 import (
 	"context"
 	"encoding/json"
+	"fmt"
+	"strings"
 
 	"github.com/citrix/citrix-daas-rest-go/citrixstorefront/models"
 )
@@ -52,6 +54,9 @@ type ApiGetSTFDeploymentRequest struct {
 
 func (r ApiGetSTFDeploymentRequest) Execute() (models.STFDeploymentDetailModel, error) {
 	bytes, err := r.ApiService.GetSTFDeploymentExecute(r)
+	if strings.EqualFold(string(bytes), "WARNING: A StoreFront deployment does not exist.\n") {
+		return models.STFDeploymentDetailModel{}, fmt.Errorf(NOT_EXIST)
+	}
 	if err != nil {
 		return models.STFDeploymentDetailModel{}, err
 	}

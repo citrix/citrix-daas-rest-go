@@ -1,6 +1,36 @@
 // Copyright © 2024. Citrix Systems, Inc.
 package models
 
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+
+	"golang.org/x/exp/maps"
+)
+
+type STFAuthenticationServiceRawResponseModel struct {
+	ProducerService         ServiceModel               `json:"ProducerService,omitempty"`         // The producer service of the deployment
+	ServiceTokenCertificate CertificateModel           `json:"ServiceTokenCertificate,omitempty"` // The service token certificate thumbprint of the deployment
+	TokenValidationService  ServiceModel               `json:"TokenValidationService,omitempty"`  // The name of token validation service of the deployment
+	TokenIssuerUrl          NullableString             `json:"TokenIssuerUrl,omitempty"`          // The token issuer url of the deployment
+	AuthenticationOptions   AuthenticationOptionsModel `json:"AuthenticationOptions,omitempty"`   // The authentication options of the deployment
+	Authentication          AuthenticationModel        `json:"Authentication,omitempty"`          // The authentication of the deployment
+	AuthenticationSettings  map[string]interface{}     `json:"AuthenticationSettings,omitempty"`  // The authentication protocols of the deployment
+	PnaAuthentication       PnaAuthenticationModel     `json:"PnaAuthentication,omitempty"`       // The PNA authentication of the deployment
+	SiteId                  NullableInt                `json:"SiteId,omitempty"`                  // The IIS site id of the deployment
+	VirtualPath             NullableString             `json:"VirtualPath,omitempty"`             // The virtual path of the deployment
+	FriendlyName            NullableString             `json:"FriendlyName,omitempty"`            // The friendly name of the deployment
+	Name                    NullableString             `json:"Name,omitempty"`                    // The name of the deployment
+	Hmacs                   []HmacsModel               `json:"Hmacs,omitempty"`                   // The hmacs of the deployment
+	Certificates            []CertificateModel         `json:"Certificates,omitempty"`            // The certificates of the deployment
+	TokenManagers           []ServiceModel             `json:"TokenManagers,omitempty"`           // The token managers of the deployment
+	Routing                 RoutingModel               `json:"Routing,omitempty"`                 // The routing of the deployment
+	ServiceRef              NullableString             `json:"ServiceRef,omitempty"`              // The service reference of the deployment
+	ConfigurationFile       NullableString             `json:"ConfigurationFile,omitempty"`       // The path to configuration file of the deployment
+	TenantId                NullableString             `json:"TenantId,omitempty"`                // The tenant GUID of the deployment
+}
+
 type STFAuthenticationServiceResponseModel struct {
 	ProducerService         ServiceModel                `json:"ProducerService,omitempty"`         // The producer service of the deployment
 	ServiceTokenCertificate CertificateModel            `json:"ServiceTokenCertificate,omitempty"` // The service token certificate thumbprint of the deployment
@@ -8,7 +38,7 @@ type STFAuthenticationServiceResponseModel struct {
 	TokenIssuerUrl          NullableString              `json:"TokenIssuerUrl,omitempty"`          // The token issuer url of the deployment
 	AuthenticationOptions   AuthenticationOptionsModel  `json:"AuthenticationOptions,omitempty"`   // The authentication options of the deployment
 	Authentication          AuthenticationModel         `json:"Authentication,omitempty"`          // The authentication of the deployment
-	AuthenticationSettings  AuthenticationSettingsModel `json:"AuthenticationProtocols,omitempty"` // The authentication protocols of the deployment
+	AuthenticationSettings  AuthenticationSettingsModel `json:"AuthenticationSettings,omitempty"`  // The authentication protocols of the deployment
 	PnaAuthentication       PnaAuthenticationModel      `json:"PnaAuthentication,omitempty"`       // The PNA authentication of the deployment
 	SiteId                  NullableInt                 `json:"SiteId,omitempty"`                  // The IIS site id of the deployment
 	VirtualPath             NullableString              `json:"VirtualPath,omitempty"`             // The virtual path of the deployment
@@ -16,32 +46,155 @@ type STFAuthenticationServiceResponseModel struct {
 	Name                    NullableString              `json:"Name,omitempty"`                    // The name of the deployment
 	Hmacs                   []HmacsModel                `json:"Hmacs,omitempty"`                   // The hmacs of the deployment
 	Certificates            []CertificateModel          `json:"Certificates,omitempty"`            // The certificates of the deployment
-	TokenManagers           []TokenManagerModel         `json:"TokenManagers,omitempty"`           // The token managers of the deployment
+	TokenManagers           []ServiceModel              `json:"TokenManagers,omitempty"`           // The token managers of the deployment
 	Routing                 RoutingModel                `json:"Routing,omitempty"`                 // The routing of the deployment
 	ServiceRef              NullableString              `json:"ServiceRef,omitempty"`              // The service reference of the deployment
 	ConfigurationFile       NullableString              `json:"ConfigurationFile,omitempty"`       // The path to configuration file of the deployment
 	TenantId                NullableString              `json:"TenantId,omitempty"`                // The tenant GUID of the deployment
 }
 
-type ServiceModel struct {
-	Id               NullableString   `json:"Id,omitempty"`               // The id of the service
-	DisplayName      NullableString   `json:"DisplayName,omitempty"`      // The display name of the service
-	TrustedIssuers   []NullableString `json:"TrustedIssuers,omitempty"`   // The trusted issuers of the service
-	RelyingParties   []NullableString `json:"RelyingParties,omitempty"`   // The relying parties of the service
-	AllowedAudiences []NullableString `json:"AllowedAudiences,omitempty"` // The allowed audiences of the service
+func (rawResponse *STFAuthenticationServiceRawResponseModel) ConvertToResponseModel() (STFAuthenticationServiceResponseModel, error) {
+	response := STFAuthenticationServiceResponseModel{}
+	response.ProducerService = rawResponse.ProducerService
+	response.ServiceTokenCertificate = rawResponse.ServiceTokenCertificate
+	response.TokenValidationService = rawResponse.TokenValidationService
+	response.TokenIssuerUrl = rawResponse.TokenIssuerUrl
+	response.AuthenticationOptions = rawResponse.AuthenticationOptions
+	response.Authentication = rawResponse.Authentication
+	// response.AuthenticationSettings = rawResponse.AuthenticationSettings
+	response.PnaAuthentication = rawResponse.PnaAuthentication
+	response.SiteId = rawResponse.SiteId
+	response.VirtualPath = rawResponse.VirtualPath
+	response.FriendlyName = rawResponse.FriendlyName
+	response.Name = rawResponse.Name
+	response.Hmacs = rawResponse.Hmacs
+	response.Certificates = rawResponse.Certificates
+	response.TokenManagers = rawResponse.TokenManagers
+	response.Routing = rawResponse.Routing
+	response.ServiceRef = rawResponse.ServiceRef
+	response.ConfigurationFile = rawResponse.ConfigurationFile
+	response.TenantId = rawResponse.TenantId
+
+	authSettings := AuthenticationSettingsModel{}
+	for _, key := range maps.Keys(rawResponse.AuthenticationSettings) {
+		rawBytes, err := json.Marshal(rawResponse.AuthenticationSettings[key])
+		if err != nil {
+			fmt.Println("Error: ", err.Error())
+			return response, err
+		}
+		if strings.EqualFold(key, "integratedWindowsAuthentication") {
+			var authModel = IntegratedWindowsAuthenticationModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.IntegratedWindowsAuthentication = authModel
+		} else if strings.EqualFold(key, "citrixAGBasicAuthentication") {
+			var authModel = CitrixAGBasicAuthenticationModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.CitrixAGBasicAuthentication = authModel
+		} else if strings.EqualFold(key, "commonExplicitEndpoints") {
+			var authModel = CommonExplicitEndpointsModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.CommonExplicitEndpoints = authModel
+		} else if strings.EqualFold(key, "formsProtocol") {
+			var authModel = FormsProtocolModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.FormsProtocol = authModel
+		} else if strings.EqualFold(key, "explicitAuthentication") {
+			var authModel = ExplicitAuthenticationModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.ExplicitAuthentication = authModel
+		} else if strings.EqualFold(key, "httpBasicAuthentication") {
+			var authModel = ClaimsFactoryModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.HttpBasicAuthentication = authModel
+		} else if strings.EqualFold(key, "certificateAuthentication") {
+			var authModel = ClaimsFactoryModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.CertificateAuthentication = authModel
+		} else if strings.EqualFold(key, "citrixFederationAuthentication") {
+			var authModel = ClaimsFactoryModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.CitrixFederationAuthentication = authModel
+		} else if strings.EqualFold(key, "explicitBL") {
+			var authModel = ExplicitBLModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.ExplicitBL = authModel
+		} else if strings.EqualFold(key, "delegatedDirectoryClaimFactory") {
+			var authModel = DelegatedDirectoryClaimFactoryModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.DelegatedDirectoryClaimFactory = authModel
+		} else if strings.EqualFold(key, "samlForms") {
+			var authModel = SamlFormsModel{}
+			err = json.Unmarshal(rawBytes, &authModel)
+			if err != nil {
+				fmt.Println("Error: ", err.Error())
+				return response, err
+			}
+			authSettings.SamlForms = authModel
+		}
+	}
+	response.AuthenticationSettings = authSettings
+
+	return response, nil
 }
 
-type TokenManagerModel struct {
-	Id               NullableString `json:"Id,omitempty"`               // The id of the service
-	DisplayName      NullableString `json:"DisplayName,omitempty"`      // The display name of the service
-	TrustedIssuers   NullableString `json:"TrustedIssuers,omitempty"`   // The trusted issuers of the service
-	RelyingParties   NullableString `json:"RelyingParties,omitempty"`   // The relying parties of the service
-	AllowedAudiences NullableString `json:"AllowedAudiences,omitempty"` // The allowed audiences of the service
+type TrustIssuerModel struct {
+	Name     NullableString `json:"Name,omitempty"`
+	Id       NullableString `json:"Id,omitempty"`
+	Url      NullableString `json:"Url,omitempty"`
+	VerifyId NullableString `json:"VerifyId,omitempty"`
 }
 
-type CertificateModel struct {
-	Id         NullableString `json:"Id,omitempty"`         // The id of the certificate
-	Thumbprint NullableString `json:"Thumbprint,omitempty"` // The thumbprint of the certificate
+type RelyingParty struct {
+	Name            NullableString `json:"Name,omitempty"`
+	Id              NullableString `json:"Id,omitempty"`
+	EncipherId      NullableString `json:"EncipherId,omitempty"`
+	DefaultLifetime TimeModel      `json:"DefaultLifetime,omitempty"`
+	MaxLifetime     TimeModel      `json:"MaxLifetime,omitempty"`
+}
+
+type AllowedAudience struct {
+	Name        NullableString `json:"Name,omitempty"`
+	AudienceUri NullableString `json:"AudienceUri,omitempty"`
 }
 
 type AuthenticationOptionsModel struct {
@@ -52,25 +205,31 @@ type AuthenticationOptionsModel struct {
 
 type AuthenticationModel struct {
 	TokenServiceId  NullableString   `json:"TokenServiceId,omitempty"`  // The token service id of the authentication
-	TokenValidators []NullableString `json:"TokenValidators,omitempty"` // The token validators of the authentication
-	ProtocolChoices []NullableString `json:"ProtocolChoices,omitempty"` // The protocol choices of the authentication
+	TokenValidators []TokenValidator `json:"TokenValidators,omitempty"` // The token validators of the authentication
+	ProtocolChoices []ProtocolChoice `json:"ProtocolChoices,omitempty"` // The protocol choices of the authentication
+}
+
+type TokenValidator struct {
+	Id                      NullableString `json:"Id,omitempty"`
+	VerifyingTokenServiceId NullableString `json:"VerifyingTokenServiceId,omitempty"`
+	Claims                  []ClaimModel   `json:"Claims,omitempty"`
+}
+
+type ClaimModel struct {
+	Name               NullableString `json:"Name,omitempty"`
+	DirectoryClaimType NullableString `json:"DirectoryClaimType,omitempty"`
+}
+
+type ProtocolChoice struct {
+	Name             NullableString `json:"Name,omitempty"`
+	Enabled          NullableBool   `json:"Enabled,omitempty"`
+	ChoiceProperties any            `json:"ChoiceProperties,omitempty"`
 }
 
 type PnaAuthenticationModel struct {
 	IsEnabled             NullableBool   `json:"IsEnabled,omitempty"`             // The is enabled of the PNA authentication
 	ChangePasswordEnabled NullableBool   `json:"ChangePasswordEnabled,omitempty"` // The change password enabled of the PNA authentication
 	ChangePasswordUrl     NullableString `json:"ChangePasswordUrl,omitempty"`     // The change password url of the PNA authentication
-}
-
-type HmacsModel struct {
-	Name NullableString `json:"Name,omitempty"` // The name of the hmac
-	Key  NullableString `json:"Key,omitempty"`  // The key of the hmac
-}
-
-type RoutingModel struct {
-	HostBaseUrl       NullableString   `json:"HostBaseUrl,omitempty"`       // The host base url of the routing
-	ServiceName       NullableString   `json:"ServiceName,omitempty"`       // The service name of the routing
-	ExternalEndpoints []NullableString `json:"ExternalEndpoints,omitempty"` // The external endpoints of the routing
 }
 
 type AuthenticationSettingsModel struct {
@@ -92,9 +251,9 @@ type IntegratedWindowsAuthenticationModel struct {
 }
 
 type CitrixAGBasicAuthenticationModel struct {
-	CredentialValidationMode NullableInt    `json:"CredentialValidationMode,omitempty"` // The credential validation mode of the citrix AG basic authentication
-	NetscalerGateways        NullableString `json:"NetscalerGateways,omitempty"`        // The netscaler gateways of the citrix AG basic authentication
-	ClaimsFactoryName        NullableString `json:"ClaimsFactoryName,omitempty"`        // The claims factory name of the citrix AG basic authentication
+	CredentialValidationMode NullableInt      `json:"CredentialValidationMode,omitempty"` // The credential validation mode of the citrix AG basic authentication
+	NetscalerGateways        []NullableString `json:"NetscalerGateways,omitempty"`        // The netscaler gateways of the citrix AG basic authentication
+	ClaimsFactoryName        NullableString   `json:"ClaimsFactoryName,omitempty"`        // The claims factory name of the citrix AG basic authentication
 }
 
 type CommonExplicitEndpointsModel struct {
@@ -129,7 +288,7 @@ type ExplicitBLModel struct {
 	ShowPasswordExpiryWarning   NullableInt                  `json:"ShowPasswordExpiryWarning,omitempty"`   // The show password expiry warning of the explicit BL
 	PasswordExpiryWarningPeriod NullableInt                  `json:"PasswordExpiryWarningPeriod,omitempty"` // The password expiry warning period of the explicit BL
 	RequireAccountSIDs          NullableBool                 `json:"RequireAccountSIDs,omitempty"`          // The require account SIDs of the explicit BL
-	DomainSelection             NullableString               `json:"DomainSelection,omitempty"`             // The domain selection of the explicit BL
+	DomainSelection             []NullableString             `json:"DomainSelection,omitempty"`             // The domain selection of the explicit BL
 	AccountManagementPolicy     AccountManagementPolicyModel `json:"AccountManagementPolicy,omitempty"`     // The account management policy of the explicit BL
 	JsonServiceEnabled          NullableBool                 `json:"JsonServiceEnabled,omitempty"`          // The json service enabled of the explicit BL
 }
@@ -140,7 +299,7 @@ type AccountManagementPolicyModel struct {
 }
 
 type DelegatedDirectoryClaimFactoryModel struct {
-	RequiredProperties NullableString                                    `json:"RequiredProperties,omitempty"` // The required properties of the delegated directory claim factory
+	RequiredProperties []NullableString                                  `json:"RequiredProperties,omitempty"` // The required properties of the delegated directory claim factory
 	Enabled            NullableBool                                      `json:"Enabled,omitempty"`            // The enabled of the delegated directory claim factory
 	ClientEndpoint     DelegatedDirectoryClaimFactoryClientEndpointModel `json:"ClientEndpoint,omitempty"`     // The client endpoint of the delegated directory claim factory
 }
@@ -161,20 +320,6 @@ type ClientEndpointClientCertificateModel struct {
 	Thumbprint    NullableString `json:"Thumbprint,omitempty"`    // The thumbprint of the client certificate
 	StoreName     NullableString `json:"StoreName,omitempty"`     // The store name of the client certificate
 	StoreLocation NullableInt    `json:"StoreLocation,omitempty"` // The store location of the client certificate
-}
-
-type TimeModel struct {
-	Ticks             NullableInt     `json:"Ticks,omitempty"`             // The ticks of the time
-	Days              NullableInt     `json:"Days,omitempty"`              // The days of the time
-	Hours             NullableInt     `json:"Hours,omitempty"`             // The hours of the time
-	Milliseconds      NullableInt     `json:"Milliseconds,omitempty"`      // The milliseconds of the time
-	Minutes           NullableInt     `json:"Minutes,omitempty"`           // The minutes of the time
-	Seconds           NullableInt     `json:"Seconds,omitempty"`           // The seconds of the time
-	TotalDays         NullableFloat64 `json:"TotalDays,omitempty"`         // The total days of the time
-	TotalHours        NullableFloat64 `json:"TotalHours,omitempty"`        // The total hours of the time
-	TotalMilliseconds NullableInt     `json:"TotalMilliseconds,omitempty"` // The total milliseconds of the time
-	TotalMinutes      NullableFloat64 `json:"TotalMinutes,omitempty"`      // The total minutes of the time
-	TotalSeconds      NullableInt     `json:"TotalSeconds,omitempty"`      // The total seconds of the time
 }
 
 type SamlFormsModel struct {
@@ -219,7 +364,7 @@ type RequestSigningModel struct {
 }
 
 type WebViewSettingsModel struct {
-	AllowedReturnUrls NullableString `json:"AllowedReturnUrls,omitempty"` // The allowed return urls of the web view settings
+	AllowedReturnUrls []NullableString `json:"AllowedReturnUrls,omitempty"` // The allowed return urls of the web view settings
 }
 
 type STFAuthenticationServiceProtocolResponseModel struct {

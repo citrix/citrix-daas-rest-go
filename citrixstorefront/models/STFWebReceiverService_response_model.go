@@ -11,20 +11,20 @@ type STFWebReceiverDetailModel struct {
 	WebReceiver                        WebReceiver               `json:"WebReceiver"`
 	DefaultIISSite                     NullableBool              `json:"DefaultIISSite"`
 	ServiceID                          NullableString            `json:"ServiceId"`
-	ProducerService                    ServiceModel              `json:"ProducerService"`
-	ConsumerService                    ServiceModel              `json:"ConsumerService"`
-	ServiceTokenCertificate            ServiceTokenCertificate   `json:"ServiceTokenCertificate"`
+	ProducerService                    BasicServiceModel         `json:"ProducerService"`
+	ConsumerService                    BasicServiceModel         `json:"ConsumerService"`
+	ServiceTokenCertificate            CertificateModel          `json:"ServiceTokenCertificate"`
 	AuthenticationServiceVirtualPath   NullableString            `json:"AuthenticationServiceVirtualPath"`
 	StoreServiceVirtualPath            NullableString            `json:"StoreServiceVirtualPath"`
-	HostingEnvironment                 HostingEnvironment        `json:"HostingEnvironment"`
+	HostingEnvironment                 HostingEnvironmentModel   `json:"HostingEnvironment"`
 	RunAllManagedModulesForAllRequests NullableBool              `json:"RunAllManagedModulesForAllRequests"`
 	FeatureData                        FeatureData               `json:"FeatureData"`
 	Name                               NullableString            `json:"Name"`
-	Hmacs                              []Hmacs                   `json:"Hmacs"`
-	Certificates                       []Certificates            `json:"Certificates"`
+	Hmacs                              []HmacsModel              `json:"Hmacs"`
+	Certificates                       []CertificateModel        `json:"Certificates"`
 	TokenManagers                      []TokenManagers           `json:"TokenManagers"`
-	Routing                            Routing                   `json:"Routing"`
-	CredentialWallet                   CredentialWallet          `json:"CredentialWallet"`
+	Routing                            RoutingModel              `json:"Routing"`
+	CredentialWallet                   CredentialWalletModel     `json:"CredentialWallet"`
 	WebApplication                     WebApplication            `json:"WebApplication"`
 	ServiceRef                         NullableString            `json:"ServiceRef"`
 	PhysicalPath                       NullableString            `json:"PhysicalPath"`
@@ -81,13 +81,6 @@ type WebReceiver struct {
 	SessionStateRedisConnectionString any            `json:"SessionStateRedisConnectionString"`
 }
 
-type ServiceTokenCertificate struct {
-	ID                 NullableString `json:"Id"`
-	ThumbprNullableInt NullableString `json:"ThumbprNullableInt"`
-}
-type HostingEnvironment struct {
-	ShadowCopyBinAssemblies NullableBool `json:"ShadowCopyBinAssemblies"`
-}
 type FeatureData struct {
 	SiteId           NullableString `json:"SiteId"`
 	VirtualPath      NullableString `json:"VirtualPath"`
@@ -100,14 +93,7 @@ type FeatureData struct {
 	ConfigLocation   NullableString `json:"ConfigLocation"`
 	ConfigTypeName   NullableString `json:"ConfigTypeName"`
 }
-type Hmacs struct {
-	Name NullableString `json:"Name"`
-	Key  NullableString `json:"Key"`
-}
-type Certificates struct {
-	ID                 NullableString `json:"Id"`
-	ThumbprNullableInt NullableString `json:"ThumbprNullableInt"`
-}
+
 type TokenManagers struct {
 	DisplayName      NullableString `json:"DisplayName"`
 	ID               NullableString `json:"Id"`
@@ -115,14 +101,7 @@ type TokenManagers struct {
 	RelyingParties   NullableString `json:"RelyingParties"`
 	AllowedAudiences NullableString `json:"AllowedAudiences"`
 }
-type Routing struct {
-	HostbaseURL               any   `json:"HostbaseUrl"`
-	ServiceName               any   `json:"ServiceName"`
-	ExternalEndpoNullableInts []any `json:"ExternalEndpoNullableInts"`
-}
-type CredentialWallet struct {
-	WalletName any `json:"WalletName"`
-}
+
 type SharedListeners struct {
 	CitrixTraceListener NullableString `json:"citrixTraceListener"`
 }
