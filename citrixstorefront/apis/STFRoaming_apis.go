@@ -11,11 +11,50 @@ import (
 
 type STFRoaming Service
 
+// Get-STFRoamingService
+type ApiGetSTFRoamingServiceRequest struct {
+	ctx                           context.Context
+	ApiService                    *STFRoaming
+	STFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
+}
+
+func (r ApiGetSTFRoamingServiceRequest) Execute() (models.STFRoamingServiceResponseModel, error) {
+	bytes, err := r.ApiService.GetSTFRoamingServiceExecute(r)
+	if err != nil {
+		return models.STFRoamingServiceResponseModel{}, err
+	}
+	var reponse = models.STFRoamingServiceResponseModel{}
+	unMarshalErr := json.Unmarshal(bytes, &reponse)
+	if unMarshalErr != nil {
+		fmt.Println("Error:", unMarshalErr)
+		return models.STFRoamingServiceResponseModel{}, fmt.Errorf("error unmarshal STFRoamingServiceResponseModel: %v", unMarshalErr.Error())
+	}
+	return reponse, nil
+}
+
+func (a *STFRoaming) GetSTFRoamingServiceExecute(r ApiGetSTFRoamingServiceRequest) ([]byte, error) {
+	params := StructToString(r.STFRoamingServiceRequestModel)
+	return ExecuteCommandWithDepth(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), 5, "Get-STFRoamingService", params)
+}
+
+func (a *STFRoaming) STFRoamingServiceGet(ctx context.Context, stfRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiGetSTFRoamingServiceRequest {
+	return ApiGetSTFRoamingServiceRequest{
+		ApiService:                    a,
+		ctx:                           ctx,
+		STFRoamingServiceRequestModel: stfRoamingServiceRequestModel,
+	}
+}
+
 // Add-STFRoamingGateway
 type ApiAddSTFRoamingGatewayRequest struct {
 	ctx                              context.Context
 	ApiService                       *STFRoaming
 	AddSTFRoamingGatewayRequestModel models.AddSTFRoamingGatewayRequestModel
+	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
+	STFStaUrls                       []models.STFSTAUrlModel
+	SessionReliability               bool
+	RequestTicketTwoSTAs             bool
+	StasUseLoadBalancings            bool
 }
 
 func (r ApiAddSTFRoamingGatewayRequest) Execute() ([]byte, error) {
@@ -28,48 +67,40 @@ func (r ApiAddSTFRoamingGatewayRequest) Execute() ([]byte, error) {
 
 func (a *STFRoaming) AddSTFRoamingGatewayExecute(r ApiAddSTFRoamingGatewayRequest) ([]byte, error) {
 	var param = StructToString(r.AddSTFRoamingGatewayRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFRoamingGateway", param)
+	var getRoamingServiceParam = StructToString(r.GetSTFRoamingServiceRequestModel)
+	staUrlParam := ""
+	sessionReliabilityParam := ""
+	if r.SessionReliability {
+		sessionReliabilityParam = "-SessionReliability"
+	}
+
+	requestTicketTwoSTAsParam := ""
+	if r.RequestTicketTwoSTAs {
+		requestTicketTwoSTAsParam = "-RequestTicketTwoSTAs"
+	}
+
+	stasUseLoadBalancingParam := ""
+	if r.StasUseLoadBalancings {
+		stasUseLoadBalancingParam = "-StasUseLoadBalancing"
+	}
+	if len(r.STFStaUrls) > 0 {
+		staUrlParam = " -SecureTicketAuthorityObjs @("
+		for _, staUrl := range r.STFStaUrls {
+			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.AuthorityId.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
+		}
+		staUrlParam += ")"
+	}
+
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam, sessionReliabilityParam, requestTicketTwoSTAsParam, stasUseLoadBalancingParam)
 }
 
-func (a *STFRoaming) STFRoamingAddGateway(ctx context.Context, createSTFRoamingGatewayRequestModel models.AddSTFRoamingGatewayRequestModel) ApiAddSTFRoamingGatewayRequest {
+func (a *STFRoaming) STFRoamingGatewayAdd(ctx context.Context, createSTFRoamingGatewayRequestModel models.AddSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel, stfStaUrls []models.STFSTAUrlModel, sessionReliability bool, requestTicketTwoSTAs bool, stasUseLoadBalancing bool) ApiAddSTFRoamingGatewayRequest {
 	return ApiAddSTFRoamingGatewayRequest{
 		ApiService:                       a,
 		ctx:                              ctx,
 		AddSTFRoamingGatewayRequestModel: createSTFRoamingGatewayRequestModel,
-	}
-}
-
-// New-STFRoamingGateway
-type ApiNewSTFRoamingGatewayRequest struct {
-	ctx                              context.Context
-	ApiService                       *STFRoaming
-	NewSTFRoamingGatewayRequestModel models.NewSTFRoamingGatewayRequestModel
-}
-
-func (r ApiNewSTFRoamingGatewayRequest) Execute() (models.STFRoamingDetailModel, error) {
-	bytes, err := r.ApiService.NewSTFRoamingGatewayExecute(r)
-	if err != nil {
-		return models.STFRoamingDetailModel{}, err
-	}
-	var reponse = models.STFRoamingDetailModel{}
-	unMarshalErr := json.Unmarshal(bytes, &reponse)
-	if unMarshalErr != nil {
-		fmt.Println("Error:", unMarshalErr)
-		return models.STFRoamingDetailModel{}, fmt.Errorf("error unmarshal STFRoamingDetailModel: %v", err)
-	}
-	return reponse, nil
-}
-
-func (a *STFRoaming) NewSTFRoamingGatewayExecute(r ApiNewSTFRoamingGatewayRequest) ([]byte, error) {
-	var param = StructToString(r.NewSTFRoamingGatewayRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "New-STFRoamingGateway", param)
-}
-
-func (a *STFRoaming) STFRoamingNewGateway(ctx context.Context, newSTFRoamingGatewayRequestModel models.NewSTFRoamingGatewayRequestModel) ApiNewSTFRoamingGatewayRequest {
-	return ApiNewSTFRoamingGatewayRequest{
-		ApiService:                       a,
-		ctx:                              ctx,
-		NewSTFRoamingGatewayRequestModel: newSTFRoamingGatewayRequestModel,
+		GetSTFRoamingServiceRequestModel: getSTFRoamingServiceRequestModel,
+		STFStaUrls:                       stfStaUrls,
 	}
 }
 
@@ -77,60 +108,109 @@ func (a *STFRoaming) STFRoamingNewGateway(ctx context.Context, newSTFRoamingGate
 type ApiGetSTFRoamingGatewayRequest struct {
 	ctx                              context.Context
 	ApiService                       *STFRoaming
+	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
 	GetSTFRoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel
 }
 
-func (r ApiGetSTFRoamingGatewayRequest) Execute() (models.STFRoamingDetailModel, error) {
+func (r ApiGetSTFRoamingGatewayRequest) Execute() (models.STFRoamingGatewayResponseModel, error) {
 	bytes, err := r.ApiService.GetSTFRoamingGatewayExecute(r)
 	if err != nil {
-		return models.STFRoamingDetailModel{}, err
+		return models.STFRoamingGatewayResponseModel{}, err
 	}
-	var reponse = models.STFRoamingDetailModel{}
+	var reponse = models.STFRoamingGatewayRawResponseModel{}
 	unMarshalErr := json.Unmarshal(bytes, &reponse)
 	if unMarshalErr != nil {
 		fmt.Println("Error:", unMarshalErr)
-		return models.STFRoamingDetailModel{}, fmt.Errorf("error unmarshal STFRoamingDetailModel: %v", err)
+		return models.STFRoamingGatewayResponseModel{}, fmt.Errorf("error unmarshal STFRoamingGatewayDetailModel: %v", unMarshalErr.Error())
 	}
-	return reponse, nil
+	reponse.SiteId = *r.GetSTFRoamingServiceRequestModel.SiteId.Get()
+	return reponse.ConvertToResponseModel(), nil
 }
 
 func (a *STFRoaming) GetSTFRoamingGatewayExecute(r ApiGetSTFRoamingGatewayRequest) ([]byte, error) {
 	var param = StructToString(r.GetSTFRoamingGatewayRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingGateway", param)
+	var getRoamingServiceParams = StructToString(r.GetSTFRoamingServiceRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), param)
 }
 
-func (a *STFRoaming) STFRoamingGetGateway(ctx context.Context, getSTFRoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel) ApiGetSTFRoamingGatewayRequest {
+func (a *STFRoaming) STFRoamingGatewayGet(ctx context.Context, getSTFRoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiGetSTFRoamingGatewayRequest {
 	return ApiGetSTFRoamingGatewayRequest{
 		ApiService:                       a,
 		ctx:                              ctx,
+		GetSTFRoamingServiceRequestModel: getSTFRoamingServiceRequestModel,
 		GetSTFRoamingGatewayRequestModel: getSTFRoamingGatewayRequestModel,
+	}
+}
+
+// Set-STFRoamingGateway
+type ApiSetSTFRoamingGatewayRequest struct {
+	ctx                              context.Context
+	ApiService                       *STFRoaming
+	SetSTFRoamingGatewayRequestModel models.SetSTFRoamingGatewayRequestModel
+	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
+	STFStaUrls                       []models.STFSTAUrlModel
+}
+
+func (r ApiSetSTFRoamingGatewayRequest) Execute() error {
+	_, err := r.ApiService.SetSTFRoamingGatewayExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFRoaming) SetSTFRoamingGatewayExecute(r ApiSetSTFRoamingGatewayRequest) ([]byte, error) {
+	var param = StructToString(r.SetSTFRoamingGatewayRequestModel)
+	var getRoamingServiceParam = StructToString(r.GetSTFRoamingServiceRequestModel)
+	staUrlParam := ""
+	if len(r.STFStaUrls) > 0 {
+		staUrlParam = " -SecureTicketAuthorityObjs @("
+		for _, staUrl := range r.STFStaUrls {
+			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.AuthorityId.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
+		}
+		staUrlParam += ")"
+	}
+
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam)
+}
+
+func (a *STFRoaming) STFRoamingGatewaySet(ctx context.Context, setSTFRoamingGatewayRequestModel models.SetSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel, stfStaUrls []models.STFSTAUrlModel) ApiSetSTFRoamingGatewayRequest {
+	return ApiSetSTFRoamingGatewayRequest{
+		ApiService:                       a,
+		ctx:                              ctx,
+		SetSTFRoamingGatewayRequestModel: setSTFRoamingGatewayRequestModel,
+		GetSTFRoamingServiceRequestModel: getSTFRoamingServiceRequestModel,
+		STFStaUrls:                       stfStaUrls,
 	}
 }
 
 // Remove-STFRoamingGateway
 type ApiRemoveSTFoamingGatewayRequest struct {
-	ctx                                 context.Context
-	ApiService                          *STFRoaming
-	removeSTFRoamingGatewayRequestModel models.RemoveSTFRoamingGatewayRequestModel
+	ctx                              context.Context
+	ApiService                       *STFRoaming
+	GetSTFRoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel
+	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
 }
 
-func (r ApiRemoveSTFoamingGatewayRequest) Execute() ([]byte, error) {
-	bytes, err := r.ApiService.RemoveSTFoamingGatewayExecute(r)
+func (r ApiRemoveSTFoamingGatewayRequest) Execute() error {
+	_, err := r.ApiService.RemoveSTFRoamingGatewayExecute(r)
 	if err != nil {
-		return bytes, err
+		return err
 	}
-	return nil, nil
+	return nil
 }
 
-func (a *STFRoaming) RemoveSTFoamingGatewayExecute(r ApiRemoveSTFoamingGatewayRequest) ([]byte, error) {
-	var param = StructToString(r.removeSTFRoamingGatewayRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Remove-STFRoamingGateway", param)
+func (a *STFRoaming) RemoveSTFRoamingGatewayExecute(r ApiRemoveSTFoamingGatewayRequest) ([]byte, error) {
+	var getRoamingServiceParams = StructToString(r.GetSTFRoamingServiceRequestModel)
+	var param = StructToString(r.GetSTFRoamingGatewayRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Remove-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), param, "-Confirm:$false")
 }
 
-func (a *STFRoaming) STFStoreRemoveGateway(ctx context.Context, removeSTFoamingGatewayRequestModel models.RemoveSTFRoamingGatewayRequestModel) ApiRemoveSTFoamingGatewayRequest {
+func (a *STFRoaming) STFRoamingGatewayRemove(ctx context.Context, getSTFoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiRemoveSTFoamingGatewayRequest {
 	return ApiRemoveSTFoamingGatewayRequest{
-		ApiService:                          a,
-		ctx:                                 ctx,
-		removeSTFRoamingGatewayRequestModel: removeSTFoamingGatewayRequestModel,
+		ApiService:                       a,
+		ctx:                              ctx,
+		GetSTFRoamingGatewayRequestModel: getSTFoamingGatewayRequestModel,
+		GetSTFRoamingServiceRequestModel: getSTFRoamingServiceRequestModel,
 	}
 }

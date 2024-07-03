@@ -5,11 +5,10 @@ package models
 var _ MappedNullable = &CreateSTFStoreRequestModel{}
 
 type CreateSTFStoreRequestModel struct {
+	FarmName                NullableString
 	VirtualPath             NullableString
 	SiteId                  NullableInt64
-	AuthenticationService   NullableString
 	Anonymous               NullableBool
-	FarmName                NullableString
 	FarmType                NullableString
 	Servers                 []string
 	ServiceUrls             NullableString
@@ -34,9 +33,6 @@ func (o CreateSTFStoreRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.VirtualPath.IsSet() {
 		toSerialize["VirtualPath"] = o.VirtualPath.Get()
-	}
-	if o.AuthenticationService.IsSet() {
-		toSerialize["AuthenticationService"] = o.AuthenticationService.Get()
 	}
 	if o.Anonymous.IsSet() {
 		toSerialize["Anonymous"] = o.Anonymous.Get()
@@ -96,10 +92,6 @@ func (o *CreateSTFStoreRequestModel) SetVirtualPath(v string) {
 
 func (o *CreateSTFStoreRequestModel) SetSiteId(v int64) {
 	o.SiteId.Set(&v)
-}
-
-func (o *CreateSTFStoreRequestModel) SetAuthenticationService(v string) {
-	o.AuthenticationService.Set(&v)
 }
 
 func (o *CreateSTFStoreRequestModel) SetAnonymous(v bool) {
@@ -173,7 +165,6 @@ type GetSTFStoreRequestModel struct {
 	SiteId                NullableInt64  // The IIS site id of the deployment
 	VirtualPath           NullableString //Virtual path of the Store to return
 	AuthenticationService NullableString //Stores used by an Authentication servic
-	WebReceiverService    NullableString //Stores used by a Web Receiver service
 }
 
 // ToMap implements MappedNullable.
@@ -187,9 +178,6 @@ func (o GetSTFStoreRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AuthenticationService.IsSet() {
 		toSerialize["AuthenticationService"] = o.AuthenticationService.Get()
-	}
-	if o.WebReceiverService.IsSet() {
-		toSerialize["WebReceiverService"] = o.WebReceiverService.Get()
 	}
 	return toSerialize, nil
 }
@@ -206,15 +194,10 @@ func (o *GetSTFStoreRequestModel) SetGetSTFStoreRequestModel(v string) {
 	o.AuthenticationService.Set(&v)
 }
 
-func (o *GetSTFStoreRequestModel) SetWebReceiverService(v string) {
-	o.WebReceiverService.Set(&v)
-}
-
 // Set Model
 var _ MappedNullable = &GetSTFStoreRequestModel{}
 
 type SetSTFStoreRequestModel struct {
-	StoreService                        NullableString //The Store service
 	RDPOnly                             NullableBool   //Configure the Store to launch all requests using the RDP protocol.
 	IcaTemplateName                     NullableString //Ica template to use when launching an application or desktop.
 	IcaFileSigning                      NullableBool   //Sign the ica file used for launch.
@@ -233,7 +216,6 @@ type SetSTFStoreRequestModel struct {
 // ToMap implements MappedNullable.
 func (o SetSTFStoreRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["StoreService"] = o.StoreService
 	if o.RDPOnly.IsSet() {
 		toSerialize["RDPOnly"] = o.RDPOnly.Get()
 	}
@@ -274,11 +256,6 @@ func (o SetSTFStoreRequestModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["PassThru"] = o.PassThru.Get()
 	}
 	return toSerialize, nil
-}
-
-// SetRDPOnly configures the Store to launch all requests using the RDP protocol.
-func (o *SetSTFStoreRequestModel) SetStoreService(v string) {
-	o.StoreService.Set(&v)
 }
 
 // SetRDPOnly configures the Store to launch all requests using the RDP protocol.
@@ -344,23 +321,4 @@ func (o *SetSTFStoreRequestModel) SetLockedDown(v bool) {
 // SetPassThru sets whether to output the resulting Store service.
 func (o *SetSTFStoreRequestModel) SetPassThru(v bool) {
 	o.PassThru.Set(&v)
-}
-
-// Set Model
-var _ MappedNullable = &ClearSTFStoreRequestModel{}
-
-type ClearSTFStoreRequestModel struct {
-	StoreService NullableString //Store service to remove
-}
-
-// ToMap implements MappedNullable.
-func (o ClearSTFStoreRequestModel) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	toSerialize["StoreService"] = o.StoreService
-
-	return toSerialize, nil
-}
-
-func (o *ClearSTFStoreRequestModel) SetStoreService(v string) {
-	o.StoreService.Set(&v)
 }

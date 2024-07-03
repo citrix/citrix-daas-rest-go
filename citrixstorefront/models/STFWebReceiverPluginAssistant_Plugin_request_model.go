@@ -1,31 +1,10 @@
 // Copyright © 2024. Citrix Systems, Inc.
 package models
 
-//Get Model
-var _ MappedNullable = &GetSTFWebReceiverPluginAssistantRequestModel{}
-
-type GetSTFWebReceiverPluginAssistantRequestModel struct {
-	WebReceiverService NullableString `json:"WebReceiverService,omitempty"`
-}
-
-// ToMap implements MappedNullable.
-func (o GetSTFWebReceiverPluginAssistantRequestModel) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if o.WebReceiverService.IsSet() {
-		toSerialize["WebReceiverService"] = o.WebReceiverService.Get()
-	}
-	return toSerialize, nil
-}
-
-func (o *GetSTFWebReceiverPluginAssistantRequestModel) SetWebReceiverService(v string) {
-	o.WebReceiverService.Set(&v)
-}
-
 // Update Model
 var _ MappedNullable = &UpdateSTFWebReceiverPluginAssistantRequestModel{}
 
 type UpdateSTFWebReceiverPluginAssistantRequestModel struct {
-	WebReceiverService                            NullableString `json:"WebReceiverService,omitempty"`                            // The WebReceiver service.
 	Enabled                                       NullableBool   `json:"Enabled,omitempty"`                                       // Enable Receiver client detection.
 	UpgradeAtLogin                                NullableBool   `json:"UpgradeAtLogin,omitempty"`                                // Prompt to upgrade older clients.
 	ShowAfterLogin                                NullableBool   `json:"ShowAfterLogin,omitempty"`                                // Show Receiver client detection after the user logs in.
@@ -47,9 +26,6 @@ type UpdateSTFWebReceiverPluginAssistantRequestModel struct {
 // ToMap implements MappedNullable.
 func (o UpdateSTFWebReceiverPluginAssistantRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.WebReceiverService.IsSet() {
-		toSerialize["WebReceiverService"] = o.WebReceiverService.Get()
-	}
 	if o.Enabled.IsSet() {
 		toSerialize["Enabled"] = o.Enabled.Get()
 	}
@@ -102,9 +78,6 @@ func (o UpdateSTFWebReceiverPluginAssistantRequestModel) ToMap() (map[string]int
 	return toSerialize, nil
 }
 
-func (o *UpdateSTFWebReceiverPluginAssistantRequestModel) SetWebReceiverService(v string) {
-	o.WebReceiverService.Set(&v)
-}
 func (o *UpdateSTFWebReceiverPluginAssistantRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }

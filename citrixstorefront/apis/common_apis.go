@@ -9,20 +9,31 @@ import (
 )
 
 func BuildAuth(remoteCompName string, username string, password string) string {
-	if remoteCompName != "" {
+	if remoteCompName == "" {
+		return ""
+	} else if strings.Contains(remoteCompName, "https") {
+		return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') ) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate", remoteCompName, username, password)
+	} else {
 		return fmt.Sprintf("-ComputerName  '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') )", remoteCompName, username, password)
 	}
-	return ""
 }
 
 func ExecuteCommand(credential string, command string, args ...string) ([]byte, error) {
+	return ExecuteCommandBase(credential, 2, command, args...)
+}
+
+func ExecuteCommandWithDepth(credential string, jsonDepth int, command string, args ...string) ([]byte, error) {
+	return ExecuteCommandBase(credential, jsonDepth, command, args...)
+}
+
+func ExecuteCommandBase(credential string, jsonDepth int, command string, args ...string) ([]byte, error) {
 	var cmdArgs []string
 	if credential != "" {
 		cmdArgs = append([]string{"/c", "Invoke-Command -Session (New-PSSession ", credential, " ) -ScriptBlock {", command}, args...)
-		cmdArgs = append(cmdArgs, "|", "ConvertTo-Json", "}")
+		cmdArgs = append(cmdArgs, "|", fmt.Sprintf("ConvertTo-Json -Depth %d", jsonDepth), "}")
 	} else {
 		cmdArgs = append([]string{"/c", command}, args...)
-		cmdArgs = append(cmdArgs, "|", "ConvertTo-Json", "|", "Write-Output")
+		cmdArgs = append(cmdArgs, "|", fmt.Sprintf("ConvertTo-Json -Depth %d", jsonDepth), "|", "Write-Output")
 	}
 	cmd := exec.Command("powershell", cmdArgs...)
 	output, err := cmd.CombinedOutput()
@@ -71,7 +82,7 @@ func StructToString(s interface{}) string {
 				case "NullableString":
 					stringValue := reflect.Indirect(value.FieldByName("value"))
 					if stringValue.IsValid() && stringValue.String() != "" {
-						result = append(result, fmt.Sprintf("-%s %s", field.Name, stringValue.String()))
+						result = append(result, fmt.Sprintf("-%s '%s'", field.Name, stringValue.String()))
 					}
 				default:
 					result = append(result, fmt.Sprintf("-%s %v", field.Name, value.Interface()))
