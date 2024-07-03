@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+// StoreFront base datatype models
+
 // PtrBool is a helper routine that returns a pointer to given boolean value.
 func PtrBool(v bool) *bool { return &v }
 
@@ -335,4 +337,78 @@ func IsNil(i interface{}) bool {
 
 type MappedNullable interface {
 	ToMap() (map[string]interface{}, error)
+}
+
+// StoreFront Common Models
+type TimeModel struct {
+	Ticks             NullableInt     `json:"Ticks,omitempty"`             // The ticks of the time
+	Days              NullableInt     `json:"Days,omitempty"`              // The days of the time
+	Hours             NullableInt     `json:"Hours,omitempty"`             // The hours of the time
+	Milliseconds      NullableInt     `json:"Milliseconds,omitempty"`      // The milliseconds of the time
+	Minutes           NullableInt     `json:"Minutes,omitempty"`           // The minutes of the time
+	Seconds           NullableInt     `json:"Seconds,omitempty"`           // The seconds of the time
+	TotalDays         NullableFloat64 `json:"TotalDays,omitempty"`         // The total days of the time
+	TotalHours        NullableFloat64 `json:"TotalHours,omitempty"`        // The total hours of the time
+	TotalMilliseconds NullableInt     `json:"TotalMilliseconds,omitempty"` // The total milliseconds of the time
+	TotalMinutes      NullableFloat64 `json:"TotalMinutes,omitempty"`      // The total minutes of the time
+	TotalSeconds      NullableInt     `json:"TotalSeconds,omitempty"`      // The total seconds of the time
+}
+
+type HmacsModel struct {
+	Name NullableString `json:"Name,omitempty"` // The name of the hmac
+	Key  NullableString `json:"Key,omitempty"`  // The key of the hmac
+}
+
+type CertificateModel struct {
+	Id         NullableString `json:"Id,omitempty"`         // The id of the certificate
+	Thumbprint NullableString `json:"Thumbprint,omitempty"` // The thumbprint of the certificate
+}
+
+type RoutingModel struct {
+	HostBaseUrl       NullableString   `json:"HostBaseUrl,omitempty"`       // The host base url of the routing
+	ServiceName       NullableString   `json:"ServiceName,omitempty"`       // The service name of the routing
+	ExternalEndpoints []NullableString `json:"ExternalEndpoints,omitempty"` // The external endpoints of the routing
+}
+
+type ApplicationInitializationModel struct {
+	SkipManagedModules NullableBool `json:"SkipManagedModules"`
+}
+
+type NameValuePairModel struct {
+	Name  NullableString `json:"Name,omitempty"`  // The name of the name value pair
+	Value NullableString `json:"Value,omitempty"` // The value of the name value pair
+}
+
+type HostingEnvironmentModel struct {
+	ShadowCopyBinAssemblies NullableBool `json:"ShadowCopyBinAssemblies"`
+}
+
+type CredentialWalletModel struct {
+	WalletName NullableString `json:"WalletName,omitempty"`
+}
+
+type ServiceModel struct {
+	Id               NullableString     `json:"Id,omitempty"`               // The id of the service
+	DisplayName      NullableString     `json:"DisplayName,omitempty"`      // The display name of the service
+	TrustedIssuers   []TrustIssuerModel `json:"TrustedIssuers,omitempty"`   // The trusted issuers of the service
+	RelyingParties   []RelyingParty     `json:"RelyingParties,omitempty"`   // The relying parties of the service
+	AllowedAudiences []AllowedAudience  `json:"AllowedAudiences,omitempty"` // The allowed audiences of the service
+}
+
+type BasicWebApplicationModel struct {
+	WebSite            BasicWebSiteModel `json:"WebSite"`
+	VirtualPath        NullableString    `json:"VirtualPath"`
+	Name               NullableString    `json:"Name"`
+	AppPool            NullableString    `json:"AppPool"`
+	Folder             NullableString    `json:"Folder"`
+	VirtualDirectories []string          `json:"VirtualDirectories"`
+}
+
+type BasicWebSiteModel struct {
+	PhysicalPath        NullableString `json:"PhysicalPath"`
+	DefaultApplPoolName NullableString `json:"DefaultApplPoolName"`
+	Bindings            NullableString `json:"Bindings"`
+	Name                NullableString `json:"Name"`
+	Id                  NullableInt    `json:"Id"`
+	Applications        NullableString `json:"Applications"`
 }

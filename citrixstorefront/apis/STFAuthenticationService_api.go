@@ -23,18 +23,19 @@ func (r ApiAddSTFAuthenticationServiceRequest) Execute() (models.STFAuthenticati
 	if err != nil {
 		return models.STFAuthenticationServiceResponseModel{}, err
 	}
-	var reponse = models.STFAuthenticationServiceResponseModel{}
+	var reponse = models.STFAuthenticationServiceRawResponseModel{}
 	unmarshalErr := json.Unmarshal(bytes, &reponse)
 	if unmarshalErr != nil {
 		fmt.Println("Error: ", unmarshalErr)
-		return models.STFAuthenticationServiceResponseModel{}, fmt.Errorf("error unmarshal STFAuthenticationServiceResponseModel: %v", err)
+		return models.STFAuthenticationServiceResponseModel{}, fmt.Errorf("error unmarshal STFAuthenticationServiceResponseModel: %v", unmarshalErr.Error())
 	}
-	return reponse, nil
+
+	return reponse.ConvertToResponseModel()
 }
 
 func (a *STFAuthentication) ApiAddSTFAuthenticationServiceExecute(r ApiAddSTFAuthenticationServiceRequest) ([]byte, error) {
 	var param = StructToString(r.AddSTFAuthenticationServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFAuthenticationService", param)
+	return ExecuteCommandWithDepth(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), 5, "Add-STFAuthenticationService", param)
 }
 
 func (a *STFAuthentication) STFAuthenticationCreateSTFAuthenticationService(ctx context.Context, addSTFAuthenticationServiceRequestModel models.AddSTFAuthenticationServiceRequestModel) ApiAddSTFAuthenticationServiceRequest {
@@ -60,18 +61,18 @@ func (r ApiGetSTFAuthenticationServiceRequest) Execute() (models.STFAuthenticati
 	if len(bytes) == 0 {
 		return models.STFAuthenticationServiceResponseModel{}, fmt.Errorf(NOT_EXIST)
 	}
-	var reponse = models.STFAuthenticationServiceResponseModel{}
+	var reponse = models.STFAuthenticationServiceRawResponseModel{}
 	unmarshalErr := json.Unmarshal(bytes, &reponse)
 	if unmarshalErr != nil {
 		fmt.Println("Error: ", unmarshalErr)
-		return models.STFAuthenticationServiceResponseModel{}, fmt.Errorf("error unmarshal STFAuthenticationServiceResponseModel: %v", err)
+		return models.STFAuthenticationServiceResponseModel{}, fmt.Errorf("error unmarshal STFAuthenticationServiceResponseModel: %v", unmarshalErr.Error())
 	}
-	return reponse, nil
+	return reponse.ConvertToResponseModel()
 }
 
 func (a *STFAuthentication) GetSTFAuthenticationServiceExecute(r ApiGetSTFAuthenticationServiceRequest) ([]byte, error) {
 	var param = StructToString(r.GetSTFAuthenticationServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFAuthenticationService", param)
+	return ExecuteCommandWithDepth(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), 5, "Get-STFAuthenticationService", param)
 }
 
 func (a *STFAuthentication) STFAuthenticationGetSTFAuthenticationService(ctx context.Context, getSTFAuthenticationServiceRequestModel models.GetSTFAuthenticationServiceRequestModel) ApiGetSTFAuthenticationServiceRequest {
@@ -254,5 +255,37 @@ func (a *STFAuthentication) STFWebReceiverDisableSTFAuthenticationProtocols(ctx 
 		ApiService: a,
 		ctx:        ctx,
 		DisableAuthenticationServiceProtocolRequestModel: DisableAuthenticationServiceProtocolRequestModel,
+	}
+}
+
+// Set STFClaimsFactoryNames
+
+type ApiSetSTFClaimsFactoryNamesRequest struct {
+	ctx                                  context.Context
+	ApiService                           *STFAuthentication
+	GetAuthenticationServiceRequestModel models.GetSTFAuthenticationServiceRequestModel
+	SetSTFClaimsFactoryNamesRequestModel models.SetSTFClaimsFactoryNamesRequestModel
+}
+
+func (r ApiSetSTFClaimsFactoryNamesRequest) Execute() error {
+	_, err := r.ApiService.SetSTFClaimsFactoryNamesExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFAuthentication) SetSTFClaimsFactoryNamesExecute(r ApiSetSTFClaimsFactoryNamesRequest) ([]byte, error) {
+	var getAuthenticationServiceParams = StructToString(r.GetAuthenticationServiceRequestModel)
+	var setClaimsFactoryNameParam = StructToString(r.SetSTFClaimsFactoryNamesRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFClaimsFactoryNames", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", getAuthenticationServiceParams), setClaimsFactoryNameParam)
+}
+
+func (a *STFAuthentication) STFSetClaimsFactoryNames(ctx context.Context, getAuthenticationServiceRequestModel models.GetSTFAuthenticationServiceRequestModel, setSTFClaimsFactoryNamesRequestModel models.SetSTFClaimsFactoryNamesRequestModel) ApiSetSTFClaimsFactoryNamesRequest {
+	return ApiSetSTFClaimsFactoryNamesRequest{
+		ctx:                                  ctx,
+		ApiService:                           a,
+		GetAuthenticationServiceRequestModel: getAuthenticationServiceRequestModel,
+		SetSTFClaimsFactoryNamesRequestModel: setSTFClaimsFactoryNamesRequestModel,
 	}
 }
