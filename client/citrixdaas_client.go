@@ -16,8 +16,10 @@ import (
 	"strings"
 	"time"
 
+	ccadmins "github.com/citrix/citrix-daas-rest-go/ccadmins"
 	resourcelocations "github.com/citrix/citrix-daas-rest-go/ccresourcelocations"
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+	citrixquickcreate "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 	storefrontapis "github.com/citrix/citrix-daas-rest-go/citrixstorefront/apis"
 	globalappconfiguration "github.com/citrix/citrix-daas-rest-go/globalappconfiguration"
 )
@@ -26,10 +28,12 @@ type CitrixDaasClient struct {
 	ApiClient               *citrixorchestration.APIClient
 	GacClient               *globalappconfiguration.APIClient
 	ResourceLocationsClient *resourcelocations.APIClient
+	CCAdminsClient          *ccadmins.APIClient
 	AuthConfig              *AuthenticationConfiguration
 	ClientConfig            *ClientConfiguration
 	AuthToken               *AuthTokenModel
 	StorefrontClient        *storefrontapis.APIClient
+	QuickCreateClient       *citrixquickcreate.APIClient
 }
 
 type AuthTokenModel struct {
@@ -58,16 +62,41 @@ func getMiddlewareWithResourceLocationsClient(authClient *CitrixDaasClient, midd
 	}
 }
 
-func NewStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string, daasClient *CitrixDaasClient) *CitrixDaasClient {
+func getMiddlewareWithCCAdminsClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) ccadmins.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
+func getMiddlewareWithQuickcreateClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) citrixquickcreate.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
+func (daasClient *CitrixDaasClient) NewStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string) {
 	daasClient.StorefrontClient = storefrontapis.NewAPIClient()
 	daasClient.StorefrontClient.SetComputerName(computerName)
 	daasClient.StorefrontClient.SetAdUserName(adUserName)
 	daasClient.StorefrontClient.SetAdPassword(adUserPass)
-
-	return daasClient
 }
 
-func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
+func NewQuickCreateClient(ctx context.Context, daasClient *CitrixDaasClient, quickCreateHostName string, middlewareFunc MiddlewareAuthFunction) {
+	/* ------ Setup QuickCreate Client ------ */
+	localQuickCreateCfg := citrixquickcreate.NewConfiguration()
+	localQuickCreateCfg.Scheme = "https"
+
+	localQuickCreateCfg.Servers = citrixquickcreate.ServerConfigurations{
+		{
+			URL: localQuickCreateCfg.Scheme + "://" + quickCreateHostName,
+		},
+	}
+
+	localQuickCreateCfg.Middleware = getMiddlewareWithQuickcreateClient(daasClient, middlewareFunc)
+	daasClient.QuickCreateClient = citrixquickcreate.NewAPIClient(localQuickCreateCfg)
+}
+
+func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
 	daasClient := &CitrixDaasClient{}
 
 	/* ------ Setup API Client ------ */
@@ -111,6 +140,19 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customer
 
 	localResourceLocationsCfg.Middleware = getMiddlewareWithResourceLocationsClient(daasClient, middlewareFunc)
 	daasClient.ResourceLocationsClient = resourcelocations.NewAPIClient(localResourceLocationsCfg)
+
+	/* ------ Setup CC Admin Client ------ */
+	localCCAdminCfg := ccadmins.NewConfiguration()
+	localCCAdminCfg.Scheme = "https"
+
+	localCCAdminCfg.Servers = ccadmins.ServerConfigurations{
+		{
+			URL: localCCAdminCfg.Scheme + "://" + ccUrl + "/administrators",
+		},
+	}
+
+	localCCAdminCfg.Middleware = getMiddlewareWithCCAdminsClient(daasClient, middlewareFuncWithCustomerIdHeader)
+	daasClient.CCAdminsClient = ccadmins.NewAPIClient(localCCAdminCfg)
 
 	/* ------ Setup Authentication Configuration ------ */
 	localAuthCfg := &AuthenticationConfiguration{}
@@ -286,9 +328,18 @@ func ExecuteWithRetry[ResponseBodyType any](request any, c *CitrixDaasClient) (R
 	if ok {
 		operation := func() (ResponseBodyType, *http.Response, error) {
 			values := method.Func.Call([]reflect.Value{requestValue})
-			responseBody, _ := values[0].Interface().(ResponseBodyType)
-			httpResp, _ := values[1].Interface().(*http.Response)
-			err, _ := values[2].Interface().(error)
+			var responseBody ResponseBodyType
+			var httpResp *http.Response
+			var err error
+			if len(values) > 2 {
+				responseBody, _ = values[0].Interface().(ResponseBodyType)
+				httpResp, _ = values[1].Interface().(*http.Response)
+				err, _ = values[2].Interface().(error)
+			} else {
+				// This allows us to use ExecuteWithRetry when the request does not have a response body (ex: 204 No Content)
+				httpResp, _ = values[0].Interface().(*http.Response)
+				err, _ = values[1].Interface().(error)
+			}
 
 			return responseBody, httpResp, err
 		}

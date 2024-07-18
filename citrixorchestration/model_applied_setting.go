@@ -23,7 +23,10 @@ type AppliedSetting struct {
 	SettingName NullableString `json:"SettingName,omitempty"`
 	// Setting value.
 	SettingValue NullableString `json:"SettingValue,omitempty"`
-	PolicyIdentity *PolicyIdentity `json:"PolicyIdentity,omitempty"`
+	// Name of the policy.
+	PolicyName NullableString `json:"PolicyName,omitempty"`
+	// Name of the GPO that contains the policy that uses this setting.
+	GpoName NullableString `json:"GpoName,omitempty"`
 }
 
 // NewAppliedSetting instantiates a new AppliedSetting object
@@ -127,36 +130,88 @@ func (o *AppliedSetting) UnsetSettingValue() {
 	o.SettingValue.Unset()
 }
 
-// GetPolicyIdentity returns the PolicyIdentity field value if set, zero value otherwise.
-func (o *AppliedSetting) GetPolicyIdentity() PolicyIdentity {
-	if o == nil || IsNil(o.PolicyIdentity) {
-		var ret PolicyIdentity
+// GetPolicyName returns the PolicyName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppliedSetting) GetPolicyName() string {
+	if o == nil || IsNil(o.PolicyName.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.PolicyIdentity
+	return *o.PolicyName.Get()
 }
 
-// GetPolicyIdentityOk returns a tuple with the PolicyIdentity field value if set, nil otherwise
+// GetPolicyNameOk returns a tuple with the PolicyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AppliedSetting) GetPolicyIdentityOk() (*PolicyIdentity, bool) {
-	if o == nil || IsNil(o.PolicyIdentity) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppliedSetting) GetPolicyNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PolicyIdentity, true
+	return o.PolicyName.Get(), o.PolicyName.IsSet()
 }
 
-// HasPolicyIdentity returns a boolean if a field has been set.
-func (o *AppliedSetting) HasPolicyIdentity() bool {
-	if o != nil && !IsNil(o.PolicyIdentity) {
+// HasPolicyName returns a boolean if a field has been set.
+func (o *AppliedSetting) HasPolicyName() bool {
+	if o != nil && o.PolicyName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPolicyIdentity gets a reference to the given PolicyIdentity and assigns it to the PolicyIdentity field.
-func (o *AppliedSetting) SetPolicyIdentity(v PolicyIdentity) {
-	o.PolicyIdentity = &v
+// SetPolicyName gets a reference to the given NullableString and assigns it to the PolicyName field.
+func (o *AppliedSetting) SetPolicyName(v string) {
+	o.PolicyName.Set(&v)
+}
+// SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+func (o *AppliedSetting) SetPolicyNameNil() {
+	o.PolicyName.Set(nil)
+}
+
+// UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
+func (o *AppliedSetting) UnsetPolicyName() {
+	o.PolicyName.Unset()
+}
+
+// GetGpoName returns the GpoName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppliedSetting) GetGpoName() string {
+	if o == nil || IsNil(o.GpoName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.GpoName.Get()
+}
+
+// GetGpoNameOk returns a tuple with the GpoName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppliedSetting) GetGpoNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GpoName.Get(), o.GpoName.IsSet()
+}
+
+// HasGpoName returns a boolean if a field has been set.
+func (o *AppliedSetting) HasGpoName() bool {
+	if o != nil && o.GpoName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGpoName gets a reference to the given NullableString and assigns it to the GpoName field.
+func (o *AppliedSetting) SetGpoName(v string) {
+	o.GpoName.Set(&v)
+}
+// SetGpoNameNil sets the value for GpoName to be an explicit nil
+func (o *AppliedSetting) SetGpoNameNil() {
+	o.GpoName.Set(nil)
+}
+
+// UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
+func (o *AppliedSetting) UnsetGpoName() {
+	o.GpoName.Unset()
 }
 
 func (o AppliedSetting) MarshalJSON() ([]byte, error) {
@@ -175,8 +230,11 @@ func (o AppliedSetting) ToMap() (map[string]interface{}, error) {
 	if o.SettingValue.IsSet() {
 		toSerialize["SettingValue"] = o.SettingValue.Get()
 	}
-	if !IsNil(o.PolicyIdentity) {
-		toSerialize["PolicyIdentity"] = o.PolicyIdentity
+	if o.PolicyName.IsSet() {
+		toSerialize["PolicyName"] = o.PolicyName.Get()
+	}
+	if o.GpoName.IsSet() {
+		toSerialize["GpoName"] = o.GpoName.Get()
 	}
 	return toSerialize, nil
 }

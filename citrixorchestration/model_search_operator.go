@@ -24,24 +24,28 @@ const (
 	SEARCHOPERATOR_NOT_EQUALS SearchOperator = "NotEquals"
 	SEARCHOPERATOR_LESS_THAN SearchOperator = "LessThan"
 	SEARCHOPERATOR_GREATER_THAN SearchOperator = "GreaterThan"
+	SEARCHOPERATOR_LESS_THAN_OR_EQUALS SearchOperator = "LessThanOrEquals"
+	SEARCHOPERATOR_GREATER_THAN_OR_EQUALS SearchOperator = "GreaterThanOrEquals"
 	SEARCHOPERATOR_LIKE SearchOperator = "Like"
 	SEARCHOPERATOR_NOT_LIKE SearchOperator = "NotLike"
+	SEARCHOPERATOR_ENDS_WITH SearchOperator = "EndsWith"
+	SEARCHOPERATOR_NOT_ENDS_WITH SearchOperator = "NotEndsWith"
 	SEARCHOPERATOR_STARTS_WITH SearchOperator = "StartsWith"
 	SEARCHOPERATOR_NOT_STARTS_WITH SearchOperator = "NotStartsWith"
-	SEARCHOPERATOR_ENDS_WITH SearchOperator = "EndsWith"
-	SEARCHOPERATOR_NONE SearchOperator = "None"
 	SEARCHOPERATOR_ANY SearchOperator = "Any"
+	SEARCHOPERATOR_NONE SearchOperator = "None"
 	SEARCHOPERATOR_CONTAINS SearchOperator = "Contains"
-	SEARCHOPERATOR_CONTAINS_LIKE SearchOperator = "ContainsLike"
-	SEARCHOPERATOR_CONTAINS_STARTS_WITH SearchOperator = "ContainsStartsWith"
-	SEARCHOPERATOR_CONTAINS_ENDS_WITH SearchOperator = "ContainsEndsWith"
 	SEARCHOPERATOR_NOT_CONTAINS SearchOperator = "NotContains"
+	SEARCHOPERATOR_CONTAINS_LIKE SearchOperator = "ContainsLike"
+	SEARCHOPERATOR_NOT_CONTAINS_LIKE SearchOperator = "NotContainsLike"
+	SEARCHOPERATOR_CONTAINS_ENDS_WITH SearchOperator = "ContainsEndsWith"
+	SEARCHOPERATOR_NOT_CONTAINS_ENDS_WITH SearchOperator = "NotContainsEndsWith"
+	SEARCHOPERATOR_CONTAINS_STARTS_WITH SearchOperator = "ContainsStartsWith"
+	SEARCHOPERATOR_NOT_CONTAINS_STARTS_WITH SearchOperator = "NotContainsStartsWith"
 	SEARCHOPERATOR_IN SearchOperator = "In"
 	SEARCHOPERATOR_NOT_IN SearchOperator = "NotIn"
 	SEARCHOPERATOR_IS_WITHIN SearchOperator = "IsWithin"
 	SEARCHOPERATOR_IS_NOT_WITHIN SearchOperator = "IsNotWithin"
-	SEARCHOPERATOR_LESS_THAN_OR_EQUALS SearchOperator = "LessThanOrEquals"
-	SEARCHOPERATOR_GREATER_THAN_OR_EQUALS SearchOperator = "GreaterThanOrEquals"
 )
 
 // All allowed values of SearchOperator enum
@@ -50,24 +54,28 @@ var AllowedSearchOperatorEnumValues = []SearchOperator{
 	"NotEquals",
 	"LessThan",
 	"GreaterThan",
+	"LessThanOrEquals",
+	"GreaterThanOrEquals",
 	"Like",
 	"NotLike",
+	"EndsWith",
+	"NotEndsWith",
 	"StartsWith",
 	"NotStartsWith",
-	"EndsWith",
-	"None",
 	"Any",
+	"None",
 	"Contains",
-	"ContainsLike",
-	"ContainsStartsWith",
-	"ContainsEndsWith",
 	"NotContains",
+	"ContainsLike",
+	"NotContainsLike",
+	"ContainsEndsWith",
+	"NotContainsEndsWith",
+	"ContainsStartsWith",
+	"NotContainsStartsWith",
 	"In",
 	"NotIn",
 	"IsWithin",
 	"IsNotWithin",
-	"LessThanOrEquals",
-	"GreaterThanOrEquals",
 }
 
 func (v *SearchOperator) UnmarshalJSON(src []byte) error {

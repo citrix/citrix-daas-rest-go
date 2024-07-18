@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyIdentity** | Pointer to [**PolicyIdentity**](PolicyIdentity.md) |  | [optional] 
-**Reasons** | Pointer to **map[string][]string** | Reasons why the policy is applied. | [optional] 
+**PolicyName** | Pointer to **NullableString** | Name of the policy. | [optional] 
+**GpoName** | Pointer to **NullableString** | Name of the GPO that contains the policy that uses this setting. | [optional] 
+**Reasons** | Pointer to [**map[string][]ReasonDetail**](array.md) | Reasons why the policy is applied. | [optional] 
 
 ## Methods
 
@@ -26,47 +27,92 @@ NewAppliedPolicyWithDefaults instantiates a new AppliedPolicy object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetPolicyIdentity
+### GetPolicyName
 
-`func (o *AppliedPolicy) GetPolicyIdentity() PolicyIdentity`
+`func (o *AppliedPolicy) GetPolicyName() string`
 
-GetPolicyIdentity returns the PolicyIdentity field if non-nil, zero value otherwise.
+GetPolicyName returns the PolicyName field if non-nil, zero value otherwise.
 
-### GetPolicyIdentityOk
+### GetPolicyNameOk
 
-`func (o *AppliedPolicy) GetPolicyIdentityOk() (*PolicyIdentity, bool)`
+`func (o *AppliedPolicy) GetPolicyNameOk() (*string, bool)`
 
-GetPolicyIdentityOk returns a tuple with the PolicyIdentity field if it's non-nil, zero value otherwise
+GetPolicyNameOk returns a tuple with the PolicyName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPolicyIdentity
+### SetPolicyName
 
-`func (o *AppliedPolicy) SetPolicyIdentity(v PolicyIdentity)`
+`func (o *AppliedPolicy) SetPolicyName(v string)`
 
-SetPolicyIdentity sets PolicyIdentity field to given value.
+SetPolicyName sets PolicyName field to given value.
 
-### HasPolicyIdentity
+### HasPolicyName
 
-`func (o *AppliedPolicy) HasPolicyIdentity() bool`
+`func (o *AppliedPolicy) HasPolicyName() bool`
 
-HasPolicyIdentity returns a boolean if a field has been set.
+HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *AppliedPolicy) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *AppliedPolicy) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
+### GetGpoName
+
+`func (o *AppliedPolicy) GetGpoName() string`
+
+GetGpoName returns the GpoName field if non-nil, zero value otherwise.
+
+### GetGpoNameOk
+
+`func (o *AppliedPolicy) GetGpoNameOk() (*string, bool)`
+
+GetGpoNameOk returns a tuple with the GpoName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGpoName
+
+`func (o *AppliedPolicy) SetGpoName(v string)`
+
+SetGpoName sets GpoName field to given value.
+
+### HasGpoName
+
+`func (o *AppliedPolicy) HasGpoName() bool`
+
+HasGpoName returns a boolean if a field has been set.
+
+### SetGpoNameNil
+
+`func (o *AppliedPolicy) SetGpoNameNil(b bool)`
+
+ SetGpoNameNil sets the value for GpoName to be an explicit nil
+
+### UnsetGpoName
+`func (o *AppliedPolicy) UnsetGpoName()`
+
+UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
 ### GetReasons
 
-`func (o *AppliedPolicy) GetReasons() map[string][]string`
+`func (o *AppliedPolicy) GetReasons() map[string][]ReasonDetail`
 
 GetReasons returns the Reasons field if non-nil, zero value otherwise.
 
 ### GetReasonsOk
 
-`func (o *AppliedPolicy) GetReasonsOk() (*map[string][]string, bool)`
+`func (o *AppliedPolicy) GetReasonsOk() (*map[string][]ReasonDetail, bool)`
 
 GetReasonsOk returns a tuple with the Reasons field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReasons
 
-`func (o *AppliedPolicy) SetReasons(v map[string][]string)`
+`func (o *AppliedPolicy) SetReasons(v map[string][]ReasonDetail)`
 
 SetReasons sets Reasons field to given value.
 

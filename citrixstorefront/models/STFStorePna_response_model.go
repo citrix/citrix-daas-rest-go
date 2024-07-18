@@ -3,7 +3,7 @@
 package models
 
 type STFPna struct {
-	Service           StoreServiceModel `json:"StoreService,omitempty"`
-	PnaEnabled        NullableBool      `json:"PnaEnabled,omitempty"`
-	DefaultPnaService NullableBool      `json:"DefaultPnaService,omitempty"`
+	FeatureData       StoreFeatureData `json:"FeatureData,omitempty"`
+	PnaEnabled        NullableBool     `json:"PnaEnabled,omitempty"`
+	DefaultPnaService NullableBool     `json:"DefaultPnaService,omitempty"`
 }

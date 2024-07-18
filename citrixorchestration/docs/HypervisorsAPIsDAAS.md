@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**HypervisorsCreateResourcePool**](HypervisorsAPIsDAAS.md#HypervisorsCreateResourcePool) | **Post** /hypervisors/{nameOrId}/resourcePools | Create a new resource pool on an existing hypervisor.
 [**HypervisorsDeleteHypervisor**](HypervisorsAPIsDAAS.md#HypervisorsDeleteHypervisor) | **Delete** /hypervisors/{nameOrId} | Delete a hypervisor and related resource pools.
 [**HypervisorsDeleteHypervisorResourcePool**](HypervisorsAPIsDAAS.md#HypervisorsDeleteHypervisorResourcePool) | **Delete** /hypervisors/{nameOrId}/resourcePools/{poolId} | Delete a hypervisor resource pool.
+[**HypervisorsDoHypervisorAllResourcesSearch**](HypervisorsAPIsDAAS.md#HypervisorsDoHypervisorAllResourcesSearch) | **Post** /hypervisors/{nameOrId}/allResources/$search | Search the resources within a hypervisor.
 [**HypervisorsDoHypervisorResourceSearch**](HypervisorsAPIsDAAS.md#HypervisorsDoHypervisorResourceSearch) | **Post** /hypervisors/{nameOrId}/resourcePools/{poolId}/resources/$search | Search the resources within a hypervisor resource pool.
 [**HypervisorsGetHypervisor**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisor) | **Get** /hypervisors/{nameOrId} | Get the details for a single hypervisor.
 [**HypervisorsGetHypervisorAdministrators**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorAdministrators) | **Get** /hypervisors/{nameOrId}/administrators | Get administrators who can administer a hypervisor.
@@ -542,6 +543,100 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HypervisorsDoHypervisorAllResourcesSearch
+
+> HypervisorResourceResponseModelCollection HypervisorsDoHypervisorAllResourcesSearch(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Detail(detail).Async(async).Execute()
+
+Search the resources within a hypervisor.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
+    hypervisorResourceSearchRequestModel := *openapiclient.NewHypervisorResourceSearchRequestModel() // HypervisorResourceSearchRequestModel | Specifies the advanced search parameters.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    limit := int32(56) // int32 | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    detail := true // bool | If `true`, full details of templates will be retrieved. This can be very time consuming and will reduce the performance of the call. (optional) (default to false)
+    async := true // bool | Async request to get the resources with *path.  (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearch(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Detail(detail).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HypervisorsDoHypervisorAllResourcesSearch`: HypervisorResourceResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the hypervisor. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHypervisorsDoHypervisorAllResourcesSearchRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **hypervisorResourceSearchRequestModel** | [**HypervisorResourceSearchRequestModel**](HypervisorResourceSearchRequestModel.md) | Specifies the advanced search parameters. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **limit** | **int32** | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **detail** | **bool** | If &#x60;true&#x60;, full details of templates will be retrieved. This can be very time consuming and will reduce the performance of the call. | [default to false]
+ **async** | **bool** | Async request to get the resources with *path.  | [default to false]
+
+### Return type
+
+[**HypervisorResourceResponseModelCollection**](HypervisorResourceResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

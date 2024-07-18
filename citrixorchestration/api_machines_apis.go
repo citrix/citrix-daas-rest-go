@@ -95,7 +95,7 @@ func (r ApiMachinesAddMachineTagsRequest) Execute() (*TagResponseModelCollection
 MachinesAddMachineTags Add a tag to a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @param tagNameOrId Name or ID of the tag to add.
  @return ApiMachinesAddMachineTagsRequest
 */
@@ -388,7 +388,7 @@ MachinesCheckMachineExists Check for the existence of a machine by name.
 Check for the existence of a machine by name
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the machine.
+ @param name Name of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesCheckMachineExistsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesCheckMachineExists(ctx context.Context, name string) ApiMachinesCheckMachineExistsRequest {
@@ -665,7 +665,7 @@ func (r ApiMachinesCreateMachineUpgradeScheduleRequest) Execute() (*http.Respons
 MachinesCreateMachineUpgradeSchedule Setup a new VDA upgrade schedule for a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesCreateMachineUpgradeScheduleRequest
 */
 func (a *MachinesAPIsDAASService) MachinesCreateMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesCreateMachineUpgradeScheduleRequest {
@@ -974,7 +974,7 @@ MachinesDisconnectSessions Disconnect all sessions on a machine.
 Disconnect all sessions on a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to disconnect sessions from.
+ @param nameOrId Machine to disconnect sessions from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesDisconnectSessionsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesDisconnectSessions(ctx context.Context, nameOrId string) ApiMachinesDisconnectSessionsRequest {
@@ -1211,6 +1211,7 @@ type ApiMachinesDoMachineSearchRequest struct {
 	userAgent *string
 	authorization *string
 	citrixTransactionId *string
+	xTimeZone *string
 	accept *string
 	citrixLocale *string
 	limit *int32
@@ -1253,6 +1254,12 @@ func (r ApiMachinesDoMachineSearchRequest) Authorization(authorization string) A
 // Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
 func (r ApiMachinesDoMachineSearchRequest) CitrixTransactionId(citrixTransactionId string) ApiMachinesDoMachineSearchRequest {
 	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00
+func (r ApiMachinesDoMachineSearchRequest) XTimeZone(xTimeZone string) ApiMachinesDoMachineSearchRequest {
+	r.xTimeZone = &xTimeZone
 	return r
 }
 
@@ -1306,7 +1313,7 @@ func (r ApiMachinesDoMachineSearchRequest) Execute() (*MachineResponseModelColle
 MachinesDoMachineSearch Perform an advanced search for machines.
 
 Perform an advanced search for machines.  Note that some combinations
-of search parameters may result in slow performance.
+of search parameters may result in slow performance and only configured machines will be returned.
 
 The 'SessionSupport' 
 must be included in search filters.
@@ -1393,6 +1400,9 @@ func (a *MachinesAPIsDAASService) MachinesDoMachineSearchExecute(r ApiMachinesDo
 	}
 	if r.citrixTransactionId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xTimeZone != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-TimeZone", r.xTimeZone, "")
 	}
 	if r.accept != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
@@ -1618,12 +1628,12 @@ func (r ApiMachinesGetMachineRequest) Execute() (*MachineDetailResponseModel, *h
 }
 
 /*
-MachinesGetMachine Get details of a single machine.
+MachinesGetMachine Get details of a single machine which belongs to this site, or have registered but are not yet configured in this site
 
-Get details of a single machine
+Get details of a single machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachine(ctx context.Context, nameOrId string) ApiMachinesGetMachineRequest {
@@ -1905,7 +1915,7 @@ or InUse
 will be `true` for each application returned.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineApplicationsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineApplications(ctx context.Context, nameOrId string) ApiMachinesGetMachineApplicationsRequest {
@@ -2181,7 +2191,7 @@ MachinesGetMachineDeliveryGroup Get the delivery group for a machine.
 Get the details of the delivery group in which a machine resides.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineDeliveryGroupRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineDeliveryGroup(ctx context.Context, nameOrId string) ApiMachinesGetMachineDeliveryGroupRequest {
@@ -2457,7 +2467,7 @@ MachinesGetMachineDesktop Get the desktop associated with the machine, if any.
 Get the details of the desktop associated with the machine, if any.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineDesktopRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineDesktop(ctx context.Context, nameOrId string) ApiMachinesGetMachineDesktopRequest {
@@ -2733,7 +2743,7 @@ MachinesGetMachineMachineCatalog Get the machine catalog for a machine.
 Get the details of the machine catalog in which a machine resides.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineMachineCatalogRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineMachineCatalog(ctx context.Context, nameOrId string) ApiMachinesGetMachineMachineCatalogRequest {
@@ -3007,7 +3017,7 @@ func (r ApiMachinesGetMachinePowerActionSchedulesRequest) Execute() (*PowerActio
 MachinesGetMachinePowerActionSchedules Get the power action schedules associated with a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachinePowerActionSchedulesRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachinePowerActionSchedules(ctx context.Context, nameOrId string) ApiMachinesGetMachinePowerActionSchedulesRequest {
@@ -3290,7 +3300,7 @@ MachinesGetMachineSessions Get the list of sessions running on a machine.
 Get the list of sessions running on a machine
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineSessionsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineSessions(ctx context.Context, nameOrId string) ApiMachinesGetMachineSessionsRequest {
@@ -3594,7 +3604,7 @@ and registered in order for the call to succeed.
 This icon is usually used to help create a published application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to get the shortcut icon from.
+ @param nameOrId Machine to get the shortcut icon from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineStartMenuShortcutIconRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcutIcon(ctx context.Context, nameOrId string) ApiMachinesGetMachineStartMenuShortcutIconRequest {
@@ -3888,7 +3898,7 @@ Note that this call does not retrieve the shortcut icon; use
 to get the icon.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to get the shortcuts from.
+ @param nameOrId Machine to get the shortcuts from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineStartMenuShortcutsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcuts(ctx context.Context, nameOrId string) ApiMachinesGetMachineStartMenuShortcutsRequest {
@@ -4176,7 +4186,7 @@ with the machine, filter the results to those with
 NumMachines equal to `1`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachineTagsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachineTags(ctx context.Context, nameOrId string) ApiMachinesGetMachineTagsRequest {
@@ -4780,7 +4790,7 @@ MachinesGetMachinesAdministrators Get administrators who can administer a machin
 Get administrators who can administer a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId SamName, UPN, or SID of the machine.
+ @param nameOrId SamName, UPN, or SID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesGetMachinesAdministratorsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesGetMachinesAdministrators(ctx context.Context, nameOrId string) ApiMachinesGetMachinesAdministratorsRequest {
@@ -5055,7 +5065,7 @@ func (r ApiMachinesGetTestMachineReportRequest) Execute() (*MachineTestResponseM
 MachinesGetTestMachineReport Get Cloud Health Check Report on a VDA machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine to test.
+ @param nameOrId Name or ID of the machine to test. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @param reportId ID of the Cloud Health Check Report.
  @return ApiMachinesGetTestMachineReportRequest
 */
@@ -5339,7 +5349,7 @@ func (r ApiMachinesImportFileTypesRequest) Execute() (*FtaResponseModelCollectio
 MachinesImportFileTypes Import file type associations from the machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesImportFileTypesRequest
 */
 func (a *MachinesAPIsDAASService) MachinesImportFileTypes(ctx context.Context, nameOrId string) ApiMachinesImportFileTypesRequest {
@@ -5643,7 +5653,7 @@ MachinesLogoffMachineSessions Logoff all sessions on a machine.
 Logoff all sessions on a machine
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to log sessions off from.
+ @param nameOrId Machine to log sessions off from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesLogoffMachineSessionsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesLogoffMachineSessions(ctx context.Context, nameOrId string) ApiMachinesLogoffMachineSessionsRequest {
@@ -5957,7 +5967,7 @@ MachinesRebootMachine Reboot a machine.
 Reboot a machine.  The machine must be capable of power management.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to reboot.
+ @param nameOrId Machine to reboot. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesRebootMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesRebootMachine(ctx context.Context, nameOrId string) ApiMachinesRebootMachineRequest {
@@ -6286,7 +6296,7 @@ func (r ApiMachinesRemoveMachineRequest) Execute() (*http.Response, error) {
 MachinesRemoveMachine Delete a machine from the site.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to remove.  May be specified by SamName, UPN, or SID.
+ @param nameOrId Machine to remove.  May be specified by SamName, UPN, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesRemoveMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesRemoveMachine(ctx context.Context, nameOrId string) ApiMachinesRemoveMachineRequest {
@@ -6572,7 +6582,7 @@ func (r ApiMachinesRemoveMachineTagsRequest) Execute() (*http.Response, error) {
 MachinesRemoveMachineTags Remove a tag from a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @param tagNameOrId Name or ID of the tag.
  @return ApiMachinesRemoveMachineTagsRequest
 */
@@ -6854,7 +6864,7 @@ func (r ApiMachinesRemoveMachineUpgradeScheduleRequest) Execute() (*http.Respons
 MachinesRemoveMachineUpgradeSchedule Remove a pending VDA upgrade schedule for a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesRemoveMachineUpgradeScheduleRequest
 */
 func (a *MachinesAPIsDAASService) MachinesRemoveMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesRemoveMachineUpgradeScheduleRequest {
@@ -7130,7 +7140,7 @@ func (r ApiMachinesRemovePowerActionScheduleRequest) Execute() (*http.Response, 
 MachinesRemovePowerActionSchedule Remove pending power action schedules for a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesRemovePowerActionScheduleRequest
 */
 func (a *MachinesAPIsDAASService) MachinesRemovePowerActionSchedule(ctx context.Context, nameOrId string) ApiMachinesRemovePowerActionScheduleRequest {
@@ -7403,7 +7413,7 @@ func (r ApiMachinesResetProvVMDiskRequest) Execute() (*http.Response, error) {
 MachinesResetProvVMDisk Resets the OS disk of persistent VMs to the current master image.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine. May be specified by name, ID, or SID.
+ @param nameOrId Name or ID of the machine. May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesResetProvVMDiskRequest
 */
 func (a *MachinesAPIsDAASService) MachinesResetProvVMDisk(ctx context.Context, nameOrId string) ApiMachinesResetProvVMDiskRequest {
@@ -7697,7 +7707,7 @@ Resume a machine after it has been suspended.  The machine must be capable of
 power management.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to resume.
+ @param nameOrId Machine to resume. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesResumeMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesResumeMachine(ctx context.Context, nameOrId string) ApiMachinesResumeMachineRequest {
@@ -8002,7 +8012,7 @@ func (r ApiMachinesSetMachineTagsRequest) Execute() (*http.Response, error) {
 MachinesSetMachineTags Set tags associated with a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesSetMachineTagsRequest
 */
 func (a *MachinesAPIsDAASService) MachinesSetMachineTags(ctx context.Context, nameOrId string) ApiMachinesSetMachineTagsRequest {
@@ -8315,7 +8325,7 @@ Shut down (power-off) a machine.  The machine must be capable of power
 management.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to shut down.
+ @param nameOrId Machine to shut down. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesShutdownMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesShutdownMachine(ctx context.Context, nameOrId string) ApiMachinesShutdownMachineRequest {
@@ -8628,7 +8638,7 @@ MachinesStartMachine Start a machine.
 Start (power-on) a machine.  The machine must be capable of power management.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to start.
+ @param nameOrId Machine to start. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesStartMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesStartMachine(ctx context.Context, nameOrId string) ApiMachinesStartMachineRequest {
@@ -8942,7 +8952,7 @@ MachinesSuspendMachine Suspend a machine.
 Suspend a machine.  The machine must be capable of power management.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to suspend.
+ @param nameOrId Machine to suspend. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesSuspendMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesSuspendMachine(ctx context.Context, nameOrId string) ApiMachinesSuspendMachineRequest {
@@ -9236,7 +9246,7 @@ func (r ApiMachinesTestMachineRequest) Execute() (*MachineTestResponseModel, *ht
 MachinesTestMachine Run Cloud Health Check on a VDA machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine to test.
+ @param nameOrId Name or ID of the machine to test. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesTestMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesTestMachine(ctx context.Context, nameOrId string) ApiMachinesTestMachineRequest {
@@ -9538,7 +9548,7 @@ Update a machine.  Typically used to change the assignment of a
 statically-assigned machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Machine to update.  May be specified by name, ID, or SID.
+ @param nameOrId Machine to update.  May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesUpdateMachineCatalogMachineRequest
 */
 func (a *MachinesAPIsDAASService) MachinesUpdateMachineCatalogMachine(ctx context.Context, nameOrId string) ApiMachinesUpdateMachineCatalogMachineRequest {
@@ -9834,7 +9844,7 @@ func (r ApiMachinesUpdateMachineUpgradeScheduleRequest) Execute() (*http.Respons
 MachinesUpdateMachineUpgradeSchedule Reschedule a pending VDA upgrade schedule for a machine.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine.
+ @param nameOrId Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
  @return ApiMachinesUpdateMachineUpgradeScheduleRequest
 */
 func (a *MachinesAPIsDAASService) MachinesUpdateMachineUpgradeSchedule(ctx context.Context, nameOrId string) ApiMachinesUpdateMachineUpgradeScheduleRequest {

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **TargetPackageVersion** | Pointer to **NullableString** | Target package version of the current VDA upgrade schdeule. | [optional] 
 **CancelledUpgradeCount** | Pointer to **int32** | Count of machines whose last upgrade canceled during package installtion. | [optional] 
 **WaitingToUpgradeCount** | Pointer to **int32** | Count of machines who is waiting to upgrade. | [optional] 
+**AvailableForUpgradeCount** | Pointer to **NullableInt32** | Count of machines who is available for upgrade. | [optional] 
 
 ## Methods
 
@@ -346,6 +347,41 @@ SetWaitingToUpgradeCount sets WaitingToUpgradeCount field to given value.
 
 HasWaitingToUpgradeCount returns a boolean if a field has been set.
 
+### GetAvailableForUpgradeCount
+
+`func (o *MachineCatalogUpgradeDetail) GetAvailableForUpgradeCount() int32`
+
+GetAvailableForUpgradeCount returns the AvailableForUpgradeCount field if non-nil, zero value otherwise.
+
+### GetAvailableForUpgradeCountOk
+
+`func (o *MachineCatalogUpgradeDetail) GetAvailableForUpgradeCountOk() (*int32, bool)`
+
+GetAvailableForUpgradeCountOk returns a tuple with the AvailableForUpgradeCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableForUpgradeCount
+
+`func (o *MachineCatalogUpgradeDetail) SetAvailableForUpgradeCount(v int32)`
+
+SetAvailableForUpgradeCount sets AvailableForUpgradeCount field to given value.
+
+### HasAvailableForUpgradeCount
+
+`func (o *MachineCatalogUpgradeDetail) HasAvailableForUpgradeCount() bool`
+
+HasAvailableForUpgradeCount returns a boolean if a field has been set.
+
+### SetAvailableForUpgradeCountNil
+
+`func (o *MachineCatalogUpgradeDetail) SetAvailableForUpgradeCountNil(b bool)`
+
+ SetAvailableForUpgradeCountNil sets the value for AvailableForUpgradeCount to be an explicit nil
+
+### UnsetAvailableForUpgradeCount
+`func (o *MachineCatalogUpgradeDetail) UnsetAvailableForUpgradeCount()`
+
+UnsetAvailableForUpgradeCount ensures that no value is present for AvailableForUpgradeCount, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

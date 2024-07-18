@@ -15,33 +15,37 @@ import (
 	"fmt"
 )
 
-// LogOperationSearchProperty Configuration log entry properties that can be used for advanced searches within the configuration log.
+// LogOperationSearchProperty Configuration log operation properties that can be used for advanced search.
 type LogOperationSearchProperty string
 
 // List of LogOperationSearchProperty
 const (
+	LOGOPERATIONSEARCHPROPERTY_ID LogOperationSearchProperty = "Id"
 	LOGOPERATIONSEARCHPROPERTY_TEXT LogOperationSearchProperty = "Text"
-	LOGOPERATIONSEARCHPROPERTY_START_TIME LogOperationSearchProperty = "StartTime"
-	LOGOPERATIONSEARCHPROPERTY_SOURCE LogOperationSearchProperty = "Source"
-	LOGOPERATIONSEARCHPROPERTY_END_TIME LogOperationSearchProperty = "EndTime"
-	LOGOPERATIONSEARCHPROPERTY_IS_SUCCESSFUL LogOperationSearchProperty = "IsSuccessful"
 	LOGOPERATIONSEARCHPROPERTY_USER LogOperationSearchProperty = "User"
+	LOGOPERATIONSEARCHPROPERTY_SOURCE LogOperationSearchProperty = "Source"
 	LOGOPERATIONSEARCHPROPERTY_ADMIN_MACHINE_IP LogOperationSearchProperty = "AdminMachineIP"
-	LOGOPERATIONSEARCHPROPERTY_OPERATION_TYPE LogOperationSearchProperty = "OperationType"
+	LOGOPERATIONSEARCHPROPERTY_END_TIME LogOperationSearchProperty = "EndTime"
+	LOGOPERATIONSEARCHPROPERTY_START_TIME LogOperationSearchProperty = "StartTime"
+	LOGOPERATIONSEARCHPROPERTY_IS_SUCCESSFUL LogOperationSearchProperty = "IsSuccessful"
 	LOGOPERATIONSEARCHPROPERTY_TARGET_TYPE LogOperationSearchProperty = "TargetType"
+	LOGOPERATIONSEARCHPROPERTY_OPERATION_TYPE LogOperationSearchProperty = "OperationType"
+	LOGOPERATIONSEARCHPROPERTY_LABELS LogOperationSearchProperty = "Labels"
 )
 
 // All allowed values of LogOperationSearchProperty enum
 var AllowedLogOperationSearchPropertyEnumValues = []LogOperationSearchProperty{
+	"Id",
 	"Text",
-	"StartTime",
-	"Source",
-	"EndTime",
-	"IsSuccessful",
 	"User",
+	"Source",
 	"AdminMachineIP",
-	"OperationType",
+	"EndTime",
+	"StartTime",
+	"IsSuccessful",
 	"TargetType",
+	"OperationType",
+	"Labels",
 }
 
 func (v *LogOperationSearchProperty) UnmarshalJSON(src []byte) error {

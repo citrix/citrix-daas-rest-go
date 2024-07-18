@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **StartTime** | Pointer to **NullableString** | Start Time | [optional] 
 **TimeZoneId** | Pointer to **NullableString** | Time Zone Id              | [optional] 
 **Notes** | Pointer to **NullableString** | Notes added to backup  | [optional] 
+**LastRunTime** | Pointer to **NullableString** | Last Run Time | [optional] 
 
 ## Methods
 
@@ -468,6 +469,41 @@ HasNotes returns a boolean if a field has been set.
 `func (o *BackupRestoreScheduleModel) UnsetNotes()`
 
 UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+### GetLastRunTime
+
+`func (o *BackupRestoreScheduleModel) GetLastRunTime() string`
+
+GetLastRunTime returns the LastRunTime field if non-nil, zero value otherwise.
+
+### GetLastRunTimeOk
+
+`func (o *BackupRestoreScheduleModel) GetLastRunTimeOk() (*string, bool)`
+
+GetLastRunTimeOk returns a tuple with the LastRunTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastRunTime
+
+`func (o *BackupRestoreScheduleModel) SetLastRunTime(v string)`
+
+SetLastRunTime sets LastRunTime field to given value.
+
+### HasLastRunTime
+
+`func (o *BackupRestoreScheduleModel) HasLastRunTime() bool`
+
+HasLastRunTime returns a boolean if a field has been set.
+
+### SetLastRunTimeNil
+
+`func (o *BackupRestoreScheduleModel) SetLastRunTimeNil(b bool)`
+
+ SetLastRunTimeNil sets the value for LastRunTime to be an explicit nil
+
+### UnsetLastRunTime
+`func (o *BackupRestoreScheduleModel) UnsetLastRunTime()`
+
+UnsetLastRunTime ensures that no value is present for LastRunTime, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

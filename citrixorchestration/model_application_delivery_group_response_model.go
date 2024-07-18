@@ -88,6 +88,8 @@ type ApplicationDeliveryGroupResponseModel struct {
 	AutoscalingEnabled *bool `json:"AutoscalingEnabled,omitempty"`
 	// Whether machines will be reused without a shutdown in case of an outage.
 	ReuseMachinesWithoutShutdownInOutage *bool `json:"ReuseMachinesWithoutShutdownInOutage,omitempty"`
+	// Total number of suspend-capable desktops in the delivery group.
+	TotalDesktopsOfSuspend NullableInt32 `json:"TotalDesktopsOfSuspend,omitempty"`
 	// Specifies the priority of the mapping between application and delivery group where lower numbers imply higher priority with zero being highest.
 	Priority int32 `json:"Priority"`
 }
@@ -1299,6 +1301,48 @@ func (o *ApplicationDeliveryGroupResponseModel) SetReuseMachinesWithoutShutdownI
 	o.ReuseMachinesWithoutShutdownInOutage = &v
 }
 
+// GetTotalDesktopsOfSuspend returns the TotalDesktopsOfSuspend field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApplicationDeliveryGroupResponseModel) GetTotalDesktopsOfSuspend() int32 {
+	if o == nil || IsNil(o.TotalDesktopsOfSuspend.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.TotalDesktopsOfSuspend.Get()
+}
+
+// GetTotalDesktopsOfSuspendOk returns a tuple with the TotalDesktopsOfSuspend field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApplicationDeliveryGroupResponseModel) GetTotalDesktopsOfSuspendOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalDesktopsOfSuspend.Get(), o.TotalDesktopsOfSuspend.IsSet()
+}
+
+// HasTotalDesktopsOfSuspend returns a boolean if a field has been set.
+func (o *ApplicationDeliveryGroupResponseModel) HasTotalDesktopsOfSuspend() bool {
+	if o != nil && o.TotalDesktopsOfSuspend.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalDesktopsOfSuspend gets a reference to the given NullableInt32 and assigns it to the TotalDesktopsOfSuspend field.
+func (o *ApplicationDeliveryGroupResponseModel) SetTotalDesktopsOfSuspend(v int32) {
+	o.TotalDesktopsOfSuspend.Set(&v)
+}
+// SetTotalDesktopsOfSuspendNil sets the value for TotalDesktopsOfSuspend to be an explicit nil
+func (o *ApplicationDeliveryGroupResponseModel) SetTotalDesktopsOfSuspendNil() {
+	o.TotalDesktopsOfSuspend.Set(nil)
+}
+
+// UnsetTotalDesktopsOfSuspend ensures that no value is present for TotalDesktopsOfSuspend, not even an explicit nil
+func (o *ApplicationDeliveryGroupResponseModel) UnsetTotalDesktopsOfSuspend() {
+	o.TotalDesktopsOfSuspend.Unset()
+}
+
 // GetPriority returns the Priority field value
 func (o *ApplicationDeliveryGroupResponseModel) GetPriority() int32 {
 	if o == nil {
@@ -1407,6 +1451,9 @@ func (o ApplicationDeliveryGroupResponseModel) ToMap() (map[string]interface{}, 
 	}
 	if !IsNil(o.ReuseMachinesWithoutShutdownInOutage) {
 		toSerialize["ReuseMachinesWithoutShutdownInOutage"] = o.ReuseMachinesWithoutShutdownInOutage
+	}
+	if o.TotalDesktopsOfSuspend.IsSet() {
+		toSerialize["TotalDesktopsOfSuspend"] = o.TotalDesktopsOfSuspend.Get()
 	}
 	toSerialize["Priority"] = o.Priority
 	return toSerialize, nil

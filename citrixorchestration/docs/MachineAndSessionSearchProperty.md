@@ -45,6 +45,8 @@
 
 * `LAUNCHED_VIA_IP` (value: `"LaunchedViaIP"`)
 
+* `PUBLISHED_NAME` (value: `"PublishedName"`)
+
 * `LOAD_INDEX` (value: `"LoadIndex"`)
 
 * `START_TIME` (value: `"StartTime"`)

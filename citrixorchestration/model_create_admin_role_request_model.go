@@ -23,9 +23,9 @@ type CreateAdminRoleRequestModel struct {
 	Name string `json:"Name"`
 	// The description of the admin role.
 	Description NullableString `json:"Description,omitempty"`
-	// Indicate that if the mangement page could be launch on xdconsole
+	// Indicates whether the role has access to the Manage tab in Citrix Cloud.
 	CanLaunchManage NullableBool `json:"CanLaunchManage,omitempty"`
-	// Indicate that if the monitor page could be launch on xdconsole
+	// Indicates whether the role has access to the Monitor tab in Citrix Cloud.
 	CanLaunchMonitor NullableBool `json:"CanLaunchMonitor,omitempty"`
 	// List of permissions granted by the role. At least one permission is required.
 	Permissions []string `json:"Permissions,omitempty"`

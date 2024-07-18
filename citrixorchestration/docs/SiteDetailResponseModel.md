@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **TotalUniqueLicenseUsers** | Pointer to **NullableInt32** | The total count of unique license users. | [optional] 
 **TrustRequestsSentToTheXmlServicePort** | Pointer to **NullableBool** | Indicates whether the XML service trusts the caller to specify user identity. | [optional] 
 **LicensesWithExpiredSwm** | Pointer to **NullableString** | The list of licenses with expired software maintenance dates. | [optional] 
+**GpoDataNoError** | Pointer to **NullableBool** | Status of the Policy GPOBlob to policySet conversion. | [optional] 
 **LicensingAlerts** | Pointer to [**[]LicensingAlertResponseModel**](LicensingAlertResponseModel.md) | Get active licensing alerts in the site. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 
 ## Methods
@@ -968,6 +969,41 @@ HasLicensesWithExpiredSwm returns a boolean if a field has been set.
 `func (o *SiteDetailResponseModel) UnsetLicensesWithExpiredSwm()`
 
 UnsetLicensesWithExpiredSwm ensures that no value is present for LicensesWithExpiredSwm, not even an explicit nil
+### GetGpoDataNoError
+
+`func (o *SiteDetailResponseModel) GetGpoDataNoError() bool`
+
+GetGpoDataNoError returns the GpoDataNoError field if non-nil, zero value otherwise.
+
+### GetGpoDataNoErrorOk
+
+`func (o *SiteDetailResponseModel) GetGpoDataNoErrorOk() (*bool, bool)`
+
+GetGpoDataNoErrorOk returns a tuple with the GpoDataNoError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGpoDataNoError
+
+`func (o *SiteDetailResponseModel) SetGpoDataNoError(v bool)`
+
+SetGpoDataNoError sets GpoDataNoError field to given value.
+
+### HasGpoDataNoError
+
+`func (o *SiteDetailResponseModel) HasGpoDataNoError() bool`
+
+HasGpoDataNoError returns a boolean if a field has been set.
+
+### SetGpoDataNoErrorNil
+
+`func (o *SiteDetailResponseModel) SetGpoDataNoErrorNil(b bool)`
+
+ SetGpoDataNoErrorNil sets the value for GpoDataNoError to be an explicit nil
+
+### UnsetGpoDataNoError
+`func (o *SiteDetailResponseModel) UnsetGpoDataNoError()`
+
+UnsetGpoDataNoError ensures that no value is present for GpoDataNoError, not even an explicit nil
 ### GetLicensingAlerts
 
 `func (o *SiteDetailResponseModel) GetLicensingAlerts() []LicensingAlertResponseModel`

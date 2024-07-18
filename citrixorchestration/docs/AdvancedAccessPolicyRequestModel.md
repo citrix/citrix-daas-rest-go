@@ -30,6 +30,10 @@ Name | Type | Description | Notes
 **IncludedSmartAccessFilterType** | Pointer to [**FilterMatchType**](FilterMatchType.md) |  | [optional] 
 **IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated. | [optional] 
 **IncludedUsers** | Pointer to **[]string** | Specifies the users and groups who are granted access to the delivery group. | [optional] 
+**AppProtectionKeyLoggingRequired** | Pointer to **NullableBool** |  | [optional] 
+**AppProtectionScreenCaptureRequired** | Pointer to **NullableBool** | Specifies whether screen capture app protection is required. | [optional] 
+**IsContextualAppProtectionPolicy** | Pointer to **NullableBool** |  | [optional] 
+**HdxSslEnabled** | Pointer to **NullableBool** | Specifies whether TLS encryption is enabled for sessions delivered from the rule’s delivery group. | [optional] 
 
 ## Methods
 
@@ -930,6 +934,146 @@ HasIncludedUsers returns a boolean if a field has been set.
 `func (o *AdvancedAccessPolicyRequestModel) UnsetIncludedUsers()`
 
 UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
+### GetAppProtectionKeyLoggingRequired
+
+`func (o *AdvancedAccessPolicyRequestModel) GetAppProtectionKeyLoggingRequired() bool`
+
+GetAppProtectionKeyLoggingRequired returns the AppProtectionKeyLoggingRequired field if non-nil, zero value otherwise.
+
+### GetAppProtectionKeyLoggingRequiredOk
+
+`func (o *AdvancedAccessPolicyRequestModel) GetAppProtectionKeyLoggingRequiredOk() (*bool, bool)`
+
+GetAppProtectionKeyLoggingRequiredOk returns a tuple with the AppProtectionKeyLoggingRequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppProtectionKeyLoggingRequired
+
+`func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionKeyLoggingRequired(v bool)`
+
+SetAppProtectionKeyLoggingRequired sets AppProtectionKeyLoggingRequired field to given value.
+
+### HasAppProtectionKeyLoggingRequired
+
+`func (o *AdvancedAccessPolicyRequestModel) HasAppProtectionKeyLoggingRequired() bool`
+
+HasAppProtectionKeyLoggingRequired returns a boolean if a field has been set.
+
+### SetAppProtectionKeyLoggingRequiredNil
+
+`func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionKeyLoggingRequiredNil(b bool)`
+
+ SetAppProtectionKeyLoggingRequiredNil sets the value for AppProtectionKeyLoggingRequired to be an explicit nil
+
+### UnsetAppProtectionKeyLoggingRequired
+`func (o *AdvancedAccessPolicyRequestModel) UnsetAppProtectionKeyLoggingRequired()`
+
+UnsetAppProtectionKeyLoggingRequired ensures that no value is present for AppProtectionKeyLoggingRequired, not even an explicit nil
+### GetAppProtectionScreenCaptureRequired
+
+`func (o *AdvancedAccessPolicyRequestModel) GetAppProtectionScreenCaptureRequired() bool`
+
+GetAppProtectionScreenCaptureRequired returns the AppProtectionScreenCaptureRequired field if non-nil, zero value otherwise.
+
+### GetAppProtectionScreenCaptureRequiredOk
+
+`func (o *AdvancedAccessPolicyRequestModel) GetAppProtectionScreenCaptureRequiredOk() (*bool, bool)`
+
+GetAppProtectionScreenCaptureRequiredOk returns a tuple with the AppProtectionScreenCaptureRequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppProtectionScreenCaptureRequired
+
+`func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionScreenCaptureRequired(v bool)`
+
+SetAppProtectionScreenCaptureRequired sets AppProtectionScreenCaptureRequired field to given value.
+
+### HasAppProtectionScreenCaptureRequired
+
+`func (o *AdvancedAccessPolicyRequestModel) HasAppProtectionScreenCaptureRequired() bool`
+
+HasAppProtectionScreenCaptureRequired returns a boolean if a field has been set.
+
+### SetAppProtectionScreenCaptureRequiredNil
+
+`func (o *AdvancedAccessPolicyRequestModel) SetAppProtectionScreenCaptureRequiredNil(b bool)`
+
+ SetAppProtectionScreenCaptureRequiredNil sets the value for AppProtectionScreenCaptureRequired to be an explicit nil
+
+### UnsetAppProtectionScreenCaptureRequired
+`func (o *AdvancedAccessPolicyRequestModel) UnsetAppProtectionScreenCaptureRequired()`
+
+UnsetAppProtectionScreenCaptureRequired ensures that no value is present for AppProtectionScreenCaptureRequired, not even an explicit nil
+### GetIsContextualAppProtectionPolicy
+
+`func (o *AdvancedAccessPolicyRequestModel) GetIsContextualAppProtectionPolicy() bool`
+
+GetIsContextualAppProtectionPolicy returns the IsContextualAppProtectionPolicy field if non-nil, zero value otherwise.
+
+### GetIsContextualAppProtectionPolicyOk
+
+`func (o *AdvancedAccessPolicyRequestModel) GetIsContextualAppProtectionPolicyOk() (*bool, bool)`
+
+GetIsContextualAppProtectionPolicyOk returns a tuple with the IsContextualAppProtectionPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsContextualAppProtectionPolicy
+
+`func (o *AdvancedAccessPolicyRequestModel) SetIsContextualAppProtectionPolicy(v bool)`
+
+SetIsContextualAppProtectionPolicy sets IsContextualAppProtectionPolicy field to given value.
+
+### HasIsContextualAppProtectionPolicy
+
+`func (o *AdvancedAccessPolicyRequestModel) HasIsContextualAppProtectionPolicy() bool`
+
+HasIsContextualAppProtectionPolicy returns a boolean if a field has been set.
+
+### SetIsContextualAppProtectionPolicyNil
+
+`func (o *AdvancedAccessPolicyRequestModel) SetIsContextualAppProtectionPolicyNil(b bool)`
+
+ SetIsContextualAppProtectionPolicyNil sets the value for IsContextualAppProtectionPolicy to be an explicit nil
+
+### UnsetIsContextualAppProtectionPolicy
+`func (o *AdvancedAccessPolicyRequestModel) UnsetIsContextualAppProtectionPolicy()`
+
+UnsetIsContextualAppProtectionPolicy ensures that no value is present for IsContextualAppProtectionPolicy, not even an explicit nil
+### GetHdxSslEnabled
+
+`func (o *AdvancedAccessPolicyRequestModel) GetHdxSslEnabled() bool`
+
+GetHdxSslEnabled returns the HdxSslEnabled field if non-nil, zero value otherwise.
+
+### GetHdxSslEnabledOk
+
+`func (o *AdvancedAccessPolicyRequestModel) GetHdxSslEnabledOk() (*bool, bool)`
+
+GetHdxSslEnabledOk returns a tuple with the HdxSslEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHdxSslEnabled
+
+`func (o *AdvancedAccessPolicyRequestModel) SetHdxSslEnabled(v bool)`
+
+SetHdxSslEnabled sets HdxSslEnabled field to given value.
+
+### HasHdxSslEnabled
+
+`func (o *AdvancedAccessPolicyRequestModel) HasHdxSslEnabled() bool`
+
+HasHdxSslEnabled returns a boolean if a field has been set.
+
+### SetHdxSslEnabledNil
+
+`func (o *AdvancedAccessPolicyRequestModel) SetHdxSslEnabledNil(b bool)`
+
+ SetHdxSslEnabledNil sets the value for HdxSslEnabled to be an explicit nil
+
+### UnsetHdxSslEnabled
+`func (o *AdvancedAccessPolicyRequestModel) UnsetHdxSslEnabled()`
+
+UnsetHdxSslEnabled ensures that no value is present for HdxSslEnabled, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

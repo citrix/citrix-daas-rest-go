@@ -4,29 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Id of the application group. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | 
+**Id** | Pointer to **NullableString** | Id of the application group. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
 **Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
-**ContainerScopes** | [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application group reside. | 
+**ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application group reside. | [optional] 
 **Description** | Pointer to **NullableString** | Description of the application group. As with other facets of application groups, the description is not visible to end users. | [optional] 
-**Enabled** | **bool** | Indicates whether or not the applications in this application group can be launched. | 
+**Enabled** | Pointer to **bool** | Indicates whether or not the applications in this application group can be launched. | [optional] 
 **Name** | Pointer to **NullableString** | Simple administrative name of application group within parent admin folder (if any). This property is not guaranteed unique across all application groups. | [optional] 
 **FullName** | Pointer to **NullableString** | Name of this application group. The name uniquely identifies the application group within the site. As with other facets of application groups, the name is not visible to end users. | [optional] 
-**Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | The list of the delegated admin scopes to which the application group belongs. | 
+**Scopes** | Pointer to [**[]ScopeResponseModel**](ScopeResponseModel.md) | The list of the delegated admin scopes to which the application group belongs. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of application group. | [optional] 
 **Tags** | Pointer to **[]string** | Tags associated with this application group. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the application group is assigned to.  If &#x60;null&#x60;, the application group is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
-**NumApplications** | **int32** | Number of applications present in the application group. | 
-**NumMachines** | **int32** | Number of machines capable of hosting the applications in the application group. | 
+**NumApplications** | Pointer to **int32** | Number of applications present in the application group. | [optional] 
+**NumMachines** | Pointer to **int32** | Number of machines capable of hosting the applications in the application group. | [optional] 
 **NumMachinesWithTag** | Pointer to **int32** | Total number of machines across all desktop groups on which the application group is published, and which are tagged with the tag given by the RestrictToTag property. | [optional] 
 **RestrictToTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
-**DeliveryGroups** | [**[]ApplicationGroupDeliveryGroupRefResponseModel**](ApplicationGroupDeliveryGroupRefResponseModel.md) | Delivery groups associated with the application group. | 
+**DeliveryGroups** | Pointer to [**[]ApplicationGroupDeliveryGroupRefResponseModel**](ApplicationGroupDeliveryGroupRefResponseModel.md) | Delivery groups associated with the application group. | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewApplicationGroupResponseModel
 
-`func NewApplicationGroupResponseModel(id string, containerScopes []ContainerScopeResponseModel, enabled bool, scopes []ScopeResponseModel, numApplications int32, numMachines int32, deliveryGroups []ApplicationGroupDeliveryGroupRefResponseModel, ) *ApplicationGroupResponseModel`
+`func NewApplicationGroupResponseModel() *ApplicationGroupResponseModel`
 
 NewApplicationGroupResponseModel instantiates a new ApplicationGroupResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -60,7 +60,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *ApplicationGroupResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *ApplicationGroupResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ApplicationGroupResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *ApplicationGroupResponseModel) GetUid() int32`
@@ -115,7 +130,22 @@ and a boolean to check if the value has been set.
 
 SetContainerScopes sets ContainerScopes field to given value.
 
+### HasContainerScopes
 
+`func (o *ApplicationGroupResponseModel) HasContainerScopes() bool`
+
+HasContainerScopes returns a boolean if a field has been set.
+
+### SetContainerScopesNil
+
+`func (o *ApplicationGroupResponseModel) SetContainerScopesNil(b bool)`
+
+ SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
+
+### UnsetContainerScopes
+`func (o *ApplicationGroupResponseModel) UnsetContainerScopes()`
+
+UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 ### GetDescription
 
 `func (o *ApplicationGroupResponseModel) GetDescription() string`
@@ -170,6 +200,11 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
+### HasEnabled
+
+`func (o *ApplicationGroupResponseModel) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetName
 
@@ -260,7 +295,22 @@ and a boolean to check if the value has been set.
 
 SetScopes sets Scopes field to given value.
 
+### HasScopes
 
+`func (o *ApplicationGroupResponseModel) HasScopes() bool`
+
+HasScopes returns a boolean if a field has been set.
+
+### SetScopesNil
+
+`func (o *ApplicationGroupResponseModel) SetScopesNil(b bool)`
+
+ SetScopesNil sets the value for Scopes to be an explicit nil
+
+### UnsetScopes
+`func (o *ApplicationGroupResponseModel) UnsetScopes()`
+
+UnsetScopes ensures that no value is present for Scopes, not even an explicit nil
 ### GetMetadata
 
 `func (o *ApplicationGroupResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -385,6 +435,11 @@ and a boolean to check if the value has been set.
 
 SetNumApplications sets NumApplications field to given value.
 
+### HasNumApplications
+
+`func (o *ApplicationGroupResponseModel) HasNumApplications() bool`
+
+HasNumApplications returns a boolean if a field has been set.
 
 ### GetNumMachines
 
@@ -405,6 +460,11 @@ and a boolean to check if the value has been set.
 
 SetNumMachines sets NumMachines field to given value.
 
+### HasNumMachines
+
+`func (o *ApplicationGroupResponseModel) HasNumMachines() bool`
+
+HasNumMachines returns a boolean if a field has been set.
 
 ### GetNumMachinesWithTag
 
@@ -475,7 +535,22 @@ and a boolean to check if the value has been set.
 
 SetDeliveryGroups sets DeliveryGroups field to given value.
 
+### HasDeliveryGroups
 
+`func (o *ApplicationGroupResponseModel) HasDeliveryGroups() bool`
+
+HasDeliveryGroups returns a boolean if a field has been set.
+
+### SetDeliveryGroupsNil
+
+`func (o *ApplicationGroupResponseModel) SetDeliveryGroupsNil(b bool)`
+
+ SetDeliveryGroupsNil sets the value for DeliveryGroups to be an explicit nil
+
+### UnsetDeliveryGroups
+`func (o *ApplicationGroupResponseModel) UnsetDeliveryGroups()`
+
+UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
 ### GetAdminFolder
 
 `func (o *ApplicationGroupResponseModel) GetAdminFolder() RefResponseModel`

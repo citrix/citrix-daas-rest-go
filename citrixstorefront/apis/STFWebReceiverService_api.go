@@ -620,3 +620,164 @@ func (a *STFWebReceiver) STFWebReceiverUserInterfaceGet(ctx context.Context, web
 		WebReceiverServiceGetRequestModel: webReceiverServiceGetRequestModel,
 	}
 }
+
+// Set-STFWebReceiverResourcesService
+type ApiWebReceiverResourcesServiceRequest struct {
+	ctx                                           context.Context
+	ApiService                                    *STFWebReceiver
+	WebReceiverServiceGetRequestModel             models.GetSTFWebReceiverRequestModel
+	SetSTFWebReceiverResourcesServiceRequestModel models.SetSTFWebReceiverResourcesServiceRequestModel
+}
+
+func (r ApiWebReceiverResourcesServiceRequest) Execute() error {
+	_, err := r.ApiService.WebReceiverResourcesServiceExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFWebReceiver) WebReceiverResourcesServiceExecute(r ApiWebReceiverResourcesServiceRequest) ([]byte, error) {
+	var setParams = StructToString(r.SetSTFWebReceiverResourcesServiceRequestModel)
+	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverResourcesService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setParams)
+}
+
+func (a *STFWebReceiver) SetSTFWebReceiverResourcesService(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setSTFWebReceiverResourcesServiceRequestModel models.SetSTFWebReceiverResourcesServiceRequestModel) ApiWebReceiverResourcesServiceRequest {
+	return ApiWebReceiverResourcesServiceRequest{
+		ApiService:                        a,
+		ctx:                               ctx,
+		WebReceiverServiceGetRequestModel: webReceiverServiceGetRequestModel,
+		SetSTFWebReceiverResourcesServiceRequestModel: setSTFWebReceiverResourcesServiceRequestModel,
+	}
+}
+
+// Get-STFWebReceiverResourcesService
+type ApiWebReceiverResourcesServiceGetRequest struct {
+	ctx                               context.Context
+	ApiService                        *STFWebReceiver
+	WebReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiWebReceiverResourcesServiceGetRequest) Execute() (models.GetSTFWebReceiverResourcesServiceResponseModel, error) {
+	bytes, err := r.ApiService.WebReceiverResourcesServiceGetExecute(r)
+	if err != nil {
+		return models.GetSTFWebReceiverResourcesServiceResponseModel{}, err
+	}
+	var reponse = models.GetSTFWebReceiverResourcesServiceResponseModel{}
+	unMarshalErr := json.Unmarshal(bytes, &reponse)
+	if unMarshalErr != nil {
+		return models.GetSTFWebReceiverResourcesServiceResponseModel{}, unMarshalErr
+	}
+	return reponse, nil
+}
+
+func (a *STFWebReceiver) WebReceiverResourcesServiceGetExecute(r ApiWebReceiverResourcesServiceGetRequest) ([]byte, error) {
+	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverResourcesService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+}
+
+func (a *STFWebReceiver) GetSTFWebReceiverResourcesService(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverResourcesServiceGetRequest {
+	return ApiWebReceiverResourcesServiceGetRequest{
+		ApiService:                        a,
+		ctx:                               ctx,
+		WebReceiverServiceGetRequestModel: webReceiverServiceGetRequestModel,
+	}
+}
+
+// Set-STFWebReceiverSiteStyle
+type ApiSetSTFWebReceiverSiteStyleRequest struct {
+	ctx                                    context.Context
+	ApiService                             *STFWebReceiver
+	setSTFWebReceiverSiteStyleRequestModel models.SetSTFWebReceiverSiteStyleRequestModel
+	getSTFWebReceiverRequestModel          models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiSetSTFWebReceiverSiteStyleRequest) Execute() error {
+	_, err := r.ApiService.SetSTFWebReceiverSiteStyleExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFWebReceiver) SetSTFWebReceiverSiteStyleExecute(r ApiSetSTFWebReceiverSiteStyleRequest) ([]byte, error) {
+	var param = StructToString(r.setSTFWebReceiverSiteStyleRequestModel)
+	var setSiteStyleParams = StructToString(r.getSTFWebReceiverRequestModel)
+	if r.getSTFWebReceiverRequestModel.VirtualPath.IsSet() && *r.getSTFWebReceiverRequestModel.VirtualPath.Get() != "" {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", setSiteStyleParams), param)
+	} else {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverSiteStyle", param, "-Confirm:$false")
+	}
+
+}
+
+func (a *STFWebReceiver) STFWebReceiverSetSTFWebReceiverSiteStyle(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setSTFWebReceiverSiteStyleRequestModel models.SetSTFWebReceiverSiteStyleRequestModel) ApiSetSTFWebReceiverSiteStyleRequest {
+	return ApiSetSTFWebReceiverSiteStyleRequest{
+		ApiService:                             a,
+		ctx:                                    ctx,
+		setSTFWebReceiverSiteStyleRequestModel: setSTFWebReceiverSiteStyleRequestModel,
+		getSTFWebReceiverRequestModel:          webReceiverServiceGetRequestModel,
+	}
+}
+
+// Get-STFWebReceiverSiteStyle
+type ApiGetSTFWebReceiverSiteStyleRequest struct {
+	ctx                           context.Context
+	ApiService                    *STFWebReceiver
+	getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiGetSTFWebReceiverSiteStyleRequest) Execute() (models.STFWebReceiverSiteStyleResponseModel, error) {
+	bytes, err := r.ApiService.GetSTFWebReceiverSiteStyleExecute(r)
+	if err != nil {
+		return models.STFWebReceiverSiteStyleResponseModel{}, err
+	}
+	var response = models.STFWebReceiverSiteStyleResponseModel{}
+	unMarshalErr := json.Unmarshal(bytes, &response)
+	if unMarshalErr != nil {
+		return models.STFWebReceiverSiteStyleResponseModel{}, unMarshalErr
+	}
+	return response, nil
+}
+
+func (a *STFWebReceiver) GetSTFWebReceiverSiteStyleExecute(r ApiGetSTFWebReceiverSiteStyleRequest) ([]byte, error) {
+	var param = StructToString(r.getSTFWebReceiverRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", param))
+}
+
+func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiverSiteStyle(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiGetSTFWebReceiverSiteStyleRequest {
+	return ApiGetSTFWebReceiverSiteStyleRequest{
+		ApiService:                    a,
+		ctx:                           ctx,
+		getSTFWebReceiverRequestModel: getSTFWebReceiverRequestModel,
+	}
+}
+
+// Remove-STFWebReceiverService
+type ApiClearSTFWebReceiverSiteStyleRequest struct {
+	ctx                           context.Context
+	ApiService                    *STFWebReceiver
+	GetSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel
+}
+
+func (r ApiClearSTFWebReceiverSiteStyleRequest) Execute() ([]byte, error) {
+	byte, err := r.ApiService.ClearSTFWebReceiverSiteStyleExecute(r)
+	if err != nil {
+		return byte, err
+	}
+	return nil, nil
+}
+
+func (a *STFWebReceiver) ClearSTFWebReceiverSiteStyleExecute(r ApiClearSTFWebReceiverSiteStyleRequest) ([]byte, error) {
+	var getParam = StructToString(r.GetSTFWebReceiverRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Clear-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getParam), "-Confirm:$false")
+}
+
+func (a *STFWebReceiver) STFWebReceiverClearSTFWebReceiverSiteStyle(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiClearSTFWebReceiverSiteStyleRequest {
+	return ApiClearSTFWebReceiverSiteStyleRequest{
+		ApiService:                    a,
+		ctx:                           ctx,
+		GetSTFWebReceiverRequestModel: getSTFWebReceiverRequestModel,
+	}
+}

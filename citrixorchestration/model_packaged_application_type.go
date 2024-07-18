@@ -25,6 +25,7 @@ const (
 	PACKAGEDAPPLICATIONTYPE_APP_V_DUAL_ADMIN PackagedApplicationType = "AppVDualAdmin"
 	PACKAGEDAPPLICATIONTYPE_MSIX PackagedApplicationType = "Msix"
 	PACKAGEDAPPLICATIONTYPE_APP_ATTACH PackagedApplicationType = "AppAttach"
+	PACKAGEDAPPLICATIONTYPE_FLEX_APP PackagedApplicationType = "FlexApp"
 )
 
 // All allowed values of PackagedApplicationType enum
@@ -34,6 +35,7 @@ var AllowedPackagedApplicationTypeEnumValues = []PackagedApplicationType{
 	"AppVDualAdmin",
 	"Msix",
 	"AppAttach",
+	"FlexApp",
 }
 
 func (v *PackagedApplicationType) UnmarshalJSON(src []byte) error {

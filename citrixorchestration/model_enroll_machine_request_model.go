@@ -20,13 +20,13 @@ var _ MappedNullable = &EnrollMachineRequestModel{}
 // EnrollMachineRequestModel Model for Enrolling the websocket machine
 type EnrollMachineRequestModel struct {
 	// The id for the vda's key pair registered with the MFA trust service.
-	VdaInstanceId NullableString `json:"VdaInstanceId,omitempty"`
+	VdaInstanceId string `json:"VdaInstanceId"`
 	// The instance name for the key. it is also used as the machine's name for non-domain joined vda.
-	VdaInstanceName NullableString `json:"VdaInstanceName,omitempty"`
+	VdaInstanceName string `json:"VdaInstanceName"`
 	// The vda's public service key to be registered with FMA Trust Service.
-	ServicePublicKey NullableString `json:"ServicePublicKey,omitempty"`
+	ServicePublicKey string `json:"ServicePublicKey"`
 	// Real sid of AD machine for domain joined; or virtual sid if non-domain joined this parameter will be used to create machine
-	MachineSid NullableString `json:"MachineSid,omitempty"`
+	MachineSid string `json:"MachineSid"`
 	MachineMetadata *EnrollMachineMetaDataModel `json:"MachineMetadata,omitempty"`
 }
 
@@ -34,8 +34,12 @@ type EnrollMachineRequestModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewEnrollMachineRequestModel() *EnrollMachineRequestModel {
+func NewEnrollMachineRequestModel(vdaInstanceId string, vdaInstanceName string, servicePublicKey string, machineSid string) *EnrollMachineRequestModel {
 	this := EnrollMachineRequestModel{}
+	this.VdaInstanceId = vdaInstanceId
+	this.VdaInstanceName = vdaInstanceName
+	this.ServicePublicKey = servicePublicKey
+	this.MachineSid = machineSid
 	return &this
 }
 
@@ -47,172 +51,100 @@ func NewEnrollMachineRequestModelWithDefaults() *EnrollMachineRequestModel {
 	return &this
 }
 
-// GetVdaInstanceId returns the VdaInstanceId field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVdaInstanceId returns the VdaInstanceId field value
 func (o *EnrollMachineRequestModel) GetVdaInstanceId() string {
-	if o == nil || IsNil(o.VdaInstanceId.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VdaInstanceId.Get()
+
+	return o.VdaInstanceId
 }
 
-// GetVdaInstanceIdOk returns a tuple with the VdaInstanceId field value if set, nil otherwise
+// GetVdaInstanceIdOk returns a tuple with the VdaInstanceId field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnrollMachineRequestModel) GetVdaInstanceIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.VdaInstanceId.Get(), o.VdaInstanceId.IsSet()
+	return &o.VdaInstanceId, true
 }
 
-// HasVdaInstanceId returns a boolean if a field has been set.
-func (o *EnrollMachineRequestModel) HasVdaInstanceId() bool {
-	if o != nil && o.VdaInstanceId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetVdaInstanceId gets a reference to the given NullableString and assigns it to the VdaInstanceId field.
+// SetVdaInstanceId sets field value
 func (o *EnrollMachineRequestModel) SetVdaInstanceId(v string) {
-	o.VdaInstanceId.Set(&v)
-}
-// SetVdaInstanceIdNil sets the value for VdaInstanceId to be an explicit nil
-func (o *EnrollMachineRequestModel) SetVdaInstanceIdNil() {
-	o.VdaInstanceId.Set(nil)
+	o.VdaInstanceId = v
 }
 
-// UnsetVdaInstanceId ensures that no value is present for VdaInstanceId, not even an explicit nil
-func (o *EnrollMachineRequestModel) UnsetVdaInstanceId() {
-	o.VdaInstanceId.Unset()
-}
-
-// GetVdaInstanceName returns the VdaInstanceName field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetVdaInstanceName returns the VdaInstanceName field value
 func (o *EnrollMachineRequestModel) GetVdaInstanceName() string {
-	if o == nil || IsNil(o.VdaInstanceName.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.VdaInstanceName.Get()
+
+	return o.VdaInstanceName
 }
 
-// GetVdaInstanceNameOk returns a tuple with the VdaInstanceName field value if set, nil otherwise
+// GetVdaInstanceNameOk returns a tuple with the VdaInstanceName field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnrollMachineRequestModel) GetVdaInstanceNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.VdaInstanceName.Get(), o.VdaInstanceName.IsSet()
+	return &o.VdaInstanceName, true
 }
 
-// HasVdaInstanceName returns a boolean if a field has been set.
-func (o *EnrollMachineRequestModel) HasVdaInstanceName() bool {
-	if o != nil && o.VdaInstanceName.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetVdaInstanceName gets a reference to the given NullableString and assigns it to the VdaInstanceName field.
+// SetVdaInstanceName sets field value
 func (o *EnrollMachineRequestModel) SetVdaInstanceName(v string) {
-	o.VdaInstanceName.Set(&v)
-}
-// SetVdaInstanceNameNil sets the value for VdaInstanceName to be an explicit nil
-func (o *EnrollMachineRequestModel) SetVdaInstanceNameNil() {
-	o.VdaInstanceName.Set(nil)
+	o.VdaInstanceName = v
 }
 
-// UnsetVdaInstanceName ensures that no value is present for VdaInstanceName, not even an explicit nil
-func (o *EnrollMachineRequestModel) UnsetVdaInstanceName() {
-	o.VdaInstanceName.Unset()
-}
-
-// GetServicePublicKey returns the ServicePublicKey field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetServicePublicKey returns the ServicePublicKey field value
 func (o *EnrollMachineRequestModel) GetServicePublicKey() string {
-	if o == nil || IsNil(o.ServicePublicKey.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.ServicePublicKey.Get()
+
+	return o.ServicePublicKey
 }
 
-// GetServicePublicKeyOk returns a tuple with the ServicePublicKey field value if set, nil otherwise
+// GetServicePublicKeyOk returns a tuple with the ServicePublicKey field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnrollMachineRequestModel) GetServicePublicKeyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ServicePublicKey.Get(), o.ServicePublicKey.IsSet()
+	return &o.ServicePublicKey, true
 }
 
-// HasServicePublicKey returns a boolean if a field has been set.
-func (o *EnrollMachineRequestModel) HasServicePublicKey() bool {
-	if o != nil && o.ServicePublicKey.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetServicePublicKey gets a reference to the given NullableString and assigns it to the ServicePublicKey field.
+// SetServicePublicKey sets field value
 func (o *EnrollMachineRequestModel) SetServicePublicKey(v string) {
-	o.ServicePublicKey.Set(&v)
-}
-// SetServicePublicKeyNil sets the value for ServicePublicKey to be an explicit nil
-func (o *EnrollMachineRequestModel) SetServicePublicKeyNil() {
-	o.ServicePublicKey.Set(nil)
+	o.ServicePublicKey = v
 }
 
-// UnsetServicePublicKey ensures that no value is present for ServicePublicKey, not even an explicit nil
-func (o *EnrollMachineRequestModel) UnsetServicePublicKey() {
-	o.ServicePublicKey.Unset()
-}
-
-// GetMachineSid returns the MachineSid field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetMachineSid returns the MachineSid field value
 func (o *EnrollMachineRequestModel) GetMachineSid() string {
-	if o == nil || IsNil(o.MachineSid.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.MachineSid.Get()
+
+	return o.MachineSid
 }
 
-// GetMachineSidOk returns a tuple with the MachineSid field value if set, nil otherwise
+// GetMachineSidOk returns a tuple with the MachineSid field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EnrollMachineRequestModel) GetMachineSidOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.MachineSid.Get(), o.MachineSid.IsSet()
+	return &o.MachineSid, true
 }
 
-// HasMachineSid returns a boolean if a field has been set.
-func (o *EnrollMachineRequestModel) HasMachineSid() bool {
-	if o != nil && o.MachineSid.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMachineSid gets a reference to the given NullableString and assigns it to the MachineSid field.
+// SetMachineSid sets field value
 func (o *EnrollMachineRequestModel) SetMachineSid(v string) {
-	o.MachineSid.Set(&v)
-}
-// SetMachineSidNil sets the value for MachineSid to be an explicit nil
-func (o *EnrollMachineRequestModel) SetMachineSidNil() {
-	o.MachineSid.Set(nil)
-}
-
-// UnsetMachineSid ensures that no value is present for MachineSid, not even an explicit nil
-func (o *EnrollMachineRequestModel) UnsetMachineSid() {
-	o.MachineSid.Unset()
+	o.MachineSid = v
 }
 
 // GetMachineMetadata returns the MachineMetadata field value if set, zero value otherwise.
@@ -257,18 +189,10 @@ func (o EnrollMachineRequestModel) MarshalJSON() ([]byte, error) {
 
 func (o EnrollMachineRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.VdaInstanceId.IsSet() {
-		toSerialize["VdaInstanceId"] = o.VdaInstanceId.Get()
-	}
-	if o.VdaInstanceName.IsSet() {
-		toSerialize["VdaInstanceName"] = o.VdaInstanceName.Get()
-	}
-	if o.ServicePublicKey.IsSet() {
-		toSerialize["ServicePublicKey"] = o.ServicePublicKey.Get()
-	}
-	if o.MachineSid.IsSet() {
-		toSerialize["MachineSid"] = o.MachineSid.Get()
-	}
+	toSerialize["VdaInstanceId"] = o.VdaInstanceId
+	toSerialize["VdaInstanceName"] = o.VdaInstanceName
+	toSerialize["ServicePublicKey"] = o.ServicePublicKey
+	toSerialize["MachineSid"] = o.MachineSid
 	if !IsNil(o.MachineMetadata) {
 		toSerialize["MachineMetadata"] = o.MachineMetadata
 	}

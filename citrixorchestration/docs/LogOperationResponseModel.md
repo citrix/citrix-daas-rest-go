@@ -4,26 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | ID of the logged operation. | 
-**AdminMachineIP** | Pointer to **NullableString** | IP address of the admin machine from which the operation was performed. | [optional] 
-**EndTime** | Pointer to **NullableString** | Time when the operation ended. If the operation is incomplete, will be null. | [optional] 
-**FormattedEndTime** | Pointer to **NullableString** | Formatted time when the operation ended. If the operation is incomplete, will be null. RFC 3339 compatible format. | [optional] 
-**IsSuccessful** | Pointer to **NullableBool** | Indicates whether the operation completed successfully.  If the operation is incomplete, will be null. | [optional] 
-**OperationType** | [**LogOperationType**](LogOperationType.md) |  | 
-**Labels** | Pointer to **[]string** | Labels attached to the operation. | [optional] 
-**Parameters** | [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Operation parameters. It is a list of parameter names. | 
+**Id** | **string** | Id of the operation. | 
+**Text** | **string** | Description of the operation. | 
+**User** | Pointer to **NullableString** | User who performed the operation. | [optional] 
 **Source** | **string** | Source of the operation. | 
+**AdminMachineIP** | Pointer to **NullableString** | IP address of the administrator&#39;s machine from which the operation was performed. | [optional] 
+**EndTime** | Pointer to **NullableString** | Time when the operation ended. | [optional] 
+**FormattedEndTime** | Pointer to **NullableString** | Formatted time when the operation ended. | [optional] 
 **StartTime** | **string** | Time when the operation started. | 
-**FormattedStartTime** | **string** | Formatted time when the operation started. RFC 3339 compatible format. | 
-**TargetTypes** | **[]string** | The type(s) of object which were the target of the configuration change. For example, \&quot;Session\&quot; or \&quot;Machine\&quot;. | 
-**Text** | **string** | Human-readable description of the change. | 
-**User** | Pointer to **NullableString** | User who performed the change. | [optional] 
+**FormattedStartTime** | **string** | Formatted time when the operation started. | 
+**IsSuccessful** | Pointer to **NullableBool** | Indicates whether the operation completed successfully. | [optional] 
+**TargetTypes** | **[]string** | Type of objects that were affected by the operation. | 
+**OperationType** | [**LogOperationType**](LogOperationType.md) |  | 
+**Labels** | Pointer to **[]string** | Labels of the operation. | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata of the operation. | [optional] 
+**Parameters** | [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Parameters of the operation. | 
 
 ## Methods
 
 ### NewLogOperationResponseModel
 
-`func NewLogOperationResponseModel(id string, operationType LogOperationType, parameters []NameValueStringPairModel, source string, startTime string, formattedStartTime string, targetTypes []string, text string, ) *LogOperationResponseModel`
+`func NewLogOperationResponseModel(id string, text string, source string, startTime string, formattedStartTime string, targetTypes []string, operationType LogOperationType, parameters []NameValueStringPairModel, ) *LogOperationResponseModel`
 
 NewLogOperationResponseModel instantiates a new LogOperationResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -56,6 +57,81 @@ and a boolean to check if the value has been set.
 `func (o *LogOperationResponseModel) SetId(v string)`
 
 SetId sets Id field to given value.
+
+
+### GetText
+
+`func (o *LogOperationResponseModel) GetText() string`
+
+GetText returns the Text field if non-nil, zero value otherwise.
+
+### GetTextOk
+
+`func (o *LogOperationResponseModel) GetTextOk() (*string, bool)`
+
+GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetText
+
+`func (o *LogOperationResponseModel) SetText(v string)`
+
+SetText sets Text field to given value.
+
+
+### GetUser
+
+`func (o *LogOperationResponseModel) GetUser() string`
+
+GetUser returns the User field if non-nil, zero value otherwise.
+
+### GetUserOk
+
+`func (o *LogOperationResponseModel) GetUserOk() (*string, bool)`
+
+GetUserOk returns a tuple with the User field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUser
+
+`func (o *LogOperationResponseModel) SetUser(v string)`
+
+SetUser sets User field to given value.
+
+### HasUser
+
+`func (o *LogOperationResponseModel) HasUser() bool`
+
+HasUser returns a boolean if a field has been set.
+
+### SetUserNil
+
+`func (o *LogOperationResponseModel) SetUserNil(b bool)`
+
+ SetUserNil sets the value for User to be an explicit nil
+
+### UnsetUser
+`func (o *LogOperationResponseModel) UnsetUser()`
+
+UnsetUser ensures that no value is present for User, not even an explicit nil
+### GetSource
+
+`func (o *LogOperationResponseModel) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *LogOperationResponseModel) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *LogOperationResponseModel) SetSource(v string)`
+
+SetSource sets Source field to given value.
 
 
 ### GetAdminMachineIP
@@ -163,6 +239,46 @@ HasFormattedEndTime returns a boolean if a field has been set.
 `func (o *LogOperationResponseModel) UnsetFormattedEndTime()`
 
 UnsetFormattedEndTime ensures that no value is present for FormattedEndTime, not even an explicit nil
+### GetStartTime
+
+`func (o *LogOperationResponseModel) GetStartTime() string`
+
+GetStartTime returns the StartTime field if non-nil, zero value otherwise.
+
+### GetStartTimeOk
+
+`func (o *LogOperationResponseModel) GetStartTimeOk() (*string, bool)`
+
+GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartTime
+
+`func (o *LogOperationResponseModel) SetStartTime(v string)`
+
+SetStartTime sets StartTime field to given value.
+
+
+### GetFormattedStartTime
+
+`func (o *LogOperationResponseModel) GetFormattedStartTime() string`
+
+GetFormattedStartTime returns the FormattedStartTime field if non-nil, zero value otherwise.
+
+### GetFormattedStartTimeOk
+
+`func (o *LogOperationResponseModel) GetFormattedStartTimeOk() (*string, bool)`
+
+GetFormattedStartTimeOk returns a tuple with the FormattedStartTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFormattedStartTime
+
+`func (o *LogOperationResponseModel) SetFormattedStartTime(v string)`
+
+SetFormattedStartTime sets FormattedStartTime field to given value.
+
+
 ### GetIsSuccessful
 
 `func (o *LogOperationResponseModel) GetIsSuccessful() bool`
@@ -198,6 +314,26 @@ HasIsSuccessful returns a boolean if a field has been set.
 `func (o *LogOperationResponseModel) UnsetIsSuccessful()`
 
 UnsetIsSuccessful ensures that no value is present for IsSuccessful, not even an explicit nil
+### GetTargetTypes
+
+`func (o *LogOperationResponseModel) GetTargetTypes() []string`
+
+GetTargetTypes returns the TargetTypes field if non-nil, zero value otherwise.
+
+### GetTargetTypesOk
+
+`func (o *LogOperationResponseModel) GetTargetTypesOk() (*[]string, bool)`
+
+GetTargetTypesOk returns a tuple with the TargetTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetTypes
+
+`func (o *LogOperationResponseModel) SetTargetTypes(v []string)`
+
+SetTargetTypes sets TargetTypes field to given value.
+
+
 ### GetOperationType
 
 `func (o *LogOperationResponseModel) GetOperationType() LogOperationType`
@@ -253,6 +389,41 @@ HasLabels returns a boolean if a field has been set.
 `func (o *LogOperationResponseModel) UnsetLabels()`
 
 UnsetLabels ensures that no value is present for Labels, not even an explicit nil
+### GetMetadata
+
+`func (o *LogOperationResponseModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *LogOperationResponseModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *LogOperationResponseModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *LogOperationResponseModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *LogOperationResponseModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *LogOperationResponseModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetParameters
 
 `func (o *LogOperationResponseModel) GetParameters() []NameValueStringPairModel`
@@ -273,141 +444,6 @@ and a boolean to check if the value has been set.
 SetParameters sets Parameters field to given value.
 
 
-### GetSource
-
-`func (o *LogOperationResponseModel) GetSource() string`
-
-GetSource returns the Source field if non-nil, zero value otherwise.
-
-### GetSourceOk
-
-`func (o *LogOperationResponseModel) GetSourceOk() (*string, bool)`
-
-GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSource
-
-`func (o *LogOperationResponseModel) SetSource(v string)`
-
-SetSource sets Source field to given value.
-
-
-### GetStartTime
-
-`func (o *LogOperationResponseModel) GetStartTime() string`
-
-GetStartTime returns the StartTime field if non-nil, zero value otherwise.
-
-### GetStartTimeOk
-
-`func (o *LogOperationResponseModel) GetStartTimeOk() (*string, bool)`
-
-GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStartTime
-
-`func (o *LogOperationResponseModel) SetStartTime(v string)`
-
-SetStartTime sets StartTime field to given value.
-
-
-### GetFormattedStartTime
-
-`func (o *LogOperationResponseModel) GetFormattedStartTime() string`
-
-GetFormattedStartTime returns the FormattedStartTime field if non-nil, zero value otherwise.
-
-### GetFormattedStartTimeOk
-
-`func (o *LogOperationResponseModel) GetFormattedStartTimeOk() (*string, bool)`
-
-GetFormattedStartTimeOk returns a tuple with the FormattedStartTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFormattedStartTime
-
-`func (o *LogOperationResponseModel) SetFormattedStartTime(v string)`
-
-SetFormattedStartTime sets FormattedStartTime field to given value.
-
-
-### GetTargetTypes
-
-`func (o *LogOperationResponseModel) GetTargetTypes() []string`
-
-GetTargetTypes returns the TargetTypes field if non-nil, zero value otherwise.
-
-### GetTargetTypesOk
-
-`func (o *LogOperationResponseModel) GetTargetTypesOk() (*[]string, bool)`
-
-GetTargetTypesOk returns a tuple with the TargetTypes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTargetTypes
-
-`func (o *LogOperationResponseModel) SetTargetTypes(v []string)`
-
-SetTargetTypes sets TargetTypes field to given value.
-
-
-### GetText
-
-`func (o *LogOperationResponseModel) GetText() string`
-
-GetText returns the Text field if non-nil, zero value otherwise.
-
-### GetTextOk
-
-`func (o *LogOperationResponseModel) GetTextOk() (*string, bool)`
-
-GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetText
-
-`func (o *LogOperationResponseModel) SetText(v string)`
-
-SetText sets Text field to given value.
-
-
-### GetUser
-
-`func (o *LogOperationResponseModel) GetUser() string`
-
-GetUser returns the User field if non-nil, zero value otherwise.
-
-### GetUserOk
-
-`func (o *LogOperationResponseModel) GetUserOk() (*string, bool)`
-
-GetUserOk returns a tuple with the User field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUser
-
-`func (o *LogOperationResponseModel) SetUser(v string)`
-
-SetUser sets User field to given value.
-
-### HasUser
-
-`func (o *LogOperationResponseModel) HasUser() bool`
-
-HasUser returns a boolean if a field has been set.
-
-### SetUserNil
-
-`func (o *LogOperationResponseModel) SetUserNil(b bool)`
-
- SetUserNil sets the value for User to be an explicit nil
-
-### UnsetUser
-`func (o *LogOperationResponseModel) UnsetUser()`
-
-UnsetUser ensures that no value is present for User, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

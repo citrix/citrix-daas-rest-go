@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType&#x3D;&#x3D;Virtual meant the same thing as \&quot;power-managed\&quot;; however that&#39;s not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType&#x3D;&#x3D;Physical). | [optional] 
 **AutoscalingEnabled** | Pointer to **bool** | Specifies whether machines in this desktop group can be Autoscaled. | [optional] 
 **ReuseMachinesWithoutShutdownInOutage** | Pointer to **bool** | Whether machines will be reused without a shutdown in case of an outage. | [optional] 
+**TotalDesktopsOfSuspend** | Pointer to **NullableInt32** | Total number of suspend-capable desktops in the delivery group. | [optional] 
 
 ## Methods
 
@@ -1030,6 +1031,41 @@ SetReuseMachinesWithoutShutdownInOutage sets ReuseMachinesWithoutShutdownInOutag
 
 HasReuseMachinesWithoutShutdownInOutage returns a boolean if a field has been set.
 
+### GetTotalDesktopsOfSuspend
+
+`func (o *DeliveryGroupResponseModel) GetTotalDesktopsOfSuspend() int32`
+
+GetTotalDesktopsOfSuspend returns the TotalDesktopsOfSuspend field if non-nil, zero value otherwise.
+
+### GetTotalDesktopsOfSuspendOk
+
+`func (o *DeliveryGroupResponseModel) GetTotalDesktopsOfSuspendOk() (*int32, bool)`
+
+GetTotalDesktopsOfSuspendOk returns a tuple with the TotalDesktopsOfSuspend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalDesktopsOfSuspend
+
+`func (o *DeliveryGroupResponseModel) SetTotalDesktopsOfSuspend(v int32)`
+
+SetTotalDesktopsOfSuspend sets TotalDesktopsOfSuspend field to given value.
+
+### HasTotalDesktopsOfSuspend
+
+`func (o *DeliveryGroupResponseModel) HasTotalDesktopsOfSuspend() bool`
+
+HasTotalDesktopsOfSuspend returns a boolean if a field has been set.
+
+### SetTotalDesktopsOfSuspendNil
+
+`func (o *DeliveryGroupResponseModel) SetTotalDesktopsOfSuspendNil(b bool)`
+
+ SetTotalDesktopsOfSuspendNil sets the value for TotalDesktopsOfSuspend to be an explicit nil
+
+### UnsetTotalDesktopsOfSuspend
+`func (o *DeliveryGroupResponseModel) UnsetTotalDesktopsOfSuspend()`
+
+UnsetTotalDesktopsOfSuspend ensures that no value is present for TotalDesktopsOfSuspend, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

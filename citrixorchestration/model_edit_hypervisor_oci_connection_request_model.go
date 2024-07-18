@@ -45,6 +45,8 @@ type EditHypervisorOciConnectionRequestModel struct {
 	SecretKeyFormat *IdentityPasswordFormat `json:"SecretKeyFormat,omitempty"`
 	// Maximum number of concurrent AWS provisioning operations. Optional.  If not specified, will not be changed.
 	MaximumConcurrentProvisioningOperations NullableInt32 `json:"MaximumConcurrentProvisioningOperations,omitempty"`
+	// Custom AWS Address. Only when the connection without the resourcePool can be updated.
+	Address NullableString `json:"Address,omitempty"`
 	// Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified.
 	ApplicationId NullableString `json:"ApplicationId,omitempty"`
 	// The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat.
@@ -628,6 +630,48 @@ func (o *EditHypervisorOciConnectionRequestModel) SetMaximumConcurrentProvisioni
 // UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
 func (o *EditHypervisorOciConnectionRequestModel) UnsetMaximumConcurrentProvisioningOperations() {
 	o.MaximumConcurrentProvisioningOperations.Unset()
+}
+
+// GetAddress returns the Address field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EditHypervisorOciConnectionRequestModel) GetAddress() string {
+	if o == nil || IsNil(o.Address.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Address.Get()
+}
+
+// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EditHypervisorOciConnectionRequestModel) GetAddressOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Address.Get(), o.Address.IsSet()
+}
+
+// HasAddress returns a boolean if a field has been set.
+func (o *EditHypervisorOciConnectionRequestModel) HasAddress() bool {
+	if o != nil && o.Address.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAddress gets a reference to the given NullableString and assigns it to the Address field.
+func (o *EditHypervisorOciConnectionRequestModel) SetAddress(v string) {
+	o.Address.Set(&v)
+}
+// SetAddressNil sets the value for Address to be an explicit nil
+func (o *EditHypervisorOciConnectionRequestModel) SetAddressNil() {
+	o.Address.Set(nil)
+}
+
+// UnsetAddress ensures that no value is present for Address, not even an explicit nil
+func (o *EditHypervisorOciConnectionRequestModel) UnsetAddress() {
+	o.Address.Unset()
 }
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1270,6 +1314,9 @@ func (o EditHypervisorOciConnectionRequestModel) ToMap() (map[string]interface{}
 	}
 	if o.MaximumConcurrentProvisioningOperations.IsSet() {
 		toSerialize["MaximumConcurrentProvisioningOperations"] = o.MaximumConcurrentProvisioningOperations.Get()
+	}
+	if o.Address.IsSet() {
+		toSerialize["Address"] = o.Address.Get()
 	}
 	if o.ApplicationId.IsSet() {
 		toSerialize["ApplicationId"] = o.ApplicationId.Get()

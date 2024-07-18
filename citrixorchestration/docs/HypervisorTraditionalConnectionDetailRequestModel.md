@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **SecretKey** | Pointer to **string** | The secret key used to authenticate with the AWS APIs.  Required. Must be specified in the format indicated by SecretKeyFormat. | [optional] 
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Region** | Pointer to **NullableString** | AWS region to connect to.  Optional.  If not specified, will connect to the global AWS APIs.  This can be used to discover the regions available within AWS.  Access to all other AWS resources requires the region to be set explicitly. | [optional] 
+**Address** | Pointer to **NullableString** | Custom AWS Address. | [optional] 
 **ApplicationId** | Pointer to **string** | Application ID of the service principal used to access the Azure APIs.  Required. | [optional] 
 **ApplicationSecret** | Pointer to **string** | The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -494,6 +495,41 @@ HasRegion returns a boolean if a field has been set.
 `func (o *HypervisorTraditionalConnectionDetailRequestModel) UnsetRegion()`
 
 UnsetRegion ensures that no value is present for Region, not even an explicit nil
+### GetAddress
+
+`func (o *HypervisorTraditionalConnectionDetailRequestModel) GetAddress() string`
+
+GetAddress returns the Address field if non-nil, zero value otherwise.
+
+### GetAddressOk
+
+`func (o *HypervisorTraditionalConnectionDetailRequestModel) GetAddressOk() (*string, bool)`
+
+GetAddressOk returns a tuple with the Address field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddress
+
+`func (o *HypervisorTraditionalConnectionDetailRequestModel) SetAddress(v string)`
+
+SetAddress sets Address field to given value.
+
+### HasAddress
+
+`func (o *HypervisorTraditionalConnectionDetailRequestModel) HasAddress() bool`
+
+HasAddress returns a boolean if a field has been set.
+
+### SetAddressNil
+
+`func (o *HypervisorTraditionalConnectionDetailRequestModel) SetAddressNil(b bool)`
+
+ SetAddressNil sets the value for Address to be an explicit nil
+
+### UnsetAddress
+`func (o *HypervisorTraditionalConnectionDetailRequestModel) UnsetAddress()`
+
+UnsetAddress ensures that no value is present for Address, not even an explicit nil
 ### GetApplicationId
 
 `func (o *HypervisorTraditionalConnectionDetailRequestModel) GetApplicationId() string`

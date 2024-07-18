@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **UserId** | **string** | Id of the logged-in user. Internally: this is the *sub* from the bearer token.  NOT the user_id. | 
-**DisplayName** | **string** | Display name of the user. Internally: the *displayname* from the bearer token. | 
+**DisplayName** | Pointer to **NullableString** | Display name of the user. Internally: the *displayname* from the bearer token. | [optional] 
 **ExpiryTime** | **string** | Time when the login token expires. RFC 3339 compatible format. Internally: the *exp* from the bearer token, converted to RFC 3339. | 
 **RefreshExpirationTime** | **string** | Time after which the login token can no longer be refreshed. RFC 3339 compatible format. Internally: the *refresh_expiration* from the bearer token, converted to RFC 3339. | 
 **VerifiedEmail** | Pointer to **NullableString** | Verified email of the user. | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewMeResponseModel
 
-`func NewMeResponseModel(userId string, displayName string, expiryTime string, refreshExpirationTime string, customers []MyCustomerResponseModel, ) *MeResponseModel`
+`func NewMeResponseModel(userId string, expiryTime string, refreshExpirationTime string, customers []MyCustomerResponseModel, ) *MeResponseModel`
 
 NewMeResponseModel instantiates a new MeResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -70,7 +70,22 @@ and a boolean to check if the value has been set.
 
 SetDisplayName sets DisplayName field to given value.
 
+### HasDisplayName
 
+`func (o *MeResponseModel) HasDisplayName() bool`
+
+HasDisplayName returns a boolean if a field has been set.
+
+### SetDisplayNameNil
+
+`func (o *MeResponseModel) SetDisplayNameNil(b bool)`
+
+ SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+
+### UnsetDisplayName
+`func (o *MeResponseModel) UnsetDisplayName()`
+
+UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetExpiryTime
 
 `func (o *MeResponseModel) GetExpiryTime() string`

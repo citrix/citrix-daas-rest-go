@@ -19,7 +19,7 @@ var _ MappedNullable = &EditOperationRequestModel{}
 
 // EditOperationRequestModel Model for editing a high level log operation.
 type EditOperationRequestModel struct {
-	// The new labels of the operation.
+	// The new labels of the operation. NOTE: For each label, it is case-insensitive with a max length of 60 and any leading or trailing whitespaces will be trimmed.
 	Labels []string `json:"Labels,omitempty"`
 }
 

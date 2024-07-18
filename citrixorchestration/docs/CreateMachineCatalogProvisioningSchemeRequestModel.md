@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **AvailableMachineAccounts** | Pointer to [**[]MachineAccountRequestModel**](MachineAccountRequestModel.md) | List of Active Directory machine accounts that are to be used when machines are provisioned. | [optional] 
 **PVSSite** | Pointer to **NullableString** | PVS site id. | [optional] 
 **PVSVDisk** | Pointer to **NullableString** | PVS vDisk id. | [optional] 
+**ServiceAccountUid** | Pointer to **[]string** | Indicates whether to associate service accounts to the IdentityPool. | [optional] 
 
 ## Methods
 
@@ -1250,6 +1251,41 @@ HasPVSVDisk returns a boolean if a field has been set.
 `func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetPVSVDisk()`
 
 UnsetPVSVDisk ensures that no value is present for PVSVDisk, not even an explicit nil
+### GetServiceAccountUid
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetServiceAccountUid() []string`
+
+GetServiceAccountUid returns the ServiceAccountUid field if non-nil, zero value otherwise.
+
+### GetServiceAccountUidOk
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetServiceAccountUidOk() (*[]string, bool)`
+
+GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountUid
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetServiceAccountUid(v []string)`
+
+SetServiceAccountUid sets ServiceAccountUid field to given value.
+
+### HasServiceAccountUid
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasServiceAccountUid() bool`
+
+HasServiceAccountUid returns a boolean if a field has been set.
+
+### SetServiceAccountUidNil
+
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetServiceAccountUidNil(b bool)`
+
+ SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+
+### UnsetServiceAccountUid
+`func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetServiceAccountUid()`
+
+UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

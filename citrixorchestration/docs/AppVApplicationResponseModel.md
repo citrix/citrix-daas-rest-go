@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **PackageVersion** | **string** | App package version. | 
 **PackageVersionId** | **string** | App package version id. | 
 **PublishingServer** | **string** | App publishing server. | 
+**Users** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | Users associated with the App-V application on the management server. | [optional] 
 **Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED.  Use Id. | [optional] 
 **BrokerApplicationNames** | Pointer to **[]string** | Delivered broker application names. | [optional] 
 
@@ -281,6 +282,41 @@ and a boolean to check if the value has been set.
 SetPublishingServer sets PublishingServer field to given value.
 
 
+### GetUsers
+
+`func (o *AppVApplicationResponseModel) GetUsers() []IdentityUserResponseModel`
+
+GetUsers returns the Users field if non-nil, zero value otherwise.
+
+### GetUsersOk
+
+`func (o *AppVApplicationResponseModel) GetUsersOk() (*[]IdentityUserResponseModel, bool)`
+
+GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsers
+
+`func (o *AppVApplicationResponseModel) SetUsers(v []IdentityUserResponseModel)`
+
+SetUsers sets Users field to given value.
+
+### HasUsers
+
+`func (o *AppVApplicationResponseModel) HasUsers() bool`
+
+HasUsers returns a boolean if a field has been set.
+
+### SetUsersNil
+
+`func (o *AppVApplicationResponseModel) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *AppVApplicationResponseModel) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 ### GetUid
 
 `func (o *AppVApplicationResponseModel) GetUid() int32`

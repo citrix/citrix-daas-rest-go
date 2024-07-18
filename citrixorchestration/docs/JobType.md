@@ -221,6 +221,8 @@
 
 * `GET_HYPERVISOR_ALL_RESOURCES` (value: `"GetHypervisorAllResources"`)
 
+* `SEARCH_HYPERVISOR_ALL_RESOURCES` (value: `"SearchHypervisorAllResources"`)
+
 * `GET_HYPERVISOR_ALL_RESOURCES_WITHOUT_CONNECTION` (value: `"GetHypervisorAllResourcesWithoutConnection"`)
 
 * `GET_HYPERVISOR_RESOURCE_POOLS` (value: `"GetHypervisorResourcePools"`)
@@ -246,6 +248,8 @@
 * `FETCH_EXISTING_OPERATION_LABELS` (value: `"FetchExistingOperationLabels"`)
 
 * `UPDATE_OPERATION` (value: `"UpdateOperation"`)
+
+* `NEW_OPERATION` (value: `"NewOperation"`)
 
 * `GET_SESSIONS` (value: `"GetSessions"`)
 
@@ -300,6 +304,10 @@
 * `GET_APP_V_ISOLATION_GROUP` (value: `"GetAppVIsolationGroup"`)
 
 * `GET_APPLICATION_FTAS` (value: `"GetApplicationFtas"`)
+
+* `GET_DELIVERY_GROUP_FTAS` (value: `"GetDeliveryGroupFtas"`)
+
+* `GET_APP_V_PACKAGE_APPLICATION_FILE_TYPES` (value: `"GetAppVPackageApplicationFileTypes"`)
 
 * `GET_MACHINE_CATALOG_MACHINES` (value: `"GetMachineCatalogMachines"`)
 
@@ -488,6 +496,20 @@
 * `IMPORT_PROVISIONED_VIRTUAL_MACHINES` (value: `"ImportProvisionedVirtualMachines"`)
 
 * `VALIDATE_MACHINE_CATALOG_CREATION` (value: `"ValidateMachineCatalogCreation"`)
+
+* `SEARCH_PROVISIONED_VIRTUAL_MACHINES` (value: `"SearchProvisionedVirtualMachines"`)
+
+* `GET_PROVISIONED_VIRTUAL_MACHINE_DETAILS` (value: `"GetProvisionedVirtualMachineDetails"`)
+
+* `GET_USERS_IDENTITY` (value: `"GetUsersIdentity"`)
+
+* `GET_SERVICE_ACCOUNTS` (value: `"GetServiceAccounts"`)
+
+* `SEARCH_PROVISIONING_OPERATION_EVENT` (value: `"SearchProvisioningOperationEvent"`)
+
+* `REMOVE_PROVISIONING_OPERATION_EVENT` (value: `"RemoveProvisioningOperationEvent"`)
+
+* `CONFIRM_PROVISIONING_OPERATION_EVENT` (value: `"ConfirmProvisioningOperationEvent"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

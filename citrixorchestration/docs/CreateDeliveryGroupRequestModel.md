@@ -12,7 +12,10 @@ Name | Type | Description | Notes
 **Desktops** | Pointer to [**[]DesktopRequestModel**](DesktopRequestModel.md) | List of desktop resources to publish on the delivery group. | [optional] 
 **Enabled** | Pointer to **NullableBool** | Whether the delivery group should be in the enabled state; all resources published on disabled delivery groups do not appear to users. | [optional] [default to true]
 **InMaintenanceMode** | Pointer to **NullableBool** | Whether the delivery group should be created in maintenance mode; a delivery group in maintenance mode will not allow users to connect or reconnect to machines in the delivery group. | [optional] [default to false]
-**MachineCatalogs** | [**[]DeliveryGroupAddMachinesRequestModel**](DeliveryGroupAddMachinesRequestModel.md) | List of machine catalogs from which to assign machines to the newly created delivery group. | 
+**MachineCatalogs** | Pointer to [**[]DeliveryGroupAddMachinesRequestModel**](DeliveryGroupAddMachinesRequestModel.md) | List of machine catalogs from which to assign machines to the newly created delivery group. | [optional] 
+**SessionSupport** | Pointer to [**SessionSupport**](SessionSupport.md) |  | [optional] 
+**SharingKind** | Pointer to [**SharingKind**](SharingKind.md) |  | [optional] 
+**IsRemotePC** | Pointer to **NullableBool** | Optional, specifies whether this is to be a Remote PC delivery group. Default comes from the machine catalog, only needs to be specified when creating a delivery group without machine catalog. | [optional] 
 **MinimumFunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
 **Name** | **string** | The name of the new delivery group. | 
 **RequireUserHomeZone** | Pointer to **NullableBool** | Whether to require the resources from this delivery group to launch within the user&#39;s home zone. | [optional] [default to false]
@@ -89,7 +92,7 @@ Name | Type | Description | Notes
 
 ### NewCreateDeliveryGroupRequestModel
 
-`func NewCreateDeliveryGroupRequestModel(machineCatalogs []DeliveryGroupAddMachinesRequestModel, name string, ) *CreateDeliveryGroupRequestModel`
+`func NewCreateDeliveryGroupRequestModel(name string, ) *CreateDeliveryGroupRequestModel`
 
 NewCreateDeliveryGroupRequestModel instantiates a new CreateDeliveryGroupRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -373,7 +376,107 @@ and a boolean to check if the value has been set.
 
 SetMachineCatalogs sets MachineCatalogs field to given value.
 
+### HasMachineCatalogs
 
+`func (o *CreateDeliveryGroupRequestModel) HasMachineCatalogs() bool`
+
+HasMachineCatalogs returns a boolean if a field has been set.
+
+### SetMachineCatalogsNil
+
+`func (o *CreateDeliveryGroupRequestModel) SetMachineCatalogsNil(b bool)`
+
+ SetMachineCatalogsNil sets the value for MachineCatalogs to be an explicit nil
+
+### UnsetMachineCatalogs
+`func (o *CreateDeliveryGroupRequestModel) UnsetMachineCatalogs()`
+
+UnsetMachineCatalogs ensures that no value is present for MachineCatalogs, not even an explicit nil
+### GetSessionSupport
+
+`func (o *CreateDeliveryGroupRequestModel) GetSessionSupport() SessionSupport`
+
+GetSessionSupport returns the SessionSupport field if non-nil, zero value otherwise.
+
+### GetSessionSupportOk
+
+`func (o *CreateDeliveryGroupRequestModel) GetSessionSupportOk() (*SessionSupport, bool)`
+
+GetSessionSupportOk returns a tuple with the SessionSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSessionSupport
+
+`func (o *CreateDeliveryGroupRequestModel) SetSessionSupport(v SessionSupport)`
+
+SetSessionSupport sets SessionSupport field to given value.
+
+### HasSessionSupport
+
+`func (o *CreateDeliveryGroupRequestModel) HasSessionSupport() bool`
+
+HasSessionSupport returns a boolean if a field has been set.
+
+### GetSharingKind
+
+`func (o *CreateDeliveryGroupRequestModel) GetSharingKind() SharingKind`
+
+GetSharingKind returns the SharingKind field if non-nil, zero value otherwise.
+
+### GetSharingKindOk
+
+`func (o *CreateDeliveryGroupRequestModel) GetSharingKindOk() (*SharingKind, bool)`
+
+GetSharingKindOk returns a tuple with the SharingKind field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSharingKind
+
+`func (o *CreateDeliveryGroupRequestModel) SetSharingKind(v SharingKind)`
+
+SetSharingKind sets SharingKind field to given value.
+
+### HasSharingKind
+
+`func (o *CreateDeliveryGroupRequestModel) HasSharingKind() bool`
+
+HasSharingKind returns a boolean if a field has been set.
+
+### GetIsRemotePC
+
+`func (o *CreateDeliveryGroupRequestModel) GetIsRemotePC() bool`
+
+GetIsRemotePC returns the IsRemotePC field if non-nil, zero value otherwise.
+
+### GetIsRemotePCOk
+
+`func (o *CreateDeliveryGroupRequestModel) GetIsRemotePCOk() (*bool, bool)`
+
+GetIsRemotePCOk returns a tuple with the IsRemotePC field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsRemotePC
+
+`func (o *CreateDeliveryGroupRequestModel) SetIsRemotePC(v bool)`
+
+SetIsRemotePC sets IsRemotePC field to given value.
+
+### HasIsRemotePC
+
+`func (o *CreateDeliveryGroupRequestModel) HasIsRemotePC() bool`
+
+HasIsRemotePC returns a boolean if a field has been set.
+
+### SetIsRemotePCNil
+
+`func (o *CreateDeliveryGroupRequestModel) SetIsRemotePCNil(b bool)`
+
+ SetIsRemotePCNil sets the value for IsRemotePC to be an explicit nil
+
+### UnsetIsRemotePC
+`func (o *CreateDeliveryGroupRequestModel) UnsetIsRemotePC()`
+
+UnsetIsRemotePC ensures that no value is present for IsRemotePC, not even an explicit nil
 ### GetMinimumFunctionalLevel
 
 `func (o *CreateDeliveryGroupRequestModel) GetMinimumFunctionalLevel() FunctionalLevel`

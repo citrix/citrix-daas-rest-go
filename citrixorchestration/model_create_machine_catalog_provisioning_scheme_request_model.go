@@ -85,6 +85,8 @@ type CreateMachineCatalogProvisioningSchemeRequestModel struct {
 	PVSSite NullableString `json:"PVSSite,omitempty"`
 	// PVS vDisk id.
 	PVSVDisk NullableString `json:"PVSVDisk,omitempty"`
+	// Indicates whether to associate service accounts to the IdentityPool.
+	ServiceAccountUid []string `json:"ServiceAccountUid,omitempty"`
 }
 
 // NewCreateMachineCatalogProvisioningSchemeRequestModel instantiates a new CreateMachineCatalogProvisioningSchemeRequestModel object
@@ -1529,6 +1531,39 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) UnsetPVSVDisk() {
 	o.PVSVDisk.Unset()
 }
 
+// GetServiceAccountUid returns the ServiceAccountUid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetServiceAccountUid() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ServiceAccountUid
+}
+
+// GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) GetServiceAccountUidOk() ([]string, bool) {
+	if o == nil || IsNil(o.ServiceAccountUid) {
+		return nil, false
+	}
+	return o.ServiceAccountUid, true
+}
+
+// HasServiceAccountUid returns a boolean if a field has been set.
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasServiceAccountUid() bool {
+	if o != nil && IsNil(o.ServiceAccountUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceAccountUid gets a reference to the given []string and assigns it to the ServiceAccountUid field.
+func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetServiceAccountUid(v []string) {
+	o.ServiceAccountUid = v
+}
+
 func (o CreateMachineCatalogProvisioningSchemeRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1646,6 +1681,9 @@ func (o CreateMachineCatalogProvisioningSchemeRequestModel) ToMap() (map[string]
 	}
 	if o.PVSVDisk.IsSet() {
 		toSerialize["PVSVDisk"] = o.PVSVDisk.Get()
+	}
+	if o.ServiceAccountUid != nil {
+		toSerialize["ServiceAccountUid"] = o.ServiceAccountUid
 	}
 	return toSerialize, nil
 }

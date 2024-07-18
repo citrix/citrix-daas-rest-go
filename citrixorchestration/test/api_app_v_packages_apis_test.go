@@ -134,6 +134,21 @@ func Test_citrixorchestration_AppVPackagesAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesGetPackageApplicationFileTypes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+		var appId string
+
+		resp, httpRes, err := apiClient.AppVPackagesAPIsDAAS.AppVPackagesGetPackageApplicationFileTypes(context.Background(), id, appId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test AppVPackagesAPIsDAASService AppVPackagesImportAppVPackages", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -19,9 +19,12 @@ var _ MappedNullable = &LosingSetting{}
 
 // LosingSetting Setting that is not applied.
 type LosingSetting struct {
-	PolicyIdentity *PolicyIdentity `json:"PolicyIdentity,omitempty"`
+	// Name of the policy.
+	PolicyName NullableString `json:"PolicyName,omitempty"`
 	// The setting that is not applied.
 	SettingName NullableString `json:"SettingName,omitempty"`
+	// Name of the GPO that contains the policy that uses this setting.
+	GpoName NullableString `json:"GpoName,omitempty"`
 }
 
 // NewLosingSetting instantiates a new LosingSetting object
@@ -41,36 +44,46 @@ func NewLosingSettingWithDefaults() *LosingSetting {
 	return &this
 }
 
-// GetPolicyIdentity returns the PolicyIdentity field value if set, zero value otherwise.
-func (o *LosingSetting) GetPolicyIdentity() PolicyIdentity {
-	if o == nil || IsNil(o.PolicyIdentity) {
-		var ret PolicyIdentity
+// GetPolicyName returns the PolicyName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LosingSetting) GetPolicyName() string {
+	if o == nil || IsNil(o.PolicyName.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.PolicyIdentity
+	return *o.PolicyName.Get()
 }
 
-// GetPolicyIdentityOk returns a tuple with the PolicyIdentity field value if set, nil otherwise
+// GetPolicyNameOk returns a tuple with the PolicyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LosingSetting) GetPolicyIdentityOk() (*PolicyIdentity, bool) {
-	if o == nil || IsNil(o.PolicyIdentity) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LosingSetting) GetPolicyNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PolicyIdentity, true
+	return o.PolicyName.Get(), o.PolicyName.IsSet()
 }
 
-// HasPolicyIdentity returns a boolean if a field has been set.
-func (o *LosingSetting) HasPolicyIdentity() bool {
-	if o != nil && !IsNil(o.PolicyIdentity) {
+// HasPolicyName returns a boolean if a field has been set.
+func (o *LosingSetting) HasPolicyName() bool {
+	if o != nil && o.PolicyName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPolicyIdentity gets a reference to the given PolicyIdentity and assigns it to the PolicyIdentity field.
-func (o *LosingSetting) SetPolicyIdentity(v PolicyIdentity) {
-	o.PolicyIdentity = &v
+// SetPolicyName gets a reference to the given NullableString and assigns it to the PolicyName field.
+func (o *LosingSetting) SetPolicyName(v string) {
+	o.PolicyName.Set(&v)
+}
+// SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+func (o *LosingSetting) SetPolicyNameNil() {
+	o.PolicyName.Set(nil)
+}
+
+// UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
+func (o *LosingSetting) UnsetPolicyName() {
+	o.PolicyName.Unset()
 }
 
 // GetSettingName returns the SettingName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -115,6 +128,48 @@ func (o *LosingSetting) UnsetSettingName() {
 	o.SettingName.Unset()
 }
 
+// GetGpoName returns the GpoName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LosingSetting) GetGpoName() string {
+	if o == nil || IsNil(o.GpoName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.GpoName.Get()
+}
+
+// GetGpoNameOk returns a tuple with the GpoName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LosingSetting) GetGpoNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GpoName.Get(), o.GpoName.IsSet()
+}
+
+// HasGpoName returns a boolean if a field has been set.
+func (o *LosingSetting) HasGpoName() bool {
+	if o != nil && o.GpoName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGpoName gets a reference to the given NullableString and assigns it to the GpoName field.
+func (o *LosingSetting) SetGpoName(v string) {
+	o.GpoName.Set(&v)
+}
+// SetGpoNameNil sets the value for GpoName to be an explicit nil
+func (o *LosingSetting) SetGpoNameNil() {
+	o.GpoName.Set(nil)
+}
+
+// UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
+func (o *LosingSetting) UnsetGpoName() {
+	o.GpoName.Unset()
+}
+
 func (o LosingSetting) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -125,11 +180,14 @@ func (o LosingSetting) MarshalJSON() ([]byte, error) {
 
 func (o LosingSetting) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PolicyIdentity) {
-		toSerialize["PolicyIdentity"] = o.PolicyIdentity
+	if o.PolicyName.IsSet() {
+		toSerialize["PolicyName"] = o.PolicyName.Get()
 	}
 	if o.SettingName.IsSet() {
 		toSerialize["SettingName"] = o.SettingName.Get()
+	}
+	if o.GpoName.IsSet() {
+		toSerialize["GpoName"] = o.GpoName.Get()
 	}
 	return toSerialize, nil
 }

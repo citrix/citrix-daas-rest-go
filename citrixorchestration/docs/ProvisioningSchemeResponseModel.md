@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **TenancyType** | Pointer to **NullableString** | Indicates whether to use tenancy type Shared, Instance or Host when creating machines in Cloud Hypervisors. | [optional] 
 **AzureAdJoinType** | Pointer to **NullableString** | Indicates whether to use azure AD join type. | [optional] 
 **AzureADTenantId** | Pointer to **NullableString** | AzureAD Tenant Id associates with this catalog | [optional] 
+**ServiceAccountUid** | Pointer to **[]string** | Service account Uids associated with IdentityPool of this catalog | [optional] 
 **AzureAdSecurityGroupName** | Pointer to **NullableString** | AzureAd dynamic security group associates with this catalog | [optional] 
 **IdentityType** | Pointer to [**IdentityType**](IdentityType.md) |  | [optional] 
 **DeviceManagementType** | Pointer to [**DeviceManagementType**](DeviceManagementType.md) |  | [optional] 
@@ -551,6 +552,41 @@ HasAzureADTenantId returns a boolean if a field has been set.
 `func (o *ProvisioningSchemeResponseModel) UnsetAzureADTenantId()`
 
 UnsetAzureADTenantId ensures that no value is present for AzureADTenantId, not even an explicit nil
+### GetServiceAccountUid
+
+`func (o *ProvisioningSchemeResponseModel) GetServiceAccountUid() []string`
+
+GetServiceAccountUid returns the ServiceAccountUid field if non-nil, zero value otherwise.
+
+### GetServiceAccountUidOk
+
+`func (o *ProvisioningSchemeResponseModel) GetServiceAccountUidOk() (*[]string, bool)`
+
+GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountUid
+
+`func (o *ProvisioningSchemeResponseModel) SetServiceAccountUid(v []string)`
+
+SetServiceAccountUid sets ServiceAccountUid field to given value.
+
+### HasServiceAccountUid
+
+`func (o *ProvisioningSchemeResponseModel) HasServiceAccountUid() bool`
+
+HasServiceAccountUid returns a boolean if a field has been set.
+
+### SetServiceAccountUidNil
+
+`func (o *ProvisioningSchemeResponseModel) SetServiceAccountUidNil(b bool)`
+
+ SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+
+### UnsetServiceAccountUid
+`func (o *ProvisioningSchemeResponseModel) UnsetServiceAccountUid()`
+
+UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
 ### GetAzureAdSecurityGroupName
 
 `func (o *ProvisioningSchemeResponseModel) GetAzureAdSecurityGroupName() string`

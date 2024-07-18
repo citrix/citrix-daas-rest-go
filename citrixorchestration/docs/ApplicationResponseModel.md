@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | 
+**Id** | Pointer to **NullableString** | Id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
 **Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
-**ApplicationFolder** | [**RefResponseModel**](RefResponseModel.md) |  | 
-**ApplicationType** | [**ApplicationType**](ApplicationType.md) |  | 
-**PackagedApplicationType** | [**PackagedApplicationType**](PackagedApplicationType.md) |  | 
+**ApplicationFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**ApplicationType** | Pointer to [**ApplicationType**](ApplicationType.md) |  | [optional] 
+**PackagedApplicationType** | Pointer to [**PackagedApplicationType**](PackagedApplicationType.md) |  | [optional] 
 **ClientFolder** | Pointer to **NullableString** | The folder that the application belongs to as the user sees it. | [optional] 
-**ContainerScopes** | [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application reside. | 
+**ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application reside. | [optional] 
 **Description** | Pointer to **NullableString** | The description of the application. | [optional] 
 **DoNotEnumerate** | Pointer to **bool** | Indicates whether or not this application is enumerable | [optional] 
-**Enabled** | **bool** | Indicates whether or not this application can be launched. | 
-**IconId** | **string** | Id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid | 
+**Enabled** | Pointer to **bool** | Indicates whether or not this application can be launched. | [optional] 
+**IconId** | Pointer to **NullableString** | Id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid | [optional] 
 **InstalledAppProperties** | Pointer to [**InstalledAppResponseModel**](InstalledAppResponseModel.md) |  | [optional] 
 **PackagedAppProperties** | Pointer to [**AppVAppResponseModel**](AppVAppResponseModel.md) |  | [optional] 
 **AppVAppProperties** | Pointer to [**AppVAppResponseModel**](AppVAppResponseModel.md) |  | [optional] 
 **ContentLocation** | Pointer to **NullableString** | Location of published content. | [optional] 
-**Name** | **string** | Name of the application.  Only seen by administrators. | 
-**PublishedName** | **string** | The name seen by end users who have access to the application. | 
+**Name** | Pointer to **NullableString** | Name of the application.  Only seen by administrators. | [optional] 
+**PublishedName** | Pointer to **NullableString** | The name seen by end users who have access to the application. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of application. | [optional] 
-**Visible** | **bool** | Indicates whether or not this application is visible to users. | 
-**SharingKind** | [**SharingKind**](SharingKind.md) |  | 
+**Visible** | Pointer to **bool** | Indicates whether or not this application is visible to users. | [optional] 
+**SharingKind** | Pointer to [**SharingKind**](SharingKind.md) |  | [optional] 
 **Tags** | Pointer to **[]string** | Tags associated with this application. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the application is assigned to.  If &#x60;null&#x60;, the application is not assigned to any tenants, and may be used by any tenant. | [optional] 
 **CloudWorkspaceManaged** | Pointer to **bool** | Indicates whether users are managed in the Citrix Cloud Library, or within Studio. | [optional] 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewApplicationResponseModel
 
-`func NewApplicationResponseModel(id string, applicationFolder RefResponseModel, applicationType ApplicationType, packagedApplicationType PackagedApplicationType, containerScopes []ContainerScopeResponseModel, enabled bool, iconId string, name string, publishedName string, visible bool, sharingKind SharingKind, ) *ApplicationResponseModel`
+`func NewApplicationResponseModel() *ApplicationResponseModel`
 
 NewApplicationResponseModel instantiates a new ApplicationResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -71,7 +71,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *ApplicationResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *ApplicationResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *ApplicationResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *ApplicationResponseModel) GetUid() int32`
@@ -126,6 +141,11 @@ and a boolean to check if the value has been set.
 
 SetApplicationFolder sets ApplicationFolder field to given value.
 
+### HasApplicationFolder
+
+`func (o *ApplicationResponseModel) HasApplicationFolder() bool`
+
+HasApplicationFolder returns a boolean if a field has been set.
 
 ### GetApplicationType
 
@@ -146,6 +166,11 @@ and a boolean to check if the value has been set.
 
 SetApplicationType sets ApplicationType field to given value.
 
+### HasApplicationType
+
+`func (o *ApplicationResponseModel) HasApplicationType() bool`
+
+HasApplicationType returns a boolean if a field has been set.
 
 ### GetPackagedApplicationType
 
@@ -166,6 +191,11 @@ and a boolean to check if the value has been set.
 
 SetPackagedApplicationType sets PackagedApplicationType field to given value.
 
+### HasPackagedApplicationType
+
+`func (o *ApplicationResponseModel) HasPackagedApplicationType() bool`
+
+HasPackagedApplicationType returns a boolean if a field has been set.
 
 ### GetClientFolder
 
@@ -221,7 +251,22 @@ and a boolean to check if the value has been set.
 
 SetContainerScopes sets ContainerScopes field to given value.
 
+### HasContainerScopes
 
+`func (o *ApplicationResponseModel) HasContainerScopes() bool`
+
+HasContainerScopes returns a boolean if a field has been set.
+
+### SetContainerScopesNil
+
+`func (o *ApplicationResponseModel) SetContainerScopesNil(b bool)`
+
+ SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
+
+### UnsetContainerScopes
+`func (o *ApplicationResponseModel) UnsetContainerScopes()`
+
+UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 ### GetDescription
 
 `func (o *ApplicationResponseModel) GetDescription() string`
@@ -301,6 +346,11 @@ and a boolean to check if the value has been set.
 
 SetEnabled sets Enabled field to given value.
 
+### HasEnabled
+
+`func (o *ApplicationResponseModel) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetIconId
 
@@ -321,7 +371,22 @@ and a boolean to check if the value has been set.
 
 SetIconId sets IconId field to given value.
 
+### HasIconId
 
+`func (o *ApplicationResponseModel) HasIconId() bool`
+
+HasIconId returns a boolean if a field has been set.
+
+### SetIconIdNil
+
+`func (o *ApplicationResponseModel) SetIconIdNil(b bool)`
+
+ SetIconIdNil sets the value for IconId to be an explicit nil
+
+### UnsetIconId
+`func (o *ApplicationResponseModel) UnsetIconId()`
+
+UnsetIconId ensures that no value is present for IconId, not even an explicit nil
 ### GetInstalledAppProperties
 
 `func (o *ApplicationResponseModel) GetInstalledAppProperties() InstalledAppResponseModel`
@@ -451,7 +516,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *ApplicationResponseModel) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *ApplicationResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ApplicationResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetPublishedName
 
 `func (o *ApplicationResponseModel) GetPublishedName() string`
@@ -471,7 +551,22 @@ and a boolean to check if the value has been set.
 
 SetPublishedName sets PublishedName field to given value.
 
+### HasPublishedName
 
+`func (o *ApplicationResponseModel) HasPublishedName() bool`
+
+HasPublishedName returns a boolean if a field has been set.
+
+### SetPublishedNameNil
+
+`func (o *ApplicationResponseModel) SetPublishedNameNil(b bool)`
+
+ SetPublishedNameNil sets the value for PublishedName to be an explicit nil
+
+### UnsetPublishedName
+`func (o *ApplicationResponseModel) UnsetPublishedName()`
+
+UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
 ### GetMetadata
 
 `func (o *ApplicationResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -526,6 +621,11 @@ and a boolean to check if the value has been set.
 
 SetVisible sets Visible field to given value.
 
+### HasVisible
+
+`func (o *ApplicationResponseModel) HasVisible() bool`
+
+HasVisible returns a boolean if a field has been set.
 
 ### GetSharingKind
 
@@ -546,6 +646,11 @@ and a boolean to check if the value has been set.
 
 SetSharingKind sets SharingKind field to given value.
 
+### HasSharingKind
+
+`func (o *ApplicationResponseModel) HasSharingKind() bool`
+
+HasSharingKind returns a boolean if a field has been set.
 
 ### GetTags
 

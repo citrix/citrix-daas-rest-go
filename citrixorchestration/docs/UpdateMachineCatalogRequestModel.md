@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **WriteBackCacheMemorySizeMB** | Pointer to **NullableInt32** | The size in MB of any write back cache if required. Should be used in conjunction with WriteBackCacheDiskSizeGB. | [optional] 
 **AzureADSecurityGroupName** | Pointer to **NullableString** | Name of Azure AD security group to be created. | [optional] 
 **AzureADTenantId** | Pointer to **NullableString** | TenantId of Azure Directory. | [optional] 
+**ServiceAccountUid** | Pointer to **[]string** | Indicates whether to associate service accounts to the IdentityPool. | [optional] 
 
 ## Methods
 
@@ -904,6 +905,41 @@ HasAzureADTenantId returns a boolean if a field has been set.
 `func (o *UpdateMachineCatalogRequestModel) UnsetAzureADTenantId()`
 
 UnsetAzureADTenantId ensures that no value is present for AzureADTenantId, not even an explicit nil
+### GetServiceAccountUid
+
+`func (o *UpdateMachineCatalogRequestModel) GetServiceAccountUid() []string`
+
+GetServiceAccountUid returns the ServiceAccountUid field if non-nil, zero value otherwise.
+
+### GetServiceAccountUidOk
+
+`func (o *UpdateMachineCatalogRequestModel) GetServiceAccountUidOk() (*[]string, bool)`
+
+GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountUid
+
+`func (o *UpdateMachineCatalogRequestModel) SetServiceAccountUid(v []string)`
+
+SetServiceAccountUid sets ServiceAccountUid field to given value.
+
+### HasServiceAccountUid
+
+`func (o *UpdateMachineCatalogRequestModel) HasServiceAccountUid() bool`
+
+HasServiceAccountUid returns a boolean if a field has been set.
+
+### SetServiceAccountUidNil
+
+`func (o *UpdateMachineCatalogRequestModel) SetServiceAccountUidNil(b bool)`
+
+ SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+
+### UnsetServiceAccountUid
+`func (o *UpdateMachineCatalogRequestModel) UnsetServiceAccountUid()`
+
+UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

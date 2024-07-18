@@ -301,6 +301,7 @@ type ApiConfigLogDoConfigLogSearchRequest struct {
 	userAgent *string
 	authorization *string
 	citrixTransactionId *string
+	xTimeZone *string
 	accept *string
 	citrixLocale *string
 	limit *int32
@@ -341,6 +342,12 @@ func (r ApiConfigLogDoConfigLogSearchRequest) Authorization(authorization string
 // Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
 func (r ApiConfigLogDoConfigLogSearchRequest) CitrixTransactionId(citrixTransactionId string) ApiConfigLogDoConfigLogSearchRequest {
 	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00
+func (r ApiConfigLogDoConfigLogSearchRequest) XTimeZone(xTimeZone string) ApiConfigLogDoConfigLogSearchRequest {
+	r.xTimeZone = &xTimeZone
 	return r
 }
 
@@ -459,6 +466,9 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 	}
 	if r.citrixTransactionId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xTimeZone != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-TimeZone", r.xTimeZone, "")
 	}
 	if r.accept != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
@@ -2294,6 +2304,7 @@ type ApiConfigLogGetOperationsRequest struct {
 	userAgent *string
 	authorization *string
 	citrixTransactionId *string
+	xTimeZone *string
 	accept *string
 	citrixLocale *string
 	text *string
@@ -2335,6 +2346,12 @@ func (r ApiConfigLogGetOperationsRequest) CitrixTransactionId(citrixTransactionI
 	return r
 }
 
+// Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00
+func (r ApiConfigLogGetOperationsRequest) XTimeZone(xTimeZone string) ApiConfigLogGetOperationsRequest {
+	r.xTimeZone = &xTimeZone
+	return r
+}
+
 // Must accept application/json.
 func (r ApiConfigLogGetOperationsRequest) Accept(accept string) ApiConfigLogGetOperationsRequest {
 	r.accept = &accept
@@ -2365,7 +2382,7 @@ func (r ApiConfigLogGetOperationsRequest) SearchDateOption(searchDateOption Sear
 	return r
 }
 
-// Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff&#x3D;28800; UTC-5, timeDiff&#x3D;-18000. If not specified, it will be default to 0.
+// [DEPRECATED] This parameter is deprecated, please use \&quot;X-TimeZone\&quot; header instead. Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff&#x3D;28800; UTC-5, timeDiff&#x3D;-18000. If not specified, server local time will be referenced.
 func (r ApiConfigLogGetOperationsRequest) TimeDiff(timeDiff int32) ApiConfigLogGetOperationsRequest {
 	r.timeDiff = &timeDiff
 	return r
@@ -2485,6 +2502,9 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 	}
 	if r.citrixTransactionId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xTimeZone != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-TimeZone", r.xTimeZone, "")
 	}
 	if r.accept != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")

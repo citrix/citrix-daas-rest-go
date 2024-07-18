@@ -24,6 +24,12 @@ const (
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_VM HypervisorResourceSearchResourceType = "Vm"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_LAUNCH_TEMPLATE_VERSION HypervisorResourceSearchResourceType = "LaunchTemplateVersion"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_FOLDER HypervisorResourceSearchResourceType = "Folder"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_SNAPSHOT HypervisorResourceSearchResourceType = "Snapshot"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_MANAGED_DISK HypervisorResourceSearchResourceType = "ManagedDisk"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_IMAGE_DEFINITION HypervisorResourceSearchResourceType = "ImageDefinition"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE_SPEC HypervisorResourceSearchResourceType = "TemplateSpec"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_TAG HypervisorResourceSearchResourceType = "Tag"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_AVAILABILITY_ZONE HypervisorResourceSearchResourceType = "AvailabilityZone"
 )
 
 // All allowed values of HypervisorResourceSearchResourceType enum
@@ -32,6 +38,12 @@ var AllowedHypervisorResourceSearchResourceTypeEnumValues = []HypervisorResource
 	"Vm",
 	"LaunchTemplateVersion",
 	"Folder",
+	"Snapshot",
+	"ManagedDisk",
+	"ImageDefinition",
+	"TemplateSpec",
+	"Tag",
+	"AvailabilityZone",
 }
 
 func (v *HypervisorResourceSearchResourceType) UnmarshalJSON(src []byte) error {

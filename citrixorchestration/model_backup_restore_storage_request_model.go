@@ -19,11 +19,11 @@ var _ MappedNullable = &BackupRestoreStorageRequestModel{}
 
 // BackupRestoreStorageRequestModel struct for BackupRestoreStorageRequestModel
 type BackupRestoreStorageRequestModel struct {
-	// Path to local file storage
-	FileSpecificationBlobStorage NullableString `json:"FileSpecificationBlobStorage,omitempty"`
-	BackupRestoreCloudStorage *BackupRestoreCloudStorage `json:"BackupRestoreCloudStorage,omitempty"`
-	PrimaryStorage *BackupRestoreBlobStorage `json:"PrimaryStorage,omitempty"`
-	SecondaryStorage *BackupRestoreBlobStorage `json:"SecondaryStorage,omitempty"`
+	StorageInfo *BackupStorageInfo `json:"StorageInfo,omitempty"`
+	// Maximum Backups
+	MaximumBackups *int32 `json:"MaximumBackups,omitempty"`
+	// Maximum Pinned Backups 
+	MaximumPinnedBackups *int32 `json:"MaximumPinnedBackups,omitempty"`
 }
 
 // NewBackupRestoreStorageRequestModel instantiates a new BackupRestoreStorageRequestModel object
@@ -43,142 +43,100 @@ func NewBackupRestoreStorageRequestModelWithDefaults() *BackupRestoreStorageRequ
 	return &this
 }
 
-// GetFileSpecificationBlobStorage returns the FileSpecificationBlobStorage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *BackupRestoreStorageRequestModel) GetFileSpecificationBlobStorage() string {
-	if o == nil || IsNil(o.FileSpecificationBlobStorage.Get()) {
-		var ret string
+// GetStorageInfo returns the StorageInfo field value if set, zero value otherwise.
+func (o *BackupRestoreStorageRequestModel) GetStorageInfo() BackupStorageInfo {
+	if o == nil || IsNil(o.StorageInfo) {
+		var ret BackupStorageInfo
 		return ret
 	}
-	return *o.FileSpecificationBlobStorage.Get()
+	return *o.StorageInfo
 }
 
-// GetFileSpecificationBlobStorageOk returns a tuple with the FileSpecificationBlobStorage field value if set, nil otherwise
+// GetStorageInfoOk returns a tuple with the StorageInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *BackupRestoreStorageRequestModel) GetFileSpecificationBlobStorageOk() (*string, bool) {
-	if o == nil {
+func (o *BackupRestoreStorageRequestModel) GetStorageInfoOk() (*BackupStorageInfo, bool) {
+	if o == nil || IsNil(o.StorageInfo) {
 		return nil, false
 	}
-	return o.FileSpecificationBlobStorage.Get(), o.FileSpecificationBlobStorage.IsSet()
+	return o.StorageInfo, true
 }
 
-// HasFileSpecificationBlobStorage returns a boolean if a field has been set.
-func (o *BackupRestoreStorageRequestModel) HasFileSpecificationBlobStorage() bool {
-	if o != nil && o.FileSpecificationBlobStorage.IsSet() {
+// HasStorageInfo returns a boolean if a field has been set.
+func (o *BackupRestoreStorageRequestModel) HasStorageInfo() bool {
+	if o != nil && !IsNil(o.StorageInfo) {
 		return true
 	}
 
 	return false
 }
 
-// SetFileSpecificationBlobStorage gets a reference to the given NullableString and assigns it to the FileSpecificationBlobStorage field.
-func (o *BackupRestoreStorageRequestModel) SetFileSpecificationBlobStorage(v string) {
-	o.FileSpecificationBlobStorage.Set(&v)
-}
-// SetFileSpecificationBlobStorageNil sets the value for FileSpecificationBlobStorage to be an explicit nil
-func (o *BackupRestoreStorageRequestModel) SetFileSpecificationBlobStorageNil() {
-	o.FileSpecificationBlobStorage.Set(nil)
+// SetStorageInfo gets a reference to the given BackupStorageInfo and assigns it to the StorageInfo field.
+func (o *BackupRestoreStorageRequestModel) SetStorageInfo(v BackupStorageInfo) {
+	o.StorageInfo = &v
 }
 
-// UnsetFileSpecificationBlobStorage ensures that no value is present for FileSpecificationBlobStorage, not even an explicit nil
-func (o *BackupRestoreStorageRequestModel) UnsetFileSpecificationBlobStorage() {
-	o.FileSpecificationBlobStorage.Unset()
-}
-
-// GetBackupRestoreCloudStorage returns the BackupRestoreCloudStorage field value if set, zero value otherwise.
-func (o *BackupRestoreStorageRequestModel) GetBackupRestoreCloudStorage() BackupRestoreCloudStorage {
-	if o == nil || IsNil(o.BackupRestoreCloudStorage) {
-		var ret BackupRestoreCloudStorage
+// GetMaximumBackups returns the MaximumBackups field value if set, zero value otherwise.
+func (o *BackupRestoreStorageRequestModel) GetMaximumBackups() int32 {
+	if o == nil || IsNil(o.MaximumBackups) {
+		var ret int32
 		return ret
 	}
-	return *o.BackupRestoreCloudStorage
+	return *o.MaximumBackups
 }
 
-// GetBackupRestoreCloudStorageOk returns a tuple with the BackupRestoreCloudStorage field value if set, nil otherwise
+// GetMaximumBackupsOk returns a tuple with the MaximumBackups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BackupRestoreStorageRequestModel) GetBackupRestoreCloudStorageOk() (*BackupRestoreCloudStorage, bool) {
-	if o == nil || IsNil(o.BackupRestoreCloudStorage) {
+func (o *BackupRestoreStorageRequestModel) GetMaximumBackupsOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaximumBackups) {
 		return nil, false
 	}
-	return o.BackupRestoreCloudStorage, true
+	return o.MaximumBackups, true
 }
 
-// HasBackupRestoreCloudStorage returns a boolean if a field has been set.
-func (o *BackupRestoreStorageRequestModel) HasBackupRestoreCloudStorage() bool {
-	if o != nil && !IsNil(o.BackupRestoreCloudStorage) {
+// HasMaximumBackups returns a boolean if a field has been set.
+func (o *BackupRestoreStorageRequestModel) HasMaximumBackups() bool {
+	if o != nil && !IsNil(o.MaximumBackups) {
 		return true
 	}
 
 	return false
 }
 
-// SetBackupRestoreCloudStorage gets a reference to the given BackupRestoreCloudStorage and assigns it to the BackupRestoreCloudStorage field.
-func (o *BackupRestoreStorageRequestModel) SetBackupRestoreCloudStorage(v BackupRestoreCloudStorage) {
-	o.BackupRestoreCloudStorage = &v
+// SetMaximumBackups gets a reference to the given int32 and assigns it to the MaximumBackups field.
+func (o *BackupRestoreStorageRequestModel) SetMaximumBackups(v int32) {
+	o.MaximumBackups = &v
 }
 
-// GetPrimaryStorage returns the PrimaryStorage field value if set, zero value otherwise.
-func (o *BackupRestoreStorageRequestModel) GetPrimaryStorage() BackupRestoreBlobStorage {
-	if o == nil || IsNil(o.PrimaryStorage) {
-		var ret BackupRestoreBlobStorage
+// GetMaximumPinnedBackups returns the MaximumPinnedBackups field value if set, zero value otherwise.
+func (o *BackupRestoreStorageRequestModel) GetMaximumPinnedBackups() int32 {
+	if o == nil || IsNil(o.MaximumPinnedBackups) {
+		var ret int32
 		return ret
 	}
-	return *o.PrimaryStorage
+	return *o.MaximumPinnedBackups
 }
 
-// GetPrimaryStorageOk returns a tuple with the PrimaryStorage field value if set, nil otherwise
+// GetMaximumPinnedBackupsOk returns a tuple with the MaximumPinnedBackups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BackupRestoreStorageRequestModel) GetPrimaryStorageOk() (*BackupRestoreBlobStorage, bool) {
-	if o == nil || IsNil(o.PrimaryStorage) {
+func (o *BackupRestoreStorageRequestModel) GetMaximumPinnedBackupsOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaximumPinnedBackups) {
 		return nil, false
 	}
-	return o.PrimaryStorage, true
+	return o.MaximumPinnedBackups, true
 }
 
-// HasPrimaryStorage returns a boolean if a field has been set.
-func (o *BackupRestoreStorageRequestModel) HasPrimaryStorage() bool {
-	if o != nil && !IsNil(o.PrimaryStorage) {
+// HasMaximumPinnedBackups returns a boolean if a field has been set.
+func (o *BackupRestoreStorageRequestModel) HasMaximumPinnedBackups() bool {
+	if o != nil && !IsNil(o.MaximumPinnedBackups) {
 		return true
 	}
 
 	return false
 }
 
-// SetPrimaryStorage gets a reference to the given BackupRestoreBlobStorage and assigns it to the PrimaryStorage field.
-func (o *BackupRestoreStorageRequestModel) SetPrimaryStorage(v BackupRestoreBlobStorage) {
-	o.PrimaryStorage = &v
-}
-
-// GetSecondaryStorage returns the SecondaryStorage field value if set, zero value otherwise.
-func (o *BackupRestoreStorageRequestModel) GetSecondaryStorage() BackupRestoreBlobStorage {
-	if o == nil || IsNil(o.SecondaryStorage) {
-		var ret BackupRestoreBlobStorage
-		return ret
-	}
-	return *o.SecondaryStorage
-}
-
-// GetSecondaryStorageOk returns a tuple with the SecondaryStorage field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *BackupRestoreStorageRequestModel) GetSecondaryStorageOk() (*BackupRestoreBlobStorage, bool) {
-	if o == nil || IsNil(o.SecondaryStorage) {
-		return nil, false
-	}
-	return o.SecondaryStorage, true
-}
-
-// HasSecondaryStorage returns a boolean if a field has been set.
-func (o *BackupRestoreStorageRequestModel) HasSecondaryStorage() bool {
-	if o != nil && !IsNil(o.SecondaryStorage) {
-		return true
-	}
-
-	return false
-}
-
-// SetSecondaryStorage gets a reference to the given BackupRestoreBlobStorage and assigns it to the SecondaryStorage field.
-func (o *BackupRestoreStorageRequestModel) SetSecondaryStorage(v BackupRestoreBlobStorage) {
-	o.SecondaryStorage = &v
+// SetMaximumPinnedBackups gets a reference to the given int32 and assigns it to the MaximumPinnedBackups field.
+func (o *BackupRestoreStorageRequestModel) SetMaximumPinnedBackups(v int32) {
+	o.MaximumPinnedBackups = &v
 }
 
 func (o BackupRestoreStorageRequestModel) MarshalJSON() ([]byte, error) {
@@ -191,17 +149,14 @@ func (o BackupRestoreStorageRequestModel) MarshalJSON() ([]byte, error) {
 
 func (o BackupRestoreStorageRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.FileSpecificationBlobStorage.IsSet() {
-		toSerialize["FileSpecificationBlobStorage"] = o.FileSpecificationBlobStorage.Get()
+	if !IsNil(o.StorageInfo) {
+		toSerialize["StorageInfo"] = o.StorageInfo
 	}
-	if !IsNil(o.BackupRestoreCloudStorage) {
-		toSerialize["BackupRestoreCloudStorage"] = o.BackupRestoreCloudStorage
+	if !IsNil(o.MaximumBackups) {
+		toSerialize["MaximumBackups"] = o.MaximumBackups
 	}
-	if !IsNil(o.PrimaryStorage) {
-		toSerialize["PrimaryStorage"] = o.PrimaryStorage
-	}
-	if !IsNil(o.SecondaryStorage) {
-		toSerialize["SecondaryStorage"] = o.SecondaryStorage
+	if !IsNil(o.MaximumPinnedBackups) {
+		toSerialize["MaximumPinnedBackups"] = o.MaximumPinnedBackups
 	}
 	return toSerialize, nil
 }

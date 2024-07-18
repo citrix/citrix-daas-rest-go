@@ -129,6 +129,7 @@ const (
 	JOBTYPE_GET_HYPERVISOR_RESOURCE_POOL_RESOURCES JobType = "GetHypervisorResourcePoolResources"
 	JOBTYPE_SEARCH_HYPERVISOR_RESOURCE_POOL_RESOURCES JobType = "SearchHypervisorResourcePoolResources"
 	JOBTYPE_GET_HYPERVISOR_ALL_RESOURCES JobType = "GetHypervisorAllResources"
+	JOBTYPE_SEARCH_HYPERVISOR_ALL_RESOURCES JobType = "SearchHypervisorAllResources"
 	JOBTYPE_GET_HYPERVISOR_ALL_RESOURCES_WITHOUT_CONNECTION JobType = "GetHypervisorAllResourcesWithoutConnection"
 	JOBTYPE_GET_HYPERVISOR_RESOURCE_POOLS JobType = "GetHypervisorResourcePools"
 	JOBTYPE_GET_HYPERVISOR JobType = "GetHypervisor"
@@ -142,6 +143,7 @@ const (
 	JOBTYPE_DO_OPERATION_SEARCH JobType = "DoOperationSearch"
 	JOBTYPE_FETCH_EXISTING_OPERATION_LABELS JobType = "FetchExistingOperationLabels"
 	JOBTYPE_UPDATE_OPERATION JobType = "UpdateOperation"
+	JOBTYPE_NEW_OPERATION JobType = "NewOperation"
 	JOBTYPE_GET_SESSIONS JobType = "GetSessions"
 	JOBTYPE_DO_SESSION_SEARCH JobType = "DoSessionSearch"
 	JOBTYPE_GET_MACHINES JobType = "GetMachines"
@@ -169,6 +171,8 @@ const (
 	JOBTYPE_UPDATE_APP_V_ISOLATION_GROUP JobType = "UpdateAppVIsolationGroup"
 	JOBTYPE_GET_APP_V_ISOLATION_GROUP JobType = "GetAppVIsolationGroup"
 	JOBTYPE_GET_APPLICATION_FTAS JobType = "GetApplicationFtas"
+	JOBTYPE_GET_DELIVERY_GROUP_FTAS JobType = "GetDeliveryGroupFtas"
+	JOBTYPE_GET_APP_V_PACKAGE_APPLICATION_FILE_TYPES JobType = "GetAppVPackageApplicationFileTypes"
 	JOBTYPE_GET_MACHINE_CATALOG_MACHINES JobType = "GetMachineCatalogMachines"
 	JOBTYPE_GET_MACHINE_CATALOG_DELIVERY_GROUP_ASSOCIATIONS JobType = "GetMachineCatalogDeliveryGroupAssociations"
 	JOBTYPE_DO_DELIVERY_GROUP_SEARCH JobType = "DoDeliveryGroupSearch"
@@ -263,6 +267,13 @@ const (
 	JOBTYPE_REPAIR_MACHINE_CATALOG_ACCOUNTS JobType = "RepairMachineCatalogAccounts"
 	JOBTYPE_IMPORT_PROVISIONED_VIRTUAL_MACHINES JobType = "ImportProvisionedVirtualMachines"
 	JOBTYPE_VALIDATE_MACHINE_CATALOG_CREATION JobType = "ValidateMachineCatalogCreation"
+	JOBTYPE_SEARCH_PROVISIONED_VIRTUAL_MACHINES JobType = "SearchProvisionedVirtualMachines"
+	JOBTYPE_GET_PROVISIONED_VIRTUAL_MACHINE_DETAILS JobType = "GetProvisionedVirtualMachineDetails"
+	JOBTYPE_GET_USERS_IDENTITY JobType = "GetUsersIdentity"
+	JOBTYPE_GET_SERVICE_ACCOUNTS JobType = "GetServiceAccounts"
+	JOBTYPE_SEARCH_PROVISIONING_OPERATION_EVENT JobType = "SearchProvisioningOperationEvent"
+	JOBTYPE_REMOVE_PROVISIONING_OPERATION_EVENT JobType = "RemoveProvisioningOperationEvent"
+	JOBTYPE_CONFIRM_PROVISIONING_OPERATION_EVENT JobType = "ConfirmProvisioningOperationEvent"
 )
 
 // All allowed values of JobType enum
@@ -376,6 +387,7 @@ var AllowedJobTypeEnumValues = []JobType{
 	"GetHypervisorResourcePoolResources",
 	"SearchHypervisorResourcePoolResources",
 	"GetHypervisorAllResources",
+	"SearchHypervisorAllResources",
 	"GetHypervisorAllResourcesWithoutConnection",
 	"GetHypervisorResourcePools",
 	"GetHypervisor",
@@ -389,6 +401,7 @@ var AllowedJobTypeEnumValues = []JobType{
 	"DoOperationSearch",
 	"FetchExistingOperationLabels",
 	"UpdateOperation",
+	"NewOperation",
 	"GetSessions",
 	"DoSessionSearch",
 	"GetMachines",
@@ -416,6 +429,8 @@ var AllowedJobTypeEnumValues = []JobType{
 	"UpdateAppVIsolationGroup",
 	"GetAppVIsolationGroup",
 	"GetApplicationFtas",
+	"GetDeliveryGroupFtas",
+	"GetAppVPackageApplicationFileTypes",
 	"GetMachineCatalogMachines",
 	"GetMachineCatalogDeliveryGroupAssociations",
 	"DoDeliveryGroupSearch",
@@ -510,6 +525,13 @@ var AllowedJobTypeEnumValues = []JobType{
 	"RepairMachineCatalogAccounts",
 	"ImportProvisionedVirtualMachines",
 	"ValidateMachineCatalogCreation",
+	"SearchProvisionedVirtualMachines",
+	"GetProvisionedVirtualMachineDetails",
+	"GetUsersIdentity",
+	"GetServiceAccounts",
+	"SearchProvisioningOperationEvent",
+	"RemoveProvisioningOperationEvent",
+	"ConfirmProvisioningOperationEvent",
 }
 
 func (v *JobType) UnmarshalJSON(src []byte) error {

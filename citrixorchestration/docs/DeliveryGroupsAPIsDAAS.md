@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies) | **Get** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies | Get the advanced access policies associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy) | **Get** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Get the details of a single advanced access policy associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupApplications**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupApplications) | **Get** /DeliveryGroups/{nameOrId}/Applications | Get the applications associated with a delivery group.
+[**DeliveryGroupsGetDeliveryGroupFtas**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupFtas) | **Post** /DeliveryGroups/$GetFileTypes | Returns the file type associations the system imports from worker machines in the specified delivery group.
 [**DeliveryGroupsGetDeliveryGroupMachines**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupMachines) | **Get** /DeliveryGroups/{nameOrId}/Machines | Get the machines associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupPowerTimeScheme) | **Get** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Get the details about a single power time scheme associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupPowerTimeSchemes**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupPowerTimeSchemes) | **Get** /DeliveryGroups/{nameOrId}/PowerTimeSchemes | Get the power time schemes associated with a delivery group.
@@ -418,7 +419,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    createDeliveryGroupRequestModel := *openapiclient.NewCreateDeliveryGroupRequestModel([]openapiclient.DeliveryGroupAddMachinesRequestModel{*openapiclient.NewDeliveryGroupAddMachinesRequestModel("f254399c-6b4c-46fd-86e0-c03ade9135a2")}, "Name of the delivery group") // CreateDeliveryGroupRequestModel | The request
+    createDeliveryGroupRequestModel := *openapiclient.NewCreateDeliveryGroupRequestModel("Name of the delivery group") // CreateDeliveryGroupRequestModel | The request
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1528,7 +1529,7 @@ func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
-    machineNameOrId := "machineNameOrId_example" // string | Name or ID of the machine.
+    machineNameOrId := "machineNameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1553,7 +1554,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **nameOrId** | **string** | Name or ID of the delivery group. If the delivery group is present in a delivery group folder,             specify the name in this format: {delivery group folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName. | 
-**machineNameOrId** | **string** | Name or ID of the machine. | 
+**machineNameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;.             For instance, if a MachineName is \&quot;DomainA\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2014,6 +2015,88 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsGetDeliveryGroupFtas
+
+> FtaResponseModelCollection DeliveryGroupsGetDeliveryGroupFtas(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).DeliveryGroupsFtaRequestModel(deliveryGroupsFtaRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Returns the file type associations the system imports from worker machines in the specified delivery group.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    deliveryGroupsFtaRequestModel := *openapiclient.NewDeliveryGroupsFtaRequestModel() // DeliveryGroupsFtaRequestModel | 
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the file types will be gotten as a background task. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupFtas(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).DeliveryGroupsFtaRequestModel(deliveryGroupsFtaRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupFtas``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeliveryGroupsGetDeliveryGroupFtas`: FtaResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupFtas`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsGetDeliveryGroupFtasRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **deliveryGroupsFtaRequestModel** | [**DeliveryGroupsFtaRequestModel**](DeliveryGroupsFtaRequestModel.md) |  | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the file types will be gotten as a background task. | [default to false]
+
+### Return type
+
+[**FtaResponseModelCollection**](FtaResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -17,51 +17,53 @@ import (
 // checks if the LogOperationResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LogOperationResponseModel{}
 
-// LogOperationResponseModel Log operation response model
+// LogOperationResponseModel Log operation response model.
 type LogOperationResponseModel struct {
-	// ID of the logged operation.
+	// Id of the operation.
 	Id string `json:"Id"`
-	// IP address of the admin machine from which the operation was performed.
-	AdminMachineIP NullableString `json:"AdminMachineIP,omitempty"`
-	// Time when the operation ended. If the operation is incomplete, will be null.
-	EndTime NullableString `json:"EndTime,omitempty"`
-	// Formatted time when the operation ended. If the operation is incomplete, will be null. RFC 3339 compatible format.
-	FormattedEndTime NullableString `json:"FormattedEndTime,omitempty"`
-	// Indicates whether the operation completed successfully.  If the operation is incomplete, will be null.
-	IsSuccessful NullableBool `json:"IsSuccessful,omitempty"`
-	OperationType LogOperationType `json:"OperationType"`
-	// Labels attached to the operation.
-	Labels []string `json:"Labels,omitempty"`
-	// Operation parameters. It is a list of parameter names.
-	Parameters []NameValueStringPairModel `json:"Parameters"`
+	// Description of the operation.
+	Text string `json:"Text"`
+	// User who performed the operation.
+	User NullableString `json:"User,omitempty"`
 	// Source of the operation.
 	Source string `json:"Source"`
+	// IP address of the administrator's machine from which the operation was performed.
+	AdminMachineIP NullableString `json:"AdminMachineIP,omitempty"`
+	// Time when the operation ended.
+	EndTime NullableString `json:"EndTime,omitempty"`
+	// Formatted time when the operation ended.
+	FormattedEndTime NullableString `json:"FormattedEndTime,omitempty"`
 	// Time when the operation started.
 	StartTime string `json:"StartTime"`
-	// Formatted time when the operation started. RFC 3339 compatible format.
+	// Formatted time when the operation started.
 	FormattedStartTime string `json:"FormattedStartTime"`
-	// The type(s) of object which were the target of the configuration change. For example, \"Session\" or \"Machine\".
+	// Indicates whether the operation completed successfully.
+	IsSuccessful NullableBool `json:"IsSuccessful,omitempty"`
+	// Type of objects that were affected by the operation.
 	TargetTypes []string `json:"TargetTypes"`
-	// Human-readable description of the change.
-	Text string `json:"Text"`
-	// User who performed the change.
-	User NullableString `json:"User,omitempty"`
+	OperationType LogOperationType `json:"OperationType"`
+	// Labels of the operation.
+	Labels []string `json:"Labels,omitempty"`
+	// Metadata of the operation.
+	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
+	// Parameters of the operation.
+	Parameters []NameValueStringPairModel `json:"Parameters"`
 }
 
 // NewLogOperationResponseModel instantiates a new LogOperationResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLogOperationResponseModel(id string, operationType LogOperationType, parameters []NameValueStringPairModel, source string, startTime string, formattedStartTime string, targetTypes []string, text string) *LogOperationResponseModel {
+func NewLogOperationResponseModel(id string, text string, source string, startTime string, formattedStartTime string, targetTypes []string, operationType LogOperationType, parameters []NameValueStringPairModel) *LogOperationResponseModel {
 	this := LogOperationResponseModel{}
 	this.Id = id
-	this.OperationType = operationType
-	this.Parameters = parameters
+	this.Text = text
 	this.Source = source
 	this.StartTime = startTime
 	this.FormattedStartTime = formattedStartTime
 	this.TargetTypes = targetTypes
-	this.Text = text
+	this.OperationType = operationType
+	this.Parameters = parameters
 	return &this
 }
 
@@ -95,6 +97,96 @@ func (o *LogOperationResponseModel) GetIdOk() (*string, bool) {
 // SetId sets field value
 func (o *LogOperationResponseModel) SetId(v string) {
 	o.Id = v
+}
+
+// GetText returns the Text field value
+func (o *LogOperationResponseModel) GetText() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Text
+}
+
+// GetTextOk returns a tuple with the Text field value
+// and a boolean to check if the value has been set.
+func (o *LogOperationResponseModel) GetTextOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Text, true
+}
+
+// SetText sets field value
+func (o *LogOperationResponseModel) SetText(v string) {
+	o.Text = v
+}
+
+// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LogOperationResponseModel) GetUser() string {
+	if o == nil || IsNil(o.User.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.User.Get()
+}
+
+// GetUserOk returns a tuple with the User field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LogOperationResponseModel) GetUserOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.User.Get(), o.User.IsSet()
+}
+
+// HasUser returns a boolean if a field has been set.
+func (o *LogOperationResponseModel) HasUser() bool {
+	if o != nil && o.User.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUser gets a reference to the given NullableString and assigns it to the User field.
+func (o *LogOperationResponseModel) SetUser(v string) {
+	o.User.Set(&v)
+}
+// SetUserNil sets the value for User to be an explicit nil
+func (o *LogOperationResponseModel) SetUserNil() {
+	o.User.Set(nil)
+}
+
+// UnsetUser ensures that no value is present for User, not even an explicit nil
+func (o *LogOperationResponseModel) UnsetUser() {
+	o.User.Unset()
+}
+
+// GetSource returns the Source field value
+func (o *LogOperationResponseModel) GetSource() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value
+// and a boolean to check if the value has been set.
+func (o *LogOperationResponseModel) GetSourceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Source, true
+}
+
+// SetSource sets field value
+func (o *LogOperationResponseModel) SetSource(v string) {
+	o.Source = v
 }
 
 // GetAdminMachineIP returns the AdminMachineIP field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -223,6 +315,54 @@ func (o *LogOperationResponseModel) UnsetFormattedEndTime() {
 	o.FormattedEndTime.Unset()
 }
 
+// GetStartTime returns the StartTime field value
+func (o *LogOperationResponseModel) GetStartTime() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.StartTime
+}
+
+// GetStartTimeOk returns a tuple with the StartTime field value
+// and a boolean to check if the value has been set.
+func (o *LogOperationResponseModel) GetStartTimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StartTime, true
+}
+
+// SetStartTime sets field value
+func (o *LogOperationResponseModel) SetStartTime(v string) {
+	o.StartTime = v
+}
+
+// GetFormattedStartTime returns the FormattedStartTime field value
+func (o *LogOperationResponseModel) GetFormattedStartTime() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.FormattedStartTime
+}
+
+// GetFormattedStartTimeOk returns a tuple with the FormattedStartTime field value
+// and a boolean to check if the value has been set.
+func (o *LogOperationResponseModel) GetFormattedStartTimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FormattedStartTime, true
+}
+
+// SetFormattedStartTime sets field value
+func (o *LogOperationResponseModel) SetFormattedStartTime(v string) {
+	o.FormattedStartTime = v
+}
+
 // GetIsSuccessful returns the IsSuccessful field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LogOperationResponseModel) GetIsSuccessful() bool {
 	if o == nil || IsNil(o.IsSuccessful.Get()) {
@@ -263,6 +403,30 @@ func (o *LogOperationResponseModel) SetIsSuccessfulNil() {
 // UnsetIsSuccessful ensures that no value is present for IsSuccessful, not even an explicit nil
 func (o *LogOperationResponseModel) UnsetIsSuccessful() {
 	o.IsSuccessful.Unset()
+}
+
+// GetTargetTypes returns the TargetTypes field value
+func (o *LogOperationResponseModel) GetTargetTypes() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+
+	return o.TargetTypes
+}
+
+// GetTargetTypesOk returns a tuple with the TargetTypes field value
+// and a boolean to check if the value has been set.
+func (o *LogOperationResponseModel) GetTargetTypesOk() ([]string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TargetTypes, true
+}
+
+// SetTargetTypes sets field value
+func (o *LogOperationResponseModel) SetTargetTypes(v []string) {
+	o.TargetTypes = v
 }
 
 // GetOperationType returns the OperationType field value
@@ -322,6 +486,39 @@ func (o *LogOperationResponseModel) SetLabels(v []string) {
 	o.Labels = v
 }
 
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LogOperationResponseModel) GetMetadata() []NameValueStringPairModel {
+	if o == nil {
+		var ret []NameValueStringPairModel
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LogOperationResponseModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
+	if o == nil || IsNil(o.Metadata) {
+		return nil, false
+	}
+	return o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *LogOperationResponseModel) HasMetadata() bool {
+	if o != nil && IsNil(o.Metadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given []NameValueStringPairModel and assigns it to the Metadata field.
+func (o *LogOperationResponseModel) SetMetadata(v []NameValueStringPairModel) {
+	o.Metadata = v
+}
+
 // GetParameters returns the Parameters field value
 func (o *LogOperationResponseModel) GetParameters() []NameValueStringPairModel {
 	if o == nil {
@@ -346,168 +543,6 @@ func (o *LogOperationResponseModel) SetParameters(v []NameValueStringPairModel) 
 	o.Parameters = v
 }
 
-// GetSource returns the Source field value
-func (o *LogOperationResponseModel) GetSource() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Source
-}
-
-// GetSourceOk returns a tuple with the Source field value
-// and a boolean to check if the value has been set.
-func (o *LogOperationResponseModel) GetSourceOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Source, true
-}
-
-// SetSource sets field value
-func (o *LogOperationResponseModel) SetSource(v string) {
-	o.Source = v
-}
-
-// GetStartTime returns the StartTime field value
-func (o *LogOperationResponseModel) GetStartTime() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.StartTime
-}
-
-// GetStartTimeOk returns a tuple with the StartTime field value
-// and a boolean to check if the value has been set.
-func (o *LogOperationResponseModel) GetStartTimeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.StartTime, true
-}
-
-// SetStartTime sets field value
-func (o *LogOperationResponseModel) SetStartTime(v string) {
-	o.StartTime = v
-}
-
-// GetFormattedStartTime returns the FormattedStartTime field value
-func (o *LogOperationResponseModel) GetFormattedStartTime() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.FormattedStartTime
-}
-
-// GetFormattedStartTimeOk returns a tuple with the FormattedStartTime field value
-// and a boolean to check if the value has been set.
-func (o *LogOperationResponseModel) GetFormattedStartTimeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.FormattedStartTime, true
-}
-
-// SetFormattedStartTime sets field value
-func (o *LogOperationResponseModel) SetFormattedStartTime(v string) {
-	o.FormattedStartTime = v
-}
-
-// GetTargetTypes returns the TargetTypes field value
-func (o *LogOperationResponseModel) GetTargetTypes() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-
-	return o.TargetTypes
-}
-
-// GetTargetTypesOk returns a tuple with the TargetTypes field value
-// and a boolean to check if the value has been set.
-func (o *LogOperationResponseModel) GetTargetTypesOk() ([]string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TargetTypes, true
-}
-
-// SetTargetTypes sets field value
-func (o *LogOperationResponseModel) SetTargetTypes(v []string) {
-	o.TargetTypes = v
-}
-
-// GetText returns the Text field value
-func (o *LogOperationResponseModel) GetText() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Text
-}
-
-// GetTextOk returns a tuple with the Text field value
-// and a boolean to check if the value has been set.
-func (o *LogOperationResponseModel) GetTextOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Text, true
-}
-
-// SetText sets field value
-func (o *LogOperationResponseModel) SetText(v string) {
-	o.Text = v
-}
-
-// GetUser returns the User field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LogOperationResponseModel) GetUser() string {
-	if o == nil || IsNil(o.User.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.User.Get()
-}
-
-// GetUserOk returns a tuple with the User field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LogOperationResponseModel) GetUserOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.User.Get(), o.User.IsSet()
-}
-
-// HasUser returns a boolean if a field has been set.
-func (o *LogOperationResponseModel) HasUser() bool {
-	if o != nil && o.User.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUser gets a reference to the given NullableString and assigns it to the User field.
-func (o *LogOperationResponseModel) SetUser(v string) {
-	o.User.Set(&v)
-}
-// SetUserNil sets the value for User to be an explicit nil
-func (o *LogOperationResponseModel) SetUserNil() {
-	o.User.Set(nil)
-}
-
-// UnsetUser ensures that no value is present for User, not even an explicit nil
-func (o *LogOperationResponseModel) UnsetUser() {
-	o.User.Unset()
-}
-
 func (o LogOperationResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -519,6 +554,11 @@ func (o LogOperationResponseModel) MarshalJSON() ([]byte, error) {
 func (o LogOperationResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["Id"] = o.Id
+	toSerialize["Text"] = o.Text
+	if o.User.IsSet() {
+		toSerialize["User"] = o.User.Get()
+	}
+	toSerialize["Source"] = o.Source
 	if o.AdminMachineIP.IsSet() {
 		toSerialize["AdminMachineIP"] = o.AdminMachineIP.Get()
 	}
@@ -528,22 +568,20 @@ func (o LogOperationResponseModel) ToMap() (map[string]interface{}, error) {
 	if o.FormattedEndTime.IsSet() {
 		toSerialize["FormattedEndTime"] = o.FormattedEndTime.Get()
 	}
+	toSerialize["StartTime"] = o.StartTime
+	toSerialize["FormattedStartTime"] = o.FormattedStartTime
 	if o.IsSuccessful.IsSet() {
 		toSerialize["IsSuccessful"] = o.IsSuccessful.Get()
 	}
+	toSerialize["TargetTypes"] = o.TargetTypes
 	toSerialize["OperationType"] = o.OperationType
 	if o.Labels != nil {
 		toSerialize["Labels"] = o.Labels
 	}
-	toSerialize["Parameters"] = o.Parameters
-	toSerialize["Source"] = o.Source
-	toSerialize["StartTime"] = o.StartTime
-	toSerialize["FormattedStartTime"] = o.FormattedStartTime
-	toSerialize["TargetTypes"] = o.TargetTypes
-	toSerialize["Text"] = o.Text
-	if o.User.IsSet() {
-		toSerialize["User"] = o.User.Get()
+	if o.Metadata != nil {
+		toSerialize["Metadata"] = o.Metadata
 	}
+	toSerialize["Parameters"] = o.Parameters
 	return toSerialize, nil
 }
 

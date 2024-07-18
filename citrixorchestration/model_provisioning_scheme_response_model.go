@@ -51,6 +51,8 @@ type ProvisioningSchemeResponseModel struct {
 	AzureAdJoinType NullableString `json:"AzureAdJoinType,omitempty"`
 	// AzureAD Tenant Id associates with this catalog
 	AzureADTenantId NullableString `json:"AzureADTenantId,omitempty"`
+	// Service account Uids associated with IdentityPool of this catalog
+	ServiceAccountUid []string `json:"ServiceAccountUid,omitempty"`
 	// AzureAd dynamic security group associates with this catalog
 	AzureAdSecurityGroupName NullableString `json:"AzureAdSecurityGroupName,omitempty"`
 	IdentityType *IdentityType `json:"IdentityType,omitempty"`
@@ -696,6 +698,39 @@ func (o *ProvisioningSchemeResponseModel) SetAzureADTenantIdNil() {
 // UnsetAzureADTenantId ensures that no value is present for AzureADTenantId, not even an explicit nil
 func (o *ProvisioningSchemeResponseModel) UnsetAzureADTenantId() {
 	o.AzureADTenantId.Unset()
+}
+
+// GetServiceAccountUid returns the ServiceAccountUid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisioningSchemeResponseModel) GetServiceAccountUid() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ServiceAccountUid
+}
+
+// GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisioningSchemeResponseModel) GetServiceAccountUidOk() ([]string, bool) {
+	if o == nil || IsNil(o.ServiceAccountUid) {
+		return nil, false
+	}
+	return o.ServiceAccountUid, true
+}
+
+// HasServiceAccountUid returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasServiceAccountUid() bool {
+	if o != nil && IsNil(o.ServiceAccountUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceAccountUid gets a reference to the given []string and assigns it to the ServiceAccountUid field.
+func (o *ProvisioningSchemeResponseModel) SetServiceAccountUid(v []string) {
+	o.ServiceAccountUid = v
 }
 
 // GetAzureAdSecurityGroupName returns the AzureAdSecurityGroupName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1893,6 +1928,9 @@ func (o ProvisioningSchemeResponseModel) ToMap() (map[string]interface{}, error)
 	}
 	if o.AzureADTenantId.IsSet() {
 		toSerialize["AzureADTenantId"] = o.AzureADTenantId.Get()
+	}
+	if o.ServiceAccountUid != nil {
+		toSerialize["ServiceAccountUid"] = o.ServiceAccountUid
 	}
 	if o.AzureAdSecurityGroupName.IsSet() {
 		toSerialize["AzureAdSecurityGroupName"] = o.AzureAdSecurityGroupName.Get()

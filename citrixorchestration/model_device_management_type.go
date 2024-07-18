@@ -24,6 +24,7 @@ const (
 	DEVICEMANAGEMENTTYPE_NONE DeviceManagementType = "None"
 	DEVICEMANAGEMENTTYPE_INTUNE DeviceManagementType = "Intune"
 	DEVICEMANAGEMENTTYPE_INTUNE_WITH_CITRIX_TAGS DeviceManagementType = "IntuneWithCitrixTags"
+	DEVICEMANAGEMENTTYPE_INTUNE_WITH_SCCM DeviceManagementType = "IntuneWithSCCM"
 )
 
 // All allowed values of DeviceManagementType enum
@@ -32,6 +33,7 @@ var AllowedDeviceManagementTypeEnumValues = []DeviceManagementType{
 	"None",
 	"Intune",
 	"IntuneWithCitrixTags",
+	"IntuneWithSCCM",
 }
 
 func (v *DeviceManagementType) UnmarshalJSON(src []byte) error {

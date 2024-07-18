@@ -22,6 +22,8 @@ type HypervisorResourceSearchRequestModel struct {
 	// The path to retrieve contents from.
 	Path NullableString `json:"Path,omitempty"`
 	ResourceType *HypervisorResourceSearchResourceType `json:"ResourceType,omitempty"`
+	// The type list of resources to get. Mutually exclusive with ResourceType. All supported types are the same as ResourceType
+	ResourceTypes []HypervisorResourceSearchResourceType `json:"ResourceTypes,omitempty"`
 	// Used for the Machine Profile ResourceTypes only. It specifies a Template identifier or name to use in validation of the Machine Profile with the given Template. The validation will pass if the given Machine Profile resource is compatible with the given Template. Only Machine Profiles which pass this validation are included.
 	Template NullableString `json:"Template,omitempty"`
 	// True if returning items which begin at the ContinuationToken, false if ending at the ContinuationToken.
@@ -125,6 +127,39 @@ func (o *HypervisorResourceSearchRequestModel) HasResourceType() bool {
 // SetResourceType gets a reference to the given HypervisorResourceSearchResourceType and assigns it to the ResourceType field.
 func (o *HypervisorResourceSearchRequestModel) SetResourceType(v HypervisorResourceSearchResourceType) {
 	o.ResourceType = &v
+}
+
+// GetResourceTypes returns the ResourceTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourceSearchRequestModel) GetResourceTypes() []HypervisorResourceSearchResourceType {
+	if o == nil {
+		var ret []HypervisorResourceSearchResourceType
+		return ret
+	}
+	return o.ResourceTypes
+}
+
+// GetResourceTypesOk returns a tuple with the ResourceTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourceSearchRequestModel) GetResourceTypesOk() ([]HypervisorResourceSearchResourceType, bool) {
+	if o == nil || IsNil(o.ResourceTypes) {
+		return nil, false
+	}
+	return o.ResourceTypes, true
+}
+
+// HasResourceTypes returns a boolean if a field has been set.
+func (o *HypervisorResourceSearchRequestModel) HasResourceTypes() bool {
+	if o != nil && IsNil(o.ResourceTypes) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourceTypes gets a reference to the given []HypervisorResourceSearchResourceType and assigns it to the ResourceTypes field.
+func (o *HypervisorResourceSearchRequestModel) SetResourceTypes(v []HypervisorResourceSearchResourceType) {
+	o.ResourceTypes = v
 }
 
 // GetTemplate returns the Template field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -376,6 +411,9 @@ func (o HypervisorResourceSearchRequestModel) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.ResourceType) {
 		toSerialize["ResourceType"] = o.ResourceType
+	}
+	if o.ResourceTypes != nil {
+		toSerialize["ResourceTypes"] = o.ResourceTypes
 	}
 	if o.Template.IsSet() {
 		toSerialize["Template"] = o.Template.Get()

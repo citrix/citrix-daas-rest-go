@@ -1742,6 +1742,356 @@ func (a *HypervisorsAPIsDAASService) HypervisorsDeleteHypervisorResourcePoolExec
 	return localVarHTTPResponse, nil
 }
 
+type ApiHypervisorsDoHypervisorAllResourcesSearchRequest struct {
+	ctx context.Context
+	ApiService *HypervisorsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	hypervisorResourceSearchRequestModel *HypervisorResourceSearchRequestModel
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	limit *int32
+	continuationToken *string
+	detail *bool
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) CitrixCustomerId(citrixCustomerId string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) CitrixInstanceId(citrixInstanceId string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// Specifies the advanced search parameters.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel HypervisorResourceSearchRequestModel) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.hypervisorResourceSearchRequestModel = &hypervisorResourceSearchRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) UserAgent(userAgent string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Authorization(authorization string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) CitrixTransactionId(citrixTransactionId string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Accept(accept string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) CitrixLocale(citrixLocale string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Limit(limit int32) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.limit = &limit
+	return r
+}
+
+// If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) ContinuationToken(continuationToken string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.continuationToken = &continuationToken
+	return r
+}
+
+// If &#x60;true&#x60;, full details of templates will be retrieved. This can be very time consuming and will reduce the performance of the call.
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Detail(detail bool) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.detail = &detail
+	return r
+}
+
+// Async request to get the resources with *path. 
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Async(async bool) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) Execute() (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	return r.ApiService.HypervisorsDoHypervisorAllResourcesSearchExecute(r)
+}
+
+/*
+HypervisorsDoHypervisorAllResourcesSearch Search the resources within a hypervisor.
+
+Currently, support AWS, Azure and VCenter.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId Name or ID of the hypervisor.
+ @return ApiHypervisorsDoHypervisorAllResourcesSearchRequest
+*/
+func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearch(ctx context.Context, nameOrId string) ApiHypervisorsDoHypervisorAllResourcesSearchRequest {
+	return ApiHypervisorsDoHypervisorAllResourcesSearchRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+	}
+}
+
+// Execute executes the request
+//  @return HypervisorResourceResponseModelCollection
+func (a *HypervisorsAPIsDAASService) HypervisorsDoHypervisorAllResourcesSearchExecute(r ApiHypervisorsDoHypervisorAllResourcesSearchRequest) (*HypervisorResourceResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *HypervisorResourceResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HypervisorsAPIsDAASService.HypervisorsDoHypervisorAllResourcesSearch")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/hypervisors/{nameOrId}/allResources/$search"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.hypervisorResourceSearchRequestModel == nil {
+		return localVarReturnValue, nil, reportError("hypervisorResourceSearchRequestModel is required and must be specified")
+	}
+
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+	}
+	if r.continuationToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+	}
+	if r.detail != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "detail", r.detail, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	// body params
+	localVarPostBody = r.hypervisorResourceSearchRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiHypervisorsDoHypervisorResourceSearchRequest struct {
 	ctx context.Context
 	ApiService *HypervisorsAPIsDAASService
@@ -1840,7 +2190,7 @@ func (r ApiHypervisorsDoHypervisorResourceSearchRequest) Execute() (*HypervisorR
 /*
 HypervisorsDoHypervisorResourceSearch Search the resources within a hypervisor resource pool.
 
-Currently, only AWS's AMIs(template) and Machine Profile(vm and launch template version) is supported.
+Currently, support AWS, Azure and VCenter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param nameOrId Name or ID of the hypervisor.

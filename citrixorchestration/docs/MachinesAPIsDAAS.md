@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**MachinesCreateMachineUpgradeSchedule**](MachinesAPIsDAAS.md#MachinesCreateMachineUpgradeSchedule) | **Post** /Machines/{nameOrId}/UpgradeSchedule | Setup a new VDA upgrade schedule for a machine.
 [**MachinesDisconnectSessions**](MachinesAPIsDAAS.md#MachinesDisconnectSessions) | **Post** /Machines/{nameOrId}/$disconnect | Disconnect all sessions on a machine.
 [**MachinesDoMachineSearch**](MachinesAPIsDAAS.md#MachinesDoMachineSearch) | **Post** /Machines/$search | Perform an advanced search for machines.
-[**MachinesGetMachine**](MachinesAPIsDAAS.md#MachinesGetMachine) | **Get** /Machines/{nameOrId} | Get details of a single machine.
+[**MachinesGetMachine**](MachinesAPIsDAAS.md#MachinesGetMachine) | **Get** /Machines/{nameOrId} | Get details of a single machine which belongs to this site, or have registered but are not yet configured in this site
 [**MachinesGetMachineApplications**](MachinesAPIsDAAS.md#MachinesGetMachineApplications) | **Get** /Machines/{nameOrId}/Applications | Get the list of applications on a machine.
 [**MachinesGetMachineDeliveryGroup**](MachinesAPIsDAAS.md#MachinesGetMachineDeliveryGroup) | **Get** /Machines/{nameOrId}/DeliveryGroup | Get the delivery group for a machine.
 [**MachinesGetMachineDesktop**](MachinesAPIsDAAS.md#MachinesGetMachineDesktop) | **Get** /Machines/{nameOrId}/Desktop | Get the desktop associated with the machine, if any.
@@ -62,7 +62,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     tagNameOrId := "tagNameOrId_example" // string | Name or ID of the tag to add.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -89,7 +89,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 **tagNameOrId** | **string** | Name or ID of the tag to add. | 
 
 ### Other Parameters
@@ -151,7 +151,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    name := "name_example" // string | Name of the machine.
+    name := "name_example" // string | Name of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'.             For instance, if a MachineName is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -174,7 +174,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**name** | **string** | Name of the machine. | 
+**name** | **string** | Name of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;.             For instance, if a MachineName is \&quot;DomainA\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -231,7 +231,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     createUpgradeScheduleRequestModel := *openapiclient.NewCreateUpgradeScheduleRequestModel(int32(123)) // CreateUpgradeScheduleRequestModel | Details about the VDA upgrade schedule to create.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -256,7 +256,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -317,7 +317,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to disconnect sessions from.
+    nameOrId := "nameOrId_example" // string | Machine to disconnect sessions from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -344,7 +344,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to disconnect sessions from. | 
+**nameOrId** | **string** | Machine to disconnect sessions from. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ## MachinesDoMachineSearch
 
-> MachineResponseModelCollection MachinesDoMachineSearch(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
+> MachineResponseModelCollection MachinesDoMachineSearch(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
 
 Perform an advanced search for machines.
 
@@ -409,6 +409,7 @@ func main() {
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     limit := int32(56) // int32 | The max number of machines returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
@@ -419,7 +420,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesDoMachineSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
+    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesDoMachineSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesDoMachineSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -446,6 +447,7 @@ Name | Type | Description  | Notes
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xTimeZone** | **string** | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **limit** | **int32** | The max number of machines returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
@@ -476,7 +478,7 @@ Name | Type | Description  | Notes
 
 > MachineDetailResponseModel MachinesGetMachine(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
 
-Get details of a single machine.
+Get details of a single machine which belongs to this site, or have registered but are not yet configured in this site
 
 
 
@@ -495,7 +497,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -521,7 +523,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -581,7 +583,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -606,7 +608,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -665,7 +667,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -690,7 +692,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -749,7 +751,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -774,7 +776,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -833,7 +835,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -858,7 +860,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -915,7 +917,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -940,7 +942,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -999,7 +1001,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1025,7 +1027,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1085,7 +1087,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to get the shortcut icon from.
+    nameOrId := "nameOrId_example" // string | Machine to get the shortcut icon from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1113,7 +1115,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to get the shortcut icon from. | 
+**nameOrId** | **string** | Machine to get the shortcut icon from. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1175,7 +1177,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to get the shortcuts from.
+    nameOrId := "nameOrId_example" // string | Machine to get the shortcuts from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1200,7 +1202,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to get the shortcuts from. | 
+**nameOrId** | **string** | Machine to get the shortcuts from. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1259,7 +1261,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1285,7 +1287,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1435,7 +1437,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | SamName, UPN, or SID of the machine.
+    nameOrId := "nameOrId_example" // string | SamName, UPN, or SID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1460,7 +1462,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | SamName, UPN, or SID of the machine. | 
+**nameOrId** | **string** | SamName, UPN, or SID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1517,7 +1519,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine to test.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine to test. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     reportId := "reportId_example" // string | ID of the Cloud Health Check Report.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -1543,7 +1545,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine to test. | 
+**nameOrId** | **string** | Name or ID of the machine to test. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 **reportId** | **string** | ID of the Cloud Health Check Report. | 
 
 ### Other Parameters
@@ -1602,7 +1604,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1628,7 +1630,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1688,7 +1690,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to log sessions off from.
+    nameOrId := "nameOrId_example" // string | Machine to log sessions off from. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1715,7 +1717,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to log sessions off from. | 
+**nameOrId** | **string** | Machine to log sessions off from. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1776,7 +1778,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to reboot.
+    nameOrId := "nameOrId_example" // string | Machine to reboot. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1804,7 +1806,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to reboot. | 
+**nameOrId** | **string** | Machine to reboot. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1864,7 +1866,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to remove.  May be specified by SamName, UPN, or SID.
+    nameOrId := "nameOrId_example" // string | Machine to remove.  May be specified by SamName, UPN, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -1892,7 +1894,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to remove.  May be specified by SamName, UPN, or SID. | 
+**nameOrId** | **string** | Machine to remove.  May be specified by SamName, UPN, or SID. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -1954,7 +1956,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     tagNameOrId := "tagNameOrId_example" // string | Name or ID of the tag.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -1979,7 +1981,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 **tagNameOrId** | **string** | Name or ID of the tag. | 
 
 ### Other Parameters
@@ -2039,7 +2041,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2064,7 +2066,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2123,7 +2125,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2147,7 +2149,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2205,7 +2207,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine. May be specified by name, ID, or SID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2229,7 +2231,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. May be specified by name, ID, or SID. | 
+**nameOrId** | **string** | Name or ID of the machine. May be specified by name, ID, or SID. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2289,7 +2291,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to resume.
+    nameOrId := "nameOrId_example" // string | Machine to resume. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2316,7 +2318,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to resume. | 
+**nameOrId** | **string** | Machine to resume. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2375,7 +2377,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     tagsRequestModel := *openapiclient.NewTagsRequestModel() // TagsRequestModel | Details of the tags to set on the machine.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -2400,7 +2402,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2461,7 +2463,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to shut down.
+    nameOrId := "nameOrId_example" // string | Machine to shut down. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2490,7 +2492,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to shut down. | 
+**nameOrId** | **string** | Machine to shut down. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2553,7 +2555,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to start.
+    nameOrId := "nameOrId_example" // string | Machine to start. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2580,7 +2582,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to start. | 
+**nameOrId** | **string** | Machine to start. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2641,7 +2643,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to suspend.
+    nameOrId := "nameOrId_example" // string | Machine to suspend. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2669,7 +2671,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to suspend. | 
+**nameOrId** | **string** | Machine to suspend. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2729,7 +2731,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine to test.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine to test. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2754,7 +2756,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine to test. | 
+**nameOrId** | **string** | Name or ID of the machine to test. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2813,7 +2815,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Machine to update.  May be specified by name, ID, or SID.
+    nameOrId := "nameOrId_example" // string | Machine to update.  May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     updateMachineRequestModel := *openapiclient.NewUpdateMachineRequestModel() // UpdateMachineRequestModel | Details of the machine to update.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -2838,7 +2840,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Machine to update.  May be specified by name, ID, or SID. | 
+**nameOrId** | **string** | Machine to update.  May be specified by name, ID, or SID. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -2898,7 +2900,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
     updateUpgradeScheduleRequestModel := *openapiclient.NewUpdateUpgradeScheduleRequestModel(time.Now(), int32(123)) // UpdateUpgradeScheduleRequestModel | Details about the updated VDA upgrade schedule.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -2923,7 +2925,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. | 
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 

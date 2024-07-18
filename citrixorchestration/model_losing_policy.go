@@ -19,13 +19,16 @@ var _ MappedNullable = &LosingPolicy{}
 
 // LosingPolicy Policy that should be applied but not applied due to various reasons.
 type LosingPolicy struct {
-	PolicyIdentity *PolicyIdentity `json:"PolicyIdentity,omitempty"`
+	// Name of the policy.
+	PolicyName NullableString `json:"PolicyName,omitempty"`
+	// Name of the GPO that contains the policy that uses this setting.
+	GpoName NullableString `json:"GpoName,omitempty"`
 	// Reasons why the policy is not applied according to filtering results.
-	Reasons map[string][]string `json:"Reasons,omitempty"`
+	Reasons map[string][]ReasonDetail `json:"Reasons,omitempty"`
 	// Policy priority.
 	Priority *int32 `json:"Priority,omitempty"`
 	// The settings in the policy and the reason of losing for each setting.
-	Settings []WonOverBy `json:"Settings,omitempty"`
+	WinningSettings []WonOverBy `json:"WinningSettings,omitempty"`
 }
 
 // NewLosingPolicy instantiates a new LosingPolicy object
@@ -45,42 +48,94 @@ func NewLosingPolicyWithDefaults() *LosingPolicy {
 	return &this
 }
 
-// GetPolicyIdentity returns the PolicyIdentity field value if set, zero value otherwise.
-func (o *LosingPolicy) GetPolicyIdentity() PolicyIdentity {
-	if o == nil || IsNil(o.PolicyIdentity) {
-		var ret PolicyIdentity
+// GetPolicyName returns the PolicyName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LosingPolicy) GetPolicyName() string {
+	if o == nil || IsNil(o.PolicyName.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.PolicyIdentity
+	return *o.PolicyName.Get()
 }
 
-// GetPolicyIdentityOk returns a tuple with the PolicyIdentity field value if set, nil otherwise
+// GetPolicyNameOk returns a tuple with the PolicyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LosingPolicy) GetPolicyIdentityOk() (*PolicyIdentity, bool) {
-	if o == nil || IsNil(o.PolicyIdentity) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LosingPolicy) GetPolicyNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PolicyIdentity, true
+	return o.PolicyName.Get(), o.PolicyName.IsSet()
 }
 
-// HasPolicyIdentity returns a boolean if a field has been set.
-func (o *LosingPolicy) HasPolicyIdentity() bool {
-	if o != nil && !IsNil(o.PolicyIdentity) {
+// HasPolicyName returns a boolean if a field has been set.
+func (o *LosingPolicy) HasPolicyName() bool {
+	if o != nil && o.PolicyName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPolicyIdentity gets a reference to the given PolicyIdentity and assigns it to the PolicyIdentity field.
-func (o *LosingPolicy) SetPolicyIdentity(v PolicyIdentity) {
-	o.PolicyIdentity = &v
+// SetPolicyName gets a reference to the given NullableString and assigns it to the PolicyName field.
+func (o *LosingPolicy) SetPolicyName(v string) {
+	o.PolicyName.Set(&v)
+}
+// SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+func (o *LosingPolicy) SetPolicyNameNil() {
+	o.PolicyName.Set(nil)
+}
+
+// UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
+func (o *LosingPolicy) UnsetPolicyName() {
+	o.PolicyName.Unset()
+}
+
+// GetGpoName returns the GpoName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LosingPolicy) GetGpoName() string {
+	if o == nil || IsNil(o.GpoName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.GpoName.Get()
+}
+
+// GetGpoNameOk returns a tuple with the GpoName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LosingPolicy) GetGpoNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GpoName.Get(), o.GpoName.IsSet()
+}
+
+// HasGpoName returns a boolean if a field has been set.
+func (o *LosingPolicy) HasGpoName() bool {
+	if o != nil && o.GpoName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGpoName gets a reference to the given NullableString and assigns it to the GpoName field.
+func (o *LosingPolicy) SetGpoName(v string) {
+	o.GpoName.Set(&v)
+}
+// SetGpoNameNil sets the value for GpoName to be an explicit nil
+func (o *LosingPolicy) SetGpoNameNil() {
+	o.GpoName.Set(nil)
+}
+
+// UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
+func (o *LosingPolicy) UnsetGpoName() {
+	o.GpoName.Unset()
 }
 
 // GetReasons returns the Reasons field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LosingPolicy) GetReasons() map[string][]string {
+func (o *LosingPolicy) GetReasons() map[string][]ReasonDetail {
 	if o == nil {
-		var ret map[string][]string
+		var ret map[string][]ReasonDetail
 		return ret
 	}
 	return o.Reasons
@@ -89,7 +144,7 @@ func (o *LosingPolicy) GetReasons() map[string][]string {
 // GetReasonsOk returns a tuple with the Reasons field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LosingPolicy) GetReasonsOk() (*map[string][]string, bool) {
+func (o *LosingPolicy) GetReasonsOk() (*map[string][]ReasonDetail, bool) {
 	if o == nil || IsNil(o.Reasons) {
 		return nil, false
 	}
@@ -105,8 +160,8 @@ func (o *LosingPolicy) HasReasons() bool {
 	return false
 }
 
-// SetReasons gets a reference to the given map[string][]string and assigns it to the Reasons field.
-func (o *LosingPolicy) SetReasons(v map[string][]string) {
+// SetReasons gets a reference to the given map[string][]ReasonDetail and assigns it to the Reasons field.
+func (o *LosingPolicy) SetReasons(v map[string][]ReasonDetail) {
 	o.Reasons = v
 }
 
@@ -142,37 +197,37 @@ func (o *LosingPolicy) SetPriority(v int32) {
 	o.Priority = &v
 }
 
-// GetSettings returns the Settings field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *LosingPolicy) GetSettings() []WonOverBy {
+// GetWinningSettings returns the WinningSettings field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LosingPolicy) GetWinningSettings() []WonOverBy {
 	if o == nil {
 		var ret []WonOverBy
 		return ret
 	}
-	return o.Settings
+	return o.WinningSettings
 }
 
-// GetSettingsOk returns a tuple with the Settings field value if set, nil otherwise
+// GetWinningSettingsOk returns a tuple with the WinningSettings field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *LosingPolicy) GetSettingsOk() ([]WonOverBy, bool) {
-	if o == nil || IsNil(o.Settings) {
+func (o *LosingPolicy) GetWinningSettingsOk() ([]WonOverBy, bool) {
+	if o == nil || IsNil(o.WinningSettings) {
 		return nil, false
 	}
-	return o.Settings, true
+	return o.WinningSettings, true
 }
 
-// HasSettings returns a boolean if a field has been set.
-func (o *LosingPolicy) HasSettings() bool {
-	if o != nil && IsNil(o.Settings) {
+// HasWinningSettings returns a boolean if a field has been set.
+func (o *LosingPolicy) HasWinningSettings() bool {
+	if o != nil && IsNil(o.WinningSettings) {
 		return true
 	}
 
 	return false
 }
 
-// SetSettings gets a reference to the given []WonOverBy and assigns it to the Settings field.
-func (o *LosingPolicy) SetSettings(v []WonOverBy) {
-	o.Settings = v
+// SetWinningSettings gets a reference to the given []WonOverBy and assigns it to the WinningSettings field.
+func (o *LosingPolicy) SetWinningSettings(v []WonOverBy) {
+	o.WinningSettings = v
 }
 
 func (o LosingPolicy) MarshalJSON() ([]byte, error) {
@@ -185,8 +240,11 @@ func (o LosingPolicy) MarshalJSON() ([]byte, error) {
 
 func (o LosingPolicy) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.PolicyIdentity) {
-		toSerialize["PolicyIdentity"] = o.PolicyIdentity
+	if o.PolicyName.IsSet() {
+		toSerialize["PolicyName"] = o.PolicyName.Get()
+	}
+	if o.GpoName.IsSet() {
+		toSerialize["GpoName"] = o.GpoName.Get()
 	}
 	if o.Reasons != nil {
 		toSerialize["Reasons"] = o.Reasons
@@ -194,8 +252,8 @@ func (o LosingPolicy) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Priority) {
 		toSerialize["Priority"] = o.Priority
 	}
-	if o.Settings != nil {
-		toSerialize["Settings"] = o.Settings
+	if o.WinningSettings != nil {
+		toSerialize["WinningSettings"] = o.WinningSettings
 	}
 	return toSerialize, nil
 }

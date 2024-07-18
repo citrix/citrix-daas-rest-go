@@ -73,6 +73,14 @@ type AdvancedAccessPolicyResponseModel struct {
 	IncludedSmartAccessFilterType *FilterMatchType `json:"IncludedSmartAccessFilterType,omitempty"`
 	// Indicates whether the IncludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated.
 	IncludedUserFilterEnabled *bool `json:"IncludedUserFilterEnabled,omitempty"`
+	// Indicates whether key logging app protection is required.
+	AppProtectionKeyLoggingRequired *bool `json:"AppProtectionKeyLoggingRequired,omitempty"`
+	// Indicates whether screen capture app protection is required.
+	AppProtectionScreenCaptureRequired *bool `json:"AppProtectionScreenCaptureRequired,omitempty"`
+	// Indicates whether the policy is used for contextual app protection.
+	IsContextualAppProtectionPolicy *bool `json:"IsContextualAppProtectionPolicy,omitempty"`
+	// Indicates whether TLS encryption is enabled for sessions delivered from the rule’s delivery group.
+	HdxSslEnabled *bool `json:"HdxSslEnabled,omitempty"`
 	// The users and groups who are granted access to the delivery group. CHANGE: was: public ADAccount[] IncludedUsers { get; set; }
 	IncludedUsers []IdentityUserResponseModel `json:"IncludedUsers,omitempty"`
 }
@@ -1033,6 +1041,134 @@ func (o *AdvancedAccessPolicyResponseModel) SetIncludedUserFilterEnabled(v bool)
 	o.IncludedUserFilterEnabled = &v
 }
 
+// GetAppProtectionKeyLoggingRequired returns the AppProtectionKeyLoggingRequired field value if set, zero value otherwise.
+func (o *AdvancedAccessPolicyResponseModel) GetAppProtectionKeyLoggingRequired() bool {
+	if o == nil || IsNil(o.AppProtectionKeyLoggingRequired) {
+		var ret bool
+		return ret
+	}
+	return *o.AppProtectionKeyLoggingRequired
+}
+
+// GetAppProtectionKeyLoggingRequiredOk returns a tuple with the AppProtectionKeyLoggingRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdvancedAccessPolicyResponseModel) GetAppProtectionKeyLoggingRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.AppProtectionKeyLoggingRequired) {
+		return nil, false
+	}
+	return o.AppProtectionKeyLoggingRequired, true
+}
+
+// HasAppProtectionKeyLoggingRequired returns a boolean if a field has been set.
+func (o *AdvancedAccessPolicyResponseModel) HasAppProtectionKeyLoggingRequired() bool {
+	if o != nil && !IsNil(o.AppProtectionKeyLoggingRequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetAppProtectionKeyLoggingRequired gets a reference to the given bool and assigns it to the AppProtectionKeyLoggingRequired field.
+func (o *AdvancedAccessPolicyResponseModel) SetAppProtectionKeyLoggingRequired(v bool) {
+	o.AppProtectionKeyLoggingRequired = &v
+}
+
+// GetAppProtectionScreenCaptureRequired returns the AppProtectionScreenCaptureRequired field value if set, zero value otherwise.
+func (o *AdvancedAccessPolicyResponseModel) GetAppProtectionScreenCaptureRequired() bool {
+	if o == nil || IsNil(o.AppProtectionScreenCaptureRequired) {
+		var ret bool
+		return ret
+	}
+	return *o.AppProtectionScreenCaptureRequired
+}
+
+// GetAppProtectionScreenCaptureRequiredOk returns a tuple with the AppProtectionScreenCaptureRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdvancedAccessPolicyResponseModel) GetAppProtectionScreenCaptureRequiredOk() (*bool, bool) {
+	if o == nil || IsNil(o.AppProtectionScreenCaptureRequired) {
+		return nil, false
+	}
+	return o.AppProtectionScreenCaptureRequired, true
+}
+
+// HasAppProtectionScreenCaptureRequired returns a boolean if a field has been set.
+func (o *AdvancedAccessPolicyResponseModel) HasAppProtectionScreenCaptureRequired() bool {
+	if o != nil && !IsNil(o.AppProtectionScreenCaptureRequired) {
+		return true
+	}
+
+	return false
+}
+
+// SetAppProtectionScreenCaptureRequired gets a reference to the given bool and assigns it to the AppProtectionScreenCaptureRequired field.
+func (o *AdvancedAccessPolicyResponseModel) SetAppProtectionScreenCaptureRequired(v bool) {
+	o.AppProtectionScreenCaptureRequired = &v
+}
+
+// GetIsContextualAppProtectionPolicy returns the IsContextualAppProtectionPolicy field value if set, zero value otherwise.
+func (o *AdvancedAccessPolicyResponseModel) GetIsContextualAppProtectionPolicy() bool {
+	if o == nil || IsNil(o.IsContextualAppProtectionPolicy) {
+		var ret bool
+		return ret
+	}
+	return *o.IsContextualAppProtectionPolicy
+}
+
+// GetIsContextualAppProtectionPolicyOk returns a tuple with the IsContextualAppProtectionPolicy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdvancedAccessPolicyResponseModel) GetIsContextualAppProtectionPolicyOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsContextualAppProtectionPolicy) {
+		return nil, false
+	}
+	return o.IsContextualAppProtectionPolicy, true
+}
+
+// HasIsContextualAppProtectionPolicy returns a boolean if a field has been set.
+func (o *AdvancedAccessPolicyResponseModel) HasIsContextualAppProtectionPolicy() bool {
+	if o != nil && !IsNil(o.IsContextualAppProtectionPolicy) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsContextualAppProtectionPolicy gets a reference to the given bool and assigns it to the IsContextualAppProtectionPolicy field.
+func (o *AdvancedAccessPolicyResponseModel) SetIsContextualAppProtectionPolicy(v bool) {
+	o.IsContextualAppProtectionPolicy = &v
+}
+
+// GetHdxSslEnabled returns the HdxSslEnabled field value if set, zero value otherwise.
+func (o *AdvancedAccessPolicyResponseModel) GetHdxSslEnabled() bool {
+	if o == nil || IsNil(o.HdxSslEnabled) {
+		var ret bool
+		return ret
+	}
+	return *o.HdxSslEnabled
+}
+
+// GetHdxSslEnabledOk returns a tuple with the HdxSslEnabled field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdvancedAccessPolicyResponseModel) GetHdxSslEnabledOk() (*bool, bool) {
+	if o == nil || IsNil(o.HdxSslEnabled) {
+		return nil, false
+	}
+	return o.HdxSslEnabled, true
+}
+
+// HasHdxSslEnabled returns a boolean if a field has been set.
+func (o *AdvancedAccessPolicyResponseModel) HasHdxSslEnabled() bool {
+	if o != nil && !IsNil(o.HdxSslEnabled) {
+		return true
+	}
+
+	return false
+}
+
+// SetHdxSslEnabled gets a reference to the given bool and assigns it to the HdxSslEnabled field.
+func (o *AdvancedAccessPolicyResponseModel) SetHdxSslEnabled(v bool) {
+	o.HdxSslEnabled = &v
+}
+
 // GetIncludedUsers returns the IncludedUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdvancedAccessPolicyResponseModel) GetIncludedUsers() []IdentityUserResponseModel {
 	if o == nil {
@@ -1157,6 +1293,18 @@ func (o AdvancedAccessPolicyResponseModel) ToMap() (map[string]interface{}, erro
 	}
 	if !IsNil(o.IncludedUserFilterEnabled) {
 		toSerialize["IncludedUserFilterEnabled"] = o.IncludedUserFilterEnabled
+	}
+	if !IsNil(o.AppProtectionKeyLoggingRequired) {
+		toSerialize["AppProtectionKeyLoggingRequired"] = o.AppProtectionKeyLoggingRequired
+	}
+	if !IsNil(o.AppProtectionScreenCaptureRequired) {
+		toSerialize["AppProtectionScreenCaptureRequired"] = o.AppProtectionScreenCaptureRequired
+	}
+	if !IsNil(o.IsContextualAppProtectionPolicy) {
+		toSerialize["IsContextualAppProtectionPolicy"] = o.IsContextualAppProtectionPolicy
+	}
+	if !IsNil(o.HdxSslEnabled) {
+		toSerialize["HdxSslEnabled"] = o.HdxSslEnabled
 	}
 	if o.IncludedUsers != nil {
 		toSerialize["IncludedUsers"] = o.IncludedUsers

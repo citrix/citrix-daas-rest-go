@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VdaInstanceId** | Pointer to **NullableString** | The id for the vda&#39;s key pair registered with the MFA trust service. | [optional] 
-**VdaInstanceName** | Pointer to **NullableString** | The instance name for the key. it is also used as the machine&#39;s name for non-domain joined vda. | [optional] 
-**ServicePublicKey** | Pointer to **NullableString** | The vda&#39;s public service key to be registered with FMA Trust Service. | [optional] 
-**MachineSid** | Pointer to **NullableString** | Real sid of AD machine for domain joined; or virtual sid if non-domain joined this parameter will be used to create machine | [optional] 
+**VdaInstanceId** | **string** | The id for the vda&#39;s key pair registered with the MFA trust service. | 
+**VdaInstanceName** | **string** | The instance name for the key. it is also used as the machine&#39;s name for non-domain joined vda. | 
+**ServicePublicKey** | **string** | The vda&#39;s public service key to be registered with FMA Trust Service. | 
+**MachineSid** | **string** | Real sid of AD machine for domain joined; or virtual sid if non-domain joined this parameter will be used to create machine | 
 **MachineMetadata** | Pointer to [**EnrollMachineMetaDataModel**](EnrollMachineMetaDataModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewEnrollMachineRequestModel
 
-`func NewEnrollMachineRequestModel() *EnrollMachineRequestModel`
+`func NewEnrollMachineRequestModel(vdaInstanceId string, vdaInstanceName string, servicePublicKey string, machineSid string, ) *EnrollMachineRequestModel`
 
 NewEnrollMachineRequestModel instantiates a new EnrollMachineRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -48,22 +48,7 @@ and a boolean to check if the value has been set.
 
 SetVdaInstanceId sets VdaInstanceId field to given value.
 
-### HasVdaInstanceId
 
-`func (o *EnrollMachineRequestModel) HasVdaInstanceId() bool`
-
-HasVdaInstanceId returns a boolean if a field has been set.
-
-### SetVdaInstanceIdNil
-
-`func (o *EnrollMachineRequestModel) SetVdaInstanceIdNil(b bool)`
-
- SetVdaInstanceIdNil sets the value for VdaInstanceId to be an explicit nil
-
-### UnsetVdaInstanceId
-`func (o *EnrollMachineRequestModel) UnsetVdaInstanceId()`
-
-UnsetVdaInstanceId ensures that no value is present for VdaInstanceId, not even an explicit nil
 ### GetVdaInstanceName
 
 `func (o *EnrollMachineRequestModel) GetVdaInstanceName() string`
@@ -83,22 +68,7 @@ and a boolean to check if the value has been set.
 
 SetVdaInstanceName sets VdaInstanceName field to given value.
 
-### HasVdaInstanceName
 
-`func (o *EnrollMachineRequestModel) HasVdaInstanceName() bool`
-
-HasVdaInstanceName returns a boolean if a field has been set.
-
-### SetVdaInstanceNameNil
-
-`func (o *EnrollMachineRequestModel) SetVdaInstanceNameNil(b bool)`
-
- SetVdaInstanceNameNil sets the value for VdaInstanceName to be an explicit nil
-
-### UnsetVdaInstanceName
-`func (o *EnrollMachineRequestModel) UnsetVdaInstanceName()`
-
-UnsetVdaInstanceName ensures that no value is present for VdaInstanceName, not even an explicit nil
 ### GetServicePublicKey
 
 `func (o *EnrollMachineRequestModel) GetServicePublicKey() string`
@@ -118,22 +88,7 @@ and a boolean to check if the value has been set.
 
 SetServicePublicKey sets ServicePublicKey field to given value.
 
-### HasServicePublicKey
 
-`func (o *EnrollMachineRequestModel) HasServicePublicKey() bool`
-
-HasServicePublicKey returns a boolean if a field has been set.
-
-### SetServicePublicKeyNil
-
-`func (o *EnrollMachineRequestModel) SetServicePublicKeyNil(b bool)`
-
- SetServicePublicKeyNil sets the value for ServicePublicKey to be an explicit nil
-
-### UnsetServicePublicKey
-`func (o *EnrollMachineRequestModel) UnsetServicePublicKey()`
-
-UnsetServicePublicKey ensures that no value is present for ServicePublicKey, not even an explicit nil
 ### GetMachineSid
 
 `func (o *EnrollMachineRequestModel) GetMachineSid() string`
@@ -153,22 +108,7 @@ and a boolean to check if the value has been set.
 
 SetMachineSid sets MachineSid field to given value.
 
-### HasMachineSid
 
-`func (o *EnrollMachineRequestModel) HasMachineSid() bool`
-
-HasMachineSid returns a boolean if a field has been set.
-
-### SetMachineSidNil
-
-`func (o *EnrollMachineRequestModel) SetMachineSidNil(b bool)`
-
- SetMachineSidNil sets the value for MachineSid to be an explicit nil
-
-### UnsetMachineSid
-`func (o *EnrollMachineRequestModel) UnsetMachineSid()`
-
-UnsetMachineSid ensures that no value is present for MachineSid, not even an explicit nil
 ### GetMachineMetadata
 
 `func (o *EnrollMachineRequestModel) GetMachineMetadata() EnrollMachineMetaDataModel`

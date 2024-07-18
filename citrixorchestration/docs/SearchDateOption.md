@@ -19,15 +19,15 @@
 
 * `YESTERDAY` (value: `"Yesterday"`)
 
-* `LAST_MONTH` (value: `"LastMonth"`)
-
-* `LAST_SIX_MONTHS` (value: `"LastSixMonths"`)
-
-* `LAST_THREE_MONTHS` (value: `"LastThreeMonths"`)
+* `LAST7_DAYS` (value: `"Last7Days"`)
 
 * `LAST28_DAYS` (value: `"Last28Days"`)
 
-* `LAST7_DAYS` (value: `"Last7Days"`)
+* `LAST_MONTH` (value: `"LastMonth"`)
+
+* `LAST_THREE_MONTHS` (value: `"LastThreeMonths"`)
+
+* `LAST_SIX_MONTHS` (value: `"LastSixMonths"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

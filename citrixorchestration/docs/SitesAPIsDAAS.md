@@ -4,9 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**SitesCheckObjectNameExists**](SitesAPIsDAAS.md#SitesCheckObjectNameExists) | **Post** /$checkObjectNameExists/{objectType}/{nameOrPath} | Check for the existence of an object.
 [**SitesGetMultipleRemotePCAssignments**](SitesAPIsDAAS.md#SitesGetMultipleRemotePCAssignments) | **Get** /Sites/{nameOrId}/MultipleRemotePCAssignments | Get multi-user auto-assignment for Remote PC Access.
 [**SitesGetSessionsTrend**](SitesAPIsDAAS.md#SitesGetSessionsTrend) | **Get** /Sites/{nameOrId}/SessionsTrend | Get the sessions trend
 [**SitesGetSite**](SitesAPIsDAAS.md#SitesGetSite) | **Get** /Sites/{nameOrId} | Get the details about a single site.
+[**SitesGetSiteMisconfigurationReport**](SitesAPIsDAAS.md#SitesGetSiteMisconfigurationReport) | **Get** /Sites/{nameOrId}/MisconfigurationReport | Get the misconfiguration report.
 [**SitesGetSiteSettings**](SitesAPIsDAAS.md#SitesGetSiteSettings) | **Get** /Sites/{nameOrId}/Settings | Get the settings for the site.
 [**SitesGetSiteStatus**](SitesAPIsDAAS.md#SitesGetSiteStatus) | **Get** /Sites/{nameOrId}/Status | Get the status of a site.
 [**SitesGetSiteTestReport**](SitesAPIsDAAS.md#SitesGetSiteTestReport) | **Get** /Sites/{nameOrId}/TestReport | Get the most recent test report.
@@ -16,6 +18,93 @@ Method | HTTP request | Description
 [**SitesPatchSiteSettings**](SitesAPIsDAAS.md#SitesPatchSiteSettings) | **Patch** /Sites/{nameOrId}/Settings | Update the broker site settings.
 [**SitesTestSite**](SitesAPIsDAAS.md#SitesTestSite) | **Post** /Sites/{nameOrId}/$test | Run tests on a site and create a test report.
 
+
+
+## SitesCheckObjectNameExists
+
+> bool SitesCheckObjectNameExists(ctx, objectType, nameOrPath).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Check for the existence of an object.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    objectType := openapiclient.ObjectType("Unknown") // ObjectType | Type of the object to check.
+    nameOrPath := "nameOrPath_example" // string | Name or path of the object to check. Currently the value should get rid of '\\\\' and replace it using '|'.             For instance, if the value is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SitesAPIsDAAS.SitesCheckObjectNameExists(context.Background(), objectType, nameOrPath).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPIsDAAS.SitesCheckObjectNameExists``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SitesCheckObjectNameExists`: bool
+    fmt.Fprintf(os.Stdout, "Response from `SitesAPIsDAAS.SitesCheckObjectNameExists`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**objectType** | [**ObjectType**](.md) | Type of the object to check. | 
+**nameOrPath** | **string** | Name or path of the object to check. Currently the value should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;.             For instance, if the value is \&quot;DomainA\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSitesCheckObjectNameExistsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+**bool**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## SitesGetMultipleRemotePCAssignments
@@ -243,6 +332,86 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SiteDetailResponseModel**](SiteDetailResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SitesGetSiteMisconfigurationReport
+
+> string SitesGetSiteMisconfigurationReport(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Get the misconfiguration report.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    nameOrId := "nameOrId_example" // string | ID of the site.
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SitesAPIsDAAS.SitesGetSiteMisconfigurationReport(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPIsDAAS.SitesGetSiteMisconfigurationReport``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SitesGetSiteMisconfigurationReport`: string
+    fmt.Fprintf(os.Stdout, "Response from `SitesAPIsDAAS.SitesGetSiteMisconfigurationReport`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | ID of the site. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSitesGetSiteMisconfigurationReportRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+**string**
 
 ### Authorization
 

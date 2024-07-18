@@ -23,6 +23,7 @@ const (
 	BACKUPRESTORESTATUS_UNKNOWN BackupRestoreStatus = "Unknown"
 	BACKUPRESTORESTATUS_PENDING BackupRestoreStatus = "Pending"
 	BACKUPRESTORESTATUS_IN_PROGRESS BackupRestoreStatus = "InProgress"
+	BACKUPRESTORESTATUS_PRE_COMPLETE BackupRestoreStatus = "PreComplete"
 	BACKUPRESTORESTATUS_COMPLETE BackupRestoreStatus = "Complete"
 	BACKUPRESTORESTATUS_COMPLETE_WITH_WARNING BackupRestoreStatus = "CompleteWithWarning"
 	BACKUPRESTORESTATUS_FAILED BackupRestoreStatus = "Failed"
@@ -38,6 +39,7 @@ var AllowedBackupRestoreStatusEnumValues = []BackupRestoreStatus{
 	"Unknown",
 	"Pending",
 	"InProgress",
+	"PreComplete",
 	"Complete",
 	"CompleteWithWarning",
 	"Failed",

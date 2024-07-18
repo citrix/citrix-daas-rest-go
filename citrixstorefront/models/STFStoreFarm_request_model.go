@@ -5,7 +5,7 @@ type BaseSTFStoreFarmRequestModel struct {
 	FarmName                   NullableString `json:"FarmName"`
 	Port                       NullableInt64  `json:"Port"`
 	SSLRelayPort               NullableInt64  `json:"SSLRelayPort"`
-	TransportType              NullableInt64  `json:"TransportType"`
+	TransportType              NullableString `json:"TransportType"`
 	LoadBalance                NullableBool   `json:"LoadBalance"`
 	XMLValidationEnabled       NullableBool   `json:"XMLValidationEnabled"`
 	XMLValidationSecret        NullableString `json:"XMLValidationSecret"`
@@ -34,7 +34,7 @@ func (o *BaseSTFStoreFarmRequestModel) SetSSLRelayPort(v int64) {
 	o.SSLRelayPort.Set(&v)
 }
 
-func (o *BaseSTFStoreFarmRequestModel) SetTransportType(v int64) {
+func (o *BaseSTFStoreFarmRequestModel) SetTransportType(v string) {
 	o.TransportType.Set(&v)
 }
 

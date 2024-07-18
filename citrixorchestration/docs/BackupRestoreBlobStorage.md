@@ -5,15 +5,21 @@
 
 * `UNDEFINED` (value: `"Undefined"`)
 
-* `FILE` (value: `"File"`)
+* `FILE_STORAGE` (value: `"FileStorage"`)
 
-* `AZURE` (value: `"Azure"`)
+* `AZURE_STORAGE` (value: `"AzureStorage"`)
 
-* `AWS` (value: `"AWS"`)
+* `CUSTOMER_AZURE_STORAGE` (value: `"CustomerAzureStorage"`)
 
-* `GCP` (value: `"GCP"`)
+* `AWS_STORAGE` (value: `"AwsStorage"`)
 
-* `CUSTOM` (value: `"Custom"`)
+* `CUSTOMER_AWS_STORAGE` (value: `"CustomerAwsStorage"`)
+
+* `GOOGLE_CLOUD_STORAGE` (value: `"GoogleCloudStorage"`)
+
+* `CUSTOMER_GOOGLE_CLOUD_STORAGE` (value: `"CustomerGoogleCloudStorage"`)
+
+* `CUSTOM_STORAGE` (value: `"CustomStorage"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

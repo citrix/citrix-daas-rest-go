@@ -80,6 +80,8 @@ type SiteDetailResponseModel struct {
 	TrustRequestsSentToTheXmlServicePort NullableBool `json:"TrustRequestsSentToTheXmlServicePort,omitempty"`
 	// The list of licenses with expired software maintenance dates.
 	LicensesWithExpiredSwm NullableString `json:"LicensesWithExpiredSwm,omitempty"`
+	// Status of the Policy GPOBlob to policySet conversion.
+	GpoDataNoError NullableBool `json:"GpoDataNoError,omitempty"`
 	// Get active licensing alerts in the site. Will be null for XenApp & XenDesktop service.
 	LicensingAlerts []LicensingAlertResponseModel `json:"LicensingAlerts,omitempty"`
 }
@@ -1211,6 +1213,48 @@ func (o *SiteDetailResponseModel) UnsetLicensesWithExpiredSwm() {
 	o.LicensesWithExpiredSwm.Unset()
 }
 
+// GetGpoDataNoError returns the GpoDataNoError field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteDetailResponseModel) GetGpoDataNoError() bool {
+	if o == nil || IsNil(o.GpoDataNoError.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.GpoDataNoError.Get()
+}
+
+// GetGpoDataNoErrorOk returns a tuple with the GpoDataNoError field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteDetailResponseModel) GetGpoDataNoErrorOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GpoDataNoError.Get(), o.GpoDataNoError.IsSet()
+}
+
+// HasGpoDataNoError returns a boolean if a field has been set.
+func (o *SiteDetailResponseModel) HasGpoDataNoError() bool {
+	if o != nil && o.GpoDataNoError.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGpoDataNoError gets a reference to the given NullableBool and assigns it to the GpoDataNoError field.
+func (o *SiteDetailResponseModel) SetGpoDataNoError(v bool) {
+	o.GpoDataNoError.Set(&v)
+}
+// SetGpoDataNoErrorNil sets the value for GpoDataNoError to be an explicit nil
+func (o *SiteDetailResponseModel) SetGpoDataNoErrorNil() {
+	o.GpoDataNoError.Set(nil)
+}
+
+// UnsetGpoDataNoError ensures that no value is present for GpoDataNoError, not even an explicit nil
+func (o *SiteDetailResponseModel) UnsetGpoDataNoError() {
+	o.GpoDataNoError.Unset()
+}
+
 // GetLicensingAlerts returns the LicensingAlerts field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteDetailResponseModel) GetLicensingAlerts() []LicensingAlertResponseModel {
 	if o == nil {
@@ -1330,6 +1374,9 @@ func (o SiteDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LicensesWithExpiredSwm.IsSet() {
 		toSerialize["LicensesWithExpiredSwm"] = o.LicensesWithExpiredSwm.Get()
+	}
+	if o.GpoDataNoError.IsSet() {
+		toSerialize["GpoDataNoError"] = o.GpoDataNoError.Get()
 	}
 	if o.LicensingAlerts != nil {
 		toSerialize["LicensingAlerts"] = o.LicensingAlerts

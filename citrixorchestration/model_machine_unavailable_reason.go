@@ -27,6 +27,7 @@ const (
 	MACHINEUNAVAILABLEREASON_PVD_FAILED MachineUnavailableReason = "PvdFailed"
 	MACHINEUNAVAILABLEREASON_GCT_CONNECTION_INITIALIZING MachineUnavailableReason = "GctConnectionInitializing"
 	MACHINEUNAVAILABLEREASON_AZURE_AD_JOIN_INITIALIZING MachineUnavailableReason = "AzureAdJoinInitializing"
+	MACHINEUNAVAILABLEREASON_INTUNE_ENROLL_PENDING MachineUnavailableReason = "IntuneEnrollPending"
 )
 
 // All allowed values of MachineUnavailableReason enum
@@ -38,6 +39,7 @@ var AllowedMachineUnavailableReasonEnumValues = []MachineUnavailableReason{
 	"PvdFailed",
 	"GctConnectionInitializing",
 	"AzureAdJoinInitializing",
+	"IntuneEnrollPending",
 }
 
 func (v *MachineUnavailableReason) UnmarshalJSON(src []byte) error {

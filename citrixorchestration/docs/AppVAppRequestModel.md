@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | App-V application Id. | 
-**Identifier** | Pointer to **NullableString** | App-V application identifier. | [optional] 
+**Identifier** | **string** | App-V application identifier. | 
 **PackageId** | **string** | App-V package identifier. | 
 **PackageName** | **string** | App-V package name. | 
 **PackageVersion** | **string** | App-V package version. | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewAppVAppRequestModel
 
-`func NewAppVAppRequestModel(id string, packageId string, packageName string, packageVersion string, packageVersionId string, sequenceLocation string, ) *AppVAppRequestModel`
+`func NewAppVAppRequestModel(id string, identifier string, packageId string, packageName string, packageVersion string, packageVersionId string, sequenceLocation string, ) *AppVAppRequestModel`
 
 NewAppVAppRequestModel instantiates a new AppVAppRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -73,22 +73,7 @@ and a boolean to check if the value has been set.
 
 SetIdentifier sets Identifier field to given value.
 
-### HasIdentifier
 
-`func (o *AppVAppRequestModel) HasIdentifier() bool`
-
-HasIdentifier returns a boolean if a field has been set.
-
-### SetIdentifierNil
-
-`func (o *AppVAppRequestModel) SetIdentifierNil(b bool)`
-
- SetIdentifierNil sets the value for Identifier to be an explicit nil
-
-### UnsetIdentifier
-`func (o *AppVAppRequestModel) UnsetIdentifier()`
-
-UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
 ### GetPackageId
 
 `func (o *AppVAppRequestModel) GetPackageId() string`

@@ -27,6 +27,7 @@ const (
 	SCOPEDOBJECTTYPE_APPLICATION_GROUP ScopedObjectType = "ApplicationGroup"
 	SCOPEDOBJECTTYPE_TAG ScopedObjectType = "Tag"
 	SCOPEDOBJECTTYPE_POLICY_SET ScopedObjectType = "PolicySet"
+	SCOPEDOBJECTTYPE_SERVICE_ACCOUNT ScopedObjectType = "ServiceAccount"
 )
 
 // All allowed values of ScopedObjectType enum
@@ -38,6 +39,7 @@ var AllowedScopedObjectTypeEnumValues = []ScopedObjectType{
 	"ApplicationGroup",
 	"Tag",
 	"PolicySet",
+	"ServiceAccount",
 }
 
 func (v *ScopedObjectType) UnmarshalJSON(src []byte) error {

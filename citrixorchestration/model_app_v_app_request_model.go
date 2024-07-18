@@ -22,7 +22,7 @@ type AppVAppRequestModel struct {
 	// App-V application Id.
 	Id string `json:"Id"`
 	// App-V application identifier.
-	Identifier NullableString `json:"Identifier,omitempty"`
+	Identifier string `json:"Identifier"`
 	// App-V package identifier.
 	PackageId string `json:"PackageId"`
 	// App-V package name.
@@ -45,9 +45,10 @@ type AppVAppRequestModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppVAppRequestModel(id string, packageId string, packageName string, packageVersion string, packageVersionId string, sequenceLocation string) *AppVAppRequestModel {
+func NewAppVAppRequestModel(id string, identifier string, packageId string, packageName string, packageVersion string, packageVersionId string, sequenceLocation string) *AppVAppRequestModel {
 	this := AppVAppRequestModel{}
 	this.Id = id
+	this.Identifier = identifier
 	this.PackageId = packageId
 	this.PackageName = packageName
 	this.PackageVersion = packageVersion
@@ -88,46 +89,28 @@ func (o *AppVAppRequestModel) SetId(v string) {
 	o.Id = v
 }
 
-// GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
+// GetIdentifier returns the Identifier field value
 func (o *AppVAppRequestModel) GetIdentifier() string {
-	if o == nil || IsNil(o.Identifier.Get()) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Identifier.Get()
+
+	return o.Identifier
 }
 
-// GetIdentifierOk returns a tuple with the Identifier field value if set, nil otherwise
+// GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *AppVAppRequestModel) GetIdentifierOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Identifier.Get(), o.Identifier.IsSet()
+	return &o.Identifier, true
 }
 
-// HasIdentifier returns a boolean if a field has been set.
-func (o *AppVAppRequestModel) HasIdentifier() bool {
-	if o != nil && o.Identifier.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIdentifier gets a reference to the given NullableString and assigns it to the Identifier field.
+// SetIdentifier sets field value
 func (o *AppVAppRequestModel) SetIdentifier(v string) {
-	o.Identifier.Set(&v)
-}
-// SetIdentifierNil sets the value for Identifier to be an explicit nil
-func (o *AppVAppRequestModel) SetIdentifierNil() {
-	o.Identifier.Set(nil)
-}
-
-// UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
-func (o *AppVAppRequestModel) UnsetIdentifier() {
-	o.Identifier.Unset()
+	o.Identifier = v
 }
 
 // GetPackageId returns the PackageId field value
@@ -377,9 +360,7 @@ func (o AppVAppRequestModel) MarshalJSON() ([]byte, error) {
 func (o AppVAppRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["Id"] = o.Id
-	if o.Identifier.IsSet() {
-		toSerialize["Identifier"] = o.Identifier.Get()
-	}
+	toSerialize["Identifier"] = o.Identifier
 	toSerialize["PackageId"] = o.PackageId
 	toSerialize["PackageName"] = o.PackageName
 	toSerialize["PackageVersion"] = o.PackageVersion
