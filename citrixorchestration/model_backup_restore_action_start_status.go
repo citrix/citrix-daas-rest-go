@@ -25,6 +25,7 @@ const (
 	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_ACTION_IN_PROGRESS BackupRestoreActionStartStatus = "ExistingActionInProgress"
 	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_BACKUP_IN_PROGRESS BackupRestoreActionStartStatus = "ExistingBackupInProgress"
 	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_RESTORE_IN_PROGRESS BackupRestoreActionStartStatus = "ExistingRestoreInProgress"
+	BACKUPRESTOREACTIONSTARTSTATUS_STORAGE_NOT_VALID BackupRestoreActionStartStatus = "StorageNotValid"
 )
 
 // All allowed values of BackupRestoreActionStartStatus enum
@@ -34,6 +35,7 @@ var AllowedBackupRestoreActionStartStatusEnumValues = []BackupRestoreActionStart
 	"ExistingActionInProgress",
 	"ExistingBackupInProgress",
 	"ExistingRestoreInProgress",
+	"StorageNotValid",
 }
 
 func (v *BackupRestoreActionStartStatus) UnmarshalJSON(src []byte) error {

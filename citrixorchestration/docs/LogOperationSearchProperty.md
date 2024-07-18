@@ -3,23 +3,27 @@
 ## Enum
 
 
+* `ID` (value: `"Id"`)
+
 * `TEXT` (value: `"Text"`)
-
-* `START_TIME` (value: `"StartTime"`)
-
-* `SOURCE` (value: `"Source"`)
-
-* `END_TIME` (value: `"EndTime"`)
-
-* `IS_SUCCESSFUL` (value: `"IsSuccessful"`)
 
 * `USER` (value: `"User"`)
 
+* `SOURCE` (value: `"Source"`)
+
 * `ADMIN_MACHINE_IP` (value: `"AdminMachineIP"`)
+
+* `END_TIME` (value: `"EndTime"`)
+
+* `START_TIME` (value: `"StartTime"`)
+
+* `IS_SUCCESSFUL` (value: `"IsSuccessful"`)
+
+* `TARGET_TYPE` (value: `"TargetType"`)
 
 * `OPERATION_TYPE` (value: `"OperationType"`)
 
-* `TARGET_TYPE` (value: `"TargetType"`)
+* `LABELS` (value: `"Labels"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

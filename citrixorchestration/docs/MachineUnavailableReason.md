@@ -17,6 +17,8 @@
 
 * `AZURE_AD_JOIN_INITIALIZING` (value: `"AzureAdJoinInitializing"`)
 
+* `INTUNE_ENROLL_PENDING` (value: `"IntuneEnrollPending"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

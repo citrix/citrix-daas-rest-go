@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Labels** | Pointer to **[]string** | The new labels of the operation. | [optional] 
+**Labels** | Pointer to **[]string** | The new labels of the operation. NOTE: For each label, it is case-insensitive with a max length of 60 and any leading or trailing whitespaces will be trimmed. | [optional] 
 
 ## Methods
 

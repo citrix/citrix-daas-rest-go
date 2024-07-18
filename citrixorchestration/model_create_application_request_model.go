@@ -72,6 +72,8 @@ type CreateApplicationRequestModel struct {
 	WaitForPrinterCreation NullableBool `json:"WaitForPrinterCreation,omitempty"`
 	// The metadata of the new application.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
+	// The configured file type associations of the new application.
+	FileTypes []FtaRequestModel `json:"FileTypes,omitempty"`
 }
 
 // NewCreateApplicationRequestModel instantiates a new CreateApplicationRequestModel object
@@ -1277,6 +1279,39 @@ func (o *CreateApplicationRequestModel) SetMetadata(v []NameValueStringPairModel
 	o.Metadata = v
 }
 
+// GetFileTypes returns the FileTypes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateApplicationRequestModel) GetFileTypes() []FtaRequestModel {
+	if o == nil {
+		var ret []FtaRequestModel
+		return ret
+	}
+	return o.FileTypes
+}
+
+// GetFileTypesOk returns a tuple with the FileTypes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateApplicationRequestModel) GetFileTypesOk() ([]FtaRequestModel, bool) {
+	if o == nil || IsNil(o.FileTypes) {
+		return nil, false
+	}
+	return o.FileTypes, true
+}
+
+// HasFileTypes returns a boolean if a field has been set.
+func (o *CreateApplicationRequestModel) HasFileTypes() bool {
+	if o != nil && IsNil(o.FileTypes) {
+		return true
+	}
+
+	return false
+}
+
+// SetFileTypes gets a reference to the given []FtaRequestModel and assigns it to the FileTypes field.
+func (o *CreateApplicationRequestModel) SetFileTypes(v []FtaRequestModel) {
+	o.FileTypes = v
+}
+
 func (o CreateApplicationRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1374,6 +1409,9 @@ func (o CreateApplicationRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
+	}
+	if o.FileTypes != nil {
+		toSerialize["FileTypes"] = o.FileTypes
 	}
 	return toSerialize, nil
 }

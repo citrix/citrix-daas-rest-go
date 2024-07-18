@@ -1,0 +1,4761 @@
+openapi: 3.0.1
+info:
+  title: Citrix.CloudServices.Administrators.Api
+  version: v1
+servers:
+- url: /
+paths:
+  /{customer}/administrators/$create:
+    post:
+      description: "<br>\r\n            Administrator users from identity providers\
+        \ Citrix Identity and Azure AD\r\n            will be sent an email invitation\
+        \ and are considered pending\r\n            administrators until their email\
+        \ is verified. Any other type of\r\n            administrator will be added\
+        \ immediately without this process.\r\n            \r\n<br>\r\n          \
+        \  All new administrators require at least `type`, `accessType`,\r\n     \
+        \       and `providerType`. Additional requirements vary by identity\r\n \
+        \           provider.\r\n            \r\n<br>\r\n            Citrix Identity\
+        \ and Azure AD user administrators additionally require\r\n            `email`\
+        \ for their email invitation.\r\n            \r\n<br>\r\n            Administrators\
+        \ from external identity providers (Azure AD, Google, SAML)\r\n          \
+        \  additionally require `externalProviderId` and\r\n            `externalUserId`.\r\
+        \n            "
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorInputModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorInputModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorInputModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorInputModel'
+        description: Administrator to be added.
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6494147Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6494149Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6494149Z\",\r\n  \"eTag\"\
+                : \"738322ea-377a-410d-a0a9-f49acfc8c61c\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            application/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6494147Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6494149Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6494149Z\",\r\n  \"eTag\"\
+                : \"738322ea-377a-410d-a0a9-f49acfc8c61c\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            text/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6494147Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6494149Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6494149Z\",\r\n  \"eTag\"\
+                : \"738322ea-377a-410d-a0a9-f49acfc8c61c\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.Errors.ErrorModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.Errors.ErrorModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.Errors.ErrorModel'
+          description: Bad Request
+        "503":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.Errors.ErrorModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.Errors.ErrorModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.Errors.ErrorModel'
+          description: Server Error
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Adds an administrator. This API is a higher-level version of\r\n`POST\
+        \ /{customer}/administrators` that works with any type of\r\nadministrator\
+        \ with stricter input validation. [BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators:
+    get:
+      parameters:
+      - description: Optional administrator type filter.
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          maxLength: 256
+          minLength: 0
+          type: string
+        style: form
+      - description: Optional Type of the provider.
+        explode: true
+        in: query
+        name: providerType
+        required: false
+        schema:
+          maxLength: 256
+          minLength: 0
+          type: string
+        style: form
+      - description: Optional item count.
+        explode: true
+        in: query
+        name: maxItemCount
+        required: false
+        schema:
+          maxLength: 256
+          minLength: 0
+          pattern: "^[0-9]+$"
+          type: string
+        style: form
+      - description: Optional continuation token.
+        explode: true
+        in: query
+        name: requestContinuation
+        required: false
+        schema:
+          maxLength: 8192
+          minLength: 0
+          type: string
+        style: form
+      - description: "The User Id corresponding to a user administrator. (Note: Exclusive\
+          \ with other parameters on this endpoint)"
+        explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6581958Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6581959Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.658196Z\",\r\n \
+                \     \"eTag\": \"c2d998a9-2eed-4e32-9806-c55a3f791c86\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+            application/json:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6581958Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6581959Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.658196Z\",\r\n \
+                \     \"eTag\": \"c2d998a9-2eed-4e32-9806-c55a3f791c86\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+            text/json:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6581958Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6581959Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.658196Z\",\r\n \
+                \     \"eTag\": \"c2d998a9-2eed-4e32-9806-c55a3f791c86\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Gets all administrators on this customer. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            example: "{\r\n  \"ucOid\": \"OID:/azuread/123456789\",\r\n  \"type\"\
+              : \"AdministratorGroup\",\r\n  \"accessType\": \"Full\",\r\n  \"firstName\"\
+              : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+              ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\": \"\
+              AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"emailPreferences\": \"\",\r\n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\"\
+              ,\r\n  \"policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\"\
+              ,\r\n      \"serviceName\": \"Platform\",\r\n      \"displayName\":\
+              \ \"Library\",\r\n      \"checkable\": {\r\n        \"value\": true,\r\
+              \n        \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\"\
+              : null\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorModel'
+          application/json:
+            example: "{\r\n  \"ucOid\": \"OID:/azuread/123456789\",\r\n  \"type\"\
+              : \"AdministratorGroup\",\r\n  \"accessType\": \"Full\",\r\n  \"firstName\"\
+              : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+              ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\": \"\
+              AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"emailPreferences\": \"\",\r\n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\"\
+              ,\r\n  \"policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\"\
+              ,\r\n      \"serviceName\": \"Platform\",\r\n      \"displayName\":\
+              \ \"Library\",\r\n      \"checkable\": {\r\n        \"value\": true,\r\
+              \n        \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\"\
+              : null\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorModel'
+          text/json:
+            example: "{\r\n  \"ucOid\": \"OID:/azuread/123456789\",\r\n  \"type\"\
+              : \"AdministratorGroup\",\r\n  \"accessType\": \"Full\",\r\n  \"firstName\"\
+              : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+              ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\": \"\
+              AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"emailPreferences\": \"\",\r\n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\"\
+              ,\r\n  \"policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\"\
+              ,\r\n      \"serviceName\": \"Platform\",\r\n      \"displayName\":\
+              \ \"Library\",\r\n      \"checkable\": {\r\n        \"value\": true,\r\
+              \n        \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\"\
+              : null\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorModel'
+          application/*+json:
+            example: "{\r\n  \"ucOid\": \"OID:/azuread/123456789\",\r\n  \"type\"\
+              : \"AdministratorGroup\",\r\n  \"accessType\": \"Full\",\r\n  \"firstName\"\
+              : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+              ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\": \"\
+              AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"emailPreferences\": \"\",\r\n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\"\
+              ,\r\n  \"policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\"\
+              ,\r\n      \"serviceName\": \"Platform\",\r\n      \"displayName\":\
+              \ \"Library\",\r\n      \"checkable\": {\r\n        \"value\": true,\r\
+              \n        \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\"\
+              : null\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorModel'
+        description: Administrator to be added.
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6514845Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6514847Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6514847Z\",\r\n  \"eTag\"\
+                : \"a65aa2b2-fc1b-46ea-84c0-601336acb089\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            application/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6514845Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6514847Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6514847Z\",\r\n  \"eTag\"\
+                : \"a65aa2b2-fc1b-46ea-84c0-601336acb089\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            text/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6514845Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6514847Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6514847Z\",\r\n  \"eTag\"\
+                : \"a65aa2b2-fc1b-46ea-84c0-601336acb089\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Adds an administrator. [BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/{adminId}:
+    delete:
+      parameters:
+      - description: Either the administrator universal claim organization identifier
+          (OID) or user id.
+        explode: false
+        in: path
+        name: adminId
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Deletes an administrator by ucOid. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+    put:
+      parameters:
+      - description: Either the administrator universal claim organization identifier
+          (OID) or user id.
+        explode: false
+        in: path
+        name: adminId
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            example: "{\r\n  \"accessType\": \"Full\",\r\n  \"firstName\": null,\r\
+              \n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\",\r\n  \"\
+              providerType\": \"AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n  \"\
+              policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\",\r\n    \
+              \  \"serviceName\": \"Platform\",\r\n      \"displayName\": \"Library\"\
+              ,\r\n      \"checkable\": {\r\n        \"value\": false,\r\n       \
+              \ \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\": null\r\
+              \n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.UpdateAdministratorModel'
+          application/json:
+            example: "{\r\n  \"accessType\": \"Full\",\r\n  \"firstName\": null,\r\
+              \n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\",\r\n  \"\
+              providerType\": \"AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n  \"\
+              policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\",\r\n    \
+              \  \"serviceName\": \"Platform\",\r\n      \"displayName\": \"Library\"\
+              ,\r\n      \"checkable\": {\r\n        \"value\": false,\r\n       \
+              \ \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\": null\r\
+              \n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.UpdateAdministratorModel'
+          text/json:
+            example: "{\r\n  \"accessType\": \"Full\",\r\n  \"firstName\": null,\r\
+              \n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\",\r\n  \"\
+              providerType\": \"AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n  \"\
+              policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\",\r\n    \
+              \  \"serviceName\": \"Platform\",\r\n      \"displayName\": \"Library\"\
+              ,\r\n      \"checkable\": {\r\n        \"value\": false,\r\n       \
+              \ \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\": null\r\
+              \n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.UpdateAdministratorModel'
+          application/*+json:
+            example: "{\r\n  \"accessType\": \"Full\",\r\n  \"firstName\": null,\r\
+              \n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\",\r\n  \"\
+              providerType\": \"AzureAd\",\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+              ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+              \n  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n  \"\
+              policies\": [\r\n    {\r\n      \"name\": \"cloudLibrary\",\r\n    \
+              \  \"serviceName\": \"Platform\",\r\n      \"displayName\": \"Library\"\
+              ,\r\n      \"checkable\": {\r\n        \"value\": false,\r\n       \
+              \ \"canChangeValue\": true\r\n      },\r\n      \"scopeChoices\": null\r\
+              \n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.UpdateAdministratorModel'
+        description: Administrator to be updated.
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6608227Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6608229Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6608229Z\",\r\n  \"eTag\"\
+                : \"e333c57e-837a-4b8c-8d63-3581ad798b94\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            application/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6608227Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6608229Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6608229Z\",\r\n  \"eTag\"\
+                : \"e333c57e-837a-4b8c-8d63-3581ad798b94\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            text/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6608227Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6608229Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6608229Z\",\r\n  \"eTag\"\
+                : \"e333c57e-837a-4b8c-8d63-3581ad798b94\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+          description: Success
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Updates an administrator by either ucOid or user id. [BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/authDomain:
+    put:
+      parameters:
+      - description: The old auth domain to look for.
+        explode: true
+        in: query
+        name: oldAuthDomain
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - description: The new auth domain to update.
+        explode: true
+        in: query
+        name: newAuthDomain
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      summary: "Updates auth domain for relevant administrators of given customer\
+        \ context.\r\nForwards to DAv1 if not found locally or is pending. [ServiceKey]"
+      tags:
+      - Administrators
+  /{customer}/administrators/{ucOid}:
+    get:
+      parameters:
+      - description: Administrator universal claim organization identifier (OID).
+        explode: false
+        in: path
+        name: ucOid
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6639946Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6639947Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6639948Z\",\r\n  \"eTag\"\
+                : \"131b13f5-711f-49f1-b29d-25c2fca26965\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            application/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6639946Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6639947Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6639948Z\",\r\n  \"eTag\"\
+                : \"131b13f5-711f-49f1-b29d-25c2fca26965\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            text/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6639946Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6639947Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6639948Z\",\r\n  \"eTag\"\
+                : \"131b13f5-711f-49f1-b29d-25c2fca26965\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Gets an administrator with ucOid passed a route parameter. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrator:
+    get:
+      parameters:
+      - description: Administrator universal claim organization identifier (OID).
+        explode: true
+        in: query
+        name: ucOid
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6648757Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6648759Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6648759Z\",\r\n  \"eTag\"\
+                : \"18a5d4af-a4ec-4a2f-83aa-08ecc8b9842b\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            application/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6648757Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6648759Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6648759Z\",\r\n  \"eTag\"\
+                : \"18a5d4af-a4ec-4a2f-83aa-08ecc8b9842b\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+            text/json:
+              example: "{\r\n  \"customerId\": \"capamerica\",\r\n  \"ucOid\": \"\
+                OID:/azuread/123456789\",\r\n  \"userId\": null,\r\n  \"type\": 1,\r\
+                \n  \"accessType\": 0,\r\n  \"serviceProfile\": \"\",\r\n  \"firstName\"\
+                : null,\r\n  \"lastName\": null,\r\n  \"displayName\": \"AllAdmins\"\
+                ,\r\n  \"email\": \"all.admins@law.blog\",\r\n  \"providerType\":\
+                \ 0,\r\n  \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n  \"providerProperties\": {\r\n    \"name\": \"value\"\r\n  },\r\
+                \n  \"externalOid\": \"123456789\",\r\n  \"emailPreferences\": \"\"\
+                ,\r\n  \"notificationsEmailPreferences\": {\r\n    \"sendNotificationEmails\"\
+                : true,\r\n    \"notificationsSubscribed\": [\r\n      {\r\n     \
+                \   \"type\": 0,\r\n        \"enabled\": true\r\n      }\r\n    ],\r\
+                \n    \"enabledDate\": \"2024-07-11T16:02:57.6648757Z\"\r\n  },\r\n\
+                \  \"authDomain\": \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n \
+                \ \"pending\": false,\r\n  \"invitationExpired\": false,\r\n  \"legacyProviders\"\
+                : null,\r\n  \"createdDate\": \"2024-07-11T16:02:57.6648759Z\",\r\n\
+                \  \"updatedDate\": \"2024-07-11T16:02:57.6648759Z\",\r\n  \"eTag\"\
+                : \"18a5d4af-a4ec-4a2f-83aa-08ecc8b9842b\"\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Gets an administrator with ucOid passed as a query parameter. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/access/{ucOid}:
+    get:
+      description: "This legacy endpoint has overloaded use cases - get access to\
+        \ create a new administrator, get access to update an existing administrator,\
+        \ and get current access to view.\r\nLogic for each is slightly different\
+        \ from each other which results in many combinations of input query parameters."
+      parameters:
+      - description: Administrator universal claim organization identifier (OID).
+        explode: false
+        in: path
+        name: ucOid
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - description: Administrator Type.
+        explode: true
+        in: query
+        name: administratorType
+        required: false
+        schema:
+          default: Group
+          maxLength: 256
+          minLength: 0
+          type: string
+        style: form
+      - description: Whether permissions applicable to group administrators should
+          be returned.
+        explode: true
+        in: query
+        name: groupOnlyPermissions
+        required: false
+        schema:
+          default: true
+          type: boolean
+        style: form
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+                \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n\
+                \      \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n\
+                \        \"value\": true,\r\n        \"canChangeValue\": false\r\n\
+                \      },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+                : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+                name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\
+                \n            \"checkable\": {\r\n              \"value\": false,\r\
+                \n              \"canChangeValue\": true\r\n            }\r\n    \
+                \      }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+            application/json:
+              example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+                \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n\
+                \      \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n\
+                \        \"value\": true,\r\n        \"canChangeValue\": false\r\n\
+                \      },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+                : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+                name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\
+                \n            \"checkable\": {\r\n              \"value\": false,\r\
+                \n              \"canChangeValue\": true\r\n            }\r\n    \
+                \      }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+            text/json:
+              example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+                \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n\
+                \      \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n\
+                \        \"value\": true,\r\n        \"canChangeValue\": false\r\n\
+                \      },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+                : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+                name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\
+                \n            \"checkable\": {\r\n              \"value\": false,\r\
+                \n              \"canChangeValue\": true\r\n            }\r\n    \
+                \      }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Get the access of an administrator [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/{id}/access:
+    get:
+      parameters:
+      - description: "Either the Administrator UserId or UcOid (universal claim organization\
+          \ identifier [OID]). Use UserId for Citrix and AzureAd Users, UcOid for\
+          \ all others."
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+                \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n\
+                \      \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n\
+                \        \"value\": true,\r\n        \"canChangeValue\": false\r\n\
+                \      },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+                : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+                name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\
+                \n            \"checkable\": {\r\n              \"value\": false,\r\
+                \n              \"canChangeValue\": true\r\n            }\r\n    \
+                \      }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+            application/json:
+              example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+                \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n\
+                \      \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n\
+                \        \"value\": true,\r\n        \"canChangeValue\": false\r\n\
+                \      },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+                : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+                name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\
+                \n            \"checkable\": {\r\n              \"value\": false,\r\
+                \n              \"canChangeValue\": true\r\n            }\r\n    \
+                \      }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+            text/json:
+              example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+                \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n\
+                \      \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n\
+                \        \"value\": true,\r\n        \"canChangeValue\": false\r\n\
+                \      },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+                : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+                name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\
+                \n            \"checkable\": {\r\n              \"value\": false,\r\
+                \n              \"canChangeValue\": true\r\n            }\r\n    \
+                \      }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Get the access of an administrator. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/Administrators/Access:
+    put:
+      description: This currently retains the same behavior (input/output) expectations
+        we had in DAv1.
+      parameters:
+      - description: The administrator's userId
+        explode: true
+        in: query
+        name: id
+        required: false
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+              \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n  \
+              \    \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n   \
+              \     \"value\": true,\r\n        \"canChangeValue\": false\r\n    \
+              \  },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+              : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+              name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\n\
+              \            \"checkable\": {\r\n              \"value\": false,\r\n\
+              \              \"canChangeValue\": true\r\n            }\r\n       \
+              \   }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+          application/json:
+            example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+              \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n  \
+              \    \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n   \
+              \     \"value\": true,\r\n        \"canChangeValue\": false\r\n    \
+              \  },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+              : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+              name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\n\
+              \            \"checkable\": {\r\n              \"value\": false,\r\n\
+              \              \"canChangeValue\": true\r\n            }\r\n       \
+              \   }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+          text/json:
+            example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+              \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n  \
+              \    \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n   \
+              \     \"value\": true,\r\n        \"canChangeValue\": false\r\n    \
+              \  },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+              : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+              name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\n\
+              \            \"checkable\": {\r\n              \"value\": false,\r\n\
+              \              \"canChangeValue\": true\r\n            }\r\n       \
+              \   }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+          application/*+json:
+            example: "{\r\n  \"accessType\": 1,\r\n  \"policies\": [\r\n    {\r\n\
+              \      \"name\": \"domains\",\r\n      \"serviceName\": null,\r\n  \
+              \    \"displayName\": \"domains\",\r\n      \"checkable\": {\r\n   \
+              \     \"value\": true,\r\n        \"canChangeValue\": false\r\n    \
+              \  },\r\n      \"scopeChoices\": {\r\n        \"allScopesSelected\"\
+              : false,\r\n        \"choices\": [\r\n          {\r\n            \"\
+              name\": \"Scope1\",\r\n            \"displayName\": \"Scope 1\",\r\n\
+              \            \"checkable\": {\r\n              \"value\": false,\r\n\
+              \              \"canChangeValue\": true\r\n            }\r\n       \
+              \   }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel'
+        description: "The administrator's access, in terms of policies and access\
+          \ type."
+      responses:
+        "200":
+          description: Success
+        "404":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Updates the access for an administrator. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/activeAdministrators:
+    get:
+      parameters:
+      - description: Optional item count.
+        explode: true
+        in: query
+        name: maxItemCount
+        required: false
+        schema:
+          maxLength: 256
+          minLength: 0
+          pattern: "^[0-9]+$"
+          type: string
+        style: form
+      - description: Optional continuation token.
+        explode: true
+        in: query
+        name: requestContinuation
+        required: false
+        schema:
+          maxLength: 8192
+          minLength: 0
+          type: string
+        style: form
+      - example: root
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6683552Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6683553Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.6683554Z\",\r\n\
+                \      \"eTag\": \"bb69d5a0-b41d-419b-a194-34d15aeb3ce2\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+            application/json:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6683552Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6683553Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.6683554Z\",\r\n\
+                \      \"eTag\": \"bb69d5a0-b41d-419b-a194-34d15aeb3ce2\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+            text/json:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6683552Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6683553Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.6683554Z\",\r\n\
+                \      \"eTag\": \"bb69d5a0-b41d-419b-a194-34d15aeb3ce2\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      summary: "Gets all active administrators (users, secureClients, and groups)\
+        \ across all customers. [ServiceKey][RootOnly]"
+      tags:
+      - Administrators
+  /{customer}/administrators/$delete:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            example: "{\r\n  \"userIds\": [\r\n    \"OID:/google/14d04ab3-9eaf-4b4c-b49b-a2e90d80f48c:0333f8b4-2484-41a1-a5ef-4283f557a184\"\
+              ,\r\n    \"6336a7e5-56fb-442a-a7ba-64ccbc577651\"\r\n  ],\r\n  \"ucOids\"\
+              : [\r\n    \"OID:/google/6fc5defd-2f53-4643-8f41-dc78f88ffc4e\",\r\n\
+              \    \"OID:/azuread/18691194-3b9e-4d23-aa86-5d113260204b\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsModel'
+          application/json:
+            example: "{\r\n  \"userIds\": [\r\n    \"OID:/google/14d04ab3-9eaf-4b4c-b49b-a2e90d80f48c:0333f8b4-2484-41a1-a5ef-4283f557a184\"\
+              ,\r\n    \"6336a7e5-56fb-442a-a7ba-64ccbc577651\"\r\n  ],\r\n  \"ucOids\"\
+              : [\r\n    \"OID:/google/6fc5defd-2f53-4643-8f41-dc78f88ffc4e\",\r\n\
+              \    \"OID:/azuread/18691194-3b9e-4d23-aa86-5d113260204b\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsModel'
+          text/json:
+            example: "{\r\n  \"userIds\": [\r\n    \"OID:/google/14d04ab3-9eaf-4b4c-b49b-a2e90d80f48c:0333f8b4-2484-41a1-a5ef-4283f557a184\"\
+              ,\r\n    \"6336a7e5-56fb-442a-a7ba-64ccbc577651\"\r\n  ],\r\n  \"ucOids\"\
+              : [\r\n    \"OID:/google/6fc5defd-2f53-4643-8f41-dc78f88ffc4e\",\r\n\
+              \    \"OID:/azuread/18691194-3b9e-4d23-aa86-5d113260204b\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsModel'
+          application/*+json:
+            example: "{\r\n  \"userIds\": [\r\n    \"OID:/google/14d04ab3-9eaf-4b4c-b49b-a2e90d80f48c:0333f8b4-2484-41a1-a5ef-4283f557a184\"\
+              ,\r\n    \"6336a7e5-56fb-442a-a7ba-64ccbc577651\"\r\n  ],\r\n  \"ucOids\"\
+              : [\r\n    \"OID:/google/6fc5defd-2f53-4643-8f41-dc78f88ffc4e\",\r\n\
+              \    \"OID:/azuread/18691194-3b9e-4d23-aa86-5d113260204b\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsModel'
+        description: Administrator delete model.
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsErrorResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsErrorResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsErrorResponseModel'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Deletes users by UserId in Administrators or DA, and deletes groups/users\
+        \ by UcOids in Administrators. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/DeleteMultiple:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            example: "{\r\n  \"emails\": [\r\n    \"email1@citrix.com\",\r\n    \"\
+              email2@outlook.com\"\r\n  ],\r\n  \"userIds\": [\r\n    \"480a616f-4e62-4118-b1f3-98cd4ebf914c\"\
+              ,\r\n    \"0eb6c990-fa80-4be3-8676-24da78f211fa\"\r\n  ],\r\n  \"ucoIds\"\
+              : [\r\n    \"OID:/azuread/c7099da1-6573-4969-b16b-94982174d215\",\r\n\
+              \    \"OID:/azuread/4284d8ce-7018-4339-bd75-b08230ca4a70\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorModel'
+          application/json:
+            example: "{\r\n  \"emails\": [\r\n    \"email1@citrix.com\",\r\n    \"\
+              email2@outlook.com\"\r\n  ],\r\n  \"userIds\": [\r\n    \"480a616f-4e62-4118-b1f3-98cd4ebf914c\"\
+              ,\r\n    \"0eb6c990-fa80-4be3-8676-24da78f211fa\"\r\n  ],\r\n  \"ucoIds\"\
+              : [\r\n    \"OID:/azuread/c7099da1-6573-4969-b16b-94982174d215\",\r\n\
+              \    \"OID:/azuread/4284d8ce-7018-4339-bd75-b08230ca4a70\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorModel'
+          text/json:
+            example: "{\r\n  \"emails\": [\r\n    \"email1@citrix.com\",\r\n    \"\
+              email2@outlook.com\"\r\n  ],\r\n  \"userIds\": [\r\n    \"480a616f-4e62-4118-b1f3-98cd4ebf914c\"\
+              ,\r\n    \"0eb6c990-fa80-4be3-8676-24da78f211fa\"\r\n  ],\r\n  \"ucoIds\"\
+              : [\r\n    \"OID:/azuread/c7099da1-6573-4969-b16b-94982174d215\",\r\n\
+              \    \"OID:/azuread/4284d8ce-7018-4339-bd75-b08230ca4a70\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorModel'
+          application/*+json:
+            example: "{\r\n  \"emails\": [\r\n    \"email1@citrix.com\",\r\n    \"\
+              email2@outlook.com\"\r\n  ],\r\n  \"userIds\": [\r\n    \"480a616f-4e62-4118-b1f3-98cd4ebf914c\"\
+              ,\r\n    \"0eb6c990-fa80-4be3-8676-24da78f211fa\"\r\n  ],\r\n  \"ucoIds\"\
+              : [\r\n    \"OID:/azuread/c7099da1-6573-4969-b16b-94982174d215\",\r\n\
+              \    \"OID:/azuread/4284d8ce-7018-4339-bd75-b08230ca4a70\"\r\n  ]\r\n\
+              }"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorModel'
+        description: Administrator delete model.
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsErrorResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsErrorResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsErrorResponseModel'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Deletes an administrator. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/rbacroles/$sync:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.RoleOperationRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.RoleOperationRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.RoleOperationRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.RoleOperationRequest'
+      responses:
+        "200":
+          description: Success
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails'
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      summary: "Updates the RBAC roles for the administrators belonging to a customer\
+        \ [ServiceKey]"
+      tags:
+      - Administrators
+  /{customer}/administrators/claims/$decompress:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModel'
+        description: The model.
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModelResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModelResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModelResponse'
+          description: Success
+        "500":
+          description: Server Error
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Decompresses the group claims. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/administrators/$syncGroups:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6766822Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6766823Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.6766824Z\",\r\n\
+                \      \"eTag\": \"34d8c39c-22b3-4934-b52f-b83dabd332ee\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+            application/json:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6766822Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6766823Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.6766824Z\",\r\n\
+                \      \"eTag\": \"34d8c39c-22b3-4934-b52f-b83dabd332ee\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+            text/json:
+              example: "{\r\n  \"items\": [\r\n    {\r\n      \"customerId\": \"capamerica\"\
+                ,\r\n      \"ucOid\": \"OID:/azuread/123456789\",\r\n      \"userId\"\
+                : null,\r\n      \"type\": 1,\r\n      \"accessType\": 0,\r\n    \
+                \  \"serviceProfile\": \"\",\r\n      \"firstName\": null,\r\n   \
+                \   \"lastName\": null,\r\n      \"displayName\": \"AllAdmins\",\r\
+                \n      \"email\": \"all.admins@law.blog\",\r\n      \"providerType\"\
+                : 0,\r\n      \"providerId\": \"6870d157-5abb-4bd9-8642-52a9bed24cba\"\
+                ,\r\n      \"providerProperties\": {\r\n        \"name\": \"value\"\
+                \r\n      },\r\n      \"externalOid\": \"123456789\",\r\n      \"\
+                emailPreferences\": \"\",\r\n      \"notificationsEmailPreferences\"\
+                : {\r\n        \"sendNotificationEmails\": true,\r\n        \"notificationsSubscribed\"\
+                : [\r\n          {\r\n            \"type\": 0,\r\n            \"enabled\"\
+                : true\r\n          }\r\n        ],\r\n        \"enabledDate\": \"\
+                2024-07-11T16:02:57.6766822Z\"\r\n      },\r\n      \"authDomain\"\
+                : \"c501dff9-e20b-4658-beaa-0c5f77ccb0b7\",\r\n      \"pending\":\
+                \ false,\r\n      \"invitationExpired\": false,\r\n      \"legacyProviders\"\
+                : null,\r\n      \"createdDate\": \"2024-07-11T16:02:57.6766823Z\"\
+                ,\r\n      \"updatedDate\": \"2024-07-11T16:02:57.6766824Z\",\r\n\
+                \      \"eTag\": \"34d8c39c-22b3-4934-b52f-b83dabd332ee\"\r\n    }\r\
+                \n  ],\r\n  \"continuationToken\": \"b6edd719-f5f0-494b-88f5-5875a1de53bd\"\
+                \r\n}"
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      - CCAuthBearer: []
+      summary: "Synchronizes administrator groups with the respective identity provider\
+        \ directories. [ServiceKey][BearerToken]"
+      tags:
+      - Administrators
+  /{customer}/customers:
+    post:
+      parameters:
+      - example: root
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Core.ApiClient.Models.Customers.CustomerCreateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Core.ApiClient.Models.Customers.CustomerCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Core.ApiClient.Models.Customers.CustomerCreateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.Core.ApiClient.Models.Customers.CustomerCreateModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/System.Net.Http.HttpResponseMessage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/System.Net.Http.HttpResponseMessage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/System.Net.Http.HttpResponseMessage'
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      summary: "Creates a new customer. [ServiceKey][RootOnly]"
+      tags:
+      - Customers
+  /{customer}/customers/{id}:
+    delete:
+      parameters:
+      - description: Id of the customer.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - example: root
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: Success
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthService: []
+      summary: "Delete customer's administrators. [ServiceKey][RootOnly]"
+      tags:
+      - Customers
+  /{customer}/ping:
+    get:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: Success
+      summary: "Gets a health check. [Public]"
+      tags:
+      - Ping
+  /{customer}/ServicePrincipals:
+    delete:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: Success
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Delete all Service Principals in a customer [BearerToken]"
+      tags:
+      - ServicePrincipals
+    get:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: take
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: continuation
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.SegmentResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.SegmentResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ApiModels.SegmentResult'
+          description: Success
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Fetches all Service Principals [BearerToken]"
+      tags:
+      - ServicePrincipals
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            example: "{\r\n  \"name\": \"MyServicePrincipal\",\r\n  \"adminAccess\"\
+              : {\r\n    \"accessType\": 1,\r\n    \"policies\": [\r\n      {\r\n\
+              \        \"name\": \"Policy1\",\r\n        \"serviceName\": \"Some Service\"\
+              ,\r\n        \"displayName\": \"First Policy\",\r\n        \"checkable\"\
+              : {\r\n          \"value\": false,\r\n          \"canChangeValue\":\
+              \ true\r\n        },\r\n        \"scopeChoices\": {\r\n          \"\
+              allScopesSelected\": false,\r\n          \"choices\": null\r\n     \
+              \   }\r\n      },\r\n      {\r\n        \"name\": \"Policy2\",\r\n \
+              \       \"serviceName\": \"Another Service\",\r\n        \"displayName\"\
+              : \"Second Policy\",\r\n        \"checkable\": {\r\n          \"value\"\
+              : false,\r\n          \"canChangeValue\": false\r\n        },\r\n  \
+              \      \"scopeChoices\": {\r\n          \"allScopesSelected\": false,\r\
+              \n          \"choices\": null\r\n        }\r\n      }\r\n    ]\r\n \
+              \ },\r\n  \"expirationDate\": \"2024-10-11T16:02:57.6852091Z\"\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.CreationRequest'
+          application/json:
+            example: "{\r\n  \"name\": \"MyServicePrincipal\",\r\n  \"adminAccess\"\
+              : {\r\n    \"accessType\": 1,\r\n    \"policies\": [\r\n      {\r\n\
+              \        \"name\": \"Policy1\",\r\n        \"serviceName\": \"Some Service\"\
+              ,\r\n        \"displayName\": \"First Policy\",\r\n        \"checkable\"\
+              : {\r\n          \"value\": false,\r\n          \"canChangeValue\":\
+              \ true\r\n        },\r\n        \"scopeChoices\": {\r\n          \"\
+              allScopesSelected\": false,\r\n          \"choices\": null\r\n     \
+              \   }\r\n      },\r\n      {\r\n        \"name\": \"Policy2\",\r\n \
+              \       \"serviceName\": \"Another Service\",\r\n        \"displayName\"\
+              : \"Second Policy\",\r\n        \"checkable\": {\r\n          \"value\"\
+              : false,\r\n          \"canChangeValue\": false\r\n        },\r\n  \
+              \      \"scopeChoices\": {\r\n          \"allScopesSelected\": false,\r\
+              \n          \"choices\": null\r\n        }\r\n      }\r\n    ]\r\n \
+              \ },\r\n  \"expirationDate\": \"2024-10-11T16:02:57.6852091Z\"\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.CreationRequest'
+          text/json:
+            example: "{\r\n  \"name\": \"MyServicePrincipal\",\r\n  \"adminAccess\"\
+              : {\r\n    \"accessType\": 1,\r\n    \"policies\": [\r\n      {\r\n\
+              \        \"name\": \"Policy1\",\r\n        \"serviceName\": \"Some Service\"\
+              ,\r\n        \"displayName\": \"First Policy\",\r\n        \"checkable\"\
+              : {\r\n          \"value\": false,\r\n          \"canChangeValue\":\
+              \ true\r\n        },\r\n        \"scopeChoices\": {\r\n          \"\
+              allScopesSelected\": false,\r\n          \"choices\": null\r\n     \
+              \   }\r\n      },\r\n      {\r\n        \"name\": \"Policy2\",\r\n \
+              \       \"serviceName\": \"Another Service\",\r\n        \"displayName\"\
+              : \"Second Policy\",\r\n        \"checkable\": {\r\n          \"value\"\
+              : false,\r\n          \"canChangeValue\": false\r\n        },\r\n  \
+              \      \"scopeChoices\": {\r\n          \"allScopesSelected\": false,\r\
+              \n          \"choices\": null\r\n        }\r\n      }\r\n    ]\r\n \
+              \ },\r\n  \"expirationDate\": \"2024-10-11T16:02:57.6852091Z\"\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.CreationRequest'
+          application/*+json:
+            example: "{\r\n  \"name\": \"MyServicePrincipal\",\r\n  \"adminAccess\"\
+              : {\r\n    \"accessType\": 1,\r\n    \"policies\": [\r\n      {\r\n\
+              \        \"name\": \"Policy1\",\r\n        \"serviceName\": \"Some Service\"\
+              ,\r\n        \"displayName\": \"First Policy\",\r\n        \"checkable\"\
+              : {\r\n          \"value\": false,\r\n          \"canChangeValue\":\
+              \ true\r\n        },\r\n        \"scopeChoices\": {\r\n          \"\
+              allScopesSelected\": false,\r\n          \"choices\": null\r\n     \
+              \   }\r\n      },\r\n      {\r\n        \"name\": \"Policy2\",\r\n \
+              \       \"serviceName\": \"Another Service\",\r\n        \"displayName\"\
+              : \"Second Policy\",\r\n        \"checkable\": {\r\n          \"value\"\
+              : false,\r\n          \"canChangeValue\": false\r\n        },\r\n  \
+              \      \"scopeChoices\": {\r\n          \"allScopesSelected\": false,\r\
+              \n          \"choices\": null\r\n        }\r\n      }\r\n    ]\r\n \
+              \ },\r\n  \"expirationDate\": \"2024-10-11T16:02:57.6852091Z\"\r\n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.CreationRequest'
+      responses:
+        "201":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.CreationResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.CreationResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.CreationResponse'
+          description: Created
+        "400":
+          description: Bad Request
+        "409":
+          description: Conflict
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Create a Service Principal [BearerToken]"
+      tags:
+      - ServicePrincipals
+  /{customer}/ServicePrincipals/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: Success
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Delete a Service Principal [BearerToken]"
+      tags:
+      - ServicePrincipals
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.ServicePrincipal'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.ServicePrincipal'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.ServicePrincipal'
+          description: Success
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Fetches a Service Principal [BearerToken]"
+      tags:
+      - ServicePrincipals
+  /{customer}/ServicePrincipals/{id}/access:
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+          description: Success
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Updates service principal access and policies. [BearerToken]"
+      tags:
+      - ServicePrincipals
+  /{customer}/ServicePrincipals/{id}/$rotate:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            example: "{\r\n  \"expirationDate\": \"2024-07-18T16:02:57.6894931Z\"\r\
+              \n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretRotationRequest'
+          application/json:
+            example: "{\r\n  \"expirationDate\": \"2024-07-18T16:02:57.6894931Z\"\r\
+              \n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretRotationRequest'
+          text/json:
+            example: "{\r\n  \"expirationDate\": \"2024-07-18T16:02:57.6894931Z\"\r\
+              \n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretRotationRequest'
+          application/*+json:
+            example: "{\r\n  \"expirationDate\": \"2024-07-18T16:02:57.6894931Z\"\r\
+              \n}"
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretRotationRequest'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretRotationResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretRotationResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretRotationResponse'
+          description: Success
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Rotates primary secret of a service principal. [BearerToken]"
+      tags:
+      - ServicePrincipals
+  /{customer}/ServicePrincipals/{id}/secondarySecret:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: Success
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Delete a Service Principal Secondary Secret [BearerToken]"
+      tags:
+      - ServicePrincipals
+  /{customer}/ServicePrincipals/{id}/$updateLastAccessedDate:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Update the LastAccessedDate property for a ServicePrincipal [BearerToken]"
+      tags:
+      - ServicePrincipals
+  /{customer}/ServicePrincipals/$migrate:
+    post:
+      parameters:
+      - example: capamerica
+        explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: CosmosDB consistency token.
+        explode: false
+        in: header
+        name: Citrix-ConsistencyToken
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Used for Citrix Cloud telemetry correlation.
+        explode: false
+        in: header
+        name: X-Cws-TransactionId
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "Maximum time caller is willing to wait for a response before\
+          \ timing out the request, in milliseconds"
+        explode: false
+        in: header
+        name: Citrix-Timeout-ms
+        required: false
+        schema:
+          maximum: 300000
+          minimum: 100
+          type: double
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.MigrateRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.MigrateRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.MigrateRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.MigrateRequest'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+      security:
+      - CCAuthBearer: []
+      summary: "Update the LastAccessedDate property for a ServicePrincipal [BearerToken]"
+      tags:
+      - ServicePrincipals
+components:
+  schemas:
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessModel:
+      additionalProperties: false
+      example:
+        accessType: Full
+        policies:
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+          scopeChoices:
+            allScopesSelected: true
+            choices:
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+          serviceName: serviceName
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+          scopeChoices:
+            allScopesSelected: true
+            choices:
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+          serviceName: serviceName
+      properties:
+        accessType:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessType'
+        policies:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessPolicyModel'
+          nullable: true
+          type: array
+      required:
+      - accessType
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessPolicyModel:
+      additionalProperties: false
+      example:
+        checkable:
+          canChangeValue: true
+          value: true
+        displayName: displayName
+        name: name
+        scopeChoices:
+          allScopesSelected: true
+          choices:
+          - checkable:
+              canChangeValue: true
+              value: true
+            displayName: displayName
+            name: name
+          - checkable:
+              canChangeValue: true
+              value: true
+            displayName: displayName
+            name: name
+        serviceName: serviceName
+      properties:
+        name:
+          maxLength: 100
+          minLength: 0
+          type: string
+        serviceName:
+          maxLength: 100
+          minLength: 0
+          type: string
+        displayName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          type: string
+        checkable:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.PolicyProperty'
+        scopeChoices:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessScopeChoices'
+      required:
+      - checkable
+      - name
+      - serviceName
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessScopeChoices:
+      additionalProperties: false
+      example:
+        allScopesSelected: true
+        choices:
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+      properties:
+        allScopesSelected:
+          type: boolean
+        choices:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessScopeChoicesModel'
+          nullable: true
+          type: array
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessScopeChoicesModel:
+      additionalProperties: false
+      example:
+        checkable:
+          canChangeValue: true
+          value: true
+        displayName: displayName
+        name: name
+      properties:
+        name:
+          minLength: 1
+          pattern: "^[\\w_\\-]{1,36}$"
+          type: string
+        displayName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          type: string
+        checkable:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.PolicyProperty'
+      required:
+      - checkable
+      - name
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessType:
+      enum:
+      - Full
+      - Custom
+      - Undefined
+      type: string
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorNotification:
+      additionalProperties: false
+      example:
+        type: Error
+        enabled: true
+      properties:
+        type:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorNotificationType'
+        enabled:
+          nullable: true
+          type: boolean
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorNotificationType:
+      enum:
+      - Error
+      - Warning
+      - Information
+      - Critical
+      - Undefined
+      type: string
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorNotificationsEmailsPreferences:
+      additionalProperties: false
+      example:
+        enabledDate: 2000-01-23T04:56:07.000+00:00
+        sendNotificationEmails: true
+        notificationsSubscribed:
+        - type: Error
+          enabled: true
+        - type: Error
+          enabled: true
+      properties:
+        sendNotificationEmails:
+          nullable: true
+          type: boolean
+        notificationsSubscribed:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorNotification'
+          nullable: true
+          type: array
+        enabledDate:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorProviderType:
+      enum:
+      - AzureAd
+      - CitrixSts
+      - Ad
+      - Google
+      - Okta
+      - Undefined
+      type: string
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorResult:
+      additionalProperties: false
+      example:
+        lastName: lastName
+        ucOid: ucOid
+        displayName: displayName
+        pending: true
+        providerProperties:
+          key: providerProperties
+        emailPreferences: emailPreferences
+        updatedDate: 2000-01-23T04:56:07.000+00:00
+        type: AdministratorUser
+        userId: userId
+        providerType: AzureAd
+        authDomain: authDomain
+        accessType: Full
+        firstName: firstName
+        invitationExpired: true
+        createdDate: 2000-01-23T04:56:07.000+00:00
+        providerId: providerId
+        legacyProviders:
+        - legacyProviders
+        - legacyProviders
+        customerId: customerId
+        serviceProfile: serviceProfile
+        externalOid: externalOid
+        eTag: eTag
+        email: email
+        notificationsEmailPreferences:
+          enabledDate: 2000-01-23T04:56:07.000+00:00
+          sendNotificationEmails: true
+          notificationsSubscribed:
+          - type: Error
+            enabled: true
+          - type: Error
+            enabled: true
+      properties:
+        customerId:
+          nullable: true
+          type: string
+        ucOid:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        type:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorType'
+        accessType:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessType'
+        serviceProfile:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        providerType:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorProviderType'
+        providerId:
+          nullable: true
+          type: string
+        providerProperties:
+          additionalProperties:
+            type: string
+          nullable: true
+          type: object
+        externalOid:
+          nullable: true
+          type: string
+        emailPreferences:
+          nullable: true
+          type: string
+        notificationsEmailPreferences:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorNotificationsEmailsPreferences'
+        authDomain:
+          nullable: true
+          type: string
+        pending:
+          type: boolean
+        invitationExpired:
+          nullable: true
+          type: boolean
+        legacyProviders:
+          items:
+            type: string
+          nullable: true
+          type: array
+        createdDate:
+          format: date-time
+          nullable: true
+          type: string
+        updatedDate:
+          format: date-time
+          nullable: true
+          type: string
+        eTag:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorType:
+      enum:
+      - AdministratorUser
+      - AdministratorGroup
+      - ServicePrincipal
+      type: string
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorsResult:
+      additionalProperties: false
+      example:
+        items:
+        - lastName: lastName
+          ucOid: ucOid
+          displayName: displayName
+          pending: true
+          providerProperties:
+            key: providerProperties
+          emailPreferences: emailPreferences
+          updatedDate: 2000-01-23T04:56:07.000+00:00
+          type: AdministratorUser
+          userId: userId
+          providerType: AzureAd
+          authDomain: authDomain
+          accessType: Full
+          firstName: firstName
+          invitationExpired: true
+          createdDate: 2000-01-23T04:56:07.000+00:00
+          providerId: providerId
+          legacyProviders:
+          - legacyProviders
+          - legacyProviders
+          customerId: customerId
+          serviceProfile: serviceProfile
+          externalOid: externalOid
+          eTag: eTag
+          email: email
+          notificationsEmailPreferences:
+            enabledDate: 2000-01-23T04:56:07.000+00:00
+            sendNotificationEmails: true
+            notificationsSubscribed:
+            - type: Error
+              enabled: true
+            - type: Error
+              enabled: true
+        - lastName: lastName
+          ucOid: ucOid
+          displayName: displayName
+          pending: true
+          providerProperties:
+            key: providerProperties
+          emailPreferences: emailPreferences
+          updatedDate: 2000-01-23T04:56:07.000+00:00
+          type: AdministratorUser
+          userId: userId
+          providerType: AzureAd
+          authDomain: authDomain
+          accessType: Full
+          firstName: firstName
+          invitationExpired: true
+          createdDate: 2000-01-23T04:56:07.000+00:00
+          providerId: providerId
+          legacyProviders:
+          - legacyProviders
+          - legacyProviders
+          customerId: customerId
+          serviceProfile: serviceProfile
+          externalOid: externalOid
+          eTag: eTag
+          email: email
+          notificationsEmailPreferences:
+            enabledDate: 2000-01-23T04:56:07.000+00:00
+            sendNotificationEmails: true
+            notificationsSubscribed:
+            - type: Error
+              enabled: true
+            - type: Error
+              enabled: true
+        continuationToken: continuationToken
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorResult'
+          nullable: true
+          type: array
+        continuationToken:
+          maxLength: 8192
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.AdministratorsTokenClaimsModel:
+      additionalProperties: false
+      example:
+        ucOid: ucOid
+        loginCustomerId: loginCustomerId
+        displayName: displayName
+        subject: subject
+        locale: locale
+        principal: principal
+        accessTokenScope: accessTokenScope
+        authenticationMethods:
+        - authenticationMethods
+        - authenticationMethods
+        previousIdps:
+        - previousIdps
+        - previousIdps
+        refreshExpiration: 0
+        customers:
+        - accessType: accessType
+          geo: geo
+          identityProviders:
+          - identityProviders
+          - identityProviders
+          adminOid: adminOid
+          customerId: customerId
+          serviceProfile: serviceProfile
+        - accessType: accessType
+          geo: geo
+          identityProviders:
+          - identityProviders
+          - identityProviders
+          adminOid: adminOid
+          customerId: customerId
+          serviceProfile: serviceProfile
+        email: email
+        isExternal: true
+        adminGroups:
+        - adminGroups
+        - adminGroups
+        directoryContextClaim:
+          forest: forest
+          domain: domain
+          tenantId: tenantId
+          identityProvider: identityProvider
+        groupClaims:
+        - groupClaims
+        - groupClaims
+        accessToken: accessToken
+        userId: userId
+        emailVerified: true
+        aud: aud
+        idp: idp
+        discovery:
+          issuer: issuer
+        name: name
+        authenticationAlias: authenticationAlias
+        linkedCustomers:
+        - linkedCustomers
+        - linkedCustomers
+        userClaims:
+          upn: upn
+          customers:
+          - customers
+          - customers
+          oid: oid
+          email: email
+          sid: sid
+        refreshToken: refreshToken
+      properties:
+        ucOid:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        emailVerified:
+          nullable: true
+          type: boolean
+        email:
+          nullable: true
+          type: string
+        groupClaims:
+          items:
+            type: string
+          nullable: true
+          type: array
+        adminGroups:
+          items:
+            type: string
+          nullable: true
+          type: array
+        userClaims:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.UserClaims'
+        loginCustomerId:
+          nullable: true
+          type: string
+        customers:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.CustomerModel'
+          nullable: true
+          type: array
+        linkedCustomers:
+          items:
+            type: string
+          nullable: true
+          type: array
+        isExternal:
+          type: boolean
+        principal:
+          nullable: true
+          type: string
+        locale:
+          nullable: true
+          type: string
+        accessTokenScope:
+          nullable: true
+          type: string
+        refreshToken:
+          nullable: true
+          type: string
+        accessToken:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        refreshExpiration:
+          format: int64
+          type: integer
+        authenticationAlias:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        subject:
+          nullable: true
+          type: string
+        authenticationMethods:
+          items:
+            type: string
+          nullable: true
+          type: array
+        aud:
+          nullable: true
+          type: string
+        idp:
+          nullable: true
+          type: string
+        previousIdps:
+          items:
+            type: string
+          nullable: true
+          type: array
+        discovery:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DiscoveryModel'
+        directoryContextClaim:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DirectoryContextClaim'
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorInputModel:
+      additionalProperties: false
+      properties:
+        type:
+          minLength: 1
+          type: string
+        accessType:
+          minLength: 1
+          type: string
+        providerType:
+          minLength: 1
+          type: string
+        policies:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessPolicyModel'
+          nullable: true
+          type: array
+        email:
+          format: email
+          nullable: true
+          type: string
+        externalProviderId:
+          maxLength: 8192
+          minLength: 0
+          nullable: true
+          type: string
+        externalUserId:
+          maxLength: 8192
+          minLength: 0
+          nullable: true
+          type: string
+        firstName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        lastName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        displayName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+      required:
+      - accessType
+      - providerType
+      - type
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.CreateAdministratorModel:
+      additionalProperties: false
+      properties:
+        ucOid:
+          maxLength: 8192
+          minLength: 0
+          pattern: "^((?i)OID(?-i)\\:\\/)([\\w_\\-\\/]+\\:)?([\\w_\\-\\/]+)$"
+          type: string
+        type:
+          minLength: 1
+          type: string
+        accessType:
+          minLength: 1
+          type: string
+        firstName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        lastName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        displayName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        email:
+          format: email
+          nullable: true
+          type: string
+        providerType:
+          minLength: 1
+          type: string
+        providerId:
+          maxLength: 8192
+          minLength: 0
+          type: string
+        providerProperties:
+          additionalProperties:
+            type: string
+          nullable: true
+          type: object
+        emailPreferences:
+          maxLength: 8192
+          minLength: 0
+          nullable: true
+          type: string
+        authDomain:
+          maxLength: 256
+          minLength: 0
+          type: string
+        policies:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessPolicyModel'
+          nullable: true
+          type: array
+      required:
+      - accessType
+      - authDomain
+      - providerId
+      - providerType
+      - type
+      - ucOid
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.CustomerModel:
+      additionalProperties: false
+      example:
+        accessType: accessType
+        geo: geo
+        identityProviders:
+        - identityProviders
+        - identityProviders
+        adminOid: adminOid
+        customerId: customerId
+        serviceProfile: serviceProfile
+      properties:
+        customerId:
+          nullable: true
+          type: string
+        serviceProfile:
+          nullable: true
+          type: string
+        accessType:
+          nullable: true
+          type: string
+        geo:
+          nullable: true
+          type: string
+        adminOid:
+          nullable: true
+          type: string
+        identityProviders:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModel:
+      additionalProperties: false
+      properties:
+        claims:
+          items:
+            $ref: '#/components/schemas/System.Collections.Generic.KeyValueStringPair'
+          nullable: true
+          type: array
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DecompressClaimsModelResponse:
+      additionalProperties: false
+      example:
+        claimsModel:
+          ucOid: ucOid
+          loginCustomerId: loginCustomerId
+          displayName: displayName
+          subject: subject
+          locale: locale
+          principal: principal
+          accessTokenScope: accessTokenScope
+          authenticationMethods:
+          - authenticationMethods
+          - authenticationMethods
+          previousIdps:
+          - previousIdps
+          - previousIdps
+          refreshExpiration: 0
+          customers:
+          - accessType: accessType
+            geo: geo
+            identityProviders:
+            - identityProviders
+            - identityProviders
+            adminOid: adminOid
+            customerId: customerId
+            serviceProfile: serviceProfile
+          - accessType: accessType
+            geo: geo
+            identityProviders:
+            - identityProviders
+            - identityProviders
+            adminOid: adminOid
+            customerId: customerId
+            serviceProfile: serviceProfile
+          email: email
+          isExternal: true
+          adminGroups:
+          - adminGroups
+          - adminGroups
+          directoryContextClaim:
+            forest: forest
+            domain: domain
+            tenantId: tenantId
+            identityProvider: identityProvider
+          groupClaims:
+          - groupClaims
+          - groupClaims
+          accessToken: accessToken
+          userId: userId
+          emailVerified: true
+          aud: aud
+          idp: idp
+          discovery:
+            issuer: issuer
+          name: name
+          authenticationAlias: authenticationAlias
+          linkedCustomers:
+          - linkedCustomers
+          - linkedCustomers
+          userClaims:
+            upn: upn
+            customers:
+            - customers
+            - customers
+            oid: oid
+            email: email
+            sid: sid
+          refreshToken: refreshToken
+      properties:
+        claimsModel:
+          $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorsTokenClaimsModel'
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorErrorResponseModel:
+      additionalProperties: false
+      example:
+        administratorId: administratorId
+        errorMessage: errorMessage
+        statusCode: 0
+      properties:
+        administratorId:
+          nullable: true
+          type: string
+        statusCode:
+          format: int32
+          type: integer
+        errorMessage:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorModel:
+      additionalProperties: false
+      properties:
+        emails:
+          items:
+            type: string
+          nullable: true
+          type: array
+        userIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ucoIds:
+          items:
+            type: string
+          type: array
+      required:
+      - ucoIds
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsErrorResponseModel:
+      additionalProperties: false
+      example:
+        count: 6
+        items:
+        - administratorId: administratorId
+          errorMessage: errorMessage
+          statusCode: 0
+        - administratorId: administratorId
+          errorMessage: errorMessage
+          statusCode: 0
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorErrorResponseModel'
+          nullable: true
+          type: array
+        count:
+          format: int32
+          type: integer
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DeleteAdministratorsModel:
+      additionalProperties: false
+      properties:
+        userIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        ucOids:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DirectoryContextClaim:
+      additionalProperties: false
+      example:
+        forest: forest
+        domain: domain
+        tenantId: tenantId
+        identityProvider: identityProvider
+      properties:
+        forest:
+          nullable: true
+          type: string
+        domain:
+          nullable: true
+          type: string
+        tenantId:
+          nullable: true
+          type: string
+        identityProvider:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.DiscoveryModel:
+      additionalProperties: false
+      example:
+        issuer: issuer
+      properties:
+        issuer:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.PolicyProperty:
+      additionalProperties: false
+      example:
+        canChangeValue: true
+        value: true
+      properties:
+        value:
+          type: boolean
+        canChangeValue:
+          type: boolean
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.RoleOperationRequest:
+      additionalProperties: false
+      properties:
+        rbacRoles:
+          items:
+            type: string
+          type: array
+        operation:
+          minLength: 1
+          pattern: ^Delete$|^Update$
+          type: string
+      required:
+      - operation
+      - rbacRoles
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.UpdateAdministratorModel:
+      additionalProperties: false
+      properties:
+        accessType:
+          nullable: true
+          type: string
+        firstName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        lastName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        displayName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          pattern: "^[^<>\\:\\/\\\\]*$"
+          type: string
+        providerType:
+          nullable: true
+          type: string
+        providerId:
+          maxLength: 8192
+          minLength: 0
+          nullable: true
+          type: string
+        providerProperties:
+          additionalProperties:
+            type: string
+          nullable: true
+          type: object
+        authDomain:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          type: string
+        policies:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.Administrators.ApiModels.AdministratorAccessPolicyModel'
+          nullable: true
+          type: array
+      type: object
+    Citrix.CloudServices.Administrators.ApiModels.UserClaims:
+      additionalProperties: false
+      example:
+        upn: upn
+        customers:
+        - customers
+        - customers
+        oid: oid
+        email: email
+        sid: sid
+      properties:
+        customers:
+          items:
+            type: string
+          nullable: true
+          type: array
+        oid:
+          nullable: true
+          type: string
+        sid:
+          nullable: true
+          type: string
+        upn:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.ApiModels.Errors.ErrorModel:
+      additionalProperties: false
+      example:
+        detail: detail
+        type: type
+        parameters:
+        - key: parameters
+        - key: parameters
+      properties:
+        type:
+          nullable: true
+          type: string
+        detail:
+          nullable: true
+          type: string
+        parameters:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+      type: object
+    Citrix.CloudServices.ApiModels.SegmentResult:
+      additionalProperties: false
+      example:
+        items:
+        - accessType: Full
+          secondary:
+            type: Password
+            creationDate: 2000-01-23T04:56:07.000+00:00
+            expirationDate: 2000-01-23T04:56:07.000+00:00
+          ucOid: ucOid
+          creator:
+            ucOid: ucOid
+            name: name
+          clientId: clientId
+          createdDate: 2000-01-23T04:56:07.000+00:00
+          customerId: customerId
+          name: name
+          serviceProfile: serviceProfile
+          lastAccessedDate: 2000-01-23T04:56:07.000+00:00
+          primary:
+            type: Password
+            creationDate: 2000-01-23T04:56:07.000+00:00
+            expirationDate: 2000-01-23T04:56:07.000+00:00
+        - accessType: Full
+          secondary:
+            type: Password
+            creationDate: 2000-01-23T04:56:07.000+00:00
+            expirationDate: 2000-01-23T04:56:07.000+00:00
+          ucOid: ucOid
+          creator:
+            ucOid: ucOid
+            name: name
+          clientId: clientId
+          createdDate: 2000-01-23T04:56:07.000+00:00
+          customerId: customerId
+          name: name
+          serviceProfile: serviceProfile
+          lastAccessedDate: 2000-01-23T04:56:07.000+00:00
+          primary:
+            type: Password
+            creationDate: 2000-01-23T04:56:07.000+00:00
+            expirationDate: 2000-01-23T04:56:07.000+00:00
+        continuationToken: continuationToken
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.ServicePrincipal'
+          nullable: true
+          type: array
+        continuationToken:
+          maxLength: 8192
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.Core.ApiClient.Models.Customers.CustomerAdministratorCreateModel:
+      additionalProperties: false
+      properties:
+        id:
+          nullable: true
+          type: string
+        username:
+          format: email
+          minLength: 1
+          type: string
+        personId:
+          nullable: true
+          type: string
+        firstName:
+          nullable: true
+          type: string
+        lastName:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        useOneTimePassword:
+          type: boolean
+        oneTimePasswordLink:
+          nullable: true
+          type: string
+      required:
+      - username
+      type: object
+    Citrix.CloudServices.Core.ApiClient.Models.Customers.CustomerCreateModel:
+      additionalProperties: false
+      properties:
+        name:
+          nullable: true
+          type: string
+        displayName:
+          nullable: true
+          type: string
+        services:
+          items:
+            type: string
+          nullable: true
+          type: array
+        admin:
+          $ref: '#/components/schemas/Citrix.CloudServices.Core.ApiClient.Models.Customers.CustomerAdministratorCreateModel'
+        country:
+          nullable: true
+          type: string
+        orgId:
+          nullable: true
+          type: string
+        serviceProfile:
+          nullable: true
+          type: string
+        nickName:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.CreationRequest:
+      additionalProperties: false
+      properties:
+        name:
+          minLength: 1
+          pattern: "^[a-zA-Z0-9-]{1,40}$"
+          type: string
+        adminAccess:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel'
+        expirationDate:
+          format: date-time
+          type: string
+      required:
+      - adminAccess
+      - expirationDate
+      - name
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.CreationResponse:
+      additionalProperties: false
+      example:
+        servicePrincipal:
+          accessType: Full
+          secondary:
+            type: Password
+            creationDate: 2000-01-23T04:56:07.000+00:00
+            expirationDate: 2000-01-23T04:56:07.000+00:00
+          ucOid: ucOid
+          creator:
+            ucOid: ucOid
+            name: name
+          clientId: clientId
+          createdDate: 2000-01-23T04:56:07.000+00:00
+          customerId: customerId
+          name: name
+          serviceProfile: serviceProfile
+          lastAccessedDate: 2000-01-23T04:56:07.000+00:00
+          primary:
+            type: Password
+            creationDate: 2000-01-23T04:56:07.000+00:00
+            expirationDate: 2000-01-23T04:56:07.000+00:00
+        secret: secret
+      properties:
+        servicePrincipal:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.ServicePrincipal'
+        secret:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.Creator:
+      additionalProperties: false
+      example:
+        ucOid: ucOid
+        name: name
+      properties:
+        name:
+          nullable: true
+          type: string
+        ucOid:
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.MigrateRequest:
+      additionalProperties: false
+      properties:
+        secureClients:
+          items:
+            type: string
+          type: array
+        expirationDate:
+          format: date-time
+          type: string
+      required:
+      - expirationDate
+      - secureClients
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.SecretMetadata:
+      additionalProperties: false
+      example:
+        type: Password
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        type:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretType'
+        expirationDate:
+          format: date-time
+          type: string
+        creationDate:
+          format: date-time
+          type: string
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.SecretRotationRequest:
+      additionalProperties: false
+      properties:
+        expirationDate:
+          format: date-time
+          type: string
+      required:
+      - expirationDate
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.SecretRotationResponse:
+      additionalProperties: false
+      example:
+        secondary:
+          type: Password
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        secret: secret
+        primary:
+          type: Password
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        primary:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretMetadata'
+        secondary:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretMetadata'
+        secret:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    Citrix.CloudServices.ServicePrincipals.Models.SecretType:
+      enum:
+      - Password
+      - Certificate
+      type: string
+    Citrix.CloudServices.ServicePrincipals.Models.ServicePrincipal:
+      additionalProperties: false
+      example:
+        accessType: Full
+        secondary:
+          type: Password
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        ucOid: ucOid
+        creator:
+          ucOid: ucOid
+          name: name
+        clientId: clientId
+        createdDate: 2000-01-23T04:56:07.000+00:00
+        customerId: customerId
+        name: name
+        serviceProfile: serviceProfile
+        lastAccessedDate: 2000-01-23T04:56:07.000+00:00
+        primary:
+          type: Password
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        ucOid:
+          nullable: true
+          type: string
+        clientId:
+          nullable: true
+          type: string
+        customerId:
+          nullable: true
+          type: string
+        serviceProfile:
+          nullable: true
+          type: string
+        creator:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.Creator'
+        createdDate:
+          format: date-time
+          type: string
+        name:
+          nullable: true
+          type: string
+        accessType:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessType'
+        primary:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretMetadata'
+        secondary:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServicePrincipals.Models.SecretMetadata'
+        lastAccessedDate:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessModel:
+      additionalProperties: false
+      example:
+        accessType: Full
+        policies:
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+          scopeChoices:
+            allScopesSelected: true
+            choices:
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+          serviceName: serviceName
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+          scopeChoices:
+            allScopesSelected: true
+            choices:
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+            - checkable:
+                canChangeValue: true
+                value: true
+              displayName: displayName
+              name: name
+          serviceName: serviceName
+      properties:
+        accessType:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessType'
+        policies:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessPolicyModel'
+          nullable: true
+          type: array
+      required:
+      - accessType
+      type: object
+    Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessPolicyModel:
+      additionalProperties: false
+      example:
+        checkable:
+          canChangeValue: true
+          value: true
+        displayName: displayName
+        name: name
+        scopeChoices:
+          allScopesSelected: true
+          choices:
+          - checkable:
+              canChangeValue: true
+              value: true
+            displayName: displayName
+            name: name
+          - checkable:
+              canChangeValue: true
+              value: true
+            displayName: displayName
+            name: name
+        serviceName: serviceName
+      properties:
+        name:
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_\\-]{1,36}$"
+          type: string
+        serviceName:
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_\\-]{1,36}$"
+          type: string
+        displayName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          type: string
+        checkable:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.PolicyProperty'
+        scopeChoices:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessScopeChoices'
+      required:
+      - checkable
+      - name
+      - serviceName
+      type: object
+    Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessScopeChoices:
+      additionalProperties: false
+      example:
+        allScopesSelected: true
+        choices:
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+        - checkable:
+            canChangeValue: true
+            value: true
+          displayName: displayName
+          name: name
+      properties:
+        allScopesSelected:
+          type: boolean
+        choices:
+          items:
+            $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessScopeChoicesModel'
+          nullable: true
+          type: array
+      type: object
+    Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessScopeChoicesModel:
+      additionalProperties: false
+      example:
+        checkable:
+          canChangeValue: true
+          value: true
+        displayName: displayName
+        name: name
+      properties:
+        name:
+          minLength: 1
+          pattern: "^[a-zA-Z0-9_\\-]{1,36}$"
+          type: string
+        displayName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          type: string
+        checkable:
+          $ref: '#/components/schemas/Citrix.CloudServices.ServiceRuntime.PolicySets.Models.PolicyProperty'
+      required:
+      - checkable
+      - name
+      type: object
+    Citrix.CloudServices.ServiceRuntime.PolicySets.Models.AdministratorAccessType:
+      enum:
+      - Full
+      - Custom
+      - Reinvite
+      type: string
+    Citrix.CloudServices.ServiceRuntime.PolicySets.Models.PolicyProperty:
+      additionalProperties: false
+      example:
+        canChangeValue: true
+        value: true
+      properties:
+        value:
+          type: boolean
+        canChangeValue:
+          type: boolean
+      type: object
+    Microsoft.AspNetCore.Mvc.ProblemDetails:
+      additionalProperties: {}
+      example:
+        instance: instance
+        detail: detail
+        type: type
+        title: title
+        status: 0
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+      type: object
+    System.Collections.Generic.KeyValueEnumerablePair:
+      additionalProperties: false
+      example:
+        value:
+        - value
+        - value
+        key: key
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    System.Collections.Generic.KeyValueStringPair:
+      additionalProperties: false
+      properties:
+        key:
+          nullable: true
+          type: string
+        value:
+          nullable: true
+          type: string
+      type: object
+    System.Net.Http.HttpContent:
+      additionalProperties: false
+      example:
+        headers:
+        - value:
+          - value
+          - value
+          key: key
+        - value:
+          - value
+          - value
+          key: key
+      properties:
+        headers:
+          items:
+            $ref: '#/components/schemas/System.Collections.Generic.KeyValueEnumerablePair'
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    System.Net.Http.HttpMethod:
+      additionalProperties: false
+      example:
+        method: method
+      properties:
+        method:
+          nullable: true
+          type: string
+      type: object
+    System.Net.Http.HttpRequestMessage:
+      additionalProperties: false
+      example:
+        headers:
+        - value:
+          - value
+          - value
+          key: key
+        - value:
+          - value
+          - value
+          key: key
+        method:
+          method: method
+        options:
+          key: ""
+        requestUri: https://openapi-generator.tech
+        version:
+          major: 0
+          minor: 6
+          build: 1
+          majorRevision: 5
+          minorRevision: 2
+          revision: 5
+        versionPolicy: RequestVersionOrLower
+        content:
+          headers:
+          - value:
+            - value
+            - value
+            key: key
+          - value:
+            - value
+            - value
+            key: key
+        properties:
+          key: ""
+      properties:
+        version:
+          $ref: '#/components/schemas/System.Version'
+        versionPolicy:
+          $ref: '#/components/schemas/System.Net.Http.HttpVersionPolicy'
+        content:
+          $ref: '#/components/schemas/System.Net.Http.HttpContent'
+        method:
+          $ref: '#/components/schemas/System.Net.Http.HttpMethod'
+        requestUri:
+          format: uri
+          nullable: true
+          type: string
+        headers:
+          items:
+            $ref: '#/components/schemas/System.Collections.Generic.KeyValueEnumerablePair'
+          nullable: true
+          readOnly: true
+          type: array
+        properties:
+          additionalProperties: {}
+          deprecated: true
+          nullable: true
+          readOnly: true
+          type: object
+        options:
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+          type: object
+      type: object
+    System.Net.Http.HttpResponseMessage:
+      additionalProperties: false
+      example:
+        requestMessage:
+          headers:
+          - value:
+            - value
+            - value
+            key: key
+          - value:
+            - value
+            - value
+            key: key
+          method:
+            method: method
+          options:
+            key: ""
+          requestUri: https://openapi-generator.tech
+          version:
+            major: 0
+            minor: 6
+            build: 1
+            majorRevision: 5
+            minorRevision: 2
+            revision: 5
+          versionPolicy: RequestVersionOrLower
+          content:
+            headers:
+            - value:
+              - value
+              - value
+              key: key
+            - value:
+              - value
+              - value
+              key: key
+          properties:
+            key: ""
+        headers:
+        - value:
+          - value
+          - value
+          key: key
+        - value:
+          - value
+          - value
+          key: key
+        reasonPhrase: reasonPhrase
+        trailingHeaders:
+        - value:
+          - value
+          - value
+          key: key
+        - value:
+          - value
+          - value
+          key: key
+        isSuccessStatusCode: true
+        version:
+          major: 0
+          minor: 6
+          build: 1
+          majorRevision: 5
+          minorRevision: 2
+          revision: 5
+        content:
+          headers:
+          - value:
+            - value
+            - value
+            key: key
+          - value:
+            - value
+            - value
+            key: key
+        statusCode: Continue
+      properties:
+        version:
+          $ref: '#/components/schemas/System.Version'
+        content:
+          $ref: '#/components/schemas/System.Net.Http.HttpContent'
+        statusCode:
+          $ref: '#/components/schemas/System.Net.HttpStatusCode'
+        reasonPhrase:
+          nullable: true
+          type: string
+        headers:
+          items:
+            $ref: '#/components/schemas/System.Collections.Generic.KeyValueEnumerablePair'
+          nullable: true
+          readOnly: true
+          type: array
+        trailingHeaders:
+          items:
+            $ref: '#/components/schemas/System.Collections.Generic.KeyValueEnumerablePair'
+          nullable: true
+          readOnly: true
+          type: array
+        requestMessage:
+          $ref: '#/components/schemas/System.Net.Http.HttpRequestMessage'
+        isSuccessStatusCode:
+          readOnly: true
+          type: boolean
+      type: object
+    System.Net.Http.HttpVersionPolicy:
+      enum:
+      - RequestVersionOrLower
+      - RequestVersionOrHigher
+      - RequestVersionExact
+      type: string
+    System.Net.HttpStatusCode:
+      enum:
+      - Continue
+      - SwitchingProtocols
+      - Processing
+      - EarlyHints
+      - OK
+      - Created
+      - Accepted
+      - NonAuthoritativeInformation
+      - NoContent
+      - ResetContent
+      - PartialContent
+      - MultiStatus
+      - AlreadyReported
+      - IMUsed
+      - MultipleChoices
+      - MovedPermanently
+      - Found
+      - SeeOther
+      - NotModified
+      - UseProxy
+      - Unused
+      - TemporaryRedirect
+      - PermanentRedirect
+      - BadRequest
+      - Unauthorized
+      - PaymentRequired
+      - Forbidden
+      - NotFound
+      - MethodNotAllowed
+      - NotAcceptable
+      - ProxyAuthenticationRequired
+      - RequestTimeout
+      - Conflict
+      - Gone
+      - LengthRequired
+      - PreconditionFailed
+      - RequestEntityTooLarge
+      - RequestUriTooLong
+      - UnsupportedMediaType
+      - RequestedRangeNotSatisfiable
+      - ExpectationFailed
+      - MisdirectedRequest
+      - UnprocessableEntity
+      - Locked
+      - FailedDependency
+      - UpgradeRequired
+      - PreconditionRequired
+      - TooManyRequests
+      - RequestHeaderFieldsTooLarge
+      - UnavailableForLegalReasons
+      - InternalServerError
+      - NotImplemented
+      - BadGateway
+      - ServiceUnavailable
+      - GatewayTimeout
+      - HttpVersionNotSupported
+      - VariantAlsoNegotiates
+      - InsufficientStorage
+      - LoopDetected
+      - NotExtended
+      - NetworkAuthenticationRequired
+      type: string
+    System.Version:
+      additionalProperties: false
+      example:
+        major: 0
+        minor: 6
+        build: 1
+        majorRevision: 5
+        minorRevision: 2
+        revision: 5
+      properties:
+        major:
+          format: int32
+          readOnly: true
+          type: integer
+        minor:
+          format: int32
+          readOnly: true
+          type: integer
+        build:
+          format: int32
+          readOnly: true
+          type: integer
+        revision:
+          format: int32
+          readOnly: true
+          type: integer
+        majorRevision:
+          format: int32
+          readOnly: true
+          type: integer
+        minorRevision:
+          format: int32
+          readOnly: true
+          type: integer
+      type: object
+  securitySchemes:
+    CCAuthService:
+      bearerFormat: EncryptedServiceToken
+      description: Citrix Cloud service key (e.g. CWSAuth service=xxxxx)<br /> Note
+        that each service key can only be used once. Generate a new key for each call.
+      scheme: Bearer
+      type: http
+    CCAuthBearer:
+      bearerFormat: JWT
+      description: Citrix Cloud Auth for admin (e.g. CWSAuth bearer=xxxxx)
+      scheme: Bearer
+      type: http

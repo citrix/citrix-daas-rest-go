@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **SecretKey** | Pointer to **NullableString** | The secret key used to authenticate with the AWS APIs.  Optional. Must be specified in the format indicated by SecretKeyFormat. | [optional] 
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | Maximum number of concurrent AWS provisioning operations. Optional.  If not specified, will not be changed. | [optional] 
+**Address** | Pointer to **NullableString** | Custom AWS Address. Only when the connection without the resourcePool can be updated. | [optional] 
 **ApplicationId** | Pointer to **NullableString** | Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified. | [optional] 
 **ApplicationSecret** | Pointer to **NullableString** | The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -520,6 +521,41 @@ HasMaximumConcurrentProvisioningOperations returns a boolean if a field has been
 `func (o *EditHypervisorTraditionalConnectionRequestModel) UnsetMaximumConcurrentProvisioningOperations()`
 
 UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
+### GetAddress
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) GetAddress() string`
+
+GetAddress returns the Address field if non-nil, zero value otherwise.
+
+### GetAddressOk
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) GetAddressOk() (*string, bool)`
+
+GetAddressOk returns a tuple with the Address field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddress
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) SetAddress(v string)`
+
+SetAddress sets Address field to given value.
+
+### HasAddress
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) HasAddress() bool`
+
+HasAddress returns a boolean if a field has been set.
+
+### SetAddressNil
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) SetAddressNil(b bool)`
+
+ SetAddressNil sets the value for Address to be an explicit nil
+
+### UnsetAddress
+`func (o *EditHypervisorTraditionalConnectionRequestModel) UnsetAddress()`
+
+UnsetAddress ensures that no value is present for Address, not even an explicit nil
 ### GetApplicationId
 
 `func (o *EditHypervisorTraditionalConnectionRequestModel) GetApplicationId() string`

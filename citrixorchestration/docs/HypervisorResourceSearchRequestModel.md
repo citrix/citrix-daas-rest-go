@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Path** | Pointer to **NullableString** | The path to retrieve contents from. | [optional] 
 **ResourceType** | Pointer to [**HypervisorResourceSearchResourceType**](HypervisorResourceSearchResourceType.md) |  | [optional] 
+**ResourceTypes** | Pointer to [**[]HypervisorResourceSearchResourceType**](HypervisorResourceSearchResourceType.md) | The type list of resources to get. Mutually exclusive with ResourceType. All supported types are the same as ResourceType | [optional] 
 **Template** | Pointer to **NullableString** | Used for the Machine Profile ResourceTypes only. It specifies a Template identifier or name to use in validation of the Machine Profile with the given Template. The validation will pass if the given Machine Profile resource is compatible with the given Template. Only Machine Profiles which pass this validation are included. | [optional] 
 **ForwardDirection** | Pointer to **NullableBool** | True if returning items which begin at the ContinuationToken, false if ending at the ContinuationToken. | [optional] 
 **NameContains** | Pointer to **NullableString** | Only return items which contain this string in their Name. | [optional] 
@@ -92,6 +93,41 @@ SetResourceType sets ResourceType field to given value.
 
 HasResourceType returns a boolean if a field has been set.
 
+### GetResourceTypes
+
+`func (o *HypervisorResourceSearchRequestModel) GetResourceTypes() []HypervisorResourceSearchResourceType`
+
+GetResourceTypes returns the ResourceTypes field if non-nil, zero value otherwise.
+
+### GetResourceTypesOk
+
+`func (o *HypervisorResourceSearchRequestModel) GetResourceTypesOk() (*[]HypervisorResourceSearchResourceType, bool)`
+
+GetResourceTypesOk returns a tuple with the ResourceTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceTypes
+
+`func (o *HypervisorResourceSearchRequestModel) SetResourceTypes(v []HypervisorResourceSearchResourceType)`
+
+SetResourceTypes sets ResourceTypes field to given value.
+
+### HasResourceTypes
+
+`func (o *HypervisorResourceSearchRequestModel) HasResourceTypes() bool`
+
+HasResourceTypes returns a boolean if a field has been set.
+
+### SetResourceTypesNil
+
+`func (o *HypervisorResourceSearchRequestModel) SetResourceTypesNil(b bool)`
+
+ SetResourceTypesNil sets the value for ResourceTypes to be an explicit nil
+
+### UnsetResourceTypes
+`func (o *HypervisorResourceSearchRequestModel) UnsetResourceTypes()`
+
+UnsetResourceTypes ensures that no value is present for ResourceTypes, not even an explicit nil
 ### GetTemplate
 
 `func (o *HypervisorResourceSearchRequestModel) GetTemplate() string`

@@ -25,6 +25,14 @@ type CreateUpgradeScheduleRequestModel struct {
 	// Timeout duration in hours. Valid range is 1 to 24.
 	DurationInHours int32 `json:"DurationInHours"`
 	VDAComponentsAndFeaturesRequestModel *VDAComponentsSelectionValidationRequestModel `json:"VDAComponentsAndFeaturesRequestModel,omitempty"`
+	// Custom location to download the VDA Workstation package from. Currently, only network shares (specified using a UNC path) are supported.
+	VdaWorkstationPackageUri NullableString `json:"VdaWorkstationPackageUri,omitempty"`
+	// Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported.
+	VdaServerPackageUri NullableString `json:"VdaServerPackageUri,omitempty"`
+	// Limits the Concurrent upgrades that can happen at any time in Upgrade Window.
+	ConcurrencyLevel NullableInt32 `json:"ConcurrencyLevel,omitempty"`
+	// Limits the number of failures that can take place during a scheduled upgrade.
+	FailureThreshold NullableInt32 `json:"FailureThreshold,omitempty"`
 }
 
 // NewCreateUpgradeScheduleRequestModel instantiates a new CreateUpgradeScheduleRequestModel object
@@ -143,6 +151,174 @@ func (o *CreateUpgradeScheduleRequestModel) SetVDAComponentsAndFeaturesRequestMo
 	o.VDAComponentsAndFeaturesRequestModel = &v
 }
 
+// GetVdaWorkstationPackageUri returns the VdaWorkstationPackageUri field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpgradeScheduleRequestModel) GetVdaWorkstationPackageUri() string {
+	if o == nil || IsNil(o.VdaWorkstationPackageUri.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VdaWorkstationPackageUri.Get()
+}
+
+// GetVdaWorkstationPackageUriOk returns a tuple with the VdaWorkstationPackageUri field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpgradeScheduleRequestModel) GetVdaWorkstationPackageUriOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VdaWorkstationPackageUri.Get(), o.VdaWorkstationPackageUri.IsSet()
+}
+
+// HasVdaWorkstationPackageUri returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleRequestModel) HasVdaWorkstationPackageUri() bool {
+	if o != nil && o.VdaWorkstationPackageUri.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVdaWorkstationPackageUri gets a reference to the given NullableString and assigns it to the VdaWorkstationPackageUri field.
+func (o *CreateUpgradeScheduleRequestModel) SetVdaWorkstationPackageUri(v string) {
+	o.VdaWorkstationPackageUri.Set(&v)
+}
+// SetVdaWorkstationPackageUriNil sets the value for VdaWorkstationPackageUri to be an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) SetVdaWorkstationPackageUriNil() {
+	o.VdaWorkstationPackageUri.Set(nil)
+}
+
+// UnsetVdaWorkstationPackageUri ensures that no value is present for VdaWorkstationPackageUri, not even an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) UnsetVdaWorkstationPackageUri() {
+	o.VdaWorkstationPackageUri.Unset()
+}
+
+// GetVdaServerPackageUri returns the VdaServerPackageUri field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpgradeScheduleRequestModel) GetVdaServerPackageUri() string {
+	if o == nil || IsNil(o.VdaServerPackageUri.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VdaServerPackageUri.Get()
+}
+
+// GetVdaServerPackageUriOk returns a tuple with the VdaServerPackageUri field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpgradeScheduleRequestModel) GetVdaServerPackageUriOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VdaServerPackageUri.Get(), o.VdaServerPackageUri.IsSet()
+}
+
+// HasVdaServerPackageUri returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleRequestModel) HasVdaServerPackageUri() bool {
+	if o != nil && o.VdaServerPackageUri.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVdaServerPackageUri gets a reference to the given NullableString and assigns it to the VdaServerPackageUri field.
+func (o *CreateUpgradeScheduleRequestModel) SetVdaServerPackageUri(v string) {
+	o.VdaServerPackageUri.Set(&v)
+}
+// SetVdaServerPackageUriNil sets the value for VdaServerPackageUri to be an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) SetVdaServerPackageUriNil() {
+	o.VdaServerPackageUri.Set(nil)
+}
+
+// UnsetVdaServerPackageUri ensures that no value is present for VdaServerPackageUri, not even an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) UnsetVdaServerPackageUri() {
+	o.VdaServerPackageUri.Unset()
+}
+
+// GetConcurrencyLevel returns the ConcurrencyLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpgradeScheduleRequestModel) GetConcurrencyLevel() int32 {
+	if o == nil || IsNil(o.ConcurrencyLevel.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.ConcurrencyLevel.Get()
+}
+
+// GetConcurrencyLevelOk returns a tuple with the ConcurrencyLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpgradeScheduleRequestModel) GetConcurrencyLevelOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ConcurrencyLevel.Get(), o.ConcurrencyLevel.IsSet()
+}
+
+// HasConcurrencyLevel returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleRequestModel) HasConcurrencyLevel() bool {
+	if o != nil && o.ConcurrencyLevel.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetConcurrencyLevel gets a reference to the given NullableInt32 and assigns it to the ConcurrencyLevel field.
+func (o *CreateUpgradeScheduleRequestModel) SetConcurrencyLevel(v int32) {
+	o.ConcurrencyLevel.Set(&v)
+}
+// SetConcurrencyLevelNil sets the value for ConcurrencyLevel to be an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) SetConcurrencyLevelNil() {
+	o.ConcurrencyLevel.Set(nil)
+}
+
+// UnsetConcurrencyLevel ensures that no value is present for ConcurrencyLevel, not even an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) UnsetConcurrencyLevel() {
+	o.ConcurrencyLevel.Unset()
+}
+
+// GetFailureThreshold returns the FailureThreshold field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpgradeScheduleRequestModel) GetFailureThreshold() int32 {
+	if o == nil || IsNil(o.FailureThreshold.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.FailureThreshold.Get()
+}
+
+// GetFailureThresholdOk returns a tuple with the FailureThreshold field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpgradeScheduleRequestModel) GetFailureThresholdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FailureThreshold.Get(), o.FailureThreshold.IsSet()
+}
+
+// HasFailureThreshold returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleRequestModel) HasFailureThreshold() bool {
+	if o != nil && o.FailureThreshold.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFailureThreshold gets a reference to the given NullableInt32 and assigns it to the FailureThreshold field.
+func (o *CreateUpgradeScheduleRequestModel) SetFailureThreshold(v int32) {
+	o.FailureThreshold.Set(&v)
+}
+// SetFailureThresholdNil sets the value for FailureThreshold to be an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) SetFailureThresholdNil() {
+	o.FailureThreshold.Set(nil)
+}
+
+// UnsetFailureThreshold ensures that no value is present for FailureThreshold, not even an explicit nil
+func (o *CreateUpgradeScheduleRequestModel) UnsetFailureThreshold() {
+	o.FailureThreshold.Unset()
+}
+
 func (o CreateUpgradeScheduleRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -159,6 +335,18 @@ func (o CreateUpgradeScheduleRequestModel) ToMap() (map[string]interface{}, erro
 	toSerialize["DurationInHours"] = o.DurationInHours
 	if !IsNil(o.VDAComponentsAndFeaturesRequestModel) {
 		toSerialize["VDAComponentsAndFeaturesRequestModel"] = o.VDAComponentsAndFeaturesRequestModel
+	}
+	if o.VdaWorkstationPackageUri.IsSet() {
+		toSerialize["VdaWorkstationPackageUri"] = o.VdaWorkstationPackageUri.Get()
+	}
+	if o.VdaServerPackageUri.IsSet() {
+		toSerialize["VdaServerPackageUri"] = o.VdaServerPackageUri.Get()
+	}
+	if o.ConcurrencyLevel.IsSet() {
+		toSerialize["ConcurrencyLevel"] = o.ConcurrencyLevel.Get()
+	}
+	if o.FailureThreshold.IsSet() {
+		toSerialize["FailureThreshold"] = o.FailureThreshold.Get()
 	}
 	return toSerialize, nil
 }

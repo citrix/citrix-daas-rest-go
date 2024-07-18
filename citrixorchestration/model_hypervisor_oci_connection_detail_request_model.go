@@ -45,6 +45,8 @@ type HypervisorOciConnectionDetailRequestModel struct {
 	SecretKeyFormat *IdentityPasswordFormat `json:"SecretKeyFormat,omitempty"`
 	// Oracle Cloud Infrastructure region to connect to. Required.
 	Region string `json:"Region"`
+	// Custom AWS Address.
+	Address NullableString `json:"Address,omitempty"`
 	// Application ID of the service principal used to access the Azure APIs.  Required.
 	ApplicationId *string `json:"ApplicationId,omitempty"`
 	// The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat.
@@ -591,6 +593,48 @@ func (o *HypervisorOciConnectionDetailRequestModel) GetRegionOk() (*string, bool
 // SetRegion sets field value
 func (o *HypervisorOciConnectionDetailRequestModel) SetRegion(v string) {
 	o.Region = v
+}
+
+// GetAddress returns the Address field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorOciConnectionDetailRequestModel) GetAddress() string {
+	if o == nil || IsNil(o.Address.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Address.Get()
+}
+
+// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorOciConnectionDetailRequestModel) GetAddressOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Address.Get(), o.Address.IsSet()
+}
+
+// HasAddress returns a boolean if a field has been set.
+func (o *HypervisorOciConnectionDetailRequestModel) HasAddress() bool {
+	if o != nil && o.Address.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAddress gets a reference to the given NullableString and assigns it to the Address field.
+func (o *HypervisorOciConnectionDetailRequestModel) SetAddress(v string) {
+	o.Address.Set(&v)
+}
+// SetAddressNil sets the value for Address to be an explicit nil
+func (o *HypervisorOciConnectionDetailRequestModel) SetAddressNil() {
+	o.Address.Set(nil)
+}
+
+// UnsetAddress ensures that no value is present for Address, not even an explicit nil
+func (o *HypervisorOciConnectionDetailRequestModel) UnsetAddress() {
+	o.Address.Unset()
 }
 
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise.
@@ -1500,6 +1544,9 @@ func (o HypervisorOciConnectionDetailRequestModel) ToMap() (map[string]interface
 		toSerialize["SecretKeyFormat"] = o.SecretKeyFormat
 	}
 	toSerialize["Region"] = o.Region
+	if o.Address.IsSet() {
+		toSerialize["Address"] = o.Address.Get()
+	}
 	if !IsNil(o.ApplicationId) {
 		toSerialize["ApplicationId"] = o.ApplicationId
 	}

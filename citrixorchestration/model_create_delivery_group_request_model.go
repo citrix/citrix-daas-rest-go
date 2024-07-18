@@ -33,7 +33,11 @@ type CreateDeliveryGroupRequestModel struct {
 	// Whether the delivery group should be created in maintenance mode; a delivery group in maintenance mode will not allow users to connect or reconnect to machines in the delivery group.
 	InMaintenanceMode NullableBool `json:"InMaintenanceMode,omitempty"`
 	// List of machine catalogs from which to assign machines to the newly created delivery group.
-	MachineCatalogs []DeliveryGroupAddMachinesRequestModel `json:"MachineCatalogs"`
+	MachineCatalogs []DeliveryGroupAddMachinesRequestModel `json:"MachineCatalogs,omitempty"`
+	SessionSupport *SessionSupport `json:"SessionSupport,omitempty"`
+	SharingKind *SharingKind `json:"SharingKind,omitempty"`
+	// Optional, specifies whether this is to be a Remote PC delivery group. Default comes from the machine catalog, only needs to be specified when creating a delivery group without machine catalog.
+	IsRemotePC NullableBool `json:"IsRemotePC,omitempty"`
 	MinimumFunctionalLevel *FunctionalLevel `json:"MinimumFunctionalLevel,omitempty"`
 	// The name of the new delivery group.
 	Name string `json:"Name"`
@@ -165,13 +169,12 @@ type CreateDeliveryGroupRequestModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateDeliveryGroupRequestModel(machineCatalogs []DeliveryGroupAddMachinesRequestModel, name string) *CreateDeliveryGroupRequestModel {
+func NewCreateDeliveryGroupRequestModel(name string) *CreateDeliveryGroupRequestModel {
 	this := CreateDeliveryGroupRequestModel{}
 	var enabled bool = true
 	this.Enabled = *NewNullableBool(&enabled)
 	var inMaintenanceMode bool = false
 	this.InMaintenanceMode = *NewNullableBool(&inMaintenanceMode)
-	this.MachineCatalogs = machineCatalogs
 	this.Name = name
 	var requireUserHomeZone bool = false
 	this.RequireUserHomeZone = *NewNullableBool(&requireUserHomeZone)
@@ -585,28 +588,143 @@ func (o *CreateDeliveryGroupRequestModel) UnsetInMaintenanceMode() {
 	o.InMaintenanceMode.Unset()
 }
 
-// GetMachineCatalogs returns the MachineCatalogs field value
+// GetMachineCatalogs returns the MachineCatalogs field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateDeliveryGroupRequestModel) GetMachineCatalogs() []DeliveryGroupAddMachinesRequestModel {
 	if o == nil {
 		var ret []DeliveryGroupAddMachinesRequestModel
 		return ret
 	}
-
 	return o.MachineCatalogs
 }
 
-// GetMachineCatalogsOk returns a tuple with the MachineCatalogs field value
+// GetMachineCatalogsOk returns a tuple with the MachineCatalogs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CreateDeliveryGroupRequestModel) GetMachineCatalogsOk() ([]DeliveryGroupAddMachinesRequestModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MachineCatalogs) {
 		return nil, false
 	}
 	return o.MachineCatalogs, true
 }
 
-// SetMachineCatalogs sets field value
+// HasMachineCatalogs returns a boolean if a field has been set.
+func (o *CreateDeliveryGroupRequestModel) HasMachineCatalogs() bool {
+	if o != nil && IsNil(o.MachineCatalogs) {
+		return true
+	}
+
+	return false
+}
+
+// SetMachineCatalogs gets a reference to the given []DeliveryGroupAddMachinesRequestModel and assigns it to the MachineCatalogs field.
 func (o *CreateDeliveryGroupRequestModel) SetMachineCatalogs(v []DeliveryGroupAddMachinesRequestModel) {
 	o.MachineCatalogs = v
+}
+
+// GetSessionSupport returns the SessionSupport field value if set, zero value otherwise.
+func (o *CreateDeliveryGroupRequestModel) GetSessionSupport() SessionSupport {
+	if o == nil || IsNil(o.SessionSupport) {
+		var ret SessionSupport
+		return ret
+	}
+	return *o.SessionSupport
+}
+
+// GetSessionSupportOk returns a tuple with the SessionSupport field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateDeliveryGroupRequestModel) GetSessionSupportOk() (*SessionSupport, bool) {
+	if o == nil || IsNil(o.SessionSupport) {
+		return nil, false
+	}
+	return o.SessionSupport, true
+}
+
+// HasSessionSupport returns a boolean if a field has been set.
+func (o *CreateDeliveryGroupRequestModel) HasSessionSupport() bool {
+	if o != nil && !IsNil(o.SessionSupport) {
+		return true
+	}
+
+	return false
+}
+
+// SetSessionSupport gets a reference to the given SessionSupport and assigns it to the SessionSupport field.
+func (o *CreateDeliveryGroupRequestModel) SetSessionSupport(v SessionSupport) {
+	o.SessionSupport = &v
+}
+
+// GetSharingKind returns the SharingKind field value if set, zero value otherwise.
+func (o *CreateDeliveryGroupRequestModel) GetSharingKind() SharingKind {
+	if o == nil || IsNil(o.SharingKind) {
+		var ret SharingKind
+		return ret
+	}
+	return *o.SharingKind
+}
+
+// GetSharingKindOk returns a tuple with the SharingKind field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateDeliveryGroupRequestModel) GetSharingKindOk() (*SharingKind, bool) {
+	if o == nil || IsNil(o.SharingKind) {
+		return nil, false
+	}
+	return o.SharingKind, true
+}
+
+// HasSharingKind returns a boolean if a field has been set.
+func (o *CreateDeliveryGroupRequestModel) HasSharingKind() bool {
+	if o != nil && !IsNil(o.SharingKind) {
+		return true
+	}
+
+	return false
+}
+
+// SetSharingKind gets a reference to the given SharingKind and assigns it to the SharingKind field.
+func (o *CreateDeliveryGroupRequestModel) SetSharingKind(v SharingKind) {
+	o.SharingKind = &v
+}
+
+// GetIsRemotePC returns the IsRemotePC field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateDeliveryGroupRequestModel) GetIsRemotePC() bool {
+	if o == nil || IsNil(o.IsRemotePC.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsRemotePC.Get()
+}
+
+// GetIsRemotePCOk returns a tuple with the IsRemotePC field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateDeliveryGroupRequestModel) GetIsRemotePCOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsRemotePC.Get(), o.IsRemotePC.IsSet()
+}
+
+// HasIsRemotePC returns a boolean if a field has been set.
+func (o *CreateDeliveryGroupRequestModel) HasIsRemotePC() bool {
+	if o != nil && o.IsRemotePC.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsRemotePC gets a reference to the given NullableBool and assigns it to the IsRemotePC field.
+func (o *CreateDeliveryGroupRequestModel) SetIsRemotePC(v bool) {
+	o.IsRemotePC.Set(&v)
+}
+// SetIsRemotePCNil sets the value for IsRemotePC to be an explicit nil
+func (o *CreateDeliveryGroupRequestModel) SetIsRemotePCNil() {
+	o.IsRemotePC.Set(nil)
+}
+
+// UnsetIsRemotePC ensures that no value is present for IsRemotePC, not even an explicit nil
+func (o *CreateDeliveryGroupRequestModel) UnsetIsRemotePC() {
+	o.IsRemotePC.Unset()
 }
 
 // GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field value if set, zero value otherwise.
@@ -3355,7 +3473,18 @@ func (o CreateDeliveryGroupRequestModel) ToMap() (map[string]interface{}, error)
 	if o.InMaintenanceMode.IsSet() {
 		toSerialize["InMaintenanceMode"] = o.InMaintenanceMode.Get()
 	}
-	toSerialize["MachineCatalogs"] = o.MachineCatalogs
+	if o.MachineCatalogs != nil {
+		toSerialize["MachineCatalogs"] = o.MachineCatalogs
+	}
+	if !IsNil(o.SessionSupport) {
+		toSerialize["SessionSupport"] = o.SessionSupport
+	}
+	if !IsNil(o.SharingKind) {
+		toSerialize["SharingKind"] = o.SharingKind
+	}
+	if o.IsRemotePC.IsSet() {
+		toSerialize["IsRemotePC"] = o.IsRemotePC.Get()
+	}
 	if !IsNil(o.MinimumFunctionalLevel) {
 		toSerialize["MinimumFunctionalLevel"] = o.MinimumFunctionalLevel
 	}

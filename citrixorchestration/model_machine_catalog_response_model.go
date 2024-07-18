@@ -20,21 +20,21 @@ var _ MappedNullable = &MachineCatalogResponseModel{}
 // MachineCatalogResponseModel Response object for machine catalog.
 type MachineCatalogResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
-	Name string `json:"Name"`
+	Name NullableString `json:"Name,omitempty"`
 	// Unique administrative name of catalog.
 	FullName NullableString `json:"FullName,omitempty"`
 	// Id of the machine catalog.
-	Id string `json:"Id"`
+	Id NullableString `json:"Id,omitempty"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED.  Use Id.
 	// Deprecated
 	Uid *int32 `json:"Uid,omitempty"`
-	AllocationType AllocationType `json:"AllocationType"`
+	AllocationType *AllocationType `json:"AllocationType,omitempty"`
 	// The number of assigned machines (machines that have been assigned to a user/users or a client name/address).
 	AssignedCount NullableInt32 `json:"AssignedCount,omitempty"`
 	// The number of available machines (not in a delivery group), that are also assigned to users.
 	AvailableAssignedCount NullableInt32 `json:"AvailableAssignedCount,omitempty"`
 	// The number of available machines (those not in any delivery group).
-	AvailableCount int32 `json:"AvailableCount"`
+	AvailableCount *int32 `json:"AvailableCount,omitempty"`
 	// The number of available machines (those not in any delivery group) that are not assigned to users.
 	AvailableUnassignedCount NullableInt32 `json:"AvailableUnassignedCount,omitempty"`
 	// Description of the machine catalog.
@@ -42,23 +42,23 @@ type MachineCatalogResponseModel struct {
 	// Indicates whether the machines in the catalog are power-managed.
 	IsPowerManaged *bool `json:"IsPowerManaged,omitempty"`
 	// Indicates whether or not the catalog is a RemotePC catalog. Remote PC catalogs automatically configure appropriate machines without the need for manual configuration. CHANGE: was public bool RemotePC { get; set; }
-	IsRemotePC bool `json:"IsRemotePC"`
+	IsRemotePC *bool `json:"IsRemotePC,omitempty"`
 	// List of jobs currently in progress that affect the machine catalog.
 	JobsInProgress []RefResponseModel `json:"JobsInProgress,omitempty"`
-	MachineType MachineType `json:"MachineType"`
+	MachineType *MachineType `json:"MachineType,omitempty"`
 	// The metadata of machine catalog.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
-	MinimumFunctionalLevel FunctionalLevel `json:"MinimumFunctionalLevel"`
+	MinimumFunctionalLevel *FunctionalLevel `json:"MinimumFunctionalLevel,omitempty"`
 	// Whether the machine catalog was previously promoted from a lower MinimumFunctionalLevel.
-	HasBeenPromoted bool `json:"HasBeenPromoted"`
+	HasBeenPromoted *bool `json:"HasBeenPromoted,omitempty"`
 	HasBeenPromotedFrom *FunctionalLevel `json:"HasBeenPromotedFrom,omitempty"`
 	// Whether the machine catalog can roll back VM image.
-	CanRollbackVMImage bool `json:"CanRollbackVMImage"`
+	CanRollbackVMImage *bool `json:"CanRollbackVMImage,omitempty"`
 	// Whether the machine catalog can recreate.
-	CanRecreateCatalog bool `json:"CanRecreateCatalog"`
-	PersistChanges PersistChanges `json:"PersistChanges"`
+	CanRecreateCatalog *bool `json:"CanRecreateCatalog,omitempty"`
+	PersistChanges *PersistChanges `json:"PersistChanges,omitempty"`
 	ProvisioningScheme *ProvisioningSchemeResponseModel `json:"ProvisioningScheme,omitempty"`
-	ProvisioningType ProvisioningType `json:"ProvisioningType"`
+	ProvisioningType *ProvisioningType `json:"ProvisioningType,omitempty"`
 	ProvisioningProgress *ProvisioningProgressResponseModel `json:"ProvisioningProgress,omitempty"`
 	// IP address of the PVS server to be used. This only applies if the ProvisioningType is .
 	PvsAddress NullableString `json:"PvsAddress,omitempty"`
@@ -70,12 +70,12 @@ type MachineCatalogResponseModel struct {
 	Scopes []ScopeResponseModel `json:"Scopes,omitempty"`
 	// The tenant(s) that the machine catalog is assigned to.  If `null`, the machine catalog is not assigned to tenants, and may be used by any tenant, including future added tenants.
 	Tenants []RefResponseModel `json:"Tenants,omitempty"`
-	SessionSupport SessionSupport `json:"SessionSupport"`
-	SharingKind SharingKind `json:"SharingKind"`
+	SessionSupport *SessionSupport `json:"SessionSupport,omitempty"`
+	SharingKind *SharingKind `json:"SharingKind,omitempty"`
 	// The total number of machines in the catalog.
-	TotalCount int32 `json:"TotalCount"`
+	TotalCount *int32 `json:"TotalCount,omitempty"`
 	// Whether the machine catalog is currently in a \"Broken\" state.
-	IsBroken bool `json:"IsBroken"`
+	IsBroken *bool `json:"IsBroken,omitempty"`
 	// Whether the machine catalog is associated with a master image.
 	IsMasterImageAssociated NullableBool `json:"IsMasterImageAssociated,omitempty"`
 	ImageUpdateStatus *ImageUpdateStatus `json:"ImageUpdateStatus,omitempty"`
@@ -84,15 +84,15 @@ type MachineCatalogResponseModel struct {
 	// List of warnings that are currently active on the machine catalog, if any.  If there are no warnings this will not be specified.
 	Warnings []MachineCatalogWarningResponseModel `json:"Warnings,omitempty"`
 	// The number of unassigned machines (machines not assigned to users).
-	UnassignedCount int32 `json:"UnassignedCount"`
+	UnassignedCount *int32 `json:"UnassignedCount,omitempty"`
 	// The number of machines in the catalog that are in a delivery group.
-	UsedCount int32 `json:"UsedCount"`
+	UsedCount *int32 `json:"UsedCount,omitempty"`
 	// The number of available suspend-capable machines (those not in any delivery group).
 	AvailableCountOfSuspend NullableInt32 `json:"AvailableCountOfSuspend,omitempty"`
 	// The number of available suspend-capable machines (not in a delivery group), that are also assigned to users.
 	AvailableAssignedCountOfSuspend NullableInt32 `json:"AvailableAssignedCountOfSuspend,omitempty"`
 	UpgradeInfo *MachineCatalogUpgradeInfo `json:"UpgradeInfo,omitempty"`
-	Zone RefResponseModel `json:"Zone"`
+	Zone *RefResponseModel `json:"Zone,omitempty"`
 	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
 }
 
@@ -100,27 +100,8 @@ type MachineCatalogResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMachineCatalogResponseModel(name string, id string, allocationType AllocationType, availableCount int32, isRemotePC bool, machineType MachineType, minimumFunctionalLevel FunctionalLevel, hasBeenPromoted bool, canRollbackVMImage bool, canRecreateCatalog bool, persistChanges PersistChanges, provisioningType ProvisioningType, sessionSupport SessionSupport, sharingKind SharingKind, totalCount int32, isBroken bool, unassignedCount int32, usedCount int32, zone RefResponseModel) *MachineCatalogResponseModel {
+func NewMachineCatalogResponseModel() *MachineCatalogResponseModel {
 	this := MachineCatalogResponseModel{}
-	this.Name = name
-	this.Id = id
-	this.AllocationType = allocationType
-	this.AvailableCount = availableCount
-	this.IsRemotePC = isRemotePC
-	this.MachineType = machineType
-	this.MinimumFunctionalLevel = minimumFunctionalLevel
-	this.HasBeenPromoted = hasBeenPromoted
-	this.CanRollbackVMImage = canRollbackVMImage
-	this.CanRecreateCatalog = canRecreateCatalog
-	this.PersistChanges = persistChanges
-	this.ProvisioningType = provisioningType
-	this.SessionSupport = sessionSupport
-	this.SharingKind = sharingKind
-	this.TotalCount = totalCount
-	this.IsBroken = isBroken
-	this.UnassignedCount = unassignedCount
-	this.UsedCount = usedCount
-	this.Zone = zone
 	return &this
 }
 
@@ -132,28 +113,46 @@ func NewMachineCatalogResponseModelWithDefaults() *MachineCatalogResponseModel {
 	return &this
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MachineCatalogResponseModel) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MachineCatalogResponseModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *MachineCatalogResponseModel) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *MachineCatalogResponseModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *MachineCatalogResponseModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetFullName returns the FullName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -198,28 +197,46 @@ func (o *MachineCatalogResponseModel) UnsetFullName() {
 	o.FullName.Unset()
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MachineCatalogResponseModel) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id.Get()
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MachineCatalogResponseModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *MachineCatalogResponseModel) SetId(v string) {
-	o.Id = v
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *MachineCatalogResponseModel) SetIdNil() {
+	o.Id.Set(nil)
+}
+
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *MachineCatalogResponseModel) UnsetId() {
+	o.Id.Unset()
 }
 
 // GetUid returns the Uid field value if set, zero value otherwise.
@@ -257,28 +274,36 @@ func (o *MachineCatalogResponseModel) SetUid(v int32) {
 	o.Uid = &v
 }
 
-// GetAllocationType returns the AllocationType field value
+// GetAllocationType returns the AllocationType field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetAllocationType() AllocationType {
-	if o == nil {
+	if o == nil || IsNil(o.AllocationType) {
 		var ret AllocationType
 		return ret
 	}
-
-	return o.AllocationType
+	return *o.AllocationType
 }
 
-// GetAllocationTypeOk returns a tuple with the AllocationType field value
+// GetAllocationTypeOk returns a tuple with the AllocationType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetAllocationTypeOk() (*AllocationType, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AllocationType) {
 		return nil, false
 	}
-	return &o.AllocationType, true
+	return o.AllocationType, true
 }
 
-// SetAllocationType sets field value
+// HasAllocationType returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasAllocationType() bool {
+	if o != nil && !IsNil(o.AllocationType) {
+		return true
+	}
+
+	return false
+}
+
+// SetAllocationType gets a reference to the given AllocationType and assigns it to the AllocationType field.
 func (o *MachineCatalogResponseModel) SetAllocationType(v AllocationType) {
-	o.AllocationType = v
+	o.AllocationType = &v
 }
 
 // GetAssignedCount returns the AssignedCount field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -365,28 +390,36 @@ func (o *MachineCatalogResponseModel) UnsetAvailableAssignedCount() {
 	o.AvailableAssignedCount.Unset()
 }
 
-// GetAvailableCount returns the AvailableCount field value
+// GetAvailableCount returns the AvailableCount field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetAvailableCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.AvailableCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.AvailableCount
+	return *o.AvailableCount
 }
 
-// GetAvailableCountOk returns a tuple with the AvailableCount field value
+// GetAvailableCountOk returns a tuple with the AvailableCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetAvailableCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.AvailableCount) {
 		return nil, false
 	}
-	return &o.AvailableCount, true
+	return o.AvailableCount, true
 }
 
-// SetAvailableCount sets field value
+// HasAvailableCount returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasAvailableCount() bool {
+	if o != nil && !IsNil(o.AvailableCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailableCount gets a reference to the given int32 and assigns it to the AvailableCount field.
 func (o *MachineCatalogResponseModel) SetAvailableCount(v int32) {
-	o.AvailableCount = v
+	o.AvailableCount = &v
 }
 
 // GetAvailableUnassignedCount returns the AvailableUnassignedCount field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -505,28 +538,36 @@ func (o *MachineCatalogResponseModel) SetIsPowerManaged(v bool) {
 	o.IsPowerManaged = &v
 }
 
-// GetIsRemotePC returns the IsRemotePC field value
+// GetIsRemotePC returns the IsRemotePC field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetIsRemotePC() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsRemotePC) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsRemotePC
+	return *o.IsRemotePC
 }
 
-// GetIsRemotePCOk returns a tuple with the IsRemotePC field value
+// GetIsRemotePCOk returns a tuple with the IsRemotePC field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetIsRemotePCOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsRemotePC) {
 		return nil, false
 	}
-	return &o.IsRemotePC, true
+	return o.IsRemotePC, true
 }
 
-// SetIsRemotePC sets field value
+// HasIsRemotePC returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasIsRemotePC() bool {
+	if o != nil && !IsNil(o.IsRemotePC) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsRemotePC gets a reference to the given bool and assigns it to the IsRemotePC field.
 func (o *MachineCatalogResponseModel) SetIsRemotePC(v bool) {
-	o.IsRemotePC = v
+	o.IsRemotePC = &v
 }
 
 // GetJobsInProgress returns the JobsInProgress field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -562,28 +603,36 @@ func (o *MachineCatalogResponseModel) SetJobsInProgress(v []RefResponseModel) {
 	o.JobsInProgress = v
 }
 
-// GetMachineType returns the MachineType field value
+// GetMachineType returns the MachineType field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetMachineType() MachineType {
-	if o == nil {
+	if o == nil || IsNil(o.MachineType) {
 		var ret MachineType
 		return ret
 	}
-
-	return o.MachineType
+	return *o.MachineType
 }
 
-// GetMachineTypeOk returns a tuple with the MachineType field value
+// GetMachineTypeOk returns a tuple with the MachineType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetMachineTypeOk() (*MachineType, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MachineType) {
 		return nil, false
 	}
-	return &o.MachineType, true
+	return o.MachineType, true
 }
 
-// SetMachineType sets field value
+// HasMachineType returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasMachineType() bool {
+	if o != nil && !IsNil(o.MachineType) {
+		return true
+	}
+
+	return false
+}
+
+// SetMachineType gets a reference to the given MachineType and assigns it to the MachineType field.
 func (o *MachineCatalogResponseModel) SetMachineType(v MachineType) {
-	o.MachineType = v
+	o.MachineType = &v
 }
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -619,52 +668,68 @@ func (o *MachineCatalogResponseModel) SetMetadata(v []NameValueStringPairModel) 
 	o.Metadata = v
 }
 
-// GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field value
+// GetMinimumFunctionalLevel returns the MinimumFunctionalLevel field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetMinimumFunctionalLevel() FunctionalLevel {
-	if o == nil {
+	if o == nil || IsNil(o.MinimumFunctionalLevel) {
 		var ret FunctionalLevel
 		return ret
 	}
-
-	return o.MinimumFunctionalLevel
+	return *o.MinimumFunctionalLevel
 }
 
-// GetMinimumFunctionalLevelOk returns a tuple with the MinimumFunctionalLevel field value
+// GetMinimumFunctionalLevelOk returns a tuple with the MinimumFunctionalLevel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetMinimumFunctionalLevelOk() (*FunctionalLevel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MinimumFunctionalLevel) {
 		return nil, false
 	}
-	return &o.MinimumFunctionalLevel, true
+	return o.MinimumFunctionalLevel, true
 }
 
-// SetMinimumFunctionalLevel sets field value
+// HasMinimumFunctionalLevel returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasMinimumFunctionalLevel() bool {
+	if o != nil && !IsNil(o.MinimumFunctionalLevel) {
+		return true
+	}
+
+	return false
+}
+
+// SetMinimumFunctionalLevel gets a reference to the given FunctionalLevel and assigns it to the MinimumFunctionalLevel field.
 func (o *MachineCatalogResponseModel) SetMinimumFunctionalLevel(v FunctionalLevel) {
-	o.MinimumFunctionalLevel = v
+	o.MinimumFunctionalLevel = &v
 }
 
-// GetHasBeenPromoted returns the HasBeenPromoted field value
+// GetHasBeenPromoted returns the HasBeenPromoted field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetHasBeenPromoted() bool {
-	if o == nil {
+	if o == nil || IsNil(o.HasBeenPromoted) {
 		var ret bool
 		return ret
 	}
-
-	return o.HasBeenPromoted
+	return *o.HasBeenPromoted
 }
 
-// GetHasBeenPromotedOk returns a tuple with the HasBeenPromoted field value
+// GetHasBeenPromotedOk returns a tuple with the HasBeenPromoted field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetHasBeenPromotedOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.HasBeenPromoted) {
 		return nil, false
 	}
-	return &o.HasBeenPromoted, true
+	return o.HasBeenPromoted, true
 }
 
-// SetHasBeenPromoted sets field value
+// HasHasBeenPromoted returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasHasBeenPromoted() bool {
+	if o != nil && !IsNil(o.HasBeenPromoted) {
+		return true
+	}
+
+	return false
+}
+
+// SetHasBeenPromoted gets a reference to the given bool and assigns it to the HasBeenPromoted field.
 func (o *MachineCatalogResponseModel) SetHasBeenPromoted(v bool) {
-	o.HasBeenPromoted = v
+	o.HasBeenPromoted = &v
 }
 
 // GetHasBeenPromotedFrom returns the HasBeenPromotedFrom field value if set, zero value otherwise.
@@ -699,76 +764,100 @@ func (o *MachineCatalogResponseModel) SetHasBeenPromotedFrom(v FunctionalLevel) 
 	o.HasBeenPromotedFrom = &v
 }
 
-// GetCanRollbackVMImage returns the CanRollbackVMImage field value
+// GetCanRollbackVMImage returns the CanRollbackVMImage field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetCanRollbackVMImage() bool {
-	if o == nil {
+	if o == nil || IsNil(o.CanRollbackVMImage) {
 		var ret bool
 		return ret
 	}
-
-	return o.CanRollbackVMImage
+	return *o.CanRollbackVMImage
 }
 
-// GetCanRollbackVMImageOk returns a tuple with the CanRollbackVMImage field value
+// GetCanRollbackVMImageOk returns a tuple with the CanRollbackVMImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetCanRollbackVMImageOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CanRollbackVMImage) {
 		return nil, false
 	}
-	return &o.CanRollbackVMImage, true
+	return o.CanRollbackVMImage, true
 }
 
-// SetCanRollbackVMImage sets field value
+// HasCanRollbackVMImage returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasCanRollbackVMImage() bool {
+	if o != nil && !IsNil(o.CanRollbackVMImage) {
+		return true
+	}
+
+	return false
+}
+
+// SetCanRollbackVMImage gets a reference to the given bool and assigns it to the CanRollbackVMImage field.
 func (o *MachineCatalogResponseModel) SetCanRollbackVMImage(v bool) {
-	o.CanRollbackVMImage = v
+	o.CanRollbackVMImage = &v
 }
 
-// GetCanRecreateCatalog returns the CanRecreateCatalog field value
+// GetCanRecreateCatalog returns the CanRecreateCatalog field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetCanRecreateCatalog() bool {
-	if o == nil {
+	if o == nil || IsNil(o.CanRecreateCatalog) {
 		var ret bool
 		return ret
 	}
-
-	return o.CanRecreateCatalog
+	return *o.CanRecreateCatalog
 }
 
-// GetCanRecreateCatalogOk returns a tuple with the CanRecreateCatalog field value
+// GetCanRecreateCatalogOk returns a tuple with the CanRecreateCatalog field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetCanRecreateCatalogOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CanRecreateCatalog) {
 		return nil, false
 	}
-	return &o.CanRecreateCatalog, true
+	return o.CanRecreateCatalog, true
 }
 
-// SetCanRecreateCatalog sets field value
+// HasCanRecreateCatalog returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasCanRecreateCatalog() bool {
+	if o != nil && !IsNil(o.CanRecreateCatalog) {
+		return true
+	}
+
+	return false
+}
+
+// SetCanRecreateCatalog gets a reference to the given bool and assigns it to the CanRecreateCatalog field.
 func (o *MachineCatalogResponseModel) SetCanRecreateCatalog(v bool) {
-	o.CanRecreateCatalog = v
+	o.CanRecreateCatalog = &v
 }
 
-// GetPersistChanges returns the PersistChanges field value
+// GetPersistChanges returns the PersistChanges field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetPersistChanges() PersistChanges {
-	if o == nil {
+	if o == nil || IsNil(o.PersistChanges) {
 		var ret PersistChanges
 		return ret
 	}
-
-	return o.PersistChanges
+	return *o.PersistChanges
 }
 
-// GetPersistChangesOk returns a tuple with the PersistChanges field value
+// GetPersistChangesOk returns a tuple with the PersistChanges field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetPersistChangesOk() (*PersistChanges, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PersistChanges) {
 		return nil, false
 	}
-	return &o.PersistChanges, true
+	return o.PersistChanges, true
 }
 
-// SetPersistChanges sets field value
+// HasPersistChanges returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasPersistChanges() bool {
+	if o != nil && !IsNil(o.PersistChanges) {
+		return true
+	}
+
+	return false
+}
+
+// SetPersistChanges gets a reference to the given PersistChanges and assigns it to the PersistChanges field.
 func (o *MachineCatalogResponseModel) SetPersistChanges(v PersistChanges) {
-	o.PersistChanges = v
+	o.PersistChanges = &v
 }
 
 // GetProvisioningScheme returns the ProvisioningScheme field value if set, zero value otherwise.
@@ -803,28 +892,36 @@ func (o *MachineCatalogResponseModel) SetProvisioningScheme(v ProvisioningScheme
 	o.ProvisioningScheme = &v
 }
 
-// GetProvisioningType returns the ProvisioningType field value
+// GetProvisioningType returns the ProvisioningType field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetProvisioningType() ProvisioningType {
-	if o == nil {
+	if o == nil || IsNil(o.ProvisioningType) {
 		var ret ProvisioningType
 		return ret
 	}
-
-	return o.ProvisioningType
+	return *o.ProvisioningType
 }
 
-// GetProvisioningTypeOk returns a tuple with the ProvisioningType field value
+// GetProvisioningTypeOk returns a tuple with the ProvisioningType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetProvisioningTypeOk() (*ProvisioningType, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ProvisioningType) {
 		return nil, false
 	}
-	return &o.ProvisioningType, true
+	return o.ProvisioningType, true
 }
 
-// SetProvisioningType sets field value
+// HasProvisioningType returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasProvisioningType() bool {
+	if o != nil && !IsNil(o.ProvisioningType) {
+		return true
+	}
+
+	return false
+}
+
+// SetProvisioningType gets a reference to the given ProvisioningType and assigns it to the ProvisioningType field.
 func (o *MachineCatalogResponseModel) SetProvisioningType(v ProvisioningType) {
-	o.ProvisioningType = v
+	o.ProvisioningType = &v
 }
 
 // GetProvisioningProgress returns the ProvisioningProgress field value if set, zero value otherwise.
@@ -1042,100 +1139,132 @@ func (o *MachineCatalogResponseModel) SetTenants(v []RefResponseModel) {
 	o.Tenants = v
 }
 
-// GetSessionSupport returns the SessionSupport field value
+// GetSessionSupport returns the SessionSupport field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetSessionSupport() SessionSupport {
-	if o == nil {
+	if o == nil || IsNil(o.SessionSupport) {
 		var ret SessionSupport
 		return ret
 	}
-
-	return o.SessionSupport
+	return *o.SessionSupport
 }
 
-// GetSessionSupportOk returns a tuple with the SessionSupport field value
+// GetSessionSupportOk returns a tuple with the SessionSupport field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetSessionSupportOk() (*SessionSupport, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SessionSupport) {
 		return nil, false
 	}
-	return &o.SessionSupport, true
+	return o.SessionSupport, true
 }
 
-// SetSessionSupport sets field value
+// HasSessionSupport returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasSessionSupport() bool {
+	if o != nil && !IsNil(o.SessionSupport) {
+		return true
+	}
+
+	return false
+}
+
+// SetSessionSupport gets a reference to the given SessionSupport and assigns it to the SessionSupport field.
 func (o *MachineCatalogResponseModel) SetSessionSupport(v SessionSupport) {
-	o.SessionSupport = v
+	o.SessionSupport = &v
 }
 
-// GetSharingKind returns the SharingKind field value
+// GetSharingKind returns the SharingKind field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetSharingKind() SharingKind {
-	if o == nil {
+	if o == nil || IsNil(o.SharingKind) {
 		var ret SharingKind
 		return ret
 	}
-
-	return o.SharingKind
+	return *o.SharingKind
 }
 
-// GetSharingKindOk returns a tuple with the SharingKind field value
+// GetSharingKindOk returns a tuple with the SharingKind field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetSharingKindOk() (*SharingKind, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.SharingKind) {
 		return nil, false
 	}
-	return &o.SharingKind, true
+	return o.SharingKind, true
 }
 
-// SetSharingKind sets field value
+// HasSharingKind returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasSharingKind() bool {
+	if o != nil && !IsNil(o.SharingKind) {
+		return true
+	}
+
+	return false
+}
+
+// SetSharingKind gets a reference to the given SharingKind and assigns it to the SharingKind field.
 func (o *MachineCatalogResponseModel) SetSharingKind(v SharingKind) {
-	o.SharingKind = v
+	o.SharingKind = &v
 }
 
-// GetTotalCount returns the TotalCount field value
+// GetTotalCount returns the TotalCount field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetTotalCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.TotalCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.TotalCount
+	return *o.TotalCount
 }
 
-// GetTotalCountOk returns a tuple with the TotalCount field value
+// GetTotalCountOk returns a tuple with the TotalCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetTotalCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.TotalCount) {
 		return nil, false
 	}
-	return &o.TotalCount, true
+	return o.TotalCount, true
 }
 
-// SetTotalCount sets field value
+// HasTotalCount returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasTotalCount() bool {
+	if o != nil && !IsNil(o.TotalCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalCount gets a reference to the given int32 and assigns it to the TotalCount field.
 func (o *MachineCatalogResponseModel) SetTotalCount(v int32) {
-	o.TotalCount = v
+	o.TotalCount = &v
 }
 
-// GetIsBroken returns the IsBroken field value
+// GetIsBroken returns the IsBroken field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetIsBroken() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsBroken) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsBroken
+	return *o.IsBroken
 }
 
-// GetIsBrokenOk returns a tuple with the IsBroken field value
+// GetIsBrokenOk returns a tuple with the IsBroken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetIsBrokenOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsBroken) {
 		return nil, false
 	}
-	return &o.IsBroken, true
+	return o.IsBroken, true
 }
 
-// SetIsBroken sets field value
+// HasIsBroken returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasIsBroken() bool {
+	if o != nil && !IsNil(o.IsBroken) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsBroken gets a reference to the given bool and assigns it to the IsBroken field.
 func (o *MachineCatalogResponseModel) SetIsBroken(v bool) {
-	o.IsBroken = v
+	o.IsBroken = &v
 }
 
 // GetIsMasterImageAssociated returns the IsMasterImageAssociated field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1278,52 +1407,68 @@ func (o *MachineCatalogResponseModel) SetWarnings(v []MachineCatalogWarningRespo
 	o.Warnings = v
 }
 
-// GetUnassignedCount returns the UnassignedCount field value
+// GetUnassignedCount returns the UnassignedCount field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetUnassignedCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.UnassignedCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.UnassignedCount
+	return *o.UnassignedCount
 }
 
-// GetUnassignedCountOk returns a tuple with the UnassignedCount field value
+// GetUnassignedCountOk returns a tuple with the UnassignedCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetUnassignedCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UnassignedCount) {
 		return nil, false
 	}
-	return &o.UnassignedCount, true
+	return o.UnassignedCount, true
 }
 
-// SetUnassignedCount sets field value
+// HasUnassignedCount returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasUnassignedCount() bool {
+	if o != nil && !IsNil(o.UnassignedCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetUnassignedCount gets a reference to the given int32 and assigns it to the UnassignedCount field.
 func (o *MachineCatalogResponseModel) SetUnassignedCount(v int32) {
-	o.UnassignedCount = v
+	o.UnassignedCount = &v
 }
 
-// GetUsedCount returns the UsedCount field value
+// GetUsedCount returns the UsedCount field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetUsedCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.UsedCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.UsedCount
+	return *o.UsedCount
 }
 
-// GetUsedCountOk returns a tuple with the UsedCount field value
+// GetUsedCountOk returns a tuple with the UsedCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetUsedCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UsedCount) {
 		return nil, false
 	}
-	return &o.UsedCount, true
+	return o.UsedCount, true
 }
 
-// SetUsedCount sets field value
+// HasUsedCount returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasUsedCount() bool {
+	if o != nil && !IsNil(o.UsedCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsedCount gets a reference to the given int32 and assigns it to the UsedCount field.
 func (o *MachineCatalogResponseModel) SetUsedCount(v int32) {
-	o.UsedCount = v
+	o.UsedCount = &v
 }
 
 // GetAvailableCountOfSuspend returns the AvailableCountOfSuspend field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1442,28 +1587,36 @@ func (o *MachineCatalogResponseModel) SetUpgradeInfo(v MachineCatalogUpgradeInfo
 	o.UpgradeInfo = &v
 }
 
-// GetZone returns the Zone field value
+// GetZone returns the Zone field value if set, zero value otherwise.
 func (o *MachineCatalogResponseModel) GetZone() RefResponseModel {
-	if o == nil {
+	if o == nil || IsNil(o.Zone) {
 		var ret RefResponseModel
 		return ret
 	}
-
-	return o.Zone
+	return *o.Zone
 }
 
-// GetZoneOk returns a tuple with the Zone field value
+// GetZoneOk returns a tuple with the Zone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *MachineCatalogResponseModel) GetZoneOk() (*RefResponseModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Zone) {
 		return nil, false
 	}
-	return &o.Zone, true
+	return o.Zone, true
 }
 
-// SetZone sets field value
+// HasZone returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasZone() bool {
+	if o != nil && !IsNil(o.Zone) {
+		return true
+	}
+
+	return false
+}
+
+// SetZone gets a reference to the given RefResponseModel and assigns it to the Zone field.
 func (o *MachineCatalogResponseModel) SetZone(v RefResponseModel) {
-	o.Zone = v
+	o.Zone = &v
 }
 
 // GetAdminFolder returns the AdminFolder field value if set, zero value otherwise.
@@ -1508,22 +1661,30 @@ func (o MachineCatalogResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o MachineCatalogResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["Name"] = o.Name
+	if o.Name.IsSet() {
+		toSerialize["Name"] = o.Name.Get()
+	}
 	if o.FullName.IsSet() {
 		toSerialize["FullName"] = o.FullName.Get()
 	}
-	toSerialize["Id"] = o.Id
+	if o.Id.IsSet() {
+		toSerialize["Id"] = o.Id.Get()
+	}
 	if !IsNil(o.Uid) {
 		toSerialize["Uid"] = o.Uid
 	}
-	toSerialize["AllocationType"] = o.AllocationType
+	if !IsNil(o.AllocationType) {
+		toSerialize["AllocationType"] = o.AllocationType
+	}
 	if o.AssignedCount.IsSet() {
 		toSerialize["AssignedCount"] = o.AssignedCount.Get()
 	}
 	if o.AvailableAssignedCount.IsSet() {
 		toSerialize["AvailableAssignedCount"] = o.AvailableAssignedCount.Get()
 	}
-	toSerialize["AvailableCount"] = o.AvailableCount
+	if !IsNil(o.AvailableCount) {
+		toSerialize["AvailableCount"] = o.AvailableCount
+	}
 	if o.AvailableUnassignedCount.IsSet() {
 		toSerialize["AvailableUnassignedCount"] = o.AvailableUnassignedCount.Get()
 	}
@@ -1533,26 +1694,42 @@ func (o MachineCatalogResponseModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.IsPowerManaged) {
 		toSerialize["IsPowerManaged"] = o.IsPowerManaged
 	}
-	toSerialize["IsRemotePC"] = o.IsRemotePC
+	if !IsNil(o.IsRemotePC) {
+		toSerialize["IsRemotePC"] = o.IsRemotePC
+	}
 	if o.JobsInProgress != nil {
 		toSerialize["JobsInProgress"] = o.JobsInProgress
 	}
-	toSerialize["MachineType"] = o.MachineType
+	if !IsNil(o.MachineType) {
+		toSerialize["MachineType"] = o.MachineType
+	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
 	}
-	toSerialize["MinimumFunctionalLevel"] = o.MinimumFunctionalLevel
-	toSerialize["HasBeenPromoted"] = o.HasBeenPromoted
+	if !IsNil(o.MinimumFunctionalLevel) {
+		toSerialize["MinimumFunctionalLevel"] = o.MinimumFunctionalLevel
+	}
+	if !IsNil(o.HasBeenPromoted) {
+		toSerialize["HasBeenPromoted"] = o.HasBeenPromoted
+	}
 	if !IsNil(o.HasBeenPromotedFrom) {
 		toSerialize["HasBeenPromotedFrom"] = o.HasBeenPromotedFrom
 	}
-	toSerialize["CanRollbackVMImage"] = o.CanRollbackVMImage
-	toSerialize["CanRecreateCatalog"] = o.CanRecreateCatalog
-	toSerialize["PersistChanges"] = o.PersistChanges
+	if !IsNil(o.CanRollbackVMImage) {
+		toSerialize["CanRollbackVMImage"] = o.CanRollbackVMImage
+	}
+	if !IsNil(o.CanRecreateCatalog) {
+		toSerialize["CanRecreateCatalog"] = o.CanRecreateCatalog
+	}
+	if !IsNil(o.PersistChanges) {
+		toSerialize["PersistChanges"] = o.PersistChanges
+	}
 	if !IsNil(o.ProvisioningScheme) {
 		toSerialize["ProvisioningScheme"] = o.ProvisioningScheme
 	}
-	toSerialize["ProvisioningType"] = o.ProvisioningType
+	if !IsNil(o.ProvisioningType) {
+		toSerialize["ProvisioningType"] = o.ProvisioningType
+	}
 	if !IsNil(o.ProvisioningProgress) {
 		toSerialize["ProvisioningProgress"] = o.ProvisioningProgress
 	}
@@ -1571,10 +1748,18 @@ func (o MachineCatalogResponseModel) ToMap() (map[string]interface{}, error) {
 	if o.Tenants != nil {
 		toSerialize["Tenants"] = o.Tenants
 	}
-	toSerialize["SessionSupport"] = o.SessionSupport
-	toSerialize["SharingKind"] = o.SharingKind
-	toSerialize["TotalCount"] = o.TotalCount
-	toSerialize["IsBroken"] = o.IsBroken
+	if !IsNil(o.SessionSupport) {
+		toSerialize["SessionSupport"] = o.SessionSupport
+	}
+	if !IsNil(o.SharingKind) {
+		toSerialize["SharingKind"] = o.SharingKind
+	}
+	if !IsNil(o.TotalCount) {
+		toSerialize["TotalCount"] = o.TotalCount
+	}
+	if !IsNil(o.IsBroken) {
+		toSerialize["IsBroken"] = o.IsBroken
+	}
 	if o.IsMasterImageAssociated.IsSet() {
 		toSerialize["IsMasterImageAssociated"] = o.IsMasterImageAssociated.Get()
 	}
@@ -1587,8 +1772,12 @@ func (o MachineCatalogResponseModel) ToMap() (map[string]interface{}, error) {
 	if o.Warnings != nil {
 		toSerialize["Warnings"] = o.Warnings
 	}
-	toSerialize["UnassignedCount"] = o.UnassignedCount
-	toSerialize["UsedCount"] = o.UsedCount
+	if !IsNil(o.UnassignedCount) {
+		toSerialize["UnassignedCount"] = o.UnassignedCount
+	}
+	if !IsNil(o.UsedCount) {
+		toSerialize["UsedCount"] = o.UsedCount
+	}
 	if o.AvailableCountOfSuspend.IsSet() {
 		toSerialize["AvailableCountOfSuspend"] = o.AvailableCountOfSuspend.Get()
 	}
@@ -1598,7 +1787,9 @@ func (o MachineCatalogResponseModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UpgradeInfo) {
 		toSerialize["UpgradeInfo"] = o.UpgradeInfo
 	}
-	toSerialize["Zone"] = o.Zone
+	if !IsNil(o.Zone) {
+		toSerialize["Zone"] = o.Zone
+	}
 	if !IsNil(o.AdminFolder) {
 		toSerialize["AdminFolder"] = o.AdminFolder
 	}

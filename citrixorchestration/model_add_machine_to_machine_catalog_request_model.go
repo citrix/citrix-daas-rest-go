@@ -33,6 +33,8 @@ type AddMachineToMachineCatalogRequestModel struct {
 	HypervisorConnection NullableString `json:"HypervisorConnection,omitempty"`
 	// Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is not available for new sessions, and for managed machines all automatic power management is disabled. Optional; default is `false`.
 	InMaintenanceMode NullableBool `json:"InMaintenanceMode,omitempty"`
+	// The metadata of machine.
+	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
 // NewAddMachineToMachineCatalogRequestModel instantiates a new AddMachineToMachineCatalogRequestModel object
@@ -341,6 +343,39 @@ func (o *AddMachineToMachineCatalogRequestModel) UnsetInMaintenanceMode() {
 	o.InMaintenanceMode.Unset()
 }
 
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AddMachineToMachineCatalogRequestModel) GetMetadata() []NameValueStringPairModel {
+	if o == nil {
+		var ret []NameValueStringPairModel
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AddMachineToMachineCatalogRequestModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
+	if o == nil || IsNil(o.Metadata) {
+		return nil, false
+	}
+	return o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *AddMachineToMachineCatalogRequestModel) HasMetadata() bool {
+	if o != nil && IsNil(o.Metadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given []NameValueStringPairModel and assigns it to the Metadata field.
+func (o *AddMachineToMachineCatalogRequestModel) SetMetadata(v []NameValueStringPairModel) {
+	o.Metadata = v
+}
+
 func (o AddMachineToMachineCatalogRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -371,6 +406,9 @@ func (o AddMachineToMachineCatalogRequestModel) ToMap() (map[string]interface{},
 	}
 	if o.InMaintenanceMode.IsSet() {
 		toSerialize["InMaintenanceMode"] = o.InMaintenanceMode.Get()
+	}
+	if o.Metadata != nil {
+		toSerialize["Metadata"] = o.Metadata
 	}
 	return toSerialize, nil
 }

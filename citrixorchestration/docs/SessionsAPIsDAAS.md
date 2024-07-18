@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ## SessionsDoSessionSearch
 
-> SessionResponseModelCollection SessionsDoSessionSearch(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
+> SessionResponseModelCollection SessionsDoSessionSearch(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
 
 Perform an advanced search for sessions.
 
@@ -133,6 +133,7 @@ func main() {
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     limit := int32(56) // int32 | The max number of sessions returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
@@ -143,7 +144,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SessionsAPIsDAAS.SessionsDoSessionSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
+    resp, r, err := apiClient.SessionsAPIsDAAS.SessionsDoSessionSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineAndSessionSearchRequestModel(machineAndSessionSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Skip(skip).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPIsDAAS.SessionsDoSessionSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -170,6 +171,7 @@ Name | Type | Description  | Notes
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xTimeZone** | **string** | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **limit** | **int32** | The max number of sessions returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 

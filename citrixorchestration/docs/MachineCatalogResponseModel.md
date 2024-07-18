@@ -4,56 +4,56 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs. | 
+**Name** | Pointer to **NullableString** | Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs. | [optional] 
 **FullName** | Pointer to **NullableString** | Unique administrative name of catalog. | [optional] 
-**Id** | **string** | Id of the machine catalog. | 
+**Id** | Pointer to **NullableString** | Id of the machine catalog. | [optional] 
 **Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED.  Use Id. | [optional] 
-**AllocationType** | [**AllocationType**](AllocationType.md) |  | 
+**AllocationType** | Pointer to [**AllocationType**](AllocationType.md) |  | [optional] 
 **AssignedCount** | Pointer to **NullableInt32** | The number of assigned machines (machines that have been assigned to a user/users or a client name/address). | [optional] 
 **AvailableAssignedCount** | Pointer to **NullableInt32** | The number of available machines (not in a delivery group), that are also assigned to users. | [optional] 
-**AvailableCount** | **int32** | The number of available machines (those not in any delivery group). | 
+**AvailableCount** | Pointer to **int32** | The number of available machines (those not in any delivery group). | [optional] 
 **AvailableUnassignedCount** | Pointer to **NullableInt32** | The number of available machines (those not in any delivery group) that are not assigned to users. | [optional] 
 **Description** | Pointer to **NullableString** | Description of the machine catalog. | [optional] 
 **IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the catalog are power-managed. | [optional] 
-**IsRemotePC** | **bool** | Indicates whether or not the catalog is a RemotePC catalog. Remote PC catalogs automatically configure appropriate machines without the need for manual configuration. CHANGE: was public bool RemotePC { get; set; } | 
+**IsRemotePC** | Pointer to **bool** | Indicates whether or not the catalog is a RemotePC catalog. Remote PC catalogs automatically configure appropriate machines without the need for manual configuration. CHANGE: was public bool RemotePC { get; set; } | [optional] 
 **JobsInProgress** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | List of jobs currently in progress that affect the machine catalog. | [optional] 
-**MachineType** | [**MachineType**](MachineType.md) |  | 
+**MachineType** | Pointer to [**MachineType**](MachineType.md) |  | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine catalog. | [optional] 
-**MinimumFunctionalLevel** | [**FunctionalLevel**](FunctionalLevel.md) |  | 
-**HasBeenPromoted** | **bool** | Whether the machine catalog was previously promoted from a lower MinimumFunctionalLevel. | 
+**MinimumFunctionalLevel** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
+**HasBeenPromoted** | Pointer to **bool** | Whether the machine catalog was previously promoted from a lower MinimumFunctionalLevel. | [optional] 
 **HasBeenPromotedFrom** | Pointer to [**FunctionalLevel**](FunctionalLevel.md) |  | [optional] 
-**CanRollbackVMImage** | **bool** | Whether the machine catalog can roll back VM image. | 
-**CanRecreateCatalog** | **bool** | Whether the machine catalog can recreate. | 
-**PersistChanges** | [**PersistChanges**](PersistChanges.md) |  | 
+**CanRollbackVMImage** | Pointer to **bool** | Whether the machine catalog can roll back VM image. | [optional] 
+**CanRecreateCatalog** | Pointer to **bool** | Whether the machine catalog can recreate. | [optional] 
+**PersistChanges** | Pointer to [**PersistChanges**](PersistChanges.md) |  | [optional] 
 **ProvisioningScheme** | Pointer to [**ProvisioningSchemeResponseModel**](ProvisioningSchemeResponseModel.md) |  | [optional] 
-**ProvisioningType** | [**ProvisioningType**](ProvisioningType.md) |  | 
+**ProvisioningType** | Pointer to [**ProvisioningType**](ProvisioningType.md) |  | [optional] 
 **ProvisioningProgress** | Pointer to [**ProvisioningProgressResponseModel**](ProvisioningProgressResponseModel.md) |  | [optional] 
 **PvsAddress** | Pointer to **NullableString** | IP address of the PVS server to be used. This only applies if the ProvisioningType is . | [optional] 
 **PvsDomain** | Pointer to **NullableString** | The domain of the PVS server to be used. | [optional] 
 **RemotePCEnrollmentScopes** | Pointer to [**[]RemotePCEnrollmentScopeResponseModel**](RemotePCEnrollmentScopeResponseModel.md) | List of one or more remote PC enrollment scopes. | [optional] 
 **Scopes** | Pointer to [**[]ScopeResponseModel**](ScopeResponseModel.md) | Administrative scopes which the machine catalog is part of. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the machine catalog is assigned to.  If &#x60;null&#x60;, the machine catalog is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
-**SessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
-**SharingKind** | [**SharingKind**](SharingKind.md) |  | 
-**TotalCount** | **int32** | The total number of machines in the catalog. | 
-**IsBroken** | **bool** | Whether the machine catalog is currently in a \&quot;Broken\&quot; state. | 
+**SessionSupport** | Pointer to [**SessionSupport**](SessionSupport.md) |  | [optional] 
+**SharingKind** | Pointer to [**SharingKind**](SharingKind.md) |  | [optional] 
+**TotalCount** | Pointer to **int32** | The total number of machines in the catalog. | [optional] 
+**IsBroken** | Pointer to **bool** | Whether the machine catalog is currently in a \&quot;Broken\&quot; state. | [optional] 
 **IsMasterImageAssociated** | Pointer to **NullableBool** | Whether the machine catalog is associated with a master image. | [optional] 
 **ImageUpdateStatus** | Pointer to [**ImageUpdateStatus**](ImageUpdateStatus.md) |  | [optional] 
 **Errors** | Pointer to **[]string** | Gets the Errors of machines in this catalog | [optional] 
 **Warnings** | Pointer to [**[]MachineCatalogWarningResponseModel**](MachineCatalogWarningResponseModel.md) | List of warnings that are currently active on the machine catalog, if any.  If there are no warnings this will not be specified. | [optional] 
-**UnassignedCount** | **int32** | The number of unassigned machines (machines not assigned to users). | 
-**UsedCount** | **int32** | The number of machines in the catalog that are in a delivery group. | 
+**UnassignedCount** | Pointer to **int32** | The number of unassigned machines (machines not assigned to users). | [optional] 
+**UsedCount** | Pointer to **int32** | The number of machines in the catalog that are in a delivery group. | [optional] 
 **AvailableCountOfSuspend** | Pointer to **NullableInt32** | The number of available suspend-capable machines (those not in any delivery group). | [optional] 
 **AvailableAssignedCountOfSuspend** | Pointer to **NullableInt32** | The number of available suspend-capable machines (not in a delivery group), that are also assigned to users. | [optional] 
 **UpgradeInfo** | Pointer to [**MachineCatalogUpgradeInfo**](MachineCatalogUpgradeInfo.md) |  | [optional] 
-**Zone** | [**RefResponseModel**](RefResponseModel.md) |  | 
+**Zone** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 
 ## Methods
 
 ### NewMachineCatalogResponseModel
 
-`func NewMachineCatalogResponseModel(name string, id string, allocationType AllocationType, availableCount int32, isRemotePC bool, machineType MachineType, minimumFunctionalLevel FunctionalLevel, hasBeenPromoted bool, canRollbackVMImage bool, canRecreateCatalog bool, persistChanges PersistChanges, provisioningType ProvisioningType, sessionSupport SessionSupport, sharingKind SharingKind, totalCount int32, isBroken bool, unassignedCount int32, usedCount int32, zone RefResponseModel, ) *MachineCatalogResponseModel`
+`func NewMachineCatalogResponseModel() *MachineCatalogResponseModel`
 
 NewMachineCatalogResponseModel instantiates a new MachineCatalogResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -87,7 +87,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *MachineCatalogResponseModel) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *MachineCatalogResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MachineCatalogResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetFullName
 
 `func (o *MachineCatalogResponseModel) GetFullName() string`
@@ -142,7 +157,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *MachineCatalogResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *MachineCatalogResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *MachineCatalogResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetUid
 
 `func (o *MachineCatalogResponseModel) GetUid() int32`
@@ -187,6 +217,11 @@ and a boolean to check if the value has been set.
 
 SetAllocationType sets AllocationType field to given value.
 
+### HasAllocationType
+
+`func (o *MachineCatalogResponseModel) HasAllocationType() bool`
+
+HasAllocationType returns a boolean if a field has been set.
 
 ### GetAssignedCount
 
@@ -277,6 +312,11 @@ and a boolean to check if the value has been set.
 
 SetAvailableCount sets AvailableCount field to given value.
 
+### HasAvailableCount
+
+`func (o *MachineCatalogResponseModel) HasAvailableCount() bool`
+
+HasAvailableCount returns a boolean if a field has been set.
 
 ### GetAvailableUnassignedCount
 
@@ -392,6 +432,11 @@ and a boolean to check if the value has been set.
 
 SetIsRemotePC sets IsRemotePC field to given value.
 
+### HasIsRemotePC
+
+`func (o *MachineCatalogResponseModel) HasIsRemotePC() bool`
+
+HasIsRemotePC returns a boolean if a field has been set.
 
 ### GetJobsInProgress
 
@@ -447,6 +492,11 @@ and a boolean to check if the value has been set.
 
 SetMachineType sets MachineType field to given value.
 
+### HasMachineType
+
+`func (o *MachineCatalogResponseModel) HasMachineType() bool`
+
+HasMachineType returns a boolean if a field has been set.
 
 ### GetMetadata
 
@@ -502,6 +552,11 @@ and a boolean to check if the value has been set.
 
 SetMinimumFunctionalLevel sets MinimumFunctionalLevel field to given value.
 
+### HasMinimumFunctionalLevel
+
+`func (o *MachineCatalogResponseModel) HasMinimumFunctionalLevel() bool`
+
+HasMinimumFunctionalLevel returns a boolean if a field has been set.
 
 ### GetHasBeenPromoted
 
@@ -522,6 +577,11 @@ and a boolean to check if the value has been set.
 
 SetHasBeenPromoted sets HasBeenPromoted field to given value.
 
+### HasHasBeenPromoted
+
+`func (o *MachineCatalogResponseModel) HasHasBeenPromoted() bool`
+
+HasHasBeenPromoted returns a boolean if a field has been set.
 
 ### GetHasBeenPromotedFrom
 
@@ -567,6 +627,11 @@ and a boolean to check if the value has been set.
 
 SetCanRollbackVMImage sets CanRollbackVMImage field to given value.
 
+### HasCanRollbackVMImage
+
+`func (o *MachineCatalogResponseModel) HasCanRollbackVMImage() bool`
+
+HasCanRollbackVMImage returns a boolean if a field has been set.
 
 ### GetCanRecreateCatalog
 
@@ -587,6 +652,11 @@ and a boolean to check if the value has been set.
 
 SetCanRecreateCatalog sets CanRecreateCatalog field to given value.
 
+### HasCanRecreateCatalog
+
+`func (o *MachineCatalogResponseModel) HasCanRecreateCatalog() bool`
+
+HasCanRecreateCatalog returns a boolean if a field has been set.
 
 ### GetPersistChanges
 
@@ -607,6 +677,11 @@ and a boolean to check if the value has been set.
 
 SetPersistChanges sets PersistChanges field to given value.
 
+### HasPersistChanges
+
+`func (o *MachineCatalogResponseModel) HasPersistChanges() bool`
+
+HasPersistChanges returns a boolean if a field has been set.
 
 ### GetProvisioningScheme
 
@@ -652,6 +727,11 @@ and a boolean to check if the value has been set.
 
 SetProvisioningType sets ProvisioningType field to given value.
 
+### HasProvisioningType
+
+`func (o *MachineCatalogResponseModel) HasProvisioningType() bool`
+
+HasProvisioningType returns a boolean if a field has been set.
 
 ### GetProvisioningProgress
 
@@ -872,6 +952,11 @@ and a boolean to check if the value has been set.
 
 SetSessionSupport sets SessionSupport field to given value.
 
+### HasSessionSupport
+
+`func (o *MachineCatalogResponseModel) HasSessionSupport() bool`
+
+HasSessionSupport returns a boolean if a field has been set.
 
 ### GetSharingKind
 
@@ -892,6 +977,11 @@ and a boolean to check if the value has been set.
 
 SetSharingKind sets SharingKind field to given value.
 
+### HasSharingKind
+
+`func (o *MachineCatalogResponseModel) HasSharingKind() bool`
+
+HasSharingKind returns a boolean if a field has been set.
 
 ### GetTotalCount
 
@@ -912,6 +1002,11 @@ and a boolean to check if the value has been set.
 
 SetTotalCount sets TotalCount field to given value.
 
+### HasTotalCount
+
+`func (o *MachineCatalogResponseModel) HasTotalCount() bool`
+
+HasTotalCount returns a boolean if a field has been set.
 
 ### GetIsBroken
 
@@ -932,6 +1027,11 @@ and a boolean to check if the value has been set.
 
 SetIsBroken sets IsBroken field to given value.
 
+### HasIsBroken
+
+`func (o *MachineCatalogResponseModel) HasIsBroken() bool`
+
+HasIsBroken returns a boolean if a field has been set.
 
 ### GetIsMasterImageAssociated
 
@@ -1082,6 +1182,11 @@ and a boolean to check if the value has been set.
 
 SetUnassignedCount sets UnassignedCount field to given value.
 
+### HasUnassignedCount
+
+`func (o *MachineCatalogResponseModel) HasUnassignedCount() bool`
+
+HasUnassignedCount returns a boolean if a field has been set.
 
 ### GetUsedCount
 
@@ -1102,6 +1207,11 @@ and a boolean to check if the value has been set.
 
 SetUsedCount sets UsedCount field to given value.
 
+### HasUsedCount
+
+`func (o *MachineCatalogResponseModel) HasUsedCount() bool`
+
+HasUsedCount returns a boolean if a field has been set.
 
 ### GetAvailableCountOfSuspend
 
@@ -1217,6 +1327,11 @@ and a boolean to check if the value has been set.
 
 SetZone sets Zone field to given value.
 
+### HasZone
+
+`func (o *MachineCatalogResponseModel) HasZone() bool`
+
+HasZone returns a boolean if a field has been set.
 
 ### GetAdminFolder
 

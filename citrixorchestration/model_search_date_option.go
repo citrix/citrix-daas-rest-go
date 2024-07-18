@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// SearchDateOption Enum options for search time filter
+// SearchDateOption Search date and time options.
 type SearchDateOption string
 
 // List of SearchDateOption
@@ -28,11 +28,11 @@ const (
 	SEARCHDATEOPTION_LAST24_HOURS SearchDateOption = "Last24Hours"
 	SEARCHDATEOPTION_TODAY SearchDateOption = "Today"
 	SEARCHDATEOPTION_YESTERDAY SearchDateOption = "Yesterday"
-	SEARCHDATEOPTION_LAST_MONTH SearchDateOption = "LastMonth"
-	SEARCHDATEOPTION_LAST_SIX_MONTHS SearchDateOption = "LastSixMonths"
-	SEARCHDATEOPTION_LAST_THREE_MONTHS SearchDateOption = "LastThreeMonths"
-	SEARCHDATEOPTION_LAST28_DAYS SearchDateOption = "Last28Days"
 	SEARCHDATEOPTION_LAST7_DAYS SearchDateOption = "Last7Days"
+	SEARCHDATEOPTION_LAST28_DAYS SearchDateOption = "Last28Days"
+	SEARCHDATEOPTION_LAST_MONTH SearchDateOption = "LastMonth"
+	SEARCHDATEOPTION_LAST_THREE_MONTHS SearchDateOption = "LastThreeMonths"
+	SEARCHDATEOPTION_LAST_SIX_MONTHS SearchDateOption = "LastSixMonths"
 )
 
 // All allowed values of SearchDateOption enum
@@ -45,11 +45,11 @@ var AllowedSearchDateOptionEnumValues = []SearchDateOption{
 	"Last24Hours",
 	"Today",
 	"Yesterday",
-	"LastMonth",
-	"LastSixMonths",
-	"LastThreeMonths",
-	"Last28Days",
 	"Last7Days",
+	"Last28Days",
+	"LastMonth",
+	"LastThreeMonths",
+	"LastSixMonths",
 }
 
 func (v *SearchDateOption) UnmarshalJSON(src []byte) error {

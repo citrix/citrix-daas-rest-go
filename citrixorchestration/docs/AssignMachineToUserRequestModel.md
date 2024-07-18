@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Machine** | **string** | The machine to assign. May be an Id or name. | 
+**MachinePublishedName** | Pointer to **NullableString** | The name of the machine that is displayed in Workspace App, it can be set only for static machine. | [optional] 
 **Users** | Pointer to **[]string** | The user(s) to whom the machine should be assigned. Caller can specify SamName, UPN, or SID for each user. The system should look up the entity to determine the other AD properties (such as DisplayName and IsGroup properties). Groups should be rejected. If the caller passes an empty list, the machine is de-allocated if it was previously allocated. | [optional] 
 
 ## Methods
@@ -46,6 +47,41 @@ and a boolean to check if the value has been set.
 SetMachine sets Machine field to given value.
 
 
+### GetMachinePublishedName
+
+`func (o *AssignMachineToUserRequestModel) GetMachinePublishedName() string`
+
+GetMachinePublishedName returns the MachinePublishedName field if non-nil, zero value otherwise.
+
+### GetMachinePublishedNameOk
+
+`func (o *AssignMachineToUserRequestModel) GetMachinePublishedNameOk() (*string, bool)`
+
+GetMachinePublishedNameOk returns a tuple with the MachinePublishedName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMachinePublishedName
+
+`func (o *AssignMachineToUserRequestModel) SetMachinePublishedName(v string)`
+
+SetMachinePublishedName sets MachinePublishedName field to given value.
+
+### HasMachinePublishedName
+
+`func (o *AssignMachineToUserRequestModel) HasMachinePublishedName() bool`
+
+HasMachinePublishedName returns a boolean if a field has been set.
+
+### SetMachinePublishedNameNil
+
+`func (o *AssignMachineToUserRequestModel) SetMachinePublishedNameNil(b bool)`
+
+ SetMachinePublishedNameNil sets the value for MachinePublishedName to be an explicit nil
+
+### UnsetMachinePublishedName
+`func (o *AssignMachineToUserRequestModel) UnsetMachinePublishedName()`
+
+UnsetMachinePublishedName ensures that no value is present for MachinePublishedName, not even an explicit nil
 ### GetUsers
 
 `func (o *AssignMachineToUserRequestModel) GetUsers() []string`

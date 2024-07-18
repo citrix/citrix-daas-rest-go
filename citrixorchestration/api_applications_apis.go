@@ -2442,6 +2442,8 @@ type ApiApplicationsGetApplicationRequest struct {
 	citrixTransactionId *string
 	accept *string
 	citrixLocale *string
+	fields *string
+	async *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2483,6 +2485,16 @@ func (r ApiApplicationsGetApplicationRequest) Accept(accept string) ApiApplicati
 // Locale of the request.
 func (r ApiApplicationsGetApplicationRequest) CitrixLocale(citrixLocale string) ApiApplicationsGetApplicationRequest {
 	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiApplicationsGetApplicationRequest) Fields(fields string) ApiApplicationsGetApplicationRequest {
+	r.fields = &fields
+	return r
+}
+
+func (r ApiApplicationsGetApplicationRequest) Async(async bool) ApiApplicationsGetApplicationRequest {
+	r.async = &async
 	return r
 }
 
@@ -2535,6 +2547,12 @@ func (a *ApplicationsAPIsDAASService) ApplicationsGetApplicationExecute(r ApiApp
 		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
 	}
 
+	if r.fields != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -3696,7 +3714,8 @@ HostedOnDesktop,
 AppV, or
 AppLibraryAppV, or
 Msix, or
-AppAttach
+AppAttach, or
+FlexApp
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
@@ -3999,7 +4018,8 @@ HostedOnDesktop,
 AppV, or
 AppLibraryAppV, or
 Msix, or
-AppAttach
+AppAttach, or
+FlexApp
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.

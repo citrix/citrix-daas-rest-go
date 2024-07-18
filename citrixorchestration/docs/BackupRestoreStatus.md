@@ -9,6 +9,8 @@
 
 * `IN_PROGRESS` (value: `"InProgress"`)
 
+* `PRE_COMPLETE` (value: `"PreComplete"`)
+
 * `COMPLETE` (value: `"Complete"`)
 
 * `COMPLETE_WITH_WARNING` (value: `"CompleteWithWarning"`)

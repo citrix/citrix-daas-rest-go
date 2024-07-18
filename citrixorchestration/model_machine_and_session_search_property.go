@@ -41,6 +41,7 @@ const (
 	MACHINEANDSESSIONSEARCHPROPERTY_LAST_DEREGISTRATION_TIME MachineAndSessionSearchProperty = "LastDeregistrationTime"
 	MACHINEANDSESSIONSEARCHPROPERTY_LAUNCHED_VIA_HOST_NAME MachineAndSessionSearchProperty = "LaunchedViaHostName"
 	MACHINEANDSESSIONSEARCHPROPERTY_LAUNCHED_VIA_IP MachineAndSessionSearchProperty = "LaunchedViaIP"
+	MACHINEANDSESSIONSEARCHPROPERTY_PUBLISHED_NAME MachineAndSessionSearchProperty = "PublishedName"
 	MACHINEANDSESSIONSEARCHPROPERTY_LOAD_INDEX MachineAndSessionSearchProperty = "LoadIndex"
 	MACHINEANDSESSIONSEARCHPROPERTY_START_TIME MachineAndSessionSearchProperty = "StartTime"
 	MACHINEANDSESSIONSEARCHPROPERTY_MACHINE_CATALOG MachineAndSessionSearchProperty = "MachineCatalog"
@@ -103,6 +104,7 @@ var AllowedMachineAndSessionSearchPropertyEnumValues = []MachineAndSessionSearch
 	"LastDeregistrationTime",
 	"LaunchedViaHostName",
 	"LaunchedViaIP",
+	"PublishedName",
 	"LoadIndex",
 	"StartTime",
 	"MachineCatalog",

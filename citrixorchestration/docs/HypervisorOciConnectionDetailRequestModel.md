@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **SecretKey** | Pointer to **string** | The secret key used to authenticate with the AWS APIs.  Required. Must be specified in the format indicated by SecretKeyFormat. | [optional] 
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Region** | **string** | Oracle Cloud Infrastructure region to connect to. Required. | 
+**Address** | Pointer to **NullableString** | Custom AWS Address. | [optional] 
 **ApplicationId** | Pointer to **string** | Application ID of the service principal used to access the Azure APIs.  Required. | [optional] 
 **ApplicationSecret** | Pointer to **string** | The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -479,6 +480,41 @@ and a boolean to check if the value has been set.
 SetRegion sets Region field to given value.
 
 
+### GetAddress
+
+`func (o *HypervisorOciConnectionDetailRequestModel) GetAddress() string`
+
+GetAddress returns the Address field if non-nil, zero value otherwise.
+
+### GetAddressOk
+
+`func (o *HypervisorOciConnectionDetailRequestModel) GetAddressOk() (*string, bool)`
+
+GetAddressOk returns a tuple with the Address field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddress
+
+`func (o *HypervisorOciConnectionDetailRequestModel) SetAddress(v string)`
+
+SetAddress sets Address field to given value.
+
+### HasAddress
+
+`func (o *HypervisorOciConnectionDetailRequestModel) HasAddress() bool`
+
+HasAddress returns a boolean if a field has been set.
+
+### SetAddressNil
+
+`func (o *HypervisorOciConnectionDetailRequestModel) SetAddressNil(b bool)`
+
+ SetAddressNil sets the value for Address to be an explicit nil
+
+### UnsetAddress
+`func (o *HypervisorOciConnectionDetailRequestModel) UnsetAddress()`
+
+UnsetAddress ensures that no value is present for Address, not even an explicit nil
 ### GetApplicationId
 
 `func (o *HypervisorOciConnectionDetailRequestModel) GetApplicationId() string`

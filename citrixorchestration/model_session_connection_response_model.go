@@ -33,6 +33,8 @@ type SessionConnectionResponseModel struct {
 	SecureIcaActive NullableBool `json:"SecureIcaActive,omitempty"`
 	// The Smart Access tags for this session.
 	SmartAccessTags []SmartAccessTagResponseModel `json:"SmartAccessTags,omitempty"`
+	// The published name of the StoreFront server used to launch the session.
+	LaunchedViaPublishedName NullableString `json:"LaunchedViaPublishedName,omitempty"`
 }
 
 // NewSessionConnectionResponseModel instantiates a new SessionConnectionResponseModel object
@@ -359,6 +361,48 @@ func (o *SessionConnectionResponseModel) SetSmartAccessTags(v []SmartAccessTagRe
 	o.SmartAccessTags = v
 }
 
+// GetLaunchedViaPublishedName returns the LaunchedViaPublishedName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SessionConnectionResponseModel) GetLaunchedViaPublishedName() string {
+	if o == nil || IsNil(o.LaunchedViaPublishedName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LaunchedViaPublishedName.Get()
+}
+
+// GetLaunchedViaPublishedNameOk returns a tuple with the LaunchedViaPublishedName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SessionConnectionResponseModel) GetLaunchedViaPublishedNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LaunchedViaPublishedName.Get(), o.LaunchedViaPublishedName.IsSet()
+}
+
+// HasLaunchedViaPublishedName returns a boolean if a field has been set.
+func (o *SessionConnectionResponseModel) HasLaunchedViaPublishedName() bool {
+	if o != nil && o.LaunchedViaPublishedName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLaunchedViaPublishedName gets a reference to the given NullableString and assigns it to the LaunchedViaPublishedName field.
+func (o *SessionConnectionResponseModel) SetLaunchedViaPublishedName(v string) {
+	o.LaunchedViaPublishedName.Set(&v)
+}
+// SetLaunchedViaPublishedNameNil sets the value for LaunchedViaPublishedName to be an explicit nil
+func (o *SessionConnectionResponseModel) SetLaunchedViaPublishedNameNil() {
+	o.LaunchedViaPublishedName.Set(nil)
+}
+
+// UnsetLaunchedViaPublishedName ensures that no value is present for LaunchedViaPublishedName, not even an explicit nil
+func (o *SessionConnectionResponseModel) UnsetLaunchedViaPublishedName() {
+	o.LaunchedViaPublishedName.Unset()
+}
+
 func (o SessionConnectionResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -392,6 +436,9 @@ func (o SessionConnectionResponseModel) ToMap() (map[string]interface{}, error) 
 	}
 	if o.SmartAccessTags != nil {
 		toSerialize["SmartAccessTags"] = o.SmartAccessTags
+	}
+	if o.LaunchedViaPublishedName.IsSet() {
+		toSerialize["LaunchedViaPublishedName"] = o.LaunchedViaPublishedName.Get()
 	}
 	return toSerialize, nil
 }

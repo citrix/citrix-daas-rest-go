@@ -21,6 +21,8 @@ var _ MappedNullable = &AssignMachineToUserRequestModel{}
 type AssignMachineToUserRequestModel struct {
 	// The machine to assign. May be an Id or name.
 	Machine string `json:"Machine"`
+	// The name of the machine that is displayed in Workspace App, it can be set only for static machine.
+	MachinePublishedName NullableString `json:"MachinePublishedName,omitempty"`
 	// The user(s) to whom the machine should be assigned. Caller can specify SamName, UPN, or SID for each user. The system should look up the entity to determine the other AD properties (such as DisplayName and IsGroup properties). Groups should be rejected. If the caller passes an empty list, the machine is de-allocated if it was previously allocated.
 	Users []string `json:"Users,omitempty"`
 }
@@ -67,6 +69,48 @@ func (o *AssignMachineToUserRequestModel) SetMachine(v string) {
 	o.Machine = v
 }
 
+// GetMachinePublishedName returns the MachinePublishedName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AssignMachineToUserRequestModel) GetMachinePublishedName() string {
+	if o == nil || IsNil(o.MachinePublishedName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MachinePublishedName.Get()
+}
+
+// GetMachinePublishedNameOk returns a tuple with the MachinePublishedName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AssignMachineToUserRequestModel) GetMachinePublishedNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MachinePublishedName.Get(), o.MachinePublishedName.IsSet()
+}
+
+// HasMachinePublishedName returns a boolean if a field has been set.
+func (o *AssignMachineToUserRequestModel) HasMachinePublishedName() bool {
+	if o != nil && o.MachinePublishedName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMachinePublishedName gets a reference to the given NullableString and assigns it to the MachinePublishedName field.
+func (o *AssignMachineToUserRequestModel) SetMachinePublishedName(v string) {
+	o.MachinePublishedName.Set(&v)
+}
+// SetMachinePublishedNameNil sets the value for MachinePublishedName to be an explicit nil
+func (o *AssignMachineToUserRequestModel) SetMachinePublishedNameNil() {
+	o.MachinePublishedName.Set(nil)
+}
+
+// UnsetMachinePublishedName ensures that no value is present for MachinePublishedName, not even an explicit nil
+func (o *AssignMachineToUserRequestModel) UnsetMachinePublishedName() {
+	o.MachinePublishedName.Unset()
+}
+
 // GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AssignMachineToUserRequestModel) GetUsers() []string {
 	if o == nil {
@@ -111,6 +155,9 @@ func (o AssignMachineToUserRequestModel) MarshalJSON() ([]byte, error) {
 func (o AssignMachineToUserRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["Machine"] = o.Machine
+	if o.MachinePublishedName.IsSet() {
+		toSerialize["MachinePublishedName"] = o.MachinePublishedName.Get()
+	}
 	if o.Users != nil {
 		toSerialize["Users"] = o.Users
 	}

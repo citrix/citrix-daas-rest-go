@@ -21,7 +21,10 @@ var _ MappedNullable = &WonOverBy{}
 type WonOverBy struct {
 	// Name of the setting.
 	SettingName NullableString `json:"SettingName,omitempty"`
-	WinningPolicy *PolicyIdentity `json:"WinningPolicy,omitempty"`
+	// Name of the policy.
+	PolicyName NullableString `json:"PolicyName,omitempty"`
+	// Name of the GPO that contains the policy that uses this setting.
+	GpoName NullableString `json:"GpoName,omitempty"`
 }
 
 // NewWonOverBy instantiates a new WonOverBy object
@@ -83,36 +86,88 @@ func (o *WonOverBy) UnsetSettingName() {
 	o.SettingName.Unset()
 }
 
-// GetWinningPolicy returns the WinningPolicy field value if set, zero value otherwise.
-func (o *WonOverBy) GetWinningPolicy() PolicyIdentity {
-	if o == nil || IsNil(o.WinningPolicy) {
-		var ret PolicyIdentity
+// GetPolicyName returns the PolicyName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WonOverBy) GetPolicyName() string {
+	if o == nil || IsNil(o.PolicyName.Get()) {
+		var ret string
 		return ret
 	}
-	return *o.WinningPolicy
+	return *o.PolicyName.Get()
 }
 
-// GetWinningPolicyOk returns a tuple with the WinningPolicy field value if set, nil otherwise
+// GetPolicyNameOk returns a tuple with the PolicyName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WonOverBy) GetWinningPolicyOk() (*PolicyIdentity, bool) {
-	if o == nil || IsNil(o.WinningPolicy) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WonOverBy) GetPolicyNameOk() (*string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.WinningPolicy, true
+	return o.PolicyName.Get(), o.PolicyName.IsSet()
 }
 
-// HasWinningPolicy returns a boolean if a field has been set.
-func (o *WonOverBy) HasWinningPolicy() bool {
-	if o != nil && !IsNil(o.WinningPolicy) {
+// HasPolicyName returns a boolean if a field has been set.
+func (o *WonOverBy) HasPolicyName() bool {
+	if o != nil && o.PolicyName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetWinningPolicy gets a reference to the given PolicyIdentity and assigns it to the WinningPolicy field.
-func (o *WonOverBy) SetWinningPolicy(v PolicyIdentity) {
-	o.WinningPolicy = &v
+// SetPolicyName gets a reference to the given NullableString and assigns it to the PolicyName field.
+func (o *WonOverBy) SetPolicyName(v string) {
+	o.PolicyName.Set(&v)
+}
+// SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+func (o *WonOverBy) SetPolicyNameNil() {
+	o.PolicyName.Set(nil)
+}
+
+// UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
+func (o *WonOverBy) UnsetPolicyName() {
+	o.PolicyName.Unset()
+}
+
+// GetGpoName returns the GpoName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WonOverBy) GetGpoName() string {
+	if o == nil || IsNil(o.GpoName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.GpoName.Get()
+}
+
+// GetGpoNameOk returns a tuple with the GpoName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WonOverBy) GetGpoNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GpoName.Get(), o.GpoName.IsSet()
+}
+
+// HasGpoName returns a boolean if a field has been set.
+func (o *WonOverBy) HasGpoName() bool {
+	if o != nil && o.GpoName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGpoName gets a reference to the given NullableString and assigns it to the GpoName field.
+func (o *WonOverBy) SetGpoName(v string) {
+	o.GpoName.Set(&v)
+}
+// SetGpoNameNil sets the value for GpoName to be an explicit nil
+func (o *WonOverBy) SetGpoNameNil() {
+	o.GpoName.Set(nil)
+}
+
+// UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
+func (o *WonOverBy) UnsetGpoName() {
+	o.GpoName.Unset()
 }
 
 func (o WonOverBy) MarshalJSON() ([]byte, error) {
@@ -128,8 +183,11 @@ func (o WonOverBy) ToMap() (map[string]interface{}, error) {
 	if o.SettingName.IsSet() {
 		toSerialize["SettingName"] = o.SettingName.Get()
 	}
-	if !IsNil(o.WinningPolicy) {
-		toSerialize["WinningPolicy"] = o.WinningPolicy
+	if o.PolicyName.IsSet() {
+		toSerialize["PolicyName"] = o.PolicyName.Get()
+	}
+	if o.GpoName.IsSet() {
+		toSerialize["GpoName"] = o.GpoName.Get()
 	}
 	return toSerialize, nil
 }

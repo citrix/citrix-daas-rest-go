@@ -88,6 +88,8 @@ type DeliveryGroupResponseModel struct {
 	AutoscalingEnabled *bool `json:"AutoscalingEnabled,omitempty"`
 	// Whether machines will be reused without a shutdown in case of an outage.
 	ReuseMachinesWithoutShutdownInOutage *bool `json:"ReuseMachinesWithoutShutdownInOutage,omitempty"`
+	// Total number of suspend-capable desktops in the delivery group.
+	TotalDesktopsOfSuspend NullableInt32 `json:"TotalDesktopsOfSuspend,omitempty"`
 }
 
 // NewDeliveryGroupResponseModel instantiates a new DeliveryGroupResponseModel object
@@ -1296,6 +1298,48 @@ func (o *DeliveryGroupResponseModel) SetReuseMachinesWithoutShutdownInOutage(v b
 	o.ReuseMachinesWithoutShutdownInOutage = &v
 }
 
+// GetTotalDesktopsOfSuspend returns the TotalDesktopsOfSuspend field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryGroupResponseModel) GetTotalDesktopsOfSuspend() int32 {
+	if o == nil || IsNil(o.TotalDesktopsOfSuspend.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.TotalDesktopsOfSuspend.Get()
+}
+
+// GetTotalDesktopsOfSuspendOk returns a tuple with the TotalDesktopsOfSuspend field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryGroupResponseModel) GetTotalDesktopsOfSuspendOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalDesktopsOfSuspend.Get(), o.TotalDesktopsOfSuspend.IsSet()
+}
+
+// HasTotalDesktopsOfSuspend returns a boolean if a field has been set.
+func (o *DeliveryGroupResponseModel) HasTotalDesktopsOfSuspend() bool {
+	if o != nil && o.TotalDesktopsOfSuspend.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalDesktopsOfSuspend gets a reference to the given NullableInt32 and assigns it to the TotalDesktopsOfSuspend field.
+func (o *DeliveryGroupResponseModel) SetTotalDesktopsOfSuspend(v int32) {
+	o.TotalDesktopsOfSuspend.Set(&v)
+}
+// SetTotalDesktopsOfSuspendNil sets the value for TotalDesktopsOfSuspend to be an explicit nil
+func (o *DeliveryGroupResponseModel) SetTotalDesktopsOfSuspendNil() {
+	o.TotalDesktopsOfSuspend.Set(nil)
+}
+
+// UnsetTotalDesktopsOfSuspend ensures that no value is present for TotalDesktopsOfSuspend, not even an explicit nil
+func (o *DeliveryGroupResponseModel) UnsetTotalDesktopsOfSuspend() {
+	o.TotalDesktopsOfSuspend.Unset()
+}
+
 func (o DeliveryGroupResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1380,6 +1424,9 @@ func (o DeliveryGroupResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ReuseMachinesWithoutShutdownInOutage) {
 		toSerialize["ReuseMachinesWithoutShutdownInOutage"] = o.ReuseMachinesWithoutShutdownInOutage
+	}
+	if o.TotalDesktopsOfSuspend.IsSet() {
+		toSerialize["TotalDesktopsOfSuspend"] = o.TotalDesktopsOfSuspend.Get()
 	}
 	return toSerialize, nil
 }

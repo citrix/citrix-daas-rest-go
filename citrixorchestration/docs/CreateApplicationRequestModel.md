@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **Visible** | Pointer to **NullableBool** | Specifies whether or not this application is visible to users. | [optional] [default to true]
 **WaitForPrinterCreation** | Pointer to **NullableBool** | Specifies whether or not the session waits for the printers to be created before allowing the user to interact with the session. | [optional] [default to false]
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of the new application. | [optional] 
+**FileTypes** | Pointer to [**[]FtaRequestModel**](FtaRequestModel.md) | The configured file type associations of the new application. | [optional] 
 
 ## Methods
 
@@ -1019,6 +1020,41 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *CreateApplicationRequestModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetFileTypes
+
+`func (o *CreateApplicationRequestModel) GetFileTypes() []FtaRequestModel`
+
+GetFileTypes returns the FileTypes field if non-nil, zero value otherwise.
+
+### GetFileTypesOk
+
+`func (o *CreateApplicationRequestModel) GetFileTypesOk() (*[]FtaRequestModel, bool)`
+
+GetFileTypesOk returns a tuple with the FileTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileTypes
+
+`func (o *CreateApplicationRequestModel) SetFileTypes(v []FtaRequestModel)`
+
+SetFileTypes sets FileTypes field to given value.
+
+### HasFileTypes
+
+`func (o *CreateApplicationRequestModel) HasFileTypes() bool`
+
+HasFileTypes returns a boolean if a field has been set.
+
+### SetFileTypesNil
+
+`func (o *CreateApplicationRequestModel) SetFileTypesNil(b bool)`
+
+ SetFileTypesNil sets the value for FileTypes to be an explicit nil
+
+### UnsetFileTypes
+`func (o *CreateApplicationRequestModel) UnsetFileTypes()`
+
+UnsetFileTypes ensures that no value is present for FileTypes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

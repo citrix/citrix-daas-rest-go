@@ -11,29 +11,41 @@
 
 * `GREATER_THAN` (value: `"GreaterThan"`)
 
+* `LESS_THAN_OR_EQUALS` (value: `"LessThanOrEquals"`)
+
+* `GREATER_THAN_OR_EQUALS` (value: `"GreaterThanOrEquals"`)
+
 * `LIKE` (value: `"Like"`)
 
 * `NOT_LIKE` (value: `"NotLike"`)
+
+* `ENDS_WITH` (value: `"EndsWith"`)
+
+* `NOT_ENDS_WITH` (value: `"NotEndsWith"`)
 
 * `STARTS_WITH` (value: `"StartsWith"`)
 
 * `NOT_STARTS_WITH` (value: `"NotStartsWith"`)
 
-* `ENDS_WITH` (value: `"EndsWith"`)
+* `ANY` (value: `"Any"`)
 
 * `NONE` (value: `"None"`)
 
-* `ANY` (value: `"Any"`)
-
 * `CONTAINS` (value: `"Contains"`)
+
+* `NOT_CONTAINS` (value: `"NotContains"`)
 
 * `CONTAINS_LIKE` (value: `"ContainsLike"`)
 
-* `CONTAINS_STARTS_WITH` (value: `"ContainsStartsWith"`)
+* `NOT_CONTAINS_LIKE` (value: `"NotContainsLike"`)
 
 * `CONTAINS_ENDS_WITH` (value: `"ContainsEndsWith"`)
 
-* `NOT_CONTAINS` (value: `"NotContains"`)
+* `NOT_CONTAINS_ENDS_WITH` (value: `"NotContainsEndsWith"`)
+
+* `CONTAINS_STARTS_WITH` (value: `"ContainsStartsWith"`)
+
+* `NOT_CONTAINS_STARTS_WITH` (value: `"NotContainsStartsWith"`)
 
 * `IN` (value: `"In"`)
 
@@ -42,10 +54,6 @@
 * `IS_WITHIN` (value: `"IsWithin"`)
 
 * `IS_NOT_WITHIN` (value: `"IsNotWithin"`)
-
-* `LESS_THAN_OR_EQUALS` (value: `"LessThanOrEquals"`)
-
-* `GREATER_THAN_OR_EQUALS` (value: `"GreaterThanOrEquals"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

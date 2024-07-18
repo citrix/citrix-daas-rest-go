@@ -21,21 +21,27 @@ type BackupRestoreBlobStorage string
 // List of BackupRestoreBlobStorage
 const (
 	BACKUPRESTOREBLOBSTORAGE_UNDEFINED BackupRestoreBlobStorage = "Undefined"
-	BACKUPRESTOREBLOBSTORAGE_FILE BackupRestoreBlobStorage = "File"
-	BACKUPRESTOREBLOBSTORAGE_AZURE BackupRestoreBlobStorage = "Azure"
-	BACKUPRESTOREBLOBSTORAGE_AWS BackupRestoreBlobStorage = "AWS"
-	BACKUPRESTOREBLOBSTORAGE_GCP BackupRestoreBlobStorage = "GCP"
-	BACKUPRESTOREBLOBSTORAGE_CUSTOM BackupRestoreBlobStorage = "Custom"
+	BACKUPRESTOREBLOBSTORAGE_FILE_STORAGE BackupRestoreBlobStorage = "FileStorage"
+	BACKUPRESTOREBLOBSTORAGE_AZURE_STORAGE BackupRestoreBlobStorage = "AzureStorage"
+	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_AZURE_STORAGE BackupRestoreBlobStorage = "CustomerAzureStorage"
+	BACKUPRESTOREBLOBSTORAGE_AWS_STORAGE BackupRestoreBlobStorage = "AwsStorage"
+	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_AWS_STORAGE BackupRestoreBlobStorage = "CustomerAwsStorage"
+	BACKUPRESTOREBLOBSTORAGE_GOOGLE_CLOUD_STORAGE BackupRestoreBlobStorage = "GoogleCloudStorage"
+	BACKUPRESTOREBLOBSTORAGE_CUSTOMER_GOOGLE_CLOUD_STORAGE BackupRestoreBlobStorage = "CustomerGoogleCloudStorage"
+	BACKUPRESTOREBLOBSTORAGE_CUSTOM_STORAGE BackupRestoreBlobStorage = "CustomStorage"
 )
 
 // All allowed values of BackupRestoreBlobStorage enum
 var AllowedBackupRestoreBlobStorageEnumValues = []BackupRestoreBlobStorage{
 	"Undefined",
-	"File",
-	"Azure",
-	"AWS",
-	"GCP",
-	"Custom",
+	"FileStorage",
+	"AzureStorage",
+	"CustomerAzureStorage",
+	"AwsStorage",
+	"CustomerAwsStorage",
+	"GoogleCloudStorage",
+	"CustomerGoogleCloudStorage",
+	"CustomStorage",
 }
 
 func (v *BackupRestoreBlobStorage) UnmarshalJSON(src []byte) error {

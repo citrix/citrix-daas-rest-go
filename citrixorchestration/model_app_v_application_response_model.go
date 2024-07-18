@@ -39,6 +39,8 @@ type AppVApplicationResponseModel struct {
 	PackageVersionId string `json:"PackageVersionId"`
 	// App publishing server.
 	PublishingServer string `json:"PublishingServer"`
+	// Users associated with the App-V application on the management server.
+	Users []IdentityUserResponseModel `json:"Users,omitempty"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED.  Use Id.
 	// Deprecated
 	Uid *int32 `json:"Uid,omitempty"`
@@ -364,6 +366,39 @@ func (o *AppVApplicationResponseModel) SetPublishingServer(v string) {
 	o.PublishingServer = v
 }
 
+// GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppVApplicationResponseModel) GetUsers() []IdentityUserResponseModel {
+	if o == nil {
+		var ret []IdentityUserResponseModel
+		return ret
+	}
+	return o.Users
+}
+
+// GetUsersOk returns a tuple with the Users field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppVApplicationResponseModel) GetUsersOk() ([]IdentityUserResponseModel, bool) {
+	if o == nil || IsNil(o.Users) {
+		return nil, false
+	}
+	return o.Users, true
+}
+
+// HasUsers returns a boolean if a field has been set.
+func (o *AppVApplicationResponseModel) HasUsers() bool {
+	if o != nil && IsNil(o.Users) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsers gets a reference to the given []IdentityUserResponseModel and assigns it to the Users field.
+func (o *AppVApplicationResponseModel) SetUsers(v []IdentityUserResponseModel) {
+	o.Users = v
+}
+
 // GetUid returns the Uid field value if set, zero value otherwise.
 // Deprecated
 func (o *AppVApplicationResponseModel) GetUid() int32 {
@@ -458,6 +493,9 @@ func (o AppVApplicationResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["PackageVersion"] = o.PackageVersion
 	toSerialize["PackageVersionId"] = o.PackageVersionId
 	toSerialize["PublishingServer"] = o.PublishingServer
+	if o.Users != nil {
+		toSerialize["Users"] = o.Users
+	}
 	if !IsNil(o.Uid) {
 		toSerialize["Uid"] = o.Uid
 	}

@@ -22,6 +22,21 @@ func Test_citrixorchestration_SitesAPIsDAASService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test SitesAPIsDAASService SitesCheckObjectNameExists", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var objectType ObjectType
+		var nameOrPath string
+
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesCheckObjectNameExists(context.Background(), objectType, nameOrPath).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test SitesAPIsDAASService SitesGetMultipleRemotePCAssignments", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -57,6 +72,20 @@ func Test_citrixorchestration_SitesAPIsDAASService(t *testing.T) {
 		var nameOrId string
 
 		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSite(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test SitesAPIsDAASService SitesGetSiteMisconfigurationReport", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.SitesAPIsDAAS.SitesGetSiteMisconfigurationReport(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

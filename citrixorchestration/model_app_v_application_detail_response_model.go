@@ -39,6 +39,8 @@ type AppVApplicationDetailResponseModel struct {
 	PackageVersionId string `json:"PackageVersionId"`
 	// App publishing server.
 	PublishingServer string `json:"PublishingServer"`
+	// Users associated with the App-V application on the management server.
+	Users []IdentityUserResponseModel `json:"Users,omitempty"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED.  Use Id.
 	// Deprecated
 	Uid *int32 `json:"Uid,omitempty"`
@@ -48,8 +50,6 @@ type AppVApplicationDetailResponseModel struct {
 	SequenceLocation string `json:"SequenceLocation"`
 	// Whether the app target is in a package.
 	TargetInPackage bool `json:"TargetInPackage"`
-	// Users associated with the App-V application on the management server.
-	Users []IdentityUserResponseModel `json:"Users"`
 	// Working directory for the App-V application as defined on the management server.
 	WorkingDirectory string `json:"WorkingDirectory"`
 }
@@ -58,7 +58,7 @@ type AppVApplicationDetailResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAppVApplicationDetailResponseModel(id string, name string, packageId string, packageName string, packageVersion string, packageVersionId string, publishingServer string, sequenceLocation string, targetInPackage bool, users []IdentityUserResponseModel, workingDirectory string) *AppVApplicationDetailResponseModel {
+func NewAppVApplicationDetailResponseModel(id string, name string, packageId string, packageName string, packageVersion string, packageVersionId string, publishingServer string, sequenceLocation string, targetInPackage bool, workingDirectory string) *AppVApplicationDetailResponseModel {
 	this := AppVApplicationDetailResponseModel{}
 	this.Id = id
 	this.Name = name
@@ -69,7 +69,6 @@ func NewAppVApplicationDetailResponseModel(id string, name string, packageId str
 	this.PublishingServer = publishingServer
 	this.SequenceLocation = sequenceLocation
 	this.TargetInPackage = targetInPackage
-	this.Users = users
 	this.WorkingDirectory = workingDirectory
 	return &this
 }
@@ -376,6 +375,39 @@ func (o *AppVApplicationDetailResponseModel) SetPublishingServer(v string) {
 	o.PublishingServer = v
 }
 
+// GetUsers returns the Users field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppVApplicationDetailResponseModel) GetUsers() []IdentityUserResponseModel {
+	if o == nil {
+		var ret []IdentityUserResponseModel
+		return ret
+	}
+	return o.Users
+}
+
+// GetUsersOk returns a tuple with the Users field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppVApplicationDetailResponseModel) GetUsersOk() ([]IdentityUserResponseModel, bool) {
+	if o == nil || IsNil(o.Users) {
+		return nil, false
+	}
+	return o.Users, true
+}
+
+// HasUsers returns a boolean if a field has been set.
+func (o *AppVApplicationDetailResponseModel) HasUsers() bool {
+	if o != nil && IsNil(o.Users) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsers gets a reference to the given []IdentityUserResponseModel and assigns it to the Users field.
+func (o *AppVApplicationDetailResponseModel) SetUsers(v []IdentityUserResponseModel) {
+	o.Users = v
+}
+
 // GetUid returns the Uid field value if set, zero value otherwise.
 // Deprecated
 func (o *AppVApplicationDetailResponseModel) GetUid() int32 {
@@ -492,30 +524,6 @@ func (o *AppVApplicationDetailResponseModel) SetTargetInPackage(v bool) {
 	o.TargetInPackage = v
 }
 
-// GetUsers returns the Users field value
-func (o *AppVApplicationDetailResponseModel) GetUsers() []IdentityUserResponseModel {
-	if o == nil {
-		var ret []IdentityUserResponseModel
-		return ret
-	}
-
-	return o.Users
-}
-
-// GetUsersOk returns a tuple with the Users field value
-// and a boolean to check if the value has been set.
-func (o *AppVApplicationDetailResponseModel) GetUsersOk() ([]IdentityUserResponseModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Users, true
-}
-
-// SetUsers sets field value
-func (o *AppVApplicationDetailResponseModel) SetUsers(v []IdentityUserResponseModel) {
-	o.Users = v
-}
-
 // GetWorkingDirectory returns the WorkingDirectory field value
 func (o *AppVApplicationDetailResponseModel) GetWorkingDirectory() string {
 	if o == nil {
@@ -566,6 +574,9 @@ func (o AppVApplicationDetailResponseModel) ToMap() (map[string]interface{}, err
 	toSerialize["PackageVersion"] = o.PackageVersion
 	toSerialize["PackageVersionId"] = o.PackageVersionId
 	toSerialize["PublishingServer"] = o.PublishingServer
+	if o.Users != nil {
+		toSerialize["Users"] = o.Users
+	}
 	if !IsNil(o.Uid) {
 		toSerialize["Uid"] = o.Uid
 	}
@@ -574,7 +585,6 @@ func (o AppVApplicationDetailResponseModel) ToMap() (map[string]interface{}, err
 	}
 	toSerialize["SequenceLocation"] = o.SequenceLocation
 	toSerialize["TargetInPackage"] = o.TargetInPackage
-	toSerialize["Users"] = o.Users
 	toSerialize["WorkingDirectory"] = o.WorkingDirectory
 	return toSerialize, nil
 }

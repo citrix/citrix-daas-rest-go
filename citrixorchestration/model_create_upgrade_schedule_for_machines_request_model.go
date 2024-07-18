@@ -26,6 +26,10 @@ type CreateUpgradeScheduleForMachinesRequestModel struct {
 	StartDateTimeUtc NullableTime `json:"StartDateTimeUtc,omitempty"`
 	// Timeout duration in hours. Valid range is 1 to 24.
 	DurationInHours int32 `json:"DurationInHours"`
+	// Custom location to download the VDA Workstation package from. Currently, only network shares (specified using a UNC path) are supported.
+	VdaWorkstationPackageUri NullableString `json:"VdaWorkstationPackageUri,omitempty"`
+	// Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported.
+	VdaServerPackageUri NullableString `json:"VdaServerPackageUri,omitempty"`
 }
 
 // NewCreateUpgradeScheduleForMachinesRequestModel instantiates a new CreateUpgradeScheduleForMachinesRequestModel object
@@ -137,6 +141,90 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) SetDurationInHours(v int3
 	o.DurationInHours = v
 }
 
+// GetVdaWorkstationPackageUri returns the VdaWorkstationPackageUri field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVdaWorkstationPackageUri() string {
+	if o == nil || IsNil(o.VdaWorkstationPackageUri.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VdaWorkstationPackageUri.Get()
+}
+
+// GetVdaWorkstationPackageUriOk returns a tuple with the VdaWorkstationPackageUri field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVdaWorkstationPackageUriOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VdaWorkstationPackageUri.Get(), o.VdaWorkstationPackageUri.IsSet()
+}
+
+// HasVdaWorkstationPackageUri returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) HasVdaWorkstationPackageUri() bool {
+	if o != nil && o.VdaWorkstationPackageUri.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVdaWorkstationPackageUri gets a reference to the given NullableString and assigns it to the VdaWorkstationPackageUri field.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaWorkstationPackageUri(v string) {
+	o.VdaWorkstationPackageUri.Set(&v)
+}
+// SetVdaWorkstationPackageUriNil sets the value for VdaWorkstationPackageUri to be an explicit nil
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaWorkstationPackageUriNil() {
+	o.VdaWorkstationPackageUri.Set(nil)
+}
+
+// UnsetVdaWorkstationPackageUri ensures that no value is present for VdaWorkstationPackageUri, not even an explicit nil
+func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetVdaWorkstationPackageUri() {
+	o.VdaWorkstationPackageUri.Unset()
+}
+
+// GetVdaServerPackageUri returns the VdaServerPackageUri field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVdaServerPackageUri() string {
+	if o == nil || IsNil(o.VdaServerPackageUri.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VdaServerPackageUri.Get()
+}
+
+// GetVdaServerPackageUriOk returns a tuple with the VdaServerPackageUri field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVdaServerPackageUriOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VdaServerPackageUri.Get(), o.VdaServerPackageUri.IsSet()
+}
+
+// HasVdaServerPackageUri returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) HasVdaServerPackageUri() bool {
+	if o != nil && o.VdaServerPackageUri.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVdaServerPackageUri gets a reference to the given NullableString and assigns it to the VdaServerPackageUri field.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaServerPackageUri(v string) {
+	o.VdaServerPackageUri.Set(&v)
+}
+// SetVdaServerPackageUriNil sets the value for VdaServerPackageUri to be an explicit nil
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaServerPackageUriNil() {
+	o.VdaServerPackageUri.Set(nil)
+}
+
+// UnsetVdaServerPackageUri ensures that no value is present for VdaServerPackageUri, not even an explicit nil
+func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetVdaServerPackageUri() {
+	o.VdaServerPackageUri.Unset()
+}
+
 func (o CreateUpgradeScheduleForMachinesRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -152,6 +240,12 @@ func (o CreateUpgradeScheduleForMachinesRequestModel) ToMap() (map[string]interf
 		toSerialize["StartDateTimeUtc"] = o.StartDateTimeUtc.Get()
 	}
 	toSerialize["DurationInHours"] = o.DurationInHours
+	if o.VdaWorkstationPackageUri.IsSet() {
+		toSerialize["VdaWorkstationPackageUri"] = o.VdaWorkstationPackageUri.Get()
+	}
+	if o.VdaServerPackageUri.IsSet() {
+		toSerialize["VdaServerPackageUri"] = o.VdaServerPackageUri.Get()
+	}
 	return toSerialize, nil
 }
 

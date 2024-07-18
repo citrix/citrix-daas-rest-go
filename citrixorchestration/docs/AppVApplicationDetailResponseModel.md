@@ -14,18 +14,18 @@ Name | Type | Description | Notes
 **PackageVersion** | **string** | App package version. | 
 **PackageVersionId** | **string** | App package version id. | 
 **PublishingServer** | **string** | App publishing server. | 
+**Users** | Pointer to [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | Users associated with the App-V application on the management server. | [optional] 
 **Uid** | Pointer to **int32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED.  Use Id. | [optional] 
 **BrokerApplicationNames** | Pointer to **[]string** | Delivered broker application names. | [optional] 
 **SequenceLocation** | **string** | App sequence location. | 
 **TargetInPackage** | **bool** | Whether the app target is in a package. | 
-**Users** | [**[]IdentityUserResponseModel**](IdentityUserResponseModel.md) | Users associated with the App-V application on the management server. | 
 **WorkingDirectory** | **string** | Working directory for the App-V application as defined on the management server. | 
 
 ## Methods
 
 ### NewAppVApplicationDetailResponseModel
 
-`func NewAppVApplicationDetailResponseModel(id string, name string, packageId string, packageName string, packageVersion string, packageVersionId string, publishingServer string, sequenceLocation string, targetInPackage bool, users []IdentityUserResponseModel, workingDirectory string, ) *AppVApplicationDetailResponseModel`
+`func NewAppVApplicationDetailResponseModel(id string, name string, packageId string, packageName string, packageVersion string, packageVersionId string, publishingServer string, sequenceLocation string, targetInPackage bool, workingDirectory string, ) *AppVApplicationDetailResponseModel`
 
 NewAppVApplicationDetailResponseModel instantiates a new AppVApplicationDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -285,6 +285,41 @@ and a boolean to check if the value has been set.
 SetPublishingServer sets PublishingServer field to given value.
 
 
+### GetUsers
+
+`func (o *AppVApplicationDetailResponseModel) GetUsers() []IdentityUserResponseModel`
+
+GetUsers returns the Users field if non-nil, zero value otherwise.
+
+### GetUsersOk
+
+`func (o *AppVApplicationDetailResponseModel) GetUsersOk() (*[]IdentityUserResponseModel, bool)`
+
+GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUsers
+
+`func (o *AppVApplicationDetailResponseModel) SetUsers(v []IdentityUserResponseModel)`
+
+SetUsers sets Users field to given value.
+
+### HasUsers
+
+`func (o *AppVApplicationDetailResponseModel) HasUsers() bool`
+
+HasUsers returns a boolean if a field has been set.
+
+### SetUsersNil
+
+`func (o *AppVApplicationDetailResponseModel) SetUsersNil(b bool)`
+
+ SetUsersNil sets the value for Users to be an explicit nil
+
+### UnsetUsers
+`func (o *AppVApplicationDetailResponseModel) UnsetUsers()`
+
+UnsetUsers ensures that no value is present for Users, not even an explicit nil
 ### GetUid
 
 `func (o *AppVApplicationDetailResponseModel) GetUid() int32`
@@ -383,26 +418,6 @@ and a boolean to check if the value has been set.
 `func (o *AppVApplicationDetailResponseModel) SetTargetInPackage(v bool)`
 
 SetTargetInPackage sets TargetInPackage field to given value.
-
-
-### GetUsers
-
-`func (o *AppVApplicationDetailResponseModel) GetUsers() []IdentityUserResponseModel`
-
-GetUsers returns the Users field if non-nil, zero value otherwise.
-
-### GetUsersOk
-
-`func (o *AppVApplicationDetailResponseModel) GetUsersOk() (*[]IdentityUserResponseModel, bool)`
-
-GetUsersOk returns a tuple with the Users field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUsers
-
-`func (o *AppVApplicationDetailResponseModel) SetUsers(v []IdentityUserResponseModel)`
-
-SetUsers sets Users field to given value.
 
 
 ### GetWorkingDirectory

@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **AzureADAccessToken** | Pointer to **NullableString** | Azure AD access token. | [optional] 
 **DeviceManagementType** | Pointer to **NullableString** | Device management type. | [optional] 
 **AzureADTenantId** | Pointer to **NullableString** | Azure AD tenant id. | [optional] 
+**ServiceAccountUid** | Pointer to **[]string** | Service account Uids associated with this IdentityPool | [optional] 
 
 ## Methods
 
@@ -644,6 +645,41 @@ HasAzureADTenantId returns a boolean if a field has been set.
 `func (o *MachineIdentityPoolResponseModel) UnsetAzureADTenantId()`
 
 UnsetAzureADTenantId ensures that no value is present for AzureADTenantId, not even an explicit nil
+### GetServiceAccountUid
+
+`func (o *MachineIdentityPoolResponseModel) GetServiceAccountUid() []string`
+
+GetServiceAccountUid returns the ServiceAccountUid field if non-nil, zero value otherwise.
+
+### GetServiceAccountUidOk
+
+`func (o *MachineIdentityPoolResponseModel) GetServiceAccountUidOk() (*[]string, bool)`
+
+GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountUid
+
+`func (o *MachineIdentityPoolResponseModel) SetServiceAccountUid(v []string)`
+
+SetServiceAccountUid sets ServiceAccountUid field to given value.
+
+### HasServiceAccountUid
+
+`func (o *MachineIdentityPoolResponseModel) HasServiceAccountUid() bool`
+
+HasServiceAccountUid returns a boolean if a field has been set.
+
+### SetServiceAccountUidNil
+
+`func (o *MachineIdentityPoolResponseModel) SetServiceAccountUidNil(b bool)`
+
+ SetServiceAccountUidNil sets the value for ServiceAccountUid to be an explicit nil
+
+### UnsetServiceAccountUid
+`func (o *MachineIdentityPoolResponseModel) UnsetServiceAccountUid()`
+
+UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -43,6 +43,8 @@ type MachineCatalogUpgradeDetail struct {
 	CancelledUpgradeCount *int32 `json:"CancelledUpgradeCount,omitempty"`
 	// Count of machines who is waiting to upgrade.
 	WaitingToUpgradeCount *int32 `json:"WaitingToUpgradeCount,omitempty"`
+	// Count of machines who is available for upgrade.
+	AvailableForUpgradeCount NullableInt32 `json:"AvailableForUpgradeCount,omitempty"`
 }
 
 // NewMachineCatalogUpgradeDetail instantiates a new MachineCatalogUpgradeDetail object
@@ -456,6 +458,48 @@ func (o *MachineCatalogUpgradeDetail) SetWaitingToUpgradeCount(v int32) {
 	o.WaitingToUpgradeCount = &v
 }
 
+// GetAvailableForUpgradeCount returns the AvailableForUpgradeCount field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MachineCatalogUpgradeDetail) GetAvailableForUpgradeCount() int32 {
+	if o == nil || IsNil(o.AvailableForUpgradeCount.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.AvailableForUpgradeCount.Get()
+}
+
+// GetAvailableForUpgradeCountOk returns a tuple with the AvailableForUpgradeCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MachineCatalogUpgradeDetail) GetAvailableForUpgradeCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AvailableForUpgradeCount.Get(), o.AvailableForUpgradeCount.IsSet()
+}
+
+// HasAvailableForUpgradeCount returns a boolean if a field has been set.
+func (o *MachineCatalogUpgradeDetail) HasAvailableForUpgradeCount() bool {
+	if o != nil && o.AvailableForUpgradeCount.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAvailableForUpgradeCount gets a reference to the given NullableInt32 and assigns it to the AvailableForUpgradeCount field.
+func (o *MachineCatalogUpgradeDetail) SetAvailableForUpgradeCount(v int32) {
+	o.AvailableForUpgradeCount.Set(&v)
+}
+// SetAvailableForUpgradeCountNil sets the value for AvailableForUpgradeCount to be an explicit nil
+func (o *MachineCatalogUpgradeDetail) SetAvailableForUpgradeCountNil() {
+	o.AvailableForUpgradeCount.Set(nil)
+}
+
+// UnsetAvailableForUpgradeCount ensures that no value is present for AvailableForUpgradeCount, not even an explicit nil
+func (o *MachineCatalogUpgradeDetail) UnsetAvailableForUpgradeCount() {
+	o.AvailableForUpgradeCount.Unset()
+}
+
 func (o MachineCatalogUpgradeDetail) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -501,6 +545,9 @@ func (o MachineCatalogUpgradeDetail) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.WaitingToUpgradeCount) {
 		toSerialize["WaitingToUpgradeCount"] = o.WaitingToUpgradeCount
+	}
+	if o.AvailableForUpgradeCount.IsSet() {
+		toSerialize["AvailableForUpgradeCount"] = o.AvailableForUpgradeCount.Get()
 	}
 	return toSerialize, nil
 }

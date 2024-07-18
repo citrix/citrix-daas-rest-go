@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SettingName** | Pointer to **NullableString** | Name of the setting. | [optional] 
-**WinningPolicy** | Pointer to [**PolicyIdentity**](PolicyIdentity.md) |  | [optional] 
+**PolicyName** | Pointer to **NullableString** | Name of the policy. | [optional] 
+**GpoName** | Pointer to **NullableString** | Name of the GPO that contains the policy that uses this setting. | [optional] 
 
 ## Methods
 
@@ -61,31 +62,76 @@ HasSettingName returns a boolean if a field has been set.
 `func (o *WonOverBy) UnsetSettingName()`
 
 UnsetSettingName ensures that no value is present for SettingName, not even an explicit nil
-### GetWinningPolicy
+### GetPolicyName
 
-`func (o *WonOverBy) GetWinningPolicy() PolicyIdentity`
+`func (o *WonOverBy) GetPolicyName() string`
 
-GetWinningPolicy returns the WinningPolicy field if non-nil, zero value otherwise.
+GetPolicyName returns the PolicyName field if non-nil, zero value otherwise.
 
-### GetWinningPolicyOk
+### GetPolicyNameOk
 
-`func (o *WonOverBy) GetWinningPolicyOk() (*PolicyIdentity, bool)`
+`func (o *WonOverBy) GetPolicyNameOk() (*string, bool)`
 
-GetWinningPolicyOk returns a tuple with the WinningPolicy field if it's non-nil, zero value otherwise
+GetPolicyNameOk returns a tuple with the PolicyName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWinningPolicy
+### SetPolicyName
 
-`func (o *WonOverBy) SetWinningPolicy(v PolicyIdentity)`
+`func (o *WonOverBy) SetPolicyName(v string)`
 
-SetWinningPolicy sets WinningPolicy field to given value.
+SetPolicyName sets PolicyName field to given value.
 
-### HasWinningPolicy
+### HasPolicyName
 
-`func (o *WonOverBy) HasWinningPolicy() bool`
+`func (o *WonOverBy) HasPolicyName() bool`
 
-HasWinningPolicy returns a boolean if a field has been set.
+HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *WonOverBy) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *WonOverBy) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
+### GetGpoName
+
+`func (o *WonOverBy) GetGpoName() string`
+
+GetGpoName returns the GpoName field if non-nil, zero value otherwise.
+
+### GetGpoNameOk
+
+`func (o *WonOverBy) GetGpoNameOk() (*string, bool)`
+
+GetGpoNameOk returns a tuple with the GpoName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGpoName
+
+`func (o *WonOverBy) SetGpoName(v string)`
+
+SetGpoName sets GpoName field to given value.
+
+### HasGpoName
+
+`func (o *WonOverBy) HasGpoName() bool`
+
+HasGpoName returns a boolean if a field has been set.
+
+### SetGpoNameNil
+
+`func (o *WonOverBy) SetGpoNameNil(b bool)`
+
+ SetGpoNameNil sets the value for GpoName to be an explicit nil
+
+### UnsetGpoName
+`func (o *WonOverBy) UnsetGpoName()`
+
+UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

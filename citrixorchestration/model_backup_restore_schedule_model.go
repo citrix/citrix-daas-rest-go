@@ -43,6 +43,8 @@ type BackupRestoreScheduleModel struct {
 	TimeZoneId NullableString `json:"TimeZoneId,omitempty"`
 	// Notes added to backup 
 	Notes NullableString `json:"Notes,omitempty"`
+	// Last Run Time
+	LastRunTime NullableString `json:"LastRunTime,omitempty"`
 }
 
 // NewBackupRestoreScheduleModel instantiates a new BackupRestoreScheduleModel object
@@ -581,6 +583,48 @@ func (o *BackupRestoreScheduleModel) UnsetNotes() {
 	o.Notes.Unset()
 }
 
+// GetLastRunTime returns the LastRunTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BackupRestoreScheduleModel) GetLastRunTime() string {
+	if o == nil || IsNil(o.LastRunTime.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LastRunTime.Get()
+}
+
+// GetLastRunTimeOk returns a tuple with the LastRunTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BackupRestoreScheduleModel) GetLastRunTimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LastRunTime.Get(), o.LastRunTime.IsSet()
+}
+
+// HasLastRunTime returns a boolean if a field has been set.
+func (o *BackupRestoreScheduleModel) HasLastRunTime() bool {
+	if o != nil && o.LastRunTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastRunTime gets a reference to the given NullableString and assigns it to the LastRunTime field.
+func (o *BackupRestoreScheduleModel) SetLastRunTime(v string) {
+	o.LastRunTime.Set(&v)
+}
+// SetLastRunTimeNil sets the value for LastRunTime to be an explicit nil
+func (o *BackupRestoreScheduleModel) SetLastRunTimeNil() {
+	o.LastRunTime.Set(nil)
+}
+
+// UnsetLastRunTime ensures that no value is present for LastRunTime, not even an explicit nil
+func (o *BackupRestoreScheduleModel) UnsetLastRunTime() {
+	o.LastRunTime.Unset()
+}
+
 func (o BackupRestoreScheduleModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -632,6 +676,9 @@ func (o BackupRestoreScheduleModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Notes.IsSet() {
 		toSerialize["Notes"] = o.Notes.Get()
+	}
+	if o.LastRunTime.IsSet() {
+		toSerialize["LastRunTime"] = o.LastRunTime.Get()
 	}
 	return toSerialize, nil
 }

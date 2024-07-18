@@ -13,6 +13,8 @@
 
 * `EXISTING_RESTORE_IN_PROGRESS` (value: `"ExistingRestoreInProgress"`)
 
+* `STORAGE_NOT_VALID` (value: `"StorageNotValid"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

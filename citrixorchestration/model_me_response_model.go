@@ -22,7 +22,7 @@ type MeResponseModel struct {
 	// Id of the logged-in user. Internally: this is the *sub* from the bearer token.  NOT the user_id.
 	UserId string `json:"UserId"`
 	// Display name of the user. Internally: the *displayname* from the bearer token.
-	DisplayName string `json:"DisplayName"`
+	DisplayName NullableString `json:"DisplayName,omitempty"`
 	// Time when the login token expires. RFC 3339 compatible format. Internally: the *exp* from the bearer token, converted to RFC 3339.
 	ExpiryTime string `json:"ExpiryTime"`
 	// Time after which the login token can no longer be refreshed. RFC 3339 compatible format. Internally: the *refresh_expiration* from the bearer token, converted to RFC 3339.
@@ -39,10 +39,9 @@ type MeResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMeResponseModel(userId string, displayName string, expiryTime string, refreshExpirationTime string, customers []MyCustomerResponseModel) *MeResponseModel {
+func NewMeResponseModel(userId string, expiryTime string, refreshExpirationTime string, customers []MyCustomerResponseModel) *MeResponseModel {
 	this := MeResponseModel{}
 	this.UserId = userId
-	this.DisplayName = displayName
 	this.ExpiryTime = expiryTime
 	this.RefreshExpirationTime = refreshExpirationTime
 	this.Customers = customers
@@ -81,28 +80,46 @@ func (o *MeResponseModel) SetUserId(v string) {
 	o.UserId = v
 }
 
-// GetDisplayName returns the DisplayName field value
+// GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MeResponseModel) GetDisplayName() string {
-	if o == nil {
+	if o == nil || IsNil(o.DisplayName.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.DisplayName
+	return *o.DisplayName.Get()
 }
 
-// GetDisplayNameOk returns a tuple with the DisplayName field value
+// GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MeResponseModel) GetDisplayNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.DisplayName, true
+	return o.DisplayName.Get(), o.DisplayName.IsSet()
 }
 
-// SetDisplayName sets field value
+// HasDisplayName returns a boolean if a field has been set.
+func (o *MeResponseModel) HasDisplayName() bool {
+	if o != nil && o.DisplayName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
 func (o *MeResponseModel) SetDisplayName(v string) {
-	o.DisplayName = v
+	o.DisplayName.Set(&v)
+}
+// SetDisplayNameNil sets the value for DisplayName to be an explicit nil
+func (o *MeResponseModel) SetDisplayNameNil() {
+	o.DisplayName.Set(nil)
+}
+
+// UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
+func (o *MeResponseModel) UnsetDisplayName() {
+	o.DisplayName.Unset()
 }
 
 // GetExpiryTime returns the ExpiryTime field value
@@ -262,7 +279,9 @@ func (o MeResponseModel) MarshalJSON() ([]byte, error) {
 func (o MeResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["UserId"] = o.UserId
-	toSerialize["DisplayName"] = o.DisplayName
+	if o.DisplayName.IsSet() {
+		toSerialize["DisplayName"] = o.DisplayName.Get()
+	}
 	toSerialize["ExpiryTime"] = o.ExpiryTime
 	toSerialize["RefreshExpirationTime"] = o.RefreshExpirationTime
 	if o.VerifiedEmail.IsSet() {

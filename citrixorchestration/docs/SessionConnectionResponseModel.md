@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Protocol** | Pointer to [**ProtocolType**](ProtocolType.md) |  | [optional] 
 **SecureIcaActive** | Pointer to **NullableBool** | Indicates whether SecureICA is active on the session. | [optional] 
 **SmartAccessTags** | Pointer to [**[]SmartAccessTagResponseModel**](SmartAccessTagResponseModel.md) | The Smart Access tags for this session. | [optional] 
+**LaunchedViaPublishedName** | Pointer to **NullableString** | The published name of the StoreFront server used to launch the session. | [optional] 
 
 ## Methods
 
@@ -292,6 +293,41 @@ HasSmartAccessTags returns a boolean if a field has been set.
 `func (o *SessionConnectionResponseModel) UnsetSmartAccessTags()`
 
 UnsetSmartAccessTags ensures that no value is present for SmartAccessTags, not even an explicit nil
+### GetLaunchedViaPublishedName
+
+`func (o *SessionConnectionResponseModel) GetLaunchedViaPublishedName() string`
+
+GetLaunchedViaPublishedName returns the LaunchedViaPublishedName field if non-nil, zero value otherwise.
+
+### GetLaunchedViaPublishedNameOk
+
+`func (o *SessionConnectionResponseModel) GetLaunchedViaPublishedNameOk() (*string, bool)`
+
+GetLaunchedViaPublishedNameOk returns a tuple with the LaunchedViaPublishedName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLaunchedViaPublishedName
+
+`func (o *SessionConnectionResponseModel) SetLaunchedViaPublishedName(v string)`
+
+SetLaunchedViaPublishedName sets LaunchedViaPublishedName field to given value.
+
+### HasLaunchedViaPublishedName
+
+`func (o *SessionConnectionResponseModel) HasLaunchedViaPublishedName() bool`
+
+HasLaunchedViaPublishedName returns a boolean if a field has been set.
+
+### SetLaunchedViaPublishedNameNil
+
+`func (o *SessionConnectionResponseModel) SetLaunchedViaPublishedNameNil(b bool)`
+
+ SetLaunchedViaPublishedNameNil sets the value for LaunchedViaPublishedName to be an explicit nil
+
+### UnsetLaunchedViaPublishedName
+`func (o *SessionConnectionResponseModel) UnsetLaunchedViaPublishedName()`
+
+UnsetLaunchedViaPublishedName ensures that no value is present for LaunchedViaPublishedName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -39,6 +39,7 @@ const (
 	BCKRSTRAUTOCONFIGCOMPONENTS_GROUP_POLICIES BckRstrAutoConfigComponents = "GroupPolicies"
 	BCKRSTRAUTOCONFIGCOMPONENTS_USER_ZONE_PREFERENCES BckRstrAutoConfigComponents = "UserZonePreferences"
 	BCKRSTRAUTOCONFIGCOMPONENTS_SITE_DATA BckRstrAutoConfigComponents = "SiteData"
+	BCKRSTRAUTOCONFIGCOMPONENTS_ZONES BckRstrAutoConfigComponents = "Zones"
 	BCKRSTRAUTOCONFIGCOMPONENTS_ALL BckRstrAutoConfigComponents = "All"
 	BCKRSTRAUTOCONFIGCOMPONENTS_MULTIPLE BckRstrAutoConfigComponents = "Multiple"
 	BCKRSTRAUTOCONFIGCOMPONENTS_UNDEFINED BckRstrAutoConfigComponents = "Undefined"
@@ -65,6 +66,7 @@ var AllowedBckRstrAutoConfigComponentsEnumValues = []BckRstrAutoConfigComponents
 	"GroupPolicies",
 	"UserZonePreferences",
 	"SiteData",
+	"Zones",
 	"All",
 	"Multiple",
 	"Undefined",

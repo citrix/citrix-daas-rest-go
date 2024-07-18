@@ -23,6 +23,9 @@ const (
 	AUTHENTICATOR_NONE Authenticator = "None"
 	AUTHENTICATOR_BASIC Authenticator = "Basic"
 	AUTHENTICATOR_INTEGRATED_WINDOWS_AUTHENTICATION Authenticator = "IntegratedWindowsAuthentication"
+	AUTHENTICATOR_BASIC_AND_INTEGRATED_WINDOWS_AUTHENTICATION Authenticator = "BasicAndIntegratedWindowsAuthentication"
+	AUTHENTICATOR_SMART_CARD Authenticator = "SmartCard"
+	AUTHENTICATOR_BASIC_AND_SMART_CARD Authenticator = "BasicAndSmartCard"
 	AUTHENTICATOR_ALL Authenticator = "All"
 )
 
@@ -31,6 +34,9 @@ var AllowedAuthenticatorEnumValues = []Authenticator{
 	"None",
 	"Basic",
 	"IntegratedWindowsAuthentication",
+	"BasicAndIntegratedWindowsAuthentication",
+	"SmartCard",
+	"BasicAndSmartCard",
 	"All",
 }
 

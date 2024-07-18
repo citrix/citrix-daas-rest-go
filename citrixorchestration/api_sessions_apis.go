@@ -329,6 +329,7 @@ type ApiSessionsDoSessionSearchRequest struct {
 	userAgent *string
 	authorization *string
 	citrixTransactionId *string
+	xTimeZone *string
 	accept *string
 	citrixLocale *string
 	limit *int32
@@ -371,6 +372,12 @@ func (r ApiSessionsDoSessionSearchRequest) Authorization(authorization string) A
 // Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
 func (r ApiSessionsDoSessionSearchRequest) CitrixTransactionId(citrixTransactionId string) ApiSessionsDoSessionSearchRequest {
 	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00
+func (r ApiSessionsDoSessionSearchRequest) XTimeZone(xTimeZone string) ApiSessionsDoSessionSearchRequest {
+	r.xTimeZone = &xTimeZone
 	return r
 }
 
@@ -508,6 +515,9 @@ func (a *SessionsAPIsDAASService) SessionsDoSessionSearchExecute(r ApiSessionsDo
 	}
 	if r.citrixTransactionId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xTimeZone != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-TimeZone", r.xTimeZone, "")
 	}
 	if r.accept != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")

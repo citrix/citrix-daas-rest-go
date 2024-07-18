@@ -435,7 +435,9 @@ func (r ApiGetSTFStoreEnumerationOptionsRequest) Execute() (models.GetSTFStoreEn
 	if err != nil {
 		return models.GetSTFStoreEnumerationOptionsResponseModel{}, err
 	}
-
+	if len(bytes) == 0 {
+		return models.GetSTFStoreEnumerationOptionsResponseModel{}, fmt.Errorf(NOT_EXIST)
+	}
 	var rawResponse = models.GetSTFStoreEnumerationOptionsRawResponseModel{}
 	unMarshalErr := json.Unmarshal(bytes, &rawResponse)
 	if unMarshalErr != nil {
@@ -447,7 +449,7 @@ func (r ApiGetSTFStoreEnumerationOptionsRequest) Execute() (models.GetSTFStoreEn
 
 func (a *STFStore) GetSTFStoreEnumerationOptionsExecute(r ApiGetSTFStoreEnumerationOptionsRequest) ([]byte, error) {
 	var setStoreEnumerationOptionsParams = StructToString(r.getSTFStoreServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams), setStoreEnumerationOptionsParams)
 }
 
 func (a *STFStore) STFStoreGetSTFStoreEnumerationOptions(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreEnumerationOptionsRequest {
@@ -513,7 +515,7 @@ func (a *STFStore) DisableSTFStorePnaExecute(r ApiDisableSTFStorePnaRequest) ([]
 	var removeStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Disable-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams))
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Disable-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams), "-Confirm:$false")
 	} else {
 		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Disable-STFStorePna", "-Confirm:$false")
 	}
@@ -571,6 +573,10 @@ type ApiGETSTFStorePnaRequest struct {
 	getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel //This is used to set the StoreService for the SetSTFStoreFarmRequest
 }
 
+type tempStoreService struct {
+	FeatureData json.RawMessage `json:"FeatureData"`
+}
+
 func (r ApiGETSTFStorePnaRequest) Execute() (models.STFPna, error) {
 	bytes, err := r.ApiService.GetSTFStorePnaExecute(r)
 	if err != nil {
@@ -587,6 +593,17 @@ func (r ApiGETSTFStorePnaRequest) Execute() (models.STFPna, error) {
 		return models.STFPna{}, fmt.Errorf("error unmarshal STFStorePna: %v", err)
 	}
 	err = json.Unmarshal(*objmap["DefaultPnaService"], &reponse.DefaultPnaService)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return models.STFPna{}, fmt.Errorf("error unmarshal STFStorePna: %v", err)
+	}
+	var storeService tempStoreService
+	err = json.Unmarshal(*objmap["StoreService"], &storeService)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return models.STFPna{}, fmt.Errorf("error unmarshal StoreService: %v", err)
+	}
+	err = json.Unmarshal(storeService.FeatureData, &reponse.FeatureData)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return models.STFPna{}, fmt.Errorf("error unmarshal STFStorePna: %v", err)
@@ -685,5 +702,152 @@ func (a *STFStore) STFStoreSetSTFStoreLaunchOptions(ctx context.Context, setSTFS
 		ctx:                             ctx,
 		setSTFStoreLaunchOptionsRequest: setSTFStoreLaunchOptionsRequest,
 		getSTFStoreServiceRequestModel:  getSTFStoreRequestModel,
+	}
+}
+
+// Set-STFStoreGatewayService
+type ApiSETStoreGatewayServiceRequest struct {
+	ctx                                   context.Context
+	ApiService                            *STFStore
+	getSTFStoreServiceRequestModel        models.GetSTFStoreRequestModel //This is used to set the StoreService for the SetSTFStoreFarmRequest
+	setSTFStoreGatewayServiceRequestModel models.STFStoreGatewayServiceSetRequestModel
+}
+
+func (r ApiSETStoreGatewayServiceRequest) Execute() error {
+	_, err := r.ApiService.SETStoreGatewayServiceExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFStore) SETStoreGatewayServiceExecute(r ApiSETStoreGatewayServiceRequest) ([]byte, error) {
+	var setStoreGatewayServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
+
+	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreGatewayService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreGatewayServiceParams))
+	} else {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreGatewayService")
+	}
+}
+
+func (a *STFStore) STFStoreSETStoreGatewayService(ctx context.Context, setSTFStoreGatewayServiceRequestModel models.STFStoreGatewayServiceSetRequestModel, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiSETStoreGatewayServiceRequest {
+	return ApiSETStoreGatewayServiceRequest{
+		ApiService:                            a,
+		ctx:                                   ctx,
+		setSTFStoreGatewayServiceRequestModel: setSTFStoreGatewayServiceRequestModel,
+		getSTFStoreServiceRequestModel:        getSTFStoreRequestModel,
+	}
+}
+
+// Get-STFStoreGatewayService
+type ApiGETStoreGatewayServiceRequest struct {
+	ctx                            context.Context
+	ApiService                     *STFStore
+	getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel //This is used to set the StoreService for the SetSTFStoreFarmRequest
+}
+
+func (r ApiGETStoreGatewayServiceRequest) Execute() (models.STFStoreGatewayServiceResponseModel, error) {
+	bytes, err := r.ApiService.GETStoreGatewayServiceExecute(r)
+	if err != nil {
+		return models.STFStoreGatewayServiceResponseModel{}, err
+	}
+	if len(bytes) == 0 {
+		return models.STFStoreGatewayServiceResponseModel{}, fmt.Errorf(NOT_EXIST)
+	}
+	var rawResponse = models.STFStoreGatewayServiceRawResponseModel{}
+	unMarshalErr := json.Unmarshal(bytes, &rawResponse)
+	if unMarshalErr != nil {
+		fmt.Println("Error:", unMarshalErr)
+		return models.STFStoreGatewayServiceResponseModel{}, fmt.Errorf("error occurred while unmarshalling StoreGatewayService response: %v", unMarshalErr.Error())
+	}
+	return rawResponse.ConvertToResponseModel(), nil
+}
+
+func (a *STFStore) GETStoreGatewayServiceExecute(r ApiGETStoreGatewayServiceRequest) ([]byte, error) {
+	var removeStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
+
+	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreGatewayService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams))
+	} else {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreGatewayService")
+	}
+}
+
+func (a *STFStore) STFStoreGETStoreGatewayService(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGETStoreGatewayServiceRequest {
+	return ApiGETStoreGatewayServiceRequest{
+		ApiService:                     a,
+		ctx:                            ctx,
+		getSTFStoreServiceRequestModel: getSTFStoreRequestModel,
+	}
+}
+
+// Get-STFRoamingAccount
+
+type ApiGetSTFRoamingAccountRequest struct {
+	ctx                     context.Context
+	ApiService              *STFStore
+	getSTFStoreRequestModel models.GetSTFStoreRequestModel
+}
+
+func (r ApiGetSTFRoamingAccountRequest) Execute() (models.GetSTFRoamingAccountResponseModel, error) {
+	bytes, err := r.ApiService.GetSTFRoamingAccountExecute(r)
+	if err != nil {
+		return models.GetSTFRoamingAccountResponseModel{}, err
+	}
+	var reponse = models.GetSTFRoamingAccountResponseModel{}
+	unMarshalErr := json.Unmarshal(bytes, &reponse)
+	if unMarshalErr != nil {
+		return models.GetSTFRoamingAccountResponseModel{}, fmt.Errorf("error unmarshal GetSTFRoamingAccountResponseModel: %v", unMarshalErr.Error())
+	}
+	return reponse, nil
+}
+
+func (a *STFStore) GetSTFRoamingAccountExecute(r ApiGetSTFRoamingAccountRequest) ([]byte, error) {
+	var param = StructToString(r.getSTFStoreRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingAccount", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", param))
+}
+
+func (a *STFStore) STFRoamingAccountGet(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFRoamingAccountRequest {
+	return ApiGetSTFRoamingAccountRequest{
+		ApiService:              a,
+		ctx:                     ctx,
+		getSTFStoreRequestModel: getSTFStoreRequestModel,
+	}
+}
+
+// Set-STFRoamingAccount
+
+type ApiSetSTFRoamingAccountRequest struct {
+	ctx                              context.Context
+	ApiService                       *STFStore
+	SetSTFRoamingAccountRequestModel models.SetSTFRoamingAccountRequestModel
+	getSTFStoreServiceRequestModel   models.GetSTFStoreRequestModel
+}
+
+func (r ApiSetSTFRoamingAccountRequest) Execute() error {
+	_, err := r.ApiService.SetSTFRoamingAccountExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFStore) SetSTFRoamingAccountExecute(r ApiSetSTFRoamingAccountRequest) ([]byte, error) {
+	var getStoreParam = StructToString(r.getSTFStoreServiceRequestModel)
+	var getRoamAccParam = StructToString(r.SetSTFRoamingAccountRequestModel)
+	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingAccount", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreParam), getRoamAccParam)
+	} else {
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingAccount", getRoamAccParam, "-Confirm:$false")
+	}
+}
+
+func (a *STFStore) STFRoamingAccountSet(ctx context.Context, setSTFRoamingAccountRequestModel models.SetSTFRoamingAccountRequestModel, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiSetSTFRoamingAccountRequest {
+	return ApiSetSTFRoamingAccountRequest{
+		ApiService:                       a,
+		ctx:                              ctx,
+		SetSTFRoamingAccountRequestModel: setSTFRoamingAccountRequestModel,
+		getSTFStoreServiceRequestModel:   getSTFStoreRequestModel,
 	}
 }

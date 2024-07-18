@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PolicyIdentity** | Pointer to [**PolicyIdentity**](PolicyIdentity.md) |  | [optional] 
-**Reasons** | Pointer to **map[string][]string** | Reasons why the policy is not applied according to filtering results. | [optional] 
+**PolicyName** | Pointer to **NullableString** | Name of the policy. | [optional] 
+**GpoName** | Pointer to **NullableString** | Name of the GPO that contains the policy that uses this setting. | [optional] 
+**Reasons** | Pointer to [**map[string][]ReasonDetail**](array.md) | Reasons why the policy is not applied according to filtering results. | [optional] 
 **Priority** | Pointer to **int32** | Policy priority. | [optional] 
-**Settings** | Pointer to [**[]WonOverBy**](WonOverBy.md) | The settings in the policy and the reason of losing for each setting. | [optional] 
+**WinningSettings** | Pointer to [**[]WonOverBy**](WonOverBy.md) | The settings in the policy and the reason of losing for each setting. | [optional] 
 
 ## Methods
 
@@ -28,47 +29,92 @@ NewLosingPolicyWithDefaults instantiates a new LosingPolicy object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetPolicyIdentity
+### GetPolicyName
 
-`func (o *LosingPolicy) GetPolicyIdentity() PolicyIdentity`
+`func (o *LosingPolicy) GetPolicyName() string`
 
-GetPolicyIdentity returns the PolicyIdentity field if non-nil, zero value otherwise.
+GetPolicyName returns the PolicyName field if non-nil, zero value otherwise.
 
-### GetPolicyIdentityOk
+### GetPolicyNameOk
 
-`func (o *LosingPolicy) GetPolicyIdentityOk() (*PolicyIdentity, bool)`
+`func (o *LosingPolicy) GetPolicyNameOk() (*string, bool)`
 
-GetPolicyIdentityOk returns a tuple with the PolicyIdentity field if it's non-nil, zero value otherwise
+GetPolicyNameOk returns a tuple with the PolicyName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPolicyIdentity
+### SetPolicyName
 
-`func (o *LosingPolicy) SetPolicyIdentity(v PolicyIdentity)`
+`func (o *LosingPolicy) SetPolicyName(v string)`
 
-SetPolicyIdentity sets PolicyIdentity field to given value.
+SetPolicyName sets PolicyName field to given value.
 
-### HasPolicyIdentity
+### HasPolicyName
 
-`func (o *LosingPolicy) HasPolicyIdentity() bool`
+`func (o *LosingPolicy) HasPolicyName() bool`
 
-HasPolicyIdentity returns a boolean if a field has been set.
+HasPolicyName returns a boolean if a field has been set.
 
+### SetPolicyNameNil
+
+`func (o *LosingPolicy) SetPolicyNameNil(b bool)`
+
+ SetPolicyNameNil sets the value for PolicyName to be an explicit nil
+
+### UnsetPolicyName
+`func (o *LosingPolicy) UnsetPolicyName()`
+
+UnsetPolicyName ensures that no value is present for PolicyName, not even an explicit nil
+### GetGpoName
+
+`func (o *LosingPolicy) GetGpoName() string`
+
+GetGpoName returns the GpoName field if non-nil, zero value otherwise.
+
+### GetGpoNameOk
+
+`func (o *LosingPolicy) GetGpoNameOk() (*string, bool)`
+
+GetGpoNameOk returns a tuple with the GpoName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGpoName
+
+`func (o *LosingPolicy) SetGpoName(v string)`
+
+SetGpoName sets GpoName field to given value.
+
+### HasGpoName
+
+`func (o *LosingPolicy) HasGpoName() bool`
+
+HasGpoName returns a boolean if a field has been set.
+
+### SetGpoNameNil
+
+`func (o *LosingPolicy) SetGpoNameNil(b bool)`
+
+ SetGpoNameNil sets the value for GpoName to be an explicit nil
+
+### UnsetGpoName
+`func (o *LosingPolicy) UnsetGpoName()`
+
+UnsetGpoName ensures that no value is present for GpoName, not even an explicit nil
 ### GetReasons
 
-`func (o *LosingPolicy) GetReasons() map[string][]string`
+`func (o *LosingPolicy) GetReasons() map[string][]ReasonDetail`
 
 GetReasons returns the Reasons field if non-nil, zero value otherwise.
 
 ### GetReasonsOk
 
-`func (o *LosingPolicy) GetReasonsOk() (*map[string][]string, bool)`
+`func (o *LosingPolicy) GetReasonsOk() (*map[string][]ReasonDetail, bool)`
 
 GetReasonsOk returns a tuple with the Reasons field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetReasons
 
-`func (o *LosingPolicy) SetReasons(v map[string][]string)`
+`func (o *LosingPolicy) SetReasons(v map[string][]ReasonDetail)`
 
 SetReasons sets Reasons field to given value.
 
@@ -113,41 +159,41 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
-### GetSettings
+### GetWinningSettings
 
-`func (o *LosingPolicy) GetSettings() []WonOverBy`
+`func (o *LosingPolicy) GetWinningSettings() []WonOverBy`
 
-GetSettings returns the Settings field if non-nil, zero value otherwise.
+GetWinningSettings returns the WinningSettings field if non-nil, zero value otherwise.
 
-### GetSettingsOk
+### GetWinningSettingsOk
 
-`func (o *LosingPolicy) GetSettingsOk() (*[]WonOverBy, bool)`
+`func (o *LosingPolicy) GetWinningSettingsOk() (*[]WonOverBy, bool)`
 
-GetSettingsOk returns a tuple with the Settings field if it's non-nil, zero value otherwise
+GetWinningSettingsOk returns a tuple with the WinningSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSettings
+### SetWinningSettings
 
-`func (o *LosingPolicy) SetSettings(v []WonOverBy)`
+`func (o *LosingPolicy) SetWinningSettings(v []WonOverBy)`
 
-SetSettings sets Settings field to given value.
+SetWinningSettings sets WinningSettings field to given value.
 
-### HasSettings
+### HasWinningSettings
 
-`func (o *LosingPolicy) HasSettings() bool`
+`func (o *LosingPolicy) HasWinningSettings() bool`
 
-HasSettings returns a boolean if a field has been set.
+HasWinningSettings returns a boolean if a field has been set.
 
-### SetSettingsNil
+### SetWinningSettingsNil
 
-`func (o *LosingPolicy) SetSettingsNil(b bool)`
+`func (o *LosingPolicy) SetWinningSettingsNil(b bool)`
 
- SetSettingsNil sets the value for Settings to be an explicit nil
+ SetWinningSettingsNil sets the value for WinningSettings to be an explicit nil
 
-### UnsetSettings
-`func (o *LosingPolicy) UnsetSettings()`
+### UnsetWinningSettings
+`func (o *LosingPolicy) UnsetWinningSettings()`
 
-UnsetSettings ensures that no value is present for Settings, not even an explicit nil
+UnsetWinningSettings ensures that no value is present for WinningSettings, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

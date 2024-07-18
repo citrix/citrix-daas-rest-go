@@ -67,6 +67,8 @@ type UpdateMachineCatalogRequestModel struct {
 	AzureADSecurityGroupName NullableString `json:"AzureADSecurityGroupName,omitempty"`
 	// TenantId of Azure Directory.
 	AzureADTenantId NullableString `json:"AzureADTenantId,omitempty"`
+	// Indicates whether to associate service accounts to the IdentityPool.
+	ServiceAccountUid []string `json:"ServiceAccountUid,omitempty"`
 }
 
 // NewUpdateMachineCatalogRequestModel instantiates a new UpdateMachineCatalogRequestModel object
@@ -1053,6 +1055,39 @@ func (o *UpdateMachineCatalogRequestModel) UnsetAzureADTenantId() {
 	o.AzureADTenantId.Unset()
 }
 
+// GetServiceAccountUid returns the ServiceAccountUid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMachineCatalogRequestModel) GetServiceAccountUid() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ServiceAccountUid
+}
+
+// GetServiceAccountUidOk returns a tuple with the ServiceAccountUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMachineCatalogRequestModel) GetServiceAccountUidOk() ([]string, bool) {
+	if o == nil || IsNil(o.ServiceAccountUid) {
+		return nil, false
+	}
+	return o.ServiceAccountUid, true
+}
+
+// HasServiceAccountUid returns a boolean if a field has been set.
+func (o *UpdateMachineCatalogRequestModel) HasServiceAccountUid() bool {
+	if o != nil && IsNil(o.ServiceAccountUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetServiceAccountUid gets a reference to the given []string and assigns it to the ServiceAccountUid field.
+func (o *UpdateMachineCatalogRequestModel) SetServiceAccountUid(v []string) {
+	o.ServiceAccountUid = v
+}
+
 func (o UpdateMachineCatalogRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1137,6 +1172,9 @@ func (o UpdateMachineCatalogRequestModel) ToMap() (map[string]interface{}, error
 	}
 	if o.AzureADTenantId.IsSet() {
 		toSerialize["AzureADTenantId"] = o.AzureADTenantId.Get()
+	}
+	if o.ServiceAccountUid != nil {
+		toSerialize["ServiceAccountUid"] = o.ServiceAccountUid
 	}
 	return toSerialize, nil
 }

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the role. Name is globally unique. | 
 **Description** | Pointer to **NullableString** | The description of the admin role. | [optional] 
-**CanLaunchManage** | Pointer to **NullableBool** | Indicate that if the mangement page could be launch on xdconsole | [optional] 
-**CanLaunchMonitor** | Pointer to **NullableBool** | Indicate that if the monitor page could be launch on xdconsole | [optional] 
+**CanLaunchManage** | Pointer to **NullableBool** | Indicates whether the role has access to the Manage tab in Citrix Cloud. | [optional] 
+**CanLaunchMonitor** | Pointer to **NullableBool** | Indicates whether the role has access to the Monitor tab in Citrix Cloud. | [optional] 
 **Permissions** | Pointer to **[]string** | List of permissions granted by the role. At least one permission is required. | [optional] 
 
 ## Methods

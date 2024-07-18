@@ -41,6 +41,8 @@ type AppLibPackageDiscoveryProfileResponseModel struct {
 	DiscoverMsix *bool `json:"DiscoverMsix,omitempty"`
 	// A value indicating whether or not to search should Discover AppAttach Packages.
 	DiscoverAppAttach *bool `json:"DiscoverAppAttach,omitempty"`
+	// A value indicating whether or not to search should Discover FlexApp Packages.
+	DiscoverFlexApp *bool `json:"DiscoverFlexApp,omitempty"`
 	// A value indicating whether or not the discovery should run automatically.
 	AutomateDiscovery *bool `json:"AutomateDiscovery,omitempty"`
 	// A value indicating what time period should used to trigger the discovery.
@@ -478,6 +480,38 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) SetDiscoverAppAttach(v bool
 	o.DiscoverAppAttach = &v
 }
 
+// GetDiscoverFlexApp returns the DiscoverFlexApp field value if set, zero value otherwise.
+func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverFlexApp() bool {
+	if o == nil || IsNil(o.DiscoverFlexApp) {
+		var ret bool
+		return ret
+	}
+	return *o.DiscoverFlexApp
+}
+
+// GetDiscoverFlexAppOk returns a tuple with the DiscoverFlexApp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverFlexAppOk() (*bool, bool) {
+	if o == nil || IsNil(o.DiscoverFlexApp) {
+		return nil, false
+	}
+	return o.DiscoverFlexApp, true
+}
+
+// HasDiscoverFlexApp returns a boolean if a field has been set.
+func (o *AppLibPackageDiscoveryProfileResponseModel) HasDiscoverFlexApp() bool {
+	if o != nil && !IsNil(o.DiscoverFlexApp) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscoverFlexApp gets a reference to the given bool and assigns it to the DiscoverFlexApp field.
+func (o *AppLibPackageDiscoveryProfileResponseModel) SetDiscoverFlexApp(v bool) {
+	o.DiscoverFlexApp = &v
+}
+
 // GetAutomateDiscovery returns the AutomateDiscovery field value if set, zero value otherwise.
 func (o *AppLibPackageDiscoveryProfileResponseModel) GetAutomateDiscovery() bool {
 	if o == nil || IsNil(o.AutomateDiscovery) {
@@ -626,6 +660,9 @@ func (o AppLibPackageDiscoveryProfileResponseModel) ToMap() (map[string]interfac
 	}
 	if !IsNil(o.DiscoverAppAttach) {
 		toSerialize["DiscoverAppAttach"] = o.DiscoverAppAttach
+	}
+	if !IsNil(o.DiscoverFlexApp) {
+		toSerialize["DiscoverFlexApp"] = o.DiscoverFlexApp
 	}
 	if !IsNil(o.AutomateDiscovery) {
 		toSerialize["AutomateDiscovery"] = o.AutomateDiscovery

@@ -45,6 +45,8 @@ type HypervisorAzureConnectionDetailRequestModel struct {
 	SecretKeyFormat *IdentityPasswordFormat `json:"SecretKeyFormat,omitempty"`
 	// AWS region to connect to.  Optional.  If not specified, will connect to the global AWS APIs.  This can be used to discover the regions available within AWS.  Access to all other AWS resources requires the region to be set explicitly.
 	Region NullableString `json:"Region,omitempty"`
+	// Custom AWS Address.
+	Address NullableString `json:"Address,omitempty"`
 	// Application ID of the service principal used to access the Azure APIs.  Required.
 	ApplicationId string `json:"ApplicationId"`
 	// The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat.
@@ -608,6 +610,48 @@ func (o *HypervisorAzureConnectionDetailRequestModel) SetRegionNil() {
 // UnsetRegion ensures that no value is present for Region, not even an explicit nil
 func (o *HypervisorAzureConnectionDetailRequestModel) UnsetRegion() {
 	o.Region.Unset()
+}
+
+// GetAddress returns the Address field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorAzureConnectionDetailRequestModel) GetAddress() string {
+	if o == nil || IsNil(o.Address.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Address.Get()
+}
+
+// GetAddressOk returns a tuple with the Address field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorAzureConnectionDetailRequestModel) GetAddressOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Address.Get(), o.Address.IsSet()
+}
+
+// HasAddress returns a boolean if a field has been set.
+func (o *HypervisorAzureConnectionDetailRequestModel) HasAddress() bool {
+	if o != nil && o.Address.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAddress gets a reference to the given NullableString and assigns it to the Address field.
+func (o *HypervisorAzureConnectionDetailRequestModel) SetAddress(v string) {
+	o.Address.Set(&v)
+}
+// SetAddressNil sets the value for Address to be an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) SetAddressNil() {
+	o.Address.Set(nil)
+}
+
+// UnsetAddress ensures that no value is present for Address, not even an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) UnsetAddress() {
+	o.Address.Unset()
 }
 
 // GetApplicationId returns the ApplicationId field value
@@ -1518,6 +1562,9 @@ func (o HypervisorAzureConnectionDetailRequestModel) ToMap() (map[string]interfa
 	}
 	if o.Region.IsSet() {
 		toSerialize["Region"] = o.Region.Get()
+	}
+	if o.Address.IsSet() {
+		toSerialize["Address"] = o.Address.Get()
 	}
 	toSerialize["ApplicationId"] = o.ApplicationId
 	toSerialize["ApplicationSecret"] = o.ApplicationSecret

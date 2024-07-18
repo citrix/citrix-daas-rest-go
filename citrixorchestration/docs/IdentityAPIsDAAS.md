@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**IdentityAddAzureAdSecurityGroupMember**](IdentityAPIsDAAS.md#IdentityAddAzureAdSecurityGroupMember) | **Put** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId}/members/{refGroupId} | Add a security group to an assigned security as it&#39;s member
 [**IdentityCreateMachine**](IdentityAPIsDAAS.md#IdentityCreateMachine) | **Post** /Identity/Machines | Create machine identity
+[**IdentityCreateServiceAccount**](IdentityAPIsDAAS.md#IdentityCreateServiceAccount) | **Post** /Identity/ServiceAccount | Create a service account.
 [**IdentityDeleteMachine**](IdentityAPIsDAAS.md#IdentityDeleteMachine) | **Delete** /Identity/Machines/{machine} | Delete a machine identity
+[**IdentityDeleteServiceAccount**](IdentityAPIsDAAS.md#IdentityDeleteServiceAccount) | **Delete** /Identity/ServiceAccount/{serviceAccountUid} | Delete an existing service account.
 [**IdentityGetAzureADSecurityGroups**](IdentityAPIsDAAS.md#IdentityGetAzureADSecurityGroups) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId} | Get Azure AD security group by group id.
 [**IdentityGetAzureAdSecurityGroupMember**](IdentityAPIsDAAS.md#IdentityGetAzureAdSecurityGroupMember) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId}/members | Retrieves all the group type of members of a specific group
 [**IdentityGetContainer**](IdentityAPIsDAAS.md#IdentityGetContainer) | **Get** /Identity/Containers/{container} | Get a single container (e.g. OU)
@@ -19,11 +21,14 @@ Method | HTTP request | Description
 [**IdentityGetForests**](IdentityAPIsDAAS.md#IdentityGetForests) | **Get** /Identity/Forests | Get the list of forests from the identity provider
 [**IdentityGetMachine**](IdentityAPIsDAAS.md#IdentityGetMachine) | **Get** /Identity/Machines/{machine} | Get a single machine account from identity provider
 [**IdentityGetMachines**](IdentityAPIsDAAS.md#IdentityGetMachines) | **Get** /Identity/Machines | Get machine accounts from identity provider
+[**IdentityGetServiceAccount**](IdentityAPIsDAAS.md#IdentityGetServiceAccount) | **Get** /Identity/ServiceAccount/{serviceAccountUid} | Get a specific service account.
+[**IdentityGetServiceAccounts**](IdentityAPIsDAAS.md#IdentityGetServiceAccounts) | **Get** /Identity/ServiceAccounts | Get all service accounts.
 [**IdentityGetSite**](IdentityAPIsDAAS.md#IdentityGetSite) | **Get** /Identity/Sites/{site} | Get information about a single site
 [**IdentityGetSites**](IdentityAPIsDAAS.md#IdentityGetSites) | **Get** /Identity/Sites | Get list of sites from the identity provider
 [**IdentityGetUser**](IdentityAPIsDAAS.md#IdentityGetUser) | **Get** /Identity/Users/{userOrGroup} | Get a single user or group
 [**IdentityGetUsers**](IdentityAPIsDAAS.md#IdentityGetUsers) | **Get** /Identity/Users | Get users from identity provider
 [**IdentityQueryAzureAdSecurityGroups**](IdentityAPIsDAAS.md#IdentityQueryAzureAdSecurityGroups) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups | Query AzureAD security group by user&#39;s input.
+[**IdentitySetServiceAccount**](IdentityAPIsDAAS.md#IdentitySetServiceAccount) | **Patch** /Identity/ServiceAccount/{serviceAccountUid} | Set properties of an existing service account.
 [**IdentityUpdateMachine**](IdentityAPIsDAAS.md#IdentityUpdateMachine) | **Patch** /Identity/Machines/{machine} | Update a machine identity
 [**IdentityUpdateUser**](IdentityAPIsDAAS.md#IdentityUpdateUser) | **Patch** /Identity/Users/{user} | Update a user identity
 [**IdentityValidateUser**](IdentityAPIsDAAS.md#IdentityValidateUser) | **Post** /Identity/Users/$validate | Validate a user&#39;s credentials
@@ -202,6 +207,84 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## IdentityCreateServiceAccount
+
+> ServiceAccountResponseModel IdentityCreateServiceAccount(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Create a service account.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    createServiceAccountRequestModel := *openapiclient.NewCreateServiceAccountRequestModel("Valid types: AzureAD, ActiveDirectory", "Domain name if 'IdentityProviderType' is ActiveDirectory. Azure AD tenant id if 'IdentityProviderType' is AzureAD", "Domain user like "cvad\\joe" if 'IdentityProviderType' is ActiveDirectory"", "SecretExpiryTime_example", "AccountSecret_example") // CreateServiceAccountRequestModel | The object of CreateServiceAccountRequestModel used to create a service account. 
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityCreateServiceAccount(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityCreateServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `IdentityCreateServiceAccount`: ServiceAccountResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityCreateServiceAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentityCreateServiceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **createServiceAccountRequestModel** | [**CreateServiceAccountRequestModel**](CreateServiceAccountRequestModel.md) | The object of CreateServiceAccountRequestModel used to create a service account.  | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+[**ServiceAccountResponseModel**](ServiceAccountResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## IdentityDeleteMachine
 
 > IdentityDeleteMachine(ctx, machine).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Forest(forest).Domain(domain).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).DirectoryServerHint(directoryServerHint).Async(async).Execute()
@@ -275,6 +358,86 @@ Name | Type | Description  | Notes
  **citrixLocale** | **string** | Locale of the request. | 
  **directoryServerHint** | **string** | Hint to inform the system of a directory server which is most likely to successfully perform the operation. | 
  **async** | **bool** | If &#x60;true&#x60;, the machine identity will be deleted as a background task. | [default to false]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IdentityDeleteServiceAccount
+
+> IdentityDeleteServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Delete an existing service account.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of an existing service account. 
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.IdentityAPIsDAAS.IdentityDeleteServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityDeleteServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceAccountUid** | **string** | The ServiceAccountUid of an existing service account.  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentityDeleteServiceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
 
 ### Return type
 
@@ -1402,6 +1565,166 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## IdentityGetServiceAccount
+
+> ServiceAccountResponseModel IdentityGetServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Get a specific service account.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of a specific service account. 
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `IdentityGetServiceAccount`: ServiceAccountResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceAccountUid** | **string** | The ServiceAccountUid of a specific service account.  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentityGetServiceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+[**ServiceAccountResponseModel**](ServiceAccountResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IdentityGetServiceAccounts
+
+> ServiceAccountResponseModelCollection IdentityGetServiceAccounts(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Get all service accounts.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool |  (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccounts(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetServiceAccounts``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `IdentityGetServiceAccounts`: ServiceAccountResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetServiceAccounts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentityGetServiceAccountsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** |  | [default to false]
+
+### Return type
+
+[**ServiceAccountResponseModelCollection**](ServiceAccountResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## IdentityGetSite
 
 > IdentitySiteResponseModel IdentityGetSite(ctx, site).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).PropertiesToRetrieve(propertiesToRetrieve).Execute()
@@ -1684,7 +2007,7 @@ Name | Type | Description  | Notes
 
 ## IdentityGetUsers
 
-> IdentityUserResponseModelCollection IdentityGetUsers(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
+> IdentityUserResponseModelCollection IdentityGetUsers(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
 
 Get users from identity provider
 
@@ -1726,10 +2049,11 @@ func main() {
     propertiesToRetrieve := int32(56) // int32 | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. (optional) (default to 2147483647)
     limit := int32(56) // int32 | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. (optional)
     continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
+    async := true // bool | If `true`, the get users will be executed as a background task. The task will have JobType GetUsersIdentity. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUsers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Execute()
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUsers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetUsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1773,6 +2097,7 @@ Name | Type | Description  | Notes
  **propertiesToRetrieve** | **int32** | Properties to retrieve.  This should be specified as an integer representing the OR-ed together values of the properties.  If not specified, all properties will be retrieved. | [default to 2147483647]
  **limit** | **int32** | Maximum number of items to return.  If more items are available, a continuation token will be returned.  If not specified, all items will be returned. | 
  **continuationToken** | **string** | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. | 
+ **async** | **bool** | If &#x60;true&#x60;, the get users will be executed as a background task. The task will have JobType GetUsersIdentity. When the task is complete it will redirect to GetJobResults. | [default to false]
 
 ### Return type
 
@@ -1877,6 +2202,90 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IdentitySetServiceAccount
+
+> UpdateServiceAccountRequestModel IdentitySetServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Set properties of an existing service account.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    serviceAccountUid := "serviceAccountUid_example" // string | The ServiceAccountUid of service account. 
+    updateServiceAccountRequestModel := *openapiclient.NewUpdateServiceAccountRequestModel() // UpdateServiceAccountRequestModel | The object of UpdateServiceAccountRequestModel used to set an existing service account. 
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentitySetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentitySetServiceAccount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `IdentitySetServiceAccount`: UpdateServiceAccountRequestModel
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentitySetServiceAccount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**serviceAccountUid** | **string** | The ServiceAccountUid of service account.  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentitySetServiceAccountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **updateServiceAccountRequestModel** | [**UpdateServiceAccountRequestModel**](UpdateServiceAccountRequestModel.md) | The object of UpdateServiceAccountRequestModel used to set an existing service account.  | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+[**UpdateServiceAccountRequestModel**](UpdateServiceAccountRequestModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

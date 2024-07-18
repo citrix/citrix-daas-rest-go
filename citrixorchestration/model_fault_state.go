@@ -26,6 +26,7 @@ const (
 	FAULTSTATE_STUCK_ON_BOOT FaultState = "StuckOnBoot"
 	FAULTSTATE_UNREGISTERED FaultState = "Unregistered"
 	FAULTSTATE_MAX_CAPACITY FaultState = "MaxCapacity"
+	FAULTSTATE_VIRTUAL_MACHINE_NOT_FOUND FaultState = "VirtualMachineNotFound"
 )
 
 // All allowed values of FaultState enum
@@ -36,6 +37,7 @@ var AllowedFaultStateEnumValues = []FaultState{
 	"StuckOnBoot",
 	"Unregistered",
 	"MaxCapacity",
+	"VirtualMachineNotFound",
 }
 
 func (v *FaultState) UnmarshalJSON(src []byte) error {

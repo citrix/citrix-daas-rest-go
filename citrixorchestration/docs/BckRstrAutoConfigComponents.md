@@ -41,6 +41,8 @@
 
 * `SITE_DATA` (value: `"SiteData"`)
 
+* `ZONES` (value: `"Zones"`)
+
 * `ALL` (value: `"All"`)
 
 * `MULTIPLE` (value: `"Multiple"`)

@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ## ConfigLogDoConfigLogSearch
 
-> LogOperationResponseModelCollection ConfigLogDoConfigLogSearch(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogOperationSearchRequestModel(logOperationSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+> LogOperationResponseModelCollection ConfigLogDoConfigLogSearch(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogOperationSearchRequestModel(logOperationSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
 
 Perform an advanced search for configuration log entries.
 
@@ -121,6 +121,7 @@ func main() {
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     limit := int32(56) // int32 | The max number of configuration log entries returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
@@ -129,7 +130,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogOperationSearchRequestModel(logOperationSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogOperationSearchRequestModel(logOperationSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogDoConfigLogSearch``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -156,6 +157,7 @@ Name | Type | Description  | Notes
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xTimeZone** | **string** | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **limit** | **int32** | The max number of configuration log entries returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
@@ -660,7 +662,7 @@ Name | Type | Description  | Notes
 
 ## ConfigLogGetOperations
 
-> LogOperationResponseModelCollection ConfigLogGetOperations(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Text(text).Days(days).SearchDateOption(searchDateOption).TimeDiff(timeDiff).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+> LogOperationResponseModelCollection ConfigLogGetOperations(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Text(text).Days(days).SearchDateOption(searchDateOption).TimeDiff(timeDiff).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
 
 Get configuration log operations.
 
@@ -684,19 +686,20 @@ func main() {
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     text := "text_example" // string | Optional; Text pattern to match, which is case-insensitive and may include the wildcard \"*\". If specified, only return records which Text matched pattern. Otherwise, all records will be returned. (optional)
     days := int32(56) // int32 | Optional; Number of days of history to retrieve. Note: This parameter is exclusive with parameter searchDateOption. If neither is specified, all records will be returned. (optional)
     searchDateOption := openapiclient.SearchDateOption("LastMinute") // SearchDateOption | Optional; Specific time filters for searching operations. Note: This parameter is exclusive with parameter days. If neither is specified, all records will be returned. (optional)
-    timeDiff := int32(56) // int32 | Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff=28800; UTC-5, timeDiff=-18000. If not specified, it will be default to 0. (optional)
+    timeDiff := int32(56) // int32 | [DEPRECATED] This parameter is deprecated, please use \"X-TimeZone\" header instead. Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff=28800; UTC-5, timeDiff=-18000. If not specified, server local time will be referenced. (optional)
     limit := int32(56) // int32 | Optional; The max number of operations returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
     continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
     async := true // bool | If 'true', the get operations will be executed as a background task. The task wil have JobTypeGetOperations. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperations(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Text(text).Days(days).SearchDateOption(searchDateOption).TimeDiff(timeDiff).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
+    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogGetOperations(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Text(text).Days(days).SearchDateOption(searchDateOption).TimeDiff(timeDiff).Limit(limit).ContinuationToken(continuationToken).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogGetOperations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -722,12 +725,13 @@ Name | Type | Description  | Notes
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xTimeZone** | **string** | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **text** | **string** | Optional; Text pattern to match, which is case-insensitive and may include the wildcard \&quot;*\&quot;. If specified, only return records which Text matched pattern. Otherwise, all records will be returned. | 
  **days** | **int32** | Optional; Number of days of history to retrieve. Note: This parameter is exclusive with parameter searchDateOption. If neither is specified, all records will be returned. | 
  **searchDateOption** | [**SearchDateOption**](SearchDateOption.md) | Optional; Specific time filters for searching operations. Note: This parameter is exclusive with parameter days. If neither is specified, all records will be returned. | 
- **timeDiff** | **int32** | Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff&#x3D;28800; UTC-5, timeDiff&#x3D;-18000. If not specified, it will be default to 0. | 
+ **timeDiff** | **int32** | [DEPRECATED] This parameter is deprecated, please use \&quot;X-TimeZone\&quot; header instead. Optional; The time difference in seconds between client time and UTC time. Note: The value must be a valid UTC offset, e.g. UTC+8, timeDiff&#x3D;28800; UTC-5, timeDiff&#x3D;-18000. If not specified, server local time will be referenced. | 
  **limit** | **int32** | Optional; The max number of operations returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
  **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
  **async** | **bool** | If &#39;true&#39;, the get operations will be executed as a background task. The task wil have JobTypeGetOperations. When the task is complete it will redirect to GetJobResults. | [default to false]

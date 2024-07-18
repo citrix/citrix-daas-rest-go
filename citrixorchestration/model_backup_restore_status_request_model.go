@@ -62,6 +62,8 @@ type BackupRestoreStatusRequestModel struct {
 	RestoreDetails []BackupRestoreRestoreSingleMemberModel `json:"RestoreDetails,omitempty"`
 	// Simple Results (such as Get backed up member names)
 	SimpleResults []string `json:"SimpleResults,omitempty"`
+	// Fixups from backups or restores
+	Fixups NullableString `json:"Fixups,omitempty"`
 	RestoreType *BackupRestoreRestoreTypes `json:"RestoreType,omitempty"`
 }
 
@@ -829,6 +831,48 @@ func (o *BackupRestoreStatusRequestModel) SetSimpleResults(v []string) {
 	o.SimpleResults = v
 }
 
+// GetFixups returns the Fixups field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BackupRestoreStatusRequestModel) GetFixups() string {
+	if o == nil || IsNil(o.Fixups.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Fixups.Get()
+}
+
+// GetFixupsOk returns a tuple with the Fixups field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BackupRestoreStatusRequestModel) GetFixupsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Fixups.Get(), o.Fixups.IsSet()
+}
+
+// HasFixups returns a boolean if a field has been set.
+func (o *BackupRestoreStatusRequestModel) HasFixups() bool {
+	if o != nil && o.Fixups.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFixups gets a reference to the given NullableString and assigns it to the Fixups field.
+func (o *BackupRestoreStatusRequestModel) SetFixups(v string) {
+	o.Fixups.Set(&v)
+}
+// SetFixupsNil sets the value for Fixups to be an explicit nil
+func (o *BackupRestoreStatusRequestModel) SetFixupsNil() {
+	o.Fixups.Set(nil)
+}
+
+// UnsetFixups ensures that no value is present for Fixups, not even an explicit nil
+func (o *BackupRestoreStatusRequestModel) UnsetFixups() {
+	o.Fixups.Unset()
+}
+
 // GetRestoreType returns the RestoreType field value if set, zero value otherwise.
 func (o *BackupRestoreStatusRequestModel) GetRestoreType() BackupRestoreRestoreTypes {
 	if o == nil || IsNil(o.RestoreType) {
@@ -927,6 +971,9 @@ func (o BackupRestoreStatusRequestModel) ToMap() (map[string]interface{}, error)
 	}
 	if o.SimpleResults != nil {
 		toSerialize["SimpleResults"] = o.SimpleResults
+	}
+	if o.Fixups.IsSet() {
+		toSerialize["Fixups"] = o.Fixups.Get()
 	}
 	if !IsNil(o.RestoreType) {
 		toSerialize["RestoreType"] = o.RestoreType

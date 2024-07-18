@@ -19,8 +19,13 @@ var _ MappedNullable = &LogOperationSearchRequestModel{}
 
 // LogOperationSearchRequestModel Request model for defining advanced configuration log search criteria.
 type LogOperationSearchRequestModel struct {
-	// List of advanced search filters.
+	// Basic search string.
+	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
+	SearchType *LogOperationSearchFilterGroupType `json:"SearchType,omitempty"`
+	// Advanced search filters.
 	SearchFilters []LogOperationSearchFilterRequestModel `json:"SearchFilters,omitempty"`
+	// Advanced search filter groups.
+	SearchFilterGroups []LogOperationSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
 	SortCriteria *LogOperationSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
 }
 
@@ -39,6 +44,80 @@ func NewLogOperationSearchRequestModel() *LogOperationSearchRequestModel {
 func NewLogOperationSearchRequestModelWithDefaults() *LogOperationSearchRequestModel {
 	this := LogOperationSearchRequestModel{}
 	return &this
+}
+
+// GetBasicSearchString returns the BasicSearchString field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LogOperationSearchRequestModel) GetBasicSearchString() string {
+	if o == nil || IsNil(o.BasicSearchString.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BasicSearchString.Get()
+}
+
+// GetBasicSearchStringOk returns a tuple with the BasicSearchString field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LogOperationSearchRequestModel) GetBasicSearchStringOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BasicSearchString.Get(), o.BasicSearchString.IsSet()
+}
+
+// HasBasicSearchString returns a boolean if a field has been set.
+func (o *LogOperationSearchRequestModel) HasBasicSearchString() bool {
+	if o != nil && o.BasicSearchString.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBasicSearchString gets a reference to the given NullableString and assigns it to the BasicSearchString field.
+func (o *LogOperationSearchRequestModel) SetBasicSearchString(v string) {
+	o.BasicSearchString.Set(&v)
+}
+// SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
+func (o *LogOperationSearchRequestModel) SetBasicSearchStringNil() {
+	o.BasicSearchString.Set(nil)
+}
+
+// UnsetBasicSearchString ensures that no value is present for BasicSearchString, not even an explicit nil
+func (o *LogOperationSearchRequestModel) UnsetBasicSearchString() {
+	o.BasicSearchString.Unset()
+}
+
+// GetSearchType returns the SearchType field value if set, zero value otherwise.
+func (o *LogOperationSearchRequestModel) GetSearchType() LogOperationSearchFilterGroupType {
+	if o == nil || IsNil(o.SearchType) {
+		var ret LogOperationSearchFilterGroupType
+		return ret
+	}
+	return *o.SearchType
+}
+
+// GetSearchTypeOk returns a tuple with the SearchType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LogOperationSearchRequestModel) GetSearchTypeOk() (*LogOperationSearchFilterGroupType, bool) {
+	if o == nil || IsNil(o.SearchType) {
+		return nil, false
+	}
+	return o.SearchType, true
+}
+
+// HasSearchType returns a boolean if a field has been set.
+func (o *LogOperationSearchRequestModel) HasSearchType() bool {
+	if o != nil && !IsNil(o.SearchType) {
+		return true
+	}
+
+	return false
+}
+
+// SetSearchType gets a reference to the given LogOperationSearchFilterGroupType and assigns it to the SearchType field.
+func (o *LogOperationSearchRequestModel) SetSearchType(v LogOperationSearchFilterGroupType) {
+	o.SearchType = &v
 }
 
 // GetSearchFilters returns the SearchFilters field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -72,6 +151,39 @@ func (o *LogOperationSearchRequestModel) HasSearchFilters() bool {
 // SetSearchFilters gets a reference to the given []LogOperationSearchFilterRequestModel and assigns it to the SearchFilters field.
 func (o *LogOperationSearchRequestModel) SetSearchFilters(v []LogOperationSearchFilterRequestModel) {
 	o.SearchFilters = v
+}
+
+// GetSearchFilterGroups returns the SearchFilterGroups field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LogOperationSearchRequestModel) GetSearchFilterGroups() []LogOperationSearchFilterGroupRequestModel {
+	if o == nil {
+		var ret []LogOperationSearchFilterGroupRequestModel
+		return ret
+	}
+	return o.SearchFilterGroups
+}
+
+// GetSearchFilterGroupsOk returns a tuple with the SearchFilterGroups field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LogOperationSearchRequestModel) GetSearchFilterGroupsOk() ([]LogOperationSearchFilterGroupRequestModel, bool) {
+	if o == nil || IsNil(o.SearchFilterGroups) {
+		return nil, false
+	}
+	return o.SearchFilterGroups, true
+}
+
+// HasSearchFilterGroups returns a boolean if a field has been set.
+func (o *LogOperationSearchRequestModel) HasSearchFilterGroups() bool {
+	if o != nil && IsNil(o.SearchFilterGroups) {
+		return true
+	}
+
+	return false
+}
+
+// SetSearchFilterGroups gets a reference to the given []LogOperationSearchFilterGroupRequestModel and assigns it to the SearchFilterGroups field.
+func (o *LogOperationSearchRequestModel) SetSearchFilterGroups(v []LogOperationSearchFilterGroupRequestModel) {
+	o.SearchFilterGroups = v
 }
 
 // GetSortCriteria returns the SortCriteria field value if set, zero value otherwise.
@@ -116,8 +228,17 @@ func (o LogOperationSearchRequestModel) MarshalJSON() ([]byte, error) {
 
 func (o LogOperationSearchRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.BasicSearchString.IsSet() {
+		toSerialize["BasicSearchString"] = o.BasicSearchString.Get()
+	}
+	if !IsNil(o.SearchType) {
+		toSerialize["SearchType"] = o.SearchType
+	}
 	if o.SearchFilters != nil {
 		toSerialize["SearchFilters"] = o.SearchFilters
+	}
+	if o.SearchFilterGroups != nil {
+		toSerialize["SearchFilterGroups"] = o.SearchFilterGroups
 	}
 	if !IsNil(o.SortCriteria) {
 		toSerialize["SortCriteria"] = o.SortCriteria
