@@ -81,7 +81,7 @@ func (daasClient *CitrixDaasClient) NewStoreFrontClient(ctx context.Context, com
 	daasClient.StorefrontClient.SetAdPassword(adUserPass)
 }
 
-func NewQuickCreateClient(ctx context.Context, daasClient *CitrixDaasClient, quickCreateHostName string, middlewareFunc MiddlewareAuthFunction) {
+func (daasClient *CitrixDaasClient) NewQuickCreateClient(ctx context.Context, quickCreateHostName string, middlewareFunc MiddlewareAuthFunction) {
 	/* ------ Setup QuickCreate Client ------ */
 	localQuickCreateCfg := citrixquickcreate.NewConfiguration()
 	localQuickCreateCfg.Scheme = "https"
@@ -96,9 +96,7 @@ func NewQuickCreateClient(ctx context.Context, daasClient *CitrixDaasClient, qui
 	daasClient.QuickCreateClient = citrixquickcreate.NewAPIClient(localQuickCreateCfg)
 }
 
-func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (*CitrixDaasClient, *http.Response, error) {
-	daasClient := &CitrixDaasClient{}
-
+func (daasClient *CitrixDaasClient) NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (*http.Response, error) {
 	/* ------ Setup API Client ------ */
 	localCfg := citrixorchestration.NewConfiguration()
 	localCfg.Host = hostname
@@ -191,19 +189,19 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customer
 	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
 	token, httpResp, err := daasClient.SignIn()
 	if err != nil {
-		return nil, httpResp, err
+		return httpResp, err
 	}
 
 	req = req.Authorization(token).CitrixCustomerId(customerId)
 	resp, httpResp, err := req.Execute()
 	if err != nil {
-		return nil, httpResp, err
+		return httpResp, err
 	}
 
 	localClientCfg := &ClientConfiguration{}
 	localClientCfg.CustomerId = customerId
 	if resp == nil || len(resp.Customers) == 0 || len(resp.Customers[0].Sites) == 0 {
-		return nil, httpResp, fmt.Errorf("customer does not exist or does not have a valid site")
+		return httpResp, fmt.Errorf("customer does not exist or does not have a valid site")
 	}
 	localClientCfg.SiteId = resp.Customers[0].Sites[0].Id
 
@@ -226,13 +224,13 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customer
 	siteRequest := daasClient.ApiClient.SitesAPIsDAAS.SitesGetSite(ctx, localClientCfg.SiteId)
 	token, httpResp, err = daasClient.SignIn()
 	if err != nil {
-		return nil, httpResp, err
+		return httpResp, err
 	}
 
 	siteRequest = siteRequest.Authorization(token).CitrixCustomerId(customerId)
 	siteResp, httpResp, err := siteRequest.Execute()
 	if err != nil {
-		return nil, httpResp, err
+		return httpResp, err
 	}
 
 	localClientCfg.ProductVersion = siteResp.GetProductVersion()
@@ -245,7 +243,7 @@ func NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customer
 		localCfg.Servers[0].URL += "/" + localClientCfg.SiteId
 	}
 
-	return daasClient, httpResp, nil
+	return httpResp, nil
 }
 
 func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int) (*citrixorchestration.JobResponseModel, error) {

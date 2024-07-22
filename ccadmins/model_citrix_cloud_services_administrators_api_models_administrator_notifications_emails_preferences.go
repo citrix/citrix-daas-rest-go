@@ -12,7 +12,6 @@ package ccadmins
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences type satisfies the MappedNullable interface at compile time
@@ -22,7 +21,7 @@ var _ MappedNullable = &CitrixCloudServicesAdministratorsApiModelsAdministratorN
 type CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences struct {
 	SendNotificationEmails NullableBool `json:"sendNotificationEmails,omitempty"`
 	NotificationsSubscribed []CitrixCloudServicesAdministratorsApiModelsAdministratorNotification `json:"notificationsSubscribed,omitempty"`
-	EnabledDate NullableTime `json:"enabledDate,omitempty"`
+	EnabledDate NullableString `json:"enabledDate,omitempty"`
 }
 
 // NewCitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences instantiates a new CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences object
@@ -118,9 +117,9 @@ func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEma
 }
 
 // GetEnabledDate returns the EnabledDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDate() time.Time {
+func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDate() string {
 	if o == nil || IsNil(o.EnabledDate.Get()) {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.EnabledDate.Get()
@@ -129,7 +128,7 @@ func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEma
 // GetEnabledDateOk returns a tuple with the EnabledDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDateOk() (*time.Time, bool) {
+func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDateOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -145,8 +144,8 @@ func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEma
 	return false
 }
 
-// SetEnabledDate gets a reference to the given NullableTime and assigns it to the EnabledDate field.
-func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) SetEnabledDate(v time.Time) {
+// SetEnabledDate gets a reference to the given NullableString and assigns it to the EnabledDate field.
+func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) SetEnabledDate(v string) {
 	o.EnabledDate.Set(&v)
 }
 // SetEnabledDateNil sets the value for EnabledDate to be an explicit nil

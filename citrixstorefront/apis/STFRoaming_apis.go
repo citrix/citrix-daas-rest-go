@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
 
 	"github.com/citrix/citrix-daas-rest-go/citrixstorefront/models"
 )
@@ -212,5 +213,174 @@ func (a *STFRoaming) STFRoamingGatewayRemove(ctx context.Context, getSTFoamingGa
 		ctx:                              ctx,
 		GetSTFRoamingGatewayRequestModel: getSTFoamingGatewayRequestModel,
 		GetSTFRoamingServiceRequestModel: getSTFRoamingServiceRequestModel,
+	}
+}
+
+// Set Roaming Beacon for Internal Param
+
+type ApiSetRoamingInternalBeacon struct {
+	ctx                                     context.Context
+	ApiService                              *STFRoaming
+	SetSTFRoamingInternalBeaconRequestModel models.SetSTFRoamingInternalBeaconRequestModel
+}
+
+func (r ApiSetRoamingInternalBeacon) Execute() error {
+	_, err := r.ApiService.SetRoamingInternalBeaconExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFRoaming) SetRoamingInternalBeaconExecute(r ApiSetRoamingInternalBeacon) ([]byte, error) {
+	var int_param = StructToString(r.SetSTFRoamingInternalBeaconRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingBeacon", int_param, "-Confirm:$false")
+
+}
+
+func (a *STFRoaming) SetRoamingInternalBeacon(ctx context.Context, setSTFRoamingInternalBeaconRequestModel models.SetSTFRoamingInternalBeaconRequestModel) ApiSetRoamingInternalBeacon {
+	return ApiSetRoamingInternalBeacon{
+		ApiService:                              a,
+		ctx:                                     ctx,
+		SetSTFRoamingInternalBeaconRequestModel: setSTFRoamingInternalBeaconRequestModel,
+	}
+}
+
+// Get Roaming Beacon for Internal Param
+
+type ApiGetRoamingInternalBeacon struct {
+	ctx                              context.Context
+	ApiService                       *STFRoaming
+	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
+}
+
+func (r ApiGetRoamingInternalBeacon) Execute() (models.GetSTFRoamingInternalBeaconResponseModel, error) {
+	bytes, err := r.ApiService.GetRoamingInternalBeaconExecute(r)
+	if err != nil {
+		return models.GetSTFRoamingInternalBeaconResponseModel{}, err
+	}
+	var reponse = models.GetSTFRoamingInternalBeaconResponseModel{}
+	internal_string := string(bytes)
+	internal_string = strings.Replace(internal_string, "\r", "", -1)
+	internal_string = strings.Replace(internal_string, "\n", "", -1)
+	internal_string = strings.Replace(internal_string, "\"", "", -1)
+	internal_string = strings.Replace(internal_string, " ", "", -1)
+	reponse.Internal = internal_string
+
+	return reponse, nil
+}
+
+func (a *STFRoaming) GetRoamingInternalBeaconExecute(r ApiGetRoamingInternalBeacon) ([]byte, error) {
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingBeacon -Internal")
+
+}
+
+func (a *STFRoaming) GetRoamingInternalBeacon(ctx context.Context) ApiGetRoamingInternalBeacon {
+	return ApiGetRoamingInternalBeacon{
+		ApiService: a,
+		ctx:        ctx,
+	}
+}
+
+// Clear Roaming Beacon for Internal Param
+
+type ApiRemoveSTFRoamingInternalBeaconRequest struct {
+	ctx                              context.Context
+	ApiService                       *STFRoaming
+	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
+}
+
+func (r ApiRemoveSTFRoamingInternalBeaconRequest) Execute() error {
+	_, err := r.ApiService.RemoveSTFRoamingBeaconExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFRoaming) RemoveSTFRoamingBeaconExecute(r ApiRemoveSTFRoamingInternalBeaconRequest) ([]byte, error) {
+	var getRoamingServiceParams = StructToString(r.GetSTFRoamingServiceRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Clear-STFRoamingBeacon", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), "-Confirm:$false")
+}
+
+func (a *STFRoaming) STFRoamingBeaconInternalRemove(ctx context.Context, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiRemoveSTFRoamingInternalBeaconRequest {
+	return ApiRemoveSTFRoamingInternalBeaconRequest{
+		ApiService:                       a,
+		ctx:                              ctx,
+		GetSTFRoamingServiceRequestModel: getSTFRoamingServiceRequestModel,
+	}
+}
+
+// Set Roaming Beacon for External Param
+
+type ApiSetRoamingExternalBeacon struct {
+	ctx                                     context.Context
+	ApiService                              *STFRoaming
+	SetSTFRoamingExternalBeaconRequestModel models.SetSTFRoamingExternalBeaconRequestModel
+	SetSTFRoamingInternalBeaconRequestModel models.SetSTFRoamingInternalBeaconRequestModel
+}
+
+func (r ApiSetRoamingExternalBeacon) Execute() error {
+	_, err := r.ApiService.SetRoamingExternalBeaconExecute(r)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (a *STFRoaming) SetRoamingExternalBeaconExecute(r ApiSetRoamingExternalBeacon) ([]byte, error) {
+	var int_param = StructToString(r.SetSTFRoamingInternalBeaconRequestModel)
+	var ext_param = StructToString(r.SetSTFRoamingExternalBeaconRequestModel)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingBeacon", ext_param, int_param, "-Confirm:$false")
+
+}
+
+func (a *STFRoaming) SetRoamingExternalBeacon(ctx context.Context, setSTFRoamingExternalBeaconRequestModel models.SetSTFRoamingExternalBeaconRequestModel, setSTFRoamingInternalBeaconRequestModel models.SetSTFRoamingInternalBeaconRequestModel) ApiSetRoamingExternalBeacon {
+	return ApiSetRoamingExternalBeacon{
+		ApiService:                              a,
+		ctx:                                     ctx,
+		SetSTFRoamingExternalBeaconRequestModel: setSTFRoamingExternalBeaconRequestModel,
+		SetSTFRoamingInternalBeaconRequestModel: setSTFRoamingInternalBeaconRequestModel,
+	}
+}
+
+// Get Roaming Beacon for External Param
+
+type ApiGetRoamingExternalBeacon struct {
+	ctx                              context.Context
+	ApiService                       *STFRoaming
+	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
+}
+
+func (r ApiGetRoamingExternalBeacon) Execute() (models.GetSTFRoamingExternalBeaconResponseModel, error) {
+	bytes, err := r.ApiService.GetRoamingExternalBeaconExecute(r)
+	if err != nil {
+		return models.GetSTFRoamingExternalBeaconResponseModel{}, err
+	}
+	var reponse = models.GetSTFRoamingExternalBeaconResponseModel{}
+	ext_string := string(bytes)
+	ext_str_arr := strings.Split(ext_string, ",")
+	for i, _ := range ext_str_arr {
+		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "\r", "", -1)
+		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "\n", "", -1)
+		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "\\", "", -1)
+		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "\"", "", -1)
+		ext_str_arr[i] = strings.Replace(ext_str_arr[i], " ", "", -1)
+		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "[", "", -1)
+		ext_str_arr[i] = strings.Replace(ext_str_arr[i], "]", "", -1)
+	}
+	reponse.External = ext_str_arr
+	return reponse, nil
+}
+
+func (a *STFRoaming) GetRoamingExternalBeaconExecute(r ApiGetRoamingExternalBeacon) ([]byte, error) {
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingBeacon -External")
+
+}
+
+func (a *STFRoaming) GetRoamingExternalBeacon(ctx context.Context) ApiGetRoamingExternalBeacon {
+	return ApiGetRoamingExternalBeacon{
+		ApiService: a,
+		ctx:        ctx,
 	}
 }

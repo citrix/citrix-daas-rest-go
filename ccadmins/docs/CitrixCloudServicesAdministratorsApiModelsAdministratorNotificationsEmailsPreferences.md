@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SendNotificationEmails** | Pointer to **NullableBool** |  | [optional] 
 **NotificationsSubscribed** | Pointer to [**[]CitrixCloudServicesAdministratorsApiModelsAdministratorNotification**](CitrixCloudServicesAdministratorsApiModelsAdministratorNotification.md) |  | [optional] 
-**EnabledDate** | Pointer to **NullableTime** |  | [optional] 
+**EnabledDate** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -99,20 +99,20 @@ HasNotificationsSubscribed returns a boolean if a field has been set.
 UnsetNotificationsSubscribed ensures that no value is present for NotificationsSubscribed, not even an explicit nil
 ### GetEnabledDate
 
-`func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDate() time.Time`
+`func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDate() string`
 
 GetEnabledDate returns the EnabledDate field if non-nil, zero value otherwise.
 
 ### GetEnabledDateOk
 
-`func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDateOk() (*time.Time, bool)`
+`func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) GetEnabledDateOk() (*string, bool)`
 
 GetEnabledDateOk returns a tuple with the EnabledDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEnabledDate
 
-`func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) SetEnabledDate(v time.Time)`
+`func (o *CitrixCloudServicesAdministratorsApiModelsAdministratorNotificationsEmailsPreferences) SetEnabledDate(v string)`
 
 SetEnabledDate sets EnabledDate field to given value.
 

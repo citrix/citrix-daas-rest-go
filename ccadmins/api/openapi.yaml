@@ -3076,7 +3076,7 @@ components:
     Citrix.CloudServices.Administrators.ApiModels.AdministratorNotificationsEmailsPreferences:
       additionalProperties: false
       example:
-        enabledDate: 2000-01-23T04:56:07.000+00:00
+        enabledDate: 2000-01-23
         sendNotificationEmails: true
         notificationsSubscribed:
         - type: Error
@@ -3093,7 +3093,7 @@ components:
           nullable: true
           type: array
         enabledDate:
-          format: date-time
+          format: date
           nullable: true
           type: string
       type: object
@@ -3135,7 +3135,7 @@ components:
         eTag: eTag
         email: email
         notificationsEmailPreferences:
-          enabledDate: 2000-01-23T04:56:07.000+00:00
+          enabledDate: 2000-01-23
           sendNotificationEmails: true
           notificationsSubscribed:
           - type: Error
@@ -3250,7 +3250,7 @@ components:
           eTag: eTag
           email: email
           notificationsEmailPreferences:
-            enabledDate: 2000-01-23T04:56:07.000+00:00
+            enabledDate: 2000-01-23
             sendNotificationEmails: true
             notificationsSubscribed:
             - type: Error
@@ -3283,7 +3283,7 @@ components:
           eTag: eTag
           email: email
           notificationsEmailPreferences:
-            enabledDate: 2000-01-23T04:56:07.000+00:00
+            enabledDate: 2000-01-23
             sendNotificationEmails: true
             notificationsSubscribed:
             - type: Error
