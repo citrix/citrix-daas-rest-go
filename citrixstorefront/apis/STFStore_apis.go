@@ -449,7 +449,7 @@ func (r ApiGetSTFStoreEnumerationOptionsRequest) Execute() (models.GetSTFStoreEn
 
 func (a *STFStore) GetSTFStoreEnumerationOptionsExecute(r ApiGetSTFStoreEnumerationOptionsRequest) ([]byte, error) {
 	var setStoreEnumerationOptionsParams = StructToString(r.getSTFStoreServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams), setStoreEnumerationOptionsParams)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams))
 }
 
 func (a *STFStore) STFStoreGetSTFStoreEnumerationOptions(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreEnumerationOptionsRequest {
