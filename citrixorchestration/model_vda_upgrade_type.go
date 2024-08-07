@@ -23,6 +23,8 @@ const (
 	VDAUPGRADETYPE_NOT_SET VdaUpgradeType = "NotSet"
 	VDAUPGRADETYPE_LTSR VdaUpgradeType = "LTSR"
 	VDAUPGRADETYPE_CR VdaUpgradeType = "CR"
+	VDAUPGRADETYPE_EAR_LTSR VdaUpgradeType = "EAR_LTSR"
+	VDAUPGRADETYPE_EAR_CR VdaUpgradeType = "EAR_CR"
 )
 
 // All allowed values of VdaUpgradeType enum
@@ -30,6 +32,8 @@ var AllowedVdaUpgradeTypeEnumValues = []VdaUpgradeType{
 	"NotSet",
 	"LTSR",
 	"CR",
+	"EAR_LTSR",
+	"EAR_CR",
 }
 
 func (v *VdaUpgradeType) UnmarshalJSON(src []byte) error {

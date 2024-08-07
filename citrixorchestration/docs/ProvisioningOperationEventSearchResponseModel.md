@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **OperationTargetType** | Pointer to **NullableString** | Operation Target Type. | [optional] 
 **OperationTargetName** | Pointer to **NullableString** | Operation Target Name. | [optional] 
 **OperationType** | Pointer to **NullableString** | Operation Type. | [optional] 
+**LinkedObjectName** | Pointer to **NullableString** | Linked Object Name. | [optional] 
 **Recommendation** | Pointer to **NullableString** | Recommendation. | [optional] 
 
 ## Methods
@@ -519,6 +520,41 @@ HasOperationType returns a boolean if a field has been set.
 `func (o *ProvisioningOperationEventSearchResponseModel) UnsetOperationType()`
 
 UnsetOperationType ensures that no value is present for OperationType, not even an explicit nil
+### GetLinkedObjectName
+
+`func (o *ProvisioningOperationEventSearchResponseModel) GetLinkedObjectName() string`
+
+GetLinkedObjectName returns the LinkedObjectName field if non-nil, zero value otherwise.
+
+### GetLinkedObjectNameOk
+
+`func (o *ProvisioningOperationEventSearchResponseModel) GetLinkedObjectNameOk() (*string, bool)`
+
+GetLinkedObjectNameOk returns a tuple with the LinkedObjectName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinkedObjectName
+
+`func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectName(v string)`
+
+SetLinkedObjectName sets LinkedObjectName field to given value.
+
+### HasLinkedObjectName
+
+`func (o *ProvisioningOperationEventSearchResponseModel) HasLinkedObjectName() bool`
+
+HasLinkedObjectName returns a boolean if a field has been set.
+
+### SetLinkedObjectNameNil
+
+`func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectNameNil(b bool)`
+
+ SetLinkedObjectNameNil sets the value for LinkedObjectName to be an explicit nil
+
+### UnsetLinkedObjectName
+`func (o *ProvisioningOperationEventSearchResponseModel) UnsetLinkedObjectName()`
+
+UnsetLinkedObjectName ensures that no value is present for LinkedObjectName, not even an explicit nil
 ### GetRecommendation
 
 `func (o *ProvisioningOperationEventSearchResponseModel) GetRecommendation() string`

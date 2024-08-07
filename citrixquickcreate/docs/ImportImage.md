@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountType** | [**AccountType**](AccountType.md) |  | 
 **Name** | **string** | Image Name | 
-**Description** | Pointer to **NullableString** | Image Name | [optional] 
-**Notes** | Pointer to **NullableString** | Image Name | [optional] 
+**Description** | Pointer to **NullableString** | Image Description | [optional] 
+**Notes** | Pointer to **NullableString** | Image Notes | [optional] 
+**SessionSupport** | Pointer to [**NullableSessionSupport**](SessionSupport.md) |  | [optional] 
 
 ## Methods
 
@@ -138,6 +139,41 @@ HasNotes returns a boolean if a field has been set.
 `func (o *ImportImage) UnsetNotes()`
 
 UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+### GetSessionSupport
+
+`func (o *ImportImage) GetSessionSupport() SessionSupport`
+
+GetSessionSupport returns the SessionSupport field if non-nil, zero value otherwise.
+
+### GetSessionSupportOk
+
+`func (o *ImportImage) GetSessionSupportOk() (*SessionSupport, bool)`
+
+GetSessionSupportOk returns a tuple with the SessionSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSessionSupport
+
+`func (o *ImportImage) SetSessionSupport(v SessionSupport)`
+
+SetSessionSupport sets SessionSupport field to given value.
+
+### HasSessionSupport
+
+`func (o *ImportImage) HasSessionSupport() bool`
+
+HasSessionSupport returns a boolean if a field has been set.
+
+### SetSessionSupportNil
+
+`func (o *ImportImage) SetSessionSupportNil(b bool)`
+
+ SetSessionSupportNil sets the value for SessionSupport to be an explicit nil
+
+### UnsetSessionSupport
+`func (o *ImportImage) UnsetSessionSupport()`
+
+UnsetSessionSupport ensures that no value is present for SessionSupport, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

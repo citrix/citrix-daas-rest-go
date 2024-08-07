@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **UseWriteBackCache** | Pointer to **bool** | Whether use write back cache.  | [optional] 
 **WriteBackCacheDiskSize** | Pointer to **int32** | Write back cache disk size. | [optional] 
 **WriteBackCacheMemorySize** | Pointer to **int32** | Write back cache memory size. | [optional] 
+**OperationEvents** | Pointer to [**[]ProvisioningOperationEventSearchResponseModel**](ProvisioningOperationEventSearchResponseModel.md) | List of ProvisioningOperationEventSearchResponseModel. | [optional] 
 
 ## Methods
 
@@ -546,6 +547,41 @@ SetWriteBackCacheMemorySize sets WriteBackCacheMemorySize field to given value.
 
 HasWriteBackCacheMemorySize returns a boolean if a field has been set.
 
+### GetOperationEvents
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetOperationEvents() []ProvisioningOperationEventSearchResponseModel`
+
+GetOperationEvents returns the OperationEvents field if non-nil, zero value otherwise.
+
+### GetOperationEventsOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetOperationEventsOk() (*[]ProvisioningOperationEventSearchResponseModel, bool)`
+
+GetOperationEventsOk returns a tuple with the OperationEvents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOperationEvents
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetOperationEvents(v []ProvisioningOperationEventSearchResponseModel)`
+
+SetOperationEvents sets OperationEvents field to given value.
+
+### HasOperationEvents
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasOperationEvents() bool`
+
+HasOperationEvents returns a boolean if a field has been set.
+
+### SetOperationEventsNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetOperationEventsNil(b bool)`
+
+ SetOperationEventsNil sets the value for OperationEvents to be an explicit nil
+
+### UnsetOperationEvents
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetOperationEvents()`
+
+UnsetOperationEvents ensures that no value is present for OperationEvents, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

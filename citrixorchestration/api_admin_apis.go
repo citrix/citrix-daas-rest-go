@@ -641,8 +641,6 @@ SDKs and consoles of the site.
 When the Enabled flag of an administrator is set to `false`, any
 rights of the administrator are ignored by the system when
 performing permission checks.
-            
-On-prem only.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAdminCreateAdminAdministratorRequest

@@ -26,6 +26,10 @@ type IdentityDirectoryResponseModel struct {
 	// Tenant of the directory.
 	Tenant NullableString `json:"Tenant,omitempty"`
 	IdentityProvider *IdentityProviderType `json:"IdentityProvider,omitempty"`
+	// Instance of the directory.
+	IdpInstanceId NullableString `json:"IdpInstanceId,omitempty"`
+	// Nickname of the directory
+	IdpNickName NullableString `json:"IdpNickName,omitempty"`
 }
 
 // NewIdentityDirectoryResponseModel instantiates a new IdentityDirectoryResponseModel object
@@ -203,6 +207,90 @@ func (o *IdentityDirectoryResponseModel) SetIdentityProvider(v IdentityProviderT
 	o.IdentityProvider = &v
 }
 
+// GetIdpInstanceId returns the IdpInstanceId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IdentityDirectoryResponseModel) GetIdpInstanceId() string {
+	if o == nil || IsNil(o.IdpInstanceId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IdpInstanceId.Get()
+}
+
+// GetIdpInstanceIdOk returns a tuple with the IdpInstanceId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IdentityDirectoryResponseModel) GetIdpInstanceIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IdpInstanceId.Get(), o.IdpInstanceId.IsSet()
+}
+
+// HasIdpInstanceId returns a boolean if a field has been set.
+func (o *IdentityDirectoryResponseModel) HasIdpInstanceId() bool {
+	if o != nil && o.IdpInstanceId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIdpInstanceId gets a reference to the given NullableString and assigns it to the IdpInstanceId field.
+func (o *IdentityDirectoryResponseModel) SetIdpInstanceId(v string) {
+	o.IdpInstanceId.Set(&v)
+}
+// SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetIdpInstanceIdNil() {
+	o.IdpInstanceId.Set(nil)
+}
+
+// UnsetIdpInstanceId ensures that no value is present for IdpInstanceId, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetIdpInstanceId() {
+	o.IdpInstanceId.Unset()
+}
+
+// GetIdpNickName returns the IdpNickName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *IdentityDirectoryResponseModel) GetIdpNickName() string {
+	if o == nil || IsNil(o.IdpNickName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IdpNickName.Get()
+}
+
+// GetIdpNickNameOk returns a tuple with the IdpNickName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *IdentityDirectoryResponseModel) GetIdpNickNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IdpNickName.Get(), o.IdpNickName.IsSet()
+}
+
+// HasIdpNickName returns a boolean if a field has been set.
+func (o *IdentityDirectoryResponseModel) HasIdpNickName() bool {
+	if o != nil && o.IdpNickName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIdpNickName gets a reference to the given NullableString and assigns it to the IdpNickName field.
+func (o *IdentityDirectoryResponseModel) SetIdpNickName(v string) {
+	o.IdpNickName.Set(&v)
+}
+// SetIdpNickNameNil sets the value for IdpNickName to be an explicit nil
+func (o *IdentityDirectoryResponseModel) SetIdpNickNameNil() {
+	o.IdpNickName.Set(nil)
+}
+
+// UnsetIdpNickName ensures that no value is present for IdpNickName, not even an explicit nil
+func (o *IdentityDirectoryResponseModel) UnsetIdpNickName() {
+	o.IdpNickName.Unset()
+}
+
 func (o IdentityDirectoryResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -224,6 +312,12 @@ func (o IdentityDirectoryResponseModel) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.IdentityProvider) {
 		toSerialize["IdentityProvider"] = o.IdentityProvider
+	}
+	if o.IdpInstanceId.IsSet() {
+		toSerialize["IdpInstanceId"] = o.IdpInstanceId.Get()
+	}
+	if o.IdpNickName.IsSet() {
+		toSerialize["IdpNickName"] = o.IdpNickName.Get()
 	}
 	return toSerialize, nil
 }

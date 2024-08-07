@@ -30,6 +30,8 @@ type ImageDefinitionResponseModel struct {
 	// the latest version for the image definition
 	LatestVersion int32 `json:"LatestVersion"`
 	VDASessionSupport SessionSupport `json:"VDASessionSupport"`
+	// The hypervisor connections on which image definition is associated.
+	HypervisorConnections []ImageDefinitionHypervisorConnectionResponseModel `json:"HypervisorConnections,omitempty"`
 }
 
 // NewImageDefinitionResponseModel instantiates a new ImageDefinitionResponseModel object
@@ -275,6 +277,39 @@ func (o *ImageDefinitionResponseModel) SetVDASessionSupport(v SessionSupport) {
 	o.VDASessionSupport = v
 }
 
+// GetHypervisorConnections returns the HypervisorConnections field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageDefinitionResponseModel) GetHypervisorConnections() []ImageDefinitionHypervisorConnectionResponseModel {
+	if o == nil {
+		var ret []ImageDefinitionHypervisorConnectionResponseModel
+		return ret
+	}
+	return o.HypervisorConnections
+}
+
+// GetHypervisorConnectionsOk returns a tuple with the HypervisorConnections field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageDefinitionResponseModel) GetHypervisorConnectionsOk() ([]ImageDefinitionHypervisorConnectionResponseModel, bool) {
+	if o == nil || IsNil(o.HypervisorConnections) {
+		return nil, false
+	}
+	return o.HypervisorConnections, true
+}
+
+// HasHypervisorConnections returns a boolean if a field has been set.
+func (o *ImageDefinitionResponseModel) HasHypervisorConnections() bool {
+	if o != nil && IsNil(o.HypervisorConnections) {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorConnections gets a reference to the given []ImageDefinitionHypervisorConnectionResponseModel and assigns it to the HypervisorConnections field.
+func (o *ImageDefinitionResponseModel) SetHypervisorConnections(v []ImageDefinitionHypervisorConnectionResponseModel) {
+	o.HypervisorConnections = v
+}
+
 func (o ImageDefinitionResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -298,6 +333,9 @@ func (o ImageDefinitionResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["OsType"] = o.OsType
 	toSerialize["LatestVersion"] = o.LatestVersion
 	toSerialize["VDASessionSupport"] = o.VDASessionSupport
+	if o.HypervisorConnections != nil {
+		toSerialize["HypervisorConnections"] = o.HypervisorConnections
+	}
 	return toSerialize, nil
 }
 

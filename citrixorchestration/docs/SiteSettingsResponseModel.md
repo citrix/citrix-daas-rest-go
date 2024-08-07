@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
 **AllowedCorsOriginsForIwa** | Pointer to **[]string** | Application only for On-Premise. List of origins allowed to make cross-origin requests for Integrated Windows Authentication. | [optional] 
 **MultiSites** | Pointer to [**[]MultiSiteModel**](MultiSiteModel.md) | Applicable only for On-Premise Multiple sites configuration | [optional] 
+**DefaultDomain** | Pointer to **NullableString** | The default domain to be used in the login page. | [optional] 
 
 ## Methods
 
@@ -302,6 +303,41 @@ HasMultiSites returns a boolean if a field has been set.
 `func (o *SiteSettingsResponseModel) UnsetMultiSites()`
 
 UnsetMultiSites ensures that no value is present for MultiSites, not even an explicit nil
+### GetDefaultDomain
+
+`func (o *SiteSettingsResponseModel) GetDefaultDomain() string`
+
+GetDefaultDomain returns the DefaultDomain field if non-nil, zero value otherwise.
+
+### GetDefaultDomainOk
+
+`func (o *SiteSettingsResponseModel) GetDefaultDomainOk() (*string, bool)`
+
+GetDefaultDomainOk returns a tuple with the DefaultDomain field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultDomain
+
+`func (o *SiteSettingsResponseModel) SetDefaultDomain(v string)`
+
+SetDefaultDomain sets DefaultDomain field to given value.
+
+### HasDefaultDomain
+
+`func (o *SiteSettingsResponseModel) HasDefaultDomain() bool`
+
+HasDefaultDomain returns a boolean if a field has been set.
+
+### SetDefaultDomainNil
+
+`func (o *SiteSettingsResponseModel) SetDefaultDomainNil(b bool)`
+
+ SetDefaultDomainNil sets the value for DefaultDomain to be an explicit nil
+
+### UnsetDefaultDomain
+`func (o *SiteSettingsResponseModel) UnsetDefaultDomain()`
+
+UnsetDefaultDomain ensures that no value is present for DefaultDomain, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

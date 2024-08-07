@@ -21,6 +21,10 @@
 
 * `TAG` (value: `"Tag"`)
 
+* `RESOURCE_GROUP` (value: `"ResourceGroup"`)
+
+* `SECURITY_GROUP` (value: `"SecurityGroup"`)
+
 * `AVAILABILITY_ZONE` (value: `"AvailabilityZone"`)
 
 

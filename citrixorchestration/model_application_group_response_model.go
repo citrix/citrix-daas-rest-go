@@ -17,7 +17,7 @@ import (
 // checks if the ApplicationGroupResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationGroupResponseModel{}
 
-// ApplicationGroupResponseModel Response object for an application group.
+// ApplicationGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Description,Enabled,Name,FullName,AdminFolder.               Response object for an application group.              
 type ApplicationGroupResponseModel struct {
 	// Id of the application group. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
 	Id NullableString `json:"Id,omitempty"`

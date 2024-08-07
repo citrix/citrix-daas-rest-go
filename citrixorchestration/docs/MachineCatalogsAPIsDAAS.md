@@ -25,8 +25,10 @@ Method | HTTP request | Description
 [**MachineCatalogsGetMachineCatalogTags**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogTags) | **Get** /MachineCatalogs/{nameOrId}/Tags | Get tags associated with a machine catalog.
 [**MachineCatalogsGetMachineCatalogTestReport**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogTestReport) | **Get** /MachineCatalogs/{nameOrId}/TestReport | Get the most recent test report of a machine catalog.
 [**MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures) | **Get** /MachineCatalogs/{nameOrId}/VDAComponentsAndFeatures | Get the components and features of VDAs associated with a machine catalog.
+[**MachineCatalogsGetMachineCatalogVDAUpgradeVersions**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogVDAUpgradeVersions) | **Get** /MachineCatalogs/{nameOrId}/VDAUpgradeVersions | Get the available VDA upgrade versions associated with a machine catalog.
 [**MachineCatalogsGetMachineCatalogs**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogs) | **Get** /MachineCatalogs | Get all machine catalogs.
 [**MachineCatalogsGetMachineCatalogsAdministrators**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogsAdministrators) | **Get** /MachineCatalogs/{nameOrId}/Administrators | Get administrators who can administer a machine catalog.
+[**MachineCatalogsGetMachineCatalogsV2**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogsV2) | **Get** /MachineCatalogsV2 | The V2  version of get all machine catalogs.
 [**MachineCatalogsImportProvisionedVirtualMachines**](MachineCatalogsAPIsDAAS.md#MachineCatalogsImportProvisionedVirtualMachines) | **Post** /MachineCatalogs/{nameOrId}/$importProvisionedVirtualMachines | Import existing provisioned virtual machines.
 [**MachineCatalogsRebootMachineCatalogMachines**](MachineCatalogsAPIsDAAS.md#MachineCatalogsRebootMachineCatalogMachines) | **Post** /MachineCatalogs/{nameOrId}/$RebootMachines | Reboot all machines in a machine catalog.
 [**MachineCatalogsRemoveMachineCatalogMachine**](MachineCatalogsAPIsDAAS.md#MachineCatalogsRemoveMachineCatalogMachine) | **Delete** /MachineCatalogs/{nameOrId}/Machines/{machine} | Remove a machine from the machine catalog.
@@ -1793,7 +1795,7 @@ Name | Type | Description  | Notes
 
 ## MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures
 
-> MachineCatalogVusComponentResponseModel MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> MachineCatalogVusComponentResponseModel MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).UpgradeVersion(upgradeVersion).Execute()
 
 Get the components and features of VDAs associated with a machine catalog.
 
@@ -1818,10 +1820,11 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    upgradeVersion := "upgradeVersion_example" // string | The version of the VDA to upgrade to. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).UpgradeVersion(upgradeVersion).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogVDAComponentsAndFeatures``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1854,10 +1857,93 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **upgradeVersion** | **string** | The version of the VDA to upgrade to. | 
 
 ### Return type
 
 [**MachineCatalogVusComponentResponseModel**](MachineCatalogVusComponentResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachineCatalogsGetMachineCatalogVDAUpgradeVersions
+
+> []string MachineCatalogsGetMachineCatalogVDAUpgradeVersions(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Get the available VDA upgrade versions associated with a machine catalog.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogVDAUpgradeVersions(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogVDAUpgradeVersions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachineCatalogsGetMachineCatalogVDAUpgradeVersions`: []string
+    fmt.Fprintf(os.Stdout, "Response from `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogVDAUpgradeVersions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+**[]string**
 
 ### Authorization
 
@@ -2030,6 +2116,94 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdministratorResponseModelCollection**](AdministratorResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachineCatalogsGetMachineCatalogsV2
+
+> MachineCatalogResponseModelCollection MachineCatalogsGetMachineCatalogsV2(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Async(async).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Execute()
+
+The V2  version of get all machine catalogs.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    adminFolder := "adminFolder_example" // string | Admin folder path or Id. (optional)
+    async := true // bool | If `true`, it will be queried as a background task. (optional) (default to false)
+    limit := int32(56) // int32 | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    fields := "Name,FullName,Id" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogsV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Async(async).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogsV2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachineCatalogsGetMachineCatalogsV2`: MachineCatalogResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachineCatalogsGetMachineCatalogsV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **adminFolder** | **string** | Admin folder path or Id. | 
+ **async** | **bool** | If &#x60;true&#x60;, it will be queried as a background task. | [default to false]
+ **limit** | **int32** | The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **fields** | **string** | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.              | 
+
+### Return type
+
+[**MachineCatalogResponseModelCollection**](MachineCatalogResponseModelCollection.md)
 
 ### Authorization
 

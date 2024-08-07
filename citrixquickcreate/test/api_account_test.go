@@ -11,11 +11,10 @@ package citrixquickcreate
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService AddAccountAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 
@@ -39,7 +38,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService DeleteCustomerAccountAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 		var accountId string
@@ -53,7 +52,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService GetAccountResourcesAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 		var accountId string
@@ -68,7 +67,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService GetCustomerAccountAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 		var accountId string
@@ -83,7 +82,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService GetCustomerAccountResourcesAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 
@@ -97,7 +96,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService GetCustomerAccountTaskAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 		var accountId string
@@ -113,7 +112,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService GetCustomerAccountsAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 
@@ -127,7 +126,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService InititateAccountTaskAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 		var accountId string
@@ -142,7 +141,7 @@ func Test_citrixquickcreate_AccountQCSService(t *testing.T) {
 
 	t.Run("Test AccountQCSService UpdateCustomerAccountAsync", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var customerId string
 		var accountId string

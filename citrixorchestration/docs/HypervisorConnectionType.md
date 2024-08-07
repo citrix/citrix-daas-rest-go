@@ -25,6 +25,8 @@
 
 * `ORACLE_CLOUD_INFRASTRUCTURE` (value: `"OracleCloudInfrastructure"`)
 
+* `AZURE_ARC` (value: `"AzureArc"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

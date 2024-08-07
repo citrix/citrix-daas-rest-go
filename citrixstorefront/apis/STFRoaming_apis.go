@@ -53,9 +53,6 @@ type ApiAddSTFRoamingGatewayRequest struct {
 	AddSTFRoamingGatewayRequestModel models.AddSTFRoamingGatewayRequestModel
 	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
 	STFStaUrls                       []models.STFSTAUrlModel
-	SessionReliability               bool
-	RequestTicketTwoSTAs             bool
-	StasUseLoadBalancings            bool
 }
 
 func (r ApiAddSTFRoamingGatewayRequest) Execute() ([]byte, error) {
@@ -68,34 +65,23 @@ func (r ApiAddSTFRoamingGatewayRequest) Execute() ([]byte, error) {
 
 func (a *STFRoaming) AddSTFRoamingGatewayExecute(r ApiAddSTFRoamingGatewayRequest) ([]byte, error) {
 	var param = StructToString(r.AddSTFRoamingGatewayRequestModel)
+	param = strings.Replace(param, "-SessionReliability ", "-SessionReliability:", -1)
+	param = strings.Replace(param, "-RequestTicketTwoSTAs ", "-RequestTicketTwoSTAs:", -1)
+	param = strings.Replace(param, "-StasUseLoadBalancing ", "-StasUseLoadBalancing:", -1)
 	var getRoamingServiceParam = StructToString(r.GetSTFRoamingServiceRequestModel)
 	staUrlParam := ""
-	sessionReliabilityParam := ""
-	if r.SessionReliability {
-		sessionReliabilityParam = "-SessionReliability"
-	}
-
-	requestTicketTwoSTAsParam := ""
-	if r.RequestTicketTwoSTAs {
-		requestTicketTwoSTAsParam = "-RequestTicketTwoSTAs"
-	}
-
-	stasUseLoadBalancingParam := ""
-	if r.StasUseLoadBalancings {
-		stasUseLoadBalancingParam = "-StasUseLoadBalancing"
-	}
 	if len(r.STFStaUrls) > 0 {
 		staUrlParam = " -SecureTicketAuthorityObjs @("
 		for _, staUrl := range r.STFStaUrls {
-			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.AuthorityId.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
+			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.StaUrl.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
 		}
 		staUrlParam += ")"
 	}
 
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam, sessionReliabilityParam, requestTicketTwoSTAsParam, stasUseLoadBalancingParam)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam)
 }
 
-func (a *STFRoaming) STFRoamingGatewayAdd(ctx context.Context, createSTFRoamingGatewayRequestModel models.AddSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel, stfStaUrls []models.STFSTAUrlModel, sessionReliability bool, requestTicketTwoSTAs bool, stasUseLoadBalancing bool) ApiAddSTFRoamingGatewayRequest {
+func (a *STFRoaming) STFRoamingGatewayAdd(ctx context.Context, createSTFRoamingGatewayRequestModel models.AddSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel, stfStaUrls []models.STFSTAUrlModel) ApiAddSTFRoamingGatewayRequest {
 	return ApiAddSTFRoamingGatewayRequest{
 		ApiService:                       a,
 		ctx:                              ctx,
@@ -167,7 +153,7 @@ func (a *STFRoaming) SetSTFRoamingGatewayExecute(r ApiSetSTFRoamingGatewayReques
 	if len(r.STFStaUrls) > 0 {
 		staUrlParam = " -SecureTicketAuthorityObjs @("
 		for _, staUrl := range r.STFStaUrls {
-			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.AuthorityId.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
+			staUrlParam += fmt.Sprintf("(New-STFSecureTicketAuthority -StaUrl '%s' -StaValidationEnabled $%t -StaValidationSecret '%s');", *staUrl.StaUrl.Get(), *staUrl.StaValidationEnabled.Get(), *staUrl.StaValidationSecret.Get())
 		}
 		staUrlParam += ")"
 	}

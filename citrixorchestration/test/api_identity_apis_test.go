@@ -261,6 +261,34 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test IdentityAPIsDAASService IdentityGetServiceAccountCapabilityPatchPreview", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceAccountUid string
+
+		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccountCapabilityPatchPreview(context.Background(), serviceAccountUid).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test IdentityAPIsDAASService IdentityGetServiceAccountTestReport", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceAccountUid string
+
+		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccountTestReport(context.Background(), serviceAccountUid).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test IdentityAPIsDAASService IdentityGetServiceAccounts", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -346,6 +374,20 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 		var serviceAccountUid string
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentitySetServiceAccount(context.Background(), serviceAccountUid).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test IdentityAPIsDAASService IdentityTestServiceAccount", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var serviceAccountUid string
+
+		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityTestServiceAccount(context.Background(), serviceAccountUid).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

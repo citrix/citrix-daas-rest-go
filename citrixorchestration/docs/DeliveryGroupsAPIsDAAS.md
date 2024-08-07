@@ -43,6 +43,7 @@ Method | HTTP request | Description
 [**DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails) | **Get** /DeliveryGroups/{nameOrId}/MachineCatalogs/{id} | Get the details of machine catalog associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupsMachineCatalogs**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupsMachineCatalogs) | **Get** /DeliveryGroups/{nameOrId}/MachineCatalogs | Get machine catalogs associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupsUsage**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupsUsage) | **Get** /DeliveryGroups/{nameOrId}/Usage | Get usage data about a delivery group.
+[**DeliveryGroupsGetDeliveryGroupsV2**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupsV2) | **Get** /DeliveryGroupsV2 | The V2 version of get all delivery groups.
 [**DeliveryGroupsPatchDeliveryGroup**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchDeliveryGroup) | **Patch** /DeliveryGroups/{nameOrId} | Modify a delivery group.
 [**DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy) | **Patch** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Update an advanced access policy associated with a delivery group.
 [**DeliveryGroupsPatchDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsPatchDeliveryGroupPowerTimeScheme) | **Patch** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Update a power time scheme for a delivery group.
@@ -2024,7 +2025,7 @@ Name | Type | Description  | Notes
 
 ## DeliveryGroupsGetDeliveryGroupFtas
 
-> FtaResponseModelCollection DeliveryGroupsGetDeliveryGroupFtas(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).DeliveryGroupsFtaRequestModel(deliveryGroupsFtaRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> FtaResponseModelCollection DeliveryGroupsGetDeliveryGroupFtas(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).DeliveryGroupsFtaRequestModel(deliveryGroupsFtaRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ExecutableName(executableName).Async(async).Execute()
 
 Returns the file type associations the system imports from worker machines in the specified delivery group.
 
@@ -2051,11 +2052,12 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    executableName := "executableName_example" // string | ExecutableName that used to filter imported file type associations. If specified, only             the OpenExecutableName of imported file type associations that match will return. (optional)
     async := true // bool | If 'true', the file types will be gotten as a background task. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupFtas(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).DeliveryGroupsFtaRequestModel(deliveryGroupsFtaRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupFtas(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).DeliveryGroupsFtaRequestModel(deliveryGroupsFtaRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ExecutableName(executableName).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupFtas``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2084,6 +2086,7 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **executableName** | **string** | ExecutableName that used to filter imported file type associations. If specified, only             the OpenExecutableName of imported file type associations that match will return. | 
  **async** | **bool** | If &#39;true&#39;, the file types will be gotten as a background task. | [default to false]
 
 ### Return type
@@ -2800,6 +2803,8 @@ Name | Type | Description  | Notes
 
 Get all delivery groups.
 
+
+
 ### Example
 
 ```go
@@ -3384,6 +3389,94 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DesktopUsageResponseModelCollection**](DesktopUsageResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsGetDeliveryGroupsV2
+
+> DeliveryGroupResponseModelCollection DeliveryGroupsGetDeliveryGroupsV2(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Async(async).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Execute()
+
+The V2 version of get all delivery groups.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    adminFolder := "adminFolder_example" // string | Optional folder path (URL-encoded) or ID.  If not specified, all delivery groups will be returned from all folders. (optional)
+    async := true // bool |  (optional) (default to false)
+    limit := int32(56) // int32 | The max number of delivery groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    fields := "Id,Uid,UserManagement" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Async(async).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsV2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeliveryGroupsGetDeliveryGroupsV2`: DeliveryGroupResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsGetDeliveryGroupsV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **adminFolder** | **string** | Optional folder path (URL-encoded) or ID.  If not specified, all delivery groups will be returned from all folders. | 
+ **async** | **bool** |  | [default to false]
+ **limit** | **int32** | The max number of delivery groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **fields** | **string** | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.              | 
+
+### Return type
+
+[**DeliveryGroupResponseModelCollection**](DeliveryGroupResponseModelCollection.md)
 
 ### Authorization
 

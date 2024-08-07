@@ -17,7 +17,7 @@ import (
 // checks if the MachineCatalogDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MachineCatalogDetailResponseModel{}
 
-// MachineCatalogDetailResponseModel struct for MachineCatalogDetailResponseModel
+// MachineCatalogDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder.               Response object for machine catalog details.              
 type MachineCatalogDetailResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name NullableString `json:"Name,omitempty"`

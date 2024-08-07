@@ -29,6 +29,8 @@ const (
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_IMAGE_DEFINITION HypervisorResourceSearchResourceType = "ImageDefinition"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE_SPEC HypervisorResourceSearchResourceType = "TemplateSpec"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_TAG HypervisorResourceSearchResourceType = "Tag"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_RESOURCE_GROUP HypervisorResourceSearchResourceType = "ResourceGroup"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_SECURITY_GROUP HypervisorResourceSearchResourceType = "SecurityGroup"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_AVAILABILITY_ZONE HypervisorResourceSearchResourceType = "AvailabilityZone"
 )
 
@@ -43,6 +45,8 @@ var AllowedHypervisorResourceSearchResourceTypeEnumValues = []HypervisorResource
 	"ImageDefinition",
 	"TemplateSpec",
 	"Tag",
+	"ResourceGroup",
+	"SecurityGroup",
 	"AvailabilityZone",
 }
 

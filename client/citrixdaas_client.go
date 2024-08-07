@@ -92,6 +92,12 @@ func (daasClient *CitrixDaasClient) NewQuickCreateClient(ctx context.Context, qu
 		},
 	}
 
+	// Disable ssl check
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	localQuickCreateCfg.HTTPClient = &http.Client{Transport: tr}
+
 	localQuickCreateCfg.Middleware = getMiddlewareWithQuickcreateClient(daasClient, middlewareFunc)
 	daasClient.QuickCreateClient = citrixquickcreate.NewAPIClient(localQuickCreateCfg)
 }

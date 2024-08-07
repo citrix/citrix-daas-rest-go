@@ -15,6 +15,8 @@
 
 * `MACHINE` (value: `"Machine"`)
 
+* `SERVICE_ACCOUNT` (value: `"ServiceAccount"`)
+
 * `UNKNOWN` (value: `"Unknown"`)
 
 

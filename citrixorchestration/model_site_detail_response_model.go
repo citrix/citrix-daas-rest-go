@@ -37,6 +37,7 @@ type SiteDetailResponseModel struct {
 	LicensingModel *LicenseModel `json:"LicensingModel,omitempty"`
 	// Indicates whether the site's initial configuration is complete.
 	SiteConfigurationComplete *bool `json:"SiteConfigurationComplete,omitempty"`
+	SiteConfigurationProfile *SiteConfigurationProfileModel `json:"SiteConfigurationProfile,omitempty"`
 	PrimaryZone RefResponseModel `json:"PrimaryZone"`
 	// Product code for the site license.
 	ProductCode string `json:"ProductCode"`
@@ -64,7 +65,7 @@ type SiteDetailResponseModel struct {
 	LicenseGraceSessionsRemaining NullableInt32 `json:"LicenseGraceSessionsRemaining,omitempty"`
 	// The number of active, licensed sessions.
 	LicensedSessionsActive NullableInt32 `json:"LicensedSessionsActive,omitempty"`
-	// When in an active licensing grace period, indicates the  number of hours remaining in the grace period. Will be null for XenApp & XenDesktop service.
+	// When in an active licensing grace period, indicates the number of hours remaining in the grace period. Will be null for XenApp & XenDesktop service.
 	LicensingGraceHoursLeft NullableInt32 `json:"LicensingGraceHoursLeft,omitempty"`
 	// Indicates whether a licensing grace period is active. Will be null for XenApp & XenDesktop service.
 	LicensingGracePeriodActive NullableBool `json:"LicensingGracePeriodActive,omitempty"`
@@ -448,6 +449,38 @@ func (o *SiteDetailResponseModel) HasSiteConfigurationComplete() bool {
 // SetSiteConfigurationComplete gets a reference to the given bool and assigns it to the SiteConfigurationComplete field.
 func (o *SiteDetailResponseModel) SetSiteConfigurationComplete(v bool) {
 	o.SiteConfigurationComplete = &v
+}
+
+// GetSiteConfigurationProfile returns the SiteConfigurationProfile field value if set, zero value otherwise.
+func (o *SiteDetailResponseModel) GetSiteConfigurationProfile() SiteConfigurationProfileModel {
+	if o == nil || IsNil(o.SiteConfigurationProfile) {
+		var ret SiteConfigurationProfileModel
+		return ret
+	}
+	return *o.SiteConfigurationProfile
+}
+
+// GetSiteConfigurationProfileOk returns a tuple with the SiteConfigurationProfile field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SiteDetailResponseModel) GetSiteConfigurationProfileOk() (*SiteConfigurationProfileModel, bool) {
+	if o == nil || IsNil(o.SiteConfigurationProfile) {
+		return nil, false
+	}
+	return o.SiteConfigurationProfile, true
+}
+
+// HasSiteConfigurationProfile returns a boolean if a field has been set.
+func (o *SiteDetailResponseModel) HasSiteConfigurationProfile() bool {
+	if o != nil && !IsNil(o.SiteConfigurationProfile) {
+		return true
+	}
+
+	return false
+}
+
+// SetSiteConfigurationProfile gets a reference to the given SiteConfigurationProfileModel and assigns it to the SiteConfigurationProfile field.
+func (o *SiteDetailResponseModel) SetSiteConfigurationProfile(v SiteConfigurationProfileModel) {
+	o.SiteConfigurationProfile = &v
 }
 
 // GetPrimaryZone returns the PrimaryZone field value
@@ -1321,6 +1354,9 @@ func (o SiteDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SiteConfigurationComplete) {
 		toSerialize["SiteConfigurationComplete"] = o.SiteConfigurationComplete
+	}
+	if !IsNil(o.SiteConfigurationProfile) {
+		toSerialize["SiteConfigurationProfile"] = o.SiteConfigurationProfile
 	}
 	toSerialize["PrimaryZone"] = o.PrimaryZone
 	toSerialize["ProductCode"] = o.ProductCode

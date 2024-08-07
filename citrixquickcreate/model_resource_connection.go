@@ -32,7 +32,7 @@ type ResourceConnection struct {
 	// Resource Location Id
 	ResourceLocationId NullableString `json:"resourceLocationId,omitempty"`
 	// Tasks currently being performed on the connection
-	ActiveTasks []GetCustomerAccountTaskAsync200Response `json:"activeTasks,omitempty"`
+	ActiveTasks []GetTaskAsync200Response `json:"activeTasks,omitempty"`
 	// Indicates whether the resource connection is Citrix managed
 	CitrixManaged bool `json:"citrixManaged"`
 	AssociatedDeployments []AssociatedDeployment `json:"associatedDeployments,omitempty"`
@@ -301,9 +301,9 @@ func (o *ResourceConnection) UnsetResourceLocationId() {
 }
 
 // GetActiveTasks returns the ActiveTasks field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ResourceConnection) GetActiveTasks() []GetCustomerAccountTaskAsync200Response {
+func (o *ResourceConnection) GetActiveTasks() []GetTaskAsync200Response {
 	if o == nil {
-		var ret []GetCustomerAccountTaskAsync200Response
+		var ret []GetTaskAsync200Response
 		return ret
 	}
 	return o.ActiveTasks
@@ -312,7 +312,7 @@ func (o *ResourceConnection) GetActiveTasks() []GetCustomerAccountTaskAsync200Re
 // GetActiveTasksOk returns a tuple with the ActiveTasks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ResourceConnection) GetActiveTasksOk() ([]GetCustomerAccountTaskAsync200Response, bool) {
+func (o *ResourceConnection) GetActiveTasksOk() ([]GetTaskAsync200Response, bool) {
 	if o == nil || IsNil(o.ActiveTasks) {
 		return nil, false
 	}
@@ -328,8 +328,8 @@ func (o *ResourceConnection) HasActiveTasks() bool {
 	return false
 }
 
-// SetActiveTasks gets a reference to the given []GetCustomerAccountTaskAsync200Response and assigns it to the ActiveTasks field.
-func (o *ResourceConnection) SetActiveTasks(v []GetCustomerAccountTaskAsync200Response) {
+// SetActiveTasks gets a reference to the given []GetTaskAsync200Response and assigns it to the ActiveTasks field.
+func (o *ResourceConnection) SetActiveTasks(v []GetTaskAsync200Response) {
 	o.ActiveTasks = v
 }
 

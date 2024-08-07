@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerAccountTaskAsync
 
-> GetCustomerAccountTaskAsync200Response GetCustomerAccountTaskAsync(ctx, customerId, accountId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
+> AccountTask GetCustomerAccountTaskAsync(ctx, customerId, accountId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
 
 Gets account task
 
@@ -410,7 +410,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountTaskAsync``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetCustomerAccountTaskAsync`: GetCustomerAccountTaskAsync200Response
+    // response from `GetCustomerAccountTaskAsync`: AccountTask
     fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountTaskAsync`: %v\n", resp)
 }
 ```
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCustomerAccountTaskAsync200Response**](GetCustomerAccountTaskAsync200Response.md)
+[**AccountTask**](AccountTask.md)
 
 ### Authorization
 

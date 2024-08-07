@@ -8,8 +8,11 @@ Name | Type | Description | Notes
 **ComputeType** | Pointer to [**AwsEdcWorkspaceCompute**](AwsEdcWorkspaceCompute.md) |  | [optional] 
 **RootVolumeSize** | Pointer to **int32** | Size of operating system volume for bundle creation | [optional] 
 **UserVolumeSize** | Pointer to **int32** | Size of user storage volume for bundle creation | [optional] 
+**VolumesEncrypted** | Pointer to **NullableBool** | Is root and user storage volume encrypted | [optional] 
+**VolumesEncryptionKey** | Pointer to **NullableString** | Volume encryption key | [optional] 
 **RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) |  | [optional] 
 **ScaleSettings** | Pointer to [**NullableScaleSettings**](ScaleSettings.md) |  | [optional] 
+**UserDecoupledWorkspaces** | Pointer to **NullableBool** | Should workspaces be decoupled from the user during creation | [optional] 
 **Workspaces** | Pointer to [**[]AddAwsEdcWorkspace**](AddAwsEdcWorkspace.md) | Configuration for individual workspace | [optional] 
 
 ## Methods
@@ -126,6 +129,76 @@ SetUserVolumeSize sets UserVolumeSize field to given value.
 
 HasUserVolumeSize returns a boolean if a field has been set.
 
+### GetVolumesEncrypted
+
+`func (o *InitiateAwsEdcDeployment) GetVolumesEncrypted() bool`
+
+GetVolumesEncrypted returns the VolumesEncrypted field if non-nil, zero value otherwise.
+
+### GetVolumesEncryptedOk
+
+`func (o *InitiateAwsEdcDeployment) GetVolumesEncryptedOk() (*bool, bool)`
+
+GetVolumesEncryptedOk returns a tuple with the VolumesEncrypted field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVolumesEncrypted
+
+`func (o *InitiateAwsEdcDeployment) SetVolumesEncrypted(v bool)`
+
+SetVolumesEncrypted sets VolumesEncrypted field to given value.
+
+### HasVolumesEncrypted
+
+`func (o *InitiateAwsEdcDeployment) HasVolumesEncrypted() bool`
+
+HasVolumesEncrypted returns a boolean if a field has been set.
+
+### SetVolumesEncryptedNil
+
+`func (o *InitiateAwsEdcDeployment) SetVolumesEncryptedNil(b bool)`
+
+ SetVolumesEncryptedNil sets the value for VolumesEncrypted to be an explicit nil
+
+### UnsetVolumesEncrypted
+`func (o *InitiateAwsEdcDeployment) UnsetVolumesEncrypted()`
+
+UnsetVolumesEncrypted ensures that no value is present for VolumesEncrypted, not even an explicit nil
+### GetVolumesEncryptionKey
+
+`func (o *InitiateAwsEdcDeployment) GetVolumesEncryptionKey() string`
+
+GetVolumesEncryptionKey returns the VolumesEncryptionKey field if non-nil, zero value otherwise.
+
+### GetVolumesEncryptionKeyOk
+
+`func (o *InitiateAwsEdcDeployment) GetVolumesEncryptionKeyOk() (*string, bool)`
+
+GetVolumesEncryptionKeyOk returns a tuple with the VolumesEncryptionKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVolumesEncryptionKey
+
+`func (o *InitiateAwsEdcDeployment) SetVolumesEncryptionKey(v string)`
+
+SetVolumesEncryptionKey sets VolumesEncryptionKey field to given value.
+
+### HasVolumesEncryptionKey
+
+`func (o *InitiateAwsEdcDeployment) HasVolumesEncryptionKey() bool`
+
+HasVolumesEncryptionKey returns a boolean if a field has been set.
+
+### SetVolumesEncryptionKeyNil
+
+`func (o *InitiateAwsEdcDeployment) SetVolumesEncryptionKeyNil(b bool)`
+
+ SetVolumesEncryptionKeyNil sets the value for VolumesEncryptionKey to be an explicit nil
+
+### UnsetVolumesEncryptionKey
+`func (o *InitiateAwsEdcDeployment) UnsetVolumesEncryptionKey()`
+
+UnsetVolumesEncryptionKey ensures that no value is present for VolumesEncryptionKey, not even an explicit nil
 ### GetRunningMode
 
 `func (o *InitiateAwsEdcDeployment) GetRunningMode() AwsEdcWorkspaceRunningMode`
@@ -196,6 +269,41 @@ HasScaleSettings returns a boolean if a field has been set.
 `func (o *InitiateAwsEdcDeployment) UnsetScaleSettings()`
 
 UnsetScaleSettings ensures that no value is present for ScaleSettings, not even an explicit nil
+### GetUserDecoupledWorkspaces
+
+`func (o *InitiateAwsEdcDeployment) GetUserDecoupledWorkspaces() bool`
+
+GetUserDecoupledWorkspaces returns the UserDecoupledWorkspaces field if non-nil, zero value otherwise.
+
+### GetUserDecoupledWorkspacesOk
+
+`func (o *InitiateAwsEdcDeployment) GetUserDecoupledWorkspacesOk() (*bool, bool)`
+
+GetUserDecoupledWorkspacesOk returns a tuple with the UserDecoupledWorkspaces field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserDecoupledWorkspaces
+
+`func (o *InitiateAwsEdcDeployment) SetUserDecoupledWorkspaces(v bool)`
+
+SetUserDecoupledWorkspaces sets UserDecoupledWorkspaces field to given value.
+
+### HasUserDecoupledWorkspaces
+
+`func (o *InitiateAwsEdcDeployment) HasUserDecoupledWorkspaces() bool`
+
+HasUserDecoupledWorkspaces returns a boolean if a field has been set.
+
+### SetUserDecoupledWorkspacesNil
+
+`func (o *InitiateAwsEdcDeployment) SetUserDecoupledWorkspacesNil(b bool)`
+
+ SetUserDecoupledWorkspacesNil sets the value for UserDecoupledWorkspaces to be an explicit nil
+
+### UnsetUserDecoupledWorkspaces
+`func (o *InitiateAwsEdcDeployment) UnsetUserDecoupledWorkspaces()`
+
+UnsetUserDecoupledWorkspaces ensures that no value is present for UserDecoupledWorkspaces, not even an explicit nil
 ### GetWorkspaces
 
 `func (o *InitiateAwsEdcDeployment) GetWorkspaces() []AddAwsEdcWorkspace`

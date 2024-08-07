@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **UnknownMachines** | Pointer to **int32** | Unknown machines count. | [optional] 
 **HostsToBeDeleted** | Pointer to **[]string** | Hosting units to be deleted. | [optional] 
 **ImpactedCatalogs** | Pointer to **map[string]int32** | Impacted catalogs dictionary. | [optional] 
+**ImpactedImageDefinitions** | Pointer to **map[string]int32** | Impacted image definitions dictionary. | [optional] 
 
 ## Methods
 
@@ -226,6 +227,41 @@ HasImpactedCatalogs returns a boolean if a field has been set.
 `func (o *HypervisorDeletePreviewResponseModel) UnsetImpactedCatalogs()`
 
 UnsetImpactedCatalogs ensures that no value is present for ImpactedCatalogs, not even an explicit nil
+### GetImpactedImageDefinitions
+
+`func (o *HypervisorDeletePreviewResponseModel) GetImpactedImageDefinitions() map[string]int32`
+
+GetImpactedImageDefinitions returns the ImpactedImageDefinitions field if non-nil, zero value otherwise.
+
+### GetImpactedImageDefinitionsOk
+
+`func (o *HypervisorDeletePreviewResponseModel) GetImpactedImageDefinitionsOk() (*map[string]int32, bool)`
+
+GetImpactedImageDefinitionsOk returns a tuple with the ImpactedImageDefinitions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImpactedImageDefinitions
+
+`func (o *HypervisorDeletePreviewResponseModel) SetImpactedImageDefinitions(v map[string]int32)`
+
+SetImpactedImageDefinitions sets ImpactedImageDefinitions field to given value.
+
+### HasImpactedImageDefinitions
+
+`func (o *HypervisorDeletePreviewResponseModel) HasImpactedImageDefinitions() bool`
+
+HasImpactedImageDefinitions returns a boolean if a field has been set.
+
+### SetImpactedImageDefinitionsNil
+
+`func (o *HypervisorDeletePreviewResponseModel) SetImpactedImageDefinitionsNil(b bool)`
+
+ SetImpactedImageDefinitionsNil sets the value for ImpactedImageDefinitions to be an explicit nil
+
+### UnsetImpactedImageDefinitions
+`func (o *HypervisorDeletePreviewResponseModel) UnsetImpactedImageDefinitions()`
+
+UnsetImpactedImageDefinitions ensures that no value is present for ImpactedImageDefinitions, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,6 +32,7 @@ const (
 	DELIVERYGROUPSEARCHPROPERTY_SESSION_SUPPORT DeliveryGroupSearchProperty = "SessionSupport"
 	DELIVERYGROUPSEARCHPROPERTY_TOTAL_APPLICATIONS DeliveryGroupSearchProperty = "TotalApplications"
 	DELIVERYGROUPSEARCHPROPERTY_SHARING_KIND DeliveryGroupSearchProperty = "SharingKind"
+	DELIVERYGROUPSEARCHPROPERTY_TAGS DeliveryGroupSearchProperty = "Tags"
 )
 
 // All allowed values of DeliveryGroupSearchProperty enum
@@ -48,6 +49,7 @@ var AllowedDeliveryGroupSearchPropertyEnumValues = []DeliveryGroupSearchProperty
 	"SessionSupport",
 	"TotalApplications",
 	"SharingKind",
+	"Tags",
 }
 
 func (v *DeliveryGroupSearchProperty) UnmarshalJSON(src []byte) error {

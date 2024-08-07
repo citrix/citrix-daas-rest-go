@@ -375,6 +375,20 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePrices", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePrices(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorServerHAAddresses", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

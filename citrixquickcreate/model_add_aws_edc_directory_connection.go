@@ -26,7 +26,7 @@ type AddAwsEdcDirectoryConnection struct {
 	Subnet1Id NullableString `json:"subnet1Id,omitempty"`
 	// Second Subnet Id
 	Subnet2Id NullableString `json:"subnet2Id,omitempty"`
-	Tenancy NullableTenancy `json:"tenancy,omitempty"`
+	Tenancy NullableAwsEdcDirectoryTenancy `json:"tenancy,omitempty"`
 	// Enable Work Docs
 	EnableWorkDocs *bool `json:"enableWorkDocs,omitempty"`
 	// Enable Local Administrator
@@ -185,9 +185,9 @@ func (o *AddAwsEdcDirectoryConnection) UnsetSubnet2Id() {
 }
 
 // GetTenancy returns the Tenancy field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AddAwsEdcDirectoryConnection) GetTenancy() Tenancy {
+func (o *AddAwsEdcDirectoryConnection) GetTenancy() AwsEdcDirectoryTenancy {
 	if o == nil || IsNil(o.Tenancy.Get()) {
-		var ret Tenancy
+		var ret AwsEdcDirectoryTenancy
 		return ret
 	}
 	return *o.Tenancy.Get()
@@ -196,7 +196,7 @@ func (o *AddAwsEdcDirectoryConnection) GetTenancy() Tenancy {
 // GetTenancyOk returns a tuple with the Tenancy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AddAwsEdcDirectoryConnection) GetTenancyOk() (*Tenancy, bool) {
+func (o *AddAwsEdcDirectoryConnection) GetTenancyOk() (*AwsEdcDirectoryTenancy, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -212,8 +212,8 @@ func (o *AddAwsEdcDirectoryConnection) HasTenancy() bool {
 	return false
 }
 
-// SetTenancy gets a reference to the given NullableTenancy and assigns it to the Tenancy field.
-func (o *AddAwsEdcDirectoryConnection) SetTenancy(v Tenancy) {
+// SetTenancy gets a reference to the given NullableAwsEdcDirectoryTenancy and assigns it to the Tenancy field.
+func (o *AddAwsEdcDirectoryConnection) SetTenancy(v AwsEdcDirectoryTenancy) {
 	o.Tenancy.Set(&v)
 }
 // SetTenancyNil sets the value for Tenancy to be an explicit nil

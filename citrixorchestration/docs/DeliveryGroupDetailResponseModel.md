@@ -32,14 +32,15 @@ Name | Type | Description | Notes
 **RequireUserHomeZone** | **bool** | Whether the resources from this delivery group are required to launch within the user&#39;s home zone. | 
 **Scopes** | [**[]ScopeResponseModel**](ScopeResponseModel.md) | Administrative scopes which the delivery group is part of. | 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the delivery group is assigned to.  If &#x60;null&#x60;, the delivery group is not assigned to tenants, and may be used by any tenant, including future added tenants. | [optional] 
+**Tags** | Pointer to **[]string** | The tags directly associated with the delivery group. | [optional] 
 **SessionCount** | **int32** | Number of sessions currently running on machines in the delivery group. | 
 **SessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
 **SharingKind** | [**SharingKind**](SharingKind.md) |  | 
 **TotalApplications** | **int32** | Total number of applications published on the delivery group. | 
 **TotalDesktops** | **int32** | Total number of desktops in the delivery group. | 
 **ApplicationGroupCompatibility** | [**AppGroupCompatibility**](AppGroupCompatibility.md) |  | 
-**ApplicationCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
-**DesktopCompatibility** | [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | 
+**ApplicationCompatibility** | Pointer to [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | [optional] 
+**DesktopCompatibility** | Pointer to [**AppOrDesktopCompatibility**](AppOrDesktopCompatibility.md) |  | [optional] 
 **RequiredSleepCapability** | Pointer to [**RequiredSleepCapability**](RequiredSleepCapability.md) |  | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **IsPowerManaged** | Pointer to **bool** | Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType&#x3D;&#x3D;Virtual meant the same thing as \&quot;power-managed\&quot;; however that&#39;s not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType&#x3D;&#x3D;Physical). | [optional] 
@@ -123,7 +124,7 @@ Name | Type | Description | Notes
 
 ### NewDeliveryGroupDetailResponseModel
 
-`func NewDeliveryGroupDetailResponseModel(id string, delivering DeliveryKind, deliveryType DeliveryKind, desktopsAvailable int32, desktopsDisconnected int32, desktopsFaulted int32, desktopsUnregistered int32, enabled bool, hasBeenPromoted bool, inMaintenanceMode bool, isBroken bool, isRemotePC bool, minimumFunctionalLevel FunctionalLevel, name string, requireUserHomeZone bool, scopes []ScopeResponseModel, sessionCount int32, sessionSupport SessionSupport, sharingKind SharingKind, totalApplications int32, totalDesktops int32, applicationGroupCompatibility AppGroupCompatibility, applicationCompatibility AppOrDesktopCompatibility, desktopCompatibility AppOrDesktopCompatibility, desktopsInUse int32, desktopsNeverRegistered int32, desktopsPreparing int32, machinesInMaintenanceMode int32, machineOperatingSystems []NameValueIntPairModel, machineType MachineType, offMachines int32, registeredMachines int32, secureIcaRequired bool, totalApplicationGroups int32, totalMachines int32, ) *DeliveryGroupDetailResponseModel`
+`func NewDeliveryGroupDetailResponseModel(id string, delivering DeliveryKind, deliveryType DeliveryKind, desktopsAvailable int32, desktopsDisconnected int32, desktopsFaulted int32, desktopsUnregistered int32, enabled bool, hasBeenPromoted bool, inMaintenanceMode bool, isBroken bool, isRemotePC bool, minimumFunctionalLevel FunctionalLevel, name string, requireUserHomeZone bool, scopes []ScopeResponseModel, sessionCount int32, sessionSupport SessionSupport, sharingKind SharingKind, totalApplications int32, totalDesktops int32, applicationGroupCompatibility AppGroupCompatibility, desktopsInUse int32, desktopsNeverRegistered int32, desktopsPreparing int32, machinesInMaintenanceMode int32, machineOperatingSystems []NameValueIntPairModel, machineType MachineType, offMachines int32, registeredMachines int32, secureIcaRequired bool, totalApplicationGroups int32, totalMachines int32, ) *DeliveryGroupDetailResponseModel`
 
 NewDeliveryGroupDetailResponseModel instantiates a new DeliveryGroupDetailResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -818,6 +819,41 @@ HasTenants returns a boolean if a field has been set.
 `func (o *DeliveryGroupDetailResponseModel) UnsetTenants()`
 
 UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
+### GetTags
+
+`func (o *DeliveryGroupDetailResponseModel) GetTags() []string`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetTagsOk() (*[]string, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *DeliveryGroupDetailResponseModel) SetTags(v []string)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *DeliveryGroupDetailResponseModel) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTagsNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetTagsNil(b bool)`
+
+ SetTagsNil sets the value for Tags to be an explicit nil
+
+### UnsetTags
+`func (o *DeliveryGroupDetailResponseModel) UnsetTags()`
+
+UnsetTags ensures that no value is present for Tags, not even an explicit nil
 ### GetSessionCount
 
 `func (o *DeliveryGroupDetailResponseModel) GetSessionCount() int32`
@@ -957,6 +993,11 @@ and a boolean to check if the value has been set.
 
 SetApplicationCompatibility sets ApplicationCompatibility field to given value.
 
+### HasApplicationCompatibility
+
+`func (o *DeliveryGroupDetailResponseModel) HasApplicationCompatibility() bool`
+
+HasApplicationCompatibility returns a boolean if a field has been set.
 
 ### GetDesktopCompatibility
 
@@ -977,6 +1018,11 @@ and a boolean to check if the value has been set.
 
 SetDesktopCompatibility sets DesktopCompatibility field to given value.
 
+### HasDesktopCompatibility
+
+`func (o *DeliveryGroupDetailResponseModel) HasDesktopCompatibility() bool`
+
+HasDesktopCompatibility returns a boolean if a field has been set.
 
 ### GetRequiredSleepCapability
 

@@ -34,6 +34,7 @@ type ApiConfigLogDeleteLogsRequest struct {
 	xAdminCredential *string
 	accept *string
 	citrixLocale *string
+	async *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -84,12 +85,18 @@ func (r ApiConfigLogDeleteLogsRequest) CitrixLocale(citrixLocale string) ApiConf
 	return r
 }
 
+// If &#39;true&#39;, the deleting all operations will be executed as a background task. The task wil have JobTypeDeleteAllOperations. When the task is complete it will redirect to GetJobResults.
+func (r ApiConfigLogDeleteLogsRequest) Async(async bool) ApiConfigLogDeleteLogsRequest {
+	r.async = &async
+	return r
+}
+
 func (r ApiConfigLogDeleteLogsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ConfigLogDeleteLogsExecute(r)
 }
 
 /*
-ConfigLogDeleteLogs Delete logging event logs. This on-prem only API.
+ConfigLogDeleteLogs Delete logging event logs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiConfigLogDeleteLogsRequest
@@ -126,6 +133,9 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 		return nil, reportError("citrixInstanceId is required and must be specified")
 	}
 
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -638,6 +648,7 @@ type ApiConfigLogExportReportDataRequest struct {
 	citrixTransactionId *string
 	accept *string
 	citrixLocale *string
+	async *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -688,6 +699,12 @@ func (r ApiConfigLogExportReportDataRequest) CitrixLocale(citrixLocale string) A
 	return r
 }
 
+// If &#39;true&#39;, the exporting operation report will be executed as a background task. The task wil have JobTypeExportOperationReport. When the task is complete it will redirect to GetJobResults.
+func (r ApiConfigLogExportReportDataRequest) Async(async bool) ApiConfigLogExportReportDataRequest {
+	r.async = &async
+	return r
+}
+
 func (r ApiConfigLogExportReportDataRequest) Execute() (*CustomReportDataResponseModel, *http.Response, error) {
 	return r.ApiService.ConfigLogExportReportDataExecute(r)
 }
@@ -735,6 +752,9 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 		return localVarReturnValue, nil, reportError("customReportInfoRequestModel is required and must be specified")
 	}
 
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -1528,7 +1548,7 @@ func (r ApiConfigLogGetLogSiteRequest) Execute() (*LogSiteResponseModel, *http.R
 }
 
 /*
-ConfigLogGetLogSite Get logging site details. This on-prem only API.
+ConfigLogGetLogSite Get logging site details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiConfigLogGetLogSiteRequest
@@ -3000,7 +3020,7 @@ func (r ApiConfigLogSetLogSiteRequest) Execute() (*LogSiteResponseModel, *http.R
 }
 
 /*
-ConfigLogSetLogSite Update logging site info. This on-prem only API.
+ConfigLogSetLogSite Update logging site info.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiConfigLogSetLogSiteRequest

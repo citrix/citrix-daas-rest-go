@@ -17,7 +17,7 @@ import (
 // checks if the HypervisorMachineCatalogResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &HypervisorMachineCatalogResponseModel{}
 
-// HypervisorMachineCatalogResponseModel struct for HypervisorMachineCatalogResponseModel
+// HypervisorMachineCatalogResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder.               Machine catalog related to a hypervisor or resource pool.              
 type HypervisorMachineCatalogResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name NullableString `json:"Name,omitempty"`

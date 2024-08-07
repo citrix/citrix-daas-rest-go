@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **MasterImage** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
 **PreparationType** | [**PreparationType**](PreparationType.md) |  | 
 **ProvisioningSchemeCount** | Pointer to **int32** | Number of provisioning scheme created from this image version specification. | [optional] 
-**ResourcePool** | [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | 
+**ResourcePool** | Pointer to [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | [optional] 
+**ResourcePools** | Pointer to [**[]ImageVersionSpecResourcePoolResponseModel**](ImageVersionSpecResourcePoolResponseModel.md) | The resource pools on which image is associated. | [optional] 
 **SourceImageVersionSpec** | Pointer to [**ImageVersionSpecRefResponseModel**](ImageVersionSpecRefResponseModel.md) |  | [optional] 
 **DiskSize** | Pointer to **int32** | The disk size | [optional] 
 **Warnings** | Pointer to [**[]ImageVersionSpecWarningResponseModel**](ImageVersionSpecWarningResponseModel.md) | List of warnings that are currently active on the image version specification, if any.  If there are no warnings this will not be specified. | [optional] 
@@ -23,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewImageVersionSpecResponseModel
 
-`func NewImageVersionSpecResponseModel(id string, preparationType PreparationType, resourcePool HypervisorResourcePoolRefResponseModel, ) *ImageVersionSpecResponseModel`
+`func NewImageVersionSpecResponseModel(id string, preparationType PreparationType, ) *ImageVersionSpecResponseModel`
 
 NewImageVersionSpecResponseModel instantiates a new ImageVersionSpecResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -292,7 +293,47 @@ and a boolean to check if the value has been set.
 
 SetResourcePool sets ResourcePool field to given value.
 
+### HasResourcePool
 
+`func (o *ImageVersionSpecResponseModel) HasResourcePool() bool`
+
+HasResourcePool returns a boolean if a field has been set.
+
+### GetResourcePools
+
+`func (o *ImageVersionSpecResponseModel) GetResourcePools() []ImageVersionSpecResourcePoolResponseModel`
+
+GetResourcePools returns the ResourcePools field if non-nil, zero value otherwise.
+
+### GetResourcePoolsOk
+
+`func (o *ImageVersionSpecResponseModel) GetResourcePoolsOk() (*[]ImageVersionSpecResourcePoolResponseModel, bool)`
+
+GetResourcePoolsOk returns a tuple with the ResourcePools field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourcePools
+
+`func (o *ImageVersionSpecResponseModel) SetResourcePools(v []ImageVersionSpecResourcePoolResponseModel)`
+
+SetResourcePools sets ResourcePools field to given value.
+
+### HasResourcePools
+
+`func (o *ImageVersionSpecResponseModel) HasResourcePools() bool`
+
+HasResourcePools returns a boolean if a field has been set.
+
+### SetResourcePoolsNil
+
+`func (o *ImageVersionSpecResponseModel) SetResourcePoolsNil(b bool)`
+
+ SetResourcePoolsNil sets the value for ResourcePools to be an explicit nil
+
+### UnsetResourcePools
+`func (o *ImageVersionSpecResponseModel) UnsetResourcePools()`
+
+UnsetResourcePools ensures that no value is present for ResourcePools, not even an explicit nil
 ### GetSourceImageVersionSpec
 
 `func (o *ImageVersionSpecResponseModel) GetSourceImageVersionSpec() ImageVersionSpecRefResponseModel`

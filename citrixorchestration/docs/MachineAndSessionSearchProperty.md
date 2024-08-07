@@ -37,6 +37,8 @@
 
 * `LAST_CONNECTION_USER` (value: `"LastConnectionUser"`)
 
+* `LAST_CONNECTION_TIME` (value: `"LastConnectionTime"`)
+
 * `LAST_DEREGISTRATION_REASON` (value: `"LastDeregistrationReason"`)
 
 * `LAST_DEREGISTRATION_TIME` (value: `"LastDeregistrationTime"`)

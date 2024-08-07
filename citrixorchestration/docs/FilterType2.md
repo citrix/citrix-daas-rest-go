@@ -21,6 +21,8 @@
 
 * `USER` (value: `"User"`)
 
+* `SECURE_BROWSER_TAG` (value: `"SecureBrowserTag"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,7 +17,7 @@ import (
 // checks if the MachineDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MachineDetailResponseModel{}
 
-// MachineDetailResponseModel struct for MachineDetailResponseModel
+// MachineDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Uid,AgentVersion,AllocationType,DeliveryGroup,DnsName,FunctionalLevel,InMaintenanceMode,MaintenanceModeReason,DrainingUntilShutdown,IPAddress,IsAssigned,MachineType,MachineUnavailableReason,OSType,OSVersion,PersistUserChanges,PowerActionPending,PowerState,ProvisioningType,PublishedName,RegistrationState,ScheduledReboot,Sid,SummaryState,WillShutdownAfterUse,SupportedPowerActions,FaultState,Id,MachineCatalog,Name.               Response model for machine details.              
 type MachineDetailResponseModel struct {
 	// Id of machine. Used to be: DesktopUid (and wasn't globally unique) OR UUID, depending on context Needs to be globally unique Might be constructed from site ID + internal Uid?  or use uuid
 	Id string `json:"Id"`

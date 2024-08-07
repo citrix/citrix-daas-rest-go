@@ -33,6 +33,8 @@ type HypervisorDeletePreviewResponseModel struct {
 	HostsToBeDeleted []string `json:"HostsToBeDeleted,omitempty"`
 	// Impacted catalogs dictionary.
 	ImpactedCatalogs map[string]int32 `json:"ImpactedCatalogs,omitempty"`
+	// Impacted image definitions dictionary.
+	ImpactedImageDefinitions map[string]int32 `json:"ImpactedImageDefinitions,omitempty"`
 }
 
 // NewHypervisorDeletePreviewResponseModel instantiates a new HypervisorDeletePreviewResponseModel object
@@ -278,6 +280,39 @@ func (o *HypervisorDeletePreviewResponseModel) SetImpactedCatalogs(v map[string]
 	o.ImpactedCatalogs = v
 }
 
+// GetImpactedImageDefinitions returns the ImpactedImageDefinitions field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorDeletePreviewResponseModel) GetImpactedImageDefinitions() map[string]int32 {
+	if o == nil {
+		var ret map[string]int32
+		return ret
+	}
+	return o.ImpactedImageDefinitions
+}
+
+// GetImpactedImageDefinitionsOk returns a tuple with the ImpactedImageDefinitions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorDeletePreviewResponseModel) GetImpactedImageDefinitionsOk() (*map[string]int32, bool) {
+	if o == nil || IsNil(o.ImpactedImageDefinitions) {
+		return nil, false
+	}
+	return &o.ImpactedImageDefinitions, true
+}
+
+// HasImpactedImageDefinitions returns a boolean if a field has been set.
+func (o *HypervisorDeletePreviewResponseModel) HasImpactedImageDefinitions() bool {
+	if o != nil && IsNil(o.ImpactedImageDefinitions) {
+		return true
+	}
+
+	return false
+}
+
+// SetImpactedImageDefinitions gets a reference to the given map[string]int32 and assigns it to the ImpactedImageDefinitions field.
+func (o *HypervisorDeletePreviewResponseModel) SetImpactedImageDefinitions(v map[string]int32) {
+	o.ImpactedImageDefinitions = v
+}
+
 func (o HypervisorDeletePreviewResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -308,6 +343,9 @@ func (o HypervisorDeletePreviewResponseModel) ToMap() (map[string]interface{}, e
 	}
 	if o.ImpactedCatalogs != nil {
 		toSerialize["ImpactedCatalogs"] = o.ImpactedCatalogs
+	}
+	if o.ImpactedImageDefinitions != nil {
+		toSerialize["ImpactedImageDefinitions"] = o.ImpactedImageDefinitions
 	}
 	return toSerialize, nil
 }

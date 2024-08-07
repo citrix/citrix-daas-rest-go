@@ -15,6 +15,9 @@ type AddSTFRoamingGatewayRequestModel struct {
 	StasBypassDuration         NullableString `json:"StasBypassDuration,omitempty"`         // Time before retrying a failed STA server
 	GslbUrl                    NullableString `json:"GslbUrl,omitempty"`                    // An optional URL which corresponds to the GSLB domain used by multiple gateways
 	IsCloudGateway             NullableBool   `json:"IsCloudGateway,omitempty"`             //Whether the Gateway is an instance of Citrix Gateway Service in the cloud.
+	SessionReliability         NullableBool   `json:"SessionReliability,omitempty"`         // Enable session reliability. Session Reliability keeps sessions active and on the user’s screen when network connectivity is interrupted. Users continue to see the application they are using until network connectivity resumes.
+	RequestTicketTwoSTAs       NullableBool   `json:"RequestTicketTwoSTAs,omitempty"`       //Request STA tickets from two STA servers (Requires two STA servers)
+	StasUseLoadBalancing       NullableBool   `json:"StasUseLoadBalancings,omitempty"`      //Use load balancing for STAs
 }
 
 // ToMap implements MappedNullable.
@@ -49,6 +52,15 @@ func (o AddSTFRoamingGatewayRequestModel) ToMap() (map[string]interface{}, error
 	}
 	if o.IsCloudGateway.IsSet() {
 		toSerialize["IsCloudGateway"] = o.IsCloudGateway.Get()
+	}
+	if o.SessionReliability.IsSet() {
+		toSerialize["SessionReliability"] = o.SessionReliability.Get()
+	}
+	if o.RequestTicketTwoSTAs.IsSet() {
+		toSerialize["RequestTicketTwoSTAs"] = o.RequestTicketTwoSTAs.Get()
+	}
+	if o.StasUseLoadBalancing.IsSet() {
+		toSerialize["StasUseLoadBalancings"] = o.StasUseLoadBalancing.Get()
 	}
 	return toSerialize, nil
 }
@@ -91,6 +103,18 @@ func (o *AddSTFRoamingGatewayRequestModel) SetGslbUrl(v string) {
 
 func (o *AddSTFRoamingGatewayRequestModel) SetIsCloudGateway(v bool) {
 	o.IsCloudGateway.Set(&v)
+}
+
+func (o *AddSTFRoamingGatewayRequestModel) SetSessionReliability(v bool) {
+	o.SessionReliability.Set(&v)
+}
+
+func (o *AddSTFRoamingGatewayRequestModel) SetRequestTicketTwoSTAs(v bool) {
+	o.RequestTicketTwoSTAs.Set(&v)
+}
+
+func (o *AddSTFRoamingGatewayRequestModel) SetStasUseLoadBalancing(v bool) {
+	o.StasUseLoadBalancing.Set(&v)
 }
 
 // Get-STFRoamingGateway

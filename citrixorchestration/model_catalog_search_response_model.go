@@ -17,7 +17,7 @@ import (
 // checks if the CatalogSearchResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CatalogSearchResponseModel{}
 
-// CatalogSearchResponseModel struct for CatalogSearchResponseModel
+// CatalogSearchResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder.               Catalog Search result model              
 type CatalogSearchResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name NullableString `json:"Name,omitempty"`

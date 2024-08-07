@@ -91,6 +91,10 @@ type ApiSetSTFDeploymentRequest struct {
 func (r ApiSetSTFDeploymentRequest) Execute() ([]byte, error) {
 	bytes, err := r.ApiService.SetSTFDeploymentExecute(r)
 	if err != nil {
+		if strings.Contains(err.Error(), "Serialized XML is nested too deeply") {
+			// Silently ignore the specific error
+			return nil, nil
+		}
 		return bytes, err
 	}
 	return nil, nil

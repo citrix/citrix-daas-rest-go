@@ -310,6 +310,20 @@ func Test_citrixorchestration_MachineCatalogsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test MachineCatalogsAPIsDAASService MachineCatalogsGetMachineCatalogVDAUpgradeVersions", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogVDAUpgradeVersions(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MachineCatalogsAPIsDAASService MachineCatalogsGetMachineCatalogs", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -329,6 +343,18 @@ func Test_citrixorchestration_MachineCatalogsAPIsDAASService(t *testing.T) {
 		var nameOrId string
 
 		resp, httpRes, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogsAdministrators(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachineCatalogsAPIsDAASService MachineCatalogsGetMachineCatalogsV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogsV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

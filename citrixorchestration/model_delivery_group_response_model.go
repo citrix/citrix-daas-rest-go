@@ -17,7 +17,7 @@ import (
 // checks if the DeliveryGroupResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DeliveryGroupResponseModel{}
 
-// DeliveryGroupResponseModel Response object for a delivery group.
+// DeliveryGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind.               Response object for a delivery group.              
 type DeliveryGroupResponseModel struct {
 	// Globally unique identifier of the delivery group.
 	Id string `json:"Id"`
@@ -69,6 +69,8 @@ type DeliveryGroupResponseModel struct {
 	Scopes []ScopeResponseModel `json:"Scopes"`
 	// The tenant(s) that the delivery group is assigned to.  If `null`, the delivery group is not assigned to tenants, and may be used by any tenant, including future added tenants.
 	Tenants []RefResponseModel `json:"Tenants,omitempty"`
+	// The tags directly associated with the delivery group.
+	Tags []string `json:"Tags,omitempty"`
 	// Number of sessions currently running on machines in the delivery group.
 	SessionCount int32 `json:"SessionCount"`
 	SessionSupport SessionSupport `json:"SessionSupport"`
@@ -78,8 +80,8 @@ type DeliveryGroupResponseModel struct {
 	// Total number of desktops in the delivery group.
 	TotalDesktops int32 `json:"TotalDesktops"`
 	ApplicationGroupCompatibility AppGroupCompatibility `json:"ApplicationGroupCompatibility"`
-	ApplicationCompatibility AppOrDesktopCompatibility `json:"ApplicationCompatibility"`
-	DesktopCompatibility AppOrDesktopCompatibility `json:"DesktopCompatibility"`
+	ApplicationCompatibility *AppOrDesktopCompatibility `json:"ApplicationCompatibility,omitempty"`
+	DesktopCompatibility *AppOrDesktopCompatibility `json:"DesktopCompatibility,omitempty"`
 	RequiredSleepCapability *RequiredSleepCapability `json:"RequiredSleepCapability,omitempty"`
 	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
 	// Indicates whether the machines in the delivery group are power-managed. NOTE: I used to think that MachineType==Virtual meant the same thing as \"power-managed\"; however that's not the case.  A machine is power- managed if it is Virtual OR if it is RemotePC with a hypervisor connection (which will still have MachineType==Physical).
@@ -96,7 +98,7 @@ type DeliveryGroupResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeliveryGroupResponseModel(id string, delivering DeliveryKind, deliveryType DeliveryKind, desktopsAvailable int32, desktopsDisconnected int32, desktopsFaulted int32, desktopsUnregistered int32, enabled bool, hasBeenPromoted bool, inMaintenanceMode bool, isBroken bool, isRemotePC bool, minimumFunctionalLevel FunctionalLevel, name string, requireUserHomeZone bool, scopes []ScopeResponseModel, sessionCount int32, sessionSupport SessionSupport, sharingKind SharingKind, totalApplications int32, totalDesktops int32, applicationGroupCompatibility AppGroupCompatibility, applicationCompatibility AppOrDesktopCompatibility, desktopCompatibility AppOrDesktopCompatibility) *DeliveryGroupResponseModel {
+func NewDeliveryGroupResponseModel(id string, delivering DeliveryKind, deliveryType DeliveryKind, desktopsAvailable int32, desktopsDisconnected int32, desktopsFaulted int32, desktopsUnregistered int32, enabled bool, hasBeenPromoted bool, inMaintenanceMode bool, isBroken bool, isRemotePC bool, minimumFunctionalLevel FunctionalLevel, name string, requireUserHomeZone bool, scopes []ScopeResponseModel, sessionCount int32, sessionSupport SessionSupport, sharingKind SharingKind, totalApplications int32, totalDesktops int32, applicationGroupCompatibility AppGroupCompatibility) *DeliveryGroupResponseModel {
 	this := DeliveryGroupResponseModel{}
 	this.Id = id
 	this.Delivering = delivering
@@ -120,8 +122,6 @@ func NewDeliveryGroupResponseModel(id string, delivering DeliveryKind, deliveryT
 	this.TotalApplications = totalApplications
 	this.TotalDesktops = totalDesktops
 	this.ApplicationGroupCompatibility = applicationGroupCompatibility
-	this.ApplicationCompatibility = applicationCompatibility
-	this.DesktopCompatibility = desktopCompatibility
 	return &this
 }
 
@@ -946,6 +946,39 @@ func (o *DeliveryGroupResponseModel) SetTenants(v []RefResponseModel) {
 	o.Tenants = v
 }
 
+// GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryGroupResponseModel) GetTags() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryGroupResponseModel) GetTagsOk() ([]string, bool) {
+	if o == nil || IsNil(o.Tags) {
+		return nil, false
+	}
+	return o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *DeliveryGroupResponseModel) HasTags() bool {
+	if o != nil && IsNil(o.Tags) {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []string and assigns it to the Tags field.
+func (o *DeliveryGroupResponseModel) SetTags(v []string) {
+	o.Tags = v
+}
+
 // GetSessionCount returns the SessionCount field value
 func (o *DeliveryGroupResponseModel) GetSessionCount() int32 {
 	if o == nil {
@@ -1090,52 +1123,68 @@ func (o *DeliveryGroupResponseModel) SetApplicationGroupCompatibility(v AppGroup
 	o.ApplicationGroupCompatibility = v
 }
 
-// GetApplicationCompatibility returns the ApplicationCompatibility field value
+// GetApplicationCompatibility returns the ApplicationCompatibility field value if set, zero value otherwise.
 func (o *DeliveryGroupResponseModel) GetApplicationCompatibility() AppOrDesktopCompatibility {
-	if o == nil {
+	if o == nil || IsNil(o.ApplicationCompatibility) {
 		var ret AppOrDesktopCompatibility
 		return ret
 	}
-
-	return o.ApplicationCompatibility
+	return *o.ApplicationCompatibility
 }
 
-// GetApplicationCompatibilityOk returns a tuple with the ApplicationCompatibility field value
+// GetApplicationCompatibilityOk returns a tuple with the ApplicationCompatibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeliveryGroupResponseModel) GetApplicationCompatibilityOk() (*AppOrDesktopCompatibility, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ApplicationCompatibility) {
 		return nil, false
 	}
-	return &o.ApplicationCompatibility, true
+	return o.ApplicationCompatibility, true
 }
 
-// SetApplicationCompatibility sets field value
+// HasApplicationCompatibility returns a boolean if a field has been set.
+func (o *DeliveryGroupResponseModel) HasApplicationCompatibility() bool {
+	if o != nil && !IsNil(o.ApplicationCompatibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetApplicationCompatibility gets a reference to the given AppOrDesktopCompatibility and assigns it to the ApplicationCompatibility field.
 func (o *DeliveryGroupResponseModel) SetApplicationCompatibility(v AppOrDesktopCompatibility) {
-	o.ApplicationCompatibility = v
+	o.ApplicationCompatibility = &v
 }
 
-// GetDesktopCompatibility returns the DesktopCompatibility field value
+// GetDesktopCompatibility returns the DesktopCompatibility field value if set, zero value otherwise.
 func (o *DeliveryGroupResponseModel) GetDesktopCompatibility() AppOrDesktopCompatibility {
-	if o == nil {
+	if o == nil || IsNil(o.DesktopCompatibility) {
 		var ret AppOrDesktopCompatibility
 		return ret
 	}
-
-	return o.DesktopCompatibility
+	return *o.DesktopCompatibility
 }
 
-// GetDesktopCompatibilityOk returns a tuple with the DesktopCompatibility field value
+// GetDesktopCompatibilityOk returns a tuple with the DesktopCompatibility field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DeliveryGroupResponseModel) GetDesktopCompatibilityOk() (*AppOrDesktopCompatibility, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DesktopCompatibility) {
 		return nil, false
 	}
-	return &o.DesktopCompatibility, true
+	return o.DesktopCompatibility, true
 }
 
-// SetDesktopCompatibility sets field value
+// HasDesktopCompatibility returns a boolean if a field has been set.
+func (o *DeliveryGroupResponseModel) HasDesktopCompatibility() bool {
+	if o != nil && !IsNil(o.DesktopCompatibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetDesktopCompatibility gets a reference to the given AppOrDesktopCompatibility and assigns it to the DesktopCompatibility field.
 func (o *DeliveryGroupResponseModel) SetDesktopCompatibility(v AppOrDesktopCompatibility) {
-	o.DesktopCompatibility = v
+	o.DesktopCompatibility = &v
 }
 
 // GetRequiredSleepCapability returns the RequiredSleepCapability field value if set, zero value otherwise.
@@ -1402,14 +1451,21 @@ func (o DeliveryGroupResponseModel) ToMap() (map[string]interface{}, error) {
 	if o.Tenants != nil {
 		toSerialize["Tenants"] = o.Tenants
 	}
+	if o.Tags != nil {
+		toSerialize["Tags"] = o.Tags
+	}
 	toSerialize["SessionCount"] = o.SessionCount
 	toSerialize["SessionSupport"] = o.SessionSupport
 	toSerialize["SharingKind"] = o.SharingKind
 	toSerialize["TotalApplications"] = o.TotalApplications
 	toSerialize["TotalDesktops"] = o.TotalDesktops
 	toSerialize["ApplicationGroupCompatibility"] = o.ApplicationGroupCompatibility
-	toSerialize["ApplicationCompatibility"] = o.ApplicationCompatibility
-	toSerialize["DesktopCompatibility"] = o.DesktopCompatibility
+	if !IsNil(o.ApplicationCompatibility) {
+		toSerialize["ApplicationCompatibility"] = o.ApplicationCompatibility
+	}
+	if !IsNil(o.DesktopCompatibility) {
+		toSerialize["DesktopCompatibility"] = o.DesktopCompatibility
+	}
 	if !IsNil(o.RequiredSleepCapability) {
 		toSerialize["RequiredSleepCapability"] = o.RequiredSleepCapability
 	}

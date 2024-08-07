@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"os"
 )
 
 
@@ -685,7 +684,7 @@ func (r ApiIconsGetIconRequest) IconFormat(iconFormat string) ApiIconsGetIconReq
 	return r
 }
 
-func (r ApiIconsGetIconRequest) Execute() (*os.File, *http.Response, error) {
+func (r ApiIconsGetIconRequest) Execute() (*IconResponseModel, *http.Response, error) {
 	return r.ApiService.IconsGetIconExecute(r)
 }
 
@@ -707,13 +706,13 @@ func (a *IconsAPIsDAASService) IconsGetIcon(ctx context.Context, id string) ApiI
 }
 
 // Execute executes the request
-//  @return *os.File
-func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*os.File, *http.Response, error) {
+//  @return IconResponseModel
+func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*IconResponseModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarReturnValue  *IconResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IconsAPIsDAASService.IconsGetIcon")
@@ -747,7 +746,7 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*o
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

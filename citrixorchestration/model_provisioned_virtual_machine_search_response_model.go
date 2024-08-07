@@ -52,6 +52,8 @@ type ProvisionedVirtualMachineSearchResponseModel struct {
 	WriteBackCacheDiskSize *int32 `json:"WriteBackCacheDiskSize,omitempty"`
 	// Write back cache memory size.
 	WriteBackCacheMemorySize *int32 `json:"WriteBackCacheMemorySize,omitempty"`
+	// List of ProvisioningOperationEventSearchResponseModel.
+	OperationEvents []ProvisioningOperationEventSearchResponseModel `json:"OperationEvents,omitempty"`
 }
 
 // NewProvisionedVirtualMachineSearchResponseModel instantiates a new ProvisionedVirtualMachineSearchResponseModel object
@@ -695,6 +697,39 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) SetWriteBackCacheMemorySi
 	o.WriteBackCacheMemorySize = &v
 }
 
+// GetOperationEvents returns the OperationEvents field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetOperationEvents() []ProvisioningOperationEventSearchResponseModel {
+	if o == nil {
+		var ret []ProvisioningOperationEventSearchResponseModel
+		return ret
+	}
+	return o.OperationEvents
+}
+
+// GetOperationEventsOk returns a tuple with the OperationEvents field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetOperationEventsOk() ([]ProvisioningOperationEventSearchResponseModel, bool) {
+	if o == nil || IsNil(o.OperationEvents) {
+		return nil, false
+	}
+	return o.OperationEvents, true
+}
+
+// HasOperationEvents returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasOperationEvents() bool {
+	if o != nil && IsNil(o.OperationEvents) {
+		return true
+	}
+
+	return false
+}
+
+// SetOperationEvents gets a reference to the given []ProvisioningOperationEventSearchResponseModel and assigns it to the OperationEvents field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetOperationEvents(v []ProvisioningOperationEventSearchResponseModel) {
+	o.OperationEvents = v
+}
+
 func (o ProvisionedVirtualMachineSearchResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -755,6 +790,9 @@ func (o ProvisionedVirtualMachineSearchResponseModel) ToMap() (map[string]interf
 	}
 	if !IsNil(o.WriteBackCacheMemorySize) {
 		toSerialize["WriteBackCacheMemorySize"] = o.WriteBackCacheMemorySize
+	}
+	if o.OperationEvents != nil {
+		toSerialize["OperationEvents"] = o.OperationEvents
 	}
 	return toSerialize, nil
 }

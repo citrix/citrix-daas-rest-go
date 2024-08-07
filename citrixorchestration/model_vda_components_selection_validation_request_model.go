@@ -25,6 +25,8 @@ type VDAComponentsSelectionValidationRequestModel struct {
 	ExcludedComponents []VDAComponentRequestModel `json:"ExcludedComponents,omitempty"`
 	// Features that needs to enabled on this catalog level VDA Upgrade schedule.
 	Features []string `json:"Features,omitempty"`
+	// Version of the VDA to be upgraded to.
+	UpgradeVersion NullableString `json:"UpgradeVersion,omitempty"`
 }
 
 // NewVDAComponentsSelectionValidationRequestModel instantiates a new VDAComponentsSelectionValidationRequestModel object
@@ -143,6 +145,48 @@ func (o *VDAComponentsSelectionValidationRequestModel) SetFeatures(v []string) {
 	o.Features = v
 }
 
+// GetUpgradeVersion returns the UpgradeVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *VDAComponentsSelectionValidationRequestModel) GetUpgradeVersion() string {
+	if o == nil || IsNil(o.UpgradeVersion.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.UpgradeVersion.Get()
+}
+
+// GetUpgradeVersionOk returns a tuple with the UpgradeVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *VDAComponentsSelectionValidationRequestModel) GetUpgradeVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UpgradeVersion.Get(), o.UpgradeVersion.IsSet()
+}
+
+// HasUpgradeVersion returns a boolean if a field has been set.
+func (o *VDAComponentsSelectionValidationRequestModel) HasUpgradeVersion() bool {
+	if o != nil && o.UpgradeVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUpgradeVersion gets a reference to the given NullableString and assigns it to the UpgradeVersion field.
+func (o *VDAComponentsSelectionValidationRequestModel) SetUpgradeVersion(v string) {
+	o.UpgradeVersion.Set(&v)
+}
+// SetUpgradeVersionNil sets the value for UpgradeVersion to be an explicit nil
+func (o *VDAComponentsSelectionValidationRequestModel) SetUpgradeVersionNil() {
+	o.UpgradeVersion.Set(nil)
+}
+
+// UnsetUpgradeVersion ensures that no value is present for UpgradeVersion, not even an explicit nil
+func (o *VDAComponentsSelectionValidationRequestModel) UnsetUpgradeVersion() {
+	o.UpgradeVersion.Unset()
+}
+
 func (o VDAComponentsSelectionValidationRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -161,6 +205,9 @@ func (o VDAComponentsSelectionValidationRequestModel) ToMap() (map[string]interf
 	}
 	if o.Features != nil {
 		toSerialize["Features"] = o.Features
+	}
+	if o.UpgradeVersion.IsSet() {
+		toSerialize["UpgradeVersion"] = o.UpgradeVersion.Get()
 	}
 	return toSerialize, nil
 }

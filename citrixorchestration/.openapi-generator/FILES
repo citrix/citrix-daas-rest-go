@@ -22,6 +22,8 @@ api_health_check_apis.go
 api_hypervisors_apis.go
 api_icons_apis.go
 api_identity_apis.go
+api_image_definitions_apis.go
+api_image_versions_apis.go
 api_jobs_apis.go
 api_machine_catalogs_apis.go
 api_machines_apis.go
@@ -151,6 +153,7 @@ docs/AppliedPolicy2.md
 docs/AppliedSetting.md
 docs/AppliedSetting2.md
 docs/AppvServerPackageApplicationIconRequestModel.md
+docs/AssignHypervisorConnectionToImageDefinitionRequestModel.md
 docs/AssignImageVersionToProvisioningSchemeRequestModel.md
 docs/AssignMachineToUserRequestModel.md
 docs/AttachedDiskResponseModel.md
@@ -179,7 +182,6 @@ docs/BackupRestoreFixupModel.md
 docs/BackupRestoreGetComponentMemberRequestModel.md
 docs/BackupRestoreHistoryInformation.md
 docs/BackupRestoreHistoryResponseModelCollection.md
-docs/BackupRestoreInformationRequestModel.md
 docs/BackupRestoreInformationResponseModel.md
 docs/BackupRestoreMemberResponseModel.md
 docs/BackupRestoreOptionsModel.md
@@ -227,6 +229,7 @@ docs/CatalogSearchRequestModel.md
 docs/CatalogSearchResponseModel.md
 docs/CatalogSearchResponseModelCollection.md
 docs/CatalogSortCriteriaRequestModel.md
+docs/CheckObjectNameExistsRequestModel.md
 docs/CloudHealthCheckStatus.md
 docs/CollectionEnvelopeOfFilterDefinition.md
 docs/CollectionEnvelopeOfFilterResponse.md
@@ -282,6 +285,7 @@ docs/CollectionModelOfIdentityMachineResponseModel.md
 docs/CollectionModelOfIdentitySiteResponseModel.md
 docs/CollectionModelOfIdentityUserResponseModel.md
 docs/CollectionModelOfImageDefinitionResponseModel.md
+docs/CollectionModelOfImageDefinitionsAndImageVersionsResponseModel.md
 docs/CollectionModelOfImageVersionProvisioningSchemeRefResponseModel.md
 docs/CollectionModelOfImageVersionResponseModel.md
 docs/CollectionModelOfImportProvisionedVirtualMachineResponseModel.md
@@ -382,12 +386,14 @@ docs/CustomReportFormatType.md
 docs/CustomReportInfoRequestModel.md
 docs/CvadSecurityTypes.md
 docs/DataStore.md
+docs/DatabaseAuthenticationMode.md
 docs/DatabaseChangePropertiesModel.md
 docs/DatabaseChangeScriptModel.md
 docs/DatabaseChangeScriptModelCollection.md
 docs/DatabaseChangeScriptPropertiesModel.md
 docs/DatabaseResponseModel.md
 docs/DatabaseResponseModelCollection.md
+docs/DatabaseServerEdition.md
 docs/DefaultPrinterOption.md
 docs/DelegatedAdminPermissionResponseModel.md
 docs/DeleteAdministratorConsequence.md
@@ -428,6 +434,9 @@ docs/DetectOrphanedResourcesResultModel.md
 docs/DetectScope.md
 docs/DeviceCollectionNameCheckRequestModel.md
 docs/DeviceManagementType.md
+docs/DiskPriceResponseModel.md
+docs/DiskSettingRequestModel.md
+docs/DiskStorageType.md
 docs/DuplicateApplicationRequestModel.md
 docs/EditAdminFolderRequestModel.md
 docs/EditAdminRoleRequestModel.md
@@ -439,6 +448,7 @@ docs/EditApplicationRequestModel.md
 docs/EditBrokerHypervisorConnectionRequestModel.md
 docs/EditDeliveryGroupRequestModel.md
 docs/EditHypervisorAWSConnectionRequestModel.md
+docs/EditHypervisorAzureArcConnectionRequestModel.md
 docs/EditHypervisorAzureConnectionRequestModel.md
 docs/EditHypervisorConnectionRequestModel.md
 docs/EditHypervisorGCPConnectionRequestModel.md
@@ -471,6 +481,8 @@ docs/ErrorData.md
 docs/ErrorReport.md
 docs/ErrorResponse.md
 docs/ErrorResponseParameter.md
+docs/ErrorWarningModel.md
+docs/ErrorWarningResponseModel.md
 docs/ExportMachineCatalogResponseModel.md
 docs/FastApplicationSettingsRequestModel.md
 docs/FastApplicationSettingsResponseModel.md
@@ -495,10 +507,14 @@ docs/FtaResponseModel.md
 docs/FtaResponseModelCollection.md
 docs/FunctionalLevel.md
 docs/GpoDAAS.md
+docs/GpoTestFilterData.md
+docs/GpoTestPolicyData.md
+docs/GpoTestSettingData.md
 docs/HealthCheckAPIsDAAS.md
 docs/HomeZoneMode.md
 docs/HypervisorAWSConnectionDetailRequestModel.md
 docs/HypervisorAvailabilityZoneResourceResponseModel.md
+docs/HypervisorAzureArcConnectionDetailRequestModel.md
 docs/HypervisorAzureConnectionDetailRequestModel.md
 docs/HypervisorAzureEnvironmentResponseModel.md
 docs/HypervisorBaseResponseModel.md
@@ -508,6 +524,7 @@ docs/HypervisorConnectionDetailRequestModel.md
 docs/HypervisorConnectionType.md
 docs/HypervisorDeletePreviewResponseModel.md
 docs/HypervisorDetailAWSResponseModel.md
+docs/HypervisorDetailAzureArcResponseModel.md
 docs/HypervisorDetailAzureResponseModel.md
 docs/HypervisorDetailGCPResponseModel.md
 docs/HypervisorDetailOciResponseModel.md
@@ -535,11 +552,13 @@ docs/HypervisorResourcePoolResponseModelCollection.md
 docs/HypervisorResourcePoolStorageRequestModel.md
 docs/HypervisorResourcePoolTestResponseModel.md
 docs/HypervisorResourcePoolTraditionalDetailResponseModel.md
+docs/HypervisorResourcePricesResponseModel.md
 docs/HypervisorResourceRefResponseModel.md
 docs/HypervisorResourceResponseModel.md
 docs/HypervisorResourceResponseModelCollection.md
 docs/HypervisorResourceSearchRequestModel.md
 docs/HypervisorResourceSearchResourceType.md
+docs/HypervisorResourceSettingsRequestModel.md
 docs/HypervisorResourceValidationRequestModel.md
 docs/HypervisorResourceValidationResponseModel.md
 docs/HypervisorResponseModel.md
@@ -595,8 +614,14 @@ docs/IdentityUserResponseModel.md
 docs/IdentityUserResponseModelCollection.md
 docs/IdentityUserType.md
 docs/IdentityValidateUserRequestModel.md
+docs/ImageDefinitionAndImageVersionSearchRequestModel.md
+docs/ImageDefinitionErrorWarningModel.md
+docs/ImageDefinitionHypervisorConnectionResponseModel.md
 docs/ImageDefinitionResponseModel.md
 docs/ImageDefinitionResponseModelCollection.md
+docs/ImageDefinitionsAPIsDAAS.md
+docs/ImageDefinitionsAndImageVersionsResponseModel.md
+docs/ImageDefinitionsAndImageVersionsResponseModelCollection.md
 docs/ImageRuntimeEnvironmentResponseModel.md
 docs/ImageSchemeResponseModel.md
 docs/ImageUpdateStatus.md
@@ -607,11 +632,15 @@ docs/ImageVersionResponseModel.md
 docs/ImageVersionResponseModelCollection.md
 docs/ImageVersionSpecContextResponseModel.md
 docs/ImageVersionSpecRefResponseModel.md
+docs/ImageVersionSpecResourcePoolResponseModel.md
+docs/ImageVersionSpecResourcePoolStatus.md
 docs/ImageVersionSpecResponseModel.md
 docs/ImageVersionSpecStatus.md
 docs/ImageVersionSpecWarningResponseModel.md
 docs/ImageVersionSpecWarningType.md
 docs/ImageVersionStatus.md
+docs/ImageVersionsAPIsDAAS.md
+docs/ImagesErrorWarningModel.md
 docs/ImportMachineStatus.md
 docs/ImportProvisionedVirtualMachineResponseModel.md
 docs/ImportProvisionedVirtualMachineResponseModelCollection.md
@@ -659,6 +688,7 @@ docs/LogOperationSortCriteriaRequestModel.md
 docs/LogOperationType.md
 docs/LogSiteRequestModel.md
 docs/LogSiteResponseModel.md
+docs/LogoffOption.md
 docs/LosingPolicy.md
 docs/LosingPolicy2.md
 docs/LosingSetting.md
@@ -716,6 +746,7 @@ docs/MaintenanceModeReason.md
 docs/MeAPIsDAAS.md
 docs/MeResponseModel.md
 docs/MessageStyle.md
+docs/MisConfigurationCategory.md
 docs/ModelingRequestContract.md
 docs/ModelingResponseContract.md
 docs/ModelingResultContract.md
@@ -847,6 +878,8 @@ docs/RemotePCEnrollmentScopeCheckModel.md
 docs/RemotePCEnrollmentScopeRequestModel.md
 docs/RemotePCEnrollmentScopeResponseModel.md
 docs/RequiredSleepCapability.md
+docs/ReservationResponseModel.md
+docs/ResourcePriceResponseModel.md
 docs/ResourceValidationCategory.md
 docs/ResourceValidationReportModel.md
 docs/ResourceValidationResult.md
@@ -855,6 +888,7 @@ docs/ResourceViolationLevel.md
 docs/RestApiStatus.md
 docs/RoleResponseModel.md
 docs/RoleResponseModelCollection.md
+docs/SavingPlanResponseModel.md
 docs/ScheduledReboot.md
 docs/ScopeReferenceModel.md
 docs/ScopeResponseModel.md
@@ -878,6 +912,7 @@ docs/SendMessageRequestModel.md
 docs/ServiceAccountCapabilityReference.md
 docs/ServiceAccountResponseModel.md
 docs/ServiceAccountResponseModelCollection.md
+docs/ServiceAccountTestResponseModel.md
 docs/ServiceStatus.md
 docs/SessionBrokeringResponseModel.md
 docs/SessionChangeHostingAction.md
@@ -908,7 +943,9 @@ docs/SimplifiedAccessPolicyRequestModel.md
 docs/SimplifiedAccessPolicyResponseModel.md
 docs/SimulationRequestContract.md
 docs/SimulationResponseContract.md
+docs/SiteConfigurationProfileModel.md
 docs/SiteDetailResponseModel.md
+docs/SiteErrorWarningModel.md
 docs/SiteResponseModel.md
 docs/SiteResponseModelCollection.md
 docs/SiteServiceResponseModel.md
@@ -917,6 +954,7 @@ docs/SiteState.md
 docs/SiteStatusResponseModel.md
 docs/SiteTestResponseModel.md
 docs/SitesAPIsDAAS.md
+docs/SitesErrorWarningModel.md
 docs/SmartAccessTagRequestModel.md
 docs/SmartAccessTagResponseModel.md
 docs/SortingMethod.md
@@ -959,11 +997,13 @@ docs/TimeZoneResponseModel.md
 docs/TimeZoneResponseModelCollection.md
 docs/TimeZonesAPIsDAAS.md
 docs/TrustAPIsDAAS.md
+docs/UnitPriceResponseModel.md
 docs/UpdateAdminAdministratorRequestModel.md
 docs/UpdateAppVIsolationGroupRequestModel.md
 docs/UpdateAppVServerRequestModel.md
 docs/UpdateImageDefinitionRequestModel.md
 docs/UpdateImageVersionRequestModel.md
+docs/UpdateImageVersionResourcePoolsRequestModel.md
 docs/UpdateLicensingAdminRequestModel.md
 docs/UpdateMachineAccountCreationRulesRequestModel.md
 docs/UpdateMachineAccountRequestModel.md
@@ -971,6 +1011,8 @@ docs/UpdateMachineCatalogProvisioningSchemeRequestModel.md
 docs/UpdateMachineCatalogRequestModel.md
 docs/UpdateMachineConfigurationRequestModel.md
 docs/UpdateMachineRequestModel.md
+docs/UpdateServiceAccountCapabilityPreviewRequestModel.md
+docs/UpdateServiceAccountCapabilityPreviewResponseModel.md
 docs/UpdateServiceAccountRequestModel.md
 docs/UpdateUpgradeScheduleRequestModel.md
 docs/UpgradePackageVersionResponseModel.md
@@ -988,6 +1030,7 @@ docs/VDAFeatureModel.md
 docs/VMImageResponseModel.md
 docs/VMImageResponseModelCollection.md
 docs/VMImageStatus.md
+docs/VMInstanceType.md
 docs/VMToolsState.md
 docs/VdaUpgradeMachineScheduleStatus.md
 docs/VdaUpgradeScheduleStatus.md
@@ -995,6 +1038,8 @@ docs/VdaUpgradeState.md
 docs/VdaUpgradeType.md
 docs/VdaVersionContract.md
 docs/VersionDetail.md
+docs/VmPriceResponseModel.md
+docs/VmSettingRequestModel.md
 docs/WakeOnLanTransmission.md
 docs/WindowsActivationType.md
 docs/WindowsConnectionSetting.md
@@ -1003,6 +1048,7 @@ docs/WonOverBy2.md
 docs/X509ChainStatusFlags.md
 docs/ZonableItemType.md
 docs/ZoneDetailResponseModel.md
+docs/ZoneErrorWarningModel.md
 docs/ZonePreference.md
 docs/ZoneResponseModel.md
 docs/ZoneResponseModelCollection.md
@@ -1012,6 +1058,7 @@ docs/ZonedItemResponseModelCollection.md
 docs/ZonedItemSearchRequestModel.md
 docs/ZonedItemsRequestModel.md
 docs/ZonesAPIsDAAS.md
+docs/ZonesErrorWarningModel.md
 git_push.sh
 go.mod
 go.sum
@@ -1118,6 +1165,7 @@ model_applied_policy2.go
 model_applied_setting.go
 model_applied_setting2.go
 model_appv_server_package_application_icon_request_model.go
+model_assign_hypervisor_connection_to_image_definition_request_model.go
 model_assign_image_version_to_provisioning_scheme_request_model.go
 model_assign_machine_to_user_request_model.go
 model_attached_disk_response_model.go
@@ -1146,7 +1194,6 @@ model_backup_restore_fixup_model.go
 model_backup_restore_get_component_member_request_model.go
 model_backup_restore_history_information.go
 model_backup_restore_history_response_model_collection.go
-model_backup_restore_information_request_model.go
 model_backup_restore_information_response_model.go
 model_backup_restore_member_response_model.go
 model_backup_restore_options_model.go
@@ -1193,6 +1240,7 @@ model_catalog_search_request_model.go
 model_catalog_search_response_model.go
 model_catalog_search_response_model_collection.go
 model_catalog_sort_criteria_request_model.go
+model_check_object_name_exists_request_model.go
 model_cloud_health_check_status.go
 model_collection_envelope_of_filter_definition.go
 model_collection_envelope_of_filter_response.go
@@ -1248,6 +1296,7 @@ model_collection_model_of_identity_machine_response_model.go
 model_collection_model_of_identity_site_response_model.go
 model_collection_model_of_identity_user_response_model.go
 model_collection_model_of_image_definition_response_model.go
+model_collection_model_of_image_definitions_and_image_versions_response_model.go
 model_collection_model_of_image_version_provisioning_scheme_ref_response_model.go
 model_collection_model_of_image_version_response_model.go
 model_collection_model_of_import_provisioned_virtual_machine_response_model.go
@@ -1347,12 +1396,14 @@ model_custom_report_format_type.go
 model_custom_report_info_request_model.go
 model_cvad_security_types.go
 model_data_store.go
+model_database_authentication_mode.go
 model_database_change_properties_model.go
 model_database_change_script_model.go
 model_database_change_script_model_collection.go
 model_database_change_script_properties_model.go
 model_database_response_model.go
 model_database_response_model_collection.go
+model_database_server_edition.go
 model_default_printer_option.go
 model_delegated_admin_permission_response_model.go
 model_delete_administrator_consequence.go
@@ -1392,6 +1443,9 @@ model_detect_orphaned_resources_result_model.go
 model_detect_scope.go
 model_device_collection_name_check_request_model.go
 model_device_management_type.go
+model_disk_price_response_model.go
+model_disk_setting_request_model.go
+model_disk_storage_type.go
 model_duplicate_application_request_model.go
 model_edit_admin_folder_request_model.go
 model_edit_admin_role_request_model.go
@@ -1403,6 +1457,7 @@ model_edit_application_request_model.go
 model_edit_broker_hypervisor_connection_request_model.go
 model_edit_delivery_group_request_model.go
 model_edit_hypervisor_aws_connection_request_model.go
+model_edit_hypervisor_azure_arc_connection_request_model.go
 model_edit_hypervisor_azure_connection_request_model.go
 model_edit_hypervisor_connection_request_model.go
 model_edit_hypervisor_gcp_connection_request_model.go
@@ -1435,6 +1490,8 @@ model_error_data.go
 model_error_report.go
 model_error_response.go
 model_error_response_parameter.go
+model_error_warning_model.go
+model_error_warning_response_model.go
 model_export_machine_catalog_response_model.go
 model_fast_application_settings_request_model.go
 model_fast_application_settings_response_model.go
@@ -1458,9 +1515,13 @@ model_fta_request_model.go
 model_fta_response_model.go
 model_fta_response_model_collection.go
 model_functional_level.go
+model_gpo_test_filter_data.go
+model_gpo_test_policy_data.go
+model_gpo_test_setting_data.go
 model_home_zone_mode.go
 model_hypervisor_availability_zone_resource_response_model.go
 model_hypervisor_aws_connection_detail_request_model.go
+model_hypervisor_azure_arc_connection_detail_request_model.go
 model_hypervisor_azure_connection_detail_request_model.go
 model_hypervisor_azure_environment_response_model.go
 model_hypervisor_base_response_model.go
@@ -1470,6 +1531,7 @@ model_hypervisor_connection_detail_request_model.go
 model_hypervisor_connection_type.go
 model_hypervisor_delete_preview_response_model.go
 model_hypervisor_detail_aws_response_model.go
+model_hypervisor_detail_azure_arc_response_model.go
 model_hypervisor_detail_azure_response_model.go
 model_hypervisor_detail_gcp_response_model.go
 model_hypervisor_detail_oci_response_model.go
@@ -1497,11 +1559,13 @@ model_hypervisor_resource_pool_response_model_collection.go
 model_hypervisor_resource_pool_storage_request_model.go
 model_hypervisor_resource_pool_test_response_model.go
 model_hypervisor_resource_pool_traditional_detail_response_model.go
+model_hypervisor_resource_prices_response_model.go
 model_hypervisor_resource_ref_response_model.go
 model_hypervisor_resource_response_model.go
 model_hypervisor_resource_response_model_collection.go
 model_hypervisor_resource_search_request_model.go
 model_hypervisor_resource_search_resource_type.go
+model_hypervisor_resource_settings_request_model.go
 model_hypervisor_resource_validation_request_model.go
 model_hypervisor_resource_validation_response_model.go
 model_hypervisor_response_model.go
@@ -1554,8 +1618,13 @@ model_identity_user_response_model.go
 model_identity_user_response_model_collection.go
 model_identity_user_type.go
 model_identity_validate_user_request_model.go
+model_image_definition_and_image_version_search_request_model.go
+model_image_definition_error_warning_model.go
+model_image_definition_hypervisor_connection_response_model.go
 model_image_definition_response_model.go
 model_image_definition_response_model_collection.go
+model_image_definitions_and_image_versions_response_model.go
+model_image_definitions_and_image_versions_response_model_collection.go
 model_image_runtime_environment_response_model.go
 model_image_scheme_response_model.go
 model_image_update_status.go
@@ -1566,11 +1635,14 @@ model_image_version_response_model.go
 model_image_version_response_model_collection.go
 model_image_version_spec_context_response_model.go
 model_image_version_spec_ref_response_model.go
+model_image_version_spec_resource_pool_response_model.go
+model_image_version_spec_resource_pool_status.go
 model_image_version_spec_response_model.go
 model_image_version_spec_status.go
 model_image_version_spec_warning_response_model.go
 model_image_version_spec_warning_type.go
 model_image_version_status.go
+model_images_error_warning_model.go
 model_import_machine_status.go
 model_import_provisioned_virtual_machine_response_model.go
 model_import_provisioned_virtual_machine_response_model_collection.go
@@ -1617,6 +1689,7 @@ model_log_operation_sort_criteria_request_model.go
 model_log_operation_type.go
 model_log_site_request_model.go
 model_log_site_response_model.go
+model_logoff_option.go
 model_losing_policy.go
 model_losing_policy2.go
 model_losing_setting.go
@@ -1671,6 +1744,7 @@ model_maintenance_mode_reason.go
 model_mcs_import_data.go
 model_me_response_model.go
 model_message_style.go
+model_mis_configuration_category.go
 model_modeling_request_contract.go
 model_modeling_response_contract.go
 model_modeling_result_contract.go
@@ -1800,6 +1874,8 @@ model_remote_pc_enrollment_scope_check_model.go
 model_remote_pc_enrollment_scope_request_model.go
 model_remote_pc_enrollment_scope_response_model.go
 model_required_sleep_capability.go
+model_reservation_response_model.go
+model_resource_price_response_model.go
 model_resource_validation_category.go
 model_resource_validation_report_model.go
 model_resource_validation_result.go
@@ -1808,6 +1884,7 @@ model_resource_violation_level.go
 model_rest_api_status.go
 model_role_response_model.go
 model_role_response_model_collection.go
+model_saving_plan_response_model.go
 model_scheduled_reboot.go
 model_scope_reference_model.go
 model_scope_response_model.go
@@ -1831,6 +1908,7 @@ model_send_message_request_model.go
 model_service_account_capability_reference.go
 model_service_account_response_model.go
 model_service_account_response_model_collection.go
+model_service_account_test_response_model.go
 model_service_status.go
 model_session_brokering_response_model.go
 model_session_change_hosting_action.go
@@ -1860,7 +1938,9 @@ model_simplified_access_policy_request_model.go
 model_simplified_access_policy_response_model.go
 model_simulation_request_contract.go
 model_simulation_response_contract.go
+model_site_configuration_profile_model.go
 model_site_detail_response_model.go
+model_site_error_warning_model.go
 model_site_response_model.go
 model_site_response_model_collection.go
 model_site_service_response_model.go
@@ -1868,6 +1948,7 @@ model_site_settings_response_model.go
 model_site_state.go
 model_site_status_response_model.go
 model_site_test_response_model.go
+model_sites_error_warning_model.go
 model_smart_access_tag_request_model.go
 model_smart_access_tag_response_model.go
 model_sorting_method.go
@@ -1906,11 +1987,13 @@ model_test_type.go
 model_time_scheme_days.go
 model_time_zone_response_model.go
 model_time_zone_response_model_collection.go
+model_unit_price_response_model.go
 model_update_admin_administrator_request_model.go
 model_update_app_v_isolation_group_request_model.go
 model_update_app_v_server_request_model.go
 model_update_image_definition_request_model.go
 model_update_image_version_request_model.go
+model_update_image_version_resource_pools_request_model.go
 model_update_licensing_admin_request_model.go
 model_update_machine_account_creation_rules_request_model.go
 model_update_machine_account_request_model.go
@@ -1918,6 +2001,8 @@ model_update_machine_catalog_provisioning_scheme_request_model.go
 model_update_machine_catalog_request_model.go
 model_update_machine_configuration_request_model.go
 model_update_machine_request_model.go
+model_update_service_account_capability_preview_request_model.go
+model_update_service_account_capability_preview_response_model.go
 model_update_service_account_request_model.go
 model_update_upgrade_schedule_request_model.go
 model_upgrade_package_version_response_model.go
@@ -1941,6 +2026,9 @@ model_version_detail.go
 model_vm_image_response_model.go
 model_vm_image_response_model_collection.go
 model_vm_image_status.go
+model_vm_instance_type.go
+model_vm_price_response_model.go
+model_vm_setting_request_model.go
 model_vm_tools_state.go
 model_wake_on_lan_transmission.go
 model_windows_activation_type.go
@@ -1950,6 +2038,7 @@ model_won_over_by2.go
 model_x509_chain_status_flags.go
 model_zonable_item_type.go
 model_zone_detail_response_model.go
+model_zone_error_warning_model.go
 model_zone_preference.go
 model_zone_response_model.go
 model_zone_response_model_collection.go
@@ -1958,6 +2047,7 @@ model_zoned_item_response_model.go
 model_zoned_item_response_model_collection.go
 model_zoned_item_search_request_model.go
 model_zoned_items_request_model.go
+model_zones_error_warning_model.go
 response.go
 test/api_about_apis_test.go
 test/api_actions_apis_test.go
@@ -1978,6 +2068,8 @@ test/api_health_check_apis_test.go
 test/api_hypervisors_apis_test.go
 test/api_icons_apis_test.go
 test/api_identity_apis_test.go
+test/api_image_definitions_apis_test.go
+test/api_image_versions_apis_test.go
 test/api_jobs_apis_test.go
 test/api_machine_catalogs_apis_test.go
 test/api_machines_apis_test.go

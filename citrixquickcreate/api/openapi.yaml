@@ -1244,7 +1244,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCustomerAccountTaskAsync_200_response'
+                allOf:
+                - $ref: '#/components/schemas/AccountTask'
+                description: Base class for Tasks
           description: Success
         "400":
           description: Bad Request
@@ -7217,7 +7219,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCustomerAccountTaskAsync_200_response'
+                $ref: '#/components/schemas/GetTaskAsync_200_response'
           description: Success
         "400":
           description: Bad Request
@@ -7831,7 +7833,7 @@ components:
           type: string
         tenancy:
           allOf:
-          - $ref: '#/components/schemas/Tenancy'
+          - $ref: '#/components/schemas/AwsEdcDirectoryTenancy'
           description: "Tenancy of directory\r\nEnum values SHARED, DEDICATED"
           nullable: true
         enableWorkDocs:
@@ -8523,8 +8525,11 @@ components:
         computeType: ""
         imageId: imageId
         imageName: imageName
+        userDecoupledWorkspaces: true
         runningMode: ""
+        volumesEncryptionKey: volumesEncryptionKey
         userVolumeSize: 6
+        volumesEncrypted: true
         workspaces:
         - computeType: ""
           runningMode: ""
@@ -8564,6 +8569,14 @@ components:
           format: int32
           nullable: true
           type: integer
+        volumesEncrypted:
+          description: Is root and user storage volume encrypted
+          nullable: true
+          type: boolean
+        volumesEncryptionKey:
+          description: Volume encryption key
+          nullable: true
+          type: string
         imageId:
           description: Image Id
           nullable: true
@@ -8583,6 +8596,10 @@ components:
             $ref: '#/components/schemas/AwsEdcDeploymentMachine'
           nullable: true
           type: array
+        userDecoupledWorkspaces:
+          description: Image Name
+          nullable: true
+          type: boolean
         directoryName:
           description: The name of the directory associated with the deployment
           nullable: true
@@ -8780,11 +8797,16 @@ components:
         - null
         - null
         workspaceImageState: ""
+        amazonImageId: amazonImageId
         workspaceImageTenancy: ""
         status: status
       properties:
         status:
           description: Provides additional status on image like  error message
+          nullable: true
+          type: string
+        amazonImageId:
+          description: Id of the Image on AWS
           nullable: true
           type: string
         ingestionProcess:
@@ -9089,7 +9111,7 @@ components:
         activeTasks:
           description: Tasks currently being performed on the deployment
           items:
-            $ref: '#/components/schemas/GetCustomerAccountTaskAsync_200_response'
+            $ref: '#/components/schemas/GetTaskAsync_200_response'
           nullable: true
           type: array
         brokerMachineCatalogId:
@@ -9457,6 +9479,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/AccountType'
           description: The type of account the resource is associated with
+        accountId:
+          description: The ID of the account the resource is associated with
+          nullable: true
+          type: string
         imageId:
           description: The ID of the image
           nullable: true
@@ -9473,6 +9499,11 @@ components:
           description: The notes of the image
           nullable: true
           type: string
+        sessionSupport:
+          allOf:
+          - $ref: '#/components/schemas/SessionSupport'
+          description: Session Type
+          nullable: true
         operatingSystem:
           allOf:
           - $ref: '#/components/schemas/OperatingSystemType'
@@ -9483,10 +9514,6 @@ components:
             $ref: '#/components/schemas/AssociatedDeployment'
           nullable: true
           type: array
-        lastModifiedTime:
-          description: Last time the status was modified
-          format: date-time
-          type: string
       required:
       - accountType
       type: object
@@ -9551,13 +9578,18 @@ components:
           minLength: 1
           type: string
         description:
-          description: Image Name
+          description: Image Description
           nullable: true
           type: string
         notes:
-          description: Image Name
+          description: Image Notes
           nullable: true
           type: string
+        sessionSupport:
+          allOf:
+          - $ref: '#/components/schemas/SessionSupport'
+          description: Session Type
+          nullable: true
       required:
       - accountType
       - name
@@ -9585,8 +9617,11 @@ components:
         scaleSettings: ""
         imageId: imageId
         computeType: ""
+        userDecoupledWorkspaces: true
         runningMode: ""
+        volumesEncryptionKey: volumesEncryptionKey
         userVolumeSize: 6
+        volumesEncrypted: true
         workspaces:
         - runningMode: ""
           userVolumeSize: 5
@@ -9614,6 +9649,14 @@ components:
           description: Size of user storage volume for bundle creation
           format: int32
           type: integer
+        volumesEncrypted:
+          description: Is root and user storage volume encrypted
+          nullable: true
+          type: boolean
+        volumesEncryptionKey:
+          description: Volume encryption key
+          nullable: true
+          type: string
         runningMode:
           allOf:
           - $ref: '#/components/schemas/AwsEdcWorkspaceRunningMode'
@@ -9624,6 +9667,10 @@ components:
           - $ref: '#/components/schemas/ScaleSettings'
           description: Power Configuration for AWS Deployment
           nullable: true
+        userDecoupledWorkspaces:
+          description: Should workspaces be decoupled from the user during creation
+          nullable: true
+          type: boolean
         workspaces:
           description: Configuration for individual workspace
           items:
@@ -9930,7 +9977,7 @@ components:
         activeTasks:
           description: Tasks currently being performed on the connection
           items:
-            $ref: '#/components/schemas/GetCustomerAccountTaskAsync_200_response'
+            $ref: '#/components/schemas/GetTaskAsync_200_response'
           nullable: true
           type: array
         citrixManaged:
@@ -10348,14 +10395,6 @@ components:
           nullable: true
           type: string
       type: object
-    Tenancy:
-      additionalProperties: false
-      properties:
-        value:
-          nullable: true
-          readOnly: true
-          type: string
-      type: object
     TenancyType:
       description: "Indicates whether to use tenancy type Shared, Instance or Host\
         \ when creating machines in Cloud Hypervisors."
@@ -10717,10 +10756,9 @@ components:
       - $ref: '#/components/schemas/UpdateAccount'
       - $ref: '#/components/schemas/UpdateAccountName'
       - $ref: '#/components/schemas/UpdateAwsEdcAccountCredentials'
-    GetCustomerAccountTaskAsync_200_response:
+    GetTaskAsync_200_response:
       description: Base class for Tasks
       oneOf:
-      - $ref: '#/components/schemas/TaskBase'
       - $ref: '#/components/schemas/AccountTask'
       - $ref: '#/components/schemas/DeploymentTask'
       - $ref: '#/components/schemas/CommissionTask'

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**SessionsGetSessionMachine**](SessionsAPIsDAAS.md#SessionsGetSessionMachine) | **Get** /Sessions/{id}/Machine | Get the details of the machine on which a session is running.
 [**SessionsGetSessionRecordingStatus**](SessionsAPIsDAAS.md#SessionsGetSessionRecordingStatus) | **Get** /Sessions/RecordingStatus | get session recording status of a session.
 [**SessionsGetSessions**](SessionsAPIsDAAS.md#SessionsGetSessions) | **Get** /Sessions | Get all sessions in the site.
+[**SessionsGetSessionsV2**](SessionsAPIsDAAS.md#SessionsGetSessionsV2) | **Get** /SessionsV2 | The V2 of get all sessions in the site.
 [**SessionsHideSession**](SessionsAPIsDAAS.md#SessionsHideSession) | **Post** /Sessions/{id}/$hide | Hide a session
 [**SessionsLogoffSession**](SessionsAPIsDAAS.md#SessionsLogoffSession) | **Post** /Sessions/{id}/$logoff | Logoff a session.
 [**SessionsSendSessionMessage**](SessionsAPIsDAAS.md#SessionsSendSessionMessage) | **Post** /Sessions/{id}/$sendMessage | Send a message to a session.
@@ -586,6 +587,92 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiSessionsGetSessionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **limit** | **int32** | The max number of sessions returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **async** | **bool** | If &#x60;true&#x60;, the get sessions will be executed as a background task. The task will have JobType GetSessions. When the task is complete it will redirect to GetJobResults. | [default to false]
+ **fields** | **string** | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.              | 
+
+### Return type
+
+[**SessionResponseModelCollection**](SessionResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SessionsGetSessionsV2
+
+> SessionResponseModelCollection SessionsGetSessionsV2(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
+
+The V2 of get all sessions in the site.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    limit := int32(56) // int32 | The max number of sessions returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    async := true // bool | If `true`, the get sessions will be executed as a background task. The task will have JobType GetSessions. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+    fields := "Id,Uid,ApplicationsInUse" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SessionsAPIsDAAS.SessionsGetSessionsV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SessionsAPIsDAAS.SessionsGetSessionsV2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SessionsGetSessionsV2`: SessionResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `SessionsAPIsDAAS.SessionsGetSessionsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSessionsGetSessionsV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes

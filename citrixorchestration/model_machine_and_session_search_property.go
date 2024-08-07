@@ -37,6 +37,7 @@ const (
 	MACHINEANDSESSIONSEARCHPROPERTY_FAULT_STATE MachineAndSessionSearchProperty = "FaultState"
 	MACHINEANDSESSIONSEARCHPROPERTY_IS_ASSIGNED MachineAndSessionSearchProperty = "IsAssigned"
 	MACHINEANDSESSIONSEARCHPROPERTY_LAST_CONNECTION_USER MachineAndSessionSearchProperty = "LastConnectionUser"
+	MACHINEANDSESSIONSEARCHPROPERTY_LAST_CONNECTION_TIME MachineAndSessionSearchProperty = "LastConnectionTime"
 	MACHINEANDSESSIONSEARCHPROPERTY_LAST_DEREGISTRATION_REASON MachineAndSessionSearchProperty = "LastDeregistrationReason"
 	MACHINEANDSESSIONSEARCHPROPERTY_LAST_DEREGISTRATION_TIME MachineAndSessionSearchProperty = "LastDeregistrationTime"
 	MACHINEANDSESSIONSEARCHPROPERTY_LAUNCHED_VIA_HOST_NAME MachineAndSessionSearchProperty = "LaunchedViaHostName"
@@ -100,6 +101,7 @@ var AllowedMachineAndSessionSearchPropertyEnumValues = []MachineAndSessionSearch
 	"FaultState",
 	"IsAssigned",
 	"LastConnectionUser",
+	"LastConnectionTime",
 	"LastDeregistrationReason",
 	"LastDeregistrationTime",
 	"LaunchedViaHostName",

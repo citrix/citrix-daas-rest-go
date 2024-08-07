@@ -31,6 +31,7 @@ const (
 	HYPERVISORCONNECTIONTYPE_GOOGLE_CLOUD_PLATFORM HypervisorConnectionType = "GoogleCloudPlatform"
 	HYPERVISORCONNECTIONTYPE_CLOUD_PLATFORM HypervisorConnectionType = "CloudPlatform"
 	HYPERVISORCONNECTIONTYPE_ORACLE_CLOUD_INFRASTRUCTURE HypervisorConnectionType = "OracleCloudInfrastructure"
+	HYPERVISORCONNECTIONTYPE_AZURE_ARC HypervisorConnectionType = "AzureArc"
 )
 
 // All allowed values of HypervisorConnectionType enum
@@ -46,6 +47,7 @@ var AllowedHypervisorConnectionTypeEnumValues = []HypervisorConnectionType{
 	"GoogleCloudPlatform",
 	"CloudPlatform",
 	"OracleCloudInfrastructure",
+	"AzureArc",
 }
 
 func (v *HypervisorConnectionType) UnmarshalJSON(src []byte) error {

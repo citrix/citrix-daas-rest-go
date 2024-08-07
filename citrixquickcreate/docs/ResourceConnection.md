@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ConnectionState** | Pointer to [**NullableConnectionState**](ConnectionState.md) |  | [optional] 
 **ZoneId** | Pointer to **NullableString** | Zone id | [optional] 
 **ResourceLocationId** | Pointer to **NullableString** | Resource Location Id | [optional] 
-**ActiveTasks** | Pointer to [**[]GetCustomerAccountTaskAsync200Response**](GetCustomerAccountTaskAsync200Response.md) | Tasks currently being performed on the connection | [optional] 
+**ActiveTasks** | Pointer to [**[]GetTaskAsync200Response**](GetTaskAsync200Response.md) | Tasks currently being performed on the connection | [optional] 
 **CitrixManaged** | **bool** | Indicates whether the resource connection is Citrix managed | 
 **AssociatedDeployments** | Pointer to [**[]AssociatedDeployment**](AssociatedDeployment.md) |  | [optional] 
 **Warnings** | Pointer to [**[]ResourceConnectionWarning**](ResourceConnectionWarning.md) |  | [optional] 
@@ -237,20 +237,20 @@ HasResourceLocationId returns a boolean if a field has been set.
 UnsetResourceLocationId ensures that no value is present for ResourceLocationId, not even an explicit nil
 ### GetActiveTasks
 
-`func (o *ResourceConnection) GetActiveTasks() []GetCustomerAccountTaskAsync200Response`
+`func (o *ResourceConnection) GetActiveTasks() []GetTaskAsync200Response`
 
 GetActiveTasks returns the ActiveTasks field if non-nil, zero value otherwise.
 
 ### GetActiveTasksOk
 
-`func (o *ResourceConnection) GetActiveTasksOk() (*[]GetCustomerAccountTaskAsync200Response, bool)`
+`func (o *ResourceConnection) GetActiveTasksOk() (*[]GetTaskAsync200Response, bool)`
 
 GetActiveTasksOk returns a tuple with the ActiveTasks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActiveTasks
 
-`func (o *ResourceConnection) SetActiveTasks(v []GetCustomerAccountTaskAsync200Response)`
+`func (o *ResourceConnection) SetActiveTasks(v []GetTaskAsync200Response)`
 
 SetActiveTasks sets ActiveTasks field to given value.
 

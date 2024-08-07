@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **IncludedAdditionalComponents** | Pointer to [**[]VDAComponentRequestModel**](VDAComponentRequestModel.md) | New Components that are to be included/added in this catalog level VDA Upgrade schedule. | [optional] 
 **ExcludedComponents** | Pointer to [**[]VDAComponentRequestModel**](VDAComponentRequestModel.md) | Installed Components that are to be excluded/omitted in this catalog level VDA Upgrade schedule. | [optional] 
 **Features** | Pointer to **[]string** | Features that needs to enabled on this catalog level VDA Upgrade schedule. | [optional] 
+**UpgradeVersion** | Pointer to **NullableString** | Version of the VDA to be upgraded to. | [optional] 
 
 ## Methods
 
@@ -132,6 +133,41 @@ HasFeatures returns a boolean if a field has been set.
 `func (o *VDAComponentsSelectionValidationRequestModel) UnsetFeatures()`
 
 UnsetFeatures ensures that no value is present for Features, not even an explicit nil
+### GetUpgradeVersion
+
+`func (o *VDAComponentsSelectionValidationRequestModel) GetUpgradeVersion() string`
+
+GetUpgradeVersion returns the UpgradeVersion field if non-nil, zero value otherwise.
+
+### GetUpgradeVersionOk
+
+`func (o *VDAComponentsSelectionValidationRequestModel) GetUpgradeVersionOk() (*string, bool)`
+
+GetUpgradeVersionOk returns a tuple with the UpgradeVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpgradeVersion
+
+`func (o *VDAComponentsSelectionValidationRequestModel) SetUpgradeVersion(v string)`
+
+SetUpgradeVersion sets UpgradeVersion field to given value.
+
+### HasUpgradeVersion
+
+`func (o *VDAComponentsSelectionValidationRequestModel) HasUpgradeVersion() bool`
+
+HasUpgradeVersion returns a boolean if a field has been set.
+
+### SetUpgradeVersionNil
+
+`func (o *VDAComponentsSelectionValidationRequestModel) SetUpgradeVersionNil(b bool)`
+
+ SetUpgradeVersionNil sets the value for UpgradeVersion to be an explicit nil
+
+### UnsetUpgradeVersion
+`func (o *VDAComponentsSelectionValidationRequestModel) UnsetUpgradeVersion()`
+
+UnsetUpgradeVersion ensures that no value is present for UpgradeVersion, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

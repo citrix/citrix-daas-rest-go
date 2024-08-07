@@ -25,6 +25,10 @@ type AwsEdcDeployment struct {
 	RootVolumeSize NullableInt32 `json:"rootVolumeSize,omitempty"`
 	// Size of user storage volume for bundle creation
 	UserVolumeSize NullableInt32 `json:"userVolumeSize,omitempty"`
+	// Is root and user storage volume encrypted
+	VolumesEncrypted NullableBool `json:"volumesEncrypted,omitempty"`
+	// Volume encryption key
+	VolumesEncryptionKey NullableString `json:"volumesEncryptionKey,omitempty"`
 	// Image Id
 	ImageId NullableString `json:"imageId,omitempty"`
 	// Image Name
@@ -32,6 +36,8 @@ type AwsEdcDeployment struct {
 	RunningMode NullableAwsEdcWorkspaceRunningMode `json:"runningMode,omitempty"`
 	// Configuration for individual workspace
 	Workspaces []AwsEdcDeploymentMachine `json:"workspaces,omitempty"`
+	// Image Name
+	UserDecoupledWorkspaces NullableBool `json:"userDecoupledWorkspaces,omitempty"`
 	// The name of the directory associated with the deployment
 	DirectoryName NullableString `json:"directoryName,omitempty"`
 }
@@ -178,6 +184,90 @@ func (o *AwsEdcDeployment) SetUserVolumeSizeNil() {
 // UnsetUserVolumeSize ensures that no value is present for UserVolumeSize, not even an explicit nil
 func (o *AwsEdcDeployment) UnsetUserVolumeSize() {
 	o.UserVolumeSize.Unset()
+}
+
+// GetVolumesEncrypted returns the VolumesEncrypted field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AwsEdcDeployment) GetVolumesEncrypted() bool {
+	if o == nil || IsNil(o.VolumesEncrypted.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.VolumesEncrypted.Get()
+}
+
+// GetVolumesEncryptedOk returns a tuple with the VolumesEncrypted field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AwsEdcDeployment) GetVolumesEncryptedOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VolumesEncrypted.Get(), o.VolumesEncrypted.IsSet()
+}
+
+// HasVolumesEncrypted returns a boolean if a field has been set.
+func (o *AwsEdcDeployment) HasVolumesEncrypted() bool {
+	if o != nil && o.VolumesEncrypted.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVolumesEncrypted gets a reference to the given NullableBool and assigns it to the VolumesEncrypted field.
+func (o *AwsEdcDeployment) SetVolumesEncrypted(v bool) {
+	o.VolumesEncrypted.Set(&v)
+}
+// SetVolumesEncryptedNil sets the value for VolumesEncrypted to be an explicit nil
+func (o *AwsEdcDeployment) SetVolumesEncryptedNil() {
+	o.VolumesEncrypted.Set(nil)
+}
+
+// UnsetVolumesEncrypted ensures that no value is present for VolumesEncrypted, not even an explicit nil
+func (o *AwsEdcDeployment) UnsetVolumesEncrypted() {
+	o.VolumesEncrypted.Unset()
+}
+
+// GetVolumesEncryptionKey returns the VolumesEncryptionKey field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AwsEdcDeployment) GetVolumesEncryptionKey() string {
+	if o == nil || IsNil(o.VolumesEncryptionKey.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VolumesEncryptionKey.Get()
+}
+
+// GetVolumesEncryptionKeyOk returns a tuple with the VolumesEncryptionKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AwsEdcDeployment) GetVolumesEncryptionKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VolumesEncryptionKey.Get(), o.VolumesEncryptionKey.IsSet()
+}
+
+// HasVolumesEncryptionKey returns a boolean if a field has been set.
+func (o *AwsEdcDeployment) HasVolumesEncryptionKey() bool {
+	if o != nil && o.VolumesEncryptionKey.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVolumesEncryptionKey gets a reference to the given NullableString and assigns it to the VolumesEncryptionKey field.
+func (o *AwsEdcDeployment) SetVolumesEncryptionKey(v string) {
+	o.VolumesEncryptionKey.Set(&v)
+}
+// SetVolumesEncryptionKeyNil sets the value for VolumesEncryptionKey to be an explicit nil
+func (o *AwsEdcDeployment) SetVolumesEncryptionKeyNil() {
+	o.VolumesEncryptionKey.Set(nil)
+}
+
+// UnsetVolumesEncryptionKey ensures that no value is present for VolumesEncryptionKey, not even an explicit nil
+func (o *AwsEdcDeployment) UnsetVolumesEncryptionKey() {
+	o.VolumesEncryptionKey.Unset()
 }
 
 // GetImageId returns the ImageId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -339,6 +429,48 @@ func (o *AwsEdcDeployment) SetWorkspaces(v []AwsEdcDeploymentMachine) {
 	o.Workspaces = v
 }
 
+// GetUserDecoupledWorkspaces returns the UserDecoupledWorkspaces field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AwsEdcDeployment) GetUserDecoupledWorkspaces() bool {
+	if o == nil || IsNil(o.UserDecoupledWorkspaces.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.UserDecoupledWorkspaces.Get()
+}
+
+// GetUserDecoupledWorkspacesOk returns a tuple with the UserDecoupledWorkspaces field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AwsEdcDeployment) GetUserDecoupledWorkspacesOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UserDecoupledWorkspaces.Get(), o.UserDecoupledWorkspaces.IsSet()
+}
+
+// HasUserDecoupledWorkspaces returns a boolean if a field has been set.
+func (o *AwsEdcDeployment) HasUserDecoupledWorkspaces() bool {
+	if o != nil && o.UserDecoupledWorkspaces.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUserDecoupledWorkspaces gets a reference to the given NullableBool and assigns it to the UserDecoupledWorkspaces field.
+func (o *AwsEdcDeployment) SetUserDecoupledWorkspaces(v bool) {
+	o.UserDecoupledWorkspaces.Set(&v)
+}
+// SetUserDecoupledWorkspacesNil sets the value for UserDecoupledWorkspaces to be an explicit nil
+func (o *AwsEdcDeployment) SetUserDecoupledWorkspacesNil() {
+	o.UserDecoupledWorkspaces.Set(nil)
+}
+
+// UnsetUserDecoupledWorkspaces ensures that no value is present for UserDecoupledWorkspaces, not even an explicit nil
+func (o *AwsEdcDeployment) UnsetUserDecoupledWorkspaces() {
+	o.UserDecoupledWorkspaces.Unset()
+}
+
 // GetDirectoryName returns the DirectoryName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AwsEdcDeployment) GetDirectoryName() string {
 	if o == nil || IsNil(o.DirectoryName.Get()) {
@@ -408,6 +540,12 @@ func (o AwsEdcDeployment) ToMap() (map[string]interface{}, error) {
 	if o.UserVolumeSize.IsSet() {
 		toSerialize["userVolumeSize"] = o.UserVolumeSize.Get()
 	}
+	if o.VolumesEncrypted.IsSet() {
+		toSerialize["volumesEncrypted"] = o.VolumesEncrypted.Get()
+	}
+	if o.VolumesEncryptionKey.IsSet() {
+		toSerialize["volumesEncryptionKey"] = o.VolumesEncryptionKey.Get()
+	}
 	if o.ImageId.IsSet() {
 		toSerialize["imageId"] = o.ImageId.Get()
 	}
@@ -419,6 +557,9 @@ func (o AwsEdcDeployment) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Workspaces != nil {
 		toSerialize["workspaces"] = o.Workspaces
+	}
+	if o.UserDecoupledWorkspaces.IsSet() {
+		toSerialize["userDecoupledWorkspaces"] = o.UserDecoupledWorkspaces.Get()
 	}
 	if o.DirectoryName.IsSet() {
 		toSerialize["directoryName"] = o.DirectoryName.Get()

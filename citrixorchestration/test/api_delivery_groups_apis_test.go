@@ -562,6 +562,18 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsV2(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

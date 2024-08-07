@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | The description associated with the image definition. | [optional] 
 **OsType** | [**OsType**](OsType.md) |  | 
 **VDASessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
+**AssignedHypervisorConnection** | Pointer to [**AssignHypervisorConnectionToImageDefinitionRequestModel**](AssignHypervisorConnectionToImageDefinitionRequestModel.md) |  | [optional] 
 
 ## Methods
 
@@ -122,6 +123,31 @@ and a boolean to check if the value has been set.
 
 SetVDASessionSupport sets VDASessionSupport field to given value.
 
+
+### GetAssignedHypervisorConnection
+
+`func (o *CreateImageDefinitionRequestModel) GetAssignedHypervisorConnection() AssignHypervisorConnectionToImageDefinitionRequestModel`
+
+GetAssignedHypervisorConnection returns the AssignedHypervisorConnection field if non-nil, zero value otherwise.
+
+### GetAssignedHypervisorConnectionOk
+
+`func (o *CreateImageDefinitionRequestModel) GetAssignedHypervisorConnectionOk() (*AssignHypervisorConnectionToImageDefinitionRequestModel, bool)`
+
+GetAssignedHypervisorConnectionOk returns a tuple with the AssignedHypervisorConnection field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssignedHypervisorConnection
+
+`func (o *CreateImageDefinitionRequestModel) SetAssignedHypervisorConnection(v AssignHypervisorConnectionToImageDefinitionRequestModel)`
+
+SetAssignedHypervisorConnection sets AssignedHypervisorConnection field to given value.
+
+### HasAssignedHypervisorConnection
+
+`func (o *CreateImageDefinitionRequestModel) HasAssignedHypervisorConnection() bool`
+
+HasAssignedHypervisorConnection returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

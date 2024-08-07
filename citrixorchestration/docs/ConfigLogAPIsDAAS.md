@@ -4,25 +4,25 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ConfigLogDeleteLogs**](ConfigLogAPIsDAAS.md#ConfigLogDeleteLogs) | **Delete** /ConfigLog/Logs | Delete logging event logs. This on-prem only API.
+[**ConfigLogDeleteLogs**](ConfigLogAPIsDAAS.md#ConfigLogDeleteLogs) | **Delete** /ConfigLog/Logs | Delete logging event logs.
 [**ConfigLogDoConfigLogSearch**](ConfigLogAPIsDAAS.md#ConfigLogDoConfigLogSearch) | **Post** /ConfigLog/Operations/$search | Perform an advanced search for configuration log entries.
 [**ConfigLogExportReportData**](ConfigLogAPIsDAAS.md#ConfigLogExportReportData) | **Post** /ConfigLog/ExportReport | Export logging report data in the format of csv/html/both.
 [**ConfigLogFetchExistingOperationLabels**](ConfigLogAPIsDAAS.md#ConfigLogFetchExistingOperationLabels) | **Post** /ConfigLog/Operations/$fetchExistingLabels | Fetch existing high level log operation labels.
 [**ConfigLogGetFirstLogDate**](ConfigLogAPIsDAAS.md#ConfigLogGetFirstLogDate) | **Get** /ConfigLog/GetFirstLogDate | Get first log date
-[**ConfigLogGetLogSite**](ConfigLogAPIsDAAS.md#ConfigLogGetLogSite) | **Get** /ConfigLog/LoggingSite | Get logging site details. This on-prem only API.
+[**ConfigLogGetLogSite**](ConfigLogAPIsDAAS.md#ConfigLogGetLogSite) | **Get** /ConfigLog/LoggingSite | Get logging site details.
 [**ConfigLogGetLowLevelOperations**](ConfigLogAPIsDAAS.md#ConfigLogGetLowLevelOperations) | **Get** /ConfigLog/Operations/{id}/LowLevelOperations | Get the detailed low level operations of a high level operation.
 [**ConfigLogGetOperation**](ConfigLogAPIsDAAS.md#ConfigLogGetOperation) | **Get** /ConfigLog/Operations/{id} | Get a high level log operation.
 [**ConfigLogGetOperations**](ConfigLogAPIsDAAS.md#ConfigLogGetOperations) | **Get** /ConfigLog/Operations | Get configuration log operations.
 [**ConfigLogPatchOperation**](ConfigLogAPIsDAAS.md#ConfigLogPatchOperation) | **Patch** /ConfigLog/Operations/{id} | Update a high level log operation.
-[**ConfigLogSetLogSite**](ConfigLogAPIsDAAS.md#ConfigLogSetLogSite) | **Patch** /ConfigLog/LoggingSite | Update logging site info. This on-prem only API.
+[**ConfigLogSetLogSite**](ConfigLogAPIsDAAS.md#ConfigLogSetLogSite) | **Patch** /ConfigLog/LoggingSite | Update logging site info.
 
 
 
 ## ConfigLogDeleteLogs
 
-> ConfigLogDeleteLogs(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> ConfigLogDeleteLogs(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
-Delete logging event logs. This on-prem only API.
+Delete logging event logs.
 
 ### Example
 
@@ -45,10 +45,11 @@ func main() {
     xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the deleting all operations will be executed as a background task. The task wil have JobTypeDeleteAllOperations. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDeleteLogs(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogDeleteLogs(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogDeleteLogs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -75,6 +76,7 @@ Name | Type | Description  | Notes
  **xAdminCredential** | **string** | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard &#39;Authorization&#39; request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \&quot;Basic \&quot; scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the deleting all operations will be executed as a background task. The task wil have JobTypeDeleteAllOperations. When the task is complete it will redirect to GetJobResults. | [default to false]
 
 ### Return type
 
@@ -184,7 +186,7 @@ Name | Type | Description  | Notes
 
 ## ConfigLogExportReportData
 
-> CustomReportDataResponseModel ConfigLogExportReportData(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CustomReportInfoRequestModel(customReportInfoRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> CustomReportDataResponseModel ConfigLogExportReportData(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CustomReportInfoRequestModel(customReportInfoRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Export logging report data in the format of csv/html/both.
 
@@ -209,10 +211,11 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the exporting operation report will be executed as a background task. The task wil have JobTypeExportOperationReport. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogExportReportData(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CustomReportInfoRequestModel(customReportInfoRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.ConfigLogAPIsDAAS.ConfigLogExportReportData(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CustomReportInfoRequestModel(customReportInfoRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConfigLogAPIsDAAS.ConfigLogExportReportData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -241,6 +244,7 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the exporting operation report will be executed as a background task. The task wil have JobTypeExportOperationReport. When the task is complete it will redirect to GetJobResults. | [default to false]
 
 ### Return type
 
@@ -420,7 +424,7 @@ Name | Type | Description  | Notes
 
 > LogSiteResponseModel ConfigLogGetLogSite(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
-Get logging site details. This on-prem only API.
+Get logging site details.
 
 ### Example
 
@@ -842,7 +846,7 @@ Name | Type | Description  | Notes
 
 > LogSiteResponseModel ConfigLogSetLogSite(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).LogSiteRequestModel(logSiteRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
-Update logging site info. This on-prem only API.
+Update logging site info.
 
 ### Example
 

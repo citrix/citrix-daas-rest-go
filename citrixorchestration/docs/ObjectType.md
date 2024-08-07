@@ -25,11 +25,17 @@
 
 * `HYPERVISOR` (value: `"Hypervisor"`)
 
-* `REMOTE_PC_ENROLLMENT_SCOPE_IN_MACHINE_CATALOG` (value: `"RemotePCEnrollmentScopeInMachineCatalog"`)
+* `REMOTE_PC_ENROLLMENT_SCOPE` (value: `"RemotePCEnrollmentScope"`)
 
-* `REBOOT_SCHEDULE_IN_DELIVERY_GROUP` (value: `"RebootScheduleInDeliveryGroup"`)
+* `REBOOT_SCHEDULE` (value: `"RebootSchedule"`)
 
-* `RESOURCE_POOL_IN_HYPERVISOR` (value: `"ResourcePoolInHypervisor"`)
+* `RESOURCE_POOL` (value: `"ResourcePool"`)
+
+* `IMAGE` (value: `"Image"`)
+
+* `ZONE` (value: `"Zone"`)
+
+* `SITE` (value: `"Site"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
