@@ -31,9 +31,12 @@ const (
 	OBJECTTYPE_ADMIN_ROLE ObjectType = "AdminRole"
 	OBJECTTYPE_ADMIN_SCOPE ObjectType = "AdminScope"
 	OBJECTTYPE_HYPERVISOR ObjectType = "Hypervisor"
-	OBJECTTYPE_REMOTE_PC_ENROLLMENT_SCOPE_IN_MACHINE_CATALOG ObjectType = "RemotePCEnrollmentScopeInMachineCatalog"
-	OBJECTTYPE_REBOOT_SCHEDULE_IN_DELIVERY_GROUP ObjectType = "RebootScheduleInDeliveryGroup"
-	OBJECTTYPE_RESOURCE_POOL_IN_HYPERVISOR ObjectType = "ResourcePoolInHypervisor"
+	OBJECTTYPE_REMOTE_PC_ENROLLMENT_SCOPE ObjectType = "RemotePCEnrollmentScope"
+	OBJECTTYPE_REBOOT_SCHEDULE ObjectType = "RebootSchedule"
+	OBJECTTYPE_RESOURCE_POOL ObjectType = "ResourcePool"
+	OBJECTTYPE_IMAGE ObjectType = "Image"
+	OBJECTTYPE_ZONE ObjectType = "Zone"
+	OBJECTTYPE_SITE ObjectType = "Site"
 )
 
 // All allowed values of ObjectType enum
@@ -49,9 +52,12 @@ var AllowedObjectTypeEnumValues = []ObjectType{
 	"AdminRole",
 	"AdminScope",
 	"Hypervisor",
-	"RemotePCEnrollmentScopeInMachineCatalog",
-	"RebootScheduleInDeliveryGroup",
-	"ResourcePoolInHypervisor",
+	"RemotePCEnrollmentScope",
+	"RebootSchedule",
+	"ResourcePool",
+	"Image",
+	"Zone",
+	"Site",
 }
 
 func (v *ObjectType) UnmarshalJSON(src []byte) error {

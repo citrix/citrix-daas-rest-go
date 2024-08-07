@@ -32,7 +32,9 @@ type ImageVersionSpecResponseModel struct {
 	PreparationType PreparationType `json:"PreparationType"`
 	// Number of provisioning scheme created from this image version specification.
 	ProvisioningSchemeCount *int32 `json:"ProvisioningSchemeCount,omitempty"`
-	ResourcePool HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
+	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
+	// The resource pools on which image is associated.
+	ResourcePools []ImageVersionSpecResourcePoolResponseModel `json:"ResourcePools,omitempty"`
 	SourceImageVersionSpec *ImageVersionSpecRefResponseModel `json:"SourceImageVersionSpec,omitempty"`
 	// The disk size
 	DiskSize *int32 `json:"DiskSize,omitempty"`
@@ -45,11 +47,10 @@ type ImageVersionSpecResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewImageVersionSpecResponseModel(id string, preparationType PreparationType, resourcePool HypervisorResourcePoolRefResponseModel) *ImageVersionSpecResponseModel {
+func NewImageVersionSpecResponseModel(id string, preparationType PreparationType) *ImageVersionSpecResponseModel {
 	this := ImageVersionSpecResponseModel{}
 	this.Id = id
 	this.PreparationType = preparationType
-	this.ResourcePool = resourcePool
 	return &this
 }
 
@@ -344,28 +345,69 @@ func (o *ImageVersionSpecResponseModel) SetProvisioningSchemeCount(v int32) {
 	o.ProvisioningSchemeCount = &v
 }
 
-// GetResourcePool returns the ResourcePool field value
+// GetResourcePool returns the ResourcePool field value if set, zero value otherwise.
 func (o *ImageVersionSpecResponseModel) GetResourcePool() HypervisorResourcePoolRefResponseModel {
-	if o == nil {
+	if o == nil || IsNil(o.ResourcePool) {
 		var ret HypervisorResourcePoolRefResponseModel
 		return ret
 	}
-
-	return o.ResourcePool
+	return *o.ResourcePool
 }
 
-// GetResourcePoolOk returns a tuple with the ResourcePool field value
+// GetResourcePoolOk returns a tuple with the ResourcePool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ImageVersionSpecResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolRefResponseModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResourcePool) {
 		return nil, false
 	}
-	return &o.ResourcePool, true
+	return o.ResourcePool, true
 }
 
-// SetResourcePool sets field value
+// HasResourcePool returns a boolean if a field has been set.
+func (o *ImageVersionSpecResponseModel) HasResourcePool() bool {
+	if o != nil && !IsNil(o.ResourcePool) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcePool gets a reference to the given HypervisorResourcePoolRefResponseModel and assigns it to the ResourcePool field.
 func (o *ImageVersionSpecResponseModel) SetResourcePool(v HypervisorResourcePoolRefResponseModel) {
-	o.ResourcePool = v
+	o.ResourcePool = &v
+}
+
+// GetResourcePools returns the ResourcePools field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageVersionSpecResponseModel) GetResourcePools() []ImageVersionSpecResourcePoolResponseModel {
+	if o == nil {
+		var ret []ImageVersionSpecResourcePoolResponseModel
+		return ret
+	}
+	return o.ResourcePools
+}
+
+// GetResourcePoolsOk returns a tuple with the ResourcePools field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageVersionSpecResponseModel) GetResourcePoolsOk() ([]ImageVersionSpecResourcePoolResponseModel, bool) {
+	if o == nil || IsNil(o.ResourcePools) {
+		return nil, false
+	}
+	return o.ResourcePools, true
+}
+
+// HasResourcePools returns a boolean if a field has been set.
+func (o *ImageVersionSpecResponseModel) HasResourcePools() bool {
+	if o != nil && IsNil(o.ResourcePools) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcePools gets a reference to the given []ImageVersionSpecResourcePoolResponseModel and assigns it to the ResourcePools field.
+func (o *ImageVersionSpecResponseModel) SetResourcePools(v []ImageVersionSpecResourcePoolResponseModel) {
+	o.ResourcePools = v
 }
 
 // GetSourceImageVersionSpec returns the SourceImageVersionSpec field value if set, zero value otherwise.
@@ -530,7 +572,12 @@ func (o ImageVersionSpecResponseModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.ProvisioningSchemeCount) {
 		toSerialize["ProvisioningSchemeCount"] = o.ProvisioningSchemeCount
 	}
-	toSerialize["ResourcePool"] = o.ResourcePool
+	if !IsNil(o.ResourcePool) {
+		toSerialize["ResourcePool"] = o.ResourcePool
+	}
+	if o.ResourcePools != nil {
+		toSerialize["ResourcePools"] = o.ResourcePools
+	}
 	if !IsNil(o.SourceImageVersionSpec) {
 		toSerialize["SourceImageVersionSpec"] = o.SourceImageVersionSpec
 	}

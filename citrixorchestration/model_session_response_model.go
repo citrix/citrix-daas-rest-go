@@ -17,7 +17,7 @@ import (
 // checks if the SessionResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SessionResponseModel{}
 
-// SessionResponseModel Response object for a session.
+// SessionResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,AppState,AppStateLastChangeTime,FormattedAppStateLastChangeTime,Client,EstablishmentDurationMilliseconds,EstablishmentTime,FormattedEstablishmentTime,IsAnonymousUser,IsHidden,LogoffInProgress,LogonInProgress,SessionType,StartTime,FormattedStartTime,State,StateChangeTime,FormattedStateChangeTime,UntrustedUserName,User.               Response object for a session.              
 type SessionResponseModel struct {
 	// Id of the session.
 	Id NullableString `json:"Id,omitempty"`

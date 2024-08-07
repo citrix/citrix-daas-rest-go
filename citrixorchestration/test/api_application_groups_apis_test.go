@@ -168,6 +168,18 @@ func Test_citrixorchestration_ApplicationGroupsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsGetApplicationGroupsV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ApplicationGroupsAPIsDAASService ApplicationGroupsRemoveApplication", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

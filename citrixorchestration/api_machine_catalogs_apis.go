@@ -6120,6 +6120,7 @@ type ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest struct {
 	citrixTransactionId *string
 	accept *string
 	citrixLocale *string
+	upgradeVersion *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6164,6 +6165,12 @@ func (r ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) Citr
 	return r
 }
 
+// The version of the VDA to upgrade to.
+func (r ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) UpgradeVersion(upgradeVersion string) ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest {
+	r.upgradeVersion = &upgradeVersion
+	return r
+}
+
 func (r ApiMachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesRequest) Execute() (*MachineCatalogVusComponentResponseModel, *http.Response, error) {
 	return r.ApiService.MachineCatalogsGetMachineCatalogVDAComponentsAndFeaturesExecute(r)
 }
@@ -6199,6 +6206,283 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAComp
 	}
 
 	localVarPath := localBasePath + "/MachineCatalogs/{nameOrId}/VDAComponentsAndFeatures"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.upgradeVersion != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "upgradeVersion", r.upgradeVersion, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest struct {
+	ctx context.Context
+	ApiService *MachineCatalogsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) CitrixInstanceId(citrixInstanceId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) UserAgent(userAgent string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) Authorization(authorization string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) CitrixTransactionId(citrixTransactionId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) Accept(accept string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) CitrixLocale(citrixLocale string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) Execute() ([]string, *http.Response, error) {
+	return r.ApiService.MachineCatalogsGetMachineCatalogVDAUpgradeVersionsExecute(r)
+}
+
+/*
+MachineCatalogsGetMachineCatalogVDAUpgradeVersions Get the available VDA upgrade versions associated with a machine catalog.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId Name or ID of the machine catalog.             If the catalog is present in a catalog folder,             specify the name in this format: {catalog folder path plus catalog name}.             For example, FolderName1|FolderName2|CatalogName.
+ @return ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest
+*/
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgradeVersions(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest {
+	return ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+	}
+}
+
+// Execute executes the request
+//  @return []string
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogVDAUpgradeVersionsExecute(r ApiMachineCatalogsGetMachineCatalogVDAUpgradeVersionsRequest) ([]string, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []string
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogVDAUpgradeVersions")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/MachineCatalogs/{nameOrId}/VDAUpgradeVersions"
 	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -6902,6 +7186,317 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsAdmini
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMachineCatalogsGetMachineCatalogsV2Request struct {
+	ctx context.Context
+	ApiService *MachineCatalogsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	adminFolder *string
+	async *bool
+	limit *int32
+	continuationToken *string
+	fields *string
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) CitrixInstanceId(citrixInstanceId string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) UserAgent(userAgent string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) Authorization(authorization string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) CitrixTransactionId(citrixTransactionId string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) Accept(accept string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) CitrixLocale(citrixLocale string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// Admin folder path or Id.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) AdminFolder(adminFolder string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.adminFolder = &adminFolder
+	return r
+}
+
+// If &#x60;true&#x60;, it will be queried as a background task.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) Async(async bool) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.async = &async
+	return r
+}
+
+// The max number of machine catalogs returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) Limit(limit int32) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.limit = &limit
+	return r
+}
+
+// If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results.
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) ContinuationToken(continuationToken string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.continuationToken = &continuationToken
+	return r
+}
+
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) Fields(fields string) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	r.fields = &fields
+	return r
+}
+
+func (r ApiMachineCatalogsGetMachineCatalogsV2Request) Execute() (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	return r.ApiService.MachineCatalogsGetMachineCatalogsV2Execute(r)
+}
+
+/*
+MachineCatalogsGetMachineCatalogsV2 The V2  version of get all machine catalogs.
+
+Get all machine catalogs in the site with default response fields if no fields parameters specified.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiMachineCatalogsGetMachineCatalogsV2Request
+*/
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2(ctx context.Context) ApiMachineCatalogsGetMachineCatalogsV2Request {
+	return ApiMachineCatalogsGetMachineCatalogsV2Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return MachineCatalogResponseModelCollection
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogsV2Execute(r ApiMachineCatalogsGetMachineCatalogsV2Request) (*MachineCatalogResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *MachineCatalogResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogsV2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/MachineCatalogsV2"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.adminFolder != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "adminFolder", r.adminFolder, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+	}
+	if r.continuationToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+	}
+	if r.fields != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
 			var v ErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

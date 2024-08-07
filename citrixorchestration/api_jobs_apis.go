@@ -1502,7 +1502,7 @@ JobsSkipRemainingSubtasks Skips any remaining / unstarted subtasks of the job.
 For security reasons, jobs are only visible to the caller who
 initiated them.
 
-Only supported for jobs where  
+Only supported for jobs where 
 is equal to .  Any job that
 does not support this action will return a `501 Not Implemented`
 response code.

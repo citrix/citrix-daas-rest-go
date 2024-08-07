@@ -33,6 +33,7 @@ type CreateUpgradeScheduleRequestModel struct {
 	ConcurrencyLevel NullableInt32 `json:"ConcurrencyLevel,omitempty"`
 	// Limits the number of failures that can take place during a scheduled upgrade.
 	FailureThreshold NullableInt32 `json:"FailureThreshold,omitempty"`
+	LogoffOption *LogoffOption `json:"LogoffOption,omitempty"`
 }
 
 // NewCreateUpgradeScheduleRequestModel instantiates a new CreateUpgradeScheduleRequestModel object
@@ -319,6 +320,38 @@ func (o *CreateUpgradeScheduleRequestModel) UnsetFailureThreshold() {
 	o.FailureThreshold.Unset()
 }
 
+// GetLogoffOption returns the LogoffOption field value if set, zero value otherwise.
+func (o *CreateUpgradeScheduleRequestModel) GetLogoffOption() LogoffOption {
+	if o == nil || IsNil(o.LogoffOption) {
+		var ret LogoffOption
+		return ret
+	}
+	return *o.LogoffOption
+}
+
+// GetLogoffOptionOk returns a tuple with the LogoffOption field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradeScheduleRequestModel) GetLogoffOptionOk() (*LogoffOption, bool) {
+	if o == nil || IsNil(o.LogoffOption) {
+		return nil, false
+	}
+	return o.LogoffOption, true
+}
+
+// HasLogoffOption returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleRequestModel) HasLogoffOption() bool {
+	if o != nil && !IsNil(o.LogoffOption) {
+		return true
+	}
+
+	return false
+}
+
+// SetLogoffOption gets a reference to the given LogoffOption and assigns it to the LogoffOption field.
+func (o *CreateUpgradeScheduleRequestModel) SetLogoffOption(v LogoffOption) {
+	o.LogoffOption = &v
+}
+
 func (o CreateUpgradeScheduleRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -347,6 +380,9 @@ func (o CreateUpgradeScheduleRequestModel) ToMap() (map[string]interface{}, erro
 	}
 	if o.FailureThreshold.IsSet() {
 		toSerialize["FailureThreshold"] = o.FailureThreshold.Get()
+	}
+	if !IsNil(o.LogoffOption) {
+		toSerialize["LogoffOption"] = o.LogoffOption
 	}
 	return toSerialize, nil
 }

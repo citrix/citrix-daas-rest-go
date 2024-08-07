@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | Pointer to **NullableString** | Provides additional status on image like  error message | [optional] 
+**AmazonImageId** | Pointer to **NullableString** | Id of the Image on AWS | [optional] 
 **IngestionProcess** | Pointer to [**NullableAwsEdcWorkspaceImageIngestionProcess**](AwsEdcWorkspaceImageIngestionProcess.md) |  | [optional] 
 **WorkspaceImageTenancy** | Pointer to [**NullableAwsEdcWorkspaceImageTenancy**](AwsEdcWorkspaceImageTenancy.md) |  | [optional] 
 **WorkspaceImageState** | Pointer to [**NullableAwsEdcWorkspaceImageState**](AwsEdcWorkspaceImageState.md) |  | [optional] 
@@ -64,6 +65,41 @@ HasStatus returns a boolean if a field has been set.
 `func (o *AwsEdcImage) UnsetStatus()`
 
 UnsetStatus ensures that no value is present for Status, not even an explicit nil
+### GetAmazonImageId
+
+`func (o *AwsEdcImage) GetAmazonImageId() string`
+
+GetAmazonImageId returns the AmazonImageId field if non-nil, zero value otherwise.
+
+### GetAmazonImageIdOk
+
+`func (o *AwsEdcImage) GetAmazonImageIdOk() (*string, bool)`
+
+GetAmazonImageIdOk returns a tuple with the AmazonImageId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmazonImageId
+
+`func (o *AwsEdcImage) SetAmazonImageId(v string)`
+
+SetAmazonImageId sets AmazonImageId field to given value.
+
+### HasAmazonImageId
+
+`func (o *AwsEdcImage) HasAmazonImageId() bool`
+
+HasAmazonImageId returns a boolean if a field has been set.
+
+### SetAmazonImageIdNil
+
+`func (o *AwsEdcImage) SetAmazonImageIdNil(b bool)`
+
+ SetAmazonImageIdNil sets the value for AmazonImageId to be an explicit nil
+
+### UnsetAmazonImageId
+`func (o *AwsEdcImage) UnsetAmazonImageId()`
+
+UnsetAmazonImageId ensures that no value is present for AmazonImageId, not even an explicit nil
 ### GetIngestionProcess
 
 `func (o *AwsEdcImage) GetIngestionProcess() AwsEdcWorkspaceImageIngestionProcess`

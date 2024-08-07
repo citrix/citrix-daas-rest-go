@@ -142,6 +142,8 @@ const (
 	JOBTYPE_GET_OPERATIONS JobType = "GetOperations"
 	JOBTYPE_DO_OPERATION_SEARCH JobType = "DoOperationSearch"
 	JOBTYPE_FETCH_EXISTING_OPERATION_LABELS JobType = "FetchExistingOperationLabels"
+	JOBTYPE_EXPORT_OPERATION_REPORT JobType = "ExportOperationReport"
+	JOBTYPE_DELETE_ALL_OPERATIONS JobType = "DeleteAllOperations"
 	JOBTYPE_UPDATE_OPERATION JobType = "UpdateOperation"
 	JOBTYPE_NEW_OPERATION JobType = "NewOperation"
 	JOBTYPE_GET_SESSIONS JobType = "GetSessions"
@@ -274,6 +276,13 @@ const (
 	JOBTYPE_SEARCH_PROVISIONING_OPERATION_EVENT JobType = "SearchProvisioningOperationEvent"
 	JOBTYPE_REMOVE_PROVISIONING_OPERATION_EVENT JobType = "RemoveProvisioningOperationEvent"
 	JOBTYPE_CONFIRM_PROVISIONING_OPERATION_EVENT JobType = "ConfirmProvisioningOperationEvent"
+	JOBTYPE_TEST_SERVICE_ACCOUNT JobType = "TestServiceAccount"
+	JOBTYPE_GET_SITE_ERROR_WARNING JobType = "GetSiteErrorWarning"
+	JOBTYPE_UPDATE_IMAGE_VERSION_RESOURCE_POOLS JobType = "UpdateImageVersionResourcePools"
+	JOBTYPE_DO_IMAGE_DEFINITION_AND_IMAGE_VERSION_SEARCH JobType = "DoImageDefinitionAndImageVersionSearch"
+	JOBTYPE_CREATE_IMAGE_DEFINITION JobType = "CreateImageDefinition"
+	JOBTYPE_GET_PATCH_PREVIEW_SERVICE_ACCOUNT JobType = "GetPatchPreviewServiceAccount"
+	JOBTYPE_GET_HYPERVISOR_RESOURCE_PRICES JobType = "GetHypervisorResourcePrices"
 )
 
 // All allowed values of JobType enum
@@ -400,6 +409,8 @@ var AllowedJobTypeEnumValues = []JobType{
 	"GetOperations",
 	"DoOperationSearch",
 	"FetchExistingOperationLabels",
+	"ExportOperationReport",
+	"DeleteAllOperations",
 	"UpdateOperation",
 	"NewOperation",
 	"GetSessions",
@@ -532,6 +543,13 @@ var AllowedJobTypeEnumValues = []JobType{
 	"SearchProvisioningOperationEvent",
 	"RemoveProvisioningOperationEvent",
 	"ConfirmProvisioningOperationEvent",
+	"TestServiceAccount",
+	"GetSiteErrorWarning",
+	"UpdateImageVersionResourcePools",
+	"DoImageDefinitionAndImageVersionSearch",
+	"CreateImageDefinition",
+	"GetPatchPreviewServiceAccount",
+	"GetHypervisorResourcePrices",
 }
 
 func (v *JobType) UnmarshalJSON(src []byte) error {

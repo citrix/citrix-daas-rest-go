@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetTaskAsync
 
-> GetCustomerAccountTaskAsync200Response GetTaskAsync(ctx, customerId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
+> GetTaskAsync200Response GetTaskAsync(ctx, customerId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
 
 Get the status of a task
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TasksQCS.GetTaskAsync``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTaskAsync`: GetCustomerAccountTaskAsync200Response
+    // response from `GetTaskAsync`: GetTaskAsync200Response
     fmt.Fprintf(os.Stdout, "Response from `TasksQCS.GetTaskAsync`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCustomerAccountTaskAsync200Response**](GetCustomerAccountTaskAsync200Response.md)
+[**GetTaskAsync200Response**](GetTaskAsync200Response.md)
 
 ### Authorization
 

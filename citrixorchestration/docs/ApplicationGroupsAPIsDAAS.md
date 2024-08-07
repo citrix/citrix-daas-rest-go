@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**ApplicationGroupsGetApplicationGroupDeliveryGroups**](ApplicationGroupsAPIsDAAS.md#ApplicationGroupsGetApplicationGroupDeliveryGroups) | **Get** /ApplicationGroups/{nameOrId}/DeliveryGroups | Get delivery groups for an application group.
 [**ApplicationGroupsGetApplicationGroupTags**](ApplicationGroupsAPIsDAAS.md#ApplicationGroupsGetApplicationGroupTags) | **Get** /ApplicationGroups/{nameOrId}/Tags | Get the tags for an application group.
 [**ApplicationGroupsGetApplicationGroups**](ApplicationGroupsAPIsDAAS.md#ApplicationGroupsGetApplicationGroups) | **Get** /ApplicationGroups | Get application groups.
+[**ApplicationGroupsGetApplicationGroupsV2**](ApplicationGroupsAPIsDAAS.md#ApplicationGroupsGetApplicationGroupsV2) | **Get** /ApplicationGroupsV2 | The V2  version of get application groups.
 [**ApplicationGroupsRemoveApplication**](ApplicationGroupsAPIsDAAS.md#ApplicationGroupsRemoveApplication) | **Delete** /ApplicationGroups/{nameOrId}/Applications/{appNameOrId} | Remove an application from the application group.
 [**ApplicationGroupsRemoveApplicationGroupTag**](ApplicationGroupsAPIsDAAS.md#ApplicationGroupsRemoveApplicationGroupTag) | **Delete** /ApplicationGroups/{nameOrId}/Tags/{tagNameOrId} | Remove a tag from an application group.
 [**ApplicationGroupsSetApplicationGroupTags**](ApplicationGroupsAPIsDAAS.md#ApplicationGroupsSetApplicationGroupTags) | **Put** /ApplicationGroups/{nameOrId}/Tags | Set the tags for an application group.
@@ -933,6 +934,94 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApplicationGroupsGetApplicationGroupsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **adminFolder** | **string** | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. | 
+ **limit** | **int32** | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **fields** | **string** | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.              | 
+ **async** | **bool** | If &#x60;true&#x60;, the application groups will be fetched as a background task. The task will have JobType GetApplicationGroups. | [default to false]
+
+### Return type
+
+[**ApplicationGroupResponseModelCollection**](ApplicationGroupResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApplicationGroupsGetApplicationGroupsV2
+
+> ApplicationGroupResponseModelCollection ApplicationGroupsGetApplicationGroupsV2(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+
+The V2  version of get application groups.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    adminFolder := "adminFolder_example" // string | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. (optional)
+    limit := int32(56) // int32 | The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    fields := "Id,Uid,ContainerScopes" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+    async := true // bool | If `true`, the application groups will be fetched as a background task. The task will have JobType GetApplicationGroups. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).AdminFolder(adminFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApplicationGroupsGetApplicationGroupsV2`: ApplicationGroupResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroupsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApplicationGroupsGetApplicationGroupsV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes

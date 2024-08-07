@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **DurationInHours** | **int32** | Timeout duration in hours. Valid range is 1 to 24. | 
 **VdaWorkstationPackageUri** | Pointer to **NullableString** | Custom location to download the VDA Workstation package from. Currently, only network shares (specified using a UNC path) are supported. | [optional] 
 **VdaServerPackageUri** | Pointer to **NullableString** | Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported. | [optional] 
+**LogoffOption** | Pointer to [**LogoffOption**](LogoffOption.md) |  | [optional] 
 
 ## Methods
 
@@ -174,6 +175,31 @@ HasVdaServerPackageUri returns a boolean if a field has been set.
 `func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetVdaServerPackageUri()`
 
 UnsetVdaServerPackageUri ensures that no value is present for VdaServerPackageUri, not even an explicit nil
+### GetLogoffOption
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) GetLogoffOption() LogoffOption`
+
+GetLogoffOption returns the LogoffOption field if non-nil, zero value otherwise.
+
+### GetLogoffOptionOk
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) GetLogoffOptionOk() (*LogoffOption, bool)`
+
+GetLogoffOptionOk returns a tuple with the LogoffOption field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLogoffOption
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) SetLogoffOption(v LogoffOption)`
+
+SetLogoffOption sets LogoffOption field to given value.
+
+### HasLogoffOption
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) HasLogoffOption() bool`
+
+HasLogoffOption returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

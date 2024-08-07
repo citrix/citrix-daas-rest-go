@@ -30,6 +30,7 @@ type CreateUpgradeScheduleForMachinesRequestModel struct {
 	VdaWorkstationPackageUri NullableString `json:"VdaWorkstationPackageUri,omitempty"`
 	// Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported.
 	VdaServerPackageUri NullableString `json:"VdaServerPackageUri,omitempty"`
+	LogoffOption *LogoffOption `json:"LogoffOption,omitempty"`
 }
 
 // NewCreateUpgradeScheduleForMachinesRequestModel instantiates a new CreateUpgradeScheduleForMachinesRequestModel object
@@ -225,6 +226,38 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetVdaServerPackageUri(
 	o.VdaServerPackageUri.Unset()
 }
 
+// GetLogoffOption returns the LogoffOption field value if set, zero value otherwise.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetLogoffOption() LogoffOption {
+	if o == nil || IsNil(o.LogoffOption) {
+		var ret LogoffOption
+		return ret
+	}
+	return *o.LogoffOption
+}
+
+// GetLogoffOptionOk returns a tuple with the LogoffOption field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetLogoffOptionOk() (*LogoffOption, bool) {
+	if o == nil || IsNil(o.LogoffOption) {
+		return nil, false
+	}
+	return o.LogoffOption, true
+}
+
+// HasLogoffOption returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) HasLogoffOption() bool {
+	if o != nil && !IsNil(o.LogoffOption) {
+		return true
+	}
+
+	return false
+}
+
+// SetLogoffOption gets a reference to the given LogoffOption and assigns it to the LogoffOption field.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetLogoffOption(v LogoffOption) {
+	o.LogoffOption = &v
+}
+
 func (o CreateUpgradeScheduleForMachinesRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -245,6 +278,9 @@ func (o CreateUpgradeScheduleForMachinesRequestModel) ToMap() (map[string]interf
 	}
 	if o.VdaServerPackageUri.IsSet() {
 		toSerialize["VdaServerPackageUri"] = o.VdaServerPackageUri.Get()
+	}
+	if !IsNil(o.LogoffOption) {
+		toSerialize["LogoffOption"] = o.LogoffOption
 	}
 	return toSerialize, nil
 }

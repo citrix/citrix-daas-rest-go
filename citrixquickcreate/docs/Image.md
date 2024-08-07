@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountId** | Pointer to **NullableString** | The ID of the account the resource is associated with | [optional] 
 **ImageId** | Pointer to **NullableString** | The ID of the image | [optional] 
 **Name** | Pointer to **NullableString** | The name of the image | [optional] 
 **Description** | Pointer to **NullableString** | The description of the image | [optional] 
 **Notes** | Pointer to **NullableString** | The notes of the image | [optional] 
+**SessionSupport** | Pointer to [**NullableSessionSupport**](SessionSupport.md) |  | [optional] 
 **OperatingSystem** | Pointer to [**NullableOperatingSystemType**](OperatingSystemType.md) |  | [optional] 
 **AssociatedDeployments** | Pointer to [**[]AssociatedDeployment**](AssociatedDeployment.md) |  | [optional] 
-**LastModifiedTime** | Pointer to **time.Time** | Last time the status was modified | [optional] 
 
 ## Methods
 
@@ -52,6 +53,41 @@ and a boolean to check if the value has been set.
 SetAccountType sets AccountType field to given value.
 
 
+### GetAccountId
+
+`func (o *Image) GetAccountId() string`
+
+GetAccountId returns the AccountId field if non-nil, zero value otherwise.
+
+### GetAccountIdOk
+
+`func (o *Image) GetAccountIdOk() (*string, bool)`
+
+GetAccountIdOk returns a tuple with the AccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountId
+
+`func (o *Image) SetAccountId(v string)`
+
+SetAccountId sets AccountId field to given value.
+
+### HasAccountId
+
+`func (o *Image) HasAccountId() bool`
+
+HasAccountId returns a boolean if a field has been set.
+
+### SetAccountIdNil
+
+`func (o *Image) SetAccountIdNil(b bool)`
+
+ SetAccountIdNil sets the value for AccountId to be an explicit nil
+
+### UnsetAccountId
+`func (o *Image) UnsetAccountId()`
+
+UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
 ### GetImageId
 
 `func (o *Image) GetImageId() string`
@@ -192,6 +228,41 @@ HasNotes returns a boolean if a field has been set.
 `func (o *Image) UnsetNotes()`
 
 UnsetNotes ensures that no value is present for Notes, not even an explicit nil
+### GetSessionSupport
+
+`func (o *Image) GetSessionSupport() SessionSupport`
+
+GetSessionSupport returns the SessionSupport field if non-nil, zero value otherwise.
+
+### GetSessionSupportOk
+
+`func (o *Image) GetSessionSupportOk() (*SessionSupport, bool)`
+
+GetSessionSupportOk returns a tuple with the SessionSupport field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSessionSupport
+
+`func (o *Image) SetSessionSupport(v SessionSupport)`
+
+SetSessionSupport sets SessionSupport field to given value.
+
+### HasSessionSupport
+
+`func (o *Image) HasSessionSupport() bool`
+
+HasSessionSupport returns a boolean if a field has been set.
+
+### SetSessionSupportNil
+
+`func (o *Image) SetSessionSupportNil(b bool)`
+
+ SetSessionSupportNil sets the value for SessionSupport to be an explicit nil
+
+### UnsetSessionSupport
+`func (o *Image) UnsetSessionSupport()`
+
+UnsetSessionSupport ensures that no value is present for SessionSupport, not even an explicit nil
 ### GetOperatingSystem
 
 `func (o *Image) GetOperatingSystem() OperatingSystemType`
@@ -262,31 +333,6 @@ HasAssociatedDeployments returns a boolean if a field has been set.
 `func (o *Image) UnsetAssociatedDeployments()`
 
 UnsetAssociatedDeployments ensures that no value is present for AssociatedDeployments, not even an explicit nil
-### GetLastModifiedTime
-
-`func (o *Image) GetLastModifiedTime() time.Time`
-
-GetLastModifiedTime returns the LastModifiedTime field if non-nil, zero value otherwise.
-
-### GetLastModifiedTimeOk
-
-`func (o *Image) GetLastModifiedTimeOk() (*time.Time, bool)`
-
-GetLastModifiedTimeOk returns a tuple with the LastModifiedTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLastModifiedTime
-
-`func (o *Image) SetLastModifiedTime(v time.Time)`
-
-SetLastModifiedTime sets LastModifiedTime field to given value.
-
-### HasLastModifiedTime
-
-`func (o *Image) HasLastModifiedTime() bool`
-
-HasLastModifiedTime returns a boolean if a field has been set.
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

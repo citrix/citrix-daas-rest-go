@@ -12,7 +12,6 @@ package citrixquickcreate
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // checks if the Image type satisfies the MappedNullable interface at compile time
@@ -21,6 +20,8 @@ var _ MappedNullable = &Image{}
 // Image Base class for image
 type Image struct {
 	AccountType AccountType `json:"accountType"`
+	// The ID of the account the resource is associated with
+	AccountId NullableString `json:"accountId,omitempty"`
 	// The ID of the image
 	ImageId NullableString `json:"imageId,omitempty"`
 	// The name of the image
@@ -29,10 +30,9 @@ type Image struct {
 	Description NullableString `json:"description,omitempty"`
 	// The notes of the image
 	Notes NullableString `json:"notes,omitempty"`
+	SessionSupport NullableSessionSupport `json:"sessionSupport,omitempty"`
 	OperatingSystem NullableOperatingSystemType `json:"operatingSystem,omitempty"`
 	AssociatedDeployments []AssociatedDeployment `json:"associatedDeployments,omitempty"`
-	// Last time the status was modified
-	LastModifiedTime *time.Time `json:"lastModifiedTime,omitempty"`
 }
 
 // NewImage instantiates a new Image object
@@ -75,6 +75,48 @@ func (o *Image) GetAccountTypeOk() (*AccountType, bool) {
 // SetAccountType sets field value
 func (o *Image) SetAccountType(v AccountType) {
 	o.AccountType = v
+}
+
+// GetAccountId returns the AccountId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Image) GetAccountId() string {
+	if o == nil || IsNil(o.AccountId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AccountId.Get()
+}
+
+// GetAccountIdOk returns a tuple with the AccountId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Image) GetAccountIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AccountId.Get(), o.AccountId.IsSet()
+}
+
+// HasAccountId returns a boolean if a field has been set.
+func (o *Image) HasAccountId() bool {
+	if o != nil && o.AccountId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAccountId gets a reference to the given NullableString and assigns it to the AccountId field.
+func (o *Image) SetAccountId(v string) {
+	o.AccountId.Set(&v)
+}
+// SetAccountIdNil sets the value for AccountId to be an explicit nil
+func (o *Image) SetAccountIdNil() {
+	o.AccountId.Set(nil)
+}
+
+// UnsetAccountId ensures that no value is present for AccountId, not even an explicit nil
+func (o *Image) UnsetAccountId() {
+	o.AccountId.Unset()
 }
 
 // GetImageId returns the ImageId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -245,6 +287,48 @@ func (o *Image) UnsetNotes() {
 	o.Notes.Unset()
 }
 
+// GetSessionSupport returns the SessionSupport field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Image) GetSessionSupport() SessionSupport {
+	if o == nil || IsNil(o.SessionSupport.Get()) {
+		var ret SessionSupport
+		return ret
+	}
+	return *o.SessionSupport.Get()
+}
+
+// GetSessionSupportOk returns a tuple with the SessionSupport field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Image) GetSessionSupportOk() (*SessionSupport, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SessionSupport.Get(), o.SessionSupport.IsSet()
+}
+
+// HasSessionSupport returns a boolean if a field has been set.
+func (o *Image) HasSessionSupport() bool {
+	if o != nil && o.SessionSupport.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSessionSupport gets a reference to the given NullableSessionSupport and assigns it to the SessionSupport field.
+func (o *Image) SetSessionSupport(v SessionSupport) {
+	o.SessionSupport.Set(&v)
+}
+// SetSessionSupportNil sets the value for SessionSupport to be an explicit nil
+func (o *Image) SetSessionSupportNil() {
+	o.SessionSupport.Set(nil)
+}
+
+// UnsetSessionSupport ensures that no value is present for SessionSupport, not even an explicit nil
+func (o *Image) UnsetSessionSupport() {
+	o.SessionSupport.Unset()
+}
+
 // GetOperatingSystem returns the OperatingSystem field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Image) GetOperatingSystem() OperatingSystemType {
 	if o == nil || IsNil(o.OperatingSystem.Get()) {
@@ -320,38 +404,6 @@ func (o *Image) SetAssociatedDeployments(v []AssociatedDeployment) {
 	o.AssociatedDeployments = v
 }
 
-// GetLastModifiedTime returns the LastModifiedTime field value if set, zero value otherwise.
-func (o *Image) GetLastModifiedTime() time.Time {
-	if o == nil || IsNil(o.LastModifiedTime) {
-		var ret time.Time
-		return ret
-	}
-	return *o.LastModifiedTime
-}
-
-// GetLastModifiedTimeOk returns a tuple with the LastModifiedTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *Image) GetLastModifiedTimeOk() (*time.Time, bool) {
-	if o == nil || IsNil(o.LastModifiedTime) {
-		return nil, false
-	}
-	return o.LastModifiedTime, true
-}
-
-// HasLastModifiedTime returns a boolean if a field has been set.
-func (o *Image) HasLastModifiedTime() bool {
-	if o != nil && !IsNil(o.LastModifiedTime) {
-		return true
-	}
-
-	return false
-}
-
-// SetLastModifiedTime gets a reference to the given time.Time and assigns it to the LastModifiedTime field.
-func (o *Image) SetLastModifiedTime(v time.Time) {
-	o.LastModifiedTime = &v
-}
-
 func (o Image) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -363,6 +415,9 @@ func (o Image) MarshalJSON() ([]byte, error) {
 func (o Image) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["accountType"] = o.AccountType
+	if o.AccountId.IsSet() {
+		toSerialize["accountId"] = o.AccountId.Get()
+	}
 	if o.ImageId.IsSet() {
 		toSerialize["imageId"] = o.ImageId.Get()
 	}
@@ -375,14 +430,14 @@ func (o Image) ToMap() (map[string]interface{}, error) {
 	if o.Notes.IsSet() {
 		toSerialize["notes"] = o.Notes.Get()
 	}
+	if o.SessionSupport.IsSet() {
+		toSerialize["sessionSupport"] = o.SessionSupport.Get()
+	}
 	if o.OperatingSystem.IsSet() {
 		toSerialize["operatingSystem"] = o.OperatingSystem.Get()
 	}
 	if o.AssociatedDeployments != nil {
 		toSerialize["associatedDeployments"] = o.AssociatedDeployments
-	}
-	if !IsNil(o.LastModifiedTime) {
-		toSerialize["lastModifiedTime"] = o.LastModifiedTime
 	}
 	return toSerialize, nil
 }

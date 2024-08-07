@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Domain** | Pointer to **NullableString** | Domain of the directory. | [optional] 
 **Tenant** | Pointer to **NullableString** | Tenant of the directory. | [optional] 
 **IdentityProvider** | Pointer to [**IdentityProviderType**](IdentityProviderType.md) |  | [optional] 
+**IdpInstanceId** | Pointer to **NullableString** | Instance of the directory. | [optional] 
+**IdpNickName** | Pointer to **NullableString** | Nickname of the directory | [optional] 
 
 ## Methods
 
@@ -158,6 +160,76 @@ SetIdentityProvider sets IdentityProvider field to given value.
 
 HasIdentityProvider returns a boolean if a field has been set.
 
+### GetIdpInstanceId
+
+`func (o *IdentityDirectoryResponseModel) GetIdpInstanceId() string`
+
+GetIdpInstanceId returns the IdpInstanceId field if non-nil, zero value otherwise.
+
+### GetIdpInstanceIdOk
+
+`func (o *IdentityDirectoryResponseModel) GetIdpInstanceIdOk() (*string, bool)`
+
+GetIdpInstanceIdOk returns a tuple with the IdpInstanceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdpInstanceId
+
+`func (o *IdentityDirectoryResponseModel) SetIdpInstanceId(v string)`
+
+SetIdpInstanceId sets IdpInstanceId field to given value.
+
+### HasIdpInstanceId
+
+`func (o *IdentityDirectoryResponseModel) HasIdpInstanceId() bool`
+
+HasIdpInstanceId returns a boolean if a field has been set.
+
+### SetIdpInstanceIdNil
+
+`func (o *IdentityDirectoryResponseModel) SetIdpInstanceIdNil(b bool)`
+
+ SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
+
+### UnsetIdpInstanceId
+`func (o *IdentityDirectoryResponseModel) UnsetIdpInstanceId()`
+
+UnsetIdpInstanceId ensures that no value is present for IdpInstanceId, not even an explicit nil
+### GetIdpNickName
+
+`func (o *IdentityDirectoryResponseModel) GetIdpNickName() string`
+
+GetIdpNickName returns the IdpNickName field if non-nil, zero value otherwise.
+
+### GetIdpNickNameOk
+
+`func (o *IdentityDirectoryResponseModel) GetIdpNickNameOk() (*string, bool)`
+
+GetIdpNickNameOk returns a tuple with the IdpNickName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdpNickName
+
+`func (o *IdentityDirectoryResponseModel) SetIdpNickName(v string)`
+
+SetIdpNickName sets IdpNickName field to given value.
+
+### HasIdpNickName
+
+`func (o *IdentityDirectoryResponseModel) HasIdpNickName() bool`
+
+HasIdpNickName returns a boolean if a field has been set.
+
+### SetIdpNickNameNil
+
+`func (o *IdentityDirectoryResponseModel) SetIdpNickNameNil(b bool)`
+
+ SetIdpNickNameNil sets the value for IdpNickName to be an explicit nil
+
+### UnsetIdpNickName
+`func (o *IdentityDirectoryResponseModel) UnsetIdpNickName()`
+
+UnsetIdpNickName ensures that no value is present for IdpNickName, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

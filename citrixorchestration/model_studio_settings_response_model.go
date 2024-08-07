@@ -21,6 +21,8 @@ var _ MappedNullable = &StudioSettingsResponseModel{}
 type StudioSettingsResponseModel struct {
 	// Multiple sites configuration
 	MultiSites []MultiSiteModel `json:"MultiSites,omitempty"`
+	// The default domain to be used in the login page.
+	DefaultDomain NullableString `json:"DefaultDomain,omitempty"`
 }
 
 // NewStudioSettingsResponseModel instantiates a new StudioSettingsResponseModel object
@@ -73,6 +75,48 @@ func (o *StudioSettingsResponseModel) SetMultiSites(v []MultiSiteModel) {
 	o.MultiSites = v
 }
 
+// GetDefaultDomain returns the DefaultDomain field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StudioSettingsResponseModel) GetDefaultDomain() string {
+	if o == nil || IsNil(o.DefaultDomain.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DefaultDomain.Get()
+}
+
+// GetDefaultDomainOk returns a tuple with the DefaultDomain field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StudioSettingsResponseModel) GetDefaultDomainOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DefaultDomain.Get(), o.DefaultDomain.IsSet()
+}
+
+// HasDefaultDomain returns a boolean if a field has been set.
+func (o *StudioSettingsResponseModel) HasDefaultDomain() bool {
+	if o != nil && o.DefaultDomain.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDefaultDomain gets a reference to the given NullableString and assigns it to the DefaultDomain field.
+func (o *StudioSettingsResponseModel) SetDefaultDomain(v string) {
+	o.DefaultDomain.Set(&v)
+}
+// SetDefaultDomainNil sets the value for DefaultDomain to be an explicit nil
+func (o *StudioSettingsResponseModel) SetDefaultDomainNil() {
+	o.DefaultDomain.Set(nil)
+}
+
+// UnsetDefaultDomain ensures that no value is present for DefaultDomain, not even an explicit nil
+func (o *StudioSettingsResponseModel) UnsetDefaultDomain() {
+	o.DefaultDomain.Unset()
+}
+
 func (o StudioSettingsResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -85,6 +129,9 @@ func (o StudioSettingsResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.MultiSites != nil {
 		toSerialize["MultiSites"] = o.MultiSites
+	}
+	if o.DefaultDomain.IsSet() {
+		toSerialize["DefaultDomain"] = o.DefaultDomain.Get()
 	}
 	return toSerialize, nil
 }

@@ -247,6 +247,10 @@
 
 * `FETCH_EXISTING_OPERATION_LABELS` (value: `"FetchExistingOperationLabels"`)
 
+* `EXPORT_OPERATION_REPORT` (value: `"ExportOperationReport"`)
+
+* `DELETE_ALL_OPERATIONS` (value: `"DeleteAllOperations"`)
+
 * `UPDATE_OPERATION` (value: `"UpdateOperation"`)
 
 * `NEW_OPERATION` (value: `"NewOperation"`)
@@ -510,6 +514,20 @@
 * `REMOVE_PROVISIONING_OPERATION_EVENT` (value: `"RemoveProvisioningOperationEvent"`)
 
 * `CONFIRM_PROVISIONING_OPERATION_EVENT` (value: `"ConfirmProvisioningOperationEvent"`)
+
+* `TEST_SERVICE_ACCOUNT` (value: `"TestServiceAccount"`)
+
+* `GET_SITE_ERROR_WARNING` (value: `"GetSiteErrorWarning"`)
+
+* `UPDATE_IMAGE_VERSION_RESOURCE_POOLS` (value: `"UpdateImageVersionResourcePools"`)
+
+* `DO_IMAGE_DEFINITION_AND_IMAGE_VERSION_SEARCH` (value: `"DoImageDefinitionAndImageVersionSearch"`)
+
+* `CREATE_IMAGE_DEFINITION` (value: `"CreateImageDefinition"`)
+
+* `GET_PATCH_PREVIEW_SERVICE_ACCOUNT` (value: `"GetPatchPreviewServiceAccount"`)
+
+* `GET_HYPERVISOR_RESOURCE_PRICES` (value: `"GetHypervisorResourcePrices"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

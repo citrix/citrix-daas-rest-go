@@ -22,6 +22,8 @@ type AwsEdcImage struct {
 	Image
 	// Provides additional status on image like  error message
 	Status NullableString `json:"status,omitempty"`
+	// Id of the Image on AWS
+	AmazonImageId NullableString `json:"amazonImageId,omitempty"`
 	IngestionProcess NullableAwsEdcWorkspaceImageIngestionProcess `json:"ingestionProcess,omitempty"`
 	WorkspaceImageTenancy NullableAwsEdcWorkspaceImageTenancy `json:"workspaceImageTenancy,omitempty"`
 	WorkspaceImageState NullableAwsEdcWorkspaceImageState `json:"workspaceImageState,omitempty"`
@@ -87,6 +89,48 @@ func (o *AwsEdcImage) SetStatusNil() {
 // UnsetStatus ensures that no value is present for Status, not even an explicit nil
 func (o *AwsEdcImage) UnsetStatus() {
 	o.Status.Unset()
+}
+
+// GetAmazonImageId returns the AmazonImageId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AwsEdcImage) GetAmazonImageId() string {
+	if o == nil || IsNil(o.AmazonImageId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AmazonImageId.Get()
+}
+
+// GetAmazonImageIdOk returns a tuple with the AmazonImageId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AwsEdcImage) GetAmazonImageIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AmazonImageId.Get(), o.AmazonImageId.IsSet()
+}
+
+// HasAmazonImageId returns a boolean if a field has been set.
+func (o *AwsEdcImage) HasAmazonImageId() bool {
+	if o != nil && o.AmazonImageId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAmazonImageId gets a reference to the given NullableString and assigns it to the AmazonImageId field.
+func (o *AwsEdcImage) SetAmazonImageId(v string) {
+	o.AmazonImageId.Set(&v)
+}
+// SetAmazonImageIdNil sets the value for AmazonImageId to be an explicit nil
+func (o *AwsEdcImage) SetAmazonImageIdNil() {
+	o.AmazonImageId.Set(nil)
+}
+
+// UnsetAmazonImageId ensures that no value is present for AmazonImageId, not even an explicit nil
+func (o *AwsEdcImage) UnsetAmazonImageId() {
+	o.AmazonImageId.Unset()
 }
 
 // GetIngestionProcess returns the IngestionProcess field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -268,6 +312,9 @@ func (o AwsEdcImage) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Status.IsSet() {
 		toSerialize["status"] = o.Status.Get()
+	}
+	if o.AmazonImageId.IsSet() {
+		toSerialize["amazonImageId"] = o.AmazonImageId.Get()
 	}
 	if o.IngestionProcess.IsSet() {
 		toSerialize["ingestionProcess"] = o.IngestionProcess.Get()

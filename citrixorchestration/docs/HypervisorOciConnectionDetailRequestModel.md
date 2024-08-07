@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Region** | **string** | Oracle Cloud Infrastructure region to connect to. Required. | 
 **Address** | Pointer to **NullableString** | Custom AWS Address. | [optional] 
-**ApplicationId** | Pointer to **string** | Application ID of the service principal used to access the Azure APIs.  Required. | [optional] 
-**ApplicationSecret** | Pointer to **string** | The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat. | [optional] 
+**ApplicationId** | Pointer to **string** | Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret or UserAssignedManagedIdentity. | [optional] 
+**ApplicationSecret** | Pointer to **string** | The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **SubscriptionId** | Pointer to **string** | Azure subscription ID.  Required. | [optional] 
 **ActiveDirectoryId** | Pointer to **string** | Azure active directory ID.  Required. | [optional] 

@@ -40,7 +40,7 @@ type Deployment struct {
 	// Warnings and errors associated with the deployment
 	Warnings []DeploymentWarning `json:"warnings,omitempty"`
 	// Tasks currently being performed on the deployment
-	ActiveTasks []GetCustomerAccountTaskAsync200Response `json:"activeTasks,omitempty"`
+	ActiveTasks []GetTaskAsync200Response `json:"activeTasks,omitempty"`
 	// Id for the machine catalog of the deployment, could be null
 	BrokerMachineCatalogId NullableString `json:"brokerMachineCatalogId,omitempty"`
 	// Id for the delivery group of the deployment, could be null
@@ -494,9 +494,9 @@ func (o *Deployment) SetWarnings(v []DeploymentWarning) {
 }
 
 // GetActiveTasks returns the ActiveTasks field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *Deployment) GetActiveTasks() []GetCustomerAccountTaskAsync200Response {
+func (o *Deployment) GetActiveTasks() []GetTaskAsync200Response {
 	if o == nil {
-		var ret []GetCustomerAccountTaskAsync200Response
+		var ret []GetTaskAsync200Response
 		return ret
 	}
 	return o.ActiveTasks
@@ -505,7 +505,7 @@ func (o *Deployment) GetActiveTasks() []GetCustomerAccountTaskAsync200Response {
 // GetActiveTasksOk returns a tuple with the ActiveTasks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Deployment) GetActiveTasksOk() ([]GetCustomerAccountTaskAsync200Response, bool) {
+func (o *Deployment) GetActiveTasksOk() ([]GetTaskAsync200Response, bool) {
 	if o == nil || IsNil(o.ActiveTasks) {
 		return nil, false
 	}
@@ -521,8 +521,8 @@ func (o *Deployment) HasActiveTasks() bool {
 	return false
 }
 
-// SetActiveTasks gets a reference to the given []GetCustomerAccountTaskAsync200Response and assigns it to the ActiveTasks field.
-func (o *Deployment) SetActiveTasks(v []GetCustomerAccountTaskAsync200Response) {
+// SetActiveTasks gets a reference to the given []GetTaskAsync200Response and assigns it to the ActiveTasks field.
+func (o *Deployment) SetActiveTasks(v []GetTaskAsync200Response) {
 	o.ActiveTasks = v
 }
 

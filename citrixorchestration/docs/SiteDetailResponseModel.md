@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **LicenseServerUri** | Pointer to **NullableString** | License server URI. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 **LicensingModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 **SiteConfigurationComplete** | Pointer to **bool** | Indicates whether the site&#39;s initial configuration is complete. | [optional] 
+**SiteConfigurationProfile** | Pointer to [**SiteConfigurationProfileModel**](SiteConfigurationProfileModel.md) |  | [optional] 
 **PrimaryZone** | [**RefResponseModel**](RefResponseModel.md) |  | 
 **ProductCode** | **string** | Product code for the site license. | 
 **ProductEdition** | **string** | Product edition for the site license. | 
@@ -29,7 +30,7 @@ Name | Type | Description | Notes
 **DnsResolutionEnabled** | Pointer to **bool** | Indicates whether numeric IP addresses or DNS names are present in ICA files. | [optional] 
 **LicenseGraceSessionsRemaining** | Pointer to **NullableInt32** | The number of licensing grace sessions remaining. | [optional] 
 **LicensedSessionsActive** | Pointer to **NullableInt32** | The number of active, licensed sessions. | [optional] 
-**LicensingGraceHoursLeft** | Pointer to **NullableInt32** | When in an active licensing grace period, indicates the  number of hours remaining in the grace period. Will be null for XenApp &amp; XenDesktop service. | [optional] 
+**LicensingGraceHoursLeft** | Pointer to **NullableInt32** | When in an active licensing grace period, indicates the number of hours remaining in the grace period. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 **LicensingGracePeriodActive** | Pointer to **NullableBool** | Indicates whether a licensing grace period is active. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 **PeakConcurrentLicenseUsers** | Pointer to **NullableInt32** | The peak number of concurrent licensed users. Only applies if LicensingModel is Concurrent. | [optional] 
 **ReuseMachinesWithoutShutdownInOutageAllowed** | Pointer to **bool** | Allow sessions to launch on shared machines without an intermediate shutdown while the system is operating in outage mode. | [optional] 
@@ -333,6 +334,31 @@ SetSiteConfigurationComplete sets SiteConfigurationComplete field to given value
 `func (o *SiteDetailResponseModel) HasSiteConfigurationComplete() bool`
 
 HasSiteConfigurationComplete returns a boolean if a field has been set.
+
+### GetSiteConfigurationProfile
+
+`func (o *SiteDetailResponseModel) GetSiteConfigurationProfile() SiteConfigurationProfileModel`
+
+GetSiteConfigurationProfile returns the SiteConfigurationProfile field if non-nil, zero value otherwise.
+
+### GetSiteConfigurationProfileOk
+
+`func (o *SiteDetailResponseModel) GetSiteConfigurationProfileOk() (*SiteConfigurationProfileModel, bool)`
+
+GetSiteConfigurationProfileOk returns a tuple with the SiteConfigurationProfile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSiteConfigurationProfile
+
+`func (o *SiteDetailResponseModel) SetSiteConfigurationProfile(v SiteConfigurationProfileModel)`
+
+SetSiteConfigurationProfile sets SiteConfigurationProfile field to given value.
+
+### HasSiteConfigurationProfile
+
+`func (o *SiteDetailResponseModel) HasSiteConfigurationProfile() bool`
+
+HasSiteConfigurationProfile returns a boolean if a field has been set.
 
 ### GetPrimaryZone
 

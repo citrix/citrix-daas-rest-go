@@ -23,7 +23,7 @@ type MachineCatalogUpgradeDetail struct {
 	ScheduleStatus *VdaUpgradeScheduleStatus `json:"ScheduleStatus,omitempty"`
 	// UTC time when this upgrade status object changed status for the last time.
 	LastStateChangeTimeUtc *time.Time `json:"LastStateChangeTimeUtc,omitempty"`
-	// Count of machines with an upgrade schedule in this catalog. This does not always equal to the machine count of the catalog, as there might be machines which joined the catalog after a catalog level upgrade is schdeuled, so do not have an upgrade status.
+	// Count of machines with an upgrade schedule in this catalog. This does not always equal to the machine count of the catalog, as there might be machines which joined the catalog after a catalog level upgrade is scheduled, so do not have an upgrade status.
 	TotalMachines *int32 `json:"TotalMachines,omitempty"`
 	// Count of machines whose last upgrade is in success state.
 	SuccessCount *int32 `json:"SuccessCount,omitempty"`
@@ -31,15 +31,15 @@ type MachineCatalogUpgradeDetail struct {
 	ValidationFailureCount *int32 `json:"ValidationFailureCount,omitempty"`
 	// Count of machines whose upgrade is in progress.
 	InProgressCount *int32 `json:"InProgressCount,omitempty"`
-	// Count of machines whose last upgrade failed during package installtion.
+	// Count of machines whose last upgrade failed during package installation.
 	UpgradeFailureCount *int32 `json:"UpgradeFailureCount,omitempty"`
 	// UTC time when this VDA upgrade was scheduled to start.
 	ScheduledTimeUtc *time.Time `json:"ScheduledTimeUtc,omitempty"`
-	// Timeout duration in hours, of the current VDA upgrade schdeule.
+	// Timeout duration in hours, of the current VDA upgrade schedule.
 	DurationInHours *int32 `json:"DurationInHours,omitempty"`
-	// Target package version of the current VDA upgrade schdeule.
+	// Target package version of the current VDA upgrade schedule.
 	TargetPackageVersion NullableString `json:"TargetPackageVersion,omitempty"`
-	// Count of machines whose last upgrade canceled during package installtion.
+	// Count of machines whose last upgrade canceled during package installation.
 	CancelledUpgradeCount *int32 `json:"CancelledUpgradeCount,omitempty"`
 	// Count of machines who is waiting to upgrade.
 	WaitingToUpgradeCount *int32 `json:"WaitingToUpgradeCount,omitempty"`

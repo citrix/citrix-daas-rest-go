@@ -241,8 +241,8 @@ func (a *STFStore) STFStoreNewStoreFarm(ctx context.Context, addSTFStoreFarmRequ
 type ApiSetSTFStoreFarmRequest struct {
 	ctx                            context.Context
 	ApiService                     *STFStore
-	setSTFStoreFarmRequestModel    models.SetSTFStoreFarmRequestModel
-	getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel //This is used to set the StoreService for the SetSTFStoreFarmRequest
+	setSTFStoreFarmRequestModel    models.AddSTFStoreFarmRequestModel //Add and Set are same in this case
+	getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel     //This is used to set the StoreService for the SetSTFStoreFarmRequest
 }
 
 func (r ApiSetSTFStoreFarmRequest) Execute() ([]byte, error) {
@@ -264,7 +264,7 @@ func (a *STFStore) SetSTFStoreFarmExecute(r ApiSetSTFStoreFarmRequest) ([]byte, 
 	}
 }
 
-func (a *STFStore) STFStoreSetStoreFarm(ctx context.Context, setSTFStoreFarmRequestModel models.SetSTFStoreFarmRequestModel, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiSetSTFStoreFarmRequest {
+func (a *STFStore) STFStoreSetStoreFarm(ctx context.Context, setSTFStoreFarmRequestModel models.AddSTFStoreFarmRequestModel, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiSetSTFStoreFarmRequest {
 	return ApiSetSTFStoreFarmRequest{
 		ApiService:                     a,
 		ctx:                            ctx,
@@ -702,83 +702,6 @@ func (a *STFStore) STFStoreSetSTFStoreLaunchOptions(ctx context.Context, setSTFS
 		ctx:                             ctx,
 		setSTFStoreLaunchOptionsRequest: setSTFStoreLaunchOptionsRequest,
 		getSTFStoreServiceRequestModel:  getSTFStoreRequestModel,
-	}
-}
-
-// Set-STFStoreGatewayService
-type ApiSETStoreGatewayServiceRequest struct {
-	ctx                                   context.Context
-	ApiService                            *STFStore
-	getSTFStoreServiceRequestModel        models.GetSTFStoreRequestModel //This is used to set the StoreService for the SetSTFStoreFarmRequest
-	setSTFStoreGatewayServiceRequestModel models.STFStoreGatewayServiceSetRequestModel
-}
-
-func (r ApiSETStoreGatewayServiceRequest) Execute() error {
-	_, err := r.ApiService.SETStoreGatewayServiceExecute(r)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-func (a *STFStore) SETStoreGatewayServiceExecute(r ApiSETStoreGatewayServiceRequest) ([]byte, error) {
-	var setStoreGatewayServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
-
-	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreGatewayService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreGatewayServiceParams))
-	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreGatewayService")
-	}
-}
-
-func (a *STFStore) STFStoreSETStoreGatewayService(ctx context.Context, setSTFStoreGatewayServiceRequestModel models.STFStoreGatewayServiceSetRequestModel, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiSETStoreGatewayServiceRequest {
-	return ApiSETStoreGatewayServiceRequest{
-		ApiService:                            a,
-		ctx:                                   ctx,
-		setSTFStoreGatewayServiceRequestModel: setSTFStoreGatewayServiceRequestModel,
-		getSTFStoreServiceRequestModel:        getSTFStoreRequestModel,
-	}
-}
-
-// Get-STFStoreGatewayService
-type ApiGETStoreGatewayServiceRequest struct {
-	ctx                            context.Context
-	ApiService                     *STFStore
-	getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel //This is used to set the StoreService for the SetSTFStoreFarmRequest
-}
-
-func (r ApiGETStoreGatewayServiceRequest) Execute() (models.STFStoreGatewayServiceResponseModel, error) {
-	bytes, err := r.ApiService.GETStoreGatewayServiceExecute(r)
-	if err != nil {
-		return models.STFStoreGatewayServiceResponseModel{}, err
-	}
-	if len(bytes) == 0 {
-		return models.STFStoreGatewayServiceResponseModel{}, fmt.Errorf(NOT_EXIST)
-	}
-	var rawResponse = models.STFStoreGatewayServiceRawResponseModel{}
-	unMarshalErr := json.Unmarshal(bytes, &rawResponse)
-	if unMarshalErr != nil {
-		fmt.Println("Error:", unMarshalErr)
-		return models.STFStoreGatewayServiceResponseModel{}, fmt.Errorf("error occurred while unmarshalling StoreGatewayService response: %v", unMarshalErr.Error())
-	}
-	return rawResponse.ConvertToResponseModel(), nil
-}
-
-func (a *STFStore) GETStoreGatewayServiceExecute(r ApiGETStoreGatewayServiceRequest) ([]byte, error) {
-	var removeStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
-
-	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreGatewayService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams))
-	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreGatewayService")
-	}
-}
-
-func (a *STFStore) STFStoreGETStoreGatewayService(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGETStoreGatewayServiceRequest {
-	return ApiGETStoreGatewayServiceRequest{
-		ApiService:                     a,
-		ctx:                            ctx,
-		getSTFStoreServiceRequestModel: getSTFStoreRequestModel,
 	}
 }
 

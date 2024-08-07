@@ -47,6 +47,8 @@ type ProvisioningOperationEventSearchResponseModel struct {
 	OperationTargetName NullableString `json:"OperationTargetName,omitempty"`
 	// Operation Type.
 	OperationType NullableString `json:"OperationType,omitempty"`
+	// Linked Object Name.
+	LinkedObjectName NullableString `json:"LinkedObjectName,omitempty"`
 	// Recommendation.
 	Recommendation NullableString `json:"Recommendation,omitempty"`
 }
@@ -646,6 +648,48 @@ func (o *ProvisioningOperationEventSearchResponseModel) UnsetOperationType() {
 	o.OperationType.Unset()
 }
 
+// GetLinkedObjectName returns the LinkedObjectName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisioningOperationEventSearchResponseModel) GetLinkedObjectName() string {
+	if o == nil || IsNil(o.LinkedObjectName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LinkedObjectName.Get()
+}
+
+// GetLinkedObjectNameOk returns a tuple with the LinkedObjectName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisioningOperationEventSearchResponseModel) GetLinkedObjectNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LinkedObjectName.Get(), o.LinkedObjectName.IsSet()
+}
+
+// HasLinkedObjectName returns a boolean if a field has been set.
+func (o *ProvisioningOperationEventSearchResponseModel) HasLinkedObjectName() bool {
+	if o != nil && o.LinkedObjectName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLinkedObjectName gets a reference to the given NullableString and assigns it to the LinkedObjectName field.
+func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectName(v string) {
+	o.LinkedObjectName.Set(&v)
+}
+// SetLinkedObjectNameNil sets the value for LinkedObjectName to be an explicit nil
+func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectNameNil() {
+	o.LinkedObjectName.Set(nil)
+}
+
+// UnsetLinkedObjectName ensures that no value is present for LinkedObjectName, not even an explicit nil
+func (o *ProvisioningOperationEventSearchResponseModel) UnsetLinkedObjectName() {
+	o.LinkedObjectName.Unset()
+}
+
 // GetRecommendation returns the Recommendation field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisioningOperationEventSearchResponseModel) GetRecommendation() string {
 	if o == nil || IsNil(o.Recommendation.Get()) {
@@ -739,6 +783,9 @@ func (o ProvisioningOperationEventSearchResponseModel) ToMap() (map[string]inter
 	}
 	if o.OperationType.IsSet() {
 		toSerialize["OperationType"] = o.OperationType.Get()
+	}
+	if o.LinkedObjectName.IsSet() {
+		toSerialize["LinkedObjectName"] = o.LinkedObjectName.Get()
 	}
 	if o.Recommendation.IsSet() {
 		toSerialize["Recommendation"] = o.Recommendation.Get()

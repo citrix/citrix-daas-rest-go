@@ -229,6 +229,20 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachineUpgradeVersions", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineUpgradeVersions(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MachinesAPIsDAASService MachinesGetMachines", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -248,6 +262,18 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 		var nameOrId string
 
 		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachinesAdministrators(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachinesAPIsDAASService MachinesGetMachinesV2", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetMachinesV2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

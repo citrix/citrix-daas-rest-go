@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Region** | Pointer to **NullableString** | AWS region to connect to.  Optional.  If not specified, will connect to the global AWS APIs.  This can be used to discover the regions available within AWS.  Access to all other AWS resources requires the region to be set explicitly. | [optional] 
 **Address** | Pointer to **NullableString** | Custom AWS Address. | [optional] 
-**ApplicationId** | **string** | Application ID of the service principal used to access the Azure APIs.  Required. | 
-**ApplicationSecret** | **string** | The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat. | 
+**ApplicationId** | **string** | Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret or UserAssignedManagedIdentity. | 
+**ApplicationSecret** | **string** | The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat. | 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **SubscriptionId** | **string** | Azure subscription ID.  Required. | 
 **ActiveDirectoryId** | **string** | Azure active directory ID.  Required. | 

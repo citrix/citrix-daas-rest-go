@@ -23,6 +23,10 @@ type ServiceAccountCapabilityReference struct {
 	Name NullableString `json:"Name,omitempty"`
 	// Gets or sets the effective scope of the capability.
 	EffectiveScope NullableString `json:"EffectiveScope,omitempty"`
+	// Gets or sets the healthy status of the capability.
+	IsHealthy *bool `json:"IsHealthy,omitempty"`
+	// Gets or sets the failure reason of the capability.
+	FailureReason NullableString `json:"FailureReason,omitempty"`
 }
 
 // NewServiceAccountCapabilityReference instantiates a new ServiceAccountCapabilityReference object
@@ -126,6 +130,80 @@ func (o *ServiceAccountCapabilityReference) UnsetEffectiveScope() {
 	o.EffectiveScope.Unset()
 }
 
+// GetIsHealthy returns the IsHealthy field value if set, zero value otherwise.
+func (o *ServiceAccountCapabilityReference) GetIsHealthy() bool {
+	if o == nil || IsNil(o.IsHealthy) {
+		var ret bool
+		return ret
+	}
+	return *o.IsHealthy
+}
+
+// GetIsHealthyOk returns a tuple with the IsHealthy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ServiceAccountCapabilityReference) GetIsHealthyOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsHealthy) {
+		return nil, false
+	}
+	return o.IsHealthy, true
+}
+
+// HasIsHealthy returns a boolean if a field has been set.
+func (o *ServiceAccountCapabilityReference) HasIsHealthy() bool {
+	if o != nil && !IsNil(o.IsHealthy) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsHealthy gets a reference to the given bool and assigns it to the IsHealthy field.
+func (o *ServiceAccountCapabilityReference) SetIsHealthy(v bool) {
+	o.IsHealthy = &v
+}
+
+// GetFailureReason returns the FailureReason field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ServiceAccountCapabilityReference) GetFailureReason() string {
+	if o == nil || IsNil(o.FailureReason.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.FailureReason.Get()
+}
+
+// GetFailureReasonOk returns a tuple with the FailureReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ServiceAccountCapabilityReference) GetFailureReasonOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FailureReason.Get(), o.FailureReason.IsSet()
+}
+
+// HasFailureReason returns a boolean if a field has been set.
+func (o *ServiceAccountCapabilityReference) HasFailureReason() bool {
+	if o != nil && o.FailureReason.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFailureReason gets a reference to the given NullableString and assigns it to the FailureReason field.
+func (o *ServiceAccountCapabilityReference) SetFailureReason(v string) {
+	o.FailureReason.Set(&v)
+}
+// SetFailureReasonNil sets the value for FailureReason to be an explicit nil
+func (o *ServiceAccountCapabilityReference) SetFailureReasonNil() {
+	o.FailureReason.Set(nil)
+}
+
+// UnsetFailureReason ensures that no value is present for FailureReason, not even an explicit nil
+func (o *ServiceAccountCapabilityReference) UnsetFailureReason() {
+	o.FailureReason.Unset()
+}
+
 func (o ServiceAccountCapabilityReference) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -141,6 +219,12 @@ func (o ServiceAccountCapabilityReference) ToMap() (map[string]interface{}, erro
 	}
 	if o.EffectiveScope.IsSet() {
 		toSerialize["EffectiveScope"] = o.EffectiveScope.Get()
+	}
+	if !IsNil(o.IsHealthy) {
+		toSerialize["IsHealthy"] = o.IsHealthy
+	}
+	if o.FailureReason.IsSet() {
+		toSerialize["FailureReason"] = o.FailureReason.Get()
 	}
 	return toSerialize, nil
 }

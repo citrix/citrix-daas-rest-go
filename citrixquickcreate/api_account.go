@@ -691,7 +691,7 @@ func (r AccountQCSGetCustomerAccountTaskAsyncRequest) CitrixTransactionId(citrix
 	return r
 }
 
-func (r AccountQCSGetCustomerAccountTaskAsyncRequest) Execute() (*GetCustomerAccountTaskAsync200Response, *http.Response, error) {
+func (r AccountQCSGetCustomerAccountTaskAsyncRequest) Execute() (*AccountTask, *http.Response, error) {
 	return r.ApiService.GetCustomerAccountTaskAsyncExecute(r)
 }
 
@@ -715,13 +715,13 @@ func (a *AccountQCSService) GetCustomerAccountTaskAsync(ctx context.Context, cus
 }
 
 // Execute executes the request
-//  @return GetCustomerAccountTaskAsync200Response
-func (a *AccountQCSService) GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCustomerAccountTaskAsyncRequest) (*GetCustomerAccountTaskAsync200Response, *http.Response, error) {
+//  @return AccountTask
+func (a *AccountQCSService) GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCustomerAccountTaskAsyncRequest) (*AccountTask, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetCustomerAccountTaskAsync200Response
+		localVarReturnValue  *AccountTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.GetCustomerAccountTaskAsync")

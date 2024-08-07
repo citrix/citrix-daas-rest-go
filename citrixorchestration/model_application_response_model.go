@@ -17,7 +17,7 @@ import (
 // checks if the ApplicationResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationResponseModel{}
 
-// ApplicationResponseModel Response object for application.
+// ApplicationResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,ApplicationFolder,ApplicationType,PackagedApplicationType,ClientFolder,Description,DoNotEnumerate,Enabled,IconId,ContentLocation,Name,PublishedName,Visible,SharingKind,ZoneId.               Response object for application.              
 type ApplicationResponseModel struct {
 	// Id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
 	Id NullableString `json:"Id,omitempty"`

@@ -47,9 +47,9 @@ type HypervisorAzureConnectionDetailRequestModel struct {
 	Region NullableString `json:"Region,omitempty"`
 	// Custom AWS Address.
 	Address NullableString `json:"Address,omitempty"`
-	// Application ID of the service principal used to access the Azure APIs.  Required.
+	// Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret or UserAssignedManagedIdentity.
 	ApplicationId string `json:"ApplicationId"`
-	// The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat.
+	// The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat.
 	ApplicationSecret string `json:"ApplicationSecret"`
 	ApplicationSecretFormat *IdentityPasswordFormat `json:"ApplicationSecretFormat,omitempty"`
 	// Azure subscription ID.  Required.

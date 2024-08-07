@@ -185,13 +185,6 @@ func (o BaseSTFStoreFarmRequestModel) ToMap() (map[string]interface{}, error) {
 }
 
 // Get Model
-var _ MappedNullable = &SetSTFStoreFarmRequestModel{}
-
-type SetSTFStoreFarmRequestModel struct {
-	AddSTFStoreFarmRequestModel
-}
-
-// Get Model
 var _ MappedNullable = &GetSTFStoreFarmRequestModel{}
 
 type GetSTFStoreFarmRequestModel struct {

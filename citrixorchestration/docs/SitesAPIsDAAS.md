@@ -4,10 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SitesCheckObjectNameExists**](SitesAPIsDAAS.md#SitesCheckObjectNameExists) | **Post** /$checkObjectNameExists/{objectType}/{nameOrPath} | Check for the existence of an object.
+[**SitesCheckObjectNameExists**](SitesAPIsDAAS.md#SitesCheckObjectNameExists) | **Post** /$checkObjectNameExists | Check for the existence of an object.
 [**SitesGetMultipleRemotePCAssignments**](SitesAPIsDAAS.md#SitesGetMultipleRemotePCAssignments) | **Get** /Sites/{nameOrId}/MultipleRemotePCAssignments | Get multi-user auto-assignment for Remote PC Access.
 [**SitesGetSessionsTrend**](SitesAPIsDAAS.md#SitesGetSessionsTrend) | **Get** /Sites/{nameOrId}/SessionsTrend | Get the sessions trend
 [**SitesGetSite**](SitesAPIsDAAS.md#SitesGetSite) | **Get** /Sites/{nameOrId} | Get the details about a single site.
+[**SitesGetSiteErrorWarning**](SitesAPIsDAAS.md#SitesGetSiteErrorWarning) | **Get** /Sites/{nameOrId}/ErrorWarning | Get number of errors and warnings for the specified objects in the site.
 [**SitesGetSiteMisconfigurationReport**](SitesAPIsDAAS.md#SitesGetSiteMisconfigurationReport) | **Get** /Sites/{nameOrId}/MisconfigurationReport | Get the misconfiguration report.
 [**SitesGetSiteSettings**](SitesAPIsDAAS.md#SitesGetSiteSettings) | **Get** /Sites/{nameOrId}/Settings | Get the settings for the site.
 [**SitesGetSiteStatus**](SitesAPIsDAAS.md#SitesGetSiteStatus) | **Get** /Sites/{nameOrId}/Status | Get the status of a site.
@@ -22,7 +23,7 @@ Method | HTTP request | Description
 
 ## SitesCheckObjectNameExists
 
-> bool SitesCheckObjectNameExists(ctx, objectType, nameOrPath).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> bool SitesCheckObjectNameExists(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CheckObjectNameExistsRequestModel(checkObjectNameExistsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Check for the existence of an object.
 
@@ -43,8 +44,7 @@ import (
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    objectType := openapiclient.ObjectType("Unknown") // ObjectType | Type of the object to check.
-    nameOrPath := "nameOrPath_example" // string | Name or path of the object to check. Currently the value should get rid of '\\\\' and replace it using '|'.             For instance, if the value is \"DomainA\\NameB\", the param will be \"DomainA|NameB\".
+    checkObjectNameExistsRequestModel := *openapiclient.NewCheckObjectNameExistsRequestModel(openapiclient.ObjectType("Unknown"), "NameOrPath_example") // CheckObjectNameExistsRequestModel | Details about the object to check.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -53,7 +53,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPIsDAAS.SitesCheckObjectNameExists(context.Background(), objectType, nameOrPath).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.SitesAPIsDAAS.SitesCheckObjectNameExists(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CheckObjectNameExistsRequestModel(checkObjectNameExistsRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SitesAPIsDAAS.SitesCheckObjectNameExists``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -66,11 +66,6 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**objectType** | [**ObjectType**](.md) | Type of the object to check. | 
-**nameOrPath** | **string** | Name or path of the object to check. Currently the value should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;.             For instance, if the value is \&quot;DomainA\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
 
 ### Other Parameters
 
@@ -81,8 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
  **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
-
-
+ **checkObjectNameExistsRequestModel** | [**CheckObjectNameExistsRequestModel**](CheckObjectNameExistsRequestModel.md) | Details about the object to check. | 
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
@@ -99,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -332,6 +326,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SiteDetailResponseModel**](SiteDetailResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SitesGetSiteErrorWarning
+
+> ErrorWarningResponseModel SitesGetSiteErrorWarning(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
+
+Get number of errors and warnings for the specified objects in the site.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    nameOrId := "nameOrId_example" // string | 
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    fields := "Machine,DeliveryGroup,MachineCatalog" // string | To specify the object for which the number of the errors and warnings are reported.             Otherwise, the number of errors and warning will be reported for all objects.             The value should be a comma-separated list of object types.             Supported object types are: MachineCatalog, DeliveryGroup, Machine, Hypervisor, Image, Zone, Site              (optional)
+    async := true // bool | If `true`, to get the number of error and warning will be done as a background task.             The task will have JobType GetSiteErrorWarning              (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.SitesAPIsDAAS.SitesGetSiteErrorWarning(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPIsDAAS.SitesGetSiteErrorWarning``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SitesGetSiteErrorWarning`: ErrorWarningResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `SitesAPIsDAAS.SitesGetSiteErrorWarning`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSitesGetSiteErrorWarningRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **fields** | **string** | To specify the object for which the number of the errors and warnings are reported.             Otherwise, the number of errors and warning will be reported for all objects.             The value should be a comma-separated list of object types.             Supported object types are: MachineCatalog, DeliveryGroup, Machine, Hypervisor, Image, Zone, Site              | 
+ **async** | **bool** | If &#x60;true&#x60;, to get the number of error and warning will be done as a background task.             The task will have JobType GetSiteErrorWarning              | [default to false]
+
+### Return type
+
+[**ErrorWarningResponseModel**](ErrorWarningResponseModel.md)
 
 ### Authorization
 

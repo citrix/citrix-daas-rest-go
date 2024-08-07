@@ -87,6 +87,10 @@ type APIClient struct {
 
 	IdentityAPIsDAAS *IdentityAPIsDAASService
 
+	ImageDefinitionsAPIsDAAS *ImageDefinitionsAPIsDAASService
+
+	ImageVersionsAPIsDAAS *ImageVersionsAPIsDAASService
+
 	JobsAPIsDAAS *JobsAPIsDAASService
 
 	MachineCatalogsAPIsDAAS *MachineCatalogsAPIsDAASService
@@ -149,6 +153,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.HypervisorsAPIsDAAS = (*HypervisorsAPIsDAASService)(&c.common)
 	c.IconsAPIsDAAS = (*IconsAPIsDAASService)(&c.common)
 	c.IdentityAPIsDAAS = (*IdentityAPIsDAASService)(&c.common)
+	c.ImageDefinitionsAPIsDAAS = (*ImageDefinitionsAPIsDAASService)(&c.common)
+	c.ImageVersionsAPIsDAAS = (*ImageVersionsAPIsDAASService)(&c.common)
 	c.JobsAPIsDAAS = (*JobsAPIsDAASService)(&c.common)
 	c.MachineCatalogsAPIsDAAS = (*MachineCatalogsAPIsDAASService)(&c.common)
 	c.MachinesAPIsDAAS = (*MachinesAPIsDAASService)(&c.common)

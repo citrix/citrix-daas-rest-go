@@ -6,37 +6,37 @@ import (
 )
 
 type StoreFarmConfigurationRawResponseModel struct {
-	Name                               NullableString   `json:"Name,omitempty"`
-	EnableFileTypeAssociation          NullableBool     `json:"EnableFileTypeAssociation,omitempty"`
-	PooledSockets                      NullableBool     `json:"PooledSockets,omitempty"`
-	ServerCommunicationAttempts        NullableInt      `json:"ServerCommunicationAttempts,omitempty"`
-	CommunicationTimeout               TimeModel        `json:"CommunicationTimeout,omitempty"`
-	ConnectionTimeout                  TimeModel        `json:"ConnectionTimeout,omitempty"`
-	CertRevocationPolicy               NullableString   `json:"CertRevocationPolicy,omitempty"`
-	MultiFarmAuthenticationMode        NullableString   `json:"MultiFarmAuthenticationMode,omitempty"`
-	LeasingStatusExpiryLeasing         TimeModel        `json:"LeasingStatusExpiryLeasing,omitempty"`
-	LeasingStatusExpiryFailed          TimeModel        `json:"LeasingStatusExpiryFailed,omitempty"`
-	LeasingStatusExpiryPending         TimeModel        `json:"LeasingStatusExpiryPending,omitempty"`
-	BackgroundHealthCheckPollingPeriod TimeModel        `json:"BackgroundHealthCheckPollingPeriod,omitempty"`
-	AdvancedHealthCheck                NullableBool     `json:"AdvancedHealthCheck,omitempty"`
-	Farms                              []StoreFarmModel `json:"Farms,omitempty"`
+	Name                               NullableString `json:"Name,omitempty"`
+	EnableFileTypeAssociation          NullableBool   `json:"EnableFileTypeAssociation,omitempty"`
+	PooledSockets                      NullableBool   `json:"PooledSockets,omitempty"`
+	ServerCommunicationAttempts        NullableInt    `json:"ServerCommunicationAttempts,omitempty"`
+	CommunicationTimeout               TimeModel      `json:"CommunicationTimeout,omitempty"`
+	ConnectionTimeout                  TimeModel      `json:"ConnectionTimeout,omitempty"`
+	CertRevocationPolicy               NullableString `json:"CertRevocationPolicy,omitempty"`
+	MultiFarmAuthenticationMode        NullableString `json:"MultiFarmAuthenticationMode,omitempty"`
+	LeasingStatusExpiryLeasing         TimeModel      `json:"LeasingStatusExpiryLeasing,omitempty"`
+	LeasingStatusExpiryFailed          TimeModel      `json:"LeasingStatusExpiryFailed,omitempty"`
+	LeasingStatusExpiryPending         TimeModel      `json:"LeasingStatusExpiryPending,omitempty"`
+	BackgroundHealthCheckPollingPeriod TimeModel      `json:"BackgroundHealthCheckPollingPeriod,omitempty"`
+	AdvancedHealthCheck                NullableBool   `json:"AdvancedHealthCheck,omitempty"`
+	//Farms                              []StoreFarmModel `json:"Farms,omitempty"`
 }
 
 type StoreFarmConfigurationResponseModel struct {
-	Name                               NullableString   `json:"Name,omitempty"`
-	EnableFileTypeAssociation          NullableBool     `json:"EnableFileTypeAssociation,omitempty"`
-	PooledSockets                      NullableBool     `json:"PooledSockets,omitempty"`
-	ServerCommunicationAttempts        NullableInt      `json:"ServerCommunicationAttempts,omitempty"`
-	CommunicationTimeout               string           `json:"CommunicationTimeout,omitempty"`
-	ConnectionTimeout                  string           `json:"ConnectionTimeout,omitempty"`
-	CertRevocationPolicy               NullableString   `json:"CertRevocationPolicy,omitempty"`
-	MultiFarmAuthenticationMode        NullableString   `json:"MultiFarmAuthenticationMode,omitempty"`
-	LeasingStatusExpiryLeasing         string           `json:"LeasingStatusExpiryLeasing,omitempty"`
-	LeasingStatusExpiryFailed          string           `json:"LeasingStatusExpiryFailed,omitempty"`
-	LeasingStatusExpiryPending         string           `json:"LeasingStatusExpiryPending,omitempty"`
-	BackgroundHealthCheckPollingPeriod string           `json:"BackgroundHealthCheckPollingPeriod,omitempty"`
-	AdvancedHealthCheck                NullableBool     `json:"AdvancedHealthCheck,omitempty"`
-	Farms                              []StoreFarmModel `json:"Farms,omitempty"`
+	Name                               NullableString `json:"Name,omitempty"`
+	EnableFileTypeAssociation          NullableBool   `json:"EnableFileTypeAssociation,omitempty"`
+	PooledSockets                      NullableBool   `json:"PooledSockets,omitempty"`
+	ServerCommunicationAttempts        NullableInt    `json:"ServerCommunicationAttempts,omitempty"`
+	CommunicationTimeout               string         `json:"CommunicationTimeout,omitempty"`
+	ConnectionTimeout                  string         `json:"ConnectionTimeout,omitempty"`
+	CertRevocationPolicy               NullableString `json:"CertRevocationPolicy,omitempty"`
+	MultiFarmAuthenticationMode        NullableString `json:"MultiFarmAuthenticationMode,omitempty"`
+	LeasingStatusExpiryLeasing         string         `json:"LeasingStatusExpiryLeasing,omitempty"`
+	LeasingStatusExpiryFailed          string         `json:"LeasingStatusExpiryFailed,omitempty"`
+	LeasingStatusExpiryPending         string         `json:"LeasingStatusExpiryPending,omitempty"`
+	BackgroundHealthCheckPollingPeriod string         `json:"BackgroundHealthCheckPollingPeriod,omitempty"`
+	AdvancedHealthCheck                NullableBool   `json:"AdvancedHealthCheck,omitempty"`
+	//Farms                              []StoreFarmModel `json:"Farms,omitempty"`
 }
 
 func (rawResponse StoreFarmConfigurationRawResponseModel) ConvertToResponseModel() StoreFarmConfigurationResponseModel {
@@ -62,7 +62,7 @@ func (rawResponse StoreFarmConfigurationRawResponseModel) ConvertToResponseModel
 
 		BackgroundHealthCheckPollingPeriod: fmt.Sprintf("%d.%d:%d:%d", *rawResponse.BackgroundHealthCheckPollingPeriod.Days.Get(), *rawResponse.BackgroundHealthCheckPollingPeriod.Hours.Get(), *rawResponse.BackgroundHealthCheckPollingPeriod.Minutes.Get(), *rawResponse.BackgroundHealthCheckPollingPeriod.Seconds.Get()),
 		AdvancedHealthCheck:                rawResponse.AdvancedHealthCheck,
-		Farms:                              rawResponse.Farms,
+		//Farms:                              rawResponse.Farms,
 	}
 	return response
 }

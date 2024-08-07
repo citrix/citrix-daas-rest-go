@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **VdaServerPackageUri** | Pointer to **NullableString** | Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported. | [optional] 
 **ConcurrencyLevel** | Pointer to **NullableInt32** | Limits the Concurrent upgrades that can happen at any time in Upgrade Window. | [optional] 
 **FailureThreshold** | Pointer to **NullableInt32** | Limits the number of failures that can take place during a scheduled upgrade. | [optional] 
+**LogoffOption** | Pointer to [**LogoffOption**](LogoffOption.md) |  | [optional] 
 
 ## Methods
 
@@ -251,6 +252,31 @@ HasFailureThreshold returns a boolean if a field has been set.
 `func (o *CreateUpgradeScheduleRequestModel) UnsetFailureThreshold()`
 
 UnsetFailureThreshold ensures that no value is present for FailureThreshold, not even an explicit nil
+### GetLogoffOption
+
+`func (o *CreateUpgradeScheduleRequestModel) GetLogoffOption() LogoffOption`
+
+GetLogoffOption returns the LogoffOption field if non-nil, zero value otherwise.
+
+### GetLogoffOptionOk
+
+`func (o *CreateUpgradeScheduleRequestModel) GetLogoffOptionOk() (*LogoffOption, bool)`
+
+GetLogoffOptionOk returns a tuple with the LogoffOption field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLogoffOption
+
+`func (o *CreateUpgradeScheduleRequestModel) SetLogoffOption(v LogoffOption)`
+
+SetLogoffOption sets LogoffOption field to given value.
+
+### HasLogoffOption
+
+`func (o *CreateUpgradeScheduleRequestModel) HasLogoffOption() bool`
+
+HasLogoffOption returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -26,6 +26,7 @@ const (
 	TESTTYPE_RESOURCE_POOL TestType = "ResourcePool"
 	TESTTYPE_HYPERVISOR TestType = "Hypervisor"
 	TESTTYPE_MACHINE TestType = "Machine"
+	TESTTYPE_SERVICE_ACCOUNT TestType = "ServiceAccount"
 	TESTTYPE_UNKNOWN TestType = "Unknown"
 )
 
@@ -37,6 +38,7 @@ var AllowedTestTypeEnumValues = []TestType{
 	"ResourcePool",
 	"Hypervisor",
 	"Machine",
+	"ServiceAccount",
 	"Unknown",
 }
 

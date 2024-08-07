@@ -17,7 +17,7 @@ import (
 // checks if the AppVPackageResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AppVPackageResponseModel{}
 
-// AppVPackageResponseModel Response object for an App-V package.
+// AppVPackageResponseModel Default response field (Only return the fields specified there if supported in  API ): AppVApplications,Description,Exists,LibraryUid,LibraryName,LibraryDescription,Name,Id,Path,Version,VersionGuid,SourceName,SourceType,SourceTypeName,OrderNumber,ExplicitInclusion,NumOfBrokerApplications,NumOfBrokerDeliveryGroups.               Response object for an App-V package.              
 type AppVPackageResponseModel struct {
 	// List of applications in the package.
 	AppVApplications []AppVApplicationResponseModel `json:"AppVApplications"`

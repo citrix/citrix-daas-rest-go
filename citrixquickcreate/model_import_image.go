@@ -22,10 +22,11 @@ type ImportImage struct {
 	AccountType AccountType `json:"accountType"`
 	// Image Name
 	Name string `json:"name"`
-	// Image Name
+	// Image Description
 	Description NullableString `json:"description,omitempty"`
-	// Image Name
+	// Image Notes
 	Notes NullableString `json:"notes,omitempty"`
+	SessionSupport NullableSessionSupport `json:"sessionSupport,omitempty"`
 }
 
 // NewImportImage instantiates a new ImportImage object
@@ -179,6 +180,48 @@ func (o *ImportImage) UnsetNotes() {
 	o.Notes.Unset()
 }
 
+// GetSessionSupport returns the SessionSupport field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImportImage) GetSessionSupport() SessionSupport {
+	if o == nil || IsNil(o.SessionSupport.Get()) {
+		var ret SessionSupport
+		return ret
+	}
+	return *o.SessionSupport.Get()
+}
+
+// GetSessionSupportOk returns a tuple with the SessionSupport field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImportImage) GetSessionSupportOk() (*SessionSupport, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SessionSupport.Get(), o.SessionSupport.IsSet()
+}
+
+// HasSessionSupport returns a boolean if a field has been set.
+func (o *ImportImage) HasSessionSupport() bool {
+	if o != nil && o.SessionSupport.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSessionSupport gets a reference to the given NullableSessionSupport and assigns it to the SessionSupport field.
+func (o *ImportImage) SetSessionSupport(v SessionSupport) {
+	o.SessionSupport.Set(&v)
+}
+// SetSessionSupportNil sets the value for SessionSupport to be an explicit nil
+func (o *ImportImage) SetSessionSupportNil() {
+	o.SessionSupport.Set(nil)
+}
+
+// UnsetSessionSupport ensures that no value is present for SessionSupport, not even an explicit nil
+func (o *ImportImage) UnsetSessionSupport() {
+	o.SessionSupport.Unset()
+}
+
 func (o ImportImage) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -196,6 +239,9 @@ func (o ImportImage) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Notes.IsSet() {
 		toSerialize["notes"] = o.Notes.Get()
+	}
+	if o.SessionSupport.IsSet() {
+		toSerialize["sessionSupport"] = o.SessionSupport.Get()
 	}
 	return toSerialize, nil
 }

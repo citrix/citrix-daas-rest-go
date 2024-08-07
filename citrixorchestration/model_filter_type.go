@@ -29,6 +29,7 @@ const (
 	FILTERTYPE_DESKTOP_TAG FilterType = "DesktopTag"
 	FILTERTYPE_OU FilterType = "OU"
 	FILTERTYPE_USER FilterType = "User"
+	FILTERTYPE_SECURE_BROWSER_TAG FilterType = "SecureBrowserTag"
 )
 
 // All allowed values of FilterType enum
@@ -42,6 +43,7 @@ var AllowedFilterTypeEnumValues = []FilterType{
 	"DesktopTag",
 	"OU",
 	"User",
+	"SecureBrowserTag",
 }
 
 func (v *FilterType) UnmarshalJSON(src []byte) error {

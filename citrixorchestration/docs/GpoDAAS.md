@@ -32,6 +32,7 @@ Method | HTTP request | Description
 [**GpoReadGpoSettings**](GpoDAAS.md#GpoReadGpoSettings) | **Get** /gpo/settings | Read settings defined in a policy.
 [**GpoRemoveGpoPolicies**](GpoDAAS.md#GpoRemoveGpoPolicies) | **Post** /gpo/policies/$remove | Remove some policies of a policy set.
 [**GpoRunSimulation**](GpoDAAS.md#GpoRunSimulation) | **Post** /gpo/simulation | Simulate policy application.
+[**GpoRunValidation**](GpoDAAS.md#GpoRunValidation) | **Get** /gpo/validation | Check the site policies to ensure that they can be successfully converted to the new GPO objects. If an error exists in the value of a setting or filter, the error must be fixed before the policy data can be converted to new GPO setting, filter, and policy objects. The validation is done only on the site policies.
 [**GpoSearchFilters**](GpoDAAS.md#GpoSearchFilters) | **Post** /gpo/filters/$search | Perform an advanced search for GPO filters.
 [**GpoSearchPolicies**](GpoDAAS.md#GpoSearchPolicies) | **Post** /gpo/policies/$search | Perform an advanced search for GPO policies.
 [**GpoSearchPolicySets**](GpoDAAS.md#GpoSearchPolicySets) | **Post** /gpo/policySets/$search | Perform an advanced search for GPO policy sets.
@@ -2275,6 +2276,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GpoRunValidation
+
+> []GpoTestPolicyData GpoRunValidation(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).All(all).Execute()
+
+Check the site policies to ensure that they can be successfully converted to the new GPO objects. If an error exists in the value of a setting or filter, the error must be fixed before the policy data can be converted to new GPO setting, filter, and policy objects. The validation is done only on the site policies.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    all := true // bool | If true, all settings and filters in the policies are returned, otherwise only settings and filters with errors are returned. Policies are always included in the result, regardless of the value of this parameter. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GpoDAAS.GpoRunValidation(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).All(all).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GpoDAAS.GpoRunValidation``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GpoRunValidation`: []GpoTestPolicyData
+    fmt.Fprintf(os.Stdout, "Response from `GpoDAAS.GpoRunValidation`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGpoRunValidationRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **all** | **bool** | If true, all settings and filters in the policies are returned, otherwise only settings and filters with errors are returned. Policies are always included in the result, regardless of the value of this parameter. | [default to false]
+
+### Return type
+
+[**[]GpoTestPolicyData**](GpoTestPolicyData.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

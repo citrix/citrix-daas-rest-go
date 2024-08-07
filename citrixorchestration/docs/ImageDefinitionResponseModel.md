@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **OsType** | [**OsType**](OsType.md) |  | 
 **LatestVersion** | **int32** | the latest version for the image definition | 
 **VDASessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
+**HypervisorConnections** | Pointer to [**[]ImageDefinitionHypervisorConnectionResponseModel**](ImageDefinitionHypervisorConnectionResponseModel.md) | The hypervisor connections on which image definition is associated. | [optional] 
 
 ## Methods
 
@@ -216,6 +217,41 @@ and a boolean to check if the value has been set.
 SetVDASessionSupport sets VDASessionSupport field to given value.
 
 
+### GetHypervisorConnections
+
+`func (o *ImageDefinitionResponseModel) GetHypervisorConnections() []ImageDefinitionHypervisorConnectionResponseModel`
+
+GetHypervisorConnections returns the HypervisorConnections field if non-nil, zero value otherwise.
+
+### GetHypervisorConnectionsOk
+
+`func (o *ImageDefinitionResponseModel) GetHypervisorConnectionsOk() (*[]ImageDefinitionHypervisorConnectionResponseModel, bool)`
+
+GetHypervisorConnectionsOk returns a tuple with the HypervisorConnections field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisorConnections
+
+`func (o *ImageDefinitionResponseModel) SetHypervisorConnections(v []ImageDefinitionHypervisorConnectionResponseModel)`
+
+SetHypervisorConnections sets HypervisorConnections field to given value.
+
+### HasHypervisorConnections
+
+`func (o *ImageDefinitionResponseModel) HasHypervisorConnections() bool`
+
+HasHypervisorConnections returns a boolean if a field has been set.
+
+### SetHypervisorConnectionsNil
+
+`func (o *ImageDefinitionResponseModel) SetHypervisorConnectionsNil(b bool)`
+
+ SetHypervisorConnectionsNil sets the value for HypervisorConnections to be an explicit nil
+
+### UnsetHypervisorConnections
+`func (o *ImageDefinitionResponseModel) UnsetHypervisorConnections()`
+
+UnsetHypervisorConnections ensures that no value is present for HypervisorConnections, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

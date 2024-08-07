@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **UserCount** | Pointer to **int32** | The number of users in this deployment | [optional] 
 **ErrorMessage** | Pointer to **NullableString** | Error message associated with the deployment | [optional] 
 **Warnings** | Pointer to [**[]DeploymentWarning**](DeploymentWarning.md) | Warnings and errors associated with the deployment | [optional] 
-**ActiveTasks** | Pointer to [**[]GetCustomerAccountTaskAsync200Response**](GetCustomerAccountTaskAsync200Response.md) | Tasks currently being performed on the deployment | [optional] 
+**ActiveTasks** | Pointer to [**[]GetTaskAsync200Response**](GetTaskAsync200Response.md) | Tasks currently being performed on the deployment | [optional] 
 **BrokerMachineCatalogId** | Pointer to **NullableString** | Id for the machine catalog of the deployment, could be null | [optional] 
 **BrokerDeliveryGroupId** | Pointer to **NullableString** | Id for the delivery group of the deployment, could be null | [optional] 
 **CitrixManaged** | Pointer to **NullableBool** | Indicates whether the deployment is managed by Citrix | [optional] 
@@ -402,20 +402,20 @@ HasWarnings returns a boolean if a field has been set.
 UnsetWarnings ensures that no value is present for Warnings, not even an explicit nil
 ### GetActiveTasks
 
-`func (o *Deployment) GetActiveTasks() []GetCustomerAccountTaskAsync200Response`
+`func (o *Deployment) GetActiveTasks() []GetTaskAsync200Response`
 
 GetActiveTasks returns the ActiveTasks field if non-nil, zero value otherwise.
 
 ### GetActiveTasksOk
 
-`func (o *Deployment) GetActiveTasksOk() (*[]GetCustomerAccountTaskAsync200Response, bool)`
+`func (o *Deployment) GetActiveTasksOk() (*[]GetTaskAsync200Response, bool)`
 
 GetActiveTasksOk returns a tuple with the ActiveTasks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActiveTasks
 
-`func (o *Deployment) SetActiveTasks(v []GetCustomerAccountTaskAsync200Response)`
+`func (o *Deployment) SetActiveTasks(v []GetTaskAsync200Response)`
 
 SetActiveTasks sets ActiveTasks field to given value.
 

@@ -19,8 +19,10 @@ Method | HTTP request | Description
 [**MachinesGetMachineStartMenuShortcutIcon**](MachinesAPIsDAAS.md#MachinesGetMachineStartMenuShortcutIcon) | **Get** /Machines/{nameOrId}/StartMenuShortcutIcon | Get a start menu shortcut icon from the machine.
 [**MachinesGetMachineStartMenuShortcuts**](MachinesAPIsDAAS.md#MachinesGetMachineStartMenuShortcuts) | **Get** /Machines/{nameOrId}/StartMenuShortcuts | Get start menu shortcuts from the machine.
 [**MachinesGetMachineTags**](MachinesAPIsDAAS.md#MachinesGetMachineTags) | **Get** /Machines/{nameOrId}/Tags | Get tags associated with a machine.
+[**MachinesGetMachineUpgradeVersions**](MachinesAPIsDAAS.md#MachinesGetMachineUpgradeVersions) | **Get** /Machines/{nameOrId}/UpgradeVersions | Get available upgrade versions for a machine.
 [**MachinesGetMachines**](MachinesAPIsDAAS.md#MachinesGetMachines) | **Get** /Machines | Get all machines in the site.
 [**MachinesGetMachinesAdministrators**](MachinesAPIsDAAS.md#MachinesGetMachinesAdministrators) | **Get** /Machines/{nameOrId}/Administrators | Get administrators who can administer a machine
+[**MachinesGetMachinesV2**](MachinesAPIsDAAS.md#MachinesGetMachinesV2) | **Get** /MachinesV2 | The V2 version of get all machines in the site.
 [**MachinesGetTestMachineReport**](MachinesAPIsDAAS.md#MachinesGetTestMachineReport) | **Get** /Machines/{nameOrId}/TestReports/{reportId} | Get Cloud Health Check Report on a VDA machine.
 [**MachinesImportFileTypes**](MachinesAPIsDAAS.md#MachinesImportFileTypes) | **Post** /Machines/{nameOrId}/FileTypes/$import | Import file type associations from the machine.
 [**MachinesLogoffMachineSessions**](MachinesAPIsDAAS.md#MachinesLogoffMachineSessions) | **Post** /Machines/{nameOrId}/$logoff | Logoff all sessions on a machine.
@@ -1324,9 +1326,91 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## MachinesGetMachineUpgradeVersions
+
+> []string MachinesGetMachineUpgradeVersions(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Get available upgrade versions for a machine.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesGetMachineUpgradeVersions(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesGetMachineUpgradeVersions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachinesGetMachineUpgradeVersions`: []string
+    fmt.Fprintf(os.Stdout, "Response from `MachinesAPIsDAAS.MachinesGetMachineUpgradeVersions`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachinesGetMachineUpgradeVersionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+**[]string**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## MachinesGetMachines
 
-> MachineResponseModelCollection MachinesGetMachines(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).SessionSupport(sessionSupport).Configured(configured).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
+> MachineResponseModelCollection MachinesGetMachines(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).SessionSupport(sessionSupport).Configured(configured).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
 
 Get all machines in the site.
 
@@ -1350,6 +1434,7 @@ func main() {
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     sessionSupport := openapiclient.SessionSupport("Unknown") // SessionSupport | Optionally limit the results to machines that are either single or multi-session capable. If not specified, all types of machines are returned. (optional)
@@ -1361,7 +1446,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesGetMachines(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).SessionSupport(sessionSupport).Configured(configured).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
+    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesGetMachines(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).SessionSupport(sessionSupport).Configured(configured).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesGetMachines``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1387,6 +1472,7 @@ Name | Type | Description  | Notes
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xTimeZone** | **string** | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **sessionSupport** | [**SessionSupport**](SessionSupport.md) | Optionally limit the results to machines that are either single or multi-session capable. If not specified, all types of machines are returned. | 
@@ -1483,6 +1569,98 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdministratorResponseModelCollection**](AdministratorResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachinesGetMachinesV2
+
+> MachineResponseModelCollection MachinesGetMachinesV2(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).SessionSupport(sessionSupport).Configured(configured).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
+
+The V2 version of get all machines in the site.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    sessionSupport := openapiclient.SessionSupport("Unknown") // SessionSupport | Optionally limit the results to machines that are either single or multi-session capable. If not specified, all types of machines are returned. (optional)
+    configured := true // bool | Optionally limit the results to machines that are either configured or not. If not specified, only configured machines are returned. (optional) (default to true)
+    limit := int32(56) // int32 | The max number of machines returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    async := true // bool | If `true`, the get machines will be executed as a background task. The task will have JobType GetMachines. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+    fields := "Uid,AgentVersion,AllocationType" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesGetMachinesV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).SessionSupport(sessionSupport).Configured(configured).Limit(limit).ContinuationToken(continuationToken).Async(async).Fields(fields).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesGetMachinesV2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachinesGetMachinesV2`: MachineResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `MachinesAPIsDAAS.MachinesGetMachinesV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachinesGetMachinesV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xTimeZone** | **string** | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **sessionSupport** | [**SessionSupport**](SessionSupport.md) | Optionally limit the results to machines that are either single or multi-session capable. If not specified, all types of machines are returned. | 
+ **configured** | **bool** | Optionally limit the results to machines that are either configured or not. If not specified, only configured machines are returned. | [default to true]
+ **limit** | **int32** | The max number of machines returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **async** | **bool** | If &#x60;true&#x60;, the get machines will be executed as a background task. The task will have JobType GetMachines. When the task is complete it will redirect to GetJobResults. | [default to false]
+ **fields** | **string** | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.              | 
+
+### Return type
+
+[**MachineResponseModelCollection**](MachineResponseModelCollection.md)
 
 ### Authorization
 

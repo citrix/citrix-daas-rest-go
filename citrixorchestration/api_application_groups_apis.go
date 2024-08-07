@@ -3338,6 +3338,317 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroups
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiApplicationGroupsGetApplicationGroupsV2Request struct {
+	ctx context.Context
+	ApiService *ApplicationGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	adminFolder *string
+	limit *int32
+	continuationToken *string
+	fields *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) CitrixCustomerId(citrixCustomerId string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) CitrixInstanceId(citrixInstanceId string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) UserAgent(userAgent string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) Authorization(authorization string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) CitrixTransactionId(citrixTransactionId string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) Accept(accept string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) CitrixLocale(citrixLocale string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) AdminFolder(adminFolder string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.adminFolder = &adminFolder
+	return r
+}
+
+// The max number of application groups returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) Limit(limit int32) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.limit = &limit
+	return r
+}
+
+// If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) ContinuationToken(continuationToken string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.continuationToken = &continuationToken
+	return r
+}
+
+// Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.             
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) Fields(fields string) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.fields = &fields
+	return r
+}
+
+// If &#x60;true&#x60;, the application groups will be fetched as a background task. The task will have JobType GetApplicationGroups.
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) Async(async bool) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	r.async = &async
+	return r
+}
+
+func (r ApiApplicationGroupsGetApplicationGroupsV2Request) Execute() (*ApplicationGroupResponseModelCollection, *http.Response, error) {
+	return r.ApiService.ApplicationGroupsGetApplicationGroupsV2Execute(r)
+}
+
+/*
+ApplicationGroupsGetApplicationGroupsV2 The V2  version of get application groups.
+
+Get all application groups in the site with default response fields if no fields parameters specified.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiApplicationGroupsGetApplicationGroupsV2Request
+*/
+func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupsV2(ctx context.Context) ApiApplicationGroupsGetApplicationGroupsV2Request {
+	return ApiApplicationGroupsGetApplicationGroupsV2Request{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ApplicationGroupResponseModelCollection
+func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupsV2Execute(r ApiApplicationGroupsGetApplicationGroupsV2Request) (*ApplicationGroupResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ApplicationGroupResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationGroupsAPIsDAASService.ApplicationGroupsGetApplicationGroupsV2")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ApplicationGroupsV2"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.adminFolder != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "adminFolder", r.adminFolder, "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+	}
+	if r.continuationToken != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+	}
+	if r.fields != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiApplicationGroupsRemoveApplicationRequest struct {
 	ctx context.Context
 	ApiService *ApplicationGroupsAPIsDAASService

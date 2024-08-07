@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **DirectoryId** | Pointer to **NullableString** | Directory Id | [optional] 
 **Subnet1Id** | Pointer to **NullableString** | First Subnet Id | [optional] 
 **Subnet2Id** | Pointer to **NullableString** | Second Subnet Id | [optional] 
-**Tenancy** | Pointer to [**NullableTenancy**](Tenancy.md) |  | [optional] 
+**Tenancy** | Pointer to [**NullableAwsEdcDirectoryTenancy**](AwsEdcDirectoryTenancy.md) |  | [optional] 
 **EnableWorkDocs** | Pointer to **bool** | Enable Work Docs | [optional] 
 **UserEnabledAsLocalAdministrator** | Pointer to **bool** | Enable Local Administrator | [optional] 
 **SecurityGroupId** | Pointer to **NullableString** | The identifier of the security group | [optional] 
@@ -140,20 +140,20 @@ HasSubnet2Id returns a boolean if a field has been set.
 UnsetSubnet2Id ensures that no value is present for Subnet2Id, not even an explicit nil
 ### GetTenancy
 
-`func (o *AddAwsEdcDirectoryConnection) GetTenancy() Tenancy`
+`func (o *AddAwsEdcDirectoryConnection) GetTenancy() AwsEdcDirectoryTenancy`
 
 GetTenancy returns the Tenancy field if non-nil, zero value otherwise.
 
 ### GetTenancyOk
 
-`func (o *AddAwsEdcDirectoryConnection) GetTenancyOk() (*Tenancy, bool)`
+`func (o *AddAwsEdcDirectoryConnection) GetTenancyOk() (*AwsEdcDirectoryTenancy, bool)`
 
 GetTenancyOk returns a tuple with the Tenancy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenancy
 
-`func (o *AddAwsEdcDirectoryConnection) SetTenancy(v Tenancy)`
+`func (o *AddAwsEdcDirectoryConnection) SetTenancy(v AwsEdcDirectoryTenancy)`
 
 SetTenancy sets Tenancy field to given value.
 

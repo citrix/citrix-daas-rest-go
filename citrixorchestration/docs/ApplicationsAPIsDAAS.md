@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**ApplicationsGetApplicationSessions**](ApplicationsAPIsDAAS.md#ApplicationsGetApplicationSessions) | **Get** /Applications/{nameOrId}/Sessions | Get sessions in which the application is currently running.
 [**ApplicationsGetApplicationTags**](ApplicationsAPIsDAAS.md#ApplicationsGetApplicationTags) | **Get** /Applications/{nameOrId}/Tags | Get tags associated with an application.
 [**ApplicationsGetApplications**](ApplicationsAPIsDAAS.md#ApplicationsGetApplications) | **Get** /Applications | Get all applications.
+[**ApplicationsGetApplicationsV2**](ApplicationsAPIsDAAS.md#ApplicationsGetApplicationsV2) | **Get** /ApplicationsV2 | The V2 of get all applications.
 [**ApplicationsImportFileTypes**](ApplicationsAPIsDAAS.md#ApplicationsImportFileTypes) | **Post** /Applications/{nameOrId}/FileTypes/$import | Import file types for the application.
 [**ApplicationsPatchApplication**](ApplicationsAPIsDAAS.md#ApplicationsPatchApplication) | **Patch** /Applications/{nameOrId} | Modify an application.
 [**ApplicationsRefreshAppVApplications**](ApplicationsAPIsDAAS.md#ApplicationsRefreshAppVApplications) | **Get** /Applications/RefreshAppVApplications | Refresh the AppV Applications.
@@ -1565,6 +1566,94 @@ func main() {
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiApplicationsGetApplicationsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **applicationFolder** | **string** | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. | 
+ **limit** | **int32** | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **fields** | **string** | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma&#39;,&#39;.              | 
+ **async** | **bool** | If &#x60;true&#x60;, the applications will be fetched as a background task. The task will have JobType GetApplications. | [default to false]
+
+### Return type
+
+[**ApplicationResponseModelCollection**](ApplicationResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ApplicationsGetApplicationsV2
+
+> ApplicationResponseModelCollection ApplicationsGetApplicationsV2(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ApplicationFolder(applicationFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+
+The V2 of get all applications.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    applicationFolder := "applicationFolder_example" // string | Optional folder path (URL-encoded) or ID.  If not specified, all applications will be returned from all folders. (optional)
+    limit := int32(56) // int32 | The max number of applications returned by this query. If not specified, the server might use a default limit of 250 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    fields := "Id,Uid,ApplicationFolder" // string | Optional. A filter string containing object fields requested to be returned, the requested fields are separated by comma','.              (optional)
+    async := true // bool | If `true`, the applications will be fetched as a background task. The task will have JobType GetApplications. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationsV2(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ApplicationFolder(applicationFolder).Limit(limit).ContinuationToken(continuationToken).Fields(fields).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `ApplicationsAPIsDAAS.ApplicationsGetApplicationsV2``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ApplicationsGetApplicationsV2`: ApplicationResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `ApplicationsAPIsDAAS.ApplicationsGetApplicationsV2`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiApplicationsGetApplicationsV2Request struct via the builder pattern
 
 
 Name | Type | Description  | Notes
