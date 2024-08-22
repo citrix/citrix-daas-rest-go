@@ -8,11 +8,16 @@ import (
 	"strings"
 )
 
-func BuildAuth(remoteCompName string, username string, password string) string {
+func BuildAuth(remoteCompName string, username string, password string, disableSSL bool) string {
 	if remoteCompName == "" {
 		return ""
 	} else if strings.Contains(remoteCompName, "https") {
-		return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') ) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate", remoteCompName, username, password)
+		if disableSSL {
+			return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') ) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate", remoteCompName, username, password)
+		} else {
+			return fmt.Sprintf("-ConnectionUri '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') )  -Authentication Negotiate", remoteCompName, username, password)
+		}
+
 	} else {
 		return fmt.Sprintf("-ComputerName  '%s' -Credential ( New-Object -TypeName System.Management.Automation.PSCredential  -ArgumentList '%s',(ConvertTo-SecureString -Force -AsPlainText '%s') )", remoteCompName, username, password)
 	}

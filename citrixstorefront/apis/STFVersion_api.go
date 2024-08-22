@@ -31,7 +31,7 @@ func (r ApiGetSTFVersionRequest) Execute() (models.STFVersionModel, error) {
 }
 
 func (a *STFVersion) GetSTFVersionExecute(r ApiGetSTFVersionRequest) ([]byte, error) {
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFVersion")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFVersion")
 }
 
 func (a *STFVersion) STFVersionGetVersion(ctx context.Context) ApiGetSTFVersionRequest {

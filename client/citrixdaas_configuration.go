@@ -21,4 +21,5 @@ type ClientConfiguration struct {
 	Authorization           string
 	OrchestrationApiVersion int32
 	ProductVersion          string
+	IsCspCustomer           bool
 }
