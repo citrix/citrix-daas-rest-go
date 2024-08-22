@@ -35,7 +35,7 @@ func (r ApiCreateSTFWebReceiverRequest) Execute() (models.STFWebReceiverDetailMo
 func (a *STFWebReceiver) CreateSTFWebReceiverExecute(r ApiCreateSTFWebReceiverRequest) ([]byte, error) {
 	var param = StructToString(r.CreateSTFWebReceiverRequestModel)
 	var getSTFStoreParams = StructToString(r.GetSTFStoreServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFWebReceiverService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getSTFStoreParams), param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFWebReceiverService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getSTFStoreParams), param, "-Confirm:$false")
 }
 
 func (a *STFWebReceiver) STFWebReceiverCreateSTFWebReceiver(ctx context.Context, createSTFWebReceiverRequestModel models.CreateSTFWebReceiverRequestModel, getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel) ApiCreateSTFWebReceiverRequest {
@@ -72,7 +72,7 @@ func (r ApiGetSTFWebReceiverRequest) Execute() (models.STFWebReceiverDetailModel
 
 func (a *STFWebReceiver) GetSTFWebReceiverExecute(r ApiGetSTFWebReceiverRequest) ([]byte, error) {
 	var param = StructToString(r.getSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverService", param)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverService", param)
 }
 
 func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiver(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiGetSTFWebReceiverRequest {
@@ -100,7 +100,7 @@ func (r ApiSetSTFWebReceiverRequest) Execute() ([]byte, error) {
 
 func (a *STFWebReceiver) SetSTFWebReceiverExecute(r ApiSetSTFWebReceiverRequest) ([]byte, error) {
 	var param = StructToString(r.setSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverService", param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverService", param, "-Confirm:$false")
 }
 
 func (a *STFWebReceiver) STFWebReceiverSetSTFWebReceiver(ctx context.Context, setSTFWebReceiverRequestModel models.SetSTFWebReceiverRequestModel) ApiSetSTFWebReceiverRequest {
@@ -128,7 +128,7 @@ func (r ApiClearSTFWebReceiverRequest) Execute() ([]byte, error) {
 
 func (a *STFWebReceiver) ClearSTFWebReceiverExecute(r ApiClearSTFWebReceiverRequest) ([]byte, error) {
 	var getParam = StructToString(r.GetSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Remove-STFWebReceiverService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getParam), "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Remove-STFWebReceiverService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getParam), "-Confirm:$false")
 }
 
 func (a *STFWebReceiver) STFWebReceiverClearSTFWebReceiver(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiClearSTFWebReceiverRequest {
@@ -164,7 +164,7 @@ func (r ApiGetSTFWebReceiverAuthenticationMethodsRequest) Execute() (models.STFW
 
 func (a *STFWebReceiver) GetSTFWebReceiverAuthenticationMethodsExecute(r ApiGetSTFWebReceiverAuthenticationMethodsRequest) ([]byte, error) {
 	var param = StructToString(r.GetSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverAuthenticationMethods", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", param))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverAuthenticationMethods", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", param))
 }
 
 func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiverAuthenticationMethods(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiGetSTFWebReceiverAuthenticationMethodsRequest {
@@ -194,7 +194,7 @@ func (r ApiSetSTFWebReceiverAuthenticationMethodsRequest) Execute() ([]byte, err
 func (a *STFWebReceiver) UpdateSTFWebReceiverAuthenticationMethodsExecute(r ApiSetSTFWebReceiverAuthenticationMethodsRequest) ([]byte, error) {
 	var param = StructToString(r.setSTFWebReceiverAuthenticationMethodsRequestModel)
 	var getWebReceiverParams = StructToString(r.GetSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverAuthenticationMethods", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverAuthenticationMethods", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), param, "-Confirm:$false")
 }
 
 func (a *STFWebReceiver) STFWebReceiverSetSTFWebReceiverAuthenticationMethods(ctx context.Context, setSTFWebReceiverAuthenticationMethodsRequestModel models.UpdateSTFWebReceiverAuthenticationMethodsRequestModel, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiSetSTFWebReceiverAuthenticationMethodsRequest {
@@ -227,7 +227,7 @@ func (r ApiGetSTFWebReceiverAuthenticationMethodsAvailableRequest) Execute() ([]
 }
 
 func (a *STFWebReceiver) GetSTFWebReceiverAuthenticationMethodsAvailableExecute(r ApiGetSTFWebReceiverAuthenticationMethodsAvailableRequest) ([]byte, error) {
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverAuthenticationMethodsAvailable")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverAuthenticationMethodsAvailable")
 }
 
 func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiverAuthenticationMethodsAvailable(ctx context.Context) ApiGetSTFWebReceiverAuthenticationMethodsAvailableRequest {
@@ -256,7 +256,7 @@ func (r ApiWebReceiverPluginAssistantUpdateRequest) Execute() ([]byte, error) {
 func (a *STFWebReceiver) WebReceiverPluginAssistantUpdateExecute(r ApiWebReceiverPluginAssistantUpdateRequest) ([]byte, error) {
 	var param = StructToString(r.WebReceiverPluginAssistantUpdateModel)
 	var getWebReceiverParams = StructToString(r.GetSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverPluginAssistant", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverPluginAssistant", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), param, "-Confirm:$false")
 }
 
 func (a *STFWebReceiver) STFWebReceiverPluginAssistantUpdate(ctx context.Context, webReceiverPluginAssistantUpdateModel models.UpdateSTFWebReceiverPluginAssistantRequestModel, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverPluginAssistantUpdateRequest {
@@ -290,7 +290,7 @@ func (r ApiWebReceiverPluginAssistantGetRequest) Execute() (models.WebReceiverPl
 
 func (a *STFWebReceiver) WebReceiverPluginAssistantGetExecute(r ApiWebReceiverPluginAssistantGetRequest) ([]byte, error) {
 	var getWebReceiverParams = StructToString(r.GetSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverPluginAssistant", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverPluginAssistant", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
 }
 
 func (a *STFWebReceiver) STFWebReceiverPluginAssistantGet(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverPluginAssistantGetRequest {
@@ -320,7 +320,7 @@ func (r ApiWebReceiverApplicationShortcutsSetRequest) Execute() error {
 func (a *STFWebReceiver) WebReceiverApplicationShortcutsSetExecute(r ApiWebReceiverApplicationShortcutsSetRequest) ([]byte, error) {
 	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
 	var setParams = StructToString(r.WebReceiverApplicationShortcutsSetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverApplicationShortcuts", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setParams)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverApplicationShortcuts", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setParams)
 }
 
 func (a *STFWebReceiver) STFWebReceiverApplicationShortcutsSet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, webReceiverApplicationShortcutsSetRequestModel models.SetWebReceiverApplicationShortcutsRequestModel) ApiWebReceiverApplicationShortcutsSetRequest {
@@ -354,7 +354,7 @@ func (r ApiWebReceiverApplicationShortcutsGetRequest) Execute() (models.GetWebRe
 
 func (a *STFWebReceiver) WebReceiverApplicationShortcutsGetExecute(r ApiWebReceiverApplicationShortcutsGetRequest) ([]byte, error) {
 	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverApplicationShortcuts", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverApplicationShortcuts", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
 }
 
 func (a *STFWebReceiver) STFWebReceiverApplicationShortcutsGet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverApplicationShortcutsGetRequest {
@@ -384,7 +384,7 @@ func (r ApiWebReceiverCommunicationSetRequest) Execute() error {
 func (a *STFWebReceiver) WebReceiverCommunicationSetExecute(r ApiWebReceiverCommunicationSetRequest) ([]byte, error) {
 	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
 	setWebReceiverCommunicationParams := StructToString(r.SetWebReceiverCommunicationRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverCommunication", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setWebReceiverCommunicationParams)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverCommunication", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setWebReceiverCommunicationParams)
 }
 
 func (a *STFWebReceiver) STFWebReceiverCommunicationSet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setWebReceiverCommunicationRequestModel models.SetWebReceiverCommunicationRequestModel) ApiWebReceiverCommunicationSetRequest {
@@ -418,7 +418,7 @@ func (r ApiWebReceiverCommunicationGetRequest) Execute() (models.GetWebReceiverC
 
 func (a *STFWebReceiver) WebReceiverCommunicationGetExecute(r ApiWebReceiverCommunicationGetRequest) ([]byte, error) {
 	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverCommunication", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverCommunication", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
 }
 
 func (a *STFWebReceiver) STFWebReceiverCommunicationGet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverCommunicationGetRequest {
@@ -448,7 +448,7 @@ func (r ApiWebReceiverStrictTransportSecuritySetRequest) Execute() error {
 func (a *STFWebReceiver) WebReceiverStrictTransportSecuritySetExecute(r ApiWebReceiverStrictTransportSecuritySetRequest) ([]byte, error) {
 	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
 	setWebReceiverSTSParams := StructToString(r.SetWebReceiverStrictTransportSecurityRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverStrictTransportSecurity", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setWebReceiverSTSParams)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverStrictTransportSecurity", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setWebReceiverSTSParams)
 }
 
 func (a *STFWebReceiver) STFWebReceiverStrictTransportSecuritySet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setWebReceiverStrictTransportSecurityRequestModel models.SetWebReceiverStrictTransportSecurityRequestModel) ApiWebReceiverStrictTransportSecuritySetRequest {
@@ -482,7 +482,7 @@ func (r ApiWebReceiverStrictTransportSecurityGetRequest) Execute() (models.GetWe
 
 func (a *STFWebReceiver) WebReceiverStrictTransportSecurityGetExecute(r ApiWebReceiverStrictTransportSecurityGetRequest) ([]byte, error) {
 	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverStrictTransportSecurity", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverStrictTransportSecurity", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
 }
 
 func (a *STFWebReceiver) STFWebReceiverStrictTransportSecurityGet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverStrictTransportSecurityGetRequest {
@@ -512,7 +512,7 @@ func (r ApiWebReceiverAuthenticationManagerSetRequest) Execute() error {
 func (a *STFWebReceiver) WebReceiverAuthenticationManagerSetExecute(r ApiWebReceiverAuthenticationManagerSetRequest) ([]byte, error) {
 	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
 	setAuthManagerParams := StructToString(r.SetWebReceiverAuthenticationManagerRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverAuthenticationManager", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setAuthManagerParams)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverAuthenticationManager", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setAuthManagerParams)
 }
 
 func (a *STFWebReceiver) STFWebReceiverAuthenticationManagerSet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setWebReceiverAuthenticationManagerRequestModel models.SetWebReceiverAuthenticationManagerRequestModel) ApiWebReceiverAuthenticationManagerSetRequest {
@@ -546,7 +546,7 @@ func (r ApiWebReceiverAuthenticationManagerGetRequest) Execute() (models.GetWebR
 
 func (a *STFWebReceiver) WebReceiverAuthenticationManagerGetExecute(r ApiWebReceiverAuthenticationManagerGetRequest) ([]byte, error) {
 	getWebReceiverParams := StructToString(r.WebReceiverServiceGetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverAuthenticationManager", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverAuthenticationManager", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
 }
 
 func (a *STFWebReceiver) STFWebReceiverAuthenticationManagerGet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverAuthenticationManagerGetRequest {
@@ -576,7 +576,7 @@ func (r ApiWebReceiverUserInterfaceSetRequest) Execute() error {
 func (a *STFWebReceiver) WebReceiverUserInterfaceSetExecute(r ApiWebReceiverUserInterfaceSetRequest) ([]byte, error) {
 	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
 	var setParams = StructToString(r.SetSTFWebReceiverUserInterfaceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverUserInterface", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setParams)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverUserInterface", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setParams)
 }
 
 func (a *STFWebReceiver) STFWebReceiverUserInterfaceSet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setSTFWebReceiverUserInterfaceRequestModel models.SetSTFWebReceiverUserInterfaceRequestModel) ApiWebReceiverUserInterfaceSetRequest {
@@ -610,7 +610,7 @@ func (r ApiWebReceiverUserInterfaceGetRequest) Execute() (models.GetSTFWebReceiv
 
 func (a *STFWebReceiver) WebReceiverUserInterfaceGetExecute(r ApiWebReceiverUserInterfaceGetRequest) ([]byte, error) {
 	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverUserInterface", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverUserInterface", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
 }
 
 func (a *STFWebReceiver) STFWebReceiverUserInterfaceGet(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverUserInterfaceGetRequest {
@@ -640,7 +640,7 @@ func (r ApiWebReceiverResourcesServiceRequest) Execute() error {
 func (a *STFWebReceiver) WebReceiverResourcesServiceExecute(r ApiWebReceiverResourcesServiceRequest) ([]byte, error) {
 	var setParams = StructToString(r.SetSTFWebReceiverResourcesServiceRequestModel)
 	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverResourcesService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setParams)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverResourcesService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams), setParams)
 }
 
 func (a *STFWebReceiver) SetSTFWebReceiverResourcesService(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel, setSTFWebReceiverResourcesServiceRequestModel models.SetSTFWebReceiverResourcesServiceRequestModel) ApiWebReceiverResourcesServiceRequest {
@@ -674,7 +674,7 @@ func (r ApiWebReceiverResourcesServiceGetRequest) Execute() (models.GetSTFWebRec
 
 func (a *STFWebReceiver) WebReceiverResourcesServiceGetExecute(r ApiWebReceiverResourcesServiceGetRequest) ([]byte, error) {
 	var getWebReceiverParams = StructToString(r.WebReceiverServiceGetRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverResourcesService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverResourcesService", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getWebReceiverParams))
 }
 
 func (a *STFWebReceiver) GetSTFWebReceiverResourcesService(ctx context.Context, webReceiverServiceGetRequestModel models.GetSTFWebReceiverRequestModel) ApiWebReceiverResourcesServiceGetRequest {
@@ -705,9 +705,9 @@ func (a *STFWebReceiver) SetSTFWebReceiverSiteStyleExecute(r ApiSetSTFWebReceive
 	var param = StructToString(r.setSTFWebReceiverSiteStyleRequestModel)
 	var setSiteStyleParams = StructToString(r.getSTFWebReceiverRequestModel)
 	if r.getSTFWebReceiverRequestModel.VirtualPath.IsSet() && *r.getSTFWebReceiverRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", setSiteStyleParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", setSiteStyleParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFWebReceiverSiteStyle", param, "-Confirm:$false")
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFWebReceiverSiteStyle", param, "-Confirm:$false")
 	}
 
 }
@@ -743,7 +743,7 @@ func (r ApiGetSTFWebReceiverSiteStyleRequest) Execute() (models.STFWebReceiverSi
 
 func (a *STFWebReceiver) GetSTFWebReceiverSiteStyleExecute(r ApiGetSTFWebReceiverSiteStyleRequest) ([]byte, error) {
 	var param = StructToString(r.getSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", param))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", param))
 }
 
 func (a *STFWebReceiver) STFWebReceiverGetSTFWebReceiverSiteStyle(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiGetSTFWebReceiverSiteStyleRequest {
@@ -771,7 +771,7 @@ func (r ApiClearSTFWebReceiverSiteStyleRequest) Execute() ([]byte, error) {
 
 func (a *STFWebReceiver) ClearSTFWebReceiverSiteStyleExecute(r ApiClearSTFWebReceiverSiteStyleRequest) ([]byte, error) {
 	var getParam = StructToString(r.GetSTFWebReceiverRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Clear-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getParam), "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Clear-STFWebReceiverSiteStyle", fmt.Sprintf("-WebReceiverService (Get-STFWebReceiverService %s)", getParam), "-Confirm:$false")
 }
 
 func (a *STFWebReceiver) STFWebReceiverClearSTFWebReceiverSiteStyle(ctx context.Context, getSTFWebReceiverRequestModel models.GetSTFWebReceiverRequestModel) ApiClearSTFWebReceiverSiteStyleRequest {

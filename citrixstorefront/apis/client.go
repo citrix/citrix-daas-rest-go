@@ -12,6 +12,7 @@ type APIClient struct {
 	computerName string
 	adUserName   string
 	adPassword   string
+	disableSSL   bool
 
 	// API Services for StoreFront
 	DeploymentSF            *STFDeployment
@@ -45,6 +46,14 @@ func (o *APIClient) GetAdPassword() string {
 
 func (o *APIClient) SetAdPassword(v string) {
 	o.adPassword = v
+}
+
+func (o *APIClient) GetDisableSSL() bool {
+	return o.disableSSL
+}
+
+func (o *APIClient) SetDisableSSL(v bool) {
+	o.disableSSL = v
 }
 
 func NewAPIClient() *APIClient {

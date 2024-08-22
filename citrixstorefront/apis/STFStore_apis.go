@@ -37,9 +37,9 @@ func (a *STFStore) CreateSTFStoreExecute(r ApiCreateSTFStoreRequest) ([]byte, er
 	var param = StructToString(r.CreateSTFStoreRequestModel)
 	var getAuthServiceParams = StructToString(r.GetAuthenticationServiceRequestModel)
 	if r.GetAuthenticationServiceRequestModel.VirtualPath.IsSet() && *r.GetAuthenticationServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFStoreService", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", getAuthServiceParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFStoreService", fmt.Sprintf("-AuthenticationService (Get-STFAuthenticationService %s)", getAuthServiceParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFStoreService", param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFStoreService", param)
 	}
 }
 
@@ -78,7 +78,7 @@ func (r ApiGetSTFStoreRequest) Execute() (models.STFStoreDetailModel, error) {
 
 func (a *STFStore) GetSTFStoreExecute(r ApiGetSTFStoreRequest) ([]byte, error) {
 	var param = StructToString(r.getSTFStoreRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreService", param)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreService", param)
 }
 
 func (a *STFStore) STFStoreGetSTFStore(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreRequest {
@@ -106,7 +106,7 @@ func (r ApiSetSTFStoreRequest) Execute() ([]byte, error) {
 
 func (a *STFStore) SetSTFStoreExecute(r ApiSetSTFStoreRequest) ([]byte, error) {
 	var getParams = StructToString(r.GetSTFStoreRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getParams), "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getParams), "-Confirm:$false")
 }
 
 func (a *STFStore) STFStoreSetSTFStore(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiSetSTFStoreRequest {
@@ -134,7 +134,7 @@ func (r ApiClearSTFStoreRequest) Execute() ([]byte, error) {
 
 func (a *STFStore) ClearSTFStoreExecute(r ApiClearSTFStoreRequest) ([]byte, error) {
 	var getParams = StructToString(r.GetSTFStoreRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Remove-STFStoreService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getParams), "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Remove-STFStoreService", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getParams), "-Confirm:$false")
 }
 
 func (a *STFStore) STFStoreClearSTFStore(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiClearSTFStoreRequest {
@@ -162,7 +162,7 @@ func (r ApiRegisterSTFStoreGatewayRequest) Execute() ([]byte, error) {
 
 func (a *STFStore) RegisterSTFStoreGatewayExecute(r ApiRegisterSTFStoreGatewayRequest) ([]byte, error) {
 	var param = StructToString(r.registerSTFStoreGatewayRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Register-STFStoreGateway", param)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Register-STFStoreGateway", param)
 }
 
 func (a *STFStore) STFStoreRegisterSTFStoreGateway(ctx context.Context, registerSTFStoreGatewayRequestModel models.RegisterSTFStoreGatewayRequestModel) ApiRegisterSTFStoreGatewayRequest {
@@ -190,7 +190,7 @@ func (r ApiUnregisterSTFStoreGatewayRequest) Execute() ([]byte, error) {
 
 func (a *STFStore) UnregisterSTFStoreGatewayExecute(r ApiUnregisterSTFStoreGatewayRequest) ([]byte, error) {
 	var param = StructToString(r.unregisterSTFStoreGatewayRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Unregister-STFStoreGateway", param)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Unregister-STFStoreGateway", param)
 }
 
 func (a *STFStore) STFStoreUnregisterSTFStoreGateway(ctx context.Context, unregisterSTFStoreGatewayRequestModel models.UnregisterSTFStoreGatewayRequestModel) ApiUnregisterSTFStoreGatewayRequest {
@@ -222,9 +222,9 @@ func (a *STFStore) AddSTFStoreFarmExecute(r ApiAddSTFStoreFarmRequest) ([]byte, 
 	var addStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", addStoreServiceParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", addStoreServiceParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFStoreFarm", param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFStoreFarm", param)
 	}
 }
 
@@ -258,9 +258,9 @@ func (a *STFStore) SetSTFStoreFarmExecute(r ApiSetSTFStoreFarmRequest) ([]byte, 
 	var setStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreServiceParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreServiceParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreFarm", param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreFarm", param)
 	}
 }
 
@@ -304,9 +304,9 @@ func (a *STFStore) GetSTFStoreFarmExecute(r ApiGetSTFStoreFarmRequest) ([]byte, 
 	var getStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreServiceParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreServiceParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreFarm", param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreFarm", param)
 	}
 }
 
@@ -340,9 +340,9 @@ func (a *STFStore) RemoveSTFStoreFarmExecute(r ApiRemoveSTFStoreFarmRequest) ([]
 	var removeStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Remove-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Remove-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Remove-STFStoreFarm", param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Remove-STFStoreFarm", param)
 	}
 }
 
@@ -377,7 +377,7 @@ func (r ApiGetSTFStoreFarmConfigurationRequest) Execute() (models.StoreFarmConfi
 
 func (a *STFStore) GetSTFStoreFarmConfigurationExecute(r ApiGetSTFStoreFarmConfigurationRequest) ([]byte, error) {
 	var param = StructToString(r.getSTFStoreServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreFarmConfiguration", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", param))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreFarmConfiguration", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", param))
 }
 
 func (a *STFStore) STFStoreFarmGetStoreConfiguration(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreFarmConfigurationRequest {
@@ -408,9 +408,9 @@ func (a *STFStore) SetSTFStoreFarmConfigurationExecute(r ApiSetSTFStoreFarmConfi
 	var param = StructToString(r.setStoreFarmConfigurationRequestModel)
 	var setStoreFarmSettingsParams = StructToString(r.getSTFStoreServiceRequestModel)
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreFarmConfiguration", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreFarmSettingsParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreFarmConfiguration", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreFarmSettingsParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreFarmConfiguration", param, "-Confirm:$false")
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreFarmConfiguration", param, "-Confirm:$false")
 	}
 }
 
@@ -449,7 +449,7 @@ func (r ApiGetSTFStoreEnumerationOptionsRequest) Execute() (models.GetSTFStoreEn
 
 func (a *STFStore) GetSTFStoreEnumerationOptionsExecute(r ApiGetSTFStoreEnumerationOptionsRequest) ([]byte, error) {
 	var setStoreEnumerationOptionsParams = StructToString(r.getSTFStoreServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams))
 }
 
 func (a *STFStore) STFStoreGetSTFStoreEnumerationOptions(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreEnumerationOptionsRequest {
@@ -481,9 +481,9 @@ func (a *STFStore) EnableSTFStorePnaExecute(r ApiEnableSTFStorePnaRequest) ([]by
 	var removeStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Enable-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Enable-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Enable-STFStorePna", param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Enable-STFStorePna", param)
 	}
 }
 
@@ -515,9 +515,9 @@ func (a *STFStore) DisableSTFStorePnaExecute(r ApiDisableSTFStorePnaRequest) ([]
 	var removeStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Disable-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams), "-Confirm:$false")
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Disable-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams), "-Confirm:$false")
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Disable-STFStorePna", "-Confirm:$false")
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Disable-STFStorePna", "-Confirm:$false")
 	}
 }
 
@@ -551,9 +551,9 @@ func (a *STFStore) SetSTFStoreEnumerationOptionsExecute(r ApiSetSTFStoreEnumerat
 	var setStoreEnumerationOptionsParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams), param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreEnumerationOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreEnumerationOptionsParams), param)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreEnumerationOptions", param)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreEnumerationOptions", param)
 	}
 }
 
@@ -620,9 +620,9 @@ func (a *STFStore) GetSTFStorePnaExecute(r ApiGETSTFStorePnaRequest) ([]byte, er
 	var removeStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams))
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStorePna", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", removeStoreServiceParams))
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStorePna", "-Confirm:$false")
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStorePna", "-Confirm:$false")
 	}
 }
 
@@ -658,7 +658,7 @@ func (r ApiGetSTFStoreLaunchOptionsRequest) Execute() (models.GetSTFStoreLaunchO
 
 func (a *STFStore) GetSTFStoreLaunchOptionsExecute(r ApiGetSTFStoreLaunchOptionsRequest) ([]byte, error) {
 	var setStoreLaunchOptionsParams = StructToString(r.getSTFStoreServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFStoreLaunchOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreLaunchOptionsParams))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreLaunchOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", setStoreLaunchOptionsParams))
 }
 
 func (a *STFStore) STFStoreGetSTFStoreLaunchOptions(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreLaunchOptionsRequest {
@@ -690,9 +690,9 @@ func (a *STFStore) SetSTFStoreLaunchOptionsExecute(r ApiSetSTFStoreLaunchOptions
 	var getStoreLaunchOptionsParams = StructToString(r.getSTFStoreServiceRequestModel)
 
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreLaunchOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreLaunchOptionsParams), setStoreLaunchOptionsParams)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreLaunchOptions", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreLaunchOptionsParams), setStoreLaunchOptionsParams)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFStoreLaunchOptions", setStoreLaunchOptionsParams)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFStoreLaunchOptions", setStoreLaunchOptionsParams)
 	}
 }
 
@@ -728,7 +728,7 @@ func (r ApiGetSTFRoamingAccountRequest) Execute() (models.GetSTFRoamingAccountRe
 
 func (a *STFStore) GetSTFRoamingAccountExecute(r ApiGetSTFRoamingAccountRequest) ([]byte, error) {
 	var param = StructToString(r.getSTFStoreRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingAccount", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", param))
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFRoamingAccount", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", param))
 }
 
 func (a *STFStore) STFRoamingAccountGet(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFRoamingAccountRequest {
@@ -760,9 +760,9 @@ func (a *STFStore) SetSTFRoamingAccountExecute(r ApiSetSTFRoamingAccountRequest)
 	var getStoreParam = StructToString(r.getSTFStoreServiceRequestModel)
 	var getRoamAccParam = StructToString(r.SetSTFRoamingAccountRequestModel)
 	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingAccount", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreParam), getRoamAccParam)
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFRoamingAccount", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreParam), getRoamAccParam)
 	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingAccount", getRoamAccParam, "-Confirm:$false")
+		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFRoamingAccount", getRoamAccParam, "-Confirm:$false")
 	}
 }
 

@@ -35,7 +35,7 @@ func (r ApiGetSTFRoamingServiceRequest) Execute() (models.STFRoamingServiceRespo
 
 func (a *STFRoaming) GetSTFRoamingServiceExecute(r ApiGetSTFRoamingServiceRequest) ([]byte, error) {
 	params := StructToString(r.STFRoamingServiceRequestModel)
-	return ExecuteCommandWithDepth(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), 5, "Get-STFRoamingService", params)
+	return ExecuteCommandWithDepth(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), 5, "Get-STFRoamingService", params)
 }
 
 func (a *STFRoaming) STFRoamingServiceGet(ctx context.Context, stfRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiGetSTFRoamingServiceRequest {
@@ -78,7 +78,7 @@ func (a *STFRoaming) AddSTFRoamingGatewayExecute(r ApiAddSTFRoamingGatewayReques
 		staUrlParam += ")"
 	}
 
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam)
 }
 
 func (a *STFRoaming) STFRoamingGatewayAdd(ctx context.Context, createSTFRoamingGatewayRequestModel models.AddSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel, stfStaUrls []models.STFSTAUrlModel) ApiAddSTFRoamingGatewayRequest {
@@ -117,7 +117,7 @@ func (r ApiGetSTFRoamingGatewayRequest) Execute() (models.STFRoamingGatewayRespo
 func (a *STFRoaming) GetSTFRoamingGatewayExecute(r ApiGetSTFRoamingGatewayRequest) ([]byte, error) {
 	var param = StructToString(r.GetSTFRoamingGatewayRequestModel)
 	var getRoamingServiceParams = StructToString(r.GetSTFRoamingServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), param)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), param)
 }
 
 func (a *STFRoaming) STFRoamingGatewayGet(ctx context.Context, getSTFRoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiGetSTFRoamingGatewayRequest {
@@ -158,7 +158,7 @@ func (a *STFRoaming) SetSTFRoamingGatewayExecute(r ApiSetSTFRoamingGatewayReques
 		staUrlParam += ")"
 	}
 
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParam), param, staUrlParam)
 }
 
 func (a *STFRoaming) STFRoamingGatewaySet(ctx context.Context, setSTFRoamingGatewayRequestModel models.SetSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel, stfStaUrls []models.STFSTAUrlModel) ApiSetSTFRoamingGatewayRequest {
@@ -190,7 +190,7 @@ func (r ApiRemoveSTFoamingGatewayRequest) Execute() error {
 func (a *STFRoaming) RemoveSTFRoamingGatewayExecute(r ApiRemoveSTFoamingGatewayRequest) ([]byte, error) {
 	var getRoamingServiceParams = StructToString(r.GetSTFRoamingServiceRequestModel)
 	var param = StructToString(r.GetSTFRoamingGatewayRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Remove-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Remove-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), param, "-Confirm:$false")
 }
 
 func (a *STFRoaming) STFRoamingGatewayRemove(ctx context.Context, getSTFoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiRemoveSTFoamingGatewayRequest {
@@ -220,7 +220,7 @@ func (r ApiSetRoamingInternalBeacon) Execute() error {
 
 func (a *STFRoaming) SetRoamingInternalBeaconExecute(r ApiSetRoamingInternalBeacon) ([]byte, error) {
 	var int_param = StructToString(r.SetSTFRoamingInternalBeaconRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingBeacon", int_param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFRoamingBeacon", int_param, "-Confirm:$false")
 
 }
 
@@ -257,7 +257,7 @@ func (r ApiGetRoamingInternalBeacon) Execute() (models.GetSTFRoamingInternalBeac
 }
 
 func (a *STFRoaming) GetRoamingInternalBeaconExecute(r ApiGetRoamingInternalBeacon) ([]byte, error) {
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingBeacon -Internal")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFRoamingBeacon -Internal")
 
 }
 
@@ -286,7 +286,7 @@ func (r ApiRemoveSTFRoamingInternalBeaconRequest) Execute() error {
 
 func (a *STFRoaming) RemoveSTFRoamingBeaconExecute(r ApiRemoveSTFRoamingInternalBeaconRequest) ([]byte, error) {
 	var getRoamingServiceParams = StructToString(r.GetSTFRoamingServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Clear-STFRoamingBeacon", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Clear-STFRoamingBeacon", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), "-Confirm:$false")
 }
 
 func (a *STFRoaming) STFRoamingBeaconInternalRemove(ctx context.Context, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiRemoveSTFRoamingInternalBeaconRequest {
@@ -317,7 +317,7 @@ func (r ApiSetRoamingExternalBeacon) Execute() error {
 func (a *STFRoaming) SetRoamingExternalBeaconExecute(r ApiSetRoamingExternalBeacon) ([]byte, error) {
 	var int_param = StructToString(r.SetSTFRoamingInternalBeaconRequestModel)
 	var ext_param = StructToString(r.SetSTFRoamingExternalBeaconRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFRoamingBeacon", ext_param, int_param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFRoamingBeacon", ext_param, int_param, "-Confirm:$false")
 
 }
 
@@ -360,7 +360,7 @@ func (r ApiGetRoamingExternalBeacon) Execute() (models.GetSTFRoamingExternalBeac
 }
 
 func (a *STFRoaming) GetRoamingExternalBeaconExecute(r ApiGetRoamingExternalBeacon) ([]byte, error) {
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFRoamingBeacon -External")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFRoamingBeacon -External")
 
 }
 

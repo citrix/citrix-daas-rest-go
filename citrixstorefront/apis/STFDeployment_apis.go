@@ -34,7 +34,7 @@ func (r ApiCreateSTFDeploymentRequest) Execute() (models.STFDeploymentDetailMode
 
 func (a *STFDeployment) CreateSTFDeploymentExecute(r ApiCreateSTFDeploymentRequest) ([]byte, error) {
 	var param = StructToString(r.createSTFDeploymentRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Add-STFDeployment", param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Add-STFDeployment", param, "-Confirm:$false")
 }
 
 func (a *STFDeployment) STFDeploymentCreateSTFDeployment(ctx context.Context, createSTFDeploymentRequestModel models.CreateSTFDeploymentRequestModel) ApiCreateSTFDeploymentRequest {
@@ -70,7 +70,7 @@ func (r ApiGetSTFDeploymentRequest) Execute() (models.STFDeploymentDetailModel, 
 
 func (a *STFDeployment) GetSTFDeploymentExecute(r ApiGetSTFDeploymentRequest) ([]byte, error) {
 	var param = StructToString(r.getSTFDeploymentRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Get-STFDeployment", param)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFDeployment", param)
 }
 
 func (a *STFDeployment) STFDeploymentGetSTFDeployment(ctx context.Context, getSTFDeploymentRequestModel models.GetSTFDeploymentRequestModel) ApiGetSTFDeploymentRequest {
@@ -102,7 +102,7 @@ func (r ApiSetSTFDeploymentRequest) Execute() ([]byte, error) {
 
 func (a *STFDeployment) SetSTFDeploymentExecute(r ApiSetSTFDeploymentRequest) ([]byte, error) {
 	var param = StructToString(r.setSTFDeploymentRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Set-STFDeployment", param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Set-STFDeployment", param, "-Confirm:$false")
 }
 
 func (a *STFDeployment) STFDeploymentSetSTFDeployment(ctx context.Context, setSTFDeploymentRequestModel models.SetSTFDeploymentRequestModel) ApiSetSTFDeploymentRequest {
@@ -130,7 +130,7 @@ func (r ApiClearSTFDeploymentRequest) Execute() ([]byte, error) {
 
 func (a *STFDeployment) ClearSTFDeploymentExecute(r ApiClearSTFDeploymentRequest) ([]byte, error) {
 	var param = StructToString(r.clearSTFDeploymentRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword()), "Clear-STFDeployment", param, "-Confirm:$false")
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Clear-STFDeployment", param, "-Confirm:$false")
 }
 
 func (a *STFDeployment) STFDeploymentClearSTFDeployment(ctx context.Context, clearSTFDeploymentRequestModel models.ClearSTFDeploymentRequestModel) ApiClearSTFDeploymentRequest {

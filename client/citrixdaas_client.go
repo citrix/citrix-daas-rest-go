@@ -74,11 +74,12 @@ func getMiddlewareWithQuickcreateClient(authClient *CitrixDaasClient, middleware
 	}
 }
 
-func (daasClient *CitrixDaasClient) NewStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string) {
+func (daasClient *CitrixDaasClient) NewStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string, disableSslVerification bool) {
 	daasClient.StorefrontClient = storefrontapis.NewAPIClient()
 	daasClient.StorefrontClient.SetComputerName(computerName)
 	daasClient.StorefrontClient.SetAdUserName(adUserName)
 	daasClient.StorefrontClient.SetAdPassword(adUserPass)
+	daasClient.StorefrontClient.SetDisableSSL(disableSslVerification)
 }
 
 func (daasClient *CitrixDaasClient) NewQuickCreateClient(ctx context.Context, quickCreateHostName string, middlewareFunc MiddlewareAuthFunction) {
@@ -210,6 +211,8 @@ func (daasClient *CitrixDaasClient) NewCitrixDaasClient(ctx context.Context, aut
 		return httpResp, fmt.Errorf("customer does not exist or does not have a valid site")
 	}
 	localClientCfg.SiteId = resp.Customers[0].Sites[0].Id
+
+	localClientCfg.IsCspCustomer = resp.GetIsCspCustomer()
 
 	localClientCfg.Accept = "application/json"
 
