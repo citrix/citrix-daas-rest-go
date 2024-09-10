@@ -1,0 +1,1962 @@
+openapi: 3.0.1
+info:
+  title: Citrix.CloudServices.Cws.Api
+  version: "1.0"
+servers:
+- url: /
+paths:
+  /{customer}/AuthDomains:
+    put:
+      parameters:
+      - explode: true
+        in: query
+        name: oldName
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: newName
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UpdatedCustomerModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdatedCustomerModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UpdatedCustomerModel'
+          description: OK
+      tags:
+      - AuthDomains
+  /{customer}/AuthDomains/Check:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: name
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: OK
+      tags:
+      - AuthDomains
+  /{customer}/identityProviders:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                items:
+                  type: string
+                type: array
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+            text/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: OK
+      tags:
+      - IdentityProviders
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdpConnectModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdpConnectModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdpConnectModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdpConnectModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/validate/fqdn:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: fqdn
+        required: false
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/{idpType}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: idpType
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 30
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: continuationToken
+        required: false
+        schema:
+          maxLength: 8192
+          minLength: 0
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdpStatusesModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusesModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusesModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/all/status:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdentityProvidersStatus'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProvidersStatus'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdentityProvidersStatus'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/validate/clients/{clientId}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: clientId
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/configure/okta:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/OktaConnectionModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OktaConnectionModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/OktaConnectionModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/OktaConnectionModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/OktaResultModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OktaResultModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/OktaResultModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/configure/google:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GoogleConnectionModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleConnectionModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GoogleConnectionModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GoogleConnectionModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GoogleResultModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleResultModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GoogleResultModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/client:
+    get:
+      parameters:
+      - explode: true
+        in: query
+        name: fqdn
+        required: false
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CipClientResultModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CipClientResultModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CipClientResultModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/validate/saml:
+    post:
+      parameters:
+      - explode: true
+        in: query
+        name: fileName
+        required: false
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/__customer__identityProviders_validate_saml_post_request'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SamlCertInfoModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SamlCertInfoModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SamlCertInfoModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/{id}:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceConnectModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceConnectModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceConnectModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceConnectModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/configuration/saml/{id}:
+    get:
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SamlConfigModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SamlConfigModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SamlConfigModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/{identityProvider}/{id}:
+    put:
+      parameters:
+      - explode: false
+        in: path
+        name: identityProvider
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdpUpdateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdpUpdateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdpUpdateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdpUpdateModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdpUpdateModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdpUpdateModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdpUpdateModel'
+          description: OK
+        "400":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Bad Request
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/{type}/{id}:
+    delete:
+      parameters:
+      - explode: false
+        in: path
+        name: type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 0
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityProviders/multiIdentityProviders:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdpCreateModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdpCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdpCreateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdpCreateModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+          description: OK
+      tags:
+      - IdentityProviders
+  /{customer}/identityproviders/{identityProvider}/$createconnect:
+    post:
+      parameters:
+      - explode: false
+        in: path
+        name: identityProvider
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: customer
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceCreateConnectModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceCreateConnectModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceCreateConnectModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IdpInstanceCreateConnectModel'
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IdpStatusModel'
+          description: OK
+      tags:
+      - IdentityProviders
+components:
+  schemas:
+    UpdatedCustomerModel:
+      additionalProperties: false
+      example:
+        authDomains:
+        - extensions:
+            key: ""
+          product: product
+          idpProperties:
+            key: idpProperties
+          name: name
+          idpType: idpType
+          idpDisplayName: idpDisplayName
+        - extensions:
+            key: ""
+          product: product
+          idpProperties:
+            key: idpProperties
+          name: name
+          idpType: idpType
+          idpDisplayName: idpDisplayName
+        aliases:
+        - alias: alias
+          type: type
+        - alias: alias
+          type: type
+        name: name
+        id: id
+        authDomainNames:
+        - authDomainNames
+        - authDomainNames
+      properties:
+        id:
+          nullable: true
+          type: string
+        name:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        authDomainNames:
+          items:
+            type: string
+          nullable: true
+          type: array
+        authDomains:
+          items:
+            $ref: '#/components/schemas/AuthDomainModel'
+          nullable: true
+          type: array
+        aliases:
+          items:
+            $ref: '#/components/schemas/AliasModel'
+          nullable: true
+          type: array
+      type: object
+    AuthDomainModel:
+      additionalProperties: false
+      example:
+        extensions:
+          key: ""
+        product: product
+        idpProperties:
+          key: idpProperties
+        name: name
+        idpType: idpType
+        idpDisplayName: idpDisplayName
+      properties:
+        extensions:
+          additionalProperties:
+            nullable: true
+          nullable: true
+          type: object
+        idpDisplayName:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        idpProperties:
+          additionalProperties:
+            type: string
+          nullable: true
+          type: object
+        idpType:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        name:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        product:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    AliasModel:
+      additionalProperties: false
+      example:
+        alias: alias
+        type: type
+      properties:
+        type:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        alias:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    IdpConnectModel:
+      additionalProperties: false
+      example:
+        samlConnectionModel:
+          samlSignLogoutRequest: samlSignLogoutRequest
+          samlSpEntityIdSuffix: samlSpEntityIdSuffix
+          samlResponse: samlResponse
+          samlSignAuthRequest: samlSignAuthRequest
+          samlAttributeNameForUpn: samlAttributeNameForUpn
+          samlAttributeNameForAdForest: samlAttributeNameForAdForest
+          samlEntityId: samlEntityId
+          samlAuthenticationContext: samlAuthenticationContext
+          samlLogoutRequestBinding: samlLogoutRequestBinding
+          samlAttributeNameForUserDisplayName: samlAttributeNameForUserDisplayName
+          samlAttributeNameForAdDomain: samlAttributeNameForAdDomain
+          samlAttributeNameForSid: samlAttributeNameForSid
+          samlAttributeNameForUserFamilyName: samlAttributeNameForUserFamilyName
+          samlAuthDomainName: samlAuthDomainName
+          samlAttributeNameForEmail: samlAttributeNameForEmail
+          samlCertInfo:
+            commonName: commonName
+            notAfter: notAfter
+            publicKey: publicKey
+          samlLogoutUrl: samlLogoutUrl
+          samlAttributeNameForUserGivenName: samlAttributeNameForUserGivenName
+          samlCertFileName: samlCertFileName
+          samlAttributeNameForAdOid: samlAttributeNameForAdOid
+          samlSingleSignOnServiceUrl: samlSingleSignOnServiceUrl
+          samlSingleSignOnServiceBinding: samlSingleSignOnServiceBinding
+          samlAuthenticationContextComparison: samlAuthenticationContextComparison
+        googleConnectionModel:
+          googlePrivateKey: googlePrivateKey
+          googleImpersonatedUser: googleImpersonatedUser
+          googleClientEmail: googleClientEmail
+        gatewayConnectionDetails:
+          issuerFqdn: issuerFqdn
+          clientId: clientId
+        authDomainName: authDomainName
+        oktaConnectionModel:
+          oktaApiToken: oktaApiToken
+          oktaClientSecret: oktaClientSecret
+          oktaDomain: oktaDomain
+          oktaClientId: oktaClientId
+        adOtpDetails:
+          multipleDevices: true
+          notificationsEnabled: true
+          notificationsTime: 0
+        adaptiveAuthenticationConnectionDetails:
+          issuerFqdn: issuerFqdn
+          clientId: clientId
+        identityProviderId: identityProviderId
+      properties:
+        authDomainName:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        identityProviderId:
+          maxLength: 100
+          minLength: 0
+          type: string
+        adaptiveAuthenticationConnectionDetails:
+          $ref: '#/components/schemas/AdaptiveAuthenticationConnectionModel'
+        adOtpDetails:
+          $ref: '#/components/schemas/AdOtpConnectionModel'
+        googleConnectionModel:
+          $ref: '#/components/schemas/GoogleConnectionModel'
+        gatewayConnectionDetails:
+          $ref: '#/components/schemas/GatewayConnectionModel'
+        oktaConnectionModel:
+          $ref: '#/components/schemas/OktaConnectionModel'
+        samlConnectionModel:
+          $ref: '#/components/schemas/SamlConnectionModel'
+      required:
+      - identityProviderId
+      type: object
+    AdaptiveAuthenticationConnectionModel:
+      additionalProperties: false
+      example:
+        issuerFqdn: issuerFqdn
+        clientId: clientId
+      properties:
+        issuerFqdn:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        clientId:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    AdOtpConnectionModel:
+      additionalProperties: false
+      example:
+        multipleDevices: true
+        notificationsEnabled: true
+        notificationsTime: 0
+      properties:
+        multipleDevices:
+          type: boolean
+        notificationsEnabled:
+          type: boolean
+        notificationsTime:
+          format: int32
+          type: integer
+      type: object
+    GoogleConnectionModel:
+      additionalProperties: false
+      example:
+        googlePrivateKey: googlePrivateKey
+        googleImpersonatedUser: googleImpersonatedUser
+        googleClientEmail: googleClientEmail
+      properties:
+        googleClientEmail:
+          minLength: 1
+          type: string
+        googlePrivateKey:
+          minLength: 1
+          type: string
+        googleImpersonatedUser:
+          minLength: 1
+          type: string
+      required:
+      - googleClientEmail
+      - googleImpersonatedUser
+      - googlePrivateKey
+      type: object
+    GatewayConnectionModel:
+      additionalProperties: false
+      example:
+        issuerFqdn: issuerFqdn
+        clientId: clientId
+      properties:
+        clientId:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        issuerFqdn:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    OktaConnectionModel:
+      additionalProperties: false
+      example:
+        oktaApiToken: oktaApiToken
+        oktaClientSecret: oktaClientSecret
+        oktaDomain: oktaDomain
+        oktaClientId: oktaClientId
+      properties:
+        oktaApiToken:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        oktaClientId:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        oktaClientSecret:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        oktaDomain:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    SamlConnectionModel:
+      additionalProperties: false
+      example:
+        samlSignLogoutRequest: samlSignLogoutRequest
+        samlSpEntityIdSuffix: samlSpEntityIdSuffix
+        samlResponse: samlResponse
+        samlSignAuthRequest: samlSignAuthRequest
+        samlAttributeNameForUpn: samlAttributeNameForUpn
+        samlAttributeNameForAdForest: samlAttributeNameForAdForest
+        samlEntityId: samlEntityId
+        samlAuthenticationContext: samlAuthenticationContext
+        samlLogoutRequestBinding: samlLogoutRequestBinding
+        samlAttributeNameForUserDisplayName: samlAttributeNameForUserDisplayName
+        samlAttributeNameForAdDomain: samlAttributeNameForAdDomain
+        samlAttributeNameForSid: samlAttributeNameForSid
+        samlAttributeNameForUserFamilyName: samlAttributeNameForUserFamilyName
+        samlAuthDomainName: samlAuthDomainName
+        samlAttributeNameForEmail: samlAttributeNameForEmail
+        samlCertInfo:
+          commonName: commonName
+          notAfter: notAfter
+          publicKey: publicKey
+        samlLogoutUrl: samlLogoutUrl
+        samlAttributeNameForUserGivenName: samlAttributeNameForUserGivenName
+        samlCertFileName: samlCertFileName
+        samlAttributeNameForAdOid: samlAttributeNameForAdOid
+        samlSingleSignOnServiceUrl: samlSingleSignOnServiceUrl
+        samlSingleSignOnServiceBinding: samlSingleSignOnServiceBinding
+        samlAuthenticationContextComparison: samlAuthenticationContextComparison
+      properties:
+        samlEntityId:
+          maxLength: 1024
+          minLength: 0
+          type: string
+        samlSignAuthRequest:
+          minLength: 1
+          type: string
+        samlSpEntityIdSuffix:
+          nullable: true
+          type: string
+        samlSingleSignOnServiceUrl:
+          nullable: true
+          type: string
+        samlSingleSignOnServiceBinding:
+          minLength: 1
+          type: string
+        samlResponse:
+          minLength: 1
+          type: string
+        samlAuthDomainName:
+          maxLength: 100
+          minLength: 1
+          type: string
+        samlAuthenticationContext:
+          minLength: 1
+          type: string
+        samlAuthenticationContextComparison:
+          minLength: 1
+          type: string
+        samlLogoutUrl:
+          nullable: true
+          type: string
+        samlLogoutRequestBinding:
+          nullable: true
+          type: string
+        samlSignLogoutRequest:
+          minLength: 1
+          type: string
+        samlAttributeNameForSid:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForUpn:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForEmail:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForAdOid:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForAdForest:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForAdDomain:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForUserDisplayName:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForUserGivenName:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlAttributeNameForUserFamilyName:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        samlCertFileName:
+          minLength: 1
+          type: string
+        samlCertInfo:
+          $ref: '#/components/schemas/SamlCertInfoModel'
+      required:
+      - samlAuthDomainName
+      - samlAuthenticationContext
+      - samlAuthenticationContextComparison
+      - samlCertFileName
+      - samlCertInfo
+      - samlEntityId
+      - samlResponse
+      - samlSignAuthRequest
+      - samlSingleSignOnServiceBinding
+      type: object
+    SamlCertInfoModel:
+      additionalProperties: false
+      example:
+        commonName: commonName
+        notAfter: notAfter
+        publicKey: publicKey
+      properties:
+        notAfter:
+          minLength: 1
+          type: string
+        publicKey:
+          minLength: 1
+          type: string
+        commonName:
+          maxLength: 256
+          minLength: 0
+          nullable: true
+          type: string
+      required:
+      - notAfter
+      - publicKey
+      type: object
+    IdpStatusModel:
+      additionalProperties: false
+      example:
+        availableActions:
+        - availableActions
+        - availableActions
+        clientId: clientId
+        idpInstanceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        forestPerDomain:
+          key: forestPerDomain
+        devicesLastResetTime:
+          key: devicesLastResetTime
+        domains:
+        - domains
+        - domains
+        multipleDevices: true
+        authDomainName: authDomainName
+        notificationsEnabled: true
+        notificationsTime: 6
+        enabled: true
+        url: url
+        identityProviderId: identityProviderId
+        additionalStatusInfo:
+          key: additionalStatusInfo
+        issuerFqdn: issuerFqdn
+        azureAdConnection:
+          authDomainDisplayName: authDomainDisplayName
+          hintApp: hintApp
+          resources: resources
+          authDomainName: authDomainName
+        customerId: customerId
+        idpNickname: idpNickname
+        connectorsCount: 0
+      properties:
+        additionalStatusInfo:
+          additionalProperties:
+            type: string
+          nullable: true
+          type: object
+        authDomainName:
+          nullable: true
+          type: string
+        availableActions:
+          items:
+            type: string
+          nullable: true
+          type: array
+        azureAdConnection:
+          $ref: '#/components/schemas/AzureAdConnection'
+        clientId:
+          nullable: true
+          type: string
+        connectorsCount:
+          format: int32
+          nullable: true
+          type: integer
+        customerId:
+          nullable: true
+          pattern: "^[a-zA-Z0-9]{1,12}$"
+          type: string
+        devicesLastResetTime:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
+        domains:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        enabled:
+          type: boolean
+        forestPerDomain:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
+        identityProviderId:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        idpInstanceId:
+          format: uuid
+          nullable: true
+          type: string
+        idpNickname:
+          nullable: true
+          type: string
+        issuerFqdn:
+          nullable: true
+          type: string
+        multipleDevices:
+          type: boolean
+        notificationsEnabled:
+          type: boolean
+        notificationsTime:
+          format: int32
+          type: integer
+        url:
+          nullable: true
+          type: string
+      type: object
+    AzureAdConnection:
+      additionalProperties: false
+      example:
+        authDomainDisplayName: authDomainDisplayName
+        hintApp: hintApp
+        resources: resources
+        authDomainName: authDomainName
+      properties:
+        authDomainName:
+          nullable: true
+          type: string
+        authDomainDisplayName:
+          nullable: true
+          type: string
+        hintApp:
+          nullable: true
+          type: string
+        resources:
+          nullable: true
+          type: string
+      type: object
+    IdpStatusesModel:
+      additionalProperties: false
+      example:
+        availableActions:
+        - availableActions
+        - availableActions
+        clientId: clientId
+        idpInstanceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        forestPerDomain:
+          key: forestPerDomain
+        devicesLastResetTime:
+          key: devicesLastResetTime
+        domains:
+        - domains
+        - domains
+        multipleDevices: true
+        authDomainName: authDomainName
+        notificationsEnabled: true
+        notificationsTime: 6
+        enabled: true
+        url: url
+        identityProviderId: identityProviderId
+        additionalStatusInfo:
+          key: additionalStatusInfo
+        issuerFqdn: issuerFqdn
+        azureAdConnection:
+          authDomainDisplayName: authDomainDisplayName
+          hintApp: hintApp
+          resources: resources
+          authDomainName: authDomainName
+        customerId: customerId
+        idpNickname: idpNickname
+        connectorsCount: 0
+        items:
+        - availableActions:
+          - availableActions
+          - availableActions
+          clientId: clientId
+          idpInstanceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          forestPerDomain:
+            key: forestPerDomain
+          devicesLastResetTime:
+            key: devicesLastResetTime
+          domains:
+          - domains
+          - domains
+          multipleDevices: true
+          authDomainName: authDomainName
+          notificationsEnabled: true
+          notificationsTime: 6
+          enabled: true
+          url: url
+          identityProviderId: identityProviderId
+          additionalStatusInfo:
+            key: additionalStatusInfo
+          issuerFqdn: issuerFqdn
+          azureAdConnection:
+            authDomainDisplayName: authDomainDisplayName
+            hintApp: hintApp
+            resources: resources
+            authDomainName: authDomainName
+          customerId: customerId
+          idpNickname: idpNickname
+          connectorsCount: 0
+        - availableActions:
+          - availableActions
+          - availableActions
+          clientId: clientId
+          idpInstanceId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          forestPerDomain:
+            key: forestPerDomain
+          devicesLastResetTime:
+            key: devicesLastResetTime
+          domains:
+          - domains
+          - domains
+          multipleDevices: true
+          authDomainName: authDomainName
+          notificationsEnabled: true
+          notificationsTime: 6
+          enabled: true
+          url: url
+          identityProviderId: identityProviderId
+          additionalStatusInfo:
+            key: additionalStatusInfo
+          issuerFqdn: issuerFqdn
+          azureAdConnection:
+            authDomainDisplayName: authDomainDisplayName
+            hintApp: hintApp
+            resources: resources
+            authDomainName: authDomainName
+          customerId: customerId
+          idpNickname: idpNickname
+          connectorsCount: 0
+        continuationToken: continuationToken
+      properties:
+        additionalStatusInfo:
+          additionalProperties:
+            type: string
+          nullable: true
+          type: object
+        authDomainName:
+          nullable: true
+          type: string
+        availableActions:
+          items:
+            type: string
+          nullable: true
+          type: array
+        azureAdConnection:
+          $ref: '#/components/schemas/AzureAdConnection'
+        clientId:
+          nullable: true
+          type: string
+        connectorsCount:
+          format: int32
+          nullable: true
+          type: integer
+        customerId:
+          nullable: true
+          pattern: "^[a-zA-Z0-9]{1,12}$"
+          type: string
+        devicesLastResetTime:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
+        domains:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+        enabled:
+          type: boolean
+        forestPerDomain:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
+        identityProviderId:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        idpInstanceId:
+          format: uuid
+          nullable: true
+          type: string
+        idpNickname:
+          nullable: true
+          type: string
+        issuerFqdn:
+          nullable: true
+          type: string
+        multipleDevices:
+          type: boolean
+        notificationsEnabled:
+          type: boolean
+        notificationsTime:
+          format: int32
+          type: integer
+        url:
+          nullable: true
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/IdpStatusModel'
+          nullable: true
+          type: array
+        continuationToken:
+          maxLength: 8192
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    IdentityProvidersStatus:
+      additionalProperties: false
+      example:
+        identityProviderEnabled:
+          key: true
+      properties:
+        identityProviderEnabled:
+          additionalProperties:
+            nullable: true
+            type: boolean
+          nullable: true
+          type: object
+      type: object
+    OktaResultModel:
+      additionalProperties: false
+      example:
+        validDomain: true
+        validClientSecret: true
+        validClientId: true
+        validApiToken: true
+      properties:
+        validApiToken:
+          type: boolean
+        validClientId:
+          type: boolean
+        validClientSecret:
+          type: boolean
+        validDomain:
+          type: boolean
+      type: object
+    GoogleResultModel:
+      additionalProperties: false
+      example:
+        validCredentials: true
+        domainNames:
+        - domainNames
+        - domainNames
+      properties:
+        domainNames:
+          items:
+            type: string
+          nullable: true
+          type: array
+        validCredentials:
+          type: boolean
+      type: object
+    CipClientResultModel:
+      additionalProperties: false
+      example:
+        clientId: clientId
+        redirectUrl: redirectUrl
+        clientSecret: clientSecret
+      properties:
+        clientId:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        clientSecret:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        redirectUrl:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    IdpInstanceConnectModel:
+      additionalProperties: false
+      example:
+        samlConnectionModel:
+          samlSignLogoutRequest: samlSignLogoutRequest
+          samlSpEntityIdSuffix: samlSpEntityIdSuffix
+          samlResponse: samlResponse
+          samlSignAuthRequest: samlSignAuthRequest
+          samlAttributeNameForUpn: samlAttributeNameForUpn
+          samlAttributeNameForAdForest: samlAttributeNameForAdForest
+          samlEntityId: samlEntityId
+          samlAuthenticationContext: samlAuthenticationContext
+          samlLogoutRequestBinding: samlLogoutRequestBinding
+          samlAttributeNameForUserDisplayName: samlAttributeNameForUserDisplayName
+          samlAttributeNameForAdDomain: samlAttributeNameForAdDomain
+          samlAttributeNameForSid: samlAttributeNameForSid
+          samlAttributeNameForUserFamilyName: samlAttributeNameForUserFamilyName
+          samlAuthDomainName: samlAuthDomainName
+          samlAttributeNameForEmail: samlAttributeNameForEmail
+          samlCertInfo:
+            commonName: commonName
+            notAfter: notAfter
+            publicKey: publicKey
+          samlLogoutUrl: samlLogoutUrl
+          samlAttributeNameForUserGivenName: samlAttributeNameForUserGivenName
+          samlCertFileName: samlCertFileName
+          samlAttributeNameForAdOid: samlAttributeNameForAdOid
+          samlSingleSignOnServiceUrl: samlSingleSignOnServiceUrl
+          samlSingleSignOnServiceBinding: samlSingleSignOnServiceBinding
+          samlAuthenticationContextComparison: samlAuthenticationContextComparison
+        azureAd:
+          appPermission: appPermission
+          tenantId: tenantId
+        googleConnectionModel:
+          googlePrivateKey: googlePrivateKey
+          googleImpersonatedUser: googleImpersonatedUser
+          googleClientEmail: googleClientEmail
+        gatewayConnectionDetails:
+          issuerFqdn: issuerFqdn
+          clientId: clientId
+        identityProviderType: identityProviderType
+        authDomainName: authDomainName
+        oktaConnectionModel:
+          oktaApiToken: oktaApiToken
+          oktaClientSecret: oktaClientSecret
+          oktaDomain: oktaDomain
+          oktaClientId: oktaClientId
+        adaptiveAuthenticationConnectionDetails:
+          issuerFqdn: issuerFqdn
+          clientId: clientId
+      properties:
+        adaptiveAuthenticationConnectionDetails:
+          $ref: '#/components/schemas/AdaptiveAuthenticationConnectionModel'
+        authDomainName:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        azureAd:
+          $ref: '#/components/schemas/AzureAdConnectionSettings'
+        gatewayConnectionDetails:
+          $ref: '#/components/schemas/GatewayConnectionModel'
+        googleConnectionModel:
+          $ref: '#/components/schemas/GoogleConnectionModel'
+        identityProviderType:
+          maxLength: 100
+          minLength: 0
+          type: string
+        oktaConnectionModel:
+          $ref: '#/components/schemas/OktaConnectionModel'
+        samlConnectionModel:
+          $ref: '#/components/schemas/SamlConnectionModel'
+      required:
+      - identityProviderType
+      type: object
+    SamlConfigModel:
+      additionalProperties: false
+      example:
+        samlSignLogoutRequest: samlSignLogoutRequest
+        samlCertPublicKey: samlCertPublicKey
+        samlAttributeNameForUpn: samlAttributeNameForUpn
+        samlEntityId: samlEntityId
+        samlAttributeNameForAdDomain: samlAttributeNameForAdDomain
+        samlAttributeNameForSid: samlAttributeNameForSid
+        samlAttributeNameForUserFamilyName: samlAttributeNameForUserFamilyName
+        samlAttributeNameForEmail: samlAttributeNameForEmail
+        samlCertData: samlCertData
+        samlCertCN: samlCertCN
+        samlAuthenticationContextComparison: samlAuthenticationContextComparison
+        samlSpEntityIdSuffix: samlSpEntityIdSuffix
+        samlResponse: samlResponse
+        samlSignAuthRequest: samlSignAuthRequest
+        samlAttributeNameForAdForest: samlAttributeNameForAdForest
+        samlAuthenticationContext: samlAuthenticationContext
+        samlLogoutRequestBinding: samlLogoutRequestBinding
+        samlAttributeNameForUserDisplayName: samlAttributeNameForUserDisplayName
+        samlCertExpiration: samlCertExpiration
+        samlLogoutUrl: samlLogoutUrl
+        samlAttributeNameForUserGivenName: samlAttributeNameForUserGivenName
+        samlCertFileName: samlCertFileName
+        samlAttributeNameForAdOid: samlAttributeNameForAdOid
+        samlSingleSignOnServiceUrl: samlSingleSignOnServiceUrl
+        samlSingleSignOnServiceBinding: samlSingleSignOnServiceBinding
+      properties:
+        samlEntityId:
+          nullable: true
+          type: string
+        samlSpEntityIdSuffix:
+          nullable: true
+          type: string
+        samlSignAuthRequest:
+          minLength: 1
+          type: string
+        samlSingleSignOnServiceUrl:
+          nullable: true
+          type: string
+        samlSingleSignOnServiceBinding:
+          nullable: true
+          type: string
+        samlResponse:
+          nullable: true
+          type: string
+        samlAuthenticationContext:
+          nullable: true
+          type: string
+        samlAuthenticationContextComparison:
+          nullable: true
+          type: string
+        samlLogoutUrl:
+          nullable: true
+          type: string
+        samlLogoutRequestBinding:
+          nullable: true
+          type: string
+        samlSignLogoutRequest:
+          minLength: 1
+          type: string
+        samlAttributeNameForSid:
+          nullable: true
+          type: string
+        samlAttributeNameForUpn:
+          nullable: true
+          type: string
+        samlAttributeNameForEmail:
+          nullable: true
+          type: string
+        samlAttributeNameForAdOid:
+          nullable: true
+          type: string
+        samlAttributeNameForAdForest:
+          nullable: true
+          type: string
+        samlAttributeNameForAdDomain:
+          nullable: true
+          type: string
+        samlAttributeNameForUserDisplayName:
+          nullable: true
+          type: string
+        samlAttributeNameForUserGivenName:
+          nullable: true
+          type: string
+        samlAttributeNameForUserFamilyName:
+          nullable: true
+          type: string
+        samlCertPublicKey:
+          nullable: true
+          type: string
+        samlCertCN:
+          nullable: true
+          type: string
+        samlCertFileName:
+          nullable: true
+          type: string
+        samlCertExpiration:
+          nullable: true
+          type: string
+        samlCertData:
+          nullable: true
+          type: string
+      type: object
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        type:
+          nullable: true
+          type: string
+        detail:
+          nullable: true
+          type: string
+        parameters:
+          items:
+            additionalProperties:
+              type: string
+            type: object
+          nullable: true
+          type: array
+      type: object
+    IdpCreateModel:
+      additionalProperties: false
+      example:
+        identityProviderNickname: identityProviderNickname
+        idpConnectionModel:
+          idpProperties:
+            key: idpProperties
+          connectionStatus: true
+          idpType: idpType
+          connectedApp: connectedApp
+        identityProviderId: identityProviderId
+      properties:
+        identityProviderId:
+          maxLength: 100
+          minLength: 0
+          type: string
+        identityProviderNickname:
+          maxLength: 64
+          minLength: 0
+          type: string
+        idpConnectionModel:
+          $ref: '#/components/schemas/IdpConnectionModel'
+      required:
+      - identityProviderId
+      - identityProviderNickname
+      type: object
+    IdpConnectionModel:
+      additionalProperties: false
+      example:
+        idpProperties:
+          key: idpProperties
+        connectionStatus: true
+        idpType: idpType
+        connectedApp: connectedApp
+      properties:
+        idpType:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        connectedApp:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        connectionStatus:
+          type: boolean
+        idpProperties:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
+      type: object
+    IdpInstanceCreateConnectModel:
+      additionalProperties: false
+      example:
+        samlConnectionModel:
+          samlSignLogoutRequest: samlSignLogoutRequest
+          samlSpEntityIdSuffix: samlSpEntityIdSuffix
+          samlResponse: samlResponse
+          samlSignAuthRequest: samlSignAuthRequest
+          samlAttributeNameForUpn: samlAttributeNameForUpn
+          samlAttributeNameForAdForest: samlAttributeNameForAdForest
+          samlEntityId: samlEntityId
+          samlAuthenticationContext: samlAuthenticationContext
+          samlLogoutRequestBinding: samlLogoutRequestBinding
+          samlAttributeNameForUserDisplayName: samlAttributeNameForUserDisplayName
+          samlAttributeNameForAdDomain: samlAttributeNameForAdDomain
+          samlAttributeNameForSid: samlAttributeNameForSid
+          samlAttributeNameForUserFamilyName: samlAttributeNameForUserFamilyName
+          samlAuthDomainName: samlAuthDomainName
+          samlAttributeNameForEmail: samlAttributeNameForEmail
+          samlCertInfo:
+            commonName: commonName
+            notAfter: notAfter
+            publicKey: publicKey
+          samlLogoutUrl: samlLogoutUrl
+          samlAttributeNameForUserGivenName: samlAttributeNameForUserGivenName
+          samlCertFileName: samlCertFileName
+          samlAttributeNameForAdOid: samlAttributeNameForAdOid
+          samlSingleSignOnServiceUrl: samlSingleSignOnServiceUrl
+          samlSingleSignOnServiceBinding: samlSingleSignOnServiceBinding
+          samlAuthenticationContextComparison: samlAuthenticationContextComparison
+        identityProviderNickname: identityProviderNickname
+        azureAd:
+          appPermission: appPermission
+          tenantId: tenantId
+        googleConnectionModel:
+          googlePrivateKey: googlePrivateKey
+          googleImpersonatedUser: googleImpersonatedUser
+          googleClientEmail: googleClientEmail
+        gatewayConnectionDetails:
+          issuerFqdn: issuerFqdn
+          clientId: clientId
+        identityProviderType: identityProviderType
+        authDomainName: authDomainName
+        oktaConnectionModel:
+          oktaApiToken: oktaApiToken
+          oktaClientSecret: oktaClientSecret
+          oktaDomain: oktaDomain
+          oktaClientId: oktaClientId
+        adaptiveAuthenticationConnectionDetails:
+          issuerFqdn: issuerFqdn
+          clientId: clientId
+      properties:
+        adaptiveAuthenticationConnectionDetails:
+          $ref: '#/components/schemas/AdaptiveAuthenticationConnectionModel'
+        authDomainName:
+          maxLength: 100
+          minLength: 0
+          nullable: true
+          type: string
+        azureAd:
+          $ref: '#/components/schemas/AzureAdConnectionSettings'
+        gatewayConnectionDetails:
+          $ref: '#/components/schemas/GatewayConnectionModel'
+        googleConnectionModel:
+          $ref: '#/components/schemas/GoogleConnectionModel'
+        identityProviderType:
+          maxLength: 100
+          minLength: 0
+          type: string
+        oktaConnectionModel:
+          $ref: '#/components/schemas/OktaConnectionModel'
+        samlConnectionModel:
+          $ref: '#/components/schemas/SamlConnectionModel'
+        identityProviderNickname:
+          maxLength: 64
+          minLength: 0
+          type: string
+      required:
+      - identityProviderNickname
+      - identityProviderType
+      type: object
+    AzureAdConnectionSettings:
+      additionalProperties: false
+      example:
+        appPermission: appPermission
+        tenantId: tenantId
+      properties:
+        appPermission:
+          maxLength: 8192
+          minLength: 0
+          type: string
+        tenantId:
+          maxLength: 100
+          minLength: 0
+          type: string
+      required:
+      - appPermission
+      - tenantId
+      type: object
+    IdpUpdateModel:
+      additionalProperties: false
+      example:
+        nickname: nickname
+        authDomainName: authDomainName
+        adOtpDetails:
+          multipleDevices: true
+          notificationsEnabled: true
+          notificationsTime: 0
+      properties:
+        adOtpDetails:
+          $ref: '#/components/schemas/AdOtpConnectionModel'
+        authDomainName:
+          maxLength: 62
+          minLength: 6
+          nullable: true
+          type: string
+        nickname:
+          maxLength: 64
+          minLength: 0
+          nullable: true
+          type: string
+      type: object
+    CwsIdentityProviderType:
+      enum:
+      - Ad
+      - AdaptiveAuth
+      - AdOpt
+      - AzureAd
+      - Google
+      - Okta
+      - OnPremGateway
+      - Saml
+      type: string
+    SamlSignRequestType:
+      enum:
+      - "Yes"
+      - "No"
+      type: string
+    SamlRequestBindingType:
+      enum:
+      - HttpPost
+      - HttpRedirect
+      type: string
+    SamlResponseType:
+      enum:
+      - SignEitherResponseOrAssertion
+      - MustSignResponse
+      - MustSignAssertion
+      type: string
+    SamlAuthContextType:
+      enum:
+      - Unspecified
+      - UserNameAndPassword
+      - X509Cert
+      - IntegratedWinAuth
+      - Kerberos
+      - PasswordProtectedTransport
+      - TLSClient
+      type: string
+    SamlAuthContextComparisonType:
+      enum:
+      - Exact
+      - Minimum
+      type: string
+    __customer__identityProviders_validate_saml_post_request:
+      properties:
+        certFile:
+          format: binary
+          type: string
+      type: object

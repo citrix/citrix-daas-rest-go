@@ -120,6 +120,7 @@ Class | Method | HTTP request | Description
  - [Account](docs/Account.md)
  - [AccountResource](docs/AccountResource.md)
  - [AccountResources](docs/AccountResources.md)
+ - [AccountResourcesItemsInner](docs/AccountResourcesItemsInner.md)
  - [AccountState](docs/AccountState.md)
  - [AccountTask](docs/AccountTask.md)
  - [AccountTaskOperationType](docs/AccountTaskOperationType.md)

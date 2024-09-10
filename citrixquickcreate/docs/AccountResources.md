@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | Pointer to [**[]AwsEdcAccountResource**](AwsEdcAccountResource.md) | Enumerable of account resource | [optional] 
+**Items** | Pointer to [**[]AccountResourcesItemsInner**](AccountResourcesItemsInner.md) | Enumerable of account resource | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetItems
 
-`func (o *AccountResources) GetItems() []AwsEdcAccountResource`
+`func (o *AccountResources) GetItems() []AccountResourcesItemsInner`
 
 GetItems returns the Items field if non-nil, zero value otherwise.
 
 ### GetItemsOk
 
-`func (o *AccountResources) GetItemsOk() (*[]AwsEdcAccountResource, bool)`
+`func (o *AccountResources) GetItemsOk() (*[]AccountResourcesItemsInner, bool)`
 
 GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetItems
 
-`func (o *AccountResources) SetItems(v []AwsEdcAccountResource)`
+`func (o *AccountResources) SetItems(v []AccountResourcesItemsInner)`
 
 SetItems sets Items field to given value.
 

@@ -20,7 +20,7 @@ var _ MappedNullable = &AccountResources{}
 // AccountResources Enumerable of account resource
 type AccountResources struct {
 	// Enumerable of account resource
-	Items []AwsEdcAccountResource `json:"items,omitempty"`
+	Items []AccountResourcesItemsInner `json:"items,omitempty"`
 }
 
 // NewAccountResources instantiates a new AccountResources object
@@ -41,9 +41,9 @@ func NewAccountResourcesWithDefaults() *AccountResources {
 }
 
 // GetItems returns the Items field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AccountResources) GetItems() []AwsEdcAccountResource {
+func (o *AccountResources) GetItems() []AccountResourcesItemsInner {
 	if o == nil {
-		var ret []AwsEdcAccountResource
+		var ret []AccountResourcesItemsInner
 		return ret
 	}
 	return o.Items
@@ -52,7 +52,7 @@ func (o *AccountResources) GetItems() []AwsEdcAccountResource {
 // GetItemsOk returns a tuple with the Items field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AccountResources) GetItemsOk() ([]AwsEdcAccountResource, bool) {
+func (o *AccountResources) GetItemsOk() ([]AccountResourcesItemsInner, bool) {
 	if o == nil || IsNil(o.Items) {
 		return nil, false
 	}
@@ -68,8 +68,8 @@ func (o *AccountResources) HasItems() bool {
 	return false
 }
 
-// SetItems gets a reference to the given []AwsEdcAccountResource and assigns it to the Items field.
-func (o *AccountResources) SetItems(v []AwsEdcAccountResource) {
+// SetItems gets a reference to the given []AccountResourcesItemsInner and assigns it to the Items field.
+func (o *AccountResources) SetItems(v []AccountResourcesItemsInner) {
 	o.Items = v
 }
 

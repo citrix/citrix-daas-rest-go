@@ -6,8 +6,8 @@ var _ MappedNullable = &AddSTFRoamingGatewayRequestModel{}
 
 type AddSTFRoamingGatewayRequestModel struct {
 	Name                       NullableString `json:"Name,omitempty"`                       //The Gateway friendly name
-	LogonType                  NullableString `json:"LogonType,omitempty"`                  // The login type required and supported by the Gateway
-	SmartCardFallbackLogonType NullableString `json:"SmartCardFallbackLogonType,omitempty"` // The login type to use when SmartCard fails
+	LogonType                  *LogonType     `json:"LogonType,omitempty"`                  // The login type required and supported by the Gateway
+	SmartCardFallbackLogonType *LogonType     `json:"SmartCardFallbackLogonType,omitempty"` // The login type to use when SmartCard fails
 	Version                    NullableString `json:"Version,omitempty"`                    // The Citrix NetScaler Gateway version
 	GatewayUrl                 NullableString `json:"GatewayUrl,omitempty"`                 // The Gateway Url
 	CallbackUrl                NullableString `json:"CallbackUrl,omitempty"`                // The Gateway authentication NetScaler call-back Url
@@ -26,11 +26,11 @@ func (o AddSTFRoamingGatewayRequestModel) ToMap() (map[string]interface{}, error
 	if o.Name.IsSet() {
 		toSerialize["Name"] = o.Name.Get()
 	}
-	if o.LogonType.IsSet() {
-		toSerialize["LogonType"] = o.LogonType.Get()
+	if !IsNil(o.LogonType) {
+		toSerialize["LogonType"] = o.LogonType
 	}
-	if o.SmartCardFallbackLogonType.IsSet() {
-		toSerialize["SmartCardFallbackLogonType"] = o.SmartCardFallbackLogonType.Get()
+	if !IsNil(o.SmartCardFallbackLogonType) {
+		toSerialize["SmartCardFallbackLogonType"] = o.SmartCardFallbackLogonType
 	}
 	if o.Version.IsSet() {
 		toSerialize["Version"] = o.Version.Get()
@@ -69,12 +69,12 @@ func (o *AddSTFRoamingGatewayRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
 
-func (o *AddSTFRoamingGatewayRequestModel) SetLogonType(v string) {
-	o.LogonType.Set(&v)
+func (o *AddSTFRoamingGatewayRequestModel) SetLogonType(v LogonType) {
+	o.LogonType = &v
 }
 
-func (o *AddSTFRoamingGatewayRequestModel) SetSmartCardFallbackLogonType(v string) {
-	o.SmartCardFallbackLogonType.Set(&v)
+func (o *AddSTFRoamingGatewayRequestModel) SetSmartCardFallbackLogonType(v LogonType) {
+	o.SmartCardFallbackLogonType = &v
 }
 
 func (o *AddSTFRoamingGatewayRequestModel) SetVersion(v string) {
@@ -117,6 +117,60 @@ func (o *AddSTFRoamingGatewayRequestModel) SetStasUseLoadBalancing(v bool) {
 	o.StasUseLoadBalancing.Set(&v)
 }
 
+// GetLogonType returns the LogonType field value if set, zero value otherwise.
+func (o *AddSTFRoamingGatewayRequestModel) GetLogonType() LogonType {
+	if o == nil || IsNil(o.LogonType) {
+		var ret LogonType
+		return ret
+	}
+	return *o.LogonType
+}
+
+// GetLogonTypeOk returns a tuple with the LogonType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddSTFRoamingGatewayRequestModel) GetLogonTypeOk() (*LogonType, bool) {
+	if o == nil || IsNil(o.LogonType) {
+		return nil, false
+	}
+	return o.LogonType, true
+}
+
+// HasLogonType returns a boolean if a field has been set.
+func (o *AddSTFRoamingGatewayRequestModel) HasLogonType() bool {
+	if o != nil && !IsNil(o.LogonType) {
+		return true
+	}
+
+	return false
+}
+
+// GetSmartCardFallbackLogonType returns the LogonType field value if set, zero value otherwise.
+func (o *AddSTFRoamingGatewayRequestModel) GetSmartCardFallbackLogonType() LogonType {
+	if o == nil || IsNil(o.LogonType) {
+		var ret LogonType
+		return ret
+	}
+	return *o.LogonType
+}
+
+// GetSmartCardFallbackLogonTypeOk returns a tuple with the LogonType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AddSTFRoamingGatewayRequestModel) GetSmartCardFallbackLogonTypeOk() (*LogonType, bool) {
+	if o == nil || IsNil(o.LogonType) {
+		return nil, false
+	}
+	return o.LogonType, true
+}
+
+// HasSmartCardFallbackLogonType returns a boolean if a field has been set.
+func (o *AddSTFRoamingGatewayRequestModel) HasSmartCardFallbackLogonType() bool {
+	if o != nil && !IsNil(o.LogonType) {
+		return true
+	}
+
+	return false
+}
+
 // Get-STFRoamingGateway
 var _ MappedNullable = &GetSTFRoamingGatewayRequestModel{}
 
@@ -142,8 +196,8 @@ var _ MappedNullable = &SetSTFRoamingGatewayRequestModel{}
 
 type SetSTFRoamingGatewayRequestModel struct {
 	Name                       NullableString `json:"Name,omitempty"`                       //The Gateway friendly name
-	LogonType                  NullableString `json:"LogonType,omitempty"`                  // The login type required and supported by the Gateway
-	SmartCardFallbackLogonType NullableString `json:"SmartCardFallbackLogonType,omitempty"` // The login type to use when SmartCard fails
+	LogonType                  *LogonType     `json:"LogonType,omitempty"`                  // The login type required and supported by the Gateway
+	SmartCardFallbackLogonType *LogonType     `json:"SmartCardFallbackLogonType,omitempty"` // The login type to use when SmartCard fails
 	Version                    NullableString `json:"Version,omitempty"`                    // The Citrix NetScaler Gateway version
 	GatewayUrl                 NullableString `json:"GatewayUrl,omitempty"`                 // The Gateway Url
 	CallbackUrl                NullableString `json:"CallbackUrl,omitempty"`                // The Gateway authentication NetScaler call-back Url
@@ -160,11 +214,11 @@ func (o SetSTFRoamingGatewayRequestModel) ToMap() (map[string]interface{}, error
 	if o.Name.IsSet() {
 		toSerialize["Name"] = o.Name.Get()
 	}
-	if o.LogonType.IsSet() {
-		toSerialize["LogonType"] = o.LogonType.Get()
+	if !IsNil(o.LogonType) {
+		toSerialize["LogonType"] = o.LogonType
 	}
-	if o.SmartCardFallbackLogonType.IsSet() {
-		toSerialize["SmartCardFallbackLogonType"] = o.SmartCardFallbackLogonType.Get()
+	if !IsNil(o.SmartCardFallbackLogonType) {
+		toSerialize["SmartCardFallbackLogonType"] = o.SmartCardFallbackLogonType
 	}
 	if o.Version.IsSet() {
 		toSerialize["Version"] = o.Version.Get()
@@ -197,12 +251,12 @@ func (o *SetSTFRoamingGatewayRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
 
-func (o *SetSTFRoamingGatewayRequestModel) SetLogonType(v string) {
-	o.LogonType.Set(&v)
+func (o *SetSTFRoamingGatewayRequestModel) SetLogonType(v LogonType) {
+	o.LogonType = &v
 }
 
-func (o *SetSTFRoamingGatewayRequestModel) SetSmartCardFallbackLogonType(v string) {
-	o.SmartCardFallbackLogonType.Set(&v)
+func (o *SetSTFRoamingGatewayRequestModel) SetSmartCardFallbackLogonType(v LogonType) {
+	o.SmartCardFallbackLogonType = &v
 }
 
 func (o *SetSTFRoamingGatewayRequestModel) SetVersion(v string) {
@@ -235,4 +289,58 @@ func (o *SetSTFRoamingGatewayRequestModel) SetGslbUrl(v string) {
 
 func (o *SetSTFRoamingGatewayRequestModel) SetIsCloudGateway(v bool) {
 	o.IsCloudGateway.Set(&v)
+}
+
+// GetLogonType returns the LogonType field value if set, zero value otherwise.
+func (o *SetSTFRoamingGatewayRequestModel) GetLogonType() LogonType {
+	if o == nil || IsNil(o.LogonType) {
+		var ret LogonType
+		return ret
+	}
+	return *o.LogonType
+}
+
+// GetLogonTypeOk returns a tuple with the LogonType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SetSTFRoamingGatewayRequestModel) GetLogonTypeOk() (*LogonType, bool) {
+	if o == nil || IsNil(o.LogonType) {
+		return nil, false
+	}
+	return o.LogonType, true
+}
+
+// HasLogonType returns a boolean if a field has been set.
+func (o *SetSTFRoamingGatewayRequestModel) HasLogonType() bool {
+	if o != nil && !IsNil(o.LogonType) {
+		return true
+	}
+
+	return false
+}
+
+// GetSmartCardFallbackLogonType returns the LogonType field value if set, zero value otherwise.
+func (o *SetSTFRoamingGatewayRequestModel) GetSmartCardFallbackLogonType() LogonType {
+	if o == nil || IsNil(o.LogonType) {
+		var ret LogonType
+		return ret
+	}
+	return *o.LogonType
+}
+
+// GetSmartCardFallbackLogonTypeOk returns a tuple with the LogonType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SetSTFRoamingGatewayRequestModel) GetSmartCardFallbackLogonTypeOk() (*LogonType, bool) {
+	if o == nil || IsNil(o.LogonType) {
+		return nil, false
+	}
+	return o.LogonType, true
+}
+
+// HasSmartCardFallbackLogonType returns a boolean if a field has been set.
+func (o *SetSTFRoamingGatewayRequestModel) HasSmartCardFallbackLogonType() bool {
+	if o != nil && !IsNil(o.LogonType) {
+		return true
+	}
+
+	return false
 }
