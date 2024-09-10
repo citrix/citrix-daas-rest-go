@@ -7610,14 +7610,13 @@ components:
       description: Enumerable of account resource
       example:
         items:
-        - ""
-        - ""
+        - null
+        - null
       properties:
         items:
           description: Enumerable of account resource
           items:
-            allOf:
-            - $ref: '#/components/schemas/AwsEdcAccountResource'
+            $ref: '#/components/schemas/AccountResources_items_inner'
           nullable: true
           type: array
       type: object
@@ -10763,6 +10762,19 @@ components:
       - $ref: '#/components/schemas/DeploymentTask'
       - $ref: '#/components/schemas/CommissionTask'
       - $ref: '#/components/schemas/ResourceConnectionTask'
+    AccountResources_items_inner:
+      oneOf:
+      - $ref: '#/components/schemas/AwsEdcAccountResourceCidrRange'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceByolRegistration'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceAmiImage'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceDirectory'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceVpc'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceSubnet'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceRegion'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceSecurityGroup'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceFile'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceEc2InstanceType'
+      - $ref: '#/components/schemas/AwsEdcAccountResourceKeyPair'
     AwsEdcMissingRolePermissions_condition:
       allOf:
       - $ref: '#/components/schemas/ConditionalExpression'

@@ -14,6 +14,7 @@ docs/Account.md
 docs/AccountQCS.md
 docs/AccountResource.md
 docs/AccountResources.md
+docs/AccountResourcesItemsInner.md
 docs/AccountState.md
 docs/AccountTask.md
 docs/AccountTaskOperationType.md
@@ -191,6 +192,7 @@ git_push.sh
 model_account.go
 model_account_resource.go
 model_account_resources.go
+model_account_resources_items_inner.go
 model_account_state.go
 model_account_task.go
 model_account_task_operation_type.go

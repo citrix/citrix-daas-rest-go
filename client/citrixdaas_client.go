@@ -18,6 +18,7 @@ import (
 
 	ccadmins "github.com/citrix/citrix-daas-rest-go/ccadmins"
 	resourcelocations "github.com/citrix/citrix-daas-rest-go/ccresourcelocations"
+	"github.com/citrix/citrix-daas-rest-go/citrixcws"
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	citrixquickcreate "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 	storefrontapis "github.com/citrix/citrix-daas-rest-go/citrixstorefront/apis"
@@ -25,15 +26,17 @@ import (
 )
 
 type CitrixDaasClient struct {
-	ApiClient               *citrixorchestration.APIClient
+	ApiClient         *citrixorchestration.APIClient
+	AuthConfig        *AuthenticationConfiguration
+	ClientConfig      *ClientConfiguration
+	AuthToken         *AuthTokenModel
+	StorefrontClient  *storefrontapis.APIClient
+	QuickCreateClient *citrixquickcreate.APIClient
+	// Citrix Cloud Service Clients
+	CCAdminsClient          *ccadmins.APIClient
+	CwsClient               *citrixcws.APIClient
 	GacClient               *globalappconfiguration.APIClient
 	ResourceLocationsClient *resourcelocations.APIClient
-	CCAdminsClient          *ccadmins.APIClient
-	AuthConfig              *AuthenticationConfiguration
-	ClientConfig            *ClientConfiguration
-	AuthToken               *AuthTokenModel
-	StorefrontClient        *storefrontapis.APIClient
-	QuickCreateClient       *citrixquickcreate.APIClient
 }
 
 type AuthTokenModel struct {
@@ -74,6 +77,12 @@ func getMiddlewareWithQuickcreateClient(authClient *CitrixDaasClient, middleware
 	}
 }
 
+func getMiddlewareWithCwsClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) citrixcws.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
 func (daasClient *CitrixDaasClient) NewStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string, disableSslVerification bool) {
 	daasClient.StorefrontClient = storefrontapis.NewAPIClient()
 	daasClient.StorefrontClient.SetComputerName(computerName)
@@ -101,6 +110,21 @@ func (daasClient *CitrixDaasClient) NewQuickCreateClient(ctx context.Context, qu
 
 	localQuickCreateCfg.Middleware = getMiddlewareWithQuickcreateClient(daasClient, middlewareFunc)
 	daasClient.QuickCreateClient = citrixquickcreate.NewAPIClient(localQuickCreateCfg)
+}
+
+func (daasClient *CitrixDaasClient) NewCwsClient(ctx context.Context, cwsHostname string, middlewareFunc MiddlewareAuthFunction) {
+	/* ------ Setup Citrix Cloud Cws Service Client ------ */
+	localCwsCfg := citrixcws.NewConfiguration()
+	localCwsCfg.Scheme = "https"
+
+	localCwsCfg.Servers = citrixcws.ServerConfigurations{
+		{
+			URL: localCwsCfg.Scheme + "://" + cwsHostname,
+		},
+	}
+
+	localCwsCfg.Middleware = getMiddlewareWithCwsClient(daasClient, middlewareFunc)
+	daasClient.CwsClient = citrixcws.NewAPIClient(localCwsCfg)
 }
 
 func (daasClient *CitrixDaasClient) NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (*http.Response, error) {

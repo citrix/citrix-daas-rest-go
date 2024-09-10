@@ -1,5 +1,5 @@
 /*
-Citrix.CloudServices.Administrators.Api
+Administrators APIs
 
 Testing AdministratorsAPIService
 
@@ -22,13 +22,11 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AdministratorsAPIService CustomerAdministratorGet", func(t *testing.T) {
+	t.Run("Test AdministratorsAPIService CreateAdministrator", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorGet(context.Background(), customer).Execute()
+		resp, httpRes, err := apiClient.AdministratorsAPI.CreateAdministrator(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,168 +34,24 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsAccessPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsAccessPut(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsAccessUcOidGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var ucOid string
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsAccessUcOidGet(context.Background(), ucOid, customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsActiveAdministratorsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsActiveAdministratorsGet(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsAdminIdDelete", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var adminId string
-		var customer string
-
-		httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsAdminIdDelete(context.Background(), adminId, customer).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsAdminIdPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var adminId string
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsAdminIdPut(context.Background(), adminId, customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsAuthDomainPut", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsAuthDomainPut(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsClaimsDecompressPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsClaimsDecompressPost(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsCreatePost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsCreatePost(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsDeleteMultiplePost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsDeleteMultiplePost(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsDeletePost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsDeletePost(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsGet", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsGet(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsIdAccessGet", func(t *testing.T) {
+	t.Run("Test AdministratorsAPIService DeleteAdministrator", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		var id string
-		var customer string
 
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsIdAccessGet(context.Background(), id, customer).Execute()
+		httpRes, err := apiClient.AdministratorsAPI.DeleteAdministrator(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AdministratorsAPIService DeleteInvitation", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.AdministratorsAPI.DeleteInvitation(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -205,13 +59,11 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsPost", func(t *testing.T) {
+	t.Run("Test AdministratorsAPIService FetchAdministrators", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsPost(context.Background(), customer).Execute()
+		resp, httpRes, err := apiClient.AdministratorsAPI.FetchAdministrators(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -219,26 +71,13 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsRbacrolesSyncPost", func(t *testing.T) {
+	t.Run("Test AdministratorsAPIService GetAdministratorAccess", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var customer string
+		var id string
 
-		httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsRbacrolesSyncPost(context.Background(), customer).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsSyncGroupsPost", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsSyncGroupsPost(context.Background(), customer).Execute()
+		resp, httpRes, err := apiClient.AdministratorsAPI.GetAdministratorAccess(context.Background(), id).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -246,17 +85,13 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AdministratorsAPIService CustomerAdministratorsUcOidGet", func(t *testing.T) {
+	t.Run("Test AdministratorsAPIService UpdateAdministratorAccess", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		var ucOid string
-		var customer string
-
-		resp, httpRes, err := apiClient.AdministratorsAPI.CustomerAdministratorsUcOidGet(context.Background(), ucOid, customer).Execute()
+		httpRes, err := apiClient.AdministratorsAPI.UpdateAdministratorAccess(context.Background()).Execute()
 
 		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
