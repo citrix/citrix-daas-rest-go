@@ -20,6 +20,8 @@ var _ MappedNullable = &BackupRestoreOptionsResponseModel{}
 // BackupRestoreOptionsResponseModel struct for BackupRestoreOptionsResponseModel
 type BackupRestoreOptionsResponseModel struct {
 	OneScheduledBackupPerDay NullableBool `json:"OneScheduledBackupPerDay,omitempty"`
+	AutoPinScheduleUid NullableInt32 `json:"AutoPinScheduleUid,omitempty"`
+	AutoPinScheduleName NullableString `json:"AutoPinScheduleName,omitempty"`
 	Result *bool `json:"result,omitempty"`
 }
 
@@ -82,6 +84,90 @@ func (o *BackupRestoreOptionsResponseModel) UnsetOneScheduledBackupPerDay() {
 	o.OneScheduledBackupPerDay.Unset()
 }
 
+// GetAutoPinScheduleUid returns the AutoPinScheduleUid field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleUid() int32 {
+	if o == nil || IsNil(o.AutoPinScheduleUid.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.AutoPinScheduleUid.Get()
+}
+
+// GetAutoPinScheduleUidOk returns a tuple with the AutoPinScheduleUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleUidOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoPinScheduleUid.Get(), o.AutoPinScheduleUid.IsSet()
+}
+
+// HasAutoPinScheduleUid returns a boolean if a field has been set.
+func (o *BackupRestoreOptionsResponseModel) HasAutoPinScheduleUid() bool {
+	if o != nil && o.AutoPinScheduleUid.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoPinScheduleUid gets a reference to the given NullableInt32 and assigns it to the AutoPinScheduleUid field.
+func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleUid(v int32) {
+	o.AutoPinScheduleUid.Set(&v)
+}
+// SetAutoPinScheduleUidNil sets the value for AutoPinScheduleUid to be an explicit nil
+func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleUidNil() {
+	o.AutoPinScheduleUid.Set(nil)
+}
+
+// UnsetAutoPinScheduleUid ensures that no value is present for AutoPinScheduleUid, not even an explicit nil
+func (o *BackupRestoreOptionsResponseModel) UnsetAutoPinScheduleUid() {
+	o.AutoPinScheduleUid.Unset()
+}
+
+// GetAutoPinScheduleName returns the AutoPinScheduleName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleName() string {
+	if o == nil || IsNil(o.AutoPinScheduleName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.AutoPinScheduleName.Get()
+}
+
+// GetAutoPinScheduleNameOk returns a tuple with the AutoPinScheduleName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AutoPinScheduleName.Get(), o.AutoPinScheduleName.IsSet()
+}
+
+// HasAutoPinScheduleName returns a boolean if a field has been set.
+func (o *BackupRestoreOptionsResponseModel) HasAutoPinScheduleName() bool {
+	if o != nil && o.AutoPinScheduleName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoPinScheduleName gets a reference to the given NullableString and assigns it to the AutoPinScheduleName field.
+func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleName(v string) {
+	o.AutoPinScheduleName.Set(&v)
+}
+// SetAutoPinScheduleNameNil sets the value for AutoPinScheduleName to be an explicit nil
+func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleNameNil() {
+	o.AutoPinScheduleName.Set(nil)
+}
+
+// UnsetAutoPinScheduleName ensures that no value is present for AutoPinScheduleName, not even an explicit nil
+func (o *BackupRestoreOptionsResponseModel) UnsetAutoPinScheduleName() {
+	o.AutoPinScheduleName.Unset()
+}
+
 // GetResult returns the Result field value if set, zero value otherwise.
 func (o *BackupRestoreOptionsResponseModel) GetResult() bool {
 	if o == nil || IsNil(o.Result) {
@@ -126,6 +212,12 @@ func (o BackupRestoreOptionsResponseModel) ToMap() (map[string]interface{}, erro
 	toSerialize := map[string]interface{}{}
 	if o.OneScheduledBackupPerDay.IsSet() {
 		toSerialize["OneScheduledBackupPerDay"] = o.OneScheduledBackupPerDay.Get()
+	}
+	if o.AutoPinScheduleUid.IsSet() {
+		toSerialize["AutoPinScheduleUid"] = o.AutoPinScheduleUid.Get()
+	}
+	if o.AutoPinScheduleName.IsSet() {
+		toSerialize["AutoPinScheduleName"] = o.AutoPinScheduleName.Get()
 	}
 	if !IsNil(o.Result) {
 		toSerialize["result"] = o.Result

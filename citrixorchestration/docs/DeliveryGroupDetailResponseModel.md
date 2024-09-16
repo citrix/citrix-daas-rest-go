@@ -88,6 +88,8 @@ Name | Type | Description | Notes
 **DisconnectOffPeakIdleSessionAfterSeconds** | Pointer to **int32** | Specifies the time in seconds after which an idle session belonging to the delivery group is disconnected during off-peak time. | [optional] 
 **LogoffPeakDisconnectedSessionAfterSeconds** | Pointer to **int32** | Specifies the time in seconds after which a disconnected session belonging to the delivery group is terminated during peak time. | [optional] 
 **LogoffOffPeakDisconnectedSessionAfterSeconds** | Pointer to **int32** | Specifies the time in seconds after which a disconnected session belonging to the delivery group is terminated during off-peak time. | [optional] 
+**AutoscaleScaleDownActionDuringPeak** | Pointer to [**AutoscaleScaleDownAction**](AutoscaleScaleDownAction.md) |  | [optional] 
+**AutoscaleScaleDownActionDuringOffPeak** | Pointer to [**AutoscaleScaleDownAction**](AutoscaleScaleDownAction.md) |  | [optional] 
 **PrelaunchSettings** | Pointer to [**FastApplicationSettingsResponseModel**](FastApplicationSettingsResponseModel.md) |  | [optional] 
 **PowerTimeSchemes** | Pointer to [**[]PowerTimeSchemeResponseModel**](PowerTimeSchemeResponseModel.md) | Power management time schemes.  No two schemes will cover the same day of the week. | [optional] 
 **ProtocolPriority** | Pointer to [**[]ProtocolType**](ProtocolType.md) | A list of protocols in the order in which they will be attempted for use during connection. | [optional] 
@@ -2263,6 +2265,56 @@ SetLogoffOffPeakDisconnectedSessionAfterSeconds sets LogoffOffPeakDisconnectedSe
 `func (o *DeliveryGroupDetailResponseModel) HasLogoffOffPeakDisconnectedSessionAfterSeconds() bool`
 
 HasLogoffOffPeakDisconnectedSessionAfterSeconds returns a boolean if a field has been set.
+
+### GetAutoscaleScaleDownActionDuringPeak
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscaleScaleDownActionDuringPeak() AutoscaleScaleDownAction`
+
+GetAutoscaleScaleDownActionDuringPeak returns the AutoscaleScaleDownActionDuringPeak field if non-nil, zero value otherwise.
+
+### GetAutoscaleScaleDownActionDuringPeakOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscaleScaleDownActionDuringPeakOk() (*AutoscaleScaleDownAction, bool)`
+
+GetAutoscaleScaleDownActionDuringPeakOk returns a tuple with the AutoscaleScaleDownActionDuringPeak field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscaleScaleDownActionDuringPeak
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleScaleDownActionDuringPeak(v AutoscaleScaleDownAction)`
+
+SetAutoscaleScaleDownActionDuringPeak sets AutoscaleScaleDownActionDuringPeak field to given value.
+
+### HasAutoscaleScaleDownActionDuringPeak
+
+`func (o *DeliveryGroupDetailResponseModel) HasAutoscaleScaleDownActionDuringPeak() bool`
+
+HasAutoscaleScaleDownActionDuringPeak returns a boolean if a field has been set.
+
+### GetAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscaleScaleDownActionDuringOffPeak() AutoscaleScaleDownAction`
+
+GetAutoscaleScaleDownActionDuringOffPeak returns the AutoscaleScaleDownActionDuringOffPeak field if non-nil, zero value otherwise.
+
+### GetAutoscaleScaleDownActionDuringOffPeakOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscaleScaleDownActionDuringOffPeakOk() (*AutoscaleScaleDownAction, bool)`
+
+GetAutoscaleScaleDownActionDuringOffPeakOk returns a tuple with the AutoscaleScaleDownActionDuringOffPeak field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleScaleDownActionDuringOffPeak(v AutoscaleScaleDownAction)`
+
+SetAutoscaleScaleDownActionDuringOffPeak sets AutoscaleScaleDownActionDuringOffPeak field to given value.
+
+### HasAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *DeliveryGroupDetailResponseModel) HasAutoscaleScaleDownActionDuringOffPeak() bool`
+
+HasAutoscaleScaleDownActionDuringOffPeak returns a boolean if a field has been set.
 
 ### GetPrelaunchSettings
 

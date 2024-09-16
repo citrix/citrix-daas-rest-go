@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **AutomateDiscovery** | Pointer to **NullableBool** | A value indicating whether or not the discovery should run automatically. | [optional] [default to false]
 **AutoDiscoveryPeriod** | Pointer to [**AutoDiscoveryPeriod**](AutoDiscoveryPeriod.md) |  | [optional] 
 **AutoDiscoveryCadence** | Pointer to **int32** | A value indicating how often to trigger the discovery. | [optional] 
+**CleanupAbsentPackages** | Pointer to **NullableBool** | A value indicating whether to clean up absent packages. | [optional] [default to false]
 
 ## Methods
 
@@ -561,6 +562,41 @@ SetAutoDiscoveryCadence sets AutoDiscoveryCadence field to given value.
 
 HasAutoDiscoveryCadence returns a boolean if a field has been set.
 
+### GetCleanupAbsentPackages
+
+`func (o *AppLibPackageDiscoveryProfileRequestModel) GetCleanupAbsentPackages() bool`
+
+GetCleanupAbsentPackages returns the CleanupAbsentPackages field if non-nil, zero value otherwise.
+
+### GetCleanupAbsentPackagesOk
+
+`func (o *AppLibPackageDiscoveryProfileRequestModel) GetCleanupAbsentPackagesOk() (*bool, bool)`
+
+GetCleanupAbsentPackagesOk returns a tuple with the CleanupAbsentPackages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCleanupAbsentPackages
+
+`func (o *AppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackages(v bool)`
+
+SetCleanupAbsentPackages sets CleanupAbsentPackages field to given value.
+
+### HasCleanupAbsentPackages
+
+`func (o *AppLibPackageDiscoveryProfileRequestModel) HasCleanupAbsentPackages() bool`
+
+HasCleanupAbsentPackages returns a boolean if a field has been set.
+
+### SetCleanupAbsentPackagesNil
+
+`func (o *AppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackagesNil(b bool)`
+
+ SetCleanupAbsentPackagesNil sets the value for CleanupAbsentPackages to be an explicit nil
+
+### UnsetCleanupAbsentPackages
+`func (o *AppLibPackageDiscoveryProfileRequestModel) UnsetCleanupAbsentPackages()`
+
+UnsetCleanupAbsentPackages ensures that no value is present for CleanupAbsentPackages, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

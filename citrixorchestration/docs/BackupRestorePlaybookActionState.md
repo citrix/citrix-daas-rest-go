@@ -39,6 +39,12 @@
 
 * `SKIP_DUE_TO_MISSING_INFO` (value: `"SkipDueToMissingInfo"`)
 
+* `ADD_STARTED` (value: `"AddStarted"`)
+
+* `UPDATE_STARTED` (value: `"UpdateStarted"`)
+
+* `DELETE_STARTED` (value: `"DeleteStarted"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

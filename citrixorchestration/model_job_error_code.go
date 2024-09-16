@@ -213,6 +213,7 @@ const (
 	JOBERRORCODE_MOONSHOT_CONNECTION_SSL_FAILURE JobErrorCode = "MoonshotConnectionSslFailure"
 	JOBERRORCODE_MOONSHOT_CONNECTION_SSL_PRIVATE_CA_SIGNED_FAILURE JobErrorCode = "MoonshotConnectionSslPrivateCASignedFailure"
 	JOBERRORCODE_MOONSHOT_CONNECTION_SSL_PUBLIC_CA_SIGNED_FAILURE JobErrorCode = "MoonshotConnectionSslPublicCASignedFailure"
+	JOBERRORCODE_OPEN_SHIFT_CONNECTION_SSL_PUBLIC_CA_SIGNED_FAILURE JobErrorCode = "OpenShiftConnectionSslPublicCASignedFailure"
 )
 
 // All allowed values of JobErrorCode enum
@@ -410,6 +411,7 @@ var AllowedJobErrorCodeEnumValues = []JobErrorCode{
 	"MoonshotConnectionSslFailure",
 	"MoonshotConnectionSslPrivateCASignedFailure",
 	"MoonshotConnectionSslPublicCASignedFailure",
+	"OpenShiftConnectionSslPublicCASignedFailure",
 }
 
 func (v *JobErrorCode) UnmarshalJSON(src []byte) error {

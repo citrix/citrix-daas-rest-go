@@ -66,6 +66,8 @@ Name | Type | Description | Notes
 **AutoscaleLogOffReminderIntervalSecondsPeak** | Pointer to **NullableInt32** | Represents the time interval at which messages are  sent to the user during peak time when autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
 **AutoscaleLogOffReminderMessage** | Pointer to **NullableString** | Notification message to display to users in active sessions belonging to machines needed by Autoscale for shutdown. | [optional] 
 **AutoscaleLogOffReminderTitle** | Pointer to **NullableString** | Notification message dialog title displayed when Autoscale issues a logoff reminder request. | [optional] 
+**AutoscaleScaleDownActionDuringPeak** | Pointer to [**AutoscaleScaleDownAction**](AutoscaleScaleDownAction.md) |  | [optional] 
+**AutoscaleScaleDownActionDuringOffPeak** | Pointer to [**AutoscaleScaleDownAction**](AutoscaleScaleDownAction.md) |  | [optional] 
 **MachineCost** | Pointer to **NullableFloat64** | Indicates the estimated per-hour cost for machines in the delivery group, as set by the administrator. | [optional] 
 **MachineLogOnType** | Pointer to [**MachineLogOnType**](MachineLogOnType.md) |  | [optional] 
 **PrelaunchSettings** | Pointer to [**FastApplicationSettingsRequestModel**](FastApplicationSettingsRequestModel.md) |  | [optional] 
@@ -2133,6 +2135,56 @@ HasAutoscaleLogOffReminderTitle returns a boolean if a field has been set.
 `func (o *EditDeliveryGroupRequestModel) UnsetAutoscaleLogOffReminderTitle()`
 
 UnsetAutoscaleLogOffReminderTitle ensures that no value is present for AutoscaleLogOffReminderTitle, not even an explicit nil
+### GetAutoscaleScaleDownActionDuringPeak
+
+`func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeak() AutoscaleScaleDownAction`
+
+GetAutoscaleScaleDownActionDuringPeak returns the AutoscaleScaleDownActionDuringPeak field if non-nil, zero value otherwise.
+
+### GetAutoscaleScaleDownActionDuringPeakOk
+
+`func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeakOk() (*AutoscaleScaleDownAction, bool)`
+
+GetAutoscaleScaleDownActionDuringPeakOk returns a tuple with the AutoscaleScaleDownActionDuringPeak field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscaleScaleDownActionDuringPeak
+
+`func (o *EditDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringPeak(v AutoscaleScaleDownAction)`
+
+SetAutoscaleScaleDownActionDuringPeak sets AutoscaleScaleDownActionDuringPeak field to given value.
+
+### HasAutoscaleScaleDownActionDuringPeak
+
+`func (o *EditDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringPeak() bool`
+
+HasAutoscaleScaleDownActionDuringPeak returns a boolean if a field has been set.
+
+### GetAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeak() AutoscaleScaleDownAction`
+
+GetAutoscaleScaleDownActionDuringOffPeak returns the AutoscaleScaleDownActionDuringOffPeak field if non-nil, zero value otherwise.
+
+### GetAutoscaleScaleDownActionDuringOffPeakOk
+
+`func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeakOk() (*AutoscaleScaleDownAction, bool)`
+
+GetAutoscaleScaleDownActionDuringOffPeakOk returns a tuple with the AutoscaleScaleDownActionDuringOffPeak field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *EditDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringOffPeak(v AutoscaleScaleDownAction)`
+
+SetAutoscaleScaleDownActionDuringOffPeak sets AutoscaleScaleDownActionDuringOffPeak field to given value.
+
+### HasAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *EditDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringOffPeak() bool`
+
+HasAutoscaleScaleDownActionDuringOffPeak returns a boolean if a field has been set.
+
 ### GetMachineCost
 
 `func (o *EditDeliveryGroupRequestModel) GetMachineCost() float64`

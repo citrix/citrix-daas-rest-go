@@ -45,6 +45,8 @@ type AppLibPackageDiscoveryRequestModel struct {
 	// the password of App-V server admin
 	Password NullableString `json:"Password,omitempty"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
+	// A value indicating whether to clean up absent packages
+	CleanupAbsentPackages NullableBool `json:"CleanupAbsentPackages,omitempty"`
 }
 
 // NewAppLibPackageDiscoveryRequestModel instantiates a new AppLibPackageDiscoveryRequestModel object
@@ -63,6 +65,8 @@ func NewAppLibPackageDiscoveryRequestModel() *AppLibPackageDiscoveryRequestModel
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
 	var discoverFlexApp bool = false
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
+	var cleanupAbsentPackages bool = false
+	this.CleanupAbsentPackages = *NewNullableBool(&cleanupAbsentPackages)
 	return &this
 }
 
@@ -81,6 +85,8 @@ func NewAppLibPackageDiscoveryRequestModelWithDefaults() *AppLibPackageDiscovery
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
 	var discoverFlexApp bool = false
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
+	var cleanupAbsentPackages bool = false
+	this.CleanupAbsentPackages = *NewNullableBool(&cleanupAbsentPackages)
 	return &this
 }
 
@@ -652,6 +658,48 @@ func (o *AppLibPackageDiscoveryRequestModel) SetPasswordFormat(v IdentityPasswor
 	o.PasswordFormat = &v
 }
 
+// GetCleanupAbsentPackages returns the CleanupAbsentPackages field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppLibPackageDiscoveryRequestModel) GetCleanupAbsentPackages() bool {
+	if o == nil || IsNil(o.CleanupAbsentPackages.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.CleanupAbsentPackages.Get()
+}
+
+// GetCleanupAbsentPackagesOk returns a tuple with the CleanupAbsentPackages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppLibPackageDiscoveryRequestModel) GetCleanupAbsentPackagesOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CleanupAbsentPackages.Get(), o.CleanupAbsentPackages.IsSet()
+}
+
+// HasCleanupAbsentPackages returns a boolean if a field has been set.
+func (o *AppLibPackageDiscoveryRequestModel) HasCleanupAbsentPackages() bool {
+	if o != nil && o.CleanupAbsentPackages.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCleanupAbsentPackages gets a reference to the given NullableBool and assigns it to the CleanupAbsentPackages field.
+func (o *AppLibPackageDiscoveryRequestModel) SetCleanupAbsentPackages(v bool) {
+	o.CleanupAbsentPackages.Set(&v)
+}
+// SetCleanupAbsentPackagesNil sets the value for CleanupAbsentPackages to be an explicit nil
+func (o *AppLibPackageDiscoveryRequestModel) SetCleanupAbsentPackagesNil() {
+	o.CleanupAbsentPackages.Set(nil)
+}
+
+// UnsetCleanupAbsentPackages ensures that no value is present for CleanupAbsentPackages, not even an explicit nil
+func (o *AppLibPackageDiscoveryRequestModel) UnsetCleanupAbsentPackages() {
+	o.CleanupAbsentPackages.Unset()
+}
+
 func (o AppLibPackageDiscoveryRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -703,6 +751,9 @@ func (o AppLibPackageDiscoveryRequestModel) ToMap() (map[string]interface{}, err
 	}
 	if !IsNil(o.PasswordFormat) {
 		toSerialize["PasswordFormat"] = o.PasswordFormat
+	}
+	if o.CleanupAbsentPackages.IsSet() {
+		toSerialize["CleanupAbsentPackages"] = o.CleanupAbsentPackages.Get()
 	}
 	return toSerialize, nil
 }

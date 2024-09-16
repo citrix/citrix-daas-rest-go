@@ -507,6 +507,8 @@
 
 * `GET_USERS_IDENTITY` (value: `"GetUsersIdentity"`)
 
+* `GET_PRINTERS_IDENTITY` (value: `"GetPrintersIdentity"`)
+
 * `GET_SERVICE_ACCOUNTS` (value: `"GetServiceAccounts"`)
 
 * `SEARCH_PROVISIONING_OPERATION_EVENT` (value: `"SearchProvisioningOperationEvent"`)
@@ -528,6 +530,8 @@
 * `GET_PATCH_PREVIEW_SERVICE_ACCOUNT` (value: `"GetPatchPreviewServiceAccount"`)
 
 * `GET_HYPERVISOR_RESOURCE_PRICES` (value: `"GetHypervisorResourcePrices"`)
+
+* `VALIDATE_VDA_COMPONENTS_AND_FEATURES_SELECTION` (value: `"ValidateVDAComponentsAndFeaturesSelection"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

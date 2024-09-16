@@ -50,6 +50,8 @@ type LowLevelOperationResponseModel struct {
 	Text string `json:"Text"`
 	// User who performed the change.             
 	User NullableString `json:"User,omitempty"`
+	// The identity (SID) of the user that performed the operation.             
+	UserIdentity NullableString `json:"UserIdentity,omitempty"`
 }
 
 // NewLowLevelOperationResponseModel instantiates a new LowLevelOperationResponseModel object
@@ -579,6 +581,48 @@ func (o *LowLevelOperationResponseModel) UnsetUser() {
 	o.User.Unset()
 }
 
+// GetUserIdentity returns the UserIdentity field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LowLevelOperationResponseModel) GetUserIdentity() string {
+	if o == nil || IsNil(o.UserIdentity.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.UserIdentity.Get()
+}
+
+// GetUserIdentityOk returns a tuple with the UserIdentity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LowLevelOperationResponseModel) GetUserIdentityOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UserIdentity.Get(), o.UserIdentity.IsSet()
+}
+
+// HasUserIdentity returns a boolean if a field has been set.
+func (o *LowLevelOperationResponseModel) HasUserIdentity() bool {
+	if o != nil && o.UserIdentity.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUserIdentity gets a reference to the given NullableString and assigns it to the UserIdentity field.
+func (o *LowLevelOperationResponseModel) SetUserIdentity(v string) {
+	o.UserIdentity.Set(&v)
+}
+// SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
+func (o *LowLevelOperationResponseModel) SetUserIdentityNil() {
+	o.UserIdentity.Set(nil)
+}
+
+// UnsetUserIdentity ensures that no value is present for UserIdentity, not even an explicit nil
+func (o *LowLevelOperationResponseModel) UnsetUserIdentity() {
+	o.UserIdentity.Unset()
+}
+
 func (o LowLevelOperationResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -618,6 +662,9 @@ func (o LowLevelOperationResponseModel) ToMap() (map[string]interface{}, error) 
 	toSerialize["Text"] = o.Text
 	if o.User.IsSet() {
 		toSerialize["User"] = o.User.Get()
+	}
+	if o.UserIdentity.IsSet() {
+		toSerialize["UserIdentity"] = o.UserIdentity.Get()
 	}
 	return toSerialize, nil
 }

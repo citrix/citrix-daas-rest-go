@@ -272,6 +272,7 @@ const (
 	JOBTYPE_SEARCH_PROVISIONED_VIRTUAL_MACHINES JobType = "SearchProvisionedVirtualMachines"
 	JOBTYPE_GET_PROVISIONED_VIRTUAL_MACHINE_DETAILS JobType = "GetProvisionedVirtualMachineDetails"
 	JOBTYPE_GET_USERS_IDENTITY JobType = "GetUsersIdentity"
+	JOBTYPE_GET_PRINTERS_IDENTITY JobType = "GetPrintersIdentity"
 	JOBTYPE_GET_SERVICE_ACCOUNTS JobType = "GetServiceAccounts"
 	JOBTYPE_SEARCH_PROVISIONING_OPERATION_EVENT JobType = "SearchProvisioningOperationEvent"
 	JOBTYPE_REMOVE_PROVISIONING_OPERATION_EVENT JobType = "RemoveProvisioningOperationEvent"
@@ -283,6 +284,7 @@ const (
 	JOBTYPE_CREATE_IMAGE_DEFINITION JobType = "CreateImageDefinition"
 	JOBTYPE_GET_PATCH_PREVIEW_SERVICE_ACCOUNT JobType = "GetPatchPreviewServiceAccount"
 	JOBTYPE_GET_HYPERVISOR_RESOURCE_PRICES JobType = "GetHypervisorResourcePrices"
+	JOBTYPE_VALIDATE_VDA_COMPONENTS_AND_FEATURES_SELECTION JobType = "ValidateVDAComponentsAndFeaturesSelection"
 )
 
 // All allowed values of JobType enum
@@ -539,6 +541,7 @@ var AllowedJobTypeEnumValues = []JobType{
 	"SearchProvisionedVirtualMachines",
 	"GetProvisionedVirtualMachineDetails",
 	"GetUsersIdentity",
+	"GetPrintersIdentity",
 	"GetServiceAccounts",
 	"SearchProvisioningOperationEvent",
 	"RemoveProvisioningOperationEvent",
@@ -550,6 +553,7 @@ var AllowedJobTypeEnumValues = []JobType{
 	"CreateImageDefinition",
 	"GetPatchPreviewServiceAccount",
 	"GetHypervisorResourcePrices",
+	"ValidateVDAComponentsAndFeaturesSelection",
 }
 
 func (v *JobType) UnmarshalJSON(src []byte) error {

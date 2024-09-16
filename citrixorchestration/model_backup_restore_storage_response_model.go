@@ -24,6 +24,8 @@ type BackupRestoreStorageResponseModel struct {
 	MaximumBackups *int32 `json:"MaximumBackups,omitempty"`
 	// Maximum Pinned Backups 
 	MaximumPinnedBackups *int32 `json:"MaximumPinnedBackups,omitempty"`
+	// Maximum Auto-Pinned Backups 
+	MaximumAutoPinnedBackups *int32 `json:"MaximumAutoPinnedBackups,omitempty"`
 }
 
 // NewBackupRestoreStorageResponseModel instantiates a new BackupRestoreStorageResponseModel object
@@ -139,6 +141,38 @@ func (o *BackupRestoreStorageResponseModel) SetMaximumPinnedBackups(v int32) {
 	o.MaximumPinnedBackups = &v
 }
 
+// GetMaximumAutoPinnedBackups returns the MaximumAutoPinnedBackups field value if set, zero value otherwise.
+func (o *BackupRestoreStorageResponseModel) GetMaximumAutoPinnedBackups() int32 {
+	if o == nil || IsNil(o.MaximumAutoPinnedBackups) {
+		var ret int32
+		return ret
+	}
+	return *o.MaximumAutoPinnedBackups
+}
+
+// GetMaximumAutoPinnedBackupsOk returns a tuple with the MaximumAutoPinnedBackups field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BackupRestoreStorageResponseModel) GetMaximumAutoPinnedBackupsOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaximumAutoPinnedBackups) {
+		return nil, false
+	}
+	return o.MaximumAutoPinnedBackups, true
+}
+
+// HasMaximumAutoPinnedBackups returns a boolean if a field has been set.
+func (o *BackupRestoreStorageResponseModel) HasMaximumAutoPinnedBackups() bool {
+	if o != nil && !IsNil(o.MaximumAutoPinnedBackups) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaximumAutoPinnedBackups gets a reference to the given int32 and assigns it to the MaximumAutoPinnedBackups field.
+func (o *BackupRestoreStorageResponseModel) SetMaximumAutoPinnedBackups(v int32) {
+	o.MaximumAutoPinnedBackups = &v
+}
+
 func (o BackupRestoreStorageResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -157,6 +191,9 @@ func (o BackupRestoreStorageResponseModel) ToMap() (map[string]interface{}, erro
 	}
 	if !IsNil(o.MaximumPinnedBackups) {
 		toSerialize["MaximumPinnedBackups"] = o.MaximumPinnedBackups
+	}
+	if !IsNil(o.MaximumAutoPinnedBackups) {
+		toSerialize["MaximumAutoPinnedBackups"] = o.MaximumAutoPinnedBackups
 	}
 	return toSerialize, nil
 }

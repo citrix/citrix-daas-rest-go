@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Username** | Pointer to **NullableString** | the username of App-V server admin | [optional] 
 **Password** | Pointer to **NullableString** | the password of App-V server admin | [optional] 
 **PasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
+**CleanupAbsentPackages** | Pointer to **NullableBool** | A value indicating whether to clean up absent packages | [optional] [default to false]
 
 ## Methods
 
@@ -508,6 +509,41 @@ SetPasswordFormat sets PasswordFormat field to given value.
 
 HasPasswordFormat returns a boolean if a field has been set.
 
+### GetCleanupAbsentPackages
+
+`func (o *AppLibPackageDiscoveryRequestModel) GetCleanupAbsentPackages() bool`
+
+GetCleanupAbsentPackages returns the CleanupAbsentPackages field if non-nil, zero value otherwise.
+
+### GetCleanupAbsentPackagesOk
+
+`func (o *AppLibPackageDiscoveryRequestModel) GetCleanupAbsentPackagesOk() (*bool, bool)`
+
+GetCleanupAbsentPackagesOk returns a tuple with the CleanupAbsentPackages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCleanupAbsentPackages
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetCleanupAbsentPackages(v bool)`
+
+SetCleanupAbsentPackages sets CleanupAbsentPackages field to given value.
+
+### HasCleanupAbsentPackages
+
+`func (o *AppLibPackageDiscoveryRequestModel) HasCleanupAbsentPackages() bool`
+
+HasCleanupAbsentPackages returns a boolean if a field has been set.
+
+### SetCleanupAbsentPackagesNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetCleanupAbsentPackagesNil(b bool)`
+
+ SetCleanupAbsentPackagesNil sets the value for CleanupAbsentPackages to be an explicit nil
+
+### UnsetCleanupAbsentPackages
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetCleanupAbsentPackages()`
+
+UnsetCleanupAbsentPackages ensures that no value is present for CleanupAbsentPackages, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

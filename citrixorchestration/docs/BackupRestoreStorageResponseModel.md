@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **StorageInfo** | Pointer to [**BackupStorageInfo**](BackupStorageInfo.md) |  | [optional] 
 **MaximumBackups** | Pointer to **int32** | Maximum Backups | [optional] 
 **MaximumPinnedBackups** | Pointer to **int32** | Maximum Pinned Backups  | [optional] 
+**MaximumAutoPinnedBackups** | Pointer to **int32** | Maximum Auto-Pinned Backups  | [optional] 
 
 ## Methods
 
@@ -101,6 +102,31 @@ SetMaximumPinnedBackups sets MaximumPinnedBackups field to given value.
 `func (o *BackupRestoreStorageResponseModel) HasMaximumPinnedBackups() bool`
 
 HasMaximumPinnedBackups returns a boolean if a field has been set.
+
+### GetMaximumAutoPinnedBackups
+
+`func (o *BackupRestoreStorageResponseModel) GetMaximumAutoPinnedBackups() int32`
+
+GetMaximumAutoPinnedBackups returns the MaximumAutoPinnedBackups field if non-nil, zero value otherwise.
+
+### GetMaximumAutoPinnedBackupsOk
+
+`func (o *BackupRestoreStorageResponseModel) GetMaximumAutoPinnedBackupsOk() (*int32, bool)`
+
+GetMaximumAutoPinnedBackupsOk returns a tuple with the MaximumAutoPinnedBackups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaximumAutoPinnedBackups
+
+`func (o *BackupRestoreStorageResponseModel) SetMaximumAutoPinnedBackups(v int32)`
+
+SetMaximumAutoPinnedBackups sets MaximumAutoPinnedBackups field to given value.
+
+### HasMaximumAutoPinnedBackups
+
+`func (o *BackupRestoreStorageResponseModel) HasMaximumAutoPinnedBackups() bool`
+
+HasMaximumAutoPinnedBackups returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

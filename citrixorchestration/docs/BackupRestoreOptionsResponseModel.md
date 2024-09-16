@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OneScheduledBackupPerDay** | Pointer to **NullableBool** |  | [optional] 
+**AutoPinScheduleUid** | Pointer to **NullableInt32** |  | [optional] 
+**AutoPinScheduleName** | Pointer to **NullableString** |  | [optional] 
 **Result** | Pointer to **bool** |  | [optional] 
 
 ## Methods
@@ -61,6 +63,76 @@ HasOneScheduledBackupPerDay returns a boolean if a field has been set.
 `func (o *BackupRestoreOptionsResponseModel) UnsetOneScheduledBackupPerDay()`
 
 UnsetOneScheduledBackupPerDay ensures that no value is present for OneScheduledBackupPerDay, not even an explicit nil
+### GetAutoPinScheduleUid
+
+`func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleUid() int32`
+
+GetAutoPinScheduleUid returns the AutoPinScheduleUid field if non-nil, zero value otherwise.
+
+### GetAutoPinScheduleUidOk
+
+`func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleUidOk() (*int32, bool)`
+
+GetAutoPinScheduleUidOk returns a tuple with the AutoPinScheduleUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoPinScheduleUid
+
+`func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleUid(v int32)`
+
+SetAutoPinScheduleUid sets AutoPinScheduleUid field to given value.
+
+### HasAutoPinScheduleUid
+
+`func (o *BackupRestoreOptionsResponseModel) HasAutoPinScheduleUid() bool`
+
+HasAutoPinScheduleUid returns a boolean if a field has been set.
+
+### SetAutoPinScheduleUidNil
+
+`func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleUidNil(b bool)`
+
+ SetAutoPinScheduleUidNil sets the value for AutoPinScheduleUid to be an explicit nil
+
+### UnsetAutoPinScheduleUid
+`func (o *BackupRestoreOptionsResponseModel) UnsetAutoPinScheduleUid()`
+
+UnsetAutoPinScheduleUid ensures that no value is present for AutoPinScheduleUid, not even an explicit nil
+### GetAutoPinScheduleName
+
+`func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleName() string`
+
+GetAutoPinScheduleName returns the AutoPinScheduleName field if non-nil, zero value otherwise.
+
+### GetAutoPinScheduleNameOk
+
+`func (o *BackupRestoreOptionsResponseModel) GetAutoPinScheduleNameOk() (*string, bool)`
+
+GetAutoPinScheduleNameOk returns a tuple with the AutoPinScheduleName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoPinScheduleName
+
+`func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleName(v string)`
+
+SetAutoPinScheduleName sets AutoPinScheduleName field to given value.
+
+### HasAutoPinScheduleName
+
+`func (o *BackupRestoreOptionsResponseModel) HasAutoPinScheduleName() bool`
+
+HasAutoPinScheduleName returns a boolean if a field has been set.
+
+### SetAutoPinScheduleNameNil
+
+`func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleNameNil(b bool)`
+
+ SetAutoPinScheduleNameNil sets the value for AutoPinScheduleName to be an explicit nil
+
+### UnsetAutoPinScheduleName
+`func (o *BackupRestoreOptionsResponseModel) UnsetAutoPinScheduleName()`
+
+UnsetAutoPinScheduleName ensures that no value is present for AutoPinScheduleName, not even an explicit nil
 ### GetResult
 
 `func (o *BackupRestoreOptionsResponseModel) GetResult() bool`

@@ -50,6 +50,8 @@ type AppLibPackageDiscoveryProfileRequestModel struct {
 	AutoDiscoveryPeriod *AutoDiscoveryPeriod `json:"AutoDiscoveryPeriod,omitempty"`
 	// A value indicating how often to trigger the discovery.
 	AutoDiscoveryCadence *int32 `json:"AutoDiscoveryCadence,omitempty"`
+	// A value indicating whether to clean up absent packages.
+	CleanupAbsentPackages NullableBool `json:"CleanupAbsentPackages,omitempty"`
 }
 
 // NewAppLibPackageDiscoveryProfileRequestModel instantiates a new AppLibPackageDiscoveryProfileRequestModel object
@@ -73,6 +75,8 @@ func NewAppLibPackageDiscoveryProfileRequestModel(discoveryType AppLibPackageDis
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
 	var automateDiscovery bool = false
 	this.AutomateDiscovery = *NewNullableBool(&automateDiscovery)
+	var cleanupAbsentPackages bool = false
+	this.CleanupAbsentPackages = *NewNullableBool(&cleanupAbsentPackages)
 	return &this
 }
 
@@ -93,6 +97,8 @@ func NewAppLibPackageDiscoveryProfileRequestModelWithDefaults() *AppLibPackageDi
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
 	var automateDiscovery bool = false
 	this.AutomateDiscovery = *NewNullableBool(&automateDiscovery)
+	var cleanupAbsentPackages bool = false
+	this.CleanupAbsentPackages = *NewNullableBool(&cleanupAbsentPackages)
 	return &this
 }
 
@@ -726,6 +732,48 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) SetAutoDiscoveryCadence(v in
 	o.AutoDiscoveryCadence = &v
 }
 
+// GetCleanupAbsentPackages returns the CleanupAbsentPackages field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppLibPackageDiscoveryProfileRequestModel) GetCleanupAbsentPackages() bool {
+	if o == nil || IsNil(o.CleanupAbsentPackages.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.CleanupAbsentPackages.Get()
+}
+
+// GetCleanupAbsentPackagesOk returns a tuple with the CleanupAbsentPackages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppLibPackageDiscoveryProfileRequestModel) GetCleanupAbsentPackagesOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CleanupAbsentPackages.Get(), o.CleanupAbsentPackages.IsSet()
+}
+
+// HasCleanupAbsentPackages returns a boolean if a field has been set.
+func (o *AppLibPackageDiscoveryProfileRequestModel) HasCleanupAbsentPackages() bool {
+	if o != nil && o.CleanupAbsentPackages.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCleanupAbsentPackages gets a reference to the given NullableBool and assigns it to the CleanupAbsentPackages field.
+func (o *AppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackages(v bool) {
+	o.CleanupAbsentPackages.Set(&v)
+}
+// SetCleanupAbsentPackagesNil sets the value for CleanupAbsentPackages to be an explicit nil
+func (o *AppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackagesNil() {
+	o.CleanupAbsentPackages.Set(nil)
+}
+
+// UnsetCleanupAbsentPackages ensures that no value is present for CleanupAbsentPackages, not even an explicit nil
+func (o *AppLibPackageDiscoveryProfileRequestModel) UnsetCleanupAbsentPackages() {
+	o.CleanupAbsentPackages.Unset()
+}
+
 func (o AppLibPackageDiscoveryProfileRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -780,6 +828,9 @@ func (o AppLibPackageDiscoveryProfileRequestModel) ToMap() (map[string]interface
 	}
 	if !IsNil(o.AutoDiscoveryCadence) {
 		toSerialize["AutoDiscoveryCadence"] = o.AutoDiscoveryCadence
+	}
+	if o.CleanupAbsentPackages.IsSet() {
+		toSerialize["CleanupAbsentPackages"] = o.CleanupAbsentPackages.Get()
 	}
 	return toSerialize, nil
 }

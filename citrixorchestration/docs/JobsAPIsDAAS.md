@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 
 ## JobsGetJobResults
 
-> *os.File JobsGetJobResults(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> string JobsGetJobResults(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Get the results of a job which has completed execution.
 
@@ -300,7 +300,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `JobsAPIsDAAS.JobsGetJobResults``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `JobsGetJobResults`: *os.File
+    // response from `JobsGetJobResults`: string
     fmt.Fprintf(os.Stdout, "Response from `JobsAPIsDAAS.JobsGetJobResults`: %v\n", resp)
 }
 ```
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+**string**
 
 ### Authorization
 
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream, application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

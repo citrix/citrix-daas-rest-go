@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**MachinesGetMachinesAdministrators**](MachinesAPIsDAAS.md#MachinesGetMachinesAdministrators) | **Get** /Machines/{nameOrId}/Administrators | Get administrators who can administer a machine
 [**MachinesGetMachinesV2**](MachinesAPIsDAAS.md#MachinesGetMachinesV2) | **Get** /MachinesV2 | The V2 version of get all machines in the site.
 [**MachinesGetTestMachineReport**](MachinesAPIsDAAS.md#MachinesGetTestMachineReport) | **Get** /Machines/{nameOrId}/TestReports/{reportId} | Get Cloud Health Check Report on a VDA machine.
+[**MachinesGetVDAComponentsAndFeatures**](MachinesAPIsDAAS.md#MachinesGetVDAComponentsAndFeatures) | **Get** /Machines/{nameOrId}/VDAComponentsAndFeatures | Get the components and features of VDAs associated with a machine.
 [**MachinesImportFileTypes**](MachinesAPIsDAAS.md#MachinesImportFileTypes) | **Post** /Machines/{nameOrId}/FileTypes/$import | Import file type associations from the machine.
 [**MachinesLogoffMachineSessions**](MachinesAPIsDAAS.md#MachinesLogoffMachineSessions) | **Post** /Machines/{nameOrId}/$logoff | Logoff all sessions on a machine.
 [**MachinesRebootMachine**](MachinesAPIsDAAS.md#MachinesRebootMachine) | **Post** /Machines/{nameOrId}/$reboot | Reboot a machine.
@@ -40,6 +41,7 @@ Method | HTTP request | Description
 [**MachinesTestMachine**](MachinesAPIsDAAS.md#MachinesTestMachine) | **Post** /Machines/{nameOrId}/$test | Run Cloud Health Check on a VDA machine.
 [**MachinesUpdateMachineCatalogMachine**](MachinesAPIsDAAS.md#MachinesUpdateMachineCatalogMachine) | **Patch** /Machines/{nameOrId} | Update a machine.
 [**MachinesUpdateMachineUpgradeSchedule**](MachinesAPIsDAAS.md#MachinesUpdateMachineUpgradeSchedule) | **Patch** /Machines/{nameOrId}/UpgradeSchedule | Reschedule a pending VDA upgrade schedule for a machine.
+[**MachinesValidateVDAComponentsAndFeaturesSelection**](MachinesAPIsDAAS.md#MachinesValidateVDAComponentsAndFeaturesSelection) | **Post** /Machines/{nameOrId}/VDAComponentsAndFeatures/$validate | Validate the VDA component selection at machine level that can be Included/Excluded and features that need enable during an VDA upgrade using VDA Upgrade Service.
 
 
 
@@ -1761,6 +1763,90 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## MachinesGetVDAComponentsAndFeatures
+
+> VDAComponentsAndFeaturesResponseModel MachinesGetVDAComponentsAndFeatures(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).UpgradeVersion(upgradeVersion).Execute()
+
+Get the components and features of VDAs associated with a machine.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    upgradeVersion := "upgradeVersion_example" // string | The version of the VDA to upgrade to. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesGetVDAComponentsAndFeatures(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).UpgradeVersion(upgradeVersion).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesGetVDAComponentsAndFeatures``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachinesGetVDAComponentsAndFeatures`: VDAComponentsAndFeaturesResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `MachinesAPIsDAAS.MachinesGetVDAComponentsAndFeatures`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachinesGetVDAComponentsAndFeaturesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **upgradeVersion** | **string** | The version of the VDA to upgrade to. | 
+
+### Return type
+
+[**VDAComponentsAndFeaturesResponseModel**](VDAComponentsAndFeaturesResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## MachinesImportFileTypes
 
 > FtaResponseModelCollection MachinesImportFileTypes(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
@@ -3126,6 +3212,92 @@ Name | Type | Description  | Notes
 ### Return type
 
  (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachinesValidateVDAComponentsAndFeaturesSelection
+
+> VDAComponentsSelectionValidationResponseModel MachinesValidateVDAComponentsAndFeaturesSelection(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).VDAComponentsSelectionValidationRequestModel(vDAComponentsSelectionValidationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Validate the VDA component selection at machine level that can be Included/Excluded and features that need enable during an VDA upgrade using VDA Upgrade Service.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the machine. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
+    vDAComponentsSelectionValidationRequestModel := *openapiclient.NewVDAComponentsSelectionValidationRequestModel() // VDAComponentsSelectionValidationRequestModel | More details attached to this validation.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If async execute. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesValidateVDAComponentsAndFeaturesSelection(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).VDAComponentsSelectionValidationRequestModel(vDAComponentsSelectionValidationRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesValidateVDAComponentsAndFeaturesSelection``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachinesValidateVDAComponentsAndFeaturesSelection`: VDAComponentsSelectionValidationResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `MachinesAPIsDAAS.MachinesValidateVDAComponentsAndFeaturesSelection`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the machine. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachinesValidateVDAComponentsAndFeaturesSelectionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **vDAComponentsSelectionValidationRequestModel** | [**VDAComponentsSelectionValidationRequestModel**](VDAComponentsSelectionValidationRequestModel.md) | More details attached to this validation. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If async execute. | [default to false]
+
+### Return type
+
+[**VDAComponentsSelectionValidationResponseModel**](VDAComponentsSelectionValidationResponseModel.md)
 
 ### Authorization
 
