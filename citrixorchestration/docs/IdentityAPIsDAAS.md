@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**IdentityGetForests**](IdentityAPIsDAAS.md#IdentityGetForests) | **Get** /Identity/Forests | Get the list of forests from the identity provider
 [**IdentityGetMachine**](IdentityAPIsDAAS.md#IdentityGetMachine) | **Get** /Identity/Machines/{machine} | Get a single machine account from identity provider
 [**IdentityGetMachines**](IdentityAPIsDAAS.md#IdentityGetMachines) | **Get** /Identity/Machines | Get machine accounts from identity provider
+[**IdentityGetPrinters**](IdentityAPIsDAAS.md#IdentityGetPrinters) | **Get** /Identity/Printers | Get network printers from identity provider
 [**IdentityGetServiceAccount**](IdentityAPIsDAAS.md#IdentityGetServiceAccount) | **Get** /Identity/ServiceAccount/{serviceAccountUid} | Get a specific service account.
 [**IdentityGetServiceAccountCapabilityPatchPreview**](IdentityAPIsDAAS.md#IdentityGetServiceAccountCapabilityPatchPreview) | **Post** /Identity/serviceAccount/{serviceAccountUid}/$getPatchPreview | Get the service account capability patch preview.
 [**IdentityGetServiceAccountTestReport**](IdentityAPIsDAAS.md#IdentityGetServiceAccountTestReport) | **Get** /Identity/serviceAccount/{serviceAccountUid}/testReport | Get the most recent test report for a service account.
@@ -1568,6 +1569,96 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## IdentityGetPrinters
+
+> IdentityPrinterResponseModelCollection IdentityGetPrinters(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Server(server).Uncpath(uncpath).Async(async).Execute()
+
+Get network printers from identity provider
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    forest := "forest_example" // string | Forest to get printers from.  If not specified, all forests are queried, which may take a long time. (optional)
+    domain := "domain_example" // string | Domain to get printers from.  If not specified, all domains in the forest(s) are queried, which may take a long time. (optional)
+    server := "server_example" // string | Printer server name (optional)
+    uncpath := "uncpath_example" // string | Printer UNC path (optional)
+    async := true // bool | If `true`, the get printers will be executed as a background task. The task will have JobType GetPrintersIdentity. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetPrinters(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Forest(forest).Domain(domain).Server(server).Uncpath(uncpath).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetPrinters``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `IdentityGetPrinters`: IdentityPrinterResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentityGetPrinters`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIdentityGetPrintersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xAdminCredential** | **string** | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard &#39;Authorization&#39; request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \&quot;Basic \&quot; scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **forest** | **string** | Forest to get printers from.  If not specified, all forests are queried, which may take a long time. | 
+ **domain** | **string** | Domain to get printers from.  If not specified, all domains in the forest(s) are queried, which may take a long time. | 
+ **server** | **string** | Printer server name | 
+ **uncpath** | **string** | Printer UNC path | 
+ **async** | **bool** | If &#x60;true&#x60;, the get printers will be executed as a background task. The task will have JobType GetPrintersIdentity. When the task is complete it will redirect to GetJobResults. | [default to false]
+
+### Return type
+
+[**IdentityPrinterResponseModelCollection**](IdentityPrinterResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## IdentityGetServiceAccount
 
 > ServiceAccountResponseModel IdentityGetServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
@@ -2182,7 +2273,7 @@ Name | Type | Description  | Notes
 
 ## IdentityGetUsers
 
-> IdentityUserResponseModelCollection IdentityGetUsers(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).IdpInstanceId(idpInstanceId).Execute()
+> IdentityUserResponseModelCollection IdentityGetUsers(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).IdpInstanceId(idpInstanceId).IncludeIdentityClaims(includeIdentityClaims).Execute()
 
 Get users from identity provider
 
@@ -2226,10 +2317,11 @@ func main() {
     continuationToken := "continuationToken_example" // string | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. (optional)
     async := true // bool | If `true`, the get users will be executed as a background task. The task will have JobType GetUsersIdentity. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
     idpInstanceId := "idpInstanceId_example" // string | Instance id of the identity provider. (optional)
+    includeIdentityClaims := true // bool | Inlcude the identity claims in the results. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUsers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).IdpInstanceId(idpInstanceId).Execute()
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetUsers(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAdminCredential(xAdminCredential).Accept(accept).CitrixLocale(citrixLocale).Provider(provider).Forest(forest).Domain(domain).Tenant(tenant).User(user).StartsWith(startsWith).Contains(contains).Matches(matches).ParentOU(parentOU).Recursive(recursive).UserType(userType).DirectoryServerHint(directoryServerHint).PropertiesToRetrieve(propertiesToRetrieve).Limit(limit).ContinuationToken(continuationToken).Async(async).IdpInstanceId(idpInstanceId).IncludeIdentityClaims(includeIdentityClaims).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetUsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2275,6 +2367,7 @@ Name | Type | Description  | Notes
  **continuationToken** | **string** | If specified, a previous query will be continued.  The caller must specify the same query parameters and admin credentials as the initial query or else the behavior is undefined. | 
  **async** | **bool** | If &#x60;true&#x60;, the get users will be executed as a background task. The task will have JobType GetUsersIdentity. When the task is complete it will redirect to GetJobResults. | [default to false]
  **idpInstanceId** | **string** | Instance id of the identity provider. | 
+ **includeIdentityClaims** | **bool** | Inlcude the identity claims in the results. | 
 
 ### Return type
 

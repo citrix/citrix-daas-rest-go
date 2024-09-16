@@ -5413,6 +5413,327 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiIdentityGetPrintersRequest struct {
+	ctx context.Context
+	ApiService *IdentityAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	xAdminCredential *string
+	accept *string
+	citrixLocale *string
+	forest *string
+	domain *string
+	server *string
+	uncpath *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiIdentityGetPrintersRequest) CitrixCustomerId(citrixCustomerId string) ApiIdentityGetPrintersRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiIdentityGetPrintersRequest) CitrixInstanceId(citrixInstanceId string) ApiIdentityGetPrintersRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiIdentityGetPrintersRequest) UserAgent(userAgent string) ApiIdentityGetPrintersRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiIdentityGetPrintersRequest) Authorization(authorization string) ApiIdentityGetPrintersRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiIdentityGetPrintersRequest) CitrixTransactionId(citrixTransactionId string) ApiIdentityGetPrintersRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard &#39;Authorization&#39; request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \&quot;Basic \&quot; scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l
+func (r ApiIdentityGetPrintersRequest) XAdminCredential(xAdminCredential string) ApiIdentityGetPrintersRequest {
+	r.xAdminCredential = &xAdminCredential
+	return r
+}
+
+// Must accept application/json.
+func (r ApiIdentityGetPrintersRequest) Accept(accept string) ApiIdentityGetPrintersRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiIdentityGetPrintersRequest) CitrixLocale(citrixLocale string) ApiIdentityGetPrintersRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// Forest to get printers from.  If not specified, all forests are queried, which may take a long time.
+func (r ApiIdentityGetPrintersRequest) Forest(forest string) ApiIdentityGetPrintersRequest {
+	r.forest = &forest
+	return r
+}
+
+// Domain to get printers from.  If not specified, all domains in the forest(s) are queried, which may take a long time.
+func (r ApiIdentityGetPrintersRequest) Domain(domain string) ApiIdentityGetPrintersRequest {
+	r.domain = &domain
+	return r
+}
+
+// Printer server name
+func (r ApiIdentityGetPrintersRequest) Server(server string) ApiIdentityGetPrintersRequest {
+	r.server = &server
+	return r
+}
+
+// Printer UNC path
+func (r ApiIdentityGetPrintersRequest) Uncpath(uncpath string) ApiIdentityGetPrintersRequest {
+	r.uncpath = &uncpath
+	return r
+}
+
+// If &#x60;true&#x60;, the get printers will be executed as a background task. The task will have JobType GetPrintersIdentity. When the task is complete it will redirect to GetJobResults.
+func (r ApiIdentityGetPrintersRequest) Async(async bool) ApiIdentityGetPrintersRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiIdentityGetPrintersRequest) Execute() (*IdentityPrinterResponseModelCollection, *http.Response, error) {
+	return r.ApiService.IdentityGetPrintersExecute(r)
+}
+
+/*
+IdentityGetPrinters Get network printers from identity provider
+
+Get network printers from identity provider.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiIdentityGetPrintersRequest
+*/
+func (a *IdentityAPIsDAASService) IdentityGetPrinters(ctx context.Context) ApiIdentityGetPrintersRequest {
+	return ApiIdentityGetPrintersRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return IdentityPrinterResponseModelCollection
+func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPrintersRequest) (*IdentityPrinterResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *IdentityPrinterResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetPrinters")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/Identity/Printers"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.forest != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forest", r.forest, "")
+	}
+	if r.domain != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "")
+	}
+	if r.server != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "server", r.server, "")
+	}
+	if r.uncpath != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "uncpath", r.uncpath, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.xAdminCredential != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-AdminCredential", r.xAdminCredential, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiIdentityGetServiceAccountRequest struct {
 	ctx context.Context
 	ApiService *IdentityAPIsDAASService
@@ -7572,6 +7893,7 @@ type ApiIdentityGetUsersRequest struct {
 	continuationToken *string
 	async *bool
 	idpInstanceId *string
+	includeIdentityClaims *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7724,6 +8046,12 @@ func (r ApiIdentityGetUsersRequest) IdpInstanceId(idpInstanceId string) ApiIdent
 	return r
 }
 
+// Inlcude the identity claims in the results.
+func (r ApiIdentityGetUsersRequest) IncludeIdentityClaims(includeIdentityClaims bool) ApiIdentityGetUsersRequest {
+	r.includeIdentityClaims = &includeIdentityClaims
+	return r
+}
+
 func (r ApiIdentityGetUsersRequest) Execute() (*IdentityUserResponseModelCollection, *http.Response, error) {
 	return r.ApiService.IdentityGetUsersExecute(r)
 }
@@ -7828,6 +8156,9 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 	}
 	if r.idpInstanceId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "idpInstanceId", r.idpInstanceId, "")
+	}
+	if r.includeIdentityClaims != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeIdentityClaims", r.includeIdentityClaims, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

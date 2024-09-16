@@ -38,6 +38,9 @@ const (
 	BACKUPRESTOREPLAYBOOKACTIONSTATE_FAILED BackupRestorePlaybookActionState = "Failed"
 	BACKUPRESTOREPLAYBOOKACTIONSTATE_SKIPPING BackupRestorePlaybookActionState = "Skipping"
 	BACKUPRESTOREPLAYBOOKACTIONSTATE_SKIP_DUE_TO_MISSING_INFO BackupRestorePlaybookActionState = "SkipDueToMissingInfo"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_ADD_STARTED BackupRestorePlaybookActionState = "AddStarted"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_UPDATE_STARTED BackupRestorePlaybookActionState = "UpdateStarted"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_DELETE_STARTED BackupRestorePlaybookActionState = "DeleteStarted"
 )
 
 // All allowed values of BackupRestorePlaybookActionState enum
@@ -60,6 +63,9 @@ var AllowedBackupRestorePlaybookActionStateEnumValues = []BackupRestorePlaybookA
 	"Failed",
 	"Skipping",
 	"SkipDueToMissingInfo",
+	"AddStarted",
+	"UpdateStarted",
+	"DeleteStarted",
 }
 
 func (v *BackupRestorePlaybookActionState) UnmarshalJSON(src []byte) error {

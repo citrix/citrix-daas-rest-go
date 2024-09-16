@@ -23,6 +23,1420 @@ import (
 // ImageVersionsAPIsDAASService ImageVersionsAPIsDAAS service
 type ImageVersionsAPIsDAASService service
 
+type ApiImageVersionsDeleteImageVersionRequest struct {
+	ctx context.Context
+	ApiService *ImageVersionsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	id string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiImageVersionsDeleteImageVersionRequest) CitrixCustomerId(citrixCustomerId string) ApiImageVersionsDeleteImageVersionRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiImageVersionsDeleteImageVersionRequest) CitrixInstanceId(citrixInstanceId string) ApiImageVersionsDeleteImageVersionRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiImageVersionsDeleteImageVersionRequest) UserAgent(userAgent string) ApiImageVersionsDeleteImageVersionRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiImageVersionsDeleteImageVersionRequest) Authorization(authorization string) ApiImageVersionsDeleteImageVersionRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiImageVersionsDeleteImageVersionRequest) CitrixTransactionId(citrixTransactionId string) ApiImageVersionsDeleteImageVersionRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiImageVersionsDeleteImageVersionRequest) Accept(accept string) ApiImageVersionsDeleteImageVersionRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiImageVersionsDeleteImageVersionRequest) CitrixLocale(citrixLocale string) ApiImageVersionsDeleteImageVersionRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#x60;true&#x60;, the image version (and associated objects) will be deleted as a background task. The task will have JobType DeleteImageVersion. When the task is complete it will redirect to GetImageDefinitionImageVersion. The job&#39;s Parameters will contain properties: * _Id_ - ID of the image version being deleted, * _Number_ - Number of the image version being deleted.
+func (r ApiImageVersionsDeleteImageVersionRequest) Async(async bool) ApiImageVersionsDeleteImageVersionRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiImageVersionsDeleteImageVersionRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ImageVersionsDeleteImageVersionExecute(r)
+}
+
+/*
+ImageVersionsDeleteImageVersion Delete an image version.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the image version to delete.
+ @return ApiImageVersionsDeleteImageVersionRequest
+*/
+func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersion(ctx context.Context, id string) ApiImageVersionsDeleteImageVersionRequest {
+	return ApiImageVersionsDeleteImageVersionRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r ApiImageVersionsDeleteImageVersionRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsDeleteImageVersion")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ImageVersions/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiImageVersionsGetImageVersionRequest struct {
+	ctx context.Context
+	ApiService *ImageVersionsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	id string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiImageVersionsGetImageVersionRequest) CitrixCustomerId(citrixCustomerId string) ApiImageVersionsGetImageVersionRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiImageVersionsGetImageVersionRequest) CitrixInstanceId(citrixInstanceId string) ApiImageVersionsGetImageVersionRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiImageVersionsGetImageVersionRequest) UserAgent(userAgent string) ApiImageVersionsGetImageVersionRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiImageVersionsGetImageVersionRequest) Authorization(authorization string) ApiImageVersionsGetImageVersionRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiImageVersionsGetImageVersionRequest) CitrixTransactionId(citrixTransactionId string) ApiImageVersionsGetImageVersionRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiImageVersionsGetImageVersionRequest) Accept(accept string) ApiImageVersionsGetImageVersionRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiImageVersionsGetImageVersionRequest) CitrixLocale(citrixLocale string) ApiImageVersionsGetImageVersionRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiImageVersionsGetImageVersionRequest) Execute() (*ImageVersionResponseModel, *http.Response, error) {
+	return r.ApiService.ImageVersionsGetImageVersionExecute(r)
+}
+
+/*
+ImageVersionsGetImageVersion Get details about a single image version.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the image version.
+ @return ApiImageVersionsGetImageVersionRequest
+*/
+func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersion(ctx context.Context, id string) ApiImageVersionsGetImageVersionRequest {
+	return ApiImageVersionsGetImageVersionRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ImageVersionResponseModel
+func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionExecute(r ApiImageVersionsGetImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ImageVersionResponseModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsGetImageVersion")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ImageVersions/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiImageVersionsGetImageVersionProvisioningSchemesRequest struct {
+	ctx context.Context
+	ApiService *ImageVersionsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	id string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) CitrixCustomerId(citrixCustomerId string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) CitrixInstanceId(citrixInstanceId string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) UserAgent(userAgent string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) Authorization(authorization string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) CitrixTransactionId(citrixTransactionId string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) Accept(accept string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) CitrixLocale(citrixLocale string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) Execute() (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error) {
+	return r.ApiService.ImageVersionsGetImageVersionProvisioningSchemesExecute(r)
+}
+
+/*
+ImageVersionsGetImageVersionProvisioningSchemes Get provisioning schemes associated with an image version.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of image version.
+ @return ApiImageVersionsGetImageVersionProvisioningSchemesRequest
+*/
+func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningSchemes(ctx context.Context, id string) ApiImageVersionsGetImageVersionProvisioningSchemesRequest {
+	return ApiImageVersionsGetImageVersionProvisioningSchemesRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ImageVersionProvisioningSchemeRefResponseModelCollection
+func (a *ImageVersionsAPIsDAASService) ImageVersionsGetImageVersionProvisioningSchemesExecute(r ApiImageVersionsGetImageVersionProvisioningSchemesRequest) (*ImageVersionProvisioningSchemeRefResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ImageVersionProvisioningSchemeRefResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsGetImageVersionProvisioningSchemes")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ImageVersions/{id}/ProvisioningSchemes"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiImageVersionsSetImageVersionRequest struct {
+	ctx context.Context
+	ApiService *ImageVersionsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	id string
+	createImageVersionRequestModel *CreateImageVersionRequestModel
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiImageVersionsSetImageVersionRequest) CitrixCustomerId(citrixCustomerId string) ApiImageVersionsSetImageVersionRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiImageVersionsSetImageVersionRequest) CitrixInstanceId(citrixInstanceId string) ApiImageVersionsSetImageVersionRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// Details about the image version to update.
+func (r ApiImageVersionsSetImageVersionRequest) CreateImageVersionRequestModel(createImageVersionRequestModel CreateImageVersionRequestModel) ApiImageVersionsSetImageVersionRequest {
+	r.createImageVersionRequestModel = &createImageVersionRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiImageVersionsSetImageVersionRequest) UserAgent(userAgent string) ApiImageVersionsSetImageVersionRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiImageVersionsSetImageVersionRequest) Authorization(authorization string) ApiImageVersionsSetImageVersionRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiImageVersionsSetImageVersionRequest) CitrixTransactionId(citrixTransactionId string) ApiImageVersionsSetImageVersionRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiImageVersionsSetImageVersionRequest) Accept(accept string) ApiImageVersionsSetImageVersionRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiImageVersionsSetImageVersionRequest) CitrixLocale(citrixLocale string) ApiImageVersionsSetImageVersionRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#x60;true&#x60;, the image version (and associated objects) will be updated as a background task. The task will have JobType SetImageVersion. When the task is complete it will redirect to GetImageVersion. The job&#39;s Parameters will contain properties: * _Id_ - ID of the image version being updated.
+func (r ApiImageVersionsSetImageVersionRequest) Async(async bool) ApiImageVersionsSetImageVersionRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiImageVersionsSetImageVersionRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ImageVersionsSetImageVersionExecute(r)
+}
+
+/*
+ImageVersionsSetImageVersion Set properties associated with an image version.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the image version to update.
+ @return ApiImageVersionsSetImageVersionRequest
+*/
+func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersion(ctx context.Context, id string) ApiImageVersionsSetImageVersionRequest {
+	return ApiImageVersionsSetImageVersionRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+func (a *ImageVersionsAPIsDAASService) ImageVersionsSetImageVersionExecute(r ApiImageVersionsSetImageVersionRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsSetImageVersion")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ImageVersions/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.createImageVersionRequestModel == nil {
+		return nil, reportError("createImageVersionRequestModel is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	// body params
+	localVarPostBody = r.createImageVersionRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiImageVersionsUpdateImageVersionRequest struct {
+	ctx context.Context
+	ApiService *ImageVersionsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	id string
+	updateImageVersionRequestModel *UpdateImageVersionRequestModel
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiImageVersionsUpdateImageVersionRequest) CitrixCustomerId(citrixCustomerId string) ApiImageVersionsUpdateImageVersionRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiImageVersionsUpdateImageVersionRequest) CitrixInstanceId(citrixInstanceId string) ApiImageVersionsUpdateImageVersionRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// Properties of the image version to update.
+func (r ApiImageVersionsUpdateImageVersionRequest) UpdateImageVersionRequestModel(updateImageVersionRequestModel UpdateImageVersionRequestModel) ApiImageVersionsUpdateImageVersionRequest {
+	r.updateImageVersionRequestModel = &updateImageVersionRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiImageVersionsUpdateImageVersionRequest) UserAgent(userAgent string) ApiImageVersionsUpdateImageVersionRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiImageVersionsUpdateImageVersionRequest) Authorization(authorization string) ApiImageVersionsUpdateImageVersionRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiImageVersionsUpdateImageVersionRequest) CitrixTransactionId(citrixTransactionId string) ApiImageVersionsUpdateImageVersionRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiImageVersionsUpdateImageVersionRequest) Accept(accept string) ApiImageVersionsUpdateImageVersionRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiImageVersionsUpdateImageVersionRequest) CitrixLocale(citrixLocale string) ApiImageVersionsUpdateImageVersionRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiImageVersionsUpdateImageVersionRequest) Execute() (*ImageVersionResponseModel, *http.Response, error) {
+	return r.ApiService.ImageVersionsUpdateImageVersionExecute(r)
+}
+
+/*
+ImageVersionsUpdateImageVersion Update an image version.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param id ID of the image version to update.
+ @return ApiImageVersionsUpdateImageVersionRequest
+*/
+func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersion(ctx context.Context, id string) ApiImageVersionsUpdateImageVersionRequest {
+	return ApiImageVersionsUpdateImageVersionRequest{
+		ApiService: a,
+		ctx: ctx,
+		id: id,
+	}
+}
+
+// Execute executes the request
+//  @return ImageVersionResponseModel
+func (a *ImageVersionsAPIsDAASService) ImageVersionsUpdateImageVersionExecute(r ApiImageVersionsUpdateImageVersionRequest) (*ImageVersionResponseModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ImageVersionResponseModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageVersionsAPIsDAASService.ImageVersionsUpdateImageVersion")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/ImageVersions/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.updateImageVersionRequestModel == nil {
+		return localVarReturnValue, nil, reportError("updateImageVersionRequestModel is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	// body params
+	localVarPostBody = r.updateImageVersionRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiImageVersionsUpdateImageVersionResourcePoolsRequest struct {
 	ctx context.Context
 	ApiService *ImageVersionsAPIsDAASService

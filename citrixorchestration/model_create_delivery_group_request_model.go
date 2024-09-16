@@ -124,6 +124,8 @@ type CreateDeliveryGroupRequestModel struct {
 	LogoffPeakDisconnectedSessionAfterSeconds NullableInt32 `json:"LogoffPeakDisconnectedSessionAfterSeconds,omitempty"`
 	// Specifies the time in seconds after which a disconnected session belonging to the delivery group is terminated during off-peak time.
 	LogoffOffPeakDisconnectedSessionAfterSeconds NullableInt32 `json:"LogoffOffPeakDisconnectedSessionAfterSeconds,omitempty"`
+	AutoscaleScaleDownActionDuringPeak *AutoscaleScaleDownAction `json:"AutoscaleScaleDownActionDuringPeak,omitempty"`
+	AutoscaleScaleDownActionDuringOffPeak *AutoscaleScaleDownAction `json:"AutoscaleScaleDownActionDuringOffPeak,omitempty"`
 	PrelaunchSettings *FastApplicationSettingsRequestModel `json:"PrelaunchSettings,omitempty"`
 	// Power management time schemes.  No two schemes for the same delivery group may cover the same day of the week.
 	PowerTimeSchemes []PowerTimeSchemeRequestModel `json:"PowerTimeSchemes,omitempty"`
@@ -2629,6 +2631,70 @@ func (o *CreateDeliveryGroupRequestModel) UnsetLogoffOffPeakDisconnectedSessionA
 	o.LogoffOffPeakDisconnectedSessionAfterSeconds.Unset()
 }
 
+// GetAutoscaleScaleDownActionDuringPeak returns the AutoscaleScaleDownActionDuringPeak field value if set, zero value otherwise.
+func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeak() AutoscaleScaleDownAction {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		var ret AutoscaleScaleDownAction
+		return ret
+	}
+	return *o.AutoscaleScaleDownActionDuringPeak
+}
+
+// GetAutoscaleScaleDownActionDuringPeakOk returns a tuple with the AutoscaleScaleDownActionDuringPeak field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeakOk() (*AutoscaleScaleDownAction, bool) {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		return nil, false
+	}
+	return o.AutoscaleScaleDownActionDuringPeak, true
+}
+
+// HasAutoscaleScaleDownActionDuringPeak returns a boolean if a field has been set.
+func (o *CreateDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringPeak() bool {
+	if o != nil && !IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoscaleScaleDownActionDuringPeak gets a reference to the given AutoscaleScaleDownAction and assigns it to the AutoscaleScaleDownActionDuringPeak field.
+func (o *CreateDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringPeak(v AutoscaleScaleDownAction) {
+	o.AutoscaleScaleDownActionDuringPeak = &v
+}
+
+// GetAutoscaleScaleDownActionDuringOffPeak returns the AutoscaleScaleDownActionDuringOffPeak field value if set, zero value otherwise.
+func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeak() AutoscaleScaleDownAction {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		var ret AutoscaleScaleDownAction
+		return ret
+	}
+	return *o.AutoscaleScaleDownActionDuringOffPeak
+}
+
+// GetAutoscaleScaleDownActionDuringOffPeakOk returns a tuple with the AutoscaleScaleDownActionDuringOffPeak field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeakOk() (*AutoscaleScaleDownAction, bool) {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		return nil, false
+	}
+	return o.AutoscaleScaleDownActionDuringOffPeak, true
+}
+
+// HasAutoscaleScaleDownActionDuringOffPeak returns a boolean if a field has been set.
+func (o *CreateDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringOffPeak() bool {
+	if o != nil && !IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoscaleScaleDownActionDuringOffPeak gets a reference to the given AutoscaleScaleDownAction and assigns it to the AutoscaleScaleDownActionDuringOffPeak field.
+func (o *CreateDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringOffPeak(v AutoscaleScaleDownAction) {
+	o.AutoscaleScaleDownActionDuringOffPeak = &v
+}
+
 // GetPrelaunchSettings returns the PrelaunchSettings field value if set, zero value otherwise.
 func (o *CreateDeliveryGroupRequestModel) GetPrelaunchSettings() FastApplicationSettingsRequestModel {
 	if o == nil || IsNil(o.PrelaunchSettings) {
@@ -3629,6 +3695,12 @@ func (o CreateDeliveryGroupRequestModel) ToMap() (map[string]interface{}, error)
 	}
 	if o.LogoffOffPeakDisconnectedSessionAfterSeconds.IsSet() {
 		toSerialize["LogoffOffPeakDisconnectedSessionAfterSeconds"] = o.LogoffOffPeakDisconnectedSessionAfterSeconds.Get()
+	}
+	if !IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		toSerialize["AutoscaleScaleDownActionDuringPeak"] = o.AutoscaleScaleDownActionDuringPeak
+	}
+	if !IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		toSerialize["AutoscaleScaleDownActionDuringOffPeak"] = o.AutoscaleScaleDownActionDuringOffPeak
 	}
 	if !IsNil(o.PrelaunchSettings) {
 		toSerialize["PrelaunchSettings"] = o.PrelaunchSettings

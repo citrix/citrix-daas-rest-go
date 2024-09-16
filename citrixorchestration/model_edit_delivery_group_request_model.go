@@ -129,6 +129,8 @@ type EditDeliveryGroupRequestModel struct {
 	AutoscaleLogOffReminderMessage NullableString `json:"AutoscaleLogOffReminderMessage,omitempty"`
 	// Notification message dialog title displayed when Autoscale issues a logoff reminder request.
 	AutoscaleLogOffReminderTitle NullableString `json:"AutoscaleLogOffReminderTitle,omitempty"`
+	AutoscaleScaleDownActionDuringPeak *AutoscaleScaleDownAction `json:"AutoscaleScaleDownActionDuringPeak,omitempty"`
+	AutoscaleScaleDownActionDuringOffPeak *AutoscaleScaleDownAction `json:"AutoscaleScaleDownActionDuringOffPeak,omitempty"`
 	// Indicates the estimated per-hour cost for machines in the delivery group, as set by the administrator.
 	MachineCost NullableFloat64 `json:"MachineCost,omitempty"`
 	MachineLogOnType *MachineLogOnType `json:"MachineLogOnType,omitempty"`
@@ -2597,6 +2599,70 @@ func (o *EditDeliveryGroupRequestModel) UnsetAutoscaleLogOffReminderTitle() {
 	o.AutoscaleLogOffReminderTitle.Unset()
 }
 
+// GetAutoscaleScaleDownActionDuringPeak returns the AutoscaleScaleDownActionDuringPeak field value if set, zero value otherwise.
+func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeak() AutoscaleScaleDownAction {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		var ret AutoscaleScaleDownAction
+		return ret
+	}
+	return *o.AutoscaleScaleDownActionDuringPeak
+}
+
+// GetAutoscaleScaleDownActionDuringPeakOk returns a tuple with the AutoscaleScaleDownActionDuringPeak field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeakOk() (*AutoscaleScaleDownAction, bool) {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		return nil, false
+	}
+	return o.AutoscaleScaleDownActionDuringPeak, true
+}
+
+// HasAutoscaleScaleDownActionDuringPeak returns a boolean if a field has been set.
+func (o *EditDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringPeak() bool {
+	if o != nil && !IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoscaleScaleDownActionDuringPeak gets a reference to the given AutoscaleScaleDownAction and assigns it to the AutoscaleScaleDownActionDuringPeak field.
+func (o *EditDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringPeak(v AutoscaleScaleDownAction) {
+	o.AutoscaleScaleDownActionDuringPeak = &v
+}
+
+// GetAutoscaleScaleDownActionDuringOffPeak returns the AutoscaleScaleDownActionDuringOffPeak field value if set, zero value otherwise.
+func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeak() AutoscaleScaleDownAction {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		var ret AutoscaleScaleDownAction
+		return ret
+	}
+	return *o.AutoscaleScaleDownActionDuringOffPeak
+}
+
+// GetAutoscaleScaleDownActionDuringOffPeakOk returns a tuple with the AutoscaleScaleDownActionDuringOffPeak field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EditDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeakOk() (*AutoscaleScaleDownAction, bool) {
+	if o == nil || IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		return nil, false
+	}
+	return o.AutoscaleScaleDownActionDuringOffPeak, true
+}
+
+// HasAutoscaleScaleDownActionDuringOffPeak returns a boolean if a field has been set.
+func (o *EditDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringOffPeak() bool {
+	if o != nil && !IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoscaleScaleDownActionDuringOffPeak gets a reference to the given AutoscaleScaleDownAction and assigns it to the AutoscaleScaleDownActionDuringOffPeak field.
+func (o *EditDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringOffPeak(v AutoscaleScaleDownAction) {
+	o.AutoscaleScaleDownActionDuringOffPeak = &v
+}
+
 // GetMachineCost returns the MachineCost field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditDeliveryGroupRequestModel) GetMachineCost() float64 {
 	if o == nil || IsNil(o.MachineCost.Get()) {
@@ -3412,6 +3478,12 @@ func (o EditDeliveryGroupRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.AutoscaleLogOffReminderTitle.IsSet() {
 		toSerialize["AutoscaleLogOffReminderTitle"] = o.AutoscaleLogOffReminderTitle.Get()
+	}
+	if !IsNil(o.AutoscaleScaleDownActionDuringPeak) {
+		toSerialize["AutoscaleScaleDownActionDuringPeak"] = o.AutoscaleScaleDownActionDuringPeak
+	}
+	if !IsNil(o.AutoscaleScaleDownActionDuringOffPeak) {
+		toSerialize["AutoscaleScaleDownActionDuringOffPeak"] = o.AutoscaleScaleDownActionDuringOffPeak
 	}
 	if o.MachineCost.IsSet() {
 		toSerialize["MachineCost"] = o.MachineCost.Get()

@@ -100,6 +100,7 @@ Name | Type | Description | Notes
 **StoreFrontServersForHostedReceiver** | Pointer to [**[]StoreFrontServerResponseModel**](StoreFrontServerResponseModel.md) | StoreFront servers to use for Receiver when it is hosted on the machine. | [optional] 
 **VMToolsState** | Pointer to [**VMToolsState**](VMToolsState.md) |  | [optional] 
 **FailureReason** | Pointer to **NullableString** | Failure reason of power action. | [optional] 
+**FailedActionCompletionTime** | Pointer to **NullableString** | Time when the power action failed. | [optional] 
 
 ## Methods
 
@@ -3090,6 +3091,41 @@ HasFailureReason returns a boolean if a field has been set.
 `func (o *MachineDetailResponseModel) UnsetFailureReason()`
 
 UnsetFailureReason ensures that no value is present for FailureReason, not even an explicit nil
+### GetFailedActionCompletionTime
+
+`func (o *MachineDetailResponseModel) GetFailedActionCompletionTime() string`
+
+GetFailedActionCompletionTime returns the FailedActionCompletionTime field if non-nil, zero value otherwise.
+
+### GetFailedActionCompletionTimeOk
+
+`func (o *MachineDetailResponseModel) GetFailedActionCompletionTimeOk() (*string, bool)`
+
+GetFailedActionCompletionTimeOk returns a tuple with the FailedActionCompletionTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailedActionCompletionTime
+
+`func (o *MachineDetailResponseModel) SetFailedActionCompletionTime(v string)`
+
+SetFailedActionCompletionTime sets FailedActionCompletionTime field to given value.
+
+### HasFailedActionCompletionTime
+
+`func (o *MachineDetailResponseModel) HasFailedActionCompletionTime() bool`
+
+HasFailedActionCompletionTime returns a boolean if a field has been set.
+
+### SetFailedActionCompletionTimeNil
+
+`func (o *MachineDetailResponseModel) SetFailedActionCompletionTimeNil(b bool)`
+
+ SetFailedActionCompletionTimeNil sets the value for FailedActionCompletionTime to be an explicit nil
+
+### UnsetFailedActionCompletionTime
+`func (o *MachineDetailResponseModel) UnsetFailedActionCompletionTime()`
+
+UnsetFailedActionCompletionTime ensures that no value is present for FailedActionCompletionTime, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -389,6 +389,8 @@
 
 * `MOONSHOT_CONNECTION_SSL_PUBLIC_CA_SIGNED_FAILURE` (value: `"MoonshotConnectionSslPublicCASignedFailure"`)
 
+* `OPEN_SHIFT_CONNECTION_SSL_PUBLIC_CA_SIGNED_FAILURE` (value: `"OpenShiftConnectionSslPublicCASignedFailure"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

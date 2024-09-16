@@ -31,6 +31,7 @@ const (
 	LOGOPERATIONSEARCHPROPERTY_TARGET_TYPE LogOperationSearchProperty = "TargetType"
 	LOGOPERATIONSEARCHPROPERTY_OPERATION_TYPE LogOperationSearchProperty = "OperationType"
 	LOGOPERATIONSEARCHPROPERTY_LABELS LogOperationSearchProperty = "Labels"
+	LOGOPERATIONSEARCHPROPERTY_USER_IDENTITY LogOperationSearchProperty = "UserIdentity"
 )
 
 // All allowed values of LogOperationSearchProperty enum
@@ -46,6 +47,7 @@ var AllowedLogOperationSearchPropertyEnumValues = []LogOperationSearchProperty{
 	"TargetType",
 	"OperationType",
 	"Labels",
+	"UserIdentity",
 }
 
 func (v *LogOperationSearchProperty) UnmarshalJSON(src []byte) error {

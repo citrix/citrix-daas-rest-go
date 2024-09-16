@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"os"
 )
 
 
@@ -932,7 +931,7 @@ func (r ApiJobsGetJobResultsRequest) CitrixLocale(citrixLocale string) ApiJobsGe
 	return r
 }
 
-func (r ApiJobsGetJobResultsRequest) Execute() (*os.File, *http.Response, error) {
+func (r ApiJobsGetJobResultsRequest) Execute() (string, *http.Response, error) {
 	return r.ApiService.JobsGetJobResultsExecute(r)
 }
 
@@ -973,13 +972,13 @@ func (a *JobsAPIsDAASService) JobsGetJobResults(ctx context.Context, id string) 
 }
 
 // Execute executes the request
-//  @return *os.File
-func (a *JobsAPIsDAASService) JobsGetJobResultsExecute(r ApiJobsGetJobResultsRequest) (*os.File, *http.Response, error) {
+//  @return string
+func (a *JobsAPIsDAASService) JobsGetJobResultsExecute(r ApiJobsGetJobResultsRequest) (string, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarReturnValue  string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JobsAPIsDAASService.JobsGetJobResults")
@@ -1010,7 +1009,7 @@ func (a *JobsAPIsDAASService) JobsGetJobResultsExecute(r ApiJobsGetJobResultsReq
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

@@ -32,6 +32,7 @@ const (
 	BACKUPRESTORESTATUS_STALLED BackupRestoreStatus = "Stalled"
 	BACKUPRESTORESTATUS_RETRY_BACKUP BackupRestoreStatus = "RetryBackup"
 	BACKUPRESTORESTATUS_RETRY_RESTORE BackupRestoreStatus = "RetryRestore"
+	BACKUPRESTORESTATUS_AUDIT_COMPLETE BackupRestoreStatus = "AuditComplete"
 )
 
 // All allowed values of BackupRestoreStatus enum
@@ -48,6 +49,7 @@ var AllowedBackupRestoreStatusEnumValues = []BackupRestoreStatus{
 	"Stalled",
 	"RetryBackup",
 	"RetryRestore",
+	"AuditComplete",
 }
 
 func (v *BackupRestoreStatus) UnmarshalJSON(src []byte) error {

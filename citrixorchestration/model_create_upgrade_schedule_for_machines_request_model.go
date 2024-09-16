@@ -31,6 +31,7 @@ type CreateUpgradeScheduleForMachinesRequestModel struct {
 	// Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported.
 	VdaServerPackageUri NullableString `json:"VdaServerPackageUri,omitempty"`
 	LogoffOption *LogoffOption `json:"LogoffOption,omitempty"`
+	VDAComponentsAndFeaturesRequestModel *VDAComponentsSelectionValidationRequestModel `json:"VDAComponentsAndFeaturesRequestModel,omitempty"`
 }
 
 // NewCreateUpgradeScheduleForMachinesRequestModel instantiates a new CreateUpgradeScheduleForMachinesRequestModel object
@@ -258,6 +259,38 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) SetLogoffOption(v LogoffO
 	o.LogoffOption = &v
 }
 
+// GetVDAComponentsAndFeaturesRequestModel returns the VDAComponentsAndFeaturesRequestModel field value if set, zero value otherwise.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVDAComponentsAndFeaturesRequestModel() VDAComponentsSelectionValidationRequestModel {
+	if o == nil || IsNil(o.VDAComponentsAndFeaturesRequestModel) {
+		var ret VDAComponentsSelectionValidationRequestModel
+		return ret
+	}
+	return *o.VDAComponentsAndFeaturesRequestModel
+}
+
+// GetVDAComponentsAndFeaturesRequestModelOk returns a tuple with the VDAComponentsAndFeaturesRequestModel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVDAComponentsAndFeaturesRequestModelOk() (*VDAComponentsSelectionValidationRequestModel, bool) {
+	if o == nil || IsNil(o.VDAComponentsAndFeaturesRequestModel) {
+		return nil, false
+	}
+	return o.VDAComponentsAndFeaturesRequestModel, true
+}
+
+// HasVDAComponentsAndFeaturesRequestModel returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) HasVDAComponentsAndFeaturesRequestModel() bool {
+	if o != nil && !IsNil(o.VDAComponentsAndFeaturesRequestModel) {
+		return true
+	}
+
+	return false
+}
+
+// SetVDAComponentsAndFeaturesRequestModel gets a reference to the given VDAComponentsSelectionValidationRequestModel and assigns it to the VDAComponentsAndFeaturesRequestModel field.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVDAComponentsAndFeaturesRequestModel(v VDAComponentsSelectionValidationRequestModel) {
+	o.VDAComponentsAndFeaturesRequestModel = &v
+}
+
 func (o CreateUpgradeScheduleForMachinesRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -281,6 +314,9 @@ func (o CreateUpgradeScheduleForMachinesRequestModel) ToMap() (map[string]interf
 	}
 	if !IsNil(o.LogoffOption) {
 		toSerialize["LogoffOption"] = o.LogoffOption
+	}
+	if !IsNil(o.VDAComponentsAndFeaturesRequestModel) {
+		toSerialize["VDAComponentsAndFeaturesRequestModel"] = o.VDAComponentsAndFeaturesRequestModel
 	}
 	return toSerialize, nil
 }

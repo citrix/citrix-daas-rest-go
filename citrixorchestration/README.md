@@ -361,6 +361,7 @@ Class | Method | HTTP request | Description
 *IdentityAPIsDAAS* | [**IdentityGetForests**](docs/IdentityAPIsDAAS.md#identitygetforests) | **Get** /Identity/Forests | Get the list of forests from the identity provider
 *IdentityAPIsDAAS* | [**IdentityGetMachine**](docs/IdentityAPIsDAAS.md#identitygetmachine) | **Get** /Identity/Machines/{machine} | Get a single machine account from identity provider
 *IdentityAPIsDAAS* | [**IdentityGetMachines**](docs/IdentityAPIsDAAS.md#identitygetmachines) | **Get** /Identity/Machines | Get machine accounts from identity provider
+*IdentityAPIsDAAS* | [**IdentityGetPrinters**](docs/IdentityAPIsDAAS.md#identitygetprinters) | **Get** /Identity/Printers | Get network printers from identity provider
 *IdentityAPIsDAAS* | [**IdentityGetServiceAccount**](docs/IdentityAPIsDAAS.md#identitygetserviceaccount) | **Get** /Identity/ServiceAccount/{serviceAccountUid} | Get a specific service account.
 *IdentityAPIsDAAS* | [**IdentityGetServiceAccountCapabilityPatchPreview**](docs/IdentityAPIsDAAS.md#identitygetserviceaccountcapabilitypatchpreview) | **Post** /Identity/serviceAccount/{serviceAccountUid}/$getPatchPreview | Get the service account capability patch preview.
 *IdentityAPIsDAAS* | [**IdentityGetServiceAccountTestReport**](docs/IdentityAPIsDAAS.md#identitygetserviceaccounttestreport) | **Get** /Identity/serviceAccount/{serviceAccountUid}/testReport | Get the most recent test report for a service account.
@@ -390,6 +391,11 @@ Class | Method | HTTP request | Description
 *ImageDefinitionsAPIsDAAS* | [**ImageDefinitionsUpdateImageDefinition**](docs/ImageDefinitionsAPIsDAAS.md#imagedefinitionsupdateimagedefinition) | **Patch** /ImageDefinitions/{nameOrId} | Update an image definition.
 *ImageDefinitionsAPIsDAAS* | [**ImageDefinitionsUpdateImageDefinitionImageVersion**](docs/ImageDefinitionsAPIsDAAS.md#imagedefinitionsupdateimagedefinitionimageversion) | **Patch** /ImageDefinitions/{nameOrId}/ImageVersions/{versionNumberOrId} | Update an image version.
 *ImageDefinitionsAPIsDAAS* | [**ImageDefinitionsUpdateImageVersionResourcePools**](docs/ImageDefinitionsAPIsDAAS.md#imagedefinitionsupdateimageversionresourcepools) | **Put** /ImageDefinitions/{nameOrId}/ImageVersions/{versionNumberOrId}/$UpdateResourcePools | Update resource pools associated with an image version.
+*ImageVersionsAPIsDAAS* | [**ImageVersionsDeleteImageVersion**](docs/ImageVersionsAPIsDAAS.md#imageversionsdeleteimageversion) | **Delete** /ImageVersions/{id} | Delete an image version.
+*ImageVersionsAPIsDAAS* | [**ImageVersionsGetImageVersion**](docs/ImageVersionsAPIsDAAS.md#imageversionsgetimageversion) | **Get** /ImageVersions/{id} | Get details about a single image version.
+*ImageVersionsAPIsDAAS* | [**ImageVersionsGetImageVersionProvisioningSchemes**](docs/ImageVersionsAPIsDAAS.md#imageversionsgetimageversionprovisioningschemes) | **Get** /ImageVersions/{id}/ProvisioningSchemes | Get provisioning schemes associated with an image version.
+*ImageVersionsAPIsDAAS* | [**ImageVersionsSetImageVersion**](docs/ImageVersionsAPIsDAAS.md#imageversionssetimageversion) | **Put** /ImageVersions/{id} | Set properties associated with an image version.
+*ImageVersionsAPIsDAAS* | [**ImageVersionsUpdateImageVersion**](docs/ImageVersionsAPIsDAAS.md#imageversionsupdateimageversion) | **Patch** /ImageVersions/{id} | Update an image version.
 *ImageVersionsAPIsDAAS* | [**ImageVersionsUpdateImageVersionResourcePools**](docs/ImageVersionsAPIsDAAS.md#imageversionsupdateimageversionresourcepools) | **Put** /ImageVersions/{id}/$UpdateResourcePools | 
 *JobsAPIsDAAS* | [**JobsCancelJob**](docs/JobsAPIsDAAS.md#jobscanceljob) | **Post** /Jobs/{id}/$cancel | Cancel a job.
 *JobsAPIsDAAS* | [**JobsDeleteJob**](docs/JobsAPIsDAAS.md#jobsdeletejob) | **Delete** /Jobs/{id} | Removes the job record.
@@ -407,6 +413,7 @@ Class | Method | HTTP request | Description
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsDeleteMachineCatalog**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsdeletemachinecatalog) | **Delete** /MachineCatalogs/{nameOrId} | Delete a machine catalog.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsDoMachineCatalogSearch**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsdomachinecatalogsearch) | **Post** /Machinecatalogs/$search | Perform an advanced search for machinecatalogs.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsExport**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsexport) | **Post** /MachineCatalogs/{nameOrId}/$export | Exports a MCS machine catalog.
+*MachineCatalogsAPIsDAAS* | [**MachineCatalogsExportMachineProfile**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsexportmachineprofile) | **Post** /MachineCatalogs/{nameOrId}/$exportMachineProfile | Exports a MCS machine catalog&#39;s machine profile.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalog**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalog) | **Get** /MachineCatalogs/{nameOrId} | Get details about a single machine catalog.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalogDeliveryGroupAssociations**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalogdeliverygroupassociations) | **Get** /MachineCatalogs/{nameOrId}/DeliveryGroupAssociations | Get delivery group associations of a machine catalog.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalogEnrollments**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalogenrollments) | **Get** /MachineCatalogs/{nameOrId}/Enrollments | Get the list of enrollments in the machine catalog.
@@ -459,6 +466,7 @@ Class | Method | HTTP request | Description
 *MachinesAPIsDAAS* | [**MachinesGetMachinesAdministrators**](docs/MachinesAPIsDAAS.md#machinesgetmachinesadministrators) | **Get** /Machines/{nameOrId}/Administrators | Get administrators who can administer a machine
 *MachinesAPIsDAAS* | [**MachinesGetMachinesV2**](docs/MachinesAPIsDAAS.md#machinesgetmachinesv2) | **Get** /MachinesV2 | The V2 version of get all machines in the site.
 *MachinesAPIsDAAS* | [**MachinesGetTestMachineReport**](docs/MachinesAPIsDAAS.md#machinesgettestmachinereport) | **Get** /Machines/{nameOrId}/TestReports/{reportId} | Get Cloud Health Check Report on a VDA machine.
+*MachinesAPIsDAAS* | [**MachinesGetVDAComponentsAndFeatures**](docs/MachinesAPIsDAAS.md#machinesgetvdacomponentsandfeatures) | **Get** /Machines/{nameOrId}/VDAComponentsAndFeatures | Get the components and features of VDAs associated with a machine.
 *MachinesAPIsDAAS* | [**MachinesImportFileTypes**](docs/MachinesAPIsDAAS.md#machinesimportfiletypes) | **Post** /Machines/{nameOrId}/FileTypes/$import | Import file type associations from the machine.
 *MachinesAPIsDAAS* | [**MachinesLogoffMachineSessions**](docs/MachinesAPIsDAAS.md#machineslogoffmachinesessions) | **Post** /Machines/{nameOrId}/$logoff | Logoff all sessions on a machine.
 *MachinesAPIsDAAS* | [**MachinesRebootMachine**](docs/MachinesAPIsDAAS.md#machinesrebootmachine) | **Post** /Machines/{nameOrId}/$reboot | Reboot a machine.
@@ -475,6 +483,7 @@ Class | Method | HTTP request | Description
 *MachinesAPIsDAAS* | [**MachinesTestMachine**](docs/MachinesAPIsDAAS.md#machinestestmachine) | **Post** /Machines/{nameOrId}/$test | Run Cloud Health Check on a VDA machine.
 *MachinesAPIsDAAS* | [**MachinesUpdateMachineCatalogMachine**](docs/MachinesAPIsDAAS.md#machinesupdatemachinecatalogmachine) | **Patch** /Machines/{nameOrId} | Update a machine.
 *MachinesAPIsDAAS* | [**MachinesUpdateMachineUpgradeSchedule**](docs/MachinesAPIsDAAS.md#machinesupdatemachineupgradeschedule) | **Patch** /Machines/{nameOrId}/UpgradeSchedule | Reschedule a pending VDA upgrade schedule for a machine.
+*MachinesAPIsDAAS* | [**MachinesValidateVDAComponentsAndFeaturesSelection**](docs/MachinesAPIsDAAS.md#machinesvalidatevdacomponentsandfeaturesselection) | **Post** /Machines/{nameOrId}/VDAComponentsAndFeatures/$validate | Validate the VDA component selection at machine level that can be Included/Excluded and features that need enable during an VDA upgrade using VDA Upgrade Service.
 *MeAPIsDAAS* | [**MeDeleteMyPreference**](docs/MeAPIsDAAS.md#medeletemypreference) | **Delete** /me/Preferences/{name} | Delete one of admin preferences by name.
 *MeAPIsDAAS* | [**MeGetMe**](docs/MeAPIsDAAS.md#megetme) | **Get** /me | Get my details.
 *MeAPIsDAAS* | [**MeGetMyPreference**](docs/MeAPIsDAAS.md#megetmypreference) | **Get** /me/Preferences/{name} | Get one of my preferences by name.
@@ -660,6 +669,7 @@ Class | Method | HTTP request | Description
  - [AuthTokenResponseModel](docs/AuthTokenResponseModel.md)
  - [Authenticator](docs/Authenticator.md)
  - [AutoDiscoveryPeriod](docs/AutoDiscoveryPeriod.md)
+ - [AutoscaleScaleDownAction](docs/AutoscaleScaleDownAction.md)
  - [AzureADCustomDomainResponseModel](docs/AzureADCustomDomainResponseModel.md)
  - [AzureADSecurityGroupResponseModel](docs/AzureADSecurityGroupResponseModel.md)
  - [AzureADSecurityGroupResponseModelCollection](docs/AzureADSecurityGroupResponseModelCollection.md)
@@ -780,6 +790,7 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfIdentityDomainResponseModel](docs/CollectionModelOfIdentityDomainResponseModel.md)
  - [CollectionModelOfIdentityForestResponseModel](docs/CollectionModelOfIdentityForestResponseModel.md)
  - [CollectionModelOfIdentityMachineResponseModel](docs/CollectionModelOfIdentityMachineResponseModel.md)
+ - [CollectionModelOfIdentityPrinterResponseModel](docs/CollectionModelOfIdentityPrinterResponseModel.md)
  - [CollectionModelOfIdentitySiteResponseModel](docs/CollectionModelOfIdentitySiteResponseModel.md)
  - [CollectionModelOfIdentityUserResponseModel](docs/CollectionModelOfIdentityUserResponseModel.md)
  - [CollectionModelOfImageDefinitionResponseModel](docs/CollectionModelOfImageDefinitionResponseModel.md)
@@ -980,6 +991,7 @@ Class | Method | HTTP request | Description
  - [ErrorWarningModel](docs/ErrorWarningModel.md)
  - [ErrorWarningResponseModel](docs/ErrorWarningResponseModel.md)
  - [ExportMachineCatalogResponseModel](docs/ExportMachineCatalogResponseModel.md)
+ - [ExportMachineProfileResponseModel](docs/ExportMachineProfileResponseModel.md)
  - [FastApplicationSettingsRequestModel](docs/FastApplicationSettingsRequestModel.md)
  - [FastApplicationSettingsResponseModel](docs/FastApplicationSettingsResponseModel.md)
  - [FaultState](docs/FaultState.md)
@@ -1094,6 +1106,8 @@ Class | Method | HTTP request | Description
  - [IdentityMachineResponseModel](docs/IdentityMachineResponseModel.md)
  - [IdentityMachineResponseModelCollection](docs/IdentityMachineResponseModelCollection.md)
  - [IdentityPasswordFormat](docs/IdentityPasswordFormat.md)
+ - [IdentityPrinterResponseModel](docs/IdentityPrinterResponseModel.md)
+ - [IdentityPrinterResponseModelCollection](docs/IdentityPrinterResponseModelCollection.md)
  - [IdentityProviderType](docs/IdentityProviderType.md)
  - [IdentitySiteResponseModel](docs/IdentitySiteResponseModel.md)
  - [IdentitySiteResponseModelCollection](docs/IdentitySiteResponseModelCollection.md)
@@ -1501,6 +1515,7 @@ Class | Method | HTTP request | Description
  - [VDAComponentParameterModel](docs/VDAComponentParameterModel.md)
  - [VDAComponentParameterRequestModel](docs/VDAComponentParameterRequestModel.md)
  - [VDAComponentRequestModel](docs/VDAComponentRequestModel.md)
+ - [VDAComponentsAndFeaturesResponseModel](docs/VDAComponentsAndFeaturesResponseModel.md)
  - [VDAComponentsSelectionValidationRequestModel](docs/VDAComponentsSelectionValidationRequestModel.md)
  - [VDAComponentsSelectionValidationResponseModel](docs/VDAComponentsSelectionValidationResponseModel.md)
  - [VDAFeatureModel](docs/VDAFeatureModel.md)

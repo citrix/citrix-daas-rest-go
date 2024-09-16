@@ -25,6 +25,8 @@ type LogOperationResponseModel struct {
 	Text string `json:"Text"`
 	// User who performed the operation.
 	User NullableString `json:"User,omitempty"`
+	// The UserIdentity(Windows security identifier or Citrix Cloud Identity) of administrator who performed the operation.
+	UserIdentity NullableString `json:"UserIdentity,omitempty"`
 	// Source of the operation.
 	Source string `json:"Source"`
 	// IP address of the administrator's machine from which the operation was performed.
@@ -163,6 +165,48 @@ func (o *LogOperationResponseModel) SetUserNil() {
 // UnsetUser ensures that no value is present for User, not even an explicit nil
 func (o *LogOperationResponseModel) UnsetUser() {
 	o.User.Unset()
+}
+
+// GetUserIdentity returns the UserIdentity field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LogOperationResponseModel) GetUserIdentity() string {
+	if o == nil || IsNil(o.UserIdentity.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.UserIdentity.Get()
+}
+
+// GetUserIdentityOk returns a tuple with the UserIdentity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LogOperationResponseModel) GetUserIdentityOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UserIdentity.Get(), o.UserIdentity.IsSet()
+}
+
+// HasUserIdentity returns a boolean if a field has been set.
+func (o *LogOperationResponseModel) HasUserIdentity() bool {
+	if o != nil && o.UserIdentity.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUserIdentity gets a reference to the given NullableString and assigns it to the UserIdentity field.
+func (o *LogOperationResponseModel) SetUserIdentity(v string) {
+	o.UserIdentity.Set(&v)
+}
+// SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
+func (o *LogOperationResponseModel) SetUserIdentityNil() {
+	o.UserIdentity.Set(nil)
+}
+
+// UnsetUserIdentity ensures that no value is present for UserIdentity, not even an explicit nil
+func (o *LogOperationResponseModel) UnsetUserIdentity() {
+	o.UserIdentity.Unset()
 }
 
 // GetSource returns the Source field value
@@ -557,6 +601,9 @@ func (o LogOperationResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["Text"] = o.Text
 	if o.User.IsSet() {
 		toSerialize["User"] = o.User.Get()
+	}
+	if o.UserIdentity.IsSet() {
+		toSerialize["UserIdentity"] = o.UserIdentity.Get()
 	}
 	toSerialize["Source"] = o.Source
 	if o.AdminMachineIP.IsSet() {
