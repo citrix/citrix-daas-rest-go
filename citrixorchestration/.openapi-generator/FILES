@@ -161,6 +161,7 @@ docs/Attribute.md
 docs/AuthTokenResponseModel.md
 docs/Authenticator.md
 docs/AutoDiscoveryPeriod.md
+docs/AutoscaleScaleDownAction.md
 docs/AzureADCustomDomainResponseModel.md
 docs/AzureADSecurityGroupResponseModel.md
 docs/AzureADSecurityGroupResponseModelCollection.md
@@ -282,6 +283,7 @@ docs/CollectionModelOfIdentityDirectoryResponseModel.md
 docs/CollectionModelOfIdentityDomainResponseModel.md
 docs/CollectionModelOfIdentityForestResponseModel.md
 docs/CollectionModelOfIdentityMachineResponseModel.md
+docs/CollectionModelOfIdentityPrinterResponseModel.md
 docs/CollectionModelOfIdentitySiteResponseModel.md
 docs/CollectionModelOfIdentityUserResponseModel.md
 docs/CollectionModelOfImageDefinitionResponseModel.md
@@ -484,6 +486,7 @@ docs/ErrorResponseParameter.md
 docs/ErrorWarningModel.md
 docs/ErrorWarningResponseModel.md
 docs/ExportMachineCatalogResponseModel.md
+docs/ExportMachineProfileResponseModel.md
 docs/FastApplicationSettingsRequestModel.md
 docs/FastApplicationSettingsResponseModel.md
 docs/FaultState.md
@@ -603,6 +606,8 @@ docs/IdentityMachineIPAddressResolveMethod.md
 docs/IdentityMachineResponseModel.md
 docs/IdentityMachineResponseModelCollection.md
 docs/IdentityPasswordFormat.md
+docs/IdentityPrinterResponseModel.md
+docs/IdentityPrinterResponseModelCollection.md
 docs/IdentityProviderType.md
 docs/IdentitySiteResponseModel.md
 docs/IdentitySiteResponseModelCollection.md
@@ -1024,6 +1029,7 @@ docs/VDAComponentModel.md
 docs/VDAComponentParameterModel.md
 docs/VDAComponentParameterRequestModel.md
 docs/VDAComponentRequestModel.md
+docs/VDAComponentsAndFeaturesResponseModel.md
 docs/VDAComponentsSelectionValidationRequestModel.md
 docs/VDAComponentsSelectionValidationResponseModel.md
 docs/VDAFeatureModel.md
@@ -1173,6 +1179,7 @@ model_attribute.go
 model_auth_token_response_model.go
 model_authenticator.go
 model_auto_discovery_period.go
+model_autoscale_scale_down_action.go
 model_azure_ad_custom_domain_response_model.go
 model_azure_ad_join_type.go
 model_azure_ad_joined_mode.go
@@ -1293,6 +1300,7 @@ model_collection_model_of_identity_directory_response_model.go
 model_collection_model_of_identity_domain_response_model.go
 model_collection_model_of_identity_forest_response_model.go
 model_collection_model_of_identity_machine_response_model.go
+model_collection_model_of_identity_printer_response_model.go
 model_collection_model_of_identity_site_response_model.go
 model_collection_model_of_identity_user_response_model.go
 model_collection_model_of_image_definition_response_model.go
@@ -1493,6 +1501,7 @@ model_error_response_parameter.go
 model_error_warning_model.go
 model_error_warning_response_model.go
 model_export_machine_catalog_response_model.go
+model_export_machine_profile_response_model.go
 model_fast_application_settings_request_model.go
 model_fast_application_settings_response_model.go
 model_fault_state.go
@@ -1607,6 +1616,8 @@ model_identity_machine_ip_address_resolve_method.go
 model_identity_machine_response_model.go
 model_identity_machine_response_model_collection.go
 model_identity_password_format.go
+model_identity_printer_response_model.go
+model_identity_printer_response_model_collection.go
 model_identity_provider_type.go
 model_identity_site_response_model.go
 model_identity_site_response_model_collection.go
@@ -2014,6 +2025,7 @@ model_vda_component_model.go
 model_vda_component_parameter_model.go
 model_vda_component_parameter_request_model.go
 model_vda_component_request_model.go
+model_vda_components_and_features_response_model.go
 model_vda_components_selection_validation_request_model.go
 model_vda_components_selection_validation_response_model.go
 model_vda_feature_model.go

@@ -17,17 +17,17 @@ import (
 // checks if the VDAComponentsSelectionValidationResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &VDAComponentsSelectionValidationResponseModel{}
 
-// VDAComponentsSelectionValidationResponseModel Response model of VDA upgrade components and features related to the Machine Catalog.
+// VDAComponentsSelectionValidationResponseModel The validation response model for VDA components selection of a catalog/ a machine/ machines.
 type VDAComponentsSelectionValidationResponseModel struct {
-	// Uid of the catalog.
+	// Uid of the object.
 	Uid *int32 `json:"Uid,omitempty"`
-	// Id of the machine catalog.
-	Id string `json:"Id"`
-	// Name of the catalog.
-	Name string `json:"Name"`
-	// Validation result of VDA components selection of the catalog.
+	// Id of the object.
+	Id NullableString `json:"Id,omitempty"`
+	// Name of the object.
+	Name NullableString `json:"Name,omitempty"`
+	// Validation result of VDA components selection.
 	IsValid *bool `json:"IsValid,omitempty"`
-	// Validation message of VDA components selection of the catalog.
+	// Validation message of VDA components selection.
 	Message NullableString `json:"Message,omitempty"`
 }
 
@@ -35,10 +35,8 @@ type VDAComponentsSelectionValidationResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVDAComponentsSelectionValidationResponseModel(id string, name string) *VDAComponentsSelectionValidationResponseModel {
+func NewVDAComponentsSelectionValidationResponseModel() *VDAComponentsSelectionValidationResponseModel {
 	this := VDAComponentsSelectionValidationResponseModel{}
-	this.Id = id
-	this.Name = name
 	return &this
 }
 
@@ -82,52 +80,88 @@ func (o *VDAComponentsSelectionValidationResponseModel) SetUid(v int32) {
 	o.Uid = &v
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VDAComponentsSelectionValidationResponseModel) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id.Get()
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VDAComponentsSelectionValidationResponseModel) GetIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id.Get(), o.Id.IsSet()
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *VDAComponentsSelectionValidationResponseModel) HasId() bool {
+	if o != nil && o.Id.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given NullableString and assigns it to the Id field.
 func (o *VDAComponentsSelectionValidationResponseModel) SetId(v string) {
-	o.Id = v
+	o.Id.Set(&v)
+}
+// SetIdNil sets the value for Id to be an explicit nil
+func (o *VDAComponentsSelectionValidationResponseModel) SetIdNil() {
+	o.Id.Set(nil)
 }
 
-// GetName returns the Name field value
+// UnsetId ensures that no value is present for Id, not even an explicit nil
+func (o *VDAComponentsSelectionValidationResponseModel) UnsetId() {
+	o.Id.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VDAComponentsSelectionValidationResponseModel) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *VDAComponentsSelectionValidationResponseModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *VDAComponentsSelectionValidationResponseModel) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *VDAComponentsSelectionValidationResponseModel) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *VDAComponentsSelectionValidationResponseModel) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *VDAComponentsSelectionValidationResponseModel) UnsetName() {
+	o.Name.Unset()
 }
 
 // GetIsValid returns the IsValid field value if set, zero value otherwise.
@@ -217,8 +251,12 @@ func (o VDAComponentsSelectionValidationResponseModel) ToMap() (map[string]inter
 	if !IsNil(o.Uid) {
 		toSerialize["Uid"] = o.Uid
 	}
-	toSerialize["Id"] = o.Id
-	toSerialize["Name"] = o.Name
+	if o.Id.IsSet() {
+		toSerialize["Id"] = o.Id.Get()
+	}
+	if o.Name.IsSet() {
+		toSerialize["Name"] = o.Name.Get()
+	}
 	if !IsNil(o.IsValid) {
 		toSerialize["IsValid"] = o.IsValid
 	}

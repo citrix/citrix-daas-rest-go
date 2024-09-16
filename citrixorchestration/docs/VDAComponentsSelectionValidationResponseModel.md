@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uid** | Pointer to **int32** | Uid of the catalog. | [optional] 
-**Id** | **string** | Id of the machine catalog. | 
-**Name** | **string** | Name of the catalog. | 
-**IsValid** | Pointer to **bool** | Validation result of VDA components selection of the catalog. | [optional] 
-**Message** | Pointer to **NullableString** | Validation message of VDA components selection of the catalog. | [optional] 
+**Uid** | Pointer to **int32** | Uid of the object. | [optional] 
+**Id** | Pointer to **NullableString** | Id of the object. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the object. | [optional] 
+**IsValid** | Pointer to **bool** | Validation result of VDA components selection. | [optional] 
+**Message** | Pointer to **NullableString** | Validation message of VDA components selection. | [optional] 
 
 ## Methods
 
 ### NewVDAComponentsSelectionValidationResponseModel
 
-`func NewVDAComponentsSelectionValidationResponseModel(id string, name string, ) *VDAComponentsSelectionValidationResponseModel`
+`func NewVDAComponentsSelectionValidationResponseModel() *VDAComponentsSelectionValidationResponseModel`
 
 NewVDAComponentsSelectionValidationResponseModel instantiates a new VDAComponentsSelectionValidationResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -73,7 +73,22 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
 
+`func (o *VDAComponentsSelectionValidationResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetIdNil
+
+`func (o *VDAComponentsSelectionValidationResponseModel) SetIdNil(b bool)`
+
+ SetIdNil sets the value for Id to be an explicit nil
+
+### UnsetId
+`func (o *VDAComponentsSelectionValidationResponseModel) UnsetId()`
+
+UnsetId ensures that no value is present for Id, not even an explicit nil
 ### GetName
 
 `func (o *VDAComponentsSelectionValidationResponseModel) GetName() string`
@@ -93,7 +108,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *VDAComponentsSelectionValidationResponseModel) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *VDAComponentsSelectionValidationResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *VDAComponentsSelectionValidationResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetIsValid
 
 `func (o *VDAComponentsSelectionValidationResponseModel) GetIsValid() bool`

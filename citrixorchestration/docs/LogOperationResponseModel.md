@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Id of the operation. | 
 **Text** | **string** | Description of the operation. | 
 **User** | Pointer to **NullableString** | User who performed the operation. | [optional] 
+**UserIdentity** | Pointer to **NullableString** | The UserIdentity(Windows security identifier or Citrix Cloud Identity) of administrator who performed the operation. | [optional] 
 **Source** | **string** | Source of the operation. | 
 **AdminMachineIP** | Pointer to **NullableString** | IP address of the administrator&#39;s machine from which the operation was performed. | [optional] 
 **EndTime** | Pointer to **NullableString** | Time when the operation ended. | [optional] 
@@ -114,6 +115,41 @@ HasUser returns a boolean if a field has been set.
 `func (o *LogOperationResponseModel) UnsetUser()`
 
 UnsetUser ensures that no value is present for User, not even an explicit nil
+### GetUserIdentity
+
+`func (o *LogOperationResponseModel) GetUserIdentity() string`
+
+GetUserIdentity returns the UserIdentity field if non-nil, zero value otherwise.
+
+### GetUserIdentityOk
+
+`func (o *LogOperationResponseModel) GetUserIdentityOk() (*string, bool)`
+
+GetUserIdentityOk returns a tuple with the UserIdentity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserIdentity
+
+`func (o *LogOperationResponseModel) SetUserIdentity(v string)`
+
+SetUserIdentity sets UserIdentity field to given value.
+
+### HasUserIdentity
+
+`func (o *LogOperationResponseModel) HasUserIdentity() bool`
+
+HasUserIdentity returns a boolean if a field has been set.
+
+### SetUserIdentityNil
+
+`func (o *LogOperationResponseModel) SetUserIdentityNil(b bool)`
+
+ SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
+
+### UnsetUserIdentity
+`func (o *LogOperationResponseModel) UnsetUserIdentity()`
+
+UnsetUserIdentity ensures that no value is present for UserIdentity, not even an explicit nil
 ### GetSource
 
 `func (o *LogOperationResponseModel) GetSource() string`

@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**MachineCatalogsDeleteMachineCatalog**](MachineCatalogsAPIsDAAS.md#MachineCatalogsDeleteMachineCatalog) | **Delete** /MachineCatalogs/{nameOrId} | Delete a machine catalog.
 [**MachineCatalogsDoMachineCatalogSearch**](MachineCatalogsAPIsDAAS.md#MachineCatalogsDoMachineCatalogSearch) | **Post** /Machinecatalogs/$search | Perform an advanced search for machinecatalogs.
 [**MachineCatalogsExport**](MachineCatalogsAPIsDAAS.md#MachineCatalogsExport) | **Post** /MachineCatalogs/{nameOrId}/$export | Exports a MCS machine catalog.
+[**MachineCatalogsExportMachineProfile**](MachineCatalogsAPIsDAAS.md#MachineCatalogsExportMachineProfile) | **Post** /MachineCatalogs/{nameOrId}/$exportMachineProfile | Exports a MCS machine catalog&#39;s machine profile.
 [**MachineCatalogsGetMachineCatalog**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalog) | **Get** /MachineCatalogs/{nameOrId} | Get details about a single machine catalog.
 [**MachineCatalogsGetMachineCatalogDeliveryGroupAssociations**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogDeliveryGroupAssociations) | **Get** /MachineCatalogs/{nameOrId}/DeliveryGroupAssociations | Get delivery group associations of a machine catalog.
 [**MachineCatalogsGetMachineCatalogEnrollments**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogEnrollments) | **Get** /MachineCatalogs/{nameOrId}/Enrollments | Get the list of enrollments in the machine catalog.
@@ -908,6 +909,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ExportMachineCatalogResponseModel**](ExportMachineCatalogResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachineCatalogsExportMachineProfile
+
+> ExportMachineProfileResponseModel MachineCatalogsExportMachineProfile(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+
+Exports a MCS machine catalog's machine profile.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | The name or id of machine catalog.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsExportMachineProfile(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachineCatalogsAPIsDAAS.MachineCatalogsExportMachineProfile``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachineCatalogsExportMachineProfile`: ExportMachineProfileResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `MachineCatalogsAPIsDAAS.MachineCatalogsExportMachineProfile`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | The name or id of machine catalog. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachineCatalogsExportMachineProfileRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+[**ExportMachineProfileResponseModel**](ExportMachineProfileResponseModel.md)
 
 ### Authorization
 

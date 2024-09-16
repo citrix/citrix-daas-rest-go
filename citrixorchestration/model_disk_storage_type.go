@@ -24,6 +24,10 @@ const (
 	DISKSTORAGETYPE_PREMIUM_LRS DiskStorageType = "Premium_LRS"
 	DISKSTORAGETYPE_STANDARD_LRS DiskStorageType = "Standard_LRS"
 	DISKSTORAGETYPE_STANDARD_SSD_LRS DiskStorageType = "StandardSSD_LRS"
+	DISKSTORAGETYPE_PREMIUM_ZRS DiskStorageType = "Premium_ZRS"
+	DISKSTORAGETYPE_STANDARD_SSD_ZRS DiskStorageType = "StandardSSD_ZRS"
+	DISKSTORAGETYPE_PREMIUM_V2_LRS DiskStorageType = "PremiumV2_LRS"
+	DISKSTORAGETYPE_ULTRA_SSD_LRS DiskStorageType = "UltraSSD_LRS"
 )
 
 // All allowed values of DiskStorageType enum
@@ -32,6 +36,10 @@ var AllowedDiskStorageTypeEnumValues = []DiskStorageType{
 	"Premium_LRS",
 	"Standard_LRS",
 	"StandardSSD_LRS",
+	"Premium_ZRS",
+	"StandardSSD_ZRS",
+	"PremiumV2_LRS",
+	"UltraSSD_LRS",
 }
 
 func (v *DiskStorageType) UnmarshalJSON(src []byte) error {

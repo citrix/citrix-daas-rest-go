@@ -65,6 +65,8 @@ Name | Type | Description | Notes
 **DisconnectOffPeakIdleSessionAfterSeconds** | Pointer to **NullableInt32** | Specifies the time in seconds after which an idle session belonging to the delivery group is disconnected during off-peak time. | [optional] [default to 0]
 **LogoffPeakDisconnectedSessionAfterSeconds** | Pointer to **NullableInt32** | Specifies the time in seconds after which a disconnected session belonging to the delivery group is terminated during peak time. | [optional] [default to 0]
 **LogoffOffPeakDisconnectedSessionAfterSeconds** | Pointer to **NullableInt32** | Specifies the time in seconds after which a disconnected session belonging to the delivery group is terminated during off-peak time. | [optional] [default to 0]
+**AutoscaleScaleDownActionDuringPeak** | Pointer to [**AutoscaleScaleDownAction**](AutoscaleScaleDownAction.md) |  | [optional] 
+**AutoscaleScaleDownActionDuringOffPeak** | Pointer to [**AutoscaleScaleDownAction**](AutoscaleScaleDownAction.md) |  | [optional] 
 **PrelaunchSettings** | Pointer to [**FastApplicationSettingsRequestModel**](FastApplicationSettingsRequestModel.md) |  | [optional] 
 **PowerTimeSchemes** | Pointer to [**[]PowerTimeSchemeRequestModel**](PowerTimeSchemeRequestModel.md) | Power management time schemes.  No two schemes for the same delivery group may cover the same day of the week. | [optional] 
 **PowerOffDelayMinutes** | Pointer to **NullableInt32** | Delay before machines are powered off, when scaling down.  Specified in minutes.  Applies only to multi-session machines. | [optional] [default to 30]
@@ -2057,6 +2059,56 @@ HasLogoffOffPeakDisconnectedSessionAfterSeconds returns a boolean if a field has
 `func (o *CreateDeliveryGroupRequestModel) UnsetLogoffOffPeakDisconnectedSessionAfterSeconds()`
 
 UnsetLogoffOffPeakDisconnectedSessionAfterSeconds ensures that no value is present for LogoffOffPeakDisconnectedSessionAfterSeconds, not even an explicit nil
+### GetAutoscaleScaleDownActionDuringPeak
+
+`func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeak() AutoscaleScaleDownAction`
+
+GetAutoscaleScaleDownActionDuringPeak returns the AutoscaleScaleDownActionDuringPeak field if non-nil, zero value otherwise.
+
+### GetAutoscaleScaleDownActionDuringPeakOk
+
+`func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringPeakOk() (*AutoscaleScaleDownAction, bool)`
+
+GetAutoscaleScaleDownActionDuringPeakOk returns a tuple with the AutoscaleScaleDownActionDuringPeak field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscaleScaleDownActionDuringPeak
+
+`func (o *CreateDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringPeak(v AutoscaleScaleDownAction)`
+
+SetAutoscaleScaleDownActionDuringPeak sets AutoscaleScaleDownActionDuringPeak field to given value.
+
+### HasAutoscaleScaleDownActionDuringPeak
+
+`func (o *CreateDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringPeak() bool`
+
+HasAutoscaleScaleDownActionDuringPeak returns a boolean if a field has been set.
+
+### GetAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeak() AutoscaleScaleDownAction`
+
+GetAutoscaleScaleDownActionDuringOffPeak returns the AutoscaleScaleDownActionDuringOffPeak field if non-nil, zero value otherwise.
+
+### GetAutoscaleScaleDownActionDuringOffPeakOk
+
+`func (o *CreateDeliveryGroupRequestModel) GetAutoscaleScaleDownActionDuringOffPeakOk() (*AutoscaleScaleDownAction, bool)`
+
+GetAutoscaleScaleDownActionDuringOffPeakOk returns a tuple with the AutoscaleScaleDownActionDuringOffPeak field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *CreateDeliveryGroupRequestModel) SetAutoscaleScaleDownActionDuringOffPeak(v AutoscaleScaleDownAction)`
+
+SetAutoscaleScaleDownActionDuringOffPeak sets AutoscaleScaleDownActionDuringOffPeak field to given value.
+
+### HasAutoscaleScaleDownActionDuringOffPeak
+
+`func (o *CreateDeliveryGroupRequestModel) HasAutoscaleScaleDownActionDuringOffPeak() bool`
+
+HasAutoscaleScaleDownActionDuringOffPeak returns a boolean if a field has been set.
+
 ### GetPrelaunchSettings
 
 `func (o *CreateDeliveryGroupRequestModel) GetPrelaunchSettings() FastApplicationSettingsRequestModel`

@@ -22,6 +22,74 @@ func Test_citrixorchestration_ImageVersionsAPIsDAASService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test ImageVersionsAPIsDAASService ImageVersionsDeleteImageVersion", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.ImageVersionsAPIsDAAS.ImageVersionsDeleteImageVersion(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ImageVersionsAPIsDAASService ImageVersionsGetImageVersion", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.ImageVersionsAPIsDAAS.ImageVersionsGetImageVersion(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ImageVersionsAPIsDAASService ImageVersionsGetImageVersionProvisioningSchemes", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.ImageVersionsAPIsDAAS.ImageVersionsGetImageVersionProvisioningSchemes(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ImageVersionsAPIsDAASService ImageVersionsSetImageVersion", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		httpRes, err := apiClient.ImageVersionsAPIsDAAS.ImageVersionsSetImageVersion(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ImageVersionsAPIsDAASService ImageVersionsUpdateImageVersion", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var id string
+
+		resp, httpRes, err := apiClient.ImageVersionsAPIsDAAS.ImageVersionsUpdateImageVersion(context.Background(), id).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test ImageVersionsAPIsDAASService ImageVersionsUpdateImageVersionResourcePools", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

@@ -15,6 +15,8 @@
 
 * `MANAGED_DISK` (value: `"ManagedDisk"`)
 
+* `GALLERY` (value: `"Gallery"`)
+
 * `IMAGE_DEFINITION` (value: `"ImageDefinition"`)
 
 * `TEMPLATE_SPEC` (value: `"TemplateSpec"`)

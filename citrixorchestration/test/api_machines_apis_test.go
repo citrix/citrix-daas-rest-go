@@ -296,6 +296,20 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test MachinesAPIsDAASService MachinesGetVDAComponentsAndFeatures", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGetVDAComponentsAndFeatures(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MachinesAPIsDAASService MachinesImportFileTypes", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -509,6 +523,20 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesUpdateMachineUpgradeSchedule(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachinesAPIsDAASService MachinesValidateVDAComponentsAndFeaturesSelection", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesValidateVDAComponentsAndFeaturesSelection(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

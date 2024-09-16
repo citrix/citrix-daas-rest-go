@@ -26,6 +26,7 @@ const (
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_FOLDER HypervisorResourceSearchResourceType = "Folder"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_SNAPSHOT HypervisorResourceSearchResourceType = "Snapshot"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_MANAGED_DISK HypervisorResourceSearchResourceType = "ManagedDisk"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_GALLERY HypervisorResourceSearchResourceType = "Gallery"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_IMAGE_DEFINITION HypervisorResourceSearchResourceType = "ImageDefinition"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_TEMPLATE_SPEC HypervisorResourceSearchResourceType = "TemplateSpec"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_TAG HypervisorResourceSearchResourceType = "Tag"
@@ -42,6 +43,7 @@ var AllowedHypervisorResourceSearchResourceTypeEnumValues = []HypervisorResource
 	"Folder",
 	"Snapshot",
 	"ManagedDisk",
+	"Gallery",
 	"ImageDefinition",
 	"TemplateSpec",
 	"Tag",

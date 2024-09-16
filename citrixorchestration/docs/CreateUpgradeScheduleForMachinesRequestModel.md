@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **VdaWorkstationPackageUri** | Pointer to **NullableString** | Custom location to download the VDA Workstation package from. Currently, only network shares (specified using a UNC path) are supported. | [optional] 
 **VdaServerPackageUri** | Pointer to **NullableString** | Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported. | [optional] 
 **LogoffOption** | Pointer to [**LogoffOption**](LogoffOption.md) |  | [optional] 
+**VDAComponentsAndFeaturesRequestModel** | Pointer to [**VDAComponentsSelectionValidationRequestModel**](VDAComponentsSelectionValidationRequestModel.md) |  | [optional] 
 
 ## Methods
 
@@ -199,6 +200,31 @@ SetLogoffOption sets LogoffOption field to given value.
 `func (o *CreateUpgradeScheduleForMachinesRequestModel) HasLogoffOption() bool`
 
 HasLogoffOption returns a boolean if a field has been set.
+
+### GetVDAComponentsAndFeaturesRequestModel
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVDAComponentsAndFeaturesRequestModel() VDAComponentsSelectionValidationRequestModel`
+
+GetVDAComponentsAndFeaturesRequestModel returns the VDAComponentsAndFeaturesRequestModel field if non-nil, zero value otherwise.
+
+### GetVDAComponentsAndFeaturesRequestModelOk
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) GetVDAComponentsAndFeaturesRequestModelOk() (*VDAComponentsSelectionValidationRequestModel, bool)`
+
+GetVDAComponentsAndFeaturesRequestModelOk returns a tuple with the VDAComponentsAndFeaturesRequestModel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVDAComponentsAndFeaturesRequestModel
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVDAComponentsAndFeaturesRequestModel(v VDAComponentsSelectionValidationRequestModel)`
+
+SetVDAComponentsAndFeaturesRequestModel sets VDAComponentsAndFeaturesRequestModel field to given value.
+
+### HasVDAComponentsAndFeaturesRequestModel
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) HasVDAComponentsAndFeaturesRequestModel() bool`
+
+HasVDAComponentsAndFeaturesRequestModel returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

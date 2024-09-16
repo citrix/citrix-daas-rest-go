@@ -7,10 +7,8 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"fmt"
-	"io"
 	"math"
 	"net/http"
-	"os"
 	"reflect"
 	"slices"
 	"strings"
@@ -466,19 +464,17 @@ func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchR
 		return successCount, txnId, fmt.Errorf("an unexpected error occurred")
 	}
 
-	getJobResultsRequest := client.ApiClient.JobsAPIsDAAS.JobsGetJobResults(ctx, jobId)
-	jobResultsResponseContents, _, _ := ExecuteWithRetry[*os.File](getJobResultsRequest, client)
-	if jobResultsResponseContents == nil {
-		return successCount, txnId, fmt.Errorf("an unexpected error occurred")
-	}
-
-	data, err := io.ReadAll(jobResultsResponseContents)
+	// Job is completed successfully. Get results
+	ss := client.ApiClient.JobsAPIsDAAS.JobsGetJobResults(ctx, jobId)
+	res, _, err := AddRequestData(ss, client).Execute()
 	if err != nil {
+		// Job failed. Return nil and error.
 		return successCount, txnId, err
 	}
 
 	var batchJobResponse map[string][]citrixorchestration.BatchResponseItemModel
-	json.Unmarshal(data, &batchJobResponse)
+	_ = json.Unmarshal([]byte(res), &batchJobResponse)
+
 	subJobs := batchJobResponse["Items"]
 	for i := 0; i < len(subJobs); i++ {
 		subJob := subJobs[i]

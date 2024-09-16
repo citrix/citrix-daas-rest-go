@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **TargetTypes** | **[]string** | The type(s) of object which were the target of the configuration change. For example, \&quot;Session\&quot; or \&quot;Machine\&quot;.              | 
 **Text** | **string** | Human-readable description of the change.              | 
 **User** | Pointer to **NullableString** | User who performed the change.              | [optional] 
+**UserIdentity** | Pointer to **NullableString** | The identity (SID) of the user that performed the operation.              | [optional] 
 
 ## Methods
 
@@ -465,6 +466,41 @@ HasUser returns a boolean if a field has been set.
 `func (o *LowLevelOperationResponseModel) UnsetUser()`
 
 UnsetUser ensures that no value is present for User, not even an explicit nil
+### GetUserIdentity
+
+`func (o *LowLevelOperationResponseModel) GetUserIdentity() string`
+
+GetUserIdentity returns the UserIdentity field if non-nil, zero value otherwise.
+
+### GetUserIdentityOk
+
+`func (o *LowLevelOperationResponseModel) GetUserIdentityOk() (*string, bool)`
+
+GetUserIdentityOk returns a tuple with the UserIdentity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserIdentity
+
+`func (o *LowLevelOperationResponseModel) SetUserIdentity(v string)`
+
+SetUserIdentity sets UserIdentity field to given value.
+
+### HasUserIdentity
+
+`func (o *LowLevelOperationResponseModel) HasUserIdentity() bool`
+
+HasUserIdentity returns a boolean if a field has been set.
+
+### SetUserIdentityNil
+
+`func (o *LowLevelOperationResponseModel) SetUserIdentityNil(b bool)`
+
+ SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
+
+### UnsetUserIdentity
+`func (o *LowLevelOperationResponseModel) UnsetUserIdentity()`
+
+UnsetUserIdentity ensures that no value is present for UserIdentity, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
