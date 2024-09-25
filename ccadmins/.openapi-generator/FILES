@@ -15,9 +15,9 @@ docs/AdministratorExternalProviderType.md
 docs/AdministratorNotification.md
 docs/AdministratorNotificationType.md
 docs/AdministratorNotificationsEmailsPreferences.md
-docs/AdministratorProviderProperties.md
 docs/AdministratorProviderType.md
 docs/AdministratorResult.md
+docs/AdministratorResultProviderProperties.md
 docs/AdministratorType.md
 docs/AdministratorsAPI.md
 docs/AdministratorsResult.md
@@ -39,9 +39,9 @@ model_administrator_external_provider_type.go
 model_administrator_notification.go
 model_administrator_notification_type.go
 model_administrator_notifications_emails_preferences.go
-model_administrator_provider_properties.go
 model_administrator_provider_type.go
 model_administrator_result.go
+model_administrator_result_provider_properties.go
 model_administrator_type.go
 model_administrators_result.go
 model_boolean_policy_property.go

@@ -81,7 +81,7 @@ func getMiddlewareWithCwsClient(authClient *CitrixDaasClient, middlewareAuthFunc
 	}
 }
 
-func (daasClient *CitrixDaasClient) NewStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string, disableSslVerification bool) {
+func (daasClient *CitrixDaasClient) InitializeStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string, disableSslVerification bool) {
 	daasClient.StorefrontClient = storefrontapis.NewAPIClient()
 	daasClient.StorefrontClient.SetComputerName(computerName)
 	daasClient.StorefrontClient.SetAdUserName(adUserName)
@@ -89,7 +89,7 @@ func (daasClient *CitrixDaasClient) NewStoreFrontClient(ctx context.Context, com
 	daasClient.StorefrontClient.SetDisableSSL(disableSslVerification)
 }
 
-func (daasClient *CitrixDaasClient) NewQuickCreateClient(ctx context.Context, quickCreateHostName string, middlewareFunc MiddlewareAuthFunction) {
+func (daasClient *CitrixDaasClient) InitializeQuickCreateClient(ctx context.Context, quickCreateHostName string, middlewareFunc MiddlewareAuthFunction) {
 	/* ------ Setup QuickCreate Client ------ */
 	localQuickCreateCfg := citrixquickcreate.NewConfiguration()
 	localQuickCreateCfg.Scheme = "https"
@@ -110,7 +110,7 @@ func (daasClient *CitrixDaasClient) NewQuickCreateClient(ctx context.Context, qu
 	daasClient.QuickCreateClient = citrixquickcreate.NewAPIClient(localQuickCreateCfg)
 }
 
-func (daasClient *CitrixDaasClient) NewCwsClient(ctx context.Context, cwsHostname string, middlewareFunc MiddlewareAuthFunction) {
+func (daasClient *CitrixDaasClient) InitializeCwsClient(ctx context.Context, cwsHostname string, middlewareFunc MiddlewareAuthFunction) {
 	/* ------ Setup Citrix Cloud Cws Service Client ------ */
 	localCwsCfg := citrixcws.NewConfiguration()
 	localCwsCfg.Scheme = "https"
@@ -125,7 +125,7 @@ func (daasClient *CitrixDaasClient) NewCwsClient(ctx context.Context, cwsHostnam
 	daasClient.CwsClient = citrixcws.NewAPIClient(localCwsCfg)
 }
 
-func (daasClient *CitrixDaasClient) NewCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (*http.Response, error) {
+func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (*http.Response, error) {
 	/* ------ Setup API Client ------ */
 	localCfg := citrixorchestration.NewConfiguration()
 	localCfg.Host = hostname

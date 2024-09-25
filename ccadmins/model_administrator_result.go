@@ -32,7 +32,7 @@ type AdministratorResult struct {
 	Email NullableString `json:"email,omitempty"`
 	ProviderType *AdministratorProviderType `json:"providerType,omitempty"`
 	ProviderId NullableString `json:"providerId,omitempty"`
-	ProviderProperties NullableAdministratorProviderProperties `json:"providerProperties,omitempty"`
+	ProviderProperties NullableAdministratorResultProviderProperties `json:"providerProperties,omitempty"`
 	ExternalOid NullableString `json:"externalOid,omitempty"`
 	EmailPreferences NullableString `json:"emailPreferences,omitempty"`
 	NotificationsEmailPreferences *AdministratorNotificationsEmailsPreferences `json:"notificationsEmailPreferences,omitempty"`
@@ -540,9 +540,9 @@ func (o *AdministratorResult) UnsetProviderId() {
 }
 
 // GetProviderProperties returns the ProviderProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AdministratorResult) GetProviderProperties() AdministratorProviderProperties {
+func (o *AdministratorResult) GetProviderProperties() AdministratorResultProviderProperties {
 	if o == nil || IsNil(o.ProviderProperties.Get()) {
-		var ret AdministratorProviderProperties
+		var ret AdministratorResultProviderProperties
 		return ret
 	}
 	return *o.ProviderProperties.Get()
@@ -551,7 +551,7 @@ func (o *AdministratorResult) GetProviderProperties() AdministratorProviderPrope
 // GetProviderPropertiesOk returns a tuple with the ProviderProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AdministratorResult) GetProviderPropertiesOk() (*AdministratorProviderProperties, bool) {
+func (o *AdministratorResult) GetProviderPropertiesOk() (*AdministratorResultProviderProperties, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -567,8 +567,8 @@ func (o *AdministratorResult) HasProviderProperties() bool {
 	return false
 }
 
-// SetProviderProperties gets a reference to the given NullableAdministratorProviderProperties and assigns it to the ProviderProperties field.
-func (o *AdministratorResult) SetProviderProperties(v AdministratorProviderProperties) {
+// SetProviderProperties gets a reference to the given NullableAdministratorResultProviderProperties and assigns it to the ProviderProperties field.
+func (o *AdministratorResult) SetProviderProperties(v AdministratorResultProviderProperties) {
 	o.ProviderProperties.Set(&v)
 }
 // SetProviderPropertiesNil sets the value for ProviderProperties to be an explicit nil

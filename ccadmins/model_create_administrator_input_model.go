@@ -19,7 +19,7 @@ var _ MappedNullable = &CreateAdministratorInputModel{}
 
 // CreateAdministratorInputModel struct for CreateAdministratorInputModel
 type CreateAdministratorInputModel struct {
-	AccessType string `json:"accessType"`
+	AccessType AdministratorAccessType `json:"accessType"`
 	DisplayName NullableString `json:"displayName,omitempty"`
 	Email NullableString `json:"email,omitempty"`
 	ExternalProviderId *string `json:"externalProviderId,omitempty"`
@@ -35,7 +35,7 @@ type CreateAdministratorInputModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateAdministratorInputModel(accessType string, providerType AdministratorProviderType, type_ string) *CreateAdministratorInputModel {
+func NewCreateAdministratorInputModel(accessType AdministratorAccessType, providerType AdministratorProviderType, type_ string) *CreateAdministratorInputModel {
 	this := CreateAdministratorInputModel{}
 	this.AccessType = accessType
 	this.ProviderType = providerType
@@ -52,9 +52,9 @@ func NewCreateAdministratorInputModelWithDefaults() *CreateAdministratorInputMod
 }
 
 // GetAccessType returns the AccessType field value
-func (o *CreateAdministratorInputModel) GetAccessType() string {
+func (o *CreateAdministratorInputModel) GetAccessType() AdministratorAccessType {
 	if o == nil {
-		var ret string
+		var ret AdministratorAccessType
 		return ret
 	}
 
@@ -63,7 +63,7 @@ func (o *CreateAdministratorInputModel) GetAccessType() string {
 
 // GetAccessTypeOk returns a tuple with the AccessType field value
 // and a boolean to check if the value has been set.
-func (o *CreateAdministratorInputModel) GetAccessTypeOk() (*string, bool) {
+func (o *CreateAdministratorInputModel) GetAccessTypeOk() (*AdministratorAccessType, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -71,7 +71,7 @@ func (o *CreateAdministratorInputModel) GetAccessTypeOk() (*string, bool) {
 }
 
 // SetAccessType sets field value
-func (o *CreateAdministratorInputModel) SetAccessType(v string) {
+func (o *CreateAdministratorInputModel) SetAccessType(v AdministratorAccessType) {
 	o.AccessType = v
 }
 
