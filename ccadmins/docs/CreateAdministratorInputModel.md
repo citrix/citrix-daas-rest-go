@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** | **string** |  | 
+**AccessType** | [**AdministratorAccessType**](AdministratorAccessType.md) |  | 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
 **Email** | Pointer to **NullableString** |  | [optional] 
 **ExternalProviderId** | Pointer to **string** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewCreateAdministratorInputModel
 
-`func NewCreateAdministratorInputModel(accessType string, providerType AdministratorProviderType, type_ string, ) *CreateAdministratorInputModel`
+`func NewCreateAdministratorInputModel(accessType AdministratorAccessType, providerType AdministratorProviderType, type_ string, ) *CreateAdministratorInputModel`
 
 NewCreateAdministratorInputModel instantiates a new CreateAdministratorInputModel object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +36,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAccessType
 
-`func (o *CreateAdministratorInputModel) GetAccessType() string`
+`func (o *CreateAdministratorInputModel) GetAccessType() AdministratorAccessType`
 
 GetAccessType returns the AccessType field if non-nil, zero value otherwise.
 
 ### GetAccessTypeOk
 
-`func (o *CreateAdministratorInputModel) GetAccessTypeOk() (*string, bool)`
+`func (o *CreateAdministratorInputModel) GetAccessTypeOk() (*AdministratorAccessType, bool)`
 
 GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccessType
 
-`func (o *CreateAdministratorInputModel) SetAccessType(v string)`
+`func (o *CreateAdministratorInputModel) SetAccessType(v AdministratorAccessType)`
 
 SetAccessType sets AccessType field to given value.
 

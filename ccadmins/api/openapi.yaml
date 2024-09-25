@@ -487,19 +487,6 @@ components:
       - Information
       - Critical
       type: string
-    AdministratorProviderProperties:
-      example:
-        displayName: displayName
-        tid: tid
-      nullable: true
-      properties:
-        displayName:
-          nullable: true
-          type: string
-        tid:
-          nullable: true
-          type: string
-      type: object
     AdministratorNotificationsEmailsPreferences:
       example:
         enabledDate: 2000-01-23
@@ -611,7 +598,7 @@ components:
           nullable: true
           type: string
         providerProperties:
-          $ref: '#/components/schemas/AdministratorProviderProperties'
+          $ref: '#/components/schemas/AdministratorResult_providerProperties'
         externalOid:
           nullable: true
           type: string
@@ -742,7 +729,7 @@ components:
       type: object
     CreateAdministratorInputModel:
       example:
-        accessType: accessType
+        accessType: null
         firstName: Jenny
         lastName: Rosen
         externalUserId: externalUserId
@@ -792,8 +779,7 @@ components:
         providerType: null
       properties:
         accessType:
-          minLength: 1
-          type: string
+          $ref: '#/components/schemas/AdministratorAccessType'
         displayName:
           example: Jenny Rosen
           maxLength: 256
@@ -949,6 +935,19 @@ components:
           nullable: true
           type: string
         instance:
+          nullable: true
+          type: string
+      type: object
+    AdministratorResult_providerProperties:
+      example:
+        displayName: displayName
+        tid: tid
+      nullable: true
+      properties:
+        displayName:
+          nullable: true
+          type: string
+        tid:
           nullable: true
           type: string
       type: object

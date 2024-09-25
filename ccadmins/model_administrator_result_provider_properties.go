@@ -14,34 +14,34 @@ import (
 	"encoding/json"
 )
 
-// checks if the AdministratorProviderProperties type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &AdministratorProviderProperties{}
+// checks if the AdministratorResultProviderProperties type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &AdministratorResultProviderProperties{}
 
-// AdministratorProviderProperties struct for AdministratorProviderProperties
-type AdministratorProviderProperties struct {
+// AdministratorResultProviderProperties struct for AdministratorResultProviderProperties
+type AdministratorResultProviderProperties struct {
 	DisplayName NullableString `json:"displayName,omitempty"`
 	Tid NullableString `json:"tid,omitempty"`
 }
 
-// NewAdministratorProviderProperties instantiates a new AdministratorProviderProperties object
+// NewAdministratorResultProviderProperties instantiates a new AdministratorResultProviderProperties object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAdministratorProviderProperties() *AdministratorProviderProperties {
-	this := AdministratorProviderProperties{}
+func NewAdministratorResultProviderProperties() *AdministratorResultProviderProperties {
+	this := AdministratorResultProviderProperties{}
 	return &this
 }
 
-// NewAdministratorProviderPropertiesWithDefaults instantiates a new AdministratorProviderProperties object
+// NewAdministratorResultProviderPropertiesWithDefaults instantiates a new AdministratorResultProviderProperties object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAdministratorProviderPropertiesWithDefaults() *AdministratorProviderProperties {
-	this := AdministratorProviderProperties{}
+func NewAdministratorResultProviderPropertiesWithDefaults() *AdministratorResultProviderProperties {
+	this := AdministratorResultProviderProperties{}
 	return &this
 }
 
 // GetDisplayName returns the DisplayName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AdministratorProviderProperties) GetDisplayName() string {
+func (o *AdministratorResultProviderProperties) GetDisplayName() string {
 	if o == nil || IsNil(o.DisplayName.Get()) {
 		var ret string
 		return ret
@@ -52,7 +52,7 @@ func (o *AdministratorProviderProperties) GetDisplayName() string {
 // GetDisplayNameOk returns a tuple with the DisplayName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AdministratorProviderProperties) GetDisplayNameOk() (*string, bool) {
+func (o *AdministratorResultProviderProperties) GetDisplayNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -60,7 +60,7 @@ func (o *AdministratorProviderProperties) GetDisplayNameOk() (*string, bool) {
 }
 
 // HasDisplayName returns a boolean if a field has been set.
-func (o *AdministratorProviderProperties) HasDisplayName() bool {
+func (o *AdministratorResultProviderProperties) HasDisplayName() bool {
 	if o != nil && o.DisplayName.IsSet() {
 		return true
 	}
@@ -69,21 +69,21 @@ func (o *AdministratorProviderProperties) HasDisplayName() bool {
 }
 
 // SetDisplayName gets a reference to the given NullableString and assigns it to the DisplayName field.
-func (o *AdministratorProviderProperties) SetDisplayName(v string) {
+func (o *AdministratorResultProviderProperties) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
-func (o *AdministratorProviderProperties) SetDisplayNameNil() {
+func (o *AdministratorResultProviderProperties) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
 }
 
 // UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
-func (o *AdministratorProviderProperties) UnsetDisplayName() {
+func (o *AdministratorResultProviderProperties) UnsetDisplayName() {
 	o.DisplayName.Unset()
 }
 
 // GetTid returns the Tid field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *AdministratorProviderProperties) GetTid() string {
+func (o *AdministratorResultProviderProperties) GetTid() string {
 	if o == nil || IsNil(o.Tid.Get()) {
 		var ret string
 		return ret
@@ -94,7 +94,7 @@ func (o *AdministratorProviderProperties) GetTid() string {
 // GetTidOk returns a tuple with the Tid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *AdministratorProviderProperties) GetTidOk() (*string, bool) {
+func (o *AdministratorResultProviderProperties) GetTidOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -102,7 +102,7 @@ func (o *AdministratorProviderProperties) GetTidOk() (*string, bool) {
 }
 
 // HasTid returns a boolean if a field has been set.
-func (o *AdministratorProviderProperties) HasTid() bool {
+func (o *AdministratorResultProviderProperties) HasTid() bool {
 	if o != nil && o.Tid.IsSet() {
 		return true
 	}
@@ -111,20 +111,20 @@ func (o *AdministratorProviderProperties) HasTid() bool {
 }
 
 // SetTid gets a reference to the given NullableString and assigns it to the Tid field.
-func (o *AdministratorProviderProperties) SetTid(v string) {
+func (o *AdministratorResultProviderProperties) SetTid(v string) {
 	o.Tid.Set(&v)
 }
 // SetTidNil sets the value for Tid to be an explicit nil
-func (o *AdministratorProviderProperties) SetTidNil() {
+func (o *AdministratorResultProviderProperties) SetTidNil() {
 	o.Tid.Set(nil)
 }
 
 // UnsetTid ensures that no value is present for Tid, not even an explicit nil
-func (o *AdministratorProviderProperties) UnsetTid() {
+func (o *AdministratorResultProviderProperties) UnsetTid() {
 	o.Tid.Unset()
 }
 
-func (o AdministratorProviderProperties) MarshalJSON() ([]byte, error) {
+func (o AdministratorResultProviderProperties) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -132,7 +132,7 @@ func (o AdministratorProviderProperties) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o AdministratorProviderProperties) ToMap() (map[string]interface{}, error) {
+func (o AdministratorResultProviderProperties) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if o.DisplayName.IsSet() {
 		toSerialize["displayName"] = o.DisplayName.Get()
@@ -143,38 +143,38 @@ func (o AdministratorProviderProperties) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
-type NullableAdministratorProviderProperties struct {
-	value *AdministratorProviderProperties
+type NullableAdministratorResultProviderProperties struct {
+	value *AdministratorResultProviderProperties
 	isSet bool
 }
 
-func (v NullableAdministratorProviderProperties) Get() *AdministratorProviderProperties {
+func (v NullableAdministratorResultProviderProperties) Get() *AdministratorResultProviderProperties {
 	return v.value
 }
 
-func (v *NullableAdministratorProviderProperties) Set(val *AdministratorProviderProperties) {
+func (v *NullableAdministratorResultProviderProperties) Set(val *AdministratorResultProviderProperties) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAdministratorProviderProperties) IsSet() bool {
+func (v NullableAdministratorResultProviderProperties) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAdministratorProviderProperties) Unset() {
+func (v *NullableAdministratorResultProviderProperties) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAdministratorProviderProperties(val *AdministratorProviderProperties) *NullableAdministratorProviderProperties {
-	return &NullableAdministratorProviderProperties{value: val, isSet: true}
+func NewNullableAdministratorResultProviderProperties(val *AdministratorResultProviderProperties) *NullableAdministratorResultProviderProperties {
+	return &NullableAdministratorResultProviderProperties{value: val, isSet: true}
 }
 
-func (v NullableAdministratorProviderProperties) MarshalJSON() ([]byte, error) {
+func (v NullableAdministratorResultProviderProperties) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAdministratorProviderProperties) UnmarshalJSON(src []byte) error {
+func (v *NullableAdministratorResultProviderProperties) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

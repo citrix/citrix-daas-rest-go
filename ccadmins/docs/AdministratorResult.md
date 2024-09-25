@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Email** | Pointer to **NullableString** |  | [optional] 
 **ProviderType** | Pointer to [**AdministratorProviderType**](AdministratorProviderType.md) |  | [optional] 
 **ProviderId** | Pointer to **NullableString** |  | [optional] 
-**ProviderProperties** | Pointer to [**NullableAdministratorProviderProperties**](AdministratorProviderProperties.md) |  | [optional] 
+**ProviderProperties** | Pointer to [**NullableAdministratorResultProviderProperties**](AdministratorResultProviderProperties.md) |  | [optional] 
 **ExternalOid** | Pointer to **NullableString** |  | [optional] 
 **EmailPreferences** | Pointer to **NullableString** |  | [optional] 
 **NotificationsEmailPreferences** | Pointer to [**AdministratorNotificationsEmailsPreferences**](AdministratorNotificationsEmailsPreferences.md) |  | [optional] 
@@ -439,20 +439,20 @@ HasProviderId returns a boolean if a field has been set.
 UnsetProviderId ensures that no value is present for ProviderId, not even an explicit nil
 ### GetProviderProperties
 
-`func (o *AdministratorResult) GetProviderProperties() AdministratorProviderProperties`
+`func (o *AdministratorResult) GetProviderProperties() AdministratorResultProviderProperties`
 
 GetProviderProperties returns the ProviderProperties field if non-nil, zero value otherwise.
 
 ### GetProviderPropertiesOk
 
-`func (o *AdministratorResult) GetProviderPropertiesOk() (*AdministratorProviderProperties, bool)`
+`func (o *AdministratorResult) GetProviderPropertiesOk() (*AdministratorResultProviderProperties, bool)`
 
 GetProviderPropertiesOk returns a tuple with the ProviderProperties field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProviderProperties
 
-`func (o *AdministratorResult) SetProviderProperties(v AdministratorProviderProperties)`
+`func (o *AdministratorResult) SetProviderProperties(v AdministratorResultProviderProperties)`
 
 SetProviderProperties sets ProviderProperties field to given value.
 

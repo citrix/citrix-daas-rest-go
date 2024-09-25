@@ -34,7 +34,7 @@ import (
 func main() {
     authorization := "authorization_example" // string | Access token.
     citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
-    createAdministratorInputModel := *openapiclient.NewCreateAdministratorInputModel("AccessType_example", openapiclient.AdministratorProviderType("Ad"), "Type_example") // CreateAdministratorInputModel | Administrator to be added. (optional)
+    createAdministratorInputModel := *openapiclient.NewCreateAdministratorInputModel(openapiclient.AdministratorAccessType("Full"), openapiclient.AdministratorProviderType("Ad"), "Type_example") // CreateAdministratorInputModel | Administrator to be added. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
