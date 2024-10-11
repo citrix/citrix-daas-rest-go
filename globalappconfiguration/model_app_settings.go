@@ -23,6 +23,7 @@ type AppSettings struct {
 	Chromeos []PlatformSettings `json:"chromeos,omitempty"`
 	Html5 []PlatformSettings `json:"html5,omitempty"`
 	Ios []PlatformSettings `json:"ios,omitempty"`
+	Linux []PlatformSettings `json:"linux,omitempty"`
 	Macos []PlatformSettings `json:"macos,omitempty"`
 	Windows []PlatformSettings `json:"windows,omitempty"`
 }
@@ -172,6 +173,38 @@ func (o *AppSettings) SetIos(v []PlatformSettings) {
 	o.Ios = v
 }
 
+// GetLinux returns the Linux field value if set, zero value otherwise.
+func (o *AppSettings) GetLinux() []PlatformSettings {
+	if o == nil || IsNil(o.Linux) {
+		var ret []PlatformSettings
+		return ret
+	}
+	return o.Linux
+}
+
+// GetLinuxOk returns a tuple with the Linux field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppSettings) GetLinuxOk() ([]PlatformSettings, bool) {
+	if o == nil || IsNil(o.Linux) {
+		return nil, false
+	}
+	return o.Linux, true
+}
+
+// HasLinux returns a boolean if a field has been set.
+func (o *AppSettings) HasLinux() bool {
+	if o != nil && !IsNil(o.Linux) {
+		return true
+	}
+
+	return false
+}
+
+// SetLinux gets a reference to the given []PlatformSettings and assigns it to the Linux field.
+func (o *AppSettings) SetLinux(v []PlatformSettings) {
+	o.Linux = v
+}
+
 // GetMacos returns the Macos field value if set, zero value otherwise.
 func (o *AppSettings) GetMacos() []PlatformSettings {
 	if o == nil || IsNil(o.Macos) {
@@ -257,6 +290,9 @@ func (o AppSettings) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Ios) {
 		toSerialize["ios"] = o.Ios
+	}
+	if !IsNil(o.Linux) {
+		toSerialize["linux"] = o.Linux
 	}
 	if !IsNil(o.Macos) {
 		toSerialize["macos"] = o.Macos

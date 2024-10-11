@@ -125,8 +125,8 @@ func (daasClient *CitrixDaasClient) InitializeCwsClient(ctx context.Context, cws
 	daasClient.CwsClient = citrixcws.NewAPIClient(localCwsCfg)
 }
 
-func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (*http.Response, error) {
-	/* ------ Setup API Client ------ */
+/* ------ Setup API Client ------ */
+func (daasClient *CitrixDaasClient) SetupApiClient(hostname string, middlewareFunc MiddlewareAuthFunction, onPremises, disableSslVerification, apiGateway bool) {
 	localCfg := citrixorchestration.NewConfiguration()
 	localCfg.Host = hostname
 	localCfg.Scheme = "https"
@@ -150,50 +150,51 @@ func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Conte
 			},
 		}
 	}
-
-	daasClient.ApiClient = citrixorchestration.NewAPIClient(localCfg)
-
 	localCfg.Middleware = getMiddlewareWithClient(daasClient, middlewareFunc)
+	daasClient.ApiClient = citrixorchestration.NewAPIClient(localCfg)
+}
 
-	/* ------ Setup Resource Locations Client ------ */
+/* ------ Setup Resource Locations Client ------ */
+func (daasClient *CitrixDaasClient) SetupResourceLocationsClient(ccUrl string, middlewareFunc MiddlewareAuthFunction) {
 	localResourceLocationsCfg := resourcelocations.NewConfiguration()
 	localResourceLocationsCfg.Scheme = "https"
-
 	localResourceLocationsCfg.Servers = resourcelocations.ServerConfigurations{
 		{
 			URL: localResourceLocationsCfg.Scheme + "://" + ccUrl + "/resourcelocations",
 		},
 	}
-
 	localResourceLocationsCfg.Middleware = getMiddlewareWithResourceLocationsClient(daasClient, middlewareFunc)
 	daasClient.ResourceLocationsClient = resourcelocations.NewAPIClient(localResourceLocationsCfg)
+}
 
-	/* ------ Setup CC Admin Client ------ */
+/* ------ Setup CC Admin Client ------ */
+func (daasClient *CitrixDaasClient) SetupCCAdminClient(ccUrl string, middlewareFunc MiddlewareAuthFunction) {
 	localCCAdminCfg := ccadmins.NewConfiguration()
 	localCCAdminCfg.Scheme = "https"
-
 	localCCAdminCfg.Servers = ccadmins.ServerConfigurations{
 		{
 			URL: localCCAdminCfg.Scheme + "://" + ccUrl + "/administrators",
 		},
 	}
-
-	localCCAdminCfg.Middleware = getMiddlewareWithCCAdminsClient(daasClient, middlewareFuncWithCustomerIdHeader)
+	localCCAdminCfg.Middleware = getMiddlewareWithCCAdminsClient(daasClient, middlewareFunc)
 	daasClient.CCAdminsClient = ccadmins.NewAPIClient(localCCAdminCfg)
+}
 
-	/* ------ Setup Authentication Configuration ------ */
-	localAuthCfg := &AuthenticationConfiguration{}
-	localAuthCfg.AuthUrl = authUrl
-	localAuthCfg.ClientId = clientId
-	localAuthCfg.ClientSecret = clientSecret
-	localAuthCfg.OnPremises = onPremises
-	localAuthCfg.ApiGateway = apiGateway
-	localAuthCfg.IsGov = isGov
-
+/* ------ Setup Authentication Configuration ------ */
+func (daasClient *CitrixDaasClient) SetupAuthConfig(authUrl, clientId, clientSecret string, onPremises, apiGateway, isGov bool) {
+	localAuthCfg := &AuthenticationConfiguration{
+		AuthUrl:      authUrl,
+		ClientId:     clientId,
+		ClientSecret: clientSecret,
+		OnPremises:   onPremises,
+		ApiGateway:   apiGateway,
+		IsGov:        isGov,
+	}
 	daasClient.AuthConfig = localAuthCfg
+}
 
-	/* ------ Setup GAC Client ------ */
-
+/* ------ Setup GAC Client ------ */
+func (daasClient *CitrixDaasClient) SetupGacClient(hostname string, middlewareFunc MiddlewareAuthFunction) {
 	gacUrlTranslator := map[string]bool{
 		"api.dev.cloud.com":    false,
 		"api.cloudburrito.com": false,
@@ -213,46 +214,56 @@ func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Conte
 	}
 	localGacCfg.Middleware = getMiddlewareWithGacClient(daasClient, middlewareFunc)
 	daasClient.GacClient = globalappconfiguration.NewAPIClient(localGacCfg)
+}
 
-	/* ------ Setup Client Configuration ------*/
-	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
+func (daasClient *CitrixDaasClient) SetupCitrixClientsContext(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (string, *http.Response, error) {
+
+	daasClient.SetupApiClient(hostname, middlewareFunc, onPremises, disableSslVerification, apiGateway)
+	daasClient.SetupAuthConfig(authUrl, clientId, clientSecret, onPremises, apiGateway, isGov)
+
+	// Setup Client Configuration
+	daasClient.ClientConfig = &ClientConfiguration{CustomerId: customerId}
+
+	// Authenticate and get the token
 	token, httpResp, err := daasClient.SignIn()
-	if err != nil {
-		return httpResp, err
-	}
+	return token, httpResp, err
+}
 
+func (daasClient *CitrixDaasClient) InitializeCitrixCloudClients(ctx context.Context, ccUrl, hostname string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) {
+	daasClient.SetupResourceLocationsClient(ccUrl, middlewareFunc)
+	daasClient.SetupCCAdminClient(ccUrl, middlewareFuncWithCustomerIdHeader)
+	daasClient.SetupGacClient(hostname, middlewareFunc)
+}
+
+func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Context, customerId, token string, onPremises bool, apiGateway bool, disableSslVerification bool, userAgent *string) (*http.Response, error) {
+
+	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
 	req = req.Authorization(token).CitrixCustomerId(customerId)
 	resp, httpResp, err := req.Execute()
 	if err != nil {
 		return httpResp, err
 	}
 
-	localClientCfg := &ClientConfiguration{}
-	localClientCfg.CustomerId = customerId
 	if resp == nil || len(resp.Customers) == 0 || len(resp.Customers[0].Sites) == 0 {
 		return httpResp, fmt.Errorf("customer does not exist or does not have a valid site")
 	}
-	localClientCfg.SiteId = resp.Customers[0].Sites[0].Id
 
-	localClientCfg.IsCspCustomer = resp.GetIsCspCustomer()
-
-	localClientCfg.Accept = "application/json"
-
+	daasClient.ClientConfig.SiteId = resp.Customers[0].Sites[0].Id
+	daasClient.ClientConfig.IsCspCustomer = resp.GetIsCspCustomer()
+	daasClient.ClientConfig.Accept = "application/json"
 	if userAgent == nil {
 		defaultUserAgent := "citrix-daas-rest-go (https://github.com/citrix/citrix-daas-rest-go)"
 		userAgent = &defaultUserAgent
 	}
-	localClientCfg.UserAgent = *userAgent
-
-	daasClient.ClientConfig = localClientCfg
+	daasClient.ClientConfig.UserAgent = *userAgent
 
 	if onPremises || !apiGateway {
 		// add CustomerId and SiteId to base path for on-prem. The following APIs will no longer work.
 		// HealthCheck, Me, and Ping
-		localCfg.Servers[0].URL += "/" + localClientCfg.CustomerId
+		daasClient.ApiClient.GetConfig().Servers[0].URL += "/" + daasClient.ClientConfig.CustomerId
 	}
 
-	siteRequest := daasClient.ApiClient.SitesAPIsDAAS.SitesGetSite(ctx, localClientCfg.SiteId)
+	siteRequest := daasClient.ApiClient.SitesAPIsDAAS.SitesGetSite(ctx, daasClient.ClientConfig.SiteId)
 	token, httpResp, err = daasClient.SignIn()
 	if err != nil {
 		return httpResp, err
@@ -264,16 +275,13 @@ func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Conte
 		return httpResp, err
 	}
 
-	localClientCfg.ProductVersion = siteResp.GetProductVersion()
-	localClientCfg.OrchestrationApiVersion = siteResp.GetOrchestationApiVersion()
-
-	daasClient.ClientConfig = localClientCfg
+	daasClient.ClientConfig.ProductVersion = siteResp.GetProductVersion()
+	daasClient.ClientConfig.OrchestrationApiVersion = siteResp.GetOrchestationApiVersion()
 
 	if onPremises || !apiGateway {
 		// add CustomerId and SiteId to base path for on-prem. The Sites API will no longer work.
-		localCfg.Servers[0].URL += "/" + localClientCfg.SiteId
+		daasClient.ApiClient.GetConfig().Servers[0].URL += "/" + daasClient.ClientConfig.SiteId
 	}
-
 	return httpResp, nil
 }
 
