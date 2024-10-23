@@ -34,8 +34,9 @@ func ExecuteCommandWithDepth(credential string, jsonDepth int, command string, a
 func ExecuteCommandBase(credential string, jsonDepth int, command string, args ...string) ([]byte, error) {
 	var cmdArgs []string
 	if credential != "" {
-		cmdArgs = append([]string{"/c", "Invoke-Command -Session (New-PSSession ", credential, " ) -ScriptBlock {", command}, args...)
-		cmdArgs = append(cmdArgs, "|", fmt.Sprintf("ConvertTo-Json -Depth %d", jsonDepth), "}")
+		cmdArgs = append([]string{"/c", "Invoke-Command -Session (New-PSSession ", credential, " ) -ScriptBlock { try { $ErrorActionPreference='Stop'; return $command = ", command}, args...)
+		cmdArgs = append(cmdArgs, "|", fmt.Sprintf("ConvertTo-Json -Depth %d", jsonDepth))
+		cmdArgs = append(cmdArgs, "} catch {Write-Error $_.Exception.Message} }")
 	} else {
 		cmdArgs = append([]string{"/c", command}, args...)
 		cmdArgs = append(cmdArgs, "|", fmt.Sprintf("ConvertTo-Json -Depth %d", jsonDepth), "|", "Write-Output")
