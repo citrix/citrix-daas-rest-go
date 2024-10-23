@@ -20,6 +20,7 @@ import (
 	"github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	citrixquickcreate "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 	storefrontapis "github.com/citrix/citrix-daas-rest-go/citrixstorefront/apis"
+	citrixwemservice "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 	globalappconfiguration "github.com/citrix/citrix-daas-rest-go/globalappconfiguration"
 )
 
@@ -30,6 +31,7 @@ type CitrixDaasClient struct {
 	AuthToken         *AuthTokenModel
 	StorefrontClient  *storefrontapis.APIClient
 	QuickCreateClient *citrixquickcreate.APIClient
+	WemClient         *citrixwemservice.APIClient
 	// Citrix Cloud Service Clients
 	CCAdminsClient          *ccadmins.APIClient
 	CwsClient               *citrixcws.APIClient
@@ -75,10 +77,29 @@ func getMiddlewareWithQuickcreateClient(authClient *CitrixDaasClient, middleware
 	}
 }
 
+func getMiddlewareWithWemClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) citrixwemservice.MiddlewareFunction {
+	return func(r *http.Request) {
+		middlewareAuthFunc(authClient, r)
+	}
+}
+
 func getMiddlewareWithCwsClient(authClient *CitrixDaasClient, middlewareAuthFunc MiddlewareAuthFunction) citrixcws.MiddlewareFunction {
 	return func(r *http.Request) {
 		middlewareAuthFunc(authClient, r)
 	}
+}
+
+func (daasClient *CitrixDaasClient) InitializeWemClient(ctx context.Context, wemHostName string, middlewareFunc MiddlewareAuthFunction) {
+	wemConfig := citrixwemservice.NewConfiguration()
+	wemConfig.Scheme = "https"
+	wemConfig.Servers = citrixwemservice.ServerConfigurations{
+		{
+			URL: wemConfig.Scheme + "://" + wemHostName,
+		},
+	}
+
+	wemConfig.Middleware = getMiddlewareWithWemClient(daasClient, middlewareFunc)
+	daasClient.WemClient = citrixwemservice.NewAPIClient(wemConfig)
 }
 
 func (daasClient *CitrixDaasClient) InitializeStoreFrontClient(ctx context.Context, computerName, adUserName, adUserPass string, disableSslVerification bool) {

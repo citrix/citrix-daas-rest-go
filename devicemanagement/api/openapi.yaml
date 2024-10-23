@@ -1,0 +1,4799 @@
+openapi: 3.0.1
+info:
+  title: WEM Public API Guide
+  version: v1
+servers:
+- url: https://api.wem.cloud.com/
+security:
+- basic: []
+paths:
+  /services/wem/machines/{id}:
+    delete:
+      operationId: AdObject_Delete
+      parameters:
+      - description: The ID of the resource you want to delete.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 8bb6abc3-9a37-4742-8808-024f13c0e4d0
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: Resource deletion completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The attempt to delete the resource failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content: {}
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The attempt to remove the resource failed because of dependency
+            for existing entities.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Delete a Machine-level AD Object
+      tags:
+      - Machine AD Object
+    get:
+      operationId: AdObject_QueryById
+      parameters:
+      - description: The ID of the resource you want to query.
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: c8b677e6-b18c-4a7b-a2fa-b16e671cf430
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/MachineModel'
+            id:
+              example: 3
+            sid:
+              example: S-1-5-21-1375803180-495861276-740282956-1114
+            name:
+              example: "CN=TestComputer,CN=Computers,DC=bvt,DC=local"
+            type:
+              example: Computer
+            description:
+              example: This is a test computer
+            siteId:
+              example: 1
+            enabled:
+              example: true
+            priority:
+              example: 100
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query Machine-level AD Objects by Identity
+      tags:
+      - Machine AD Object
+    x-summary: Query Delete Machines
+  /services/wem/machines:
+    get:
+      operationId: AdObject_Query
+      parameters:
+      - description: The SID is used to filter the query results.
+        in: query
+        name: sid
+        schema:
+          type: string
+      - description: The name is used to filter the query results.
+        in: query
+        name: siteId
+        schema:
+          format: int64
+          type: integer
+      - description: The ID is used to filter the query results.
+        in: query
+        name: id
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: ad159f5b-8961-4c6a-b3db-f2d073eb77b5
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/AdObject_Query_200_response'
+            items:
+              example:
+              - id: 3
+                sid: S-1-5-21-1375803180-495861276-740282956-1114
+                name: "CN=TestComputer,CN=Computers,DC=bvt,DC=local"
+                type: Computer
+                description: This is a test computer
+                siteId: 1
+                enabled: true
+                priority: 100
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query Machine-level AD Objects
+      tags:
+      - Machine AD Object
+    post:
+      operationId: AdObject_Create
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 932fb487-f91a-44f7-8b98-a4baafd2a0ed
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/MachineModelExamplePost'
+        required: false
+      responses:
+        "201":
+          content: {}
+          description: Resource creation completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Location:
+              description: Location of the created resource.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Create a Machine-level AD Object
+      tags:
+      - Machine AD Object
+      x-codegen-request-body-name: Body
+    put:
+      operationId: AdObject_Update
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: d3116ffe-b620-4162-bc82-ac5f66895692
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/MachineModelExamplePut'
+        required: false
+      responses:
+        "204":
+          content: {}
+          description: Resource update completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Update a Machine-level AD Object
+      tags:
+      - Machine AD Object
+      x-codegen-request-body-name: Body
+    x-summary: Query Create Update Machines
+  /services/wem/sites/{id}:
+    delete:
+      operationId: Site_Delete
+      parameters:
+      - description: The ID of the resource you want to delete.
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: c64a0e4a-426e-4271-ab2d-49fa019d8de3
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: Resource deletion completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The attempt to delete the resource failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content: {}
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The attempt to remove the resource failed because of dependency
+            for existing entities.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Delete a Site
+      tags:
+      - Site
+    get:
+      operationId: Site_QueryById
+      parameters:
+      - description: The ID of the resource you want to query.
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: b6155b53-555d-4898-a4bb-3540339a1ac7
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/SiteModel'
+            id:
+              example: 2
+            name:
+              example: New Site
+            description:
+              example: This is a site for test
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query Sites by Identity
+      tags:
+      - Site
+    x-summary: Query Delete Sites
+  /services/wem/sites/$export:
+    get:
+      operationId: Site_Export
+      parameters:
+      - description: The ID of the resource you want to export.
+        in: query
+        name: id
+        schema:
+          format: int64
+          type: integer
+      - description: The name of the resource you want to export.
+        in: query
+        name: name
+        schema:
+          type: string
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 2bd401c7-e7d0-4d18-90e2-9d92584ddde3
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Export a Site
+      tags:
+      - Site
+    x-summary: Query $export
+  /services/wem/sites/$import:
+    post:
+      operationId: Site_Import
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: d0948dc7-4861-45b9-8ae2-b5b40229237a
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/ObjectPost'
+        required: false
+      responses:
+        "201":
+          content: {}
+          description: Resource creation completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Location:
+              description: Location of the created resource.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Import a Site
+      tags:
+      - Site
+      x-codegen-request-body-name: Body
+    x-summary: Create $import
+  /services/wem/sites/$replicate:
+    post:
+      operationId: Site_Replicate
+      parameters:
+      - in: query
+        name: id
+        schema:
+          format: int64
+          type: integer
+      - in: query
+        name: name
+        schema:
+          type: string
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: ea86ad5e-3bf7-4d95-98c7-6993e25a153e
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "201":
+          content: {}
+          description: Resource creation completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Location:
+              description: Location of the created resource.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Replicate a Site
+      tags:
+      - Site
+    x-summary: Create $replicate
+  /services/wem/sites:
+    get:
+      operationId: Site_Query
+      parameters:
+      - description: The name is used to filter the query results.
+        in: query
+        name: name
+        schema:
+          type: string
+      - description: The ID is used to filter the query results.
+        in: query
+        name: id
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: cecfb7dd-4c50-4b11-b4d5-6688946f69ee
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Site_Query_200_response'
+            items:
+              example:
+              - id: 2
+                name: New Site
+                description: This is a site for test
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query Sites
+      tags:
+      - Site
+    post:
+      operationId: Site_Create
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 235ca558-a454-42ee-be58-54f57a0b87cc
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/SiteModelExamplePost'
+        required: false
+      responses:
+        "201":
+          content: {}
+          description: Resource creation completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Location:
+              description: Location of the created resource.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Create a Site
+      tags:
+      - Site
+      x-codegen-request-body-name: Body
+    put:
+      operationId: Site_Update
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 773b417e-4dc8-4312-86aa-bcf7e7266467
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/SiteModelExamplePut'
+        required: false
+      responses:
+        "204":
+          content: {}
+          description: Resource update completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Update a Site
+      tags:
+      - Site
+      x-codegen-request-body-name: Body
+    x-summary: Query Create Update Sites
+  /services/wem/systemOptimizations/{id}:
+    get:
+      operationId: SystemUtilitySetting_QueryById
+      parameters:
+      - description: The ID of the resource you want to query.
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 1456d989-9136-43e3-a8f6-43dc92dd7beb
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/SystemOptimizationModel'
+            id:
+              example: 1
+            enableCpuSpikeProtection:
+              example: true
+            enableCpuAutoProtection:
+              example: false
+            cpuUsageLimitOfSpikeProtection:
+              example: 70
+            cpuUsageLimitSampleTimeOfSpikeProtection:
+              example: 30
+            idlePriorityTimeOfSpikeProtection:
+              example: 180
+            enableLimitCpuCoreUsage:
+              example: false
+            cpuCoreLimitOfSpikeProtection:
+              example: 1
+            enableIntelligentCpuOptimization:
+              example: true
+            enableIntelligentIoOptimization:
+              example: true
+            excludeProcessesFromCpuSpikeProtection:
+              example: true
+            processesExcludedFromCpuSpikeProtection:
+              example:
+              - excluded-process-name-1
+              - excluded-process-name-2
+            enableProcessCpuPriority:
+              example: true
+            processesOfCpuPriority:
+              example:
+              - processName: cpu-process-1
+                priority: High
+              - processName: cpu-process-2
+                priority: Normal
+              - processName: cpu-process-3
+                priority: BelowNormal
+              - processName: cpu-process-4
+                priority: Realtime
+            enableProcessAffinity:
+              example: true
+            processesOfCpuAffinity:
+              example:
+              - processName: affinity-process-1
+                affinity: 16
+              - processName: affinity-process-2
+                affinity: 32
+            enableProcessClamping:
+              example: true
+            processesOfCpuClamping:
+              example:
+              - processName: clamping-process-1
+                percentage: 12
+              - processName: clamping-process-2
+                percentage: 60
+            enableMemoryWorkingSetOptimization:
+              example: true
+            idleSampleTimeOfMemoryWorkingSetOptimization:
+              example: 120
+            idleStateLimitOfMemoryWorkingSetOptimization:
+              example: 1
+            excludeProcessesFromMemoryWorkingSetOptimization:
+              example: true
+            processesExcludedFromMemoryWorkingSetOptimization:
+              example:
+              - excluded-process-name-1
+              - excluded-process-name-2
+            enableProcessIoPriority:
+              example: true
+            processesOfIoPriority:
+              example:
+              - processName: io-process-1
+                priority: High
+              - processName: io-process-2
+                priority: Normal
+              - processName: io-process-3
+                priority: VeryLow
+            enableFastLogoff:
+              example: true
+            excludeGroupsFromFastLogoff:
+              example: true
+            groupsExcludedFromFastLogoff:
+              example:
+              - "CN=Domain Guests,CN=Users,DC=bvt,DC=local"
+              - "CN=Domain Admins,CN=Users,DC=bvt,DC=local"
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query System Optimization Configurations by Identity
+      tags:
+      - System Optimization
+    x-summary: Query SystemOptimizations
+  /services/wem/systemOptimizations:
+    get:
+      operationId: SystemUtilitySetting_Query
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: ca8d8637-e47e-4f6c-9a34-d8399028eeb4
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/SystemUtilitySetting_Query_200_response'
+            items:
+              example:
+              - id: 1
+                enableCpuSpikeProtection: true
+                enableCpuAutoProtection: false
+                cpuUsageLimitOfSpikeProtection: 70
+                cpuUsageLimitSampleTimeOfSpikeProtection: 30
+                idlePriorityTimeOfSpikeProtection: 180
+                enableLimitCpuCoreUsage: false
+                cpuCoreLimitOfSpikeProtection: 1
+                enableIntelligentCpuOptimization: true
+                enableIntelligentIoOptimization: true
+                excludeProcessesFromCpuSpikeProtection: true
+                processesExcludedFromCpuSpikeProtection:
+                - excluded-process-name-1
+                - excluded-process-name-2
+                enableProcessCpuPriority: true
+                processesOfCpuPriority:
+                - processName: cpu-process-1
+                  priority: High
+                - processName: cpu-process-2
+                  priority: Normal
+                - processName: cpu-process-3
+                  priority: BelowNormal
+                - processName: cpu-process-4
+                  priority: Realtime
+                enableProcessAffinity: true
+                processesOfCpuAffinity:
+                - processName: affinity-process-1
+                  affinity: 16
+                - processName: affinity-process-2
+                  affinity: 32
+                enableProcessClamping: true
+                processesOfCpuClamping:
+                - processName: clamping-process-1
+                  percentage: 12
+                - processName: clamping-process-2
+                  percentage: 60
+                enableMemoryWorkingSetOptimization: true
+                idleSampleTimeOfMemoryWorkingSetOptimization: 120
+                idleStateLimitOfMemoryWorkingSetOptimization: 1
+                excludeProcessesFromMemoryWorkingSetOptimization: true
+                processesExcludedFromMemoryWorkingSetOptimization:
+                - excluded-process-name-1
+                - excluded-process-name-2
+                enableProcessIoPriority: true
+                processesOfIoPriority:
+                - processName: io-process-1
+                  priority: High
+                - processName: io-process-2
+                  priority: Normal
+                - processName: io-process-3
+                  priority: VeryLow
+                enableFastLogoff: true
+                excludeGroupsFromFastLogoff: true
+                groupsExcludedFromFastLogoff:
+                - "CN=Domain Guests,CN=Users,DC=bvt,DC=local"
+                - "CN=Domain Admins,CN=Users,DC=bvt,DC=local"
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query System Optimization Configurations
+      tags:
+      - System Optimization
+    put:
+      operationId: SystemUtilitySetting_Update
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: d9fb0fe4-195a-4975-83c3-3fd6253aadd4
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/SystemOptimizationModelExamplePut'
+        required: false
+      responses:
+        "204":
+          content: {}
+          description: Resource update completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Update a System Optimization Configuration
+      tags:
+      - System Optimization
+      x-codegen-request-body-name: Body
+    x-summary: Query Update SystemOptimizations
+  /services/wem/users/{id}:
+    delete:
+      operationId: Item_Delete
+      parameters:
+      - description: The ID of the resource you want to delete.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 5dcc1325-dab6-4c13-8388-3dc17fc482c8
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          content: {}
+          description: Resource deletion completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The attempt to delete the resource failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content: {}
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The attempt to remove the resource failed because of dependency
+            for existing entities.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Delete a User-level AD Object
+      tags:
+      - User AD Object
+    get:
+      operationId: Item_QueryById
+      parameters:
+      - description: The ID of the resource you want to query.
+        in: path
+        name: id
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 8f8c71a8-5839-40ec-bff2-c1ed61b012f5
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/UserModel'
+            id:
+              example: 3
+            sid:
+              example: S-1-5-21-327361462-2153776455-382321960-500
+            name:
+              example: "CN=Domain Users,CN=Users,DC=bvt,DC=local"
+            type:
+              example: User
+            description:
+              example: This is a test user
+            siteId:
+              example: 1
+            enabled:
+              example: true
+            priority:
+              example: 100
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query User-level AD Objects by Identity
+      tags:
+      - User AD Object
+    x-summary: Query Delete Users
+  /services/wem/users:
+    get:
+      operationId: Item_Query
+      parameters:
+      - description: The SID is used to filter the query results.
+        in: query
+        name: sid
+        schema:
+          type: string
+      - description: The name is used to filter the query results.
+        in: query
+        name: siteId
+        schema:
+          format: int64
+          type: integer
+      - description: The ID is used to filter the query results.
+        in: query
+        name: id
+        schema:
+          format: int64
+          type: integer
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 1d20c409-3436-4eee-b0e6-35218b74fef9
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Item_Query_200_response'
+            items:
+              example:
+              - id: 3
+                sid: S-1-5-21-327361462-2153776455-382321960-500
+                name: "CN=Domain Users,CN=Users,DC=bvt,DC=local"
+                type: User
+                description: This is a test user
+                siteId: 1
+                enabled: true
+                priority: 100
+          description: Query completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "404":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The target resource cannot be found.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            Cache-Control:
+              description: It is always "no-cache."
+              schema:
+                type: string
+            ETag:
+              description: Unique code which represents resources you queried.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Vary:
+              description: It is always "*."
+              schema:
+                type: string
+            Last-Modified:
+              description: Last modified time of the resources you queried.
+              schema:
+                type: string
+            Expires:
+              description: Expiration time of the resources you queried.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notFound
+            detail: Cannot find target resource
+            parameters:
+            - name: property
+              value: id
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Query User-level AD Objects
+      tags:
+      - User AD Object
+    post:
+      operationId: Item_Create
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 6dcad3fb-47ce-45fd-acf4-f4261bc6c590
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/UserModelExamplePost'
+        required: false
+      responses:
+        "201":
+          content: {}
+          description: Resource creation completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Location:
+              description: Location of the created resource.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Create a User-level AD Object
+      tags:
+      - User AD Object
+      x-codegen-request-body-name: Body
+    put:
+      operationId: Item_Update
+      parameters:
+      - description: Only "application/json" is supported.
+        in: header
+        name: Accept
+        required: true
+        schema:
+          default: application/json
+          type: string
+      - description: Citrix Cloud authorization token.
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - description: Transaction ID that will be used to track this request.
+        in: header
+        name: Citrix-TransactionId
+        schema:
+          default: 960f4f7f-73dd-421a-9baa-03f99c5df87e
+          type: string
+      - description: Citrix Cloud customer ID.
+        in: header
+        name: Citrix-CustomerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: '#/components/schemas/UserModelExamplePut'
+        required: false
+      responses:
+        "204":
+          content: {}
+          description: Resource update completed successfully.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+        "400":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The format of the parameters is incorrect.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/invalidJson
+            detail: Unable to parse the format of request body as a json object
+            parameters:
+            - name: reason
+              value: format error
+        "401":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Authorization failed.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/authentication
+            detail: Missing or invalid authentication details
+            parameters:
+            - name: reason
+              value: missing
+        "406":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: Requested media type is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/notAcceptable
+            detail: Must accept application/json media type
+            parameters:
+            - name: contentType
+              value: application/json
+        "409":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: A resource with the same identity already exists.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/optimisticConcurrency
+            detail: Entity is being used or depended by other existing resource
+            parameters:
+            - name: entityType
+              value: AssignedActions
+        "415":
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/RestError'
+          description: The charset is not supported.
+          headers:
+            Citrix-TransactionId:
+              description: Transaction ID that will be used to track this request.
+              schema:
+                type: string
+            X-Content-Type-Options:
+              description: It is always nosniff.
+              schema:
+                type: string
+            Content-Type:
+              description: It is always "application/json; charset=utf-8."
+              schema:
+                type: string
+          x-error-response-example:
+            type: https://errors-api.cloud.com/common/unsupportedMediaType
+            detail: Must use application/json;charset=utf-8 media type
+            parameters:
+            - name: mediaType
+              value: application/xml
+      summary: Update a User-level AD Object
+      tags:
+      - User AD Object
+      x-codegen-request-body-name: Body
+    x-summary: Query Create Update Users
+components:
+  schemas:
+    ApiStruct:
+      properties:
+        path:
+          type: string
+        method:
+          type: string
+        function:
+          type: string
+        controllerName:
+          type: string
+        authLevel:
+          type: string
+      type: object
+    RestError:
+      properties:
+        type:
+          type: string
+        detail:
+          type: string
+        parameters:
+          items:
+            $ref: '#/components/schemas/RestError_parameters_inner'
+          type: array
+      required:
+      - detail
+      - type
+      type: object
+    MachineModel:
+      description: Model of machine-level AD object
+      example:
+        name: name
+        description: description
+        siteId: 6
+        id: 0
+        type: Group
+        priority: 1
+        enabled: true
+        sid: sid
+      properties:
+        id:
+          description: Identity of machine-level AD object
+          format: int64
+          readOnly: true
+          type: integer
+        sid:
+          description: SID of machine-level AD object
+          type: string
+        name:
+          description: Distingushed name of machine-level AD object
+          type: string
+        type:
+          description: Type of machine-level AD object
+          enum:
+          - Group
+          - Computer
+          - OU
+          - Catalog
+          type: string
+        description:
+          description: Description of machine-level AD object
+          type: string
+        siteId:
+          description: Identity of site to which this machine-level AD object belongs
+          format: int64
+          type: integer
+        enabled:
+          description: If this nachine-level AD object is enabled
+          type: boolean
+        priority:
+          description: Priority of machine-level AD object
+          format: int64
+          type: integer
+      required:
+      - name
+      - sid
+      - siteId
+      - type
+      type: object
+    MachineModelExamplePost:
+      $ref: '#/components/schemas/MachineModel'
+    MachineModelExamplePut:
+      $ref: '#/components/schemas/MachineModel'
+    Object:
+      type: object
+    SchemaObjectPost:
+      type: object
+    ObjectPost:
+      $ref: '#/components/schemas/SchemaObjectPost'
+    SiteModel:
+      description: Model of Site
+      example:
+        name: name
+        description: description
+        id: 0
+      properties:
+        id:
+          description: Identity of site
+          format: int64
+          readOnly: true
+          type: integer
+        name:
+          description: Name of site
+          type: string
+        description:
+          description: Description of site
+          type: string
+      type: object
+    SiteModelExamplePost:
+      $ref: '#/components/schemas/SiteModel'
+    SiteModelExamplePut:
+      $ref: '#/components/schemas/SiteModel'
+    ProcessCpuPriority:
+      example:
+        processName: processName
+        priority: Idle
+      properties:
+        processName:
+          type: string
+        priority:
+          enum:
+          - Idle
+          - BelowNormal
+          - Normal
+          - AboveNormal
+          - High
+          - Realtime
+          type: string
+      type: object
+    ProcessAffinity:
+      example:
+        processName: processName
+        affinity: 2
+      properties:
+        processName:
+          type: string
+        affinity:
+          format: int32
+          type: integer
+      type: object
+    ProcessClamping:
+      example:
+        processName: processName
+        percentage: 7
+      properties:
+        processName:
+          type: string
+        percentage:
+          format: int32
+          type: integer
+      type: object
+    ProcessIoPriority:
+      example:
+        processName: processName
+        priority: VeryLow
+      properties:
+        processName:
+          type: string
+        priority:
+          enum:
+          - VeryLow
+          - Low
+          - Normal
+          - High
+          type: string
+      type: object
+    SystemOptimizationModel:
+      example:
+        enableCpuAutoProtection: true
+        enableCpuSpikeProtection: true
+        enableLimitCpuCoreUsage: true
+        enableIntelligentIoOptimization: true
+        excludeGroupsFromFastLogoff: true
+        enableProcessClamping: true
+        cpuUsageLimitSampleTimeOfSpikeProtection: 1
+        processesOfCpuAffinity:
+        - processName: processName
+          affinity: 2
+        - processName: processName
+          affinity: 2
+        enableMemoryWorkingSetOptimization: true
+        cpuUsageLimitOfSpikeProtection: 6
+        processesOfCpuClamping:
+        - processName: processName
+          percentage: 7
+        - processName: processName
+          percentage: 7
+        idleStateLimitOfMemoryWorkingSetOptimization: 3
+        cpuCoreLimitOfSpikeProtection: 5
+        processesOfCpuPriority:
+        - processName: processName
+          priority: Idle
+        - processName: processName
+          priority: Idle
+        groupsExcludedFromFastLogoff:
+        - groupsExcludedFromFastLogoff
+        - groupsExcludedFromFastLogoff
+        id: 0
+        idlePriorityTimeOfSpikeProtection: 5
+        enableFastLogoff: true
+        excludeProcessesFromCpuSpikeProtection: true
+        processesExcludedFromMemoryWorkingSetOptimization:
+        - processesExcludedFromMemoryWorkingSetOptimization
+        - processesExcludedFromMemoryWorkingSetOptimization
+        excludeProcessesFromMemoryWorkingSetOptimization: true
+        enableProcessCpuPriority: true
+        processesExcludedFromCpuSpikeProtection:
+        - processesExcludedFromCpuSpikeProtection
+        - processesExcludedFromCpuSpikeProtection
+        processesOfIoPriority:
+        - processName: processName
+          priority: VeryLow
+        - processName: processName
+          priority: VeryLow
+        enableProcessAffinity: true
+        enableProcessIoPriority: true
+        idleSampleTimeOfMemoryWorkingSetOptimization: 9
+        enableIntelligentCpuOptimization: true
+      properties:
+        id:
+          description: Identity of this system optimization model and the identity
+            of the site to which this configuration applies
+          format: int64
+          readOnly: true
+          type: integer
+        enableCpuSpikeProtection:
+          description: Lets you lower the CPU priority of processes that overload
+            your CPU
+          type: boolean
+        enableCpuAutoProtection:
+          description: Lets you lower the CPU priority of processes automatically
+          type: boolean
+        cpuUsageLimitOfSpikeProtection:
+          description: CPU usage limit (%) for CPU spike protection
+          format: int32
+          type: integer
+        cpuUsageLimitSampleTimeOfSpikeProtection:
+          description: Limit sample time (s) for CPU spike protection
+          format: int32
+          type: integer
+        idlePriorityTimeOfSpikeProtection:
+          description: Idle priority time (s) for CPU spike protection
+          format: int32
+          type: integer
+        enableLimitCpuCoreUsage:
+          description: Lets you limit processes that trigger CPU spike protection
+            to a specified number of logical processors
+          type: boolean
+        cpuCoreLimitOfSpikeProtection:
+          description: CPU core usage limit
+          format: int32
+          type: integer
+        enableIntelligentCpuOptimization:
+          description: Enable agent to intelligently optimize the CPU priority of
+            processes that trigger CPU spike protection
+          type: boolean
+        enableIntelligentIoOptimization:
+          description: Enable agent to intelligently optimize the I/O priority of
+            processes that trigger CPU spike protection
+          type: boolean
+        excludeProcessesFromCpuSpikeProtection:
+          description: Lets you add or remove processes from an exclusion list for
+            CPU spike protection by executable name
+          type: boolean
+        processesExcludedFromCpuSpikeProtection:
+          description: Processes excluded from CPU spike protection
+          items:
+            type: string
+          type: array
+        enableProcessCpuPriority:
+          description: Lets you configure process CPU priority manually
+          type: boolean
+        processesOfCpuPriority:
+          description: CPU priorities specified for the processes
+          items:
+            $ref: '#/components/schemas/ProcessCpuPriority'
+          type: array
+        enableProcessAffinity:
+          description: Lets you define how many "logical processors" for a process
+            to use
+          type: boolean
+        processesOfCpuAffinity:
+          description: Logical processors specified for the processes
+          items:
+            $ref: '#/components/schemas/ProcessAffinity'
+          type: array
+        enableProcessClamping:
+          description: Lets you prevent processes using more than a certain percentage
+            of the CPU's processing power
+          type: boolean
+        processesOfCpuClamping:
+          description: CPU clamping (%) specified for the processes
+          items:
+            $ref: '#/components/schemas/ProcessClamping'
+          type: array
+        enableMemoryWorkingSetOptimization:
+          description: Lets you force applications that have been idle for a certain
+            time to release excess memory until they are no longer idle
+          type: boolean
+        idleSampleTimeOfMemoryWorkingSetOptimization:
+          description: Time (min) for which an application must be idle before it
+            is forced to release excess memory
+          format: int32
+          type: integer
+        idleStateLimitOfMemoryWorkingSetOptimization:
+          description: CPU usage (%) under which a process is considered to be idle
+          format: int32
+          type: integer
+        excludeProcessesFromMemoryWorkingSetOptimization:
+          description: Lets you exclude processes from memory management by name
+          type: boolean
+        processesExcludedFromMemoryWorkingSetOptimization:
+          description: Processes excluded from working set optimization
+          items:
+            type: string
+          type: array
+        enableProcessIoPriority:
+          description: Lets you configure process I/O priority manually
+          type: boolean
+        processesOfIoPriority:
+          description: I/O priorities specified for the processes
+          items:
+            $ref: '#/components/schemas/ProcessIoPriority'
+          type: array
+        enableFastLogoff:
+          description: Enables fast logoff for all users in this configuration set
+          type: boolean
+        excludeGroupsFromFastLogoff:
+          description: Lets you exclude specific groups of users from Fast Logoff
+          type: boolean
+        groupsExcludedFromFastLogoff:
+          description: The groups you exclude from Fast Logoff
+          items:
+            type: string
+          type: array
+      type: object
+    SystemOptimizationModelExamplePut:
+      $ref: '#/components/schemas/SystemOptimizationModel'
+    UserModel:
+      description: Model of user-level AD object
+      example:
+        name: name
+        description: description
+        siteId: 6
+        id: 0
+        type: User
+        priority: 1
+        enabled: true
+        sid: sid
+      properties:
+        id:
+          description: Identity of user-level AD object
+          format: int64
+          readOnly: true
+          type: integer
+        sid:
+          description: SID of user-level AD object
+          type: string
+        name:
+          description: Distingushed name of user-level AD object
+          type: string
+        type:
+          description: Type of user-level AD object
+          enum:
+          - User
+          - Group
+          type: string
+        description:
+          description: Description of user-level AD object
+          type: string
+        siteId:
+          description: Identity of site to which this user-level AD object belongs
+          format: int64
+          type: integer
+        enabled:
+          description: If this user-level AD objectis enabled
+          type: boolean
+        priority:
+          description: Priority of user-level AD object
+          format: int64
+          type: integer
+      required:
+      - name
+      - sid
+      - siteId
+      - type
+      type: object
+    UserModelExamplePut:
+      $ref: '#/components/schemas/UserModel'
+    UserModelExamplePost:
+      $ref: '#/components/schemas/UserModel'
+    AdObject_Query_200_response:
+      example:
+        items:
+        - name: name
+          description: description
+          siteId: 6
+          id: 0
+          type: Group
+          priority: 1
+          enabled: true
+          sid: sid
+        - name: name
+          description: description
+          siteId: 6
+          id: 0
+          type: Group
+          priority: 1
+          enabled: true
+          sid: sid
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/MachineModel'
+          type: array
+      required:
+      - items
+      type: object
+    Site_Query_200_response:
+      example:
+        items:
+        - name: name
+          description: description
+          id: 0
+        - name: name
+          description: description
+          id: 0
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/SiteModel'
+          type: array
+      required:
+      - items
+      type: object
+    SystemUtilitySetting_Query_200_response:
+      example:
+        items:
+        - enableCpuAutoProtection: true
+          enableCpuSpikeProtection: true
+          enableLimitCpuCoreUsage: true
+          enableIntelligentIoOptimization: true
+          excludeGroupsFromFastLogoff: true
+          enableProcessClamping: true
+          cpuUsageLimitSampleTimeOfSpikeProtection: 1
+          processesOfCpuAffinity:
+          - processName: processName
+            affinity: 2
+          - processName: processName
+            affinity: 2
+          enableMemoryWorkingSetOptimization: true
+          cpuUsageLimitOfSpikeProtection: 6
+          processesOfCpuClamping:
+          - processName: processName
+            percentage: 7
+          - processName: processName
+            percentage: 7
+          idleStateLimitOfMemoryWorkingSetOptimization: 3
+          cpuCoreLimitOfSpikeProtection: 5
+          processesOfCpuPriority:
+          - processName: processName
+            priority: Idle
+          - processName: processName
+            priority: Idle
+          groupsExcludedFromFastLogoff:
+          - groupsExcludedFromFastLogoff
+          - groupsExcludedFromFastLogoff
+          id: 0
+          idlePriorityTimeOfSpikeProtection: 5
+          enableFastLogoff: true
+          excludeProcessesFromCpuSpikeProtection: true
+          processesExcludedFromMemoryWorkingSetOptimization:
+          - processesExcludedFromMemoryWorkingSetOptimization
+          - processesExcludedFromMemoryWorkingSetOptimization
+          excludeProcessesFromMemoryWorkingSetOptimization: true
+          enableProcessCpuPriority: true
+          processesExcludedFromCpuSpikeProtection:
+          - processesExcludedFromCpuSpikeProtection
+          - processesExcludedFromCpuSpikeProtection
+          processesOfIoPriority:
+          - processName: processName
+            priority: VeryLow
+          - processName: processName
+            priority: VeryLow
+          enableProcessAffinity: true
+          enableProcessIoPriority: true
+          idleSampleTimeOfMemoryWorkingSetOptimization: 9
+          enableIntelligentCpuOptimization: true
+        - enableCpuAutoProtection: true
+          enableCpuSpikeProtection: true
+          enableLimitCpuCoreUsage: true
+          enableIntelligentIoOptimization: true
+          excludeGroupsFromFastLogoff: true
+          enableProcessClamping: true
+          cpuUsageLimitSampleTimeOfSpikeProtection: 1
+          processesOfCpuAffinity:
+          - processName: processName
+            affinity: 2
+          - processName: processName
+            affinity: 2
+          enableMemoryWorkingSetOptimization: true
+          cpuUsageLimitOfSpikeProtection: 6
+          processesOfCpuClamping:
+          - processName: processName
+            percentage: 7
+          - processName: processName
+            percentage: 7
+          idleStateLimitOfMemoryWorkingSetOptimization: 3
+          cpuCoreLimitOfSpikeProtection: 5
+          processesOfCpuPriority:
+          - processName: processName
+            priority: Idle
+          - processName: processName
+            priority: Idle
+          groupsExcludedFromFastLogoff:
+          - groupsExcludedFromFastLogoff
+          - groupsExcludedFromFastLogoff
+          id: 0
+          idlePriorityTimeOfSpikeProtection: 5
+          enableFastLogoff: true
+          excludeProcessesFromCpuSpikeProtection: true
+          processesExcludedFromMemoryWorkingSetOptimization:
+          - processesExcludedFromMemoryWorkingSetOptimization
+          - processesExcludedFromMemoryWorkingSetOptimization
+          excludeProcessesFromMemoryWorkingSetOptimization: true
+          enableProcessCpuPriority: true
+          processesExcludedFromCpuSpikeProtection:
+          - processesExcludedFromCpuSpikeProtection
+          - processesExcludedFromCpuSpikeProtection
+          processesOfIoPriority:
+          - processName: processName
+            priority: VeryLow
+          - processName: processName
+            priority: VeryLow
+          enableProcessAffinity: true
+          enableProcessIoPriority: true
+          idleSampleTimeOfMemoryWorkingSetOptimization: 9
+          enableIntelligentCpuOptimization: true
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/SystemOptimizationModel'
+          type: array
+      required:
+      - items
+      type: object
+    Item_Query_200_response:
+      example:
+        items:
+        - name: name
+          description: description
+          siteId: 6
+          id: 0
+          type: User
+          priority: 1
+          enabled: true
+          sid: sid
+        - name: name
+          description: description
+          siteId: 6
+          id: 0
+          type: User
+          priority: 1
+          enabled: true
+          sid: sid
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/UserModel'
+          type: array
+      required:
+      - items
+      type: object
+    RestError_parameters_inner:
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      required:
+      - name
+      - value
+      type: object
+  securitySchemes:
+    basic:
+      scheme: basic
+      type: http
+x-original-swagger-version: "2.0"
