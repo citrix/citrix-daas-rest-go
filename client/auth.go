@@ -40,6 +40,13 @@ type CCTrustAuthResponse struct {
 	ExpiresAt  int    `json:"ExpiresAt"`
 }
 
+// Wem On-Prem Auth Response with Session ID
+type WemOnPremAuthResponse struct {
+	Sid       string `json:"sid"`
+	UserName  string `json:"userName"`
+	SessionId string `json:"sessionId"`
+}
+
 // SignIn - Get a new token for user
 func (c *CitrixDaasClient) SignIn() (string, *http.Response, error) {
 	if c.AuthConfig.ClientId == "" || c.AuthConfig.ClientSecret == "" {
@@ -190,4 +197,37 @@ func performCCTrustAuth(client *http.Client, authUrl string, jsonStr []byte) (CC
 	}
 
 	return ccTrustResponse, resp, err
+}
+
+// SignIn to Wem OnPrem Host to get Session ID
+func (c *CitrixDaasClient) SignInWemOnPrem() (string, *http.Response, error) {
+	client := c.ApiClient.GetConfig().HTTPClient
+	req, err := http.NewRequest(http.MethodPost, c.WemOnPremAuthConfig.AuthUrl, nil)
+	if err != nil {
+		return "", nil, err
+	}
+	req.SetBasicAuth(c.WemOnPremAuthConfig.AdminUserName, c.WemOnPremAuthConfig.AdminPassword)
+	resp, err := client.Do(req)
+	if err != nil {
+		return "", nil, err
+	}
+
+	defer resp.Body.Close()
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return "", nil, err
+	}
+
+	if resp.StatusCode > 200 {
+		return "", resp, fmt.Errorf("could not sign into wem onPremises host %s", string(body))
+	}
+
+	ar := WemOnPremAuthResponse{}
+	err = json.Unmarshal(body, &ar)
+	if err != nil {
+		return "", nil, err
+	}
+
+	sessionId := fmt.Sprintf("session %s", ar.SessionId)
+	return sessionId, nil, nil
 }

@@ -25,13 +25,14 @@ import (
 )
 
 type CitrixDaasClient struct {
-	ApiClient         *citrixorchestration.APIClient
-	AuthConfig        *AuthenticationConfiguration
-	ClientConfig      *ClientConfiguration
-	AuthToken         *AuthTokenModel
-	StorefrontClient  *storefrontapis.APIClient
-	QuickCreateClient *citrixquickcreate.APIClient
-	WemClient         *citrixwemservice.APIClient
+	ApiClient           *citrixorchestration.APIClient
+	AuthConfig          *AuthenticationConfiguration
+	ClientConfig        *ClientConfiguration
+	WemOnPremAuthConfig *WemOnPremAuthentication
+	AuthToken           *AuthTokenModel
+	StorefrontClient    *storefrontapis.APIClient
+	QuickCreateClient   *citrixquickcreate.APIClient
+	WemClient           *citrixwemservice.APIClient
 	// Citrix Cloud Service Clients
 	CCAdminsClient          *ccadmins.APIClient
 	CwsClient               *citrixcws.APIClient
@@ -89,9 +90,17 @@ func getMiddlewareWithCwsClient(authClient *CitrixDaasClient, middlewareAuthFunc
 	}
 }
 
-func (daasClient *CitrixDaasClient) InitializeWemClient(ctx context.Context, wemHostName string, middlewareFunc MiddlewareAuthFunction) {
+/* ------ Setup WEM Client ------ */
+func (daasClient *CitrixDaasClient) InitializeWemClient(ctx context.Context, wemHostName string, middlewareFunc MiddlewareAuthFunction, onPremises, disableSslVerification bool) {
 	wemConfig := citrixwemservice.NewConfiguration()
 	wemConfig.Scheme = "https"
+	if onPremises {
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: disableSslVerification},
+		}
+		client := &http.Client{Transport: tr}
+		wemConfig.HTTPClient = client
+	}
 	wemConfig.Servers = citrixwemservice.ServerConfigurations{
 		{
 			URL: wemConfig.Scheme + "://" + wemHostName,
@@ -214,6 +223,16 @@ func (daasClient *CitrixDaasClient) SetupAuthConfig(authUrl, clientId, clientSec
 	daasClient.AuthConfig = localAuthCfg
 }
 
+/* ------ Setup Wem On-Prem Authentication Configuration ------ */
+func (daasClient *CitrixDaasClient) SetupWemOnPremAuthConfig(authUrl, adminUserName, adminPassword string) {
+	localAuthCfg := &WemOnPremAuthentication{
+		AuthUrl:       authUrl,
+		AdminUserName: adminUserName,
+		AdminPassword: adminPassword,
+	}
+	daasClient.WemOnPremAuthConfig = localAuthCfg
+}
+
 /* ------ Setup GAC Client ------ */
 func (daasClient *CitrixDaasClient) SetupGacClient(hostname string, middlewareFunc MiddlewareAuthFunction) {
 	gacUrlTranslator := map[string]bool{
@@ -237,6 +256,11 @@ func (daasClient *CitrixDaasClient) SetupGacClient(hostname string, middlewareFu
 	daasClient.GacClient = globalappconfiguration.NewAPIClient(localGacCfg)
 }
 
+func (daasClient *CitrixDaasClient) SetupWemOnPremClientContext(ctx context.Context, middlewareFunc MiddlewareAuthFunction, wemAuthUrl, wemHostName, wemAdminUserName, wemAdminPassword string, disableSslVerification bool) {
+	daasClient.InitializeWemClient(ctx, wemHostName, middlewareFunc, true, disableSslVerification)
+	daasClient.SetupWemOnPremAuthConfig(wemAuthUrl, wemAdminUserName, wemAdminPassword)
+}
+
 func (daasClient *CitrixDaasClient) SetupCitrixClientsContext(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (string, *http.Response, error) {
 
 	daasClient.SetupApiClient(hostname, middlewareFunc, onPremises, disableSslVerification, apiGateway)
@@ -257,7 +281,6 @@ func (daasClient *CitrixDaasClient) InitializeCitrixCloudClients(ctx context.Con
 }
 
 func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Context, customerId, token string, onPremises bool, apiGateway bool, disableSslVerification bool, userAgent *string) (*http.Response, error) {
-
 	req := daasClient.ApiClient.MeAPIsDAAS.MeGetMe(ctx)
 	req = req.Authorization(token).CitrixCustomerId(customerId)
 	resp, httpResp, err := req.Execute()

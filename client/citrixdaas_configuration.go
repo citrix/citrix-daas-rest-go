@@ -23,3 +23,10 @@ type ClientConfiguration struct {
 	ProductVersion          string
 	IsCspCustomer           bool
 }
+
+// WemOnPremAuthentication provides authentication settings for WEM on-premises service
+type WemOnPremAuthentication struct {
+	AuthUrl       string `json:"auth_url"`
+	AdminUserName string `json:"admin_username"`
+	AdminPassword string `json:"admin_password"`
+}
