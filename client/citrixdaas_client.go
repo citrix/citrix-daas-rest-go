@@ -491,29 +491,35 @@ func (c *CitrixDaasClient) GetBatchRequestItemRelativeUrl(relativeUrl string) st
 }
 
 func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchRequestModel citrixorchestration.BatchRequestModel) (int, string, error) {
+	successCount, txnId, _, err := PerformBatchOperationAndReturnSubJobResponses(ctx, client, batchRequestModel)
+	return successCount, txnId, err
+}
+
+func PerformBatchOperationAndReturnSubJobResponses(ctx context.Context, client *CitrixDaasClient, batchRequestModel citrixorchestration.BatchRequestModel) (int, string, []citrixorchestration.BatchResponseItemModel, error) {
 
 	successCount := 0
+	subJobs := []citrixorchestration.BatchResponseItemModel{}
 
 	batchRequest := client.ApiClient.BatchAPIsDAAS.BatchDoBatchRequest(ctx).BatchRequestModel(batchRequestModel).Async(true)
 	_, httpResp, err := AddRequestData(batchRequest, client).Execute()
 	txnId := GetTransactionIdFromHttpResponse(httpResp)
 	if err != nil {
-		return successCount, txnId, err
+		return successCount, txnId, subJobs, err
 	}
 	jobId := GetJobIdFromHttpResponse(*httpResp)
 	jobResponseModel, err := client.WaitForJob(ctx, jobId, 30)
 	if err != nil {
-		return successCount, txnId, err
+		return successCount, txnId, subJobs, err
 	}
 
 	jobStatus := jobResponseModel.GetStatus()
 
 	if jobStatus != citrixorchestration.JOBSTATUS_COMPLETE {
 		if jobStatus == citrixorchestration.JOBSTATUS_FAILED {
-			return successCount, txnId, fmt.Errorf(jobResponseModel.GetErrorString())
+			return successCount, txnId, subJobs, fmt.Errorf(jobResponseModel.GetErrorString())
 		}
 
-		return successCount, txnId, fmt.Errorf("an unexpected error occurred")
+		return successCount, txnId, subJobs, fmt.Errorf("an unexpected error occurred")
 	}
 
 	// Job is completed successfully. Get results
@@ -521,13 +527,13 @@ func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchR
 	res, _, err := AddRequestData(ss, client).Execute()
 	if err != nil {
 		// Job failed. Return nil and error.
-		return successCount, txnId, err
+		return successCount, txnId, subJobs, err
 	}
 
 	var batchJobResponse map[string][]citrixorchestration.BatchResponseItemModel
 	_ = json.Unmarshal([]byte(res), &batchJobResponse)
 
-	subJobs := batchJobResponse["Items"]
+	subJobs = batchJobResponse["Items"]
 	for i := 0; i < len(subJobs); i++ {
 		subJob := subJobs[i]
 		subJobCode := subJob.GetCode()
@@ -546,5 +552,5 @@ func PerformBatchOperation(ctx context.Context, client *CitrixDaasClient, batchR
 		}
 	}
 
-	return successCount, txnId, err
+	return successCount, txnId, subJobs, err
 }
