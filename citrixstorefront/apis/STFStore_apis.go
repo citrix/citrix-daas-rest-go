@@ -277,44 +277,46 @@ func (a *STFStore) STFStoreSetStoreFarm(ctx context.Context, setSTFStoreFarmRequ
 type ApiGetSTFStoreFarmRequest struct {
 	ctx                            context.Context
 	ApiService                     *STFStore
-	getSTFStoreFarmRequestModel    models.GetSTFStoreFarmRequestModel
 	getSTFStoreServiceRequestModel models.GetSTFStoreRequestModel //This is used to set the StoreService for the GetSTFStoreFarmRequest
 }
 
-func (r ApiGetSTFStoreFarmRequest) Execute() (models.StoreFarmModel, error) {
+func (r ApiGetSTFStoreFarmRequest) Execute() ([]models.StoreFarmModel, error) {
 	bytes, err := r.ApiService.GetSTFStoreFarmExecute(r)
+
 	if err != nil {
-		return models.StoreFarmModel{}, err
+		return []models.StoreFarmModel{}, err
 	}
 	if len(bytes) == 0 {
-		return models.StoreFarmModel{}, fmt.Errorf(NOT_EXIST)
+		return []models.StoreFarmModel{}, nil
 	}
+	storeFarmResult := string(bytes)
 
-	var reponse = models.StoreFarmModel{}
-	unMarshalErr := json.Unmarshal(bytes, &reponse)
-	if unMarshalErr != nil {
-		fmt.Println("Error:", unMarshalErr)
-		return models.StoreFarmModel{}, fmt.Errorf("error unmarshal STFStoreFarmModel: %v", err)
+	var responses = []models.StoreFarmModel{}
+	if string(storeFarmResult[0]) == "{" {
+		var reponse = models.StoreFarmModel{}
+		unMarshalErr := json.Unmarshal(bytes, &reponse)
+		if unMarshalErr != nil {
+			return []models.StoreFarmModel{}, fmt.Errorf("error unmarshal STFStoreFarmModel: %v", unMarshalErr)
+		}
+		responses = append(responses, reponse)
+	} else if string(storeFarmResult[0]) == "[" {
+		unMarshalErr := json.Unmarshal(bytes, &responses)
+		if unMarshalErr != nil {
+			return []models.StoreFarmModel{}, fmt.Errorf("error unmarshal STFStoreFarmModel: %v", unMarshalErr)
+		}
 	}
-	return reponse, nil
+	return responses, nil
 }
 
 func (a *STFStore) GetSTFStoreFarmExecute(r ApiGetSTFStoreFarmRequest) ([]byte, error) {
-	var param = StructToString(r.getSTFStoreFarmRequestModel)
 	var getStoreServiceParams = StructToString(r.getSTFStoreServiceRequestModel)
-
-	if r.getSTFStoreServiceRequestModel.VirtualPath.IsSet() && *r.getSTFStoreServiceRequestModel.VirtualPath.Get() != "" {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreServiceParams), param)
-	} else {
-		return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreFarm", param)
-	}
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFStoreFarm", fmt.Sprintf("-StoreService (Get-STFStoreService %s)", getStoreServiceParams))
 }
 
-func (a *STFStore) STFStoreGetStoreFarm(ctx context.Context, getSTFStoreFarmRequestModel models.GetSTFStoreFarmRequestModel, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreFarmRequest {
+func (a *STFStore) STFStoreGetStoreFarm(ctx context.Context, getSTFStoreRequestModel models.GetSTFStoreRequestModel) ApiGetSTFStoreFarmRequest {
 	return ApiGetSTFStoreFarmRequest{
 		ApiService:                     a,
 		ctx:                            ctx,
-		getSTFStoreFarmRequestModel:    getSTFStoreFarmRequestModel,
 		getSTFStoreServiceRequestModel: getSTFStoreRequestModel,
 	}
 }
