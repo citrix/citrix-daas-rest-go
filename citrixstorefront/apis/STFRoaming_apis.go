@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/citrix/citrix-daas-rest-go/citrixstorefront/models"
@@ -95,36 +96,91 @@ type ApiGetSTFRoamingGatewayRequest struct {
 	ctx                              context.Context
 	ApiService                       *STFRoaming
 	GetSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel
-	GetSTFRoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel
 }
 
-func (r ApiGetSTFRoamingGatewayRequest) Execute() (models.STFRoamingGatewayResponseModel, error) {
+func (r ApiGetSTFRoamingGatewayRequest) Execute() ([]models.STFRoamingGatewayResponseModel, error) {
 	bytes, err := r.ApiService.GetSTFRoamingGatewayExecute(r)
+
 	if err != nil {
-		return models.STFRoamingGatewayResponseModel{}, err
+		return []models.STFRoamingGatewayResponseModel{}, err
 	}
-	var reponse = models.STFRoamingGatewayRawResponseModel{}
-	unMarshalErr := json.Unmarshal(bytes, &reponse)
-	if unMarshalErr != nil {
-		fmt.Println("Error:", unMarshalErr)
-		return models.STFRoamingGatewayResponseModel{}, fmt.Errorf("error unmarshal STFRoamingGatewayDetailModel: %v", unMarshalErr.Error())
+	if len(bytes) == 0 {
+		return []models.STFRoamingGatewayResponseModel{}, nil
 	}
-	reponse.SiteId = *r.GetSTFRoamingServiceRequestModel.SiteId.Get()
-	return reponse.ConvertToResponseModel(), nil
+
+	gateway := string(bytes)
+	updatedResponses := []models.STFRoamingGatewayResponseModel{}
+
+	if string(gateway[0]) == "{" {
+		var reponses = models.STFRoamingGatewayRawResponseModel{}
+		unMarshalErr := json.Unmarshal(bytes, &reponses)
+		if unMarshalErr != nil {
+			return []models.STFRoamingGatewayResponseModel{}, fmt.Errorf("error unmarshal STFRoamingGatewayDetailModel: %v", unMarshalErr)
+		}
+
+		reponses.SiteId = *r.GetSTFRoamingServiceRequestModel.SiteId.Get()
+		updatedResponses = append(updatedResponses, reponses.ConvertToResponseModel())
+
+	} else if string(gateway[0]) == "[" {
+		var objectArraymap []interface{}
+		unMarshalToInterfaceErr := json.Unmarshal([]byte(gateway), &objectArraymap)
+
+		if unMarshalToInterfaceErr != nil {
+			return []models.STFRoamingGatewayResponseModel{}, fmt.Errorf("error unmarshal STFRoamingGatewayDetailModel to Interface: %v", unMarshalToInterfaceErr)
+		}
+
+		for _, obj := range objectArraymap {
+			response := models.STFRoamingGatewayRawResponseModel{}
+			if myMap, ok := (obj.(map[string]interface{})); ok {
+				sta, ok := myMap["SecureTicketAuthorityUrls"]
+				if ok {
+					if stastring, ok := sta.([]interface{}); ok {
+						length := len(stastring)
+						var updateStaString []interface{}
+						for i := 0; i < length; i++ {
+							if sta, ok := stastring[i].(string); ok {
+								result := strings.Split(sta, ",")
+								staMap := make(map[string]interface{})
+								staMap["StaUrl"] = result[0]
+								staMap["StaValidationEnabled"], err = strconv.ParseBool(result[1])
+								if err != nil {
+									return []models.STFRoamingGatewayResponseModel{}, fmt.Errorf("error converting STAValidationEnabled to bool: %v", err)
+								}
+								staMap["StaValidationSecret"] = result[2]
+								updateStaString = append(updateStaString, staMap)
+							}
+						}
+						myMap["SecureTicketAuthorityUrls"] = updateStaString
+					}
+				}
+			}
+
+			jsonData, marshallToJsonErr := json.Marshal(obj)
+			if marshallToJsonErr != nil {
+				return []models.STFRoamingGatewayResponseModel{}, fmt.Errorf("error marshalling STFRoamingGatewayDetailModel to JSON: %v", marshallToJsonErr)
+			}
+
+			unMarshalErr := json.Unmarshal(jsonData, &response)
+			if unMarshalErr != nil {
+				return []models.STFRoamingGatewayResponseModel{}, fmt.Errorf("error unmarshal STFRoamingGatewayDetailModel to ResponseModel: %v", unMarshalErr)
+			}
+			response.SiteId = *r.GetSTFRoamingServiceRequestModel.SiteId.Get()
+			updatedResponses = append(updatedResponses, response.ConvertToResponseModel())
+		}
+	}
+	return updatedResponses, nil
 }
 
 func (a *STFRoaming) GetSTFRoamingGatewayExecute(r ApiGetSTFRoamingGatewayRequest) ([]byte, error) {
-	var param = StructToString(r.GetSTFRoamingGatewayRequestModel)
 	var getRoamingServiceParams = StructToString(r.GetSTFRoamingServiceRequestModel)
-	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams), param)
+	return ExecuteCommand(BuildAuth(a.client.GetComputerName(), a.client.GetAdUserName(), a.client.GetAdPassword(), a.client.GetDisableSSL()), "Get-STFRoamingGateway", fmt.Sprintf("-RoamingService (Get-STFRoamingService %s)", getRoamingServiceParams))
 }
 
-func (a *STFRoaming) STFRoamingGatewayGet(ctx context.Context, getSTFRoamingGatewayRequestModel models.GetSTFRoamingGatewayRequestModel, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiGetSTFRoamingGatewayRequest {
+func (a *STFRoaming) STFRoamingGatewayGet(ctx context.Context, getSTFRoamingServiceRequestModel models.STFRoamingServiceRequestModel) ApiGetSTFRoamingGatewayRequest {
 	return ApiGetSTFRoamingGatewayRequest{
 		ApiService:                       a,
 		ctx:                              ctx,
 		GetSTFRoamingServiceRequestModel: getSTFRoamingServiceRequestModel,
-		GetSTFRoamingGatewayRequestModel: getSTFRoamingGatewayRequestModel,
 	}
 }
 

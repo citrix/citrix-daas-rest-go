@@ -35,7 +35,6 @@ type STFRoamingGatewayRawResponseModel struct {
 }
 
 type STFSTAUrlModel struct {
-	AuthorityId          NullableString `json:"AuthorityId,omitempty"`
 	StaUrl               NullableString `json:"StaUrl,omitempty"`
 	StaValidationEnabled NullableBool   `json:"StaValidationEnabled,omitempty"`
 	StaValidationSecret  NullableString `json:"StaValidationSecret,omitempty"`
