@@ -251,9 +251,13 @@ type IntegratedWindowsAuthenticationModel struct {
 }
 
 type CitrixAGBasicAuthenticationModel struct {
-	CredentialValidationMode NullableInt      `json:"CredentialValidationMode,omitempty"` // The credential validation mode of the citrix AG basic authentication
-	NetscalerGateways        []NullableString `json:"NetscalerGateways,omitempty"`        // The netscaler gateways of the citrix AG basic authentication
-	ClaimsFactoryName        NullableString   `json:"ClaimsFactoryName,omitempty"`        // The claims factory name of the citrix AG basic authentication
+	CredentialValidationMode NullableInt              `json:"CredentialValidationMode,omitempty"` // The credential validation mode of the citrix AG basic authentication
+	NetscalerGateways        []NetscalerGatewaysModel `json:"NetscalerGateways,omitempty"`        // The netscaler gateways of the citrix AG basic authentication
+	ClaimsFactoryName        NullableString           `json:"ClaimsFactoryName,omitempty"`        // The claims factory name of the citrix AG basic authentication
+}
+
+type NetscalerGatewaysModel struct {
+	Name NullableString `json:"Name,omitempty"`
 }
 
 type CommonExplicitEndpointsModel struct {
