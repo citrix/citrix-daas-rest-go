@@ -10,9 +10,13 @@ Name | Type | Description | Notes
 **WebUiPolicySetEnabled** | Pointer to **NullableBool** | Determine whether the policy set in web UI is enabled or not | [optional] 
 **ConsoleInactivityTimeoutMinutes** | Pointer to **NullableInt32** | The max number of minutes that console can be inactive. | [optional] 
 **SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
+**ShowSecurityBannerOnLoginPage** | Pointer to **NullableBool** | Applicable only for On-Premise. Indicate whether to display security banner on the login page. | [optional] 
+**SecurityBannerOnLoginPage** | Pointer to **NullableString** | Applicable only for On-Premise. The custom security banner on the login page, max length is 5000. | [optional] 
+**ShowConnectedControllerOnLoginPage** | Pointer to **NullableBool** | Applicable only for On-Premise. Indicate whether to display the DDC used for the current Studio session on the login page. | [optional] 
 **AllowedCorsOriginsForIwa** | Pointer to **[]string** | Applicable only for On-Premise. List of origins allowed to make cross-origin requests for Integrated Windows Authentication. | [optional] 
 **MultiSites** | Pointer to [**[]MultiSiteModel**](MultiSiteModel.md) | Applicable only for On-Premise. Multiple sites configuration. | [optional] 
 **DefaultDomain** | Pointer to **NullableString** | The default domain to be used in the login page. | [optional] 
+**MultiTenantServicesAccess** | Pointer to [**MultiTenantServicesAccessModel**](MultiTenantServicesAccessModel.md) |  | [optional] 
 
 ## Methods
 
@@ -233,6 +237,111 @@ SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
 
 HasSupportedAuthenticators returns a boolean if a field has been set.
 
+### GetShowSecurityBannerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) GetShowSecurityBannerOnLoginPage() bool`
+
+GetShowSecurityBannerOnLoginPage returns the ShowSecurityBannerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetShowSecurityBannerOnLoginPageOk
+
+`func (o *EditSiteSettingsRequestModel) GetShowSecurityBannerOnLoginPageOk() (*bool, bool)`
+
+GetShowSecurityBannerOnLoginPageOk returns a tuple with the ShowSecurityBannerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShowSecurityBannerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) SetShowSecurityBannerOnLoginPage(v bool)`
+
+SetShowSecurityBannerOnLoginPage sets ShowSecurityBannerOnLoginPage field to given value.
+
+### HasShowSecurityBannerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) HasShowSecurityBannerOnLoginPage() bool`
+
+HasShowSecurityBannerOnLoginPage returns a boolean if a field has been set.
+
+### SetShowSecurityBannerOnLoginPageNil
+
+`func (o *EditSiteSettingsRequestModel) SetShowSecurityBannerOnLoginPageNil(b bool)`
+
+ SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetShowSecurityBannerOnLoginPage
+`func (o *EditSiteSettingsRequestModel) UnsetShowSecurityBannerOnLoginPage()`
+
+UnsetShowSecurityBannerOnLoginPage ensures that no value is present for ShowSecurityBannerOnLoginPage, not even an explicit nil
+### GetSecurityBannerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) GetSecurityBannerOnLoginPage() string`
+
+GetSecurityBannerOnLoginPage returns the SecurityBannerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetSecurityBannerOnLoginPageOk
+
+`func (o *EditSiteSettingsRequestModel) GetSecurityBannerOnLoginPageOk() (*string, bool)`
+
+GetSecurityBannerOnLoginPageOk returns a tuple with the SecurityBannerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecurityBannerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) SetSecurityBannerOnLoginPage(v string)`
+
+SetSecurityBannerOnLoginPage sets SecurityBannerOnLoginPage field to given value.
+
+### HasSecurityBannerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) HasSecurityBannerOnLoginPage() bool`
+
+HasSecurityBannerOnLoginPage returns a boolean if a field has been set.
+
+### SetSecurityBannerOnLoginPageNil
+
+`func (o *EditSiteSettingsRequestModel) SetSecurityBannerOnLoginPageNil(b bool)`
+
+ SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetSecurityBannerOnLoginPage
+`func (o *EditSiteSettingsRequestModel) UnsetSecurityBannerOnLoginPage()`
+
+UnsetSecurityBannerOnLoginPage ensures that no value is present for SecurityBannerOnLoginPage, not even an explicit nil
+### GetShowConnectedControllerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) GetShowConnectedControllerOnLoginPage() bool`
+
+GetShowConnectedControllerOnLoginPage returns the ShowConnectedControllerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetShowConnectedControllerOnLoginPageOk
+
+`func (o *EditSiteSettingsRequestModel) GetShowConnectedControllerOnLoginPageOk() (*bool, bool)`
+
+GetShowConnectedControllerOnLoginPageOk returns a tuple with the ShowConnectedControllerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShowConnectedControllerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) SetShowConnectedControllerOnLoginPage(v bool)`
+
+SetShowConnectedControllerOnLoginPage sets ShowConnectedControllerOnLoginPage field to given value.
+
+### HasShowConnectedControllerOnLoginPage
+
+`func (o *EditSiteSettingsRequestModel) HasShowConnectedControllerOnLoginPage() bool`
+
+HasShowConnectedControllerOnLoginPage returns a boolean if a field has been set.
+
+### SetShowConnectedControllerOnLoginPageNil
+
+`func (o *EditSiteSettingsRequestModel) SetShowConnectedControllerOnLoginPageNil(b bool)`
+
+ SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
+
+### UnsetShowConnectedControllerOnLoginPage
+`func (o *EditSiteSettingsRequestModel) UnsetShowConnectedControllerOnLoginPage()`
+
+UnsetShowConnectedControllerOnLoginPage ensures that no value is present for ShowConnectedControllerOnLoginPage, not even an explicit nil
 ### GetAllowedCorsOriginsForIwa
 
 `func (o *EditSiteSettingsRequestModel) GetAllowedCorsOriginsForIwa() []string`
@@ -338,6 +447,31 @@ HasDefaultDomain returns a boolean if a field has been set.
 `func (o *EditSiteSettingsRequestModel) UnsetDefaultDomain()`
 
 UnsetDefaultDomain ensures that no value is present for DefaultDomain, not even an explicit nil
+### GetMultiTenantServicesAccess
+
+`func (o *EditSiteSettingsRequestModel) GetMultiTenantServicesAccess() MultiTenantServicesAccessModel`
+
+GetMultiTenantServicesAccess returns the MultiTenantServicesAccess field if non-nil, zero value otherwise.
+
+### GetMultiTenantServicesAccessOk
+
+`func (o *EditSiteSettingsRequestModel) GetMultiTenantServicesAccessOk() (*MultiTenantServicesAccessModel, bool)`
+
+GetMultiTenantServicesAccessOk returns a tuple with the MultiTenantServicesAccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMultiTenantServicesAccess
+
+`func (o *EditSiteSettingsRequestModel) SetMultiTenantServicesAccess(v MultiTenantServicesAccessModel)`
+
+SetMultiTenantServicesAccess sets MultiTenantServicesAccess field to given value.
+
+### HasMultiTenantServicesAccess
+
+`func (o *EditSiteSettingsRequestModel) HasMultiTenantServicesAccess() bool`
+
+HasMultiTenantServicesAccess returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

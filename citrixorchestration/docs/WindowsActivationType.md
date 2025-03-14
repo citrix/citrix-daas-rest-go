@@ -9,6 +9,8 @@
 
 * `MULTIPLE_ACTIVATION_KEY` (value: `"MultipleActivationKey"`)
 
+* `UNKNOWN` (value: `"Unknown"`)
+
 * `NOT_VALID` (value: `"NotValid"`)
 
 

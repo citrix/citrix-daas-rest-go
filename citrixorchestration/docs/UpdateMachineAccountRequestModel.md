@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ResetPassword** | Pointer to **NullableBool** | Indicates whether the machine account password should be reset. | [optional] 
 **Password** | Pointer to **NullableString** | The current password for the machine account, in the format specified by PasswordFormat. | [optional] 
 **PasswordFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
+**ForceReset** | Pointer to **NullableBool** | Indicates whether accounts that are marked as &#39;in-use&#39; can be reset or not. | [optional] 
 
 ## Methods
 
@@ -122,6 +123,41 @@ SetPasswordFormat sets PasswordFormat field to given value.
 
 HasPasswordFormat returns a boolean if a field has been set.
 
+### GetForceReset
+
+`func (o *UpdateMachineAccountRequestModel) GetForceReset() bool`
+
+GetForceReset returns the ForceReset field if non-nil, zero value otherwise.
+
+### GetForceResetOk
+
+`func (o *UpdateMachineAccountRequestModel) GetForceResetOk() (*bool, bool)`
+
+GetForceResetOk returns a tuple with the ForceReset field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForceReset
+
+`func (o *UpdateMachineAccountRequestModel) SetForceReset(v bool)`
+
+SetForceReset sets ForceReset field to given value.
+
+### HasForceReset
+
+`func (o *UpdateMachineAccountRequestModel) HasForceReset() bool`
+
+HasForceReset returns a boolean if a field has been set.
+
+### SetForceResetNil
+
+`func (o *UpdateMachineAccountRequestModel) SetForceResetNil(b bool)`
+
+ SetForceResetNil sets the value for ForceReset to be an explicit nil
+
+### UnsetForceReset
+`func (o *UpdateMachineAccountRequestModel) UnsetForceReset()`
+
+UnsetForceReset ensures that no value is present for ForceReset, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -12,6 +12,7 @@ package citrixorchestration
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // checks if the ProvisionedVirtualMachineDetailsResponseModel type satisfies the MappedNullable interface at compile time
@@ -19,75 +20,54 @@ var _ MappedNullable = &ProvisionedVirtualMachineDetailsResponseModel{}
 
 // ProvisionedVirtualMachineDetailsResponseModel Response model for machine.
 type ProvisionedVirtualMachineDetailsResponseModel struct {
-	// Accelerated Network
-	AcceleratedNetwork NullableBool `json:"AcceleratedNetwork,omitempty"`
-	// Active Directory Account Name
-	ADAccountName NullableString `json:"ADAccountName,omitempty"`
-	// Virtual Machine Sid
-	VMSid NullableString `json:"VMSid,omitempty"`
-	// Assigned Image
-	AssignedImage NullableString `json:"AssignedImage,omitempty"`
-	// Booted Image
-	BootedImage NullableString `json:"BootedImage,omitempty"`
-	CustomVmData *ProvisionedVirtualMachineCustomVmDataResponseModel `json:"CustomVmData,omitempty"`
-	// Cpu Count
+	// Provisioned Machine Name.
+	Name NullableString `json:"Name,omitempty"`
+	// Provisioning Scheme Name.
+	ProvisioningSchemeName NullableString `json:"ProvisioningSchemeName,omitempty"`
+	// Provisioning Scheme Id.
+	ProvisioningSchemeId NullableString `json:"ProvisioningSchemeId,omitempty"`
+	// Cpu Count.
 	CpuCount *int32 `json:"CpuCount,omitempty"`
-	// Creation Date
-	CreationDate NullableString `json:"CreationDate,omitempty"`
-	// Domain
-	Domain NullableString `json:"Domain,omitempty"`
-	// IntegrityMonitoring
-	EnableIntegrityMonitoring NullableBool `json:"EnableIntegrityMonitoring,omitempty"`
-	// From ProvScheme VMMetaData
-	EnableSecureBoot NullableBool `json:"EnableSecureBoot,omitempty"`
-	// From ProvScheme VMMetaData
-	EnableVTPM NullableBool `json:"EnableVTPM,omitempty"`
-	// From ProvScheme VMMetaData
-	EncryptionAtHost NullableBool `json:"EncryptionAtHost,omitempty"`
-	// The Errors of provisioned virtual machine 
-	Errors []string `json:"Errors,omitempty"`
-	// Broker Hypervisor Connection Type - Plugin Factory Name
-	PluginId NullableString `json:"PluginId,omitempty"`
-	// Image Out Of Date, booted image name doesn't equal assigned image name
-	ImageOutOfDate *bool `json:"ImageOutOfDate,omitempty"`
-	// MemoryMB
+	// Memory in MB.
 	MemoryMB *int32 `json:"MemoryMB,omitempty"`
-	// Hosting Unit Uid
-	HostingUnitUid *string `json:"HostingUnitUid,omitempty"`
-	// Hypervisor Connection Uid
-	HypervisorConnectionUid *string `json:"HypervisorConnectionUid,omitempty"`
-	// Identity Disk Id
-	IdentityDiskId NullableString `json:"IdentityDiskId,omitempty"`
-	// Last Boot Time
-	LastBootTime NullableString `json:"LastBootTime,omitempty"`
-	// Provisioning Scheme Type: MCS, PVS
-	ProvisioningSchemeType NullableString `json:"ProvisioningSchemeType,omitempty"`
-	// Provisioning Scheme Update Requested
-	ProvisioningSchemeUpdateRequested NullableString `json:"ProvisioningSchemeUpdateRequested,omitempty"`
-	// Provisioning SchemeVersion
+	// Persistency.
+	Persistency *bool `json:"Persistency,omitempty"`
+	// Identity Type.
+	IdentityType NullableString `json:"IdentityType,omitempty"`
+	// Provisioning Scheme Version.
 	ProvisioningSchemeVersion *int32 `json:"ProvisioningSchemeVersion,omitempty"`
-	// Use Full Disk Clone Provisioning
-	UseFullDiskCloneProvisioning *bool `json:"UseFullDiskCloneProvisioning,omitempty"`
-	// VMId, Azure - resourcegroup/VMName
-	VMId NullableString `json:"VMId,omitempty"`
-	// VM Name on the hypervisor
-	VMName NullableString `json:"VMName,omitempty"`
-	// Warnings, decode CustomVMData failed reason
-	Warnings []ProvisionedVirtualMachineDetailsWarningReponseModel `json:"Warnings,omitempty"`
-	// Windows Activation Status
-	WindowsActivationStatus NullableString `json:"WindowsActivationStatus,omitempty"`
-	// Windows Activation Status Error Code
-	WindowsActivationStatusErrorCode NullableString `json:"WindowsActivationStatusErrorCode,omitempty"`
-	// Windows Activation Status Virtual Machine Error
-	WindowsActivationStatusVirtualMachineError NullableString `json:"WindowsActivationStatusVirtualMachineError,omitempty"`
-	// Windows Activation Type Provisioned Virtual Machine
-	WindowsActivationTypeProvisionedVirtualMachine NullableString `json:"WindowsActivationTypeProvisionedVirtualMachine,omitempty"`
-	// Write Back Cache(WBC) Disk Size
+	// Image Out Of Date.
+	ImageOutOfDate *bool `json:"ImageOutOfDate,omitempty"`
+	// Last Boot Time.
+	LastBootTime *time.Time `json:"LastBootTime,omitempty"`
+	// Use Write Back Cache.
+	UseWriteBackCache *bool `json:"UseWriteBackCache,omitempty"`
+	// Write Back Cache Disk Size.
 	WriteBackCacheDiskSize *int32 `json:"WriteBackCacheDiskSize,omitempty"`
-	// Write Back Cache(WBC) Drive Letter
+	// Write Back Cache Drive Letter.
 	WriteBackCacheDriveLetter *string `json:"WriteBackCacheDriveLetter,omitempty"`
-	// Write Back Cache(WBC) Memory Size
+	// Write Back Cache Memory Size.
 	WriteBackCacheMemorySize *int32 `json:"WriteBackCacheMemorySize,omitempty"`
+	// Identities.
+	Identities NullableString `json:"Identities,omitempty"`
+	// Provisioned VM Configuration Version.
+	ProvVMConfigurationVersion NullableInt32 `json:"ProvVMConfigurationVersion,omitempty"`
+	// Windows Activation Type.
+	WindowsActivationType NullableString `json:"WindowsActivationType,omitempty"`
+	// Disk Information.
+	DiskInfo NullableString `json:"DiskInfo,omitempty"`
+	// Image and Template Information.
+	ImageAndTemplateInfo NullableString `json:"ImageAndTemplateInfo,omitempty"`
+	// MCS IO information.
+	MCSIOInfo NullableString `json:"MCSIOInfo,omitempty"`
+	// Network Information.
+	NetworkInfo NullableString `json:"NetworkInfo,omitempty"`
+	// Security Information.
+	SecurityInfo NullableString `json:"SecurityInfo,omitempty"`
+	// Provisioned VM Information.
+	VMInfo NullableString `json:"VMInfo,omitempty"`
+	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
+	ConfigurationResultantSet *ProvisionedVirtualMachineConfigurationResultantSetResponseModel `json:"ConfigurationResultantSet,omitempty"`
 }
 
 // NewProvisionedVirtualMachineDetailsResponseModel instantiates a new ProvisionedVirtualMachineDetailsResponseModel object
@@ -107,246 +87,130 @@ func NewProvisionedVirtualMachineDetailsResponseModelWithDefaults() *Provisioned
 	return &this
 }
 
-// GetAcceleratedNetwork returns the AcceleratedNetwork field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetAcceleratedNetwork() bool {
-	if o == nil || IsNil(o.AcceleratedNetwork.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.AcceleratedNetwork.Get()
-}
-
-// GetAcceleratedNetworkOk returns a tuple with the AcceleratedNetwork field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetAcceleratedNetworkOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.AcceleratedNetwork.Get(), o.AcceleratedNetwork.IsSet()
-}
-
-// HasAcceleratedNetwork returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasAcceleratedNetwork() bool {
-	if o != nil && o.AcceleratedNetwork.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetAcceleratedNetwork gets a reference to the given NullableBool and assigns it to the AcceleratedNetwork field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetAcceleratedNetwork(v bool) {
-	o.AcceleratedNetwork.Set(&v)
-}
-// SetAcceleratedNetworkNil sets the value for AcceleratedNetwork to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetAcceleratedNetworkNil() {
-	o.AcceleratedNetwork.Set(nil)
-}
-
-// UnsetAcceleratedNetwork ensures that no value is present for AcceleratedNetwork, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetAcceleratedNetwork() {
-	o.AcceleratedNetwork.Unset()
-}
-
-// GetADAccountName returns the ADAccountName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetADAccountName() string {
-	if o == nil || IsNil(o.ADAccountName.Get()) {
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetName() string {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ADAccountName.Get()
+	return *o.Name.Get()
 }
 
-// GetADAccountNameOk returns a tuple with the ADAccountName field value if set, nil otherwise
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetADAccountNameOk() (*string, bool) {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ADAccountName.Get(), o.ADAccountName.IsSet()
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// HasADAccountName returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasADAccountName() bool {
-	if o != nil && o.ADAccountName.IsSet() {
+// HasName returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasName() bool {
+	if o != nil && o.Name.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetADAccountName gets a reference to the given NullableString and assigns it to the ADAccountName field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetADAccountName(v string) {
-	o.ADAccountName.Set(&v)
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetName(v string) {
+	o.Name.Set(&v)
 }
-// SetADAccountNameNil sets the value for ADAccountName to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetADAccountNameNil() {
-	o.ADAccountName.Set(nil)
-}
-
-// UnsetADAccountName ensures that no value is present for ADAccountName, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetADAccountName() {
-	o.ADAccountName.Unset()
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetVMSid returns the VMSid field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMSid() string {
-	if o == nil || IsNil(o.VMSid.Get()) {
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetProvisioningSchemeName returns the ProvisioningSchemeName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeName() string {
+	if o == nil || IsNil(o.ProvisioningSchemeName.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.VMSid.Get()
+	return *o.ProvisioningSchemeName.Get()
 }
 
-// GetVMSidOk returns a tuple with the VMSid field value if set, nil otherwise
+// GetProvisioningSchemeNameOk returns a tuple with the ProvisioningSchemeName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMSidOk() (*string, bool) {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.VMSid.Get(), o.VMSid.IsSet()
+	return o.ProvisioningSchemeName.Get(), o.ProvisioningSchemeName.IsSet()
 }
 
-// HasVMSid returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasVMSid() bool {
-	if o != nil && o.VMSid.IsSet() {
+// HasProvisioningSchemeName returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvisioningSchemeName() bool {
+	if o != nil && o.ProvisioningSchemeName.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetVMSid gets a reference to the given NullableString and assigns it to the VMSid field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMSid(v string) {
-	o.VMSid.Set(&v)
+// SetProvisioningSchemeName gets a reference to the given NullableString and assigns it to the ProvisioningSchemeName field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeName(v string) {
+	o.ProvisioningSchemeName.Set(&v)
 }
-// SetVMSidNil sets the value for VMSid to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMSidNil() {
-	o.VMSid.Set(nil)
-}
-
-// UnsetVMSid ensures that no value is present for VMSid, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetVMSid() {
-	o.VMSid.Unset()
+// SetProvisioningSchemeNameNil sets the value for ProvisioningSchemeName to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeNameNil() {
+	o.ProvisioningSchemeName.Set(nil)
 }
 
-// GetAssignedImage returns the AssignedImage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetAssignedImage() string {
-	if o == nil || IsNil(o.AssignedImage.Get()) {
+// UnsetProvisioningSchemeName ensures that no value is present for ProvisioningSchemeName, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetProvisioningSchemeName() {
+	o.ProvisioningSchemeName.Unset()
+}
+
+// GetProvisioningSchemeId returns the ProvisioningSchemeId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeId() string {
+	if o == nil || IsNil(o.ProvisioningSchemeId.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.AssignedImage.Get()
+	return *o.ProvisioningSchemeId.Get()
 }
 
-// GetAssignedImageOk returns a tuple with the AssignedImage field value if set, nil otherwise
+// GetProvisioningSchemeIdOk returns a tuple with the ProvisioningSchemeId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetAssignedImageOk() (*string, bool) {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.AssignedImage.Get(), o.AssignedImage.IsSet()
+	return o.ProvisioningSchemeId.Get(), o.ProvisioningSchemeId.IsSet()
 }
 
-// HasAssignedImage returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasAssignedImage() bool {
-	if o != nil && o.AssignedImage.IsSet() {
+// HasProvisioningSchemeId returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvisioningSchemeId() bool {
+	if o != nil && o.ProvisioningSchemeId.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetAssignedImage gets a reference to the given NullableString and assigns it to the AssignedImage field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetAssignedImage(v string) {
-	o.AssignedImage.Set(&v)
+// SetProvisioningSchemeId gets a reference to the given NullableString and assigns it to the ProvisioningSchemeId field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeId(v string) {
+	o.ProvisioningSchemeId.Set(&v)
 }
-// SetAssignedImageNil sets the value for AssignedImage to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetAssignedImageNil() {
-	o.AssignedImage.Set(nil)
-}
-
-// UnsetAssignedImage ensures that no value is present for AssignedImage, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetAssignedImage() {
-	o.AssignedImage.Unset()
+// SetProvisioningSchemeIdNil sets the value for ProvisioningSchemeId to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeIdNil() {
+	o.ProvisioningSchemeId.Set(nil)
 }
 
-// GetBootedImage returns the BootedImage field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetBootedImage() string {
-	if o == nil || IsNil(o.BootedImage.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.BootedImage.Get()
-}
-
-// GetBootedImageOk returns a tuple with the BootedImage field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetBootedImageOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.BootedImage.Get(), o.BootedImage.IsSet()
-}
-
-// HasBootedImage returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasBootedImage() bool {
-	if o != nil && o.BootedImage.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetBootedImage gets a reference to the given NullableString and assigns it to the BootedImage field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetBootedImage(v string) {
-	o.BootedImage.Set(&v)
-}
-// SetBootedImageNil sets the value for BootedImage to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetBootedImageNil() {
-	o.BootedImage.Set(nil)
-}
-
-// UnsetBootedImage ensures that no value is present for BootedImage, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetBootedImage() {
-	o.BootedImage.Unset()
-}
-
-// GetCustomVmData returns the CustomVmData field value if set, zero value otherwise.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetCustomVmData() ProvisionedVirtualMachineCustomVmDataResponseModel {
-	if o == nil || IsNil(o.CustomVmData) {
-		var ret ProvisionedVirtualMachineCustomVmDataResponseModel
-		return ret
-	}
-	return *o.CustomVmData
-}
-
-// GetCustomVmDataOk returns a tuple with the CustomVmData field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetCustomVmDataOk() (*ProvisionedVirtualMachineCustomVmDataResponseModel, bool) {
-	if o == nil || IsNil(o.CustomVmData) {
-		return nil, false
-	}
-	return o.CustomVmData, true
-}
-
-// HasCustomVmData returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasCustomVmData() bool {
-	if o != nil && !IsNil(o.CustomVmData) {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomVmData gets a reference to the given ProvisionedVirtualMachineCustomVmDataResponseModel and assigns it to the CustomVmData field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetCustomVmData(v ProvisionedVirtualMachineCustomVmDataResponseModel) {
-	o.CustomVmData = &v
+// UnsetProvisioningSchemeId ensures that no value is present for ProvisioningSchemeId, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetProvisioningSchemeId() {
+	o.ProvisioningSchemeId.Unset()
 }
 
 // GetCpuCount returns the CpuCount field value if set, zero value otherwise.
@@ -381,365 +245,6 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) SetCpuCount(v int32) {
 	o.CpuCount = &v
 }
 
-// GetCreationDate returns the CreationDate field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetCreationDate() string {
-	if o == nil || IsNil(o.CreationDate.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CreationDate.Get()
-}
-
-// GetCreationDateOk returns a tuple with the CreationDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetCreationDateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CreationDate.Get(), o.CreationDate.IsSet()
-}
-
-// HasCreationDate returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasCreationDate() bool {
-	if o != nil && o.CreationDate.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCreationDate gets a reference to the given NullableString and assigns it to the CreationDate field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetCreationDate(v string) {
-	o.CreationDate.Set(&v)
-}
-// SetCreationDateNil sets the value for CreationDate to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetCreationDateNil() {
-	o.CreationDate.Set(nil)
-}
-
-// UnsetCreationDate ensures that no value is present for CreationDate, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetCreationDate() {
-	o.CreationDate.Unset()
-}
-
-// GetDomain returns the Domain field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetDomain() string {
-	if o == nil || IsNil(o.Domain.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Domain.Get()
-}
-
-// GetDomainOk returns a tuple with the Domain field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetDomainOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Domain.Get(), o.Domain.IsSet()
-}
-
-// HasDomain returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasDomain() bool {
-	if o != nil && o.Domain.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDomain gets a reference to the given NullableString and assigns it to the Domain field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetDomain(v string) {
-	o.Domain.Set(&v)
-}
-// SetDomainNil sets the value for Domain to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetDomainNil() {
-	o.Domain.Set(nil)
-}
-
-// UnsetDomain ensures that no value is present for Domain, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetDomain() {
-	o.Domain.Unset()
-}
-
-// GetEnableIntegrityMonitoring returns the EnableIntegrityMonitoring field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEnableIntegrityMonitoring() bool {
-	if o == nil || IsNil(o.EnableIntegrityMonitoring.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.EnableIntegrityMonitoring.Get()
-}
-
-// GetEnableIntegrityMonitoringOk returns a tuple with the EnableIntegrityMonitoring field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEnableIntegrityMonitoringOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableIntegrityMonitoring.Get(), o.EnableIntegrityMonitoring.IsSet()
-}
-
-// HasEnableIntegrityMonitoring returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasEnableIntegrityMonitoring() bool {
-	if o != nil && o.EnableIntegrityMonitoring.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableIntegrityMonitoring gets a reference to the given NullableBool and assigns it to the EnableIntegrityMonitoring field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEnableIntegrityMonitoring(v bool) {
-	o.EnableIntegrityMonitoring.Set(&v)
-}
-// SetEnableIntegrityMonitoringNil sets the value for EnableIntegrityMonitoring to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEnableIntegrityMonitoringNil() {
-	o.EnableIntegrityMonitoring.Set(nil)
-}
-
-// UnsetEnableIntegrityMonitoring ensures that no value is present for EnableIntegrityMonitoring, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetEnableIntegrityMonitoring() {
-	o.EnableIntegrityMonitoring.Unset()
-}
-
-// GetEnableSecureBoot returns the EnableSecureBoot field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEnableSecureBoot() bool {
-	if o == nil || IsNil(o.EnableSecureBoot.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.EnableSecureBoot.Get()
-}
-
-// GetEnableSecureBootOk returns a tuple with the EnableSecureBoot field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEnableSecureBootOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableSecureBoot.Get(), o.EnableSecureBoot.IsSet()
-}
-
-// HasEnableSecureBoot returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasEnableSecureBoot() bool {
-	if o != nil && o.EnableSecureBoot.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableSecureBoot gets a reference to the given NullableBool and assigns it to the EnableSecureBoot field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEnableSecureBoot(v bool) {
-	o.EnableSecureBoot.Set(&v)
-}
-// SetEnableSecureBootNil sets the value for EnableSecureBoot to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEnableSecureBootNil() {
-	o.EnableSecureBoot.Set(nil)
-}
-
-// UnsetEnableSecureBoot ensures that no value is present for EnableSecureBoot, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetEnableSecureBoot() {
-	o.EnableSecureBoot.Unset()
-}
-
-// GetEnableVTPM returns the EnableVTPM field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEnableVTPM() bool {
-	if o == nil || IsNil(o.EnableVTPM.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.EnableVTPM.Get()
-}
-
-// GetEnableVTPMOk returns a tuple with the EnableVTPM field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEnableVTPMOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EnableVTPM.Get(), o.EnableVTPM.IsSet()
-}
-
-// HasEnableVTPM returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasEnableVTPM() bool {
-	if o != nil && o.EnableVTPM.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEnableVTPM gets a reference to the given NullableBool and assigns it to the EnableVTPM field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEnableVTPM(v bool) {
-	o.EnableVTPM.Set(&v)
-}
-// SetEnableVTPMNil sets the value for EnableVTPM to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEnableVTPMNil() {
-	o.EnableVTPM.Set(nil)
-}
-
-// UnsetEnableVTPM ensures that no value is present for EnableVTPM, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetEnableVTPM() {
-	o.EnableVTPM.Unset()
-}
-
-// GetEncryptionAtHost returns the EncryptionAtHost field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEncryptionAtHost() bool {
-	if o == nil || IsNil(o.EncryptionAtHost.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.EncryptionAtHost.Get()
-}
-
-// GetEncryptionAtHostOk returns a tuple with the EncryptionAtHost field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetEncryptionAtHostOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.EncryptionAtHost.Get(), o.EncryptionAtHost.IsSet()
-}
-
-// HasEncryptionAtHost returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasEncryptionAtHost() bool {
-	if o != nil && o.EncryptionAtHost.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetEncryptionAtHost gets a reference to the given NullableBool and assigns it to the EncryptionAtHost field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEncryptionAtHost(v bool) {
-	o.EncryptionAtHost.Set(&v)
-}
-// SetEncryptionAtHostNil sets the value for EncryptionAtHost to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetEncryptionAtHostNil() {
-	o.EncryptionAtHost.Set(nil)
-}
-
-// UnsetEncryptionAtHost ensures that no value is present for EncryptionAtHost, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetEncryptionAtHost() {
-	o.EncryptionAtHost.Unset()
-}
-
-// GetErrors returns the Errors field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetErrors() []string {
-	if o == nil {
-		var ret []string
-		return ret
-	}
-	return o.Errors
-}
-
-// GetErrorsOk returns a tuple with the Errors field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetErrorsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Errors) {
-		return nil, false
-	}
-	return o.Errors, true
-}
-
-// HasErrors returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
-		return true
-	}
-
-	return false
-}
-
-// SetErrors gets a reference to the given []string and assigns it to the Errors field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetErrors(v []string) {
-	o.Errors = v
-}
-
-// GetPluginId returns the PluginId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetPluginId() string {
-	if o == nil || IsNil(o.PluginId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.PluginId.Get()
-}
-
-// GetPluginIdOk returns a tuple with the PluginId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetPluginIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.PluginId.Get(), o.PluginId.IsSet()
-}
-
-// HasPluginId returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasPluginId() bool {
-	if o != nil && o.PluginId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetPluginId gets a reference to the given NullableString and assigns it to the PluginId field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetPluginId(v string) {
-	o.PluginId.Set(&v)
-}
-// SetPluginIdNil sets the value for PluginId to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetPluginIdNil() {
-	o.PluginId.Set(nil)
-}
-
-// UnsetPluginId ensures that no value is present for PluginId, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetPluginId() {
-	o.PluginId.Unset()
-}
-
-// GetImageOutOfDate returns the ImageOutOfDate field value if set, zero value otherwise.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetImageOutOfDate() bool {
-	if o == nil || IsNil(o.ImageOutOfDate) {
-		var ret bool
-		return ret
-	}
-	return *o.ImageOutOfDate
-}
-
-// GetImageOutOfDateOk returns a tuple with the ImageOutOfDate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetImageOutOfDateOk() (*bool, bool) {
-	if o == nil || IsNil(o.ImageOutOfDate) {
-		return nil, false
-	}
-	return o.ImageOutOfDate, true
-}
-
-// HasImageOutOfDate returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasImageOutOfDate() bool {
-	if o != nil && !IsNil(o.ImageOutOfDate) {
-		return true
-	}
-
-	return false
-}
-
-// SetImageOutOfDate gets a reference to the given bool and assigns it to the ImageOutOfDate field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetImageOutOfDate(v bool) {
-	o.ImageOutOfDate = &v
-}
-
 // GetMemoryMB returns the MemoryMB field value if set, zero value otherwise.
 func (o *ProvisionedVirtualMachineDetailsResponseModel) GetMemoryMB() int32 {
 	if o == nil || IsNil(o.MemoryMB) {
@@ -772,236 +277,78 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) SetMemoryMB(v int32) {
 	o.MemoryMB = &v
 }
 
-// GetHostingUnitUid returns the HostingUnitUid field value if set, zero value otherwise.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetHostingUnitUid() string {
-	if o == nil || IsNil(o.HostingUnitUid) {
-		var ret string
+// GetPersistency returns the Persistency field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetPersistency() bool {
+	if o == nil || IsNil(o.Persistency) {
+		var ret bool
 		return ret
 	}
-	return *o.HostingUnitUid
+	return *o.Persistency
 }
 
-// GetHostingUnitUidOk returns a tuple with the HostingUnitUid field value if set, nil otherwise
+// GetPersistencyOk returns a tuple with the Persistency field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetHostingUnitUidOk() (*string, bool) {
-	if o == nil || IsNil(o.HostingUnitUid) {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetPersistencyOk() (*bool, bool) {
+	if o == nil || IsNil(o.Persistency) {
 		return nil, false
 	}
-	return o.HostingUnitUid, true
+	return o.Persistency, true
 }
 
-// HasHostingUnitUid returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasHostingUnitUid() bool {
-	if o != nil && !IsNil(o.HostingUnitUid) {
+// HasPersistency returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasPersistency() bool {
+	if o != nil && !IsNil(o.Persistency) {
 		return true
 	}
 
 	return false
 }
 
-// SetHostingUnitUid gets a reference to the given string and assigns it to the HostingUnitUid field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetHostingUnitUid(v string) {
-	o.HostingUnitUid = &v
+// SetPersistency gets a reference to the given bool and assigns it to the Persistency field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetPersistency(v bool) {
+	o.Persistency = &v
 }
 
-// GetHypervisorConnectionUid returns the HypervisorConnectionUid field value if set, zero value otherwise.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetHypervisorConnectionUid() string {
-	if o == nil || IsNil(o.HypervisorConnectionUid) {
+// GetIdentityType returns the IdentityType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetIdentityType() string {
+	if o == nil || IsNil(o.IdentityType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.HypervisorConnectionUid
+	return *o.IdentityType.Get()
 }
 
-// GetHypervisorConnectionUidOk returns a tuple with the HypervisorConnectionUid field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetHypervisorConnectionUidOk() (*string, bool) {
-	if o == nil || IsNil(o.HypervisorConnectionUid) {
-		return nil, false
-	}
-	return o.HypervisorConnectionUid, true
-}
-
-// HasHypervisorConnectionUid returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasHypervisorConnectionUid() bool {
-	if o != nil && !IsNil(o.HypervisorConnectionUid) {
-		return true
-	}
-
-	return false
-}
-
-// SetHypervisorConnectionUid gets a reference to the given string and assigns it to the HypervisorConnectionUid field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetHypervisorConnectionUid(v string) {
-	o.HypervisorConnectionUid = &v
-}
-
-// GetIdentityDiskId returns the IdentityDiskId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetIdentityDiskId() string {
-	if o == nil || IsNil(o.IdentityDiskId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.IdentityDiskId.Get()
-}
-
-// GetIdentityDiskIdOk returns a tuple with the IdentityDiskId field value if set, nil otherwise
+// GetIdentityTypeOk returns a tuple with the IdentityType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetIdentityDiskIdOk() (*string, bool) {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetIdentityTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.IdentityDiskId.Get(), o.IdentityDiskId.IsSet()
+	return o.IdentityType.Get(), o.IdentityType.IsSet()
 }
 
-// HasIdentityDiskId returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasIdentityDiskId() bool {
-	if o != nil && o.IdentityDiskId.IsSet() {
+// HasIdentityType returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasIdentityType() bool {
+	if o != nil && o.IdentityType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIdentityDiskId gets a reference to the given NullableString and assigns it to the IdentityDiskId field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentityDiskId(v string) {
-	o.IdentityDiskId.Set(&v)
+// SetIdentityType gets a reference to the given NullableString and assigns it to the IdentityType field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentityType(v string) {
+	o.IdentityType.Set(&v)
 }
-// SetIdentityDiskIdNil sets the value for IdentityDiskId to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentityDiskIdNil() {
-	o.IdentityDiskId.Set(nil)
-}
-
-// UnsetIdentityDiskId ensures that no value is present for IdentityDiskId, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetIdentityDiskId() {
-	o.IdentityDiskId.Unset()
+// SetIdentityTypeNil sets the value for IdentityType to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentityTypeNil() {
+	o.IdentityType.Set(nil)
 }
 
-// GetLastBootTime returns the LastBootTime field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetLastBootTime() string {
-	if o == nil || IsNil(o.LastBootTime.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.LastBootTime.Get()
-}
-
-// GetLastBootTimeOk returns a tuple with the LastBootTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetLastBootTimeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.LastBootTime.Get(), o.LastBootTime.IsSet()
-}
-
-// HasLastBootTime returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasLastBootTime() bool {
-	if o != nil && o.LastBootTime.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetLastBootTime gets a reference to the given NullableString and assigns it to the LastBootTime field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetLastBootTime(v string) {
-	o.LastBootTime.Set(&v)
-}
-// SetLastBootTimeNil sets the value for LastBootTime to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetLastBootTimeNil() {
-	o.LastBootTime.Set(nil)
-}
-
-// UnsetLastBootTime ensures that no value is present for LastBootTime, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetLastBootTime() {
-	o.LastBootTime.Unset()
-}
-
-// GetProvisioningSchemeType returns the ProvisioningSchemeType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeType() string {
-	if o == nil || IsNil(o.ProvisioningSchemeType.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ProvisioningSchemeType.Get()
-}
-
-// GetProvisioningSchemeTypeOk returns a tuple with the ProvisioningSchemeType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ProvisioningSchemeType.Get(), o.ProvisioningSchemeType.IsSet()
-}
-
-// HasProvisioningSchemeType returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvisioningSchemeType() bool {
-	if o != nil && o.ProvisioningSchemeType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetProvisioningSchemeType gets a reference to the given NullableString and assigns it to the ProvisioningSchemeType field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeType(v string) {
-	o.ProvisioningSchemeType.Set(&v)
-}
-// SetProvisioningSchemeTypeNil sets the value for ProvisioningSchemeType to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeTypeNil() {
-	o.ProvisioningSchemeType.Set(nil)
-}
-
-// UnsetProvisioningSchemeType ensures that no value is present for ProvisioningSchemeType, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetProvisioningSchemeType() {
-	o.ProvisioningSchemeType.Unset()
-}
-
-// GetProvisioningSchemeUpdateRequested returns the ProvisioningSchemeUpdateRequested field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeUpdateRequested() string {
-	if o == nil || IsNil(o.ProvisioningSchemeUpdateRequested.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ProvisioningSchemeUpdateRequested.Get()
-}
-
-// GetProvisioningSchemeUpdateRequestedOk returns a tuple with the ProvisioningSchemeUpdateRequested field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvisioningSchemeUpdateRequestedOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ProvisioningSchemeUpdateRequested.Get(), o.ProvisioningSchemeUpdateRequested.IsSet()
-}
-
-// HasProvisioningSchemeUpdateRequested returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvisioningSchemeUpdateRequested() bool {
-	if o != nil && o.ProvisioningSchemeUpdateRequested.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetProvisioningSchemeUpdateRequested gets a reference to the given NullableString and assigns it to the ProvisioningSchemeUpdateRequested field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeUpdateRequested(v string) {
-	o.ProvisioningSchemeUpdateRequested.Set(&v)
-}
-// SetProvisioningSchemeUpdateRequestedNil sets the value for ProvisioningSchemeUpdateRequested to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeUpdateRequestedNil() {
-	o.ProvisioningSchemeUpdateRequested.Set(nil)
-}
-
-// UnsetProvisioningSchemeUpdateRequested ensures that no value is present for ProvisioningSchemeUpdateRequested, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetProvisioningSchemeUpdateRequested() {
-	o.ProvisioningSchemeUpdateRequested.Unset()
+// UnsetIdentityType ensures that no value is present for IdentityType, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetIdentityType() {
+	o.IdentityType.Unset()
 }
 
 // GetProvisioningSchemeVersion returns the ProvisioningSchemeVersion field value if set, zero value otherwise.
@@ -1036,321 +383,100 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeVer
 	o.ProvisioningSchemeVersion = &v
 }
 
-// GetUseFullDiskCloneProvisioning returns the UseFullDiskCloneProvisioning field value if set, zero value otherwise.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetUseFullDiskCloneProvisioning() bool {
-	if o == nil || IsNil(o.UseFullDiskCloneProvisioning) {
+// GetImageOutOfDate returns the ImageOutOfDate field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetImageOutOfDate() bool {
+	if o == nil || IsNil(o.ImageOutOfDate) {
 		var ret bool
 		return ret
 	}
-	return *o.UseFullDiskCloneProvisioning
+	return *o.ImageOutOfDate
 }
 
-// GetUseFullDiskCloneProvisioningOk returns a tuple with the UseFullDiskCloneProvisioning field value if set, nil otherwise
+// GetImageOutOfDateOk returns a tuple with the ImageOutOfDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetUseFullDiskCloneProvisioningOk() (*bool, bool) {
-	if o == nil || IsNil(o.UseFullDiskCloneProvisioning) {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetImageOutOfDateOk() (*bool, bool) {
+	if o == nil || IsNil(o.ImageOutOfDate) {
 		return nil, false
 	}
-	return o.UseFullDiskCloneProvisioning, true
+	return o.ImageOutOfDate, true
 }
 
-// HasUseFullDiskCloneProvisioning returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasUseFullDiskCloneProvisioning() bool {
-	if o != nil && !IsNil(o.UseFullDiskCloneProvisioning) {
+// HasImageOutOfDate returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasImageOutOfDate() bool {
+	if o != nil && !IsNil(o.ImageOutOfDate) {
 		return true
 	}
 
 	return false
 }
 
-// SetUseFullDiskCloneProvisioning gets a reference to the given bool and assigns it to the UseFullDiskCloneProvisioning field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetUseFullDiskCloneProvisioning(v bool) {
-	o.UseFullDiskCloneProvisioning = &v
+// SetImageOutOfDate gets a reference to the given bool and assigns it to the ImageOutOfDate field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetImageOutOfDate(v bool) {
+	o.ImageOutOfDate = &v
 }
 
-// GetVMId returns the VMId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMId() string {
-	if o == nil || IsNil(o.VMId.Get()) {
-		var ret string
+// GetLastBootTime returns the LastBootTime field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetLastBootTime() time.Time {
+	if o == nil || IsNil(o.LastBootTime) {
+		var ret time.Time
 		return ret
 	}
-	return *o.VMId.Get()
+	return *o.LastBootTime
 }
 
-// GetVMIdOk returns a tuple with the VMId field value if set, nil otherwise
+// GetLastBootTimeOk returns a tuple with the LastBootTime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMIdOk() (*string, bool) {
-	if o == nil {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetLastBootTimeOk() (*time.Time, bool) {
+	if o == nil || IsNil(o.LastBootTime) {
 		return nil, false
 	}
-	return o.VMId.Get(), o.VMId.IsSet()
+	return o.LastBootTime, true
 }
 
-// HasVMId returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasVMId() bool {
-	if o != nil && o.VMId.IsSet() {
+// HasLastBootTime returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasLastBootTime() bool {
+	if o != nil && !IsNil(o.LastBootTime) {
 		return true
 	}
 
 	return false
 }
 
-// SetVMId gets a reference to the given NullableString and assigns it to the VMId field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMId(v string) {
-	o.VMId.Set(&v)
-}
-// SetVMIdNil sets the value for VMId to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMIdNil() {
-	o.VMId.Set(nil)
+// SetLastBootTime gets a reference to the given time.Time and assigns it to the LastBootTime field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetLastBootTime(v time.Time) {
+	o.LastBootTime = &v
 }
 
-// UnsetVMId ensures that no value is present for VMId, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetVMId() {
-	o.VMId.Unset()
-}
-
-// GetVMName returns the VMName field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMName() string {
-	if o == nil || IsNil(o.VMName.Get()) {
-		var ret string
+// GetUseWriteBackCache returns the UseWriteBackCache field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetUseWriteBackCache() bool {
+	if o == nil || IsNil(o.UseWriteBackCache) {
+		var ret bool
 		return ret
 	}
-	return *o.VMName.Get()
+	return *o.UseWriteBackCache
 }
 
-// GetVMNameOk returns a tuple with the VMName field value if set, nil otherwise
+// GetUseWriteBackCacheOk returns a tuple with the UseWriteBackCache field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMNameOk() (*string, bool) {
-	if o == nil {
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetUseWriteBackCacheOk() (*bool, bool) {
+	if o == nil || IsNil(o.UseWriteBackCache) {
 		return nil, false
 	}
-	return o.VMName.Get(), o.VMName.IsSet()
+	return o.UseWriteBackCache, true
 }
 
-// HasVMName returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasVMName() bool {
-	if o != nil && o.VMName.IsSet() {
+// HasUseWriteBackCache returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasUseWriteBackCache() bool {
+	if o != nil && !IsNil(o.UseWriteBackCache) {
 		return true
 	}
 
 	return false
 }
 
-// SetVMName gets a reference to the given NullableString and assigns it to the VMName field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMName(v string) {
-	o.VMName.Set(&v)
-}
-// SetVMNameNil sets the value for VMName to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMNameNil() {
-	o.VMName.Set(nil)
-}
-
-// UnsetVMName ensures that no value is present for VMName, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetVMName() {
-	o.VMName.Unset()
-}
-
-// GetWarnings returns the Warnings field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWarnings() []ProvisionedVirtualMachineDetailsWarningReponseModel {
-	if o == nil {
-		var ret []ProvisionedVirtualMachineDetailsWarningReponseModel
-		return ret
-	}
-	return o.Warnings
-}
-
-// GetWarningsOk returns a tuple with the Warnings field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWarningsOk() ([]ProvisionedVirtualMachineDetailsWarningReponseModel, bool) {
-	if o == nil || IsNil(o.Warnings) {
-		return nil, false
-	}
-	return o.Warnings, true
-}
-
-// HasWarnings returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
-		return true
-	}
-
-	return false
-}
-
-// SetWarnings gets a reference to the given []ProvisionedVirtualMachineDetailsWarningReponseModel and assigns it to the Warnings field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWarnings(v []ProvisionedVirtualMachineDetailsWarningReponseModel) {
-	o.Warnings = v
-}
-
-// GetWindowsActivationStatus returns the WindowsActivationStatus field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationStatus() string {
-	if o == nil || IsNil(o.WindowsActivationStatus.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.WindowsActivationStatus.Get()
-}
-
-// GetWindowsActivationStatusOk returns a tuple with the WindowsActivationStatus field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationStatusOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.WindowsActivationStatus.Get(), o.WindowsActivationStatus.IsSet()
-}
-
-// HasWindowsActivationStatus returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasWindowsActivationStatus() bool {
-	if o != nil && o.WindowsActivationStatus.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWindowsActivationStatus gets a reference to the given NullableString and assigns it to the WindowsActivationStatus field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationStatus(v string) {
-	o.WindowsActivationStatus.Set(&v)
-}
-// SetWindowsActivationStatusNil sets the value for WindowsActivationStatus to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationStatusNil() {
-	o.WindowsActivationStatus.Set(nil)
-}
-
-// UnsetWindowsActivationStatus ensures that no value is present for WindowsActivationStatus, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetWindowsActivationStatus() {
-	o.WindowsActivationStatus.Unset()
-}
-
-// GetWindowsActivationStatusErrorCode returns the WindowsActivationStatusErrorCode field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationStatusErrorCode() string {
-	if o == nil || IsNil(o.WindowsActivationStatusErrorCode.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.WindowsActivationStatusErrorCode.Get()
-}
-
-// GetWindowsActivationStatusErrorCodeOk returns a tuple with the WindowsActivationStatusErrorCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationStatusErrorCodeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.WindowsActivationStatusErrorCode.Get(), o.WindowsActivationStatusErrorCode.IsSet()
-}
-
-// HasWindowsActivationStatusErrorCode returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasWindowsActivationStatusErrorCode() bool {
-	if o != nil && o.WindowsActivationStatusErrorCode.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWindowsActivationStatusErrorCode gets a reference to the given NullableString and assigns it to the WindowsActivationStatusErrorCode field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationStatusErrorCode(v string) {
-	o.WindowsActivationStatusErrorCode.Set(&v)
-}
-// SetWindowsActivationStatusErrorCodeNil sets the value for WindowsActivationStatusErrorCode to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationStatusErrorCodeNil() {
-	o.WindowsActivationStatusErrorCode.Set(nil)
-}
-
-// UnsetWindowsActivationStatusErrorCode ensures that no value is present for WindowsActivationStatusErrorCode, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetWindowsActivationStatusErrorCode() {
-	o.WindowsActivationStatusErrorCode.Unset()
-}
-
-// GetWindowsActivationStatusVirtualMachineError returns the WindowsActivationStatusVirtualMachineError field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationStatusVirtualMachineError() string {
-	if o == nil || IsNil(o.WindowsActivationStatusVirtualMachineError.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.WindowsActivationStatusVirtualMachineError.Get()
-}
-
-// GetWindowsActivationStatusVirtualMachineErrorOk returns a tuple with the WindowsActivationStatusVirtualMachineError field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationStatusVirtualMachineErrorOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.WindowsActivationStatusVirtualMachineError.Get(), o.WindowsActivationStatusVirtualMachineError.IsSet()
-}
-
-// HasWindowsActivationStatusVirtualMachineError returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasWindowsActivationStatusVirtualMachineError() bool {
-	if o != nil && o.WindowsActivationStatusVirtualMachineError.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWindowsActivationStatusVirtualMachineError gets a reference to the given NullableString and assigns it to the WindowsActivationStatusVirtualMachineError field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationStatusVirtualMachineError(v string) {
-	o.WindowsActivationStatusVirtualMachineError.Set(&v)
-}
-// SetWindowsActivationStatusVirtualMachineErrorNil sets the value for WindowsActivationStatusVirtualMachineError to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationStatusVirtualMachineErrorNil() {
-	o.WindowsActivationStatusVirtualMachineError.Set(nil)
-}
-
-// UnsetWindowsActivationStatusVirtualMachineError ensures that no value is present for WindowsActivationStatusVirtualMachineError, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetWindowsActivationStatusVirtualMachineError() {
-	o.WindowsActivationStatusVirtualMachineError.Unset()
-}
-
-// GetWindowsActivationTypeProvisionedVirtualMachine returns the WindowsActivationTypeProvisionedVirtualMachine field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationTypeProvisionedVirtualMachine() string {
-	if o == nil || IsNil(o.WindowsActivationTypeProvisionedVirtualMachine.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.WindowsActivationTypeProvisionedVirtualMachine.Get()
-}
-
-// GetWindowsActivationTypeProvisionedVirtualMachineOk returns a tuple with the WindowsActivationTypeProvisionedVirtualMachine field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationTypeProvisionedVirtualMachineOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.WindowsActivationTypeProvisionedVirtualMachine.Get(), o.WindowsActivationTypeProvisionedVirtualMachine.IsSet()
-}
-
-// HasWindowsActivationTypeProvisionedVirtualMachine returns a boolean if a field has been set.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) HasWindowsActivationTypeProvisionedVirtualMachine() bool {
-	if o != nil && o.WindowsActivationTypeProvisionedVirtualMachine.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetWindowsActivationTypeProvisionedVirtualMachine gets a reference to the given NullableString and assigns it to the WindowsActivationTypeProvisionedVirtualMachine field.
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationTypeProvisionedVirtualMachine(v string) {
-	o.WindowsActivationTypeProvisionedVirtualMachine.Set(&v)
-}
-// SetWindowsActivationTypeProvisionedVirtualMachineNil sets the value for WindowsActivationTypeProvisionedVirtualMachine to be an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationTypeProvisionedVirtualMachineNil() {
-	o.WindowsActivationTypeProvisionedVirtualMachine.Set(nil)
-}
-
-// UnsetWindowsActivationTypeProvisionedVirtualMachine ensures that no value is present for WindowsActivationTypeProvisionedVirtualMachine, not even an explicit nil
-func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetWindowsActivationTypeProvisionedVirtualMachine() {
-	o.WindowsActivationTypeProvisionedVirtualMachine.Unset()
+// SetUseWriteBackCache gets a reference to the given bool and assigns it to the UseWriteBackCache field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetUseWriteBackCache(v bool) {
+	o.UseWriteBackCache = &v
 }
 
 // GetWriteBackCacheDiskSize returns the WriteBackCacheDiskSize field value if set, zero value otherwise.
@@ -1449,6 +575,448 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWriteBackCacheMemoryS
 	o.WriteBackCacheMemorySize = &v
 }
 
+// GetIdentities returns the Identities field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetIdentities() string {
+	if o == nil || IsNil(o.Identities.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Identities.Get()
+}
+
+// GetIdentitiesOk returns a tuple with the Identities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetIdentitiesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Identities.Get(), o.Identities.IsSet()
+}
+
+// HasIdentities returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasIdentities() bool {
+	if o != nil && o.Identities.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIdentities gets a reference to the given NullableString and assigns it to the Identities field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentities(v string) {
+	o.Identities.Set(&v)
+}
+// SetIdentitiesNil sets the value for Identities to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentitiesNil() {
+	o.Identities.Set(nil)
+}
+
+// UnsetIdentities ensures that no value is present for Identities, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetIdentities() {
+	o.Identities.Unset()
+}
+
+// GetProvVMConfigurationVersion returns the ProvVMConfigurationVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvVMConfigurationVersion() int32 {
+	if o == nil || IsNil(o.ProvVMConfigurationVersion.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.ProvVMConfigurationVersion.Get()
+}
+
+// GetProvVMConfigurationVersionOk returns a tuple with the ProvVMConfigurationVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetProvVMConfigurationVersionOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProvVMConfigurationVersion.Get(), o.ProvVMConfigurationVersion.IsSet()
+}
+
+// HasProvVMConfigurationVersion returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvVMConfigurationVersion() bool {
+	if o != nil && o.ProvVMConfigurationVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProvVMConfigurationVersion gets a reference to the given NullableInt32 and assigns it to the ProvVMConfigurationVersion field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvVMConfigurationVersion(v int32) {
+	o.ProvVMConfigurationVersion.Set(&v)
+}
+// SetProvVMConfigurationVersionNil sets the value for ProvVMConfigurationVersion to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvVMConfigurationVersionNil() {
+	o.ProvVMConfigurationVersion.Set(nil)
+}
+
+// UnsetProvVMConfigurationVersion ensures that no value is present for ProvVMConfigurationVersion, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetProvVMConfigurationVersion() {
+	o.ProvVMConfigurationVersion.Unset()
+}
+
+// GetWindowsActivationType returns the WindowsActivationType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationType() string {
+	if o == nil || IsNil(o.WindowsActivationType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.WindowsActivationType.Get()
+}
+
+// GetWindowsActivationTypeOk returns a tuple with the WindowsActivationType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetWindowsActivationTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.WindowsActivationType.Get(), o.WindowsActivationType.IsSet()
+}
+
+// HasWindowsActivationType returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasWindowsActivationType() bool {
+	if o != nil && o.WindowsActivationType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetWindowsActivationType gets a reference to the given NullableString and assigns it to the WindowsActivationType field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationType(v string) {
+	o.WindowsActivationType.Set(&v)
+}
+// SetWindowsActivationTypeNil sets the value for WindowsActivationType to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationTypeNil() {
+	o.WindowsActivationType.Set(nil)
+}
+
+// UnsetWindowsActivationType ensures that no value is present for WindowsActivationType, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetWindowsActivationType() {
+	o.WindowsActivationType.Unset()
+}
+
+// GetDiskInfo returns the DiskInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetDiskInfo() string {
+	if o == nil || IsNil(o.DiskInfo.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DiskInfo.Get()
+}
+
+// GetDiskInfoOk returns a tuple with the DiskInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetDiskInfoOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DiskInfo.Get(), o.DiskInfo.IsSet()
+}
+
+// HasDiskInfo returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasDiskInfo() bool {
+	if o != nil && o.DiskInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDiskInfo gets a reference to the given NullableString and assigns it to the DiskInfo field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetDiskInfo(v string) {
+	o.DiskInfo.Set(&v)
+}
+// SetDiskInfoNil sets the value for DiskInfo to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetDiskInfoNil() {
+	o.DiskInfo.Set(nil)
+}
+
+// UnsetDiskInfo ensures that no value is present for DiskInfo, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetDiskInfo() {
+	o.DiskInfo.Unset()
+}
+
+// GetImageAndTemplateInfo returns the ImageAndTemplateInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetImageAndTemplateInfo() string {
+	if o == nil || IsNil(o.ImageAndTemplateInfo.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ImageAndTemplateInfo.Get()
+}
+
+// GetImageAndTemplateInfoOk returns a tuple with the ImageAndTemplateInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetImageAndTemplateInfoOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ImageAndTemplateInfo.Get(), o.ImageAndTemplateInfo.IsSet()
+}
+
+// HasImageAndTemplateInfo returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasImageAndTemplateInfo() bool {
+	if o != nil && o.ImageAndTemplateInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetImageAndTemplateInfo gets a reference to the given NullableString and assigns it to the ImageAndTemplateInfo field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetImageAndTemplateInfo(v string) {
+	o.ImageAndTemplateInfo.Set(&v)
+}
+// SetImageAndTemplateInfoNil sets the value for ImageAndTemplateInfo to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetImageAndTemplateInfoNil() {
+	o.ImageAndTemplateInfo.Set(nil)
+}
+
+// UnsetImageAndTemplateInfo ensures that no value is present for ImageAndTemplateInfo, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetImageAndTemplateInfo() {
+	o.ImageAndTemplateInfo.Unset()
+}
+
+// GetMCSIOInfo returns the MCSIOInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetMCSIOInfo() string {
+	if o == nil || IsNil(o.MCSIOInfo.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MCSIOInfo.Get()
+}
+
+// GetMCSIOInfoOk returns a tuple with the MCSIOInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetMCSIOInfoOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MCSIOInfo.Get(), o.MCSIOInfo.IsSet()
+}
+
+// HasMCSIOInfo returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasMCSIOInfo() bool {
+	if o != nil && o.MCSIOInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMCSIOInfo gets a reference to the given NullableString and assigns it to the MCSIOInfo field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetMCSIOInfo(v string) {
+	o.MCSIOInfo.Set(&v)
+}
+// SetMCSIOInfoNil sets the value for MCSIOInfo to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetMCSIOInfoNil() {
+	o.MCSIOInfo.Set(nil)
+}
+
+// UnsetMCSIOInfo ensures that no value is present for MCSIOInfo, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetMCSIOInfo() {
+	o.MCSIOInfo.Unset()
+}
+
+// GetNetworkInfo returns the NetworkInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetNetworkInfo() string {
+	if o == nil || IsNil(o.NetworkInfo.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NetworkInfo.Get()
+}
+
+// GetNetworkInfoOk returns a tuple with the NetworkInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetNetworkInfoOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NetworkInfo.Get(), o.NetworkInfo.IsSet()
+}
+
+// HasNetworkInfo returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasNetworkInfo() bool {
+	if o != nil && o.NetworkInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkInfo gets a reference to the given NullableString and assigns it to the NetworkInfo field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetNetworkInfo(v string) {
+	o.NetworkInfo.Set(&v)
+}
+// SetNetworkInfoNil sets the value for NetworkInfo to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetNetworkInfoNil() {
+	o.NetworkInfo.Set(nil)
+}
+
+// UnsetNetworkInfo ensures that no value is present for NetworkInfo, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetNetworkInfo() {
+	o.NetworkInfo.Unset()
+}
+
+// GetSecurityInfo returns the SecurityInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetSecurityInfo() string {
+	if o == nil || IsNil(o.SecurityInfo.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SecurityInfo.Get()
+}
+
+// GetSecurityInfoOk returns a tuple with the SecurityInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetSecurityInfoOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SecurityInfo.Get(), o.SecurityInfo.IsSet()
+}
+
+// HasSecurityInfo returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasSecurityInfo() bool {
+	if o != nil && o.SecurityInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSecurityInfo gets a reference to the given NullableString and assigns it to the SecurityInfo field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetSecurityInfo(v string) {
+	o.SecurityInfo.Set(&v)
+}
+// SetSecurityInfoNil sets the value for SecurityInfo to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetSecurityInfoNil() {
+	o.SecurityInfo.Set(nil)
+}
+
+// UnsetSecurityInfo ensures that no value is present for SecurityInfo, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetSecurityInfo() {
+	o.SecurityInfo.Unset()
+}
+
+// GetVMInfo returns the VMInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMInfo() string {
+	if o == nil || IsNil(o.VMInfo.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VMInfo.Get()
+}
+
+// GetVMInfoOk returns a tuple with the VMInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetVMInfoOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VMInfo.Get(), o.VMInfo.IsSet()
+}
+
+// HasVMInfo returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasVMInfo() bool {
+	if o != nil && o.VMInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVMInfo gets a reference to the given NullableString and assigns it to the VMInfo field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMInfo(v string) {
+	o.VMInfo.Set(&v)
+}
+// SetVMInfoNil sets the value for VMInfo to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMInfoNil() {
+	o.VMInfo.Set(nil)
+}
+
+// UnsetVMInfo ensures that no value is present for VMInfo, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetVMInfo() {
+	o.VMInfo.Unset()
+}
+
+// GetResourcePool returns the ResourcePool field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetResourcePool() HypervisorResourcePoolRefResponseModel {
+	if o == nil || IsNil(o.ResourcePool) {
+		var ret HypervisorResourcePoolRefResponseModel
+		return ret
+	}
+	return *o.ResourcePool
+}
+
+// GetResourcePoolOk returns a tuple with the ResourcePool field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolRefResponseModel, bool) {
+	if o == nil || IsNil(o.ResourcePool) {
+		return nil, false
+	}
+	return o.ResourcePool, true
+}
+
+// HasResourcePool returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasResourcePool() bool {
+	if o != nil && !IsNil(o.ResourcePool) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcePool gets a reference to the given HypervisorResourcePoolRefResponseModel and assigns it to the ResourcePool field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetResourcePool(v HypervisorResourcePoolRefResponseModel) {
+	o.ResourcePool = &v
+}
+
+// GetConfigurationResultantSet returns the ConfigurationResultantSet field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetConfigurationResultantSet() ProvisionedVirtualMachineConfigurationResultantSetResponseModel {
+	if o == nil || IsNil(o.ConfigurationResultantSet) {
+		var ret ProvisionedVirtualMachineConfigurationResultantSetResponseModel
+		return ret
+	}
+	return *o.ConfigurationResultantSet
+}
+
+// GetConfigurationResultantSetOk returns a tuple with the ConfigurationResultantSet field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetConfigurationResultantSetOk() (*ProvisionedVirtualMachineConfigurationResultantSetResponseModel, bool) {
+	if o == nil || IsNil(o.ConfigurationResultantSet) {
+		return nil, false
+	}
+	return o.ConfigurationResultantSet, true
+}
+
+// HasConfigurationResultantSet returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasConfigurationResultantSet() bool {
+	if o != nil && !IsNil(o.ConfigurationResultantSet) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigurationResultantSet gets a reference to the given ProvisionedVirtualMachineConfigurationResultantSetResponseModel and assigns it to the ConfigurationResultantSet field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetConfigurationResultantSet(v ProvisionedVirtualMachineConfigurationResultantSetResponseModel) {
+	o.ConfigurationResultantSet = &v
+}
+
 func (o ProvisionedVirtualMachineDetailsResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1459,101 +1027,38 @@ func (o ProvisionedVirtualMachineDetailsResponseModel) MarshalJSON() ([]byte, er
 
 func (o ProvisionedVirtualMachineDetailsResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.AcceleratedNetwork.IsSet() {
-		toSerialize["AcceleratedNetwork"] = o.AcceleratedNetwork.Get()
+	if o.Name.IsSet() {
+		toSerialize["Name"] = o.Name.Get()
 	}
-	if o.ADAccountName.IsSet() {
-		toSerialize["ADAccountName"] = o.ADAccountName.Get()
+	if o.ProvisioningSchemeName.IsSet() {
+		toSerialize["ProvisioningSchemeName"] = o.ProvisioningSchemeName.Get()
 	}
-	if o.VMSid.IsSet() {
-		toSerialize["VMSid"] = o.VMSid.Get()
-	}
-	if o.AssignedImage.IsSet() {
-		toSerialize["AssignedImage"] = o.AssignedImage.Get()
-	}
-	if o.BootedImage.IsSet() {
-		toSerialize["BootedImage"] = o.BootedImage.Get()
-	}
-	if !IsNil(o.CustomVmData) {
-		toSerialize["CustomVmData"] = o.CustomVmData
+	if o.ProvisioningSchemeId.IsSet() {
+		toSerialize["ProvisioningSchemeId"] = o.ProvisioningSchemeId.Get()
 	}
 	if !IsNil(o.CpuCount) {
 		toSerialize["CpuCount"] = o.CpuCount
 	}
-	if o.CreationDate.IsSet() {
-		toSerialize["CreationDate"] = o.CreationDate.Get()
-	}
-	if o.Domain.IsSet() {
-		toSerialize["Domain"] = o.Domain.Get()
-	}
-	if o.EnableIntegrityMonitoring.IsSet() {
-		toSerialize["EnableIntegrityMonitoring"] = o.EnableIntegrityMonitoring.Get()
-	}
-	if o.EnableSecureBoot.IsSet() {
-		toSerialize["EnableSecureBoot"] = o.EnableSecureBoot.Get()
-	}
-	if o.EnableVTPM.IsSet() {
-		toSerialize["EnableVTPM"] = o.EnableVTPM.Get()
-	}
-	if o.EncryptionAtHost.IsSet() {
-		toSerialize["EncryptionAtHost"] = o.EncryptionAtHost.Get()
-	}
-	if o.Errors != nil {
-		toSerialize["Errors"] = o.Errors
-	}
-	if o.PluginId.IsSet() {
-		toSerialize["PluginId"] = o.PluginId.Get()
-	}
-	if !IsNil(o.ImageOutOfDate) {
-		toSerialize["ImageOutOfDate"] = o.ImageOutOfDate
-	}
 	if !IsNil(o.MemoryMB) {
 		toSerialize["MemoryMB"] = o.MemoryMB
 	}
-	if !IsNil(o.HostingUnitUid) {
-		toSerialize["HostingUnitUid"] = o.HostingUnitUid
+	if !IsNil(o.Persistency) {
+		toSerialize["Persistency"] = o.Persistency
 	}
-	if !IsNil(o.HypervisorConnectionUid) {
-		toSerialize["HypervisorConnectionUid"] = o.HypervisorConnectionUid
-	}
-	if o.IdentityDiskId.IsSet() {
-		toSerialize["IdentityDiskId"] = o.IdentityDiskId.Get()
-	}
-	if o.LastBootTime.IsSet() {
-		toSerialize["LastBootTime"] = o.LastBootTime.Get()
-	}
-	if o.ProvisioningSchemeType.IsSet() {
-		toSerialize["ProvisioningSchemeType"] = o.ProvisioningSchemeType.Get()
-	}
-	if o.ProvisioningSchemeUpdateRequested.IsSet() {
-		toSerialize["ProvisioningSchemeUpdateRequested"] = o.ProvisioningSchemeUpdateRequested.Get()
+	if o.IdentityType.IsSet() {
+		toSerialize["IdentityType"] = o.IdentityType.Get()
 	}
 	if !IsNil(o.ProvisioningSchemeVersion) {
 		toSerialize["ProvisioningSchemeVersion"] = o.ProvisioningSchemeVersion
 	}
-	if !IsNil(o.UseFullDiskCloneProvisioning) {
-		toSerialize["UseFullDiskCloneProvisioning"] = o.UseFullDiskCloneProvisioning
+	if !IsNil(o.ImageOutOfDate) {
+		toSerialize["ImageOutOfDate"] = o.ImageOutOfDate
 	}
-	if o.VMId.IsSet() {
-		toSerialize["VMId"] = o.VMId.Get()
+	if !IsNil(o.LastBootTime) {
+		toSerialize["LastBootTime"] = o.LastBootTime
 	}
-	if o.VMName.IsSet() {
-		toSerialize["VMName"] = o.VMName.Get()
-	}
-	if o.Warnings != nil {
-		toSerialize["Warnings"] = o.Warnings
-	}
-	if o.WindowsActivationStatus.IsSet() {
-		toSerialize["WindowsActivationStatus"] = o.WindowsActivationStatus.Get()
-	}
-	if o.WindowsActivationStatusErrorCode.IsSet() {
-		toSerialize["WindowsActivationStatusErrorCode"] = o.WindowsActivationStatusErrorCode.Get()
-	}
-	if o.WindowsActivationStatusVirtualMachineError.IsSet() {
-		toSerialize["WindowsActivationStatusVirtualMachineError"] = o.WindowsActivationStatusVirtualMachineError.Get()
-	}
-	if o.WindowsActivationTypeProvisionedVirtualMachine.IsSet() {
-		toSerialize["WindowsActivationTypeProvisionedVirtualMachine"] = o.WindowsActivationTypeProvisionedVirtualMachine.Get()
+	if !IsNil(o.UseWriteBackCache) {
+		toSerialize["UseWriteBackCache"] = o.UseWriteBackCache
 	}
 	if !IsNil(o.WriteBackCacheDiskSize) {
 		toSerialize["WriteBackCacheDiskSize"] = o.WriteBackCacheDiskSize
@@ -1563,6 +1068,39 @@ func (o ProvisionedVirtualMachineDetailsResponseModel) ToMap() (map[string]inter
 	}
 	if !IsNil(o.WriteBackCacheMemorySize) {
 		toSerialize["WriteBackCacheMemorySize"] = o.WriteBackCacheMemorySize
+	}
+	if o.Identities.IsSet() {
+		toSerialize["Identities"] = o.Identities.Get()
+	}
+	if o.ProvVMConfigurationVersion.IsSet() {
+		toSerialize["ProvVMConfigurationVersion"] = o.ProvVMConfigurationVersion.Get()
+	}
+	if o.WindowsActivationType.IsSet() {
+		toSerialize["WindowsActivationType"] = o.WindowsActivationType.Get()
+	}
+	if o.DiskInfo.IsSet() {
+		toSerialize["DiskInfo"] = o.DiskInfo.Get()
+	}
+	if o.ImageAndTemplateInfo.IsSet() {
+		toSerialize["ImageAndTemplateInfo"] = o.ImageAndTemplateInfo.Get()
+	}
+	if o.MCSIOInfo.IsSet() {
+		toSerialize["MCSIOInfo"] = o.MCSIOInfo.Get()
+	}
+	if o.NetworkInfo.IsSet() {
+		toSerialize["NetworkInfo"] = o.NetworkInfo.Get()
+	}
+	if o.SecurityInfo.IsSet() {
+		toSerialize["SecurityInfo"] = o.SecurityInfo.Get()
+	}
+	if o.VMInfo.IsSet() {
+		toSerialize["VMInfo"] = o.VMInfo.Get()
+	}
+	if !IsNil(o.ResourcePool) {
+		toSerialize["ResourcePool"] = o.ResourcePool
+	}
+	if !IsNil(o.ConfigurationResultantSet) {
+		toSerialize["ConfigurationResultantSet"] = o.ConfigurationResultantSet
 	}
 	return toSerialize, nil
 }

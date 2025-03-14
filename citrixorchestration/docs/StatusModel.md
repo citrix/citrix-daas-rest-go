@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **OrchServiceStatus** | Pointer to [**ServiceStatus**](ServiceStatus.md) |  | [optional] 
 **OrchRESTFulApiStatus** | Pointer to [**RestApiStatus**](RestApiStatus.md) |  | [optional] 
 **SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
+**ShowSecurityBannerOnLoginPage** | Pointer to **NullableBool** | Indicate whether to display security banner on the login page. | [optional] 
+**SecurityBannerOnLoginPage** | Pointer to **NullableString** | The custom security banner on the login page. | [optional] 
+**ShowConnectedControllerOnLoginPage** | Pointer to **NullableBool** | Indicate whether to display the DDC used for the current Studio session on the login page. | [optional] 
 
 ## Methods
 
@@ -210,6 +213,111 @@ SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
 
 HasSupportedAuthenticators returns a boolean if a field has been set.
 
+### GetShowSecurityBannerOnLoginPage
+
+`func (o *StatusModel) GetShowSecurityBannerOnLoginPage() bool`
+
+GetShowSecurityBannerOnLoginPage returns the ShowSecurityBannerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetShowSecurityBannerOnLoginPageOk
+
+`func (o *StatusModel) GetShowSecurityBannerOnLoginPageOk() (*bool, bool)`
+
+GetShowSecurityBannerOnLoginPageOk returns a tuple with the ShowSecurityBannerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShowSecurityBannerOnLoginPage
+
+`func (o *StatusModel) SetShowSecurityBannerOnLoginPage(v bool)`
+
+SetShowSecurityBannerOnLoginPage sets ShowSecurityBannerOnLoginPage field to given value.
+
+### HasShowSecurityBannerOnLoginPage
+
+`func (o *StatusModel) HasShowSecurityBannerOnLoginPage() bool`
+
+HasShowSecurityBannerOnLoginPage returns a boolean if a field has been set.
+
+### SetShowSecurityBannerOnLoginPageNil
+
+`func (o *StatusModel) SetShowSecurityBannerOnLoginPageNil(b bool)`
+
+ SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetShowSecurityBannerOnLoginPage
+`func (o *StatusModel) UnsetShowSecurityBannerOnLoginPage()`
+
+UnsetShowSecurityBannerOnLoginPage ensures that no value is present for ShowSecurityBannerOnLoginPage, not even an explicit nil
+### GetSecurityBannerOnLoginPage
+
+`func (o *StatusModel) GetSecurityBannerOnLoginPage() string`
+
+GetSecurityBannerOnLoginPage returns the SecurityBannerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetSecurityBannerOnLoginPageOk
+
+`func (o *StatusModel) GetSecurityBannerOnLoginPageOk() (*string, bool)`
+
+GetSecurityBannerOnLoginPageOk returns a tuple with the SecurityBannerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecurityBannerOnLoginPage
+
+`func (o *StatusModel) SetSecurityBannerOnLoginPage(v string)`
+
+SetSecurityBannerOnLoginPage sets SecurityBannerOnLoginPage field to given value.
+
+### HasSecurityBannerOnLoginPage
+
+`func (o *StatusModel) HasSecurityBannerOnLoginPage() bool`
+
+HasSecurityBannerOnLoginPage returns a boolean if a field has been set.
+
+### SetSecurityBannerOnLoginPageNil
+
+`func (o *StatusModel) SetSecurityBannerOnLoginPageNil(b bool)`
+
+ SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetSecurityBannerOnLoginPage
+`func (o *StatusModel) UnsetSecurityBannerOnLoginPage()`
+
+UnsetSecurityBannerOnLoginPage ensures that no value is present for SecurityBannerOnLoginPage, not even an explicit nil
+### GetShowConnectedControllerOnLoginPage
+
+`func (o *StatusModel) GetShowConnectedControllerOnLoginPage() bool`
+
+GetShowConnectedControllerOnLoginPage returns the ShowConnectedControllerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetShowConnectedControllerOnLoginPageOk
+
+`func (o *StatusModel) GetShowConnectedControllerOnLoginPageOk() (*bool, bool)`
+
+GetShowConnectedControllerOnLoginPageOk returns a tuple with the ShowConnectedControllerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShowConnectedControllerOnLoginPage
+
+`func (o *StatusModel) SetShowConnectedControllerOnLoginPage(v bool)`
+
+SetShowConnectedControllerOnLoginPage sets ShowConnectedControllerOnLoginPage field to given value.
+
+### HasShowConnectedControllerOnLoginPage
+
+`func (o *StatusModel) HasShowConnectedControllerOnLoginPage() bool`
+
+HasShowConnectedControllerOnLoginPage returns a boolean if a field has been set.
+
+### SetShowConnectedControllerOnLoginPageNil
+
+`func (o *StatusModel) SetShowConnectedControllerOnLoginPageNil(b bool)`
+
+ SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
+
+### UnsetShowConnectedControllerOnLoginPage
+`func (o *StatusModel) UnsetShowConnectedControllerOnLoginPage()`
+
+UnsetShowConnectedControllerOnLoginPage ensures that no value is present for ShowConnectedControllerOnLoginPage, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

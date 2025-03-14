@@ -10,9 +10,14 @@ Name | Type | Description | Notes
 **WebUiPolicySetEnabled** | Pointer to **NullableBool** | The policy set in web UI is enabled or not | [optional] 
 **ConsoleInactivityTimeoutMinutes** | Pointer to **NullableInt32** | The max number of minutes that console can be inactive. | [optional] 
 **SupportedAuthenticators** | Pointer to [**Authenticator**](Authenticator.md) |  | [optional] 
+**ShowSecurityBannerOnLoginPage** | Pointer to **NullableBool** | Applicable only for On-Premise. Indicate whether to display security banner on the login page. | [optional] 
+**SecurityBannerOnLoginPage** | Pointer to **NullableString** | Applicable only for On-Premise. The custom security banner on the login page, max length is 5000. | [optional] 
+**ShowConnectedControllerOnLoginPage** | Pointer to **NullableBool** | Applicable only for On-Premise. Indicate whether to display the DDC used for the current Studio session on the login page. | [optional] 
 **AllowedCorsOriginsForIwa** | Pointer to **[]string** | Application only for On-Premise. List of origins allowed to make cross-origin requests for Integrated Windows Authentication. | [optional] 
 **MultiSites** | Pointer to [**[]MultiSiteModel**](MultiSiteModel.md) | Applicable only for On-Premise Multiple sites configuration | [optional] 
 **DefaultDomain** | Pointer to **NullableString** | The default domain to be used in the login page. | [optional] 
+**XmlServicesSslConfigurations** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | XML service configurations of enabling listening for https/http requests. Only applicable for On-Premise deployments. | [optional] 
+**MultiTenantServicesAccess** | Pointer to [**MultiTenantServicesAccessModel**](MultiTenantServicesAccessModel.md) |  | [optional] 
 
 ## Methods
 
@@ -233,6 +238,111 @@ SetSupportedAuthenticators sets SupportedAuthenticators field to given value.
 
 HasSupportedAuthenticators returns a boolean if a field has been set.
 
+### GetShowSecurityBannerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) GetShowSecurityBannerOnLoginPage() bool`
+
+GetShowSecurityBannerOnLoginPage returns the ShowSecurityBannerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetShowSecurityBannerOnLoginPageOk
+
+`func (o *SiteSettingsResponseModel) GetShowSecurityBannerOnLoginPageOk() (*bool, bool)`
+
+GetShowSecurityBannerOnLoginPageOk returns a tuple with the ShowSecurityBannerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShowSecurityBannerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPage(v bool)`
+
+SetShowSecurityBannerOnLoginPage sets ShowSecurityBannerOnLoginPage field to given value.
+
+### HasShowSecurityBannerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) HasShowSecurityBannerOnLoginPage() bool`
+
+HasShowSecurityBannerOnLoginPage returns a boolean if a field has been set.
+
+### SetShowSecurityBannerOnLoginPageNil
+
+`func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPageNil(b bool)`
+
+ SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetShowSecurityBannerOnLoginPage
+`func (o *SiteSettingsResponseModel) UnsetShowSecurityBannerOnLoginPage()`
+
+UnsetShowSecurityBannerOnLoginPage ensures that no value is present for ShowSecurityBannerOnLoginPage, not even an explicit nil
+### GetSecurityBannerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) GetSecurityBannerOnLoginPage() string`
+
+GetSecurityBannerOnLoginPage returns the SecurityBannerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetSecurityBannerOnLoginPageOk
+
+`func (o *SiteSettingsResponseModel) GetSecurityBannerOnLoginPageOk() (*string, bool)`
+
+GetSecurityBannerOnLoginPageOk returns a tuple with the SecurityBannerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecurityBannerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPage(v string)`
+
+SetSecurityBannerOnLoginPage sets SecurityBannerOnLoginPage field to given value.
+
+### HasSecurityBannerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) HasSecurityBannerOnLoginPage() bool`
+
+HasSecurityBannerOnLoginPage returns a boolean if a field has been set.
+
+### SetSecurityBannerOnLoginPageNil
+
+`func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPageNil(b bool)`
+
+ SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
+
+### UnsetSecurityBannerOnLoginPage
+`func (o *SiteSettingsResponseModel) UnsetSecurityBannerOnLoginPage()`
+
+UnsetSecurityBannerOnLoginPage ensures that no value is present for SecurityBannerOnLoginPage, not even an explicit nil
+### GetShowConnectedControllerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) GetShowConnectedControllerOnLoginPage() bool`
+
+GetShowConnectedControllerOnLoginPage returns the ShowConnectedControllerOnLoginPage field if non-nil, zero value otherwise.
+
+### GetShowConnectedControllerOnLoginPageOk
+
+`func (o *SiteSettingsResponseModel) GetShowConnectedControllerOnLoginPageOk() (*bool, bool)`
+
+GetShowConnectedControllerOnLoginPageOk returns a tuple with the ShowConnectedControllerOnLoginPage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShowConnectedControllerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPage(v bool)`
+
+SetShowConnectedControllerOnLoginPage sets ShowConnectedControllerOnLoginPage field to given value.
+
+### HasShowConnectedControllerOnLoginPage
+
+`func (o *SiteSettingsResponseModel) HasShowConnectedControllerOnLoginPage() bool`
+
+HasShowConnectedControllerOnLoginPage returns a boolean if a field has been set.
+
+### SetShowConnectedControllerOnLoginPageNil
+
+`func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPageNil(b bool)`
+
+ SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
+
+### UnsetShowConnectedControllerOnLoginPage
+`func (o *SiteSettingsResponseModel) UnsetShowConnectedControllerOnLoginPage()`
+
+UnsetShowConnectedControllerOnLoginPage ensures that no value is present for ShowConnectedControllerOnLoginPage, not even an explicit nil
 ### GetAllowedCorsOriginsForIwa
 
 `func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwa() []string`
@@ -338,6 +448,66 @@ HasDefaultDomain returns a boolean if a field has been set.
 `func (o *SiteSettingsResponseModel) UnsetDefaultDomain()`
 
 UnsetDefaultDomain ensures that no value is present for DefaultDomain, not even an explicit nil
+### GetXmlServicesSslConfigurations
+
+`func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurations() []NameValueStringPairModel`
+
+GetXmlServicesSslConfigurations returns the XmlServicesSslConfigurations field if non-nil, zero value otherwise.
+
+### GetXmlServicesSslConfigurationsOk
+
+`func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurationsOk() (*[]NameValueStringPairModel, bool)`
+
+GetXmlServicesSslConfigurationsOk returns a tuple with the XmlServicesSslConfigurations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetXmlServicesSslConfigurations
+
+`func (o *SiteSettingsResponseModel) SetXmlServicesSslConfigurations(v []NameValueStringPairModel)`
+
+SetXmlServicesSslConfigurations sets XmlServicesSslConfigurations field to given value.
+
+### HasXmlServicesSslConfigurations
+
+`func (o *SiteSettingsResponseModel) HasXmlServicesSslConfigurations() bool`
+
+HasXmlServicesSslConfigurations returns a boolean if a field has been set.
+
+### SetXmlServicesSslConfigurationsNil
+
+`func (o *SiteSettingsResponseModel) SetXmlServicesSslConfigurationsNil(b bool)`
+
+ SetXmlServicesSslConfigurationsNil sets the value for XmlServicesSslConfigurations to be an explicit nil
+
+### UnsetXmlServicesSslConfigurations
+`func (o *SiteSettingsResponseModel) UnsetXmlServicesSslConfigurations()`
+
+UnsetXmlServicesSslConfigurations ensures that no value is present for XmlServicesSslConfigurations, not even an explicit nil
+### GetMultiTenantServicesAccess
+
+`func (o *SiteSettingsResponseModel) GetMultiTenantServicesAccess() MultiTenantServicesAccessModel`
+
+GetMultiTenantServicesAccess returns the MultiTenantServicesAccess field if non-nil, zero value otherwise.
+
+### GetMultiTenantServicesAccessOk
+
+`func (o *SiteSettingsResponseModel) GetMultiTenantServicesAccessOk() (*MultiTenantServicesAccessModel, bool)`
+
+GetMultiTenantServicesAccessOk returns a tuple with the MultiTenantServicesAccess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMultiTenantServicesAccess
+
+`func (o *SiteSettingsResponseModel) SetMultiTenantServicesAccess(v MultiTenantServicesAccessModel)`
+
+SetMultiTenantServicesAccess sets MultiTenantServicesAccess field to given value.
+
+### HasMultiTenantServicesAccess
+
+`func (o *SiteSettingsResponseModel) HasMultiTenantServicesAccess() bool`
+
+HasMultiTenantServicesAccess returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

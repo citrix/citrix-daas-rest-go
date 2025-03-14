@@ -42,6 +42,7 @@ const (
 	APPSEARCHPROPERTY_WAIT_FOR_PRINTER_CREATION AppSearchProperty = "WaitForPrinterCreation"
 	APPSEARCHPROPERTY_WORKING_DIRECTORY AppSearchProperty = "WorkingDirectory"
 	APPSEARCHPROPERTY_PACKAGED_APPLICATION_TYPE AppSearchProperty = "PackagedApplicationType"
+	APPSEARCHPROPERTY_PACKAGED_APPLICATION_VISIBILITY AppSearchProperty = "PackagedApplicationVisibility"
 )
 
 // All allowed values of AppSearchProperty enum
@@ -68,6 +69,7 @@ var AllowedAppSearchPropertyEnumValues = []AppSearchProperty{
 	"WaitForPrinterCreation",
 	"WorkingDirectory",
 	"PackagedApplicationType",
+	"PackagedApplicationVisibility",
 }
 
 func (v *AppSearchProperty) UnmarshalJSON(src []byte) error {

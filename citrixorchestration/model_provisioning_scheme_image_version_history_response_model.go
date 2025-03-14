@@ -22,6 +22,10 @@ type ProvisioningSchemeImageVersionHistoryResponseModel struct {
 	ImageVersion ImageVersionRefResponseModel `json:"ImageVersion"`
 	// The date and time when the snapshot was used in the provisioning scheme.
 	Date NullableString `json:"Date,omitempty"`
+	// The image assignment note when assigning the image version to the provisioning scheme.
+	ImageAssignmentNote NullableString `json:"ImageAssignmentNote,omitempty"`
+	// A flag indicating if the image version is still available for this provisioning scheme.
+	IsImageAvailable *bool `json:"IsImageAvailable,omitempty"`
 }
 
 // NewProvisioningSchemeImageVersionHistoryResponseModel instantiates a new ProvisioningSchemeImageVersionHistoryResponseModel object
@@ -108,6 +112,80 @@ func (o *ProvisioningSchemeImageVersionHistoryResponseModel) UnsetDate() {
 	o.Date.Unset()
 }
 
+// GetImageAssignmentNote returns the ImageAssignmentNote field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) GetImageAssignmentNote() string {
+	if o == nil || IsNil(o.ImageAssignmentNote.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ImageAssignmentNote.Get()
+}
+
+// GetImageAssignmentNoteOk returns a tuple with the ImageAssignmentNote field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) GetImageAssignmentNoteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ImageAssignmentNote.Get(), o.ImageAssignmentNote.IsSet()
+}
+
+// HasImageAssignmentNote returns a boolean if a field has been set.
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) HasImageAssignmentNote() bool {
+	if o != nil && o.ImageAssignmentNote.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetImageAssignmentNote gets a reference to the given NullableString and assigns it to the ImageAssignmentNote field.
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetImageAssignmentNote(v string) {
+	o.ImageAssignmentNote.Set(&v)
+}
+// SetImageAssignmentNoteNil sets the value for ImageAssignmentNote to be an explicit nil
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetImageAssignmentNoteNil() {
+	o.ImageAssignmentNote.Set(nil)
+}
+
+// UnsetImageAssignmentNote ensures that no value is present for ImageAssignmentNote, not even an explicit nil
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) UnsetImageAssignmentNote() {
+	o.ImageAssignmentNote.Unset()
+}
+
+// GetIsImageAvailable returns the IsImageAvailable field value if set, zero value otherwise.
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) GetIsImageAvailable() bool {
+	if o == nil || IsNil(o.IsImageAvailable) {
+		var ret bool
+		return ret
+	}
+	return *o.IsImageAvailable
+}
+
+// GetIsImageAvailableOk returns a tuple with the IsImageAvailable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) GetIsImageAvailableOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsImageAvailable) {
+		return nil, false
+	}
+	return o.IsImageAvailable, true
+}
+
+// HasIsImageAvailable returns a boolean if a field has been set.
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) HasIsImageAvailable() bool {
+	if o != nil && !IsNil(o.IsImageAvailable) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsImageAvailable gets a reference to the given bool and assigns it to the IsImageAvailable field.
+func (o *ProvisioningSchemeImageVersionHistoryResponseModel) SetIsImageAvailable(v bool) {
+	o.IsImageAvailable = &v
+}
+
 func (o ProvisioningSchemeImageVersionHistoryResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -121,6 +199,12 @@ func (o ProvisioningSchemeImageVersionHistoryResponseModel) ToMap() (map[string]
 	toSerialize["ImageVersion"] = o.ImageVersion
 	if o.Date.IsSet() {
 		toSerialize["Date"] = o.Date.Get()
+	}
+	if o.ImageAssignmentNote.IsSet() {
+		toSerialize["ImageAssignmentNote"] = o.ImageAssignmentNote.Get()
+	}
+	if !IsNil(o.IsImageAvailable) {
+		toSerialize["IsImageAvailable"] = o.IsImageAvailable
 	}
 	return toSerialize, nil
 }

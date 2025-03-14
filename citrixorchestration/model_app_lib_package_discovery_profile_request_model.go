@@ -45,6 +45,8 @@ type AppLibPackageDiscoveryProfileRequestModel struct {
 	DiscoverAppAttach NullableBool `json:"DiscoverAppAttach,omitempty"`
 	// A value indicating whether or not to search should discover FlexApp Packages.
 	DiscoverFlexApp NullableBool `json:"DiscoverFlexApp,omitempty"`
+	// A value indicating whether or not to search should discover ElasticAppLayers Packages.
+	DiscoverElasticAppLayers NullableBool `json:"DiscoverElasticAppLayers,omitempty"`
 	// A value indicating whether or not the discovery should run automatically.
 	AutomateDiscovery NullableBool `json:"AutomateDiscovery,omitempty"`
 	AutoDiscoveryPeriod *AutoDiscoveryPeriod `json:"AutoDiscoveryPeriod,omitempty"`
@@ -73,6 +75,8 @@ func NewAppLibPackageDiscoveryProfileRequestModel(discoveryType AppLibPackageDis
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
 	var discoverFlexApp bool = false
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
+	var discoverElasticAppLayers bool = false
+	this.DiscoverElasticAppLayers = *NewNullableBool(&discoverElasticAppLayers)
 	var automateDiscovery bool = false
 	this.AutomateDiscovery = *NewNullableBool(&automateDiscovery)
 	var cleanupAbsentPackages bool = false
@@ -95,6 +99,8 @@ func NewAppLibPackageDiscoveryProfileRequestModelWithDefaults() *AppLibPackageDi
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
 	var discoverFlexApp bool = false
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
+	var discoverElasticAppLayers bool = false
+	this.DiscoverElasticAppLayers = *NewNullableBool(&discoverElasticAppLayers)
 	var automateDiscovery bool = false
 	this.AutomateDiscovery = *NewNullableBool(&automateDiscovery)
 	var cleanupAbsentPackages bool = false
@@ -626,6 +632,48 @@ func (o *AppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverFlexApp() {
 	o.DiscoverFlexApp.Unset()
 }
 
+// GetDiscoverElasticAppLayers returns the DiscoverElasticAppLayers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppLibPackageDiscoveryProfileRequestModel) GetDiscoverElasticAppLayers() bool {
+	if o == nil || IsNil(o.DiscoverElasticAppLayers.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.DiscoverElasticAppLayers.Get()
+}
+
+// GetDiscoverElasticAppLayersOk returns a tuple with the DiscoverElasticAppLayers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppLibPackageDiscoveryProfileRequestModel) GetDiscoverElasticAppLayersOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DiscoverElasticAppLayers.Get(), o.DiscoverElasticAppLayers.IsSet()
+}
+
+// HasDiscoverElasticAppLayers returns a boolean if a field has been set.
+func (o *AppLibPackageDiscoveryProfileRequestModel) HasDiscoverElasticAppLayers() bool {
+	if o != nil && o.DiscoverElasticAppLayers.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscoverElasticAppLayers gets a reference to the given NullableBool and assigns it to the DiscoverElasticAppLayers field.
+func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayers(v bool) {
+	o.DiscoverElasticAppLayers.Set(&v)
+}
+// SetDiscoverElasticAppLayersNil sets the value for DiscoverElasticAppLayers to be an explicit nil
+func (o *AppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayersNil() {
+	o.DiscoverElasticAppLayers.Set(nil)
+}
+
+// UnsetDiscoverElasticAppLayers ensures that no value is present for DiscoverElasticAppLayers, not even an explicit nil
+func (o *AppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverElasticAppLayers() {
+	o.DiscoverElasticAppLayers.Unset()
+}
+
 // GetAutomateDiscovery returns the AutomateDiscovery field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppLibPackageDiscoveryProfileRequestModel) GetAutomateDiscovery() bool {
 	if o == nil || IsNil(o.AutomateDiscovery.Get()) {
@@ -819,6 +867,9 @@ func (o AppLibPackageDiscoveryProfileRequestModel) ToMap() (map[string]interface
 	}
 	if o.DiscoverFlexApp.IsSet() {
 		toSerialize["DiscoverFlexApp"] = o.DiscoverFlexApp.Get()
+	}
+	if o.DiscoverElasticAppLayers.IsSet() {
+		toSerialize["DiscoverElasticAppLayers"] = o.DiscoverElasticAppLayers.Get()
 	}
 	if o.AutomateDiscovery.IsSet() {
 		toSerialize["AutomateDiscovery"] = o.AutomateDiscovery.Get()

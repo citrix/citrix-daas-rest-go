@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **NullableString** | Gets or sets the description | [optional] 
 **Scopes** | Pointer to **[]string** | Gets or sets the scopes for the service account. | [optional] 
 **Tenants** | Pointer to **[]string** | Tenants to associate with the service account. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | Gets or sets the custom properties Format is the following: \&quot;CustomProperties\&quot;:\&quot;[{\\\&quot;Name\\\&quot;:\\\&quot;ProxyHypervisorTrafficThroughConnector\\\&quot;,\\\&quot;Value\\\&quot;:\\\&quot;true\\\&quot;},{\\\&quot;Name\\\&quot;:\\\&quot;ZoneUid\\\&quot;,\\\&quot;Value\\\&quot;:\\\&quot;4e1d7040-d830-4d97-8f94-342c03846f19\\\&quot;}]\&quot;.  | [optional] 
 
 ## Methods
 
@@ -338,6 +339,41 @@ HasTenants returns a boolean if a field has been set.
 `func (o *UpdateServiceAccountRequestModel) UnsetTenants()`
 
 UnsetTenants ensures that no value is present for Tenants, not even an explicit nil
+### GetCustomProperties
+
+`func (o *UpdateServiceAccountRequestModel) GetCustomProperties() string`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *UpdateServiceAccountRequestModel) GetCustomPropertiesOk() (*string, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *UpdateServiceAccountRequestModel) SetCustomProperties(v string)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *UpdateServiceAccountRequestModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *UpdateServiceAccountRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *UpdateServiceAccountRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

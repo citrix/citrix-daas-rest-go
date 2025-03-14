@@ -26,6 +26,7 @@ type ErrorWarningResponseModel struct {
 	Image *ImagesErrorWarningModel `json:"Image,omitempty"`
 	Zone *ZonesErrorWarningModel `json:"Zone,omitempty"`
 	Site *SitesErrorWarningModel `json:"Site,omitempty"`
+	Licensing *LicenseErrorWarningModel `json:"Licensing,omitempty"`
 }
 
 // NewErrorWarningResponseModel instantiates a new ErrorWarningResponseModel object
@@ -269,6 +270,38 @@ func (o *ErrorWarningResponseModel) SetSite(v SitesErrorWarningModel) {
 	o.Site = &v
 }
 
+// GetLicensing returns the Licensing field value if set, zero value otherwise.
+func (o *ErrorWarningResponseModel) GetLicensing() LicenseErrorWarningModel {
+	if o == nil || IsNil(o.Licensing) {
+		var ret LicenseErrorWarningModel
+		return ret
+	}
+	return *o.Licensing
+}
+
+// GetLicensingOk returns a tuple with the Licensing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ErrorWarningResponseModel) GetLicensingOk() (*LicenseErrorWarningModel, bool) {
+	if o == nil || IsNil(o.Licensing) {
+		return nil, false
+	}
+	return o.Licensing, true
+}
+
+// HasLicensing returns a boolean if a field has been set.
+func (o *ErrorWarningResponseModel) HasLicensing() bool {
+	if o != nil && !IsNil(o.Licensing) {
+		return true
+	}
+
+	return false
+}
+
+// SetLicensing gets a reference to the given LicenseErrorWarningModel and assigns it to the Licensing field.
+func (o *ErrorWarningResponseModel) SetLicensing(v LicenseErrorWarningModel) {
+	o.Licensing = &v
+}
+
 func (o ErrorWarningResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -299,6 +332,9 @@ func (o ErrorWarningResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Site) {
 		toSerialize["Site"] = o.Site
+	}
+	if !IsNil(o.Licensing) {
+		toSerialize["Licensing"] = o.Licensing
 	}
 	return toSerialize, nil
 }

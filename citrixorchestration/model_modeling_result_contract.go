@@ -18,17 +18,17 @@ import (
 // checks if the ModelingResultContract type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ModelingResultContract{}
 
-// ModelingResultContract Result of a modeling or simulation
+// ModelingResultContract Result of a modeling or simulation.
 type ModelingResultContract struct {
-	// The report is for machine or user
+	// The report is for machine or user.
 	IsMachineRsop *bool `json:"IsMachineRsop,omitempty"`
-	// The most recent simulation time
+	// The most recent simulation time.
 	LastProcessTime *time.Time `json:"LastProcessTime,omitempty"`
-	// Applied settings
+	// Applied settings.
 	AppliedSettings []AppliedSetting2 `json:"AppliedSettings,omitempty"`
-	// Applied policies
+	// Applied policies.
 	AppliedPolicies []AppliedPolicy2 `json:"AppliedPolicies,omitempty"`
-	// Filter evidence used for the simulation
+	// Filter evidence used for the simulation.
 	FilterEvidence map[string]string `json:"FilterEvidence,omitempty"`
 	// Settings that did not get applied.
 	LosingSettings []LosingSetting2 `json:"LosingSettings,omitempty"`

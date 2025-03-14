@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Id of the provisioning scheme. | 
-**Name** | **string** | Name of the provisioning scheme. | 
-**CleanOnBoot** | **bool** | Indicates whether the VMs that are created will be reset to a clean state on each boot. | 
-**ControllerAddresses** | **[]string** | The DNS names of the controllers associated with this provisioning scheme for Quick Deploy purposes. | 
-**CpuCount** | **int32** | The number of processors that VMs will be created with when using this scheme. | 
+**Id** | Pointer to **string** | Id of the provisioning scheme. | [optional] 
+**Name** | Pointer to **NullableString** | Name of the provisioning scheme. | [optional] 
+**CleanOnBoot** | Pointer to **bool** | Indicates whether the VMs that are created will be reset to a clean state on each boot. | [optional] 
+**ControllerAddresses** | Pointer to **[]string** | The DNS names of the controllers associated with this provisioning scheme for Quick Deploy purposes. | [optional] 
+**CpuCount** | Pointer to **int32** | The number of processors that VMs will be created with when using this scheme. | [optional] 
 **CoresPerCpuCount** | Pointer to **int32** | The number of cores per processor that VMs will be created with when using this scheme. This property only applies when hypervisor connection is Nutanix. | [optional] 
 **CurrentDiskImage** | Pointer to [**VMImageResponseModel**](VMImageResponseModel.md) |  | [optional] 
 **HistoricalDiskImages** | Pointer to [**[]VMImageResponseModel**](VMImageResponseModel.md) | The historical disk images including current image used to provision new machines in the machine catalog. | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **Warning** | Pointer to **NullableString** | The warning message if parsing CustomProperties with error. | [optional] 
 **Warnings** | Pointer to [**[]ProvisioningSchemeWarningReponseModel**](ProvisioningSchemeWarningReponseModel.md) | The warning. | [optional] 
 **CustomPropertiesInString** | Pointer to **NullableString** | The properties of the provisioning scheme that are specific to the target hosting infrastructure in string format. | [optional] 
-**DedicatedTenancy** | **bool** | Whether to use dedicated tenancy when creating machines in Cloud Hypervisors. | 
+**DedicatedTenancy** | Pointer to **bool** | Whether to use dedicated tenancy when creating machines in Cloud Hypervisors. | [optional] 
 **TenancyType** | Pointer to **NullableString** | Indicates whether to use tenancy type Shared, Instance or Host when creating machines in Cloud Hypervisors. | [optional] 
 **AzureAdJoinType** | Pointer to **NullableString** | Indicates whether to use azure AD join type. | [optional] 
 **AzureADTenantId** | Pointer to **NullableString** | AzureAD Tenant Id associates with this catalog | [optional] 
@@ -26,22 +26,22 @@ Name | Type | Description | Notes
 **IdentityType** | Pointer to [**IdentityType**](IdentityType.md) |  | [optional] 
 **DeviceManagementType** | Pointer to [**DeviceManagementType**](DeviceManagementType.md) |  | [optional] 
 **IdentityContent** | Pointer to **NullableString** | The identity content of identity pool. | [optional] 
-**DiskSizeGB** | **int32** | Size of the VM&#39;s OS disk, in GB. | 
+**DiskSizeGB** | Pointer to **int32** | Size of the VM&#39;s OS disk, in GB. | [optional] 
 **GpuTypeId** | Pointer to **NullableString** | Type of GPU used for VMs, if any. | [optional] 
-**ResourcePool** | [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | 
-**IdentityPool** | [**RefResponseModel**](RefResponseModel.md) |  | 
-**MachineCount** | **int32** | Number of machines provisioned from this provisioning scheme. | 
-**MasterImage** | [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | 
+**ResourcePool** | Pointer to [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | [optional] 
+**IdentityPool** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**MachineCount** | Pointer to **int32** | Number of machines provisioned from this provisioning scheme. | [optional] 
+**MasterImage** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
 **MachineProfile** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
-**MemoryMB** | **int32** | The maximum amount of memory that VMs will be created with when using this scheme. | 
+**MemoryMB** | Pointer to **int32** | The maximum amount of memory that VMs will be created with when using this scheme. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of provisioning scheme. | [optional] 
-**NetworkMaps** | [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Networks used by provisioned VMs. | 
+**NetworkMaps** | Pointer to [**[]NetworkMapResponseModel**](NetworkMapResponseModel.md) | Networks used by provisioned VMs. | [optional] 
 **NutanixContainer** | Pointer to **NullableString** | Nutanix container that the scheme uses. | [optional] 
-**ResetAdministratorPasswords** | **bool** | Indicates whether administrator passwords are reset automatically to a random password each time machines are provisioned. | 
+**ResetAdministratorPasswords** | Pointer to **bool** | Indicates whether administrator passwords are reset automatically to a random password each time machines are provisioned. | [optional] 
 **SecurityGroups** | Pointer to **[]string** | Network security groups used by Cloud provisioned VMs. | [optional] 
 **ServiceOffering** | Pointer to **NullableString** | Service offering used by Cloud provisioned VMs. | [optional] 
-**UseFullDiskCloneProvisioning** | **bool** | Indicates whether the machines are provisioned using the dedicated full disk clone feature. | 
-**UseWriteBackCache** | **bool** | True if the scheme will use the write back cache feature. | 
+**UseFullDiskCloneProvisioning** | Pointer to **bool** | Indicates whether the machines are provisioned using the dedicated full disk clone feature. | [optional] 
+**UseWriteBackCache** | Pointer to **bool** | True if the scheme will use the write back cache feature. | [optional] 
 **VMMetadata** | Pointer to [**ProvisioningSchemeVmMetadataResponseModel**](ProvisioningSchemeVmMetadataResponseModel.md) |  | [optional] 
 **WindowsActivationType** | Pointer to **NullableString** | Windows Activation Type set on the master image, maybe MultipleActivationKey. | [optional] 
 **WorkgroupMachines** | Pointer to **bool** | True if the provisioned machines are non-domain joined | [optional] 
@@ -49,9 +49,9 @@ Name | Type | Description | Notes
 **WriteBackCacheDiskSizeGB** | Pointer to **NullableInt32** | The size of the write back cache disk if specified in GB. | [optional] 
 **WriteBackCacheMemorySizeMB** | Pointer to **NullableInt32** | The size of the in-memory write back cache if specified in MB. | [optional] 
 **WriteBackCacheDriveLetter** | Pointer to **string** | Gets or sets the write back cache disk drive letter. | [optional] 
-**IsPreviousImageLegacyVda** | **bool** | True if the previous image is installed with a legacy VDA. | 
+**IsPreviousImageLegacyVda** | Pointer to **bool** | True if the previous image is installed with a legacy VDA. | [optional] 
 **MachineAccountCreationRules** | Pointer to [**MachineAccountCreationRulesResponseModel**](MachineAccountCreationRulesResponseModel.md) |  | [optional] 
-**NumAvailableMachineAccounts** | **int32** | Number of machine accounts available to be used by machines that will be provisioned in the machine catalog.  This will be the identities associated with the machine catalog where State is Available. | 
+**NumAvailableMachineAccounts** | Pointer to **int32** | Number of machine accounts available to be used by machines that will be provisioned in the machine catalog.  This will be the identities associated with the machine catalog where State is Available. | [optional] 
 **PVSSite** | Pointer to **NullableString** | PVS Site. | [optional] 
 **PVSVDisk** | Pointer to **NullableString** | PVS vDisk. | [optional] 
 **ProvisioningSchemeType** | Pointer to **NullableString** | Provisioning scheme type. | [optional] 
@@ -62,7 +62,7 @@ Name | Type | Description | Notes
 
 ### NewProvisioningSchemeResponseModel
 
-`func NewProvisioningSchemeResponseModel(id string, name string, cleanOnBoot bool, controllerAddresses []string, cpuCount int32, dedicatedTenancy bool, diskSizeGB int32, resourcePool HypervisorResourcePoolRefResponseModel, identityPool RefResponseModel, machineCount int32, masterImage HypervisorResourceRefResponseModel, memoryMB int32, networkMaps []NetworkMapResponseModel, resetAdministratorPasswords bool, useFullDiskCloneProvisioning bool, useWriteBackCache bool, isPreviousImageLegacyVda bool, numAvailableMachineAccounts int32, ) *ProvisioningSchemeResponseModel`
+`func NewProvisioningSchemeResponseModel() *ProvisioningSchemeResponseModel`
 
 NewProvisioningSchemeResponseModel instantiates a new ProvisioningSchemeResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -96,6 +96,11 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+### HasId
+
+`func (o *ProvisioningSchemeResponseModel) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetName
 
@@ -116,7 +121,22 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
 
+`func (o *ProvisioningSchemeResponseModel) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *ProvisioningSchemeResponseModel) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *ProvisioningSchemeResponseModel) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetCleanOnBoot
 
 `func (o *ProvisioningSchemeResponseModel) GetCleanOnBoot() bool`
@@ -136,6 +156,11 @@ and a boolean to check if the value has been set.
 
 SetCleanOnBoot sets CleanOnBoot field to given value.
 
+### HasCleanOnBoot
+
+`func (o *ProvisioningSchemeResponseModel) HasCleanOnBoot() bool`
+
+HasCleanOnBoot returns a boolean if a field has been set.
 
 ### GetControllerAddresses
 
@@ -156,7 +181,22 @@ and a boolean to check if the value has been set.
 
 SetControllerAddresses sets ControllerAddresses field to given value.
 
+### HasControllerAddresses
 
+`func (o *ProvisioningSchemeResponseModel) HasControllerAddresses() bool`
+
+HasControllerAddresses returns a boolean if a field has been set.
+
+### SetControllerAddressesNil
+
+`func (o *ProvisioningSchemeResponseModel) SetControllerAddressesNil(b bool)`
+
+ SetControllerAddressesNil sets the value for ControllerAddresses to be an explicit nil
+
+### UnsetControllerAddresses
+`func (o *ProvisioningSchemeResponseModel) UnsetControllerAddresses()`
+
+UnsetControllerAddresses ensures that no value is present for ControllerAddresses, not even an explicit nil
 ### GetCpuCount
 
 `func (o *ProvisioningSchemeResponseModel) GetCpuCount() int32`
@@ -176,6 +216,11 @@ and a boolean to check if the value has been set.
 
 SetCpuCount sets CpuCount field to given value.
 
+### HasCpuCount
+
+`func (o *ProvisioningSchemeResponseModel) HasCpuCount() bool`
+
+HasCpuCount returns a boolean if a field has been set.
 
 ### GetCoresPerCpuCount
 
@@ -446,6 +491,11 @@ and a boolean to check if the value has been set.
 
 SetDedicatedTenancy sets DedicatedTenancy field to given value.
 
+### HasDedicatedTenancy
+
+`func (o *ProvisioningSchemeResponseModel) HasDedicatedTenancy() bool`
+
+HasDedicatedTenancy returns a boolean if a field has been set.
 
 ### GetTenancyType
 
@@ -726,6 +776,11 @@ and a boolean to check if the value has been set.
 
 SetDiskSizeGB sets DiskSizeGB field to given value.
 
+### HasDiskSizeGB
+
+`func (o *ProvisioningSchemeResponseModel) HasDiskSizeGB() bool`
+
+HasDiskSizeGB returns a boolean if a field has been set.
 
 ### GetGpuTypeId
 
@@ -781,6 +836,11 @@ and a boolean to check if the value has been set.
 
 SetResourcePool sets ResourcePool field to given value.
 
+### HasResourcePool
+
+`func (o *ProvisioningSchemeResponseModel) HasResourcePool() bool`
+
+HasResourcePool returns a boolean if a field has been set.
 
 ### GetIdentityPool
 
@@ -801,6 +861,11 @@ and a boolean to check if the value has been set.
 
 SetIdentityPool sets IdentityPool field to given value.
 
+### HasIdentityPool
+
+`func (o *ProvisioningSchemeResponseModel) HasIdentityPool() bool`
+
+HasIdentityPool returns a boolean if a field has been set.
 
 ### GetMachineCount
 
@@ -821,6 +886,11 @@ and a boolean to check if the value has been set.
 
 SetMachineCount sets MachineCount field to given value.
 
+### HasMachineCount
+
+`func (o *ProvisioningSchemeResponseModel) HasMachineCount() bool`
+
+HasMachineCount returns a boolean if a field has been set.
 
 ### GetMasterImage
 
@@ -841,6 +911,11 @@ and a boolean to check if the value has been set.
 
 SetMasterImage sets MasterImage field to given value.
 
+### HasMasterImage
+
+`func (o *ProvisioningSchemeResponseModel) HasMasterImage() bool`
+
+HasMasterImage returns a boolean if a field has been set.
 
 ### GetMachineProfile
 
@@ -886,6 +961,11 @@ and a boolean to check if the value has been set.
 
 SetMemoryMB sets MemoryMB field to given value.
 
+### HasMemoryMB
+
+`func (o *ProvisioningSchemeResponseModel) HasMemoryMB() bool`
+
+HasMemoryMB returns a boolean if a field has been set.
 
 ### GetMetadata
 
@@ -941,7 +1021,22 @@ and a boolean to check if the value has been set.
 
 SetNetworkMaps sets NetworkMaps field to given value.
 
+### HasNetworkMaps
 
+`func (o *ProvisioningSchemeResponseModel) HasNetworkMaps() bool`
+
+HasNetworkMaps returns a boolean if a field has been set.
+
+### SetNetworkMapsNil
+
+`func (o *ProvisioningSchemeResponseModel) SetNetworkMapsNil(b bool)`
+
+ SetNetworkMapsNil sets the value for NetworkMaps to be an explicit nil
+
+### UnsetNetworkMaps
+`func (o *ProvisioningSchemeResponseModel) UnsetNetworkMaps()`
+
+UnsetNetworkMaps ensures that no value is present for NetworkMaps, not even an explicit nil
 ### GetNutanixContainer
 
 `func (o *ProvisioningSchemeResponseModel) GetNutanixContainer() string`
@@ -996,6 +1091,11 @@ and a boolean to check if the value has been set.
 
 SetResetAdministratorPasswords sets ResetAdministratorPasswords field to given value.
 
+### HasResetAdministratorPasswords
+
+`func (o *ProvisioningSchemeResponseModel) HasResetAdministratorPasswords() bool`
+
+HasResetAdministratorPasswords returns a boolean if a field has been set.
 
 ### GetSecurityGroups
 
@@ -1086,6 +1186,11 @@ and a boolean to check if the value has been set.
 
 SetUseFullDiskCloneProvisioning sets UseFullDiskCloneProvisioning field to given value.
 
+### HasUseFullDiskCloneProvisioning
+
+`func (o *ProvisioningSchemeResponseModel) HasUseFullDiskCloneProvisioning() bool`
+
+HasUseFullDiskCloneProvisioning returns a boolean if a field has been set.
 
 ### GetUseWriteBackCache
 
@@ -1106,6 +1211,11 @@ and a boolean to check if the value has been set.
 
 SetUseWriteBackCache sets UseWriteBackCache field to given value.
 
+### HasUseWriteBackCache
+
+`func (o *ProvisioningSchemeResponseModel) HasUseWriteBackCache() bool`
+
+HasUseWriteBackCache returns a boolean if a field has been set.
 
 ### GetVMMetadata
 
@@ -1341,6 +1451,11 @@ and a boolean to check if the value has been set.
 
 SetIsPreviousImageLegacyVda sets IsPreviousImageLegacyVda field to given value.
 
+### HasIsPreviousImageLegacyVda
+
+`func (o *ProvisioningSchemeResponseModel) HasIsPreviousImageLegacyVda() bool`
+
+HasIsPreviousImageLegacyVda returns a boolean if a field has been set.
 
 ### GetMachineAccountCreationRules
 
@@ -1386,6 +1501,11 @@ and a boolean to check if the value has been set.
 
 SetNumAvailableMachineAccounts sets NumAvailableMachineAccounts field to given value.
 
+### HasNumAvailableMachineAccounts
+
+`func (o *ProvisioningSchemeResponseModel) HasNumAvailableMachineAccounts() bool`
+
+HasNumAvailableMachineAccounts returns a boolean if a field has been set.
 
 ### GetPVSSite
 

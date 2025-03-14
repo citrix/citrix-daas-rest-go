@@ -27,14 +27,16 @@ type SimulationRequestContract struct {
 	GroupSids []string `json:"GroupSids,omitempty"`
 	// Client IP address.
 	ClientIpAddress NullableString `json:"ClientIpAddress,omitempty"`
-	// Client name
+	// Client name.
 	ClientName NullableString `json:"ClientName,omitempty"`
+	// Client platform.
+	ClientPlatform NullableString `json:"ClientPlatform,omitempty"`
 	// Delivery group GUID.
 	DeliveryGroupGuid *string `json:"DeliveryGroupGuid,omitempty"`
 	// Delivery group type, values are members of enum DesktopKind.
 	DeliveryGroupType NullableString `json:"DeliveryGroupType,omitempty"`
 	// The OU the computer is in.
-	OrganizationalUnit NullableString `json:"OrganizationalUnit,omitempty"`
+	ComputerOu NullableString `json:"ComputerOu,omitempty"`
 	// Tags.
 	Tags []string `json:"Tags,omitempty"`
 	// Using Access Gateway.
@@ -265,6 +267,48 @@ func (o *SimulationRequestContract) UnsetClientName() {
 	o.ClientName.Unset()
 }
 
+// GetClientPlatform returns the ClientPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SimulationRequestContract) GetClientPlatform() string {
+	if o == nil || IsNil(o.ClientPlatform.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ClientPlatform.Get()
+}
+
+// GetClientPlatformOk returns a tuple with the ClientPlatform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SimulationRequestContract) GetClientPlatformOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ClientPlatform.Get(), o.ClientPlatform.IsSet()
+}
+
+// HasClientPlatform returns a boolean if a field has been set.
+func (o *SimulationRequestContract) HasClientPlatform() bool {
+	if o != nil && o.ClientPlatform.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientPlatform gets a reference to the given NullableString and assigns it to the ClientPlatform field.
+func (o *SimulationRequestContract) SetClientPlatform(v string) {
+	o.ClientPlatform.Set(&v)
+}
+// SetClientPlatformNil sets the value for ClientPlatform to be an explicit nil
+func (o *SimulationRequestContract) SetClientPlatformNil() {
+	o.ClientPlatform.Set(nil)
+}
+
+// UnsetClientPlatform ensures that no value is present for ClientPlatform, not even an explicit nil
+func (o *SimulationRequestContract) UnsetClientPlatform() {
+	o.ClientPlatform.Unset()
+}
+
 // GetDeliveryGroupGuid returns the DeliveryGroupGuid field value if set, zero value otherwise.
 func (o *SimulationRequestContract) GetDeliveryGroupGuid() string {
 	if o == nil || IsNil(o.DeliveryGroupGuid) {
@@ -339,46 +383,46 @@ func (o *SimulationRequestContract) UnsetDeliveryGroupType() {
 	o.DeliveryGroupType.Unset()
 }
 
-// GetOrganizationalUnit returns the OrganizationalUnit field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *SimulationRequestContract) GetOrganizationalUnit() string {
-	if o == nil || IsNil(o.OrganizationalUnit.Get()) {
+// GetComputerOu returns the ComputerOu field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SimulationRequestContract) GetComputerOu() string {
+	if o == nil || IsNil(o.ComputerOu.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.OrganizationalUnit.Get()
+	return *o.ComputerOu.Get()
 }
 
-// GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field value if set, nil otherwise
+// GetComputerOuOk returns a tuple with the ComputerOu field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *SimulationRequestContract) GetOrganizationalUnitOk() (*string, bool) {
+func (o *SimulationRequestContract) GetComputerOuOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.OrganizationalUnit.Get(), o.OrganizationalUnit.IsSet()
+	return o.ComputerOu.Get(), o.ComputerOu.IsSet()
 }
 
-// HasOrganizationalUnit returns a boolean if a field has been set.
-func (o *SimulationRequestContract) HasOrganizationalUnit() bool {
-	if o != nil && o.OrganizationalUnit.IsSet() {
+// HasComputerOu returns a boolean if a field has been set.
+func (o *SimulationRequestContract) HasComputerOu() bool {
+	if o != nil && o.ComputerOu.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetOrganizationalUnit gets a reference to the given NullableString and assigns it to the OrganizationalUnit field.
-func (o *SimulationRequestContract) SetOrganizationalUnit(v string) {
-	o.OrganizationalUnit.Set(&v)
+// SetComputerOu gets a reference to the given NullableString and assigns it to the ComputerOu field.
+func (o *SimulationRequestContract) SetComputerOu(v string) {
+	o.ComputerOu.Set(&v)
 }
-// SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
-func (o *SimulationRequestContract) SetOrganizationalUnitNil() {
-	o.OrganizationalUnit.Set(nil)
+// SetComputerOuNil sets the value for ComputerOu to be an explicit nil
+func (o *SimulationRequestContract) SetComputerOuNil() {
+	o.ComputerOu.Set(nil)
 }
 
-// UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
-func (o *SimulationRequestContract) UnsetOrganizationalUnit() {
-	o.OrganizationalUnit.Unset()
+// UnsetComputerOu ensures that no value is present for ComputerOu, not even an explicit nil
+func (o *SimulationRequestContract) UnsetComputerOu() {
+	o.ComputerOu.Unset()
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -578,14 +622,17 @@ func (o SimulationRequestContract) ToMap() (map[string]interface{}, error) {
 	if o.ClientName.IsSet() {
 		toSerialize["ClientName"] = o.ClientName.Get()
 	}
+	if o.ClientPlatform.IsSet() {
+		toSerialize["ClientPlatform"] = o.ClientPlatform.Get()
+	}
 	if !IsNil(o.DeliveryGroupGuid) {
 		toSerialize["DeliveryGroupGuid"] = o.DeliveryGroupGuid
 	}
 	if o.DeliveryGroupType.IsSet() {
 		toSerialize["DeliveryGroupType"] = o.DeliveryGroupType.Get()
 	}
-	if o.OrganizationalUnit.IsSet() {
-		toSerialize["OrganizationalUnit"] = o.OrganizationalUnit.Get()
+	if o.ComputerOu.IsSet() {
+		toSerialize["ComputerOu"] = o.ComputerOu.Get()
 	}
 	if o.Tags != nil {
 		toSerialize["Tags"] = o.Tags

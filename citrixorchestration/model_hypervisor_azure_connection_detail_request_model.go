@@ -47,10 +47,12 @@ type HypervisorAzureConnectionDetailRequestModel struct {
 	Region NullableString `json:"Region,omitempty"`
 	// Custom AWS Address.
 	Address NullableString `json:"Address,omitempty"`
-	// Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret or UserAssignedManagedIdentity.
-	ApplicationId string `json:"ApplicationId"`
-	// The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat.
-	ApplicationSecret string `json:"ApplicationSecret"`
+	// The properties of host connection that are specific to the target hosting infrastructure.
+	CustomProperties NullableString `json:"CustomProperties,omitempty"`
+	// Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret or UserAssignedManagedIdentity.
+	ApplicationId NullableString `json:"ApplicationId,omitempty"`
+	// The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat.
+	ApplicationSecret NullableString `json:"ApplicationSecret,omitempty"`
 	ApplicationSecretFormat *IdentityPasswordFormat `json:"ApplicationSecretFormat,omitempty"`
 	// Azure subscription ID.  Required.
 	SubscriptionId string `json:"SubscriptionId"`
@@ -63,8 +65,6 @@ type HypervisorAzureConnectionDetailRequestModel struct {
 	AuthenticationAuthority NullableString `json:"AuthenticationAuthority,omitempty"`
 	// Azure storage suffix.  Required if Environment is Custom. Optional otherwise.
 	StorageSuffix NullableString `json:"StorageSuffix,omitempty"`
-	// The properties of host connection that are specific to the target hosting infrastructure.
-	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// The service account ID used to access the Google Cloud APIs. Required.
 	ServiceAccountId *string `json:"ServiceAccountId,omitempty"`
 	// the JSON-encoded service account credentials used to access the Google Cloud APIs.  Required. Must be specified in the format indicated by ServiceAccountCredentialsFormat.
@@ -98,12 +98,10 @@ type HypervisorAzureConnectionDetailRequestModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHypervisorAzureConnectionDetailRequestModel(name string, connectionType HypervisorConnectionType, applicationId string, applicationSecret string, subscriptionId string, activeDirectoryId string) *HypervisorAzureConnectionDetailRequestModel {
+func NewHypervisorAzureConnectionDetailRequestModel(name string, connectionType HypervisorConnectionType, subscriptionId string, activeDirectoryId string) *HypervisorAzureConnectionDetailRequestModel {
 	this := HypervisorAzureConnectionDetailRequestModel{}
 	this.Name = name
 	this.ConnectionType = connectionType
-	this.ApplicationId = applicationId
-	this.ApplicationSecret = applicationSecret
 	this.SubscriptionId = subscriptionId
 	this.ActiveDirectoryId = activeDirectoryId
 	return &this
@@ -654,52 +652,130 @@ func (o *HypervisorAzureConnectionDetailRequestModel) UnsetAddress() {
 	o.Address.Unset()
 }
 
-// GetApplicationId returns the ApplicationId field value
-func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationId() string {
-	if o == nil {
+// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomProperties() string {
+	if o == nil || IsNil(o.CustomProperties.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ApplicationId
+	return *o.CustomProperties.Get()
 }
 
-// GetApplicationIdOk returns a tuple with the ApplicationId field value
+// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
+}
+
+// HasCustomProperties returns a boolean if a field has been set.
+func (o *HypervisorAzureConnectionDetailRequestModel) HasCustomProperties() bool {
+	if o != nil && o.CustomProperties.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
+func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomProperties(v string) {
+	o.CustomProperties.Set(&v)
+}
+// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomPropertiesNil() {
+	o.CustomProperties.Set(nil)
+}
+
+// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) UnsetCustomProperties() {
+	o.CustomProperties.Unset()
+}
+
+// GetApplicationId returns the ApplicationId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationId() string {
+	if o == nil || IsNil(o.ApplicationId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ApplicationId.Get()
+}
+
+// GetApplicationIdOk returns a tuple with the ApplicationId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationIdOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ApplicationId, true
+	return o.ApplicationId.Get(), o.ApplicationId.IsSet()
 }
 
-// SetApplicationId sets field value
+// HasApplicationId returns a boolean if a field has been set.
+func (o *HypervisorAzureConnectionDetailRequestModel) HasApplicationId() bool {
+	if o != nil && o.ApplicationId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApplicationId gets a reference to the given NullableString and assigns it to the ApplicationId field.
 func (o *HypervisorAzureConnectionDetailRequestModel) SetApplicationId(v string) {
-	o.ApplicationId = v
+	o.ApplicationId.Set(&v)
+}
+// SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) SetApplicationIdNil() {
+	o.ApplicationId.Set(nil)
 }
 
-// GetApplicationSecret returns the ApplicationSecret field value
+// UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) UnsetApplicationId() {
+	o.ApplicationId.Unset()
+}
+
+// GetApplicationSecret returns the ApplicationSecret field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationSecret() string {
-	if o == nil {
+	if o == nil || IsNil(o.ApplicationSecret.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.ApplicationSecret
+	return *o.ApplicationSecret.Get()
 }
 
-// GetApplicationSecretOk returns a tuple with the ApplicationSecret field value
+// GetApplicationSecretOk returns a tuple with the ApplicationSecret field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationSecretOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.ApplicationSecret, true
+	return o.ApplicationSecret.Get(), o.ApplicationSecret.IsSet()
 }
 
-// SetApplicationSecret sets field value
+// HasApplicationSecret returns a boolean if a field has been set.
+func (o *HypervisorAzureConnectionDetailRequestModel) HasApplicationSecret() bool {
+	if o != nil && o.ApplicationSecret.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetApplicationSecret gets a reference to the given NullableString and assigns it to the ApplicationSecret field.
 func (o *HypervisorAzureConnectionDetailRequestModel) SetApplicationSecret(v string) {
-	o.ApplicationSecret = v
+	o.ApplicationSecret.Set(&v)
+}
+// SetApplicationSecretNil sets the value for ApplicationSecret to be an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) SetApplicationSecretNil() {
+	o.ApplicationSecret.Set(nil)
+}
+
+// UnsetApplicationSecret ensures that no value is present for ApplicationSecret, not even an explicit nil
+func (o *HypervisorAzureConnectionDetailRequestModel) UnsetApplicationSecret() {
+	o.ApplicationSecret.Unset()
 }
 
 // GetApplicationSecretFormat returns the ApplicationSecretFormat field value if set, zero value otherwise.
@@ -938,48 +1014,6 @@ func (o *HypervisorAzureConnectionDetailRequestModel) SetStorageSuffixNil() {
 // UnsetStorageSuffix ensures that no value is present for StorageSuffix, not even an explicit nil
 func (o *HypervisorAzureConnectionDetailRequestModel) UnsetStorageSuffix() {
 	o.StorageSuffix.Unset()
-}
-
-// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomProperties() string {
-	if o == nil || IsNil(o.CustomProperties.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CustomProperties.Get()
-}
-
-// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
-}
-
-// HasCustomProperties returns a boolean if a field has been set.
-func (o *HypervisorAzureConnectionDetailRequestModel) HasCustomProperties() bool {
-	if o != nil && o.CustomProperties.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
-func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomProperties(v string) {
-	o.CustomProperties.Set(&v)
-}
-// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomPropertiesNil() {
-	o.CustomProperties.Set(nil)
-}
-
-// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
-func (o *HypervisorAzureConnectionDetailRequestModel) UnsetCustomProperties() {
-	o.CustomProperties.Unset()
 }
 
 // GetServiceAccountId returns the ServiceAccountId field value if set, zero value otherwise.
@@ -1566,8 +1600,15 @@ func (o HypervisorAzureConnectionDetailRequestModel) ToMap() (map[string]interfa
 	if o.Address.IsSet() {
 		toSerialize["Address"] = o.Address.Get()
 	}
-	toSerialize["ApplicationId"] = o.ApplicationId
-	toSerialize["ApplicationSecret"] = o.ApplicationSecret
+	if o.CustomProperties.IsSet() {
+		toSerialize["CustomProperties"] = o.CustomProperties.Get()
+	}
+	if o.ApplicationId.IsSet() {
+		toSerialize["ApplicationId"] = o.ApplicationId.Get()
+	}
+	if o.ApplicationSecret.IsSet() {
+		toSerialize["ApplicationSecret"] = o.ApplicationSecret.Get()
+	}
 	if !IsNil(o.ApplicationSecretFormat) {
 		toSerialize["ApplicationSecretFormat"] = o.ApplicationSecretFormat
 	}
@@ -1584,9 +1625,6 @@ func (o HypervisorAzureConnectionDetailRequestModel) ToMap() (map[string]interfa
 	}
 	if o.StorageSuffix.IsSet() {
 		toSerialize["StorageSuffix"] = o.StorageSuffix.Get()
-	}
-	if o.CustomProperties.IsSet() {
-		toSerialize["CustomProperties"] = o.CustomProperties.Get()
 	}
 	if !IsNil(o.ServiceAccountId) {
 		toSerialize["ServiceAccountId"] = o.ServiceAccountId

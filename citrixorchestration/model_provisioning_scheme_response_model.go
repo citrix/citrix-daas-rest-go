@@ -20,15 +20,15 @@ var _ MappedNullable = &ProvisioningSchemeResponseModel{}
 // ProvisioningSchemeResponseModel Details about how machines in a catalog are provisioned.
 type ProvisioningSchemeResponseModel struct {
 	// Id of the provisioning scheme.
-	Id string `json:"Id"`
+	Id *string `json:"Id,omitempty"`
 	// Name of the provisioning scheme.
-	Name string `json:"Name"`
+	Name NullableString `json:"Name,omitempty"`
 	// Indicates whether the VMs that are created will be reset to a clean state on each boot.
-	CleanOnBoot bool `json:"CleanOnBoot"`
+	CleanOnBoot *bool `json:"CleanOnBoot,omitempty"`
 	// The DNS names of the controllers associated with this provisioning scheme for Quick Deploy purposes.
-	ControllerAddresses []string `json:"ControllerAddresses"`
+	ControllerAddresses []string `json:"ControllerAddresses,omitempty"`
 	// The number of processors that VMs will be created with when using this scheme.
-	CpuCount int32 `json:"CpuCount"`
+	CpuCount *int32 `json:"CpuCount,omitempty"`
 	// The number of cores per processor that VMs will be created with when using this scheme. This property only applies when hypervisor connection is Nutanix.
 	CoresPerCpuCount *int32 `json:"CoresPerCpuCount,omitempty"`
 	CurrentDiskImage *VMImageResponseModel `json:"CurrentDiskImage,omitempty"`
@@ -44,7 +44,7 @@ type ProvisioningSchemeResponseModel struct {
 	// The properties of the provisioning scheme that are specific to the target hosting infrastructure in string format.
 	CustomPropertiesInString NullableString `json:"CustomPropertiesInString,omitempty"`
 	// Whether to use dedicated tenancy when creating machines in Cloud Hypervisors.
-	DedicatedTenancy bool `json:"DedicatedTenancy"`
+	DedicatedTenancy *bool `json:"DedicatedTenancy,omitempty"`
 	// Indicates whether to use tenancy type Shared, Instance or Host when creating machines in Cloud Hypervisors.
 	TenancyType NullableString `json:"TenancyType,omitempty"`
 	// Indicates whether to use azure AD join type.
@@ -60,33 +60,33 @@ type ProvisioningSchemeResponseModel struct {
 	// The identity content of identity pool.
 	IdentityContent NullableString `json:"IdentityContent,omitempty"`
 	// Size of the VM's OS disk, in GB.
-	DiskSizeGB int32 `json:"DiskSizeGB"`
+	DiskSizeGB *int32 `json:"DiskSizeGB,omitempty"`
 	// Type of GPU used for VMs, if any.
 	GpuTypeId NullableString `json:"GpuTypeId,omitempty"`
-	ResourcePool HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
-	IdentityPool RefResponseModel `json:"IdentityPool"`
+	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
+	IdentityPool *RefResponseModel `json:"IdentityPool,omitempty"`
 	// Number of machines provisioned from this provisioning scheme.
-	MachineCount int32 `json:"MachineCount"`
-	MasterImage HypervisorResourceRefResponseModel `json:"MasterImage"`
+	MachineCount *int32 `json:"MachineCount,omitempty"`
+	MasterImage *HypervisorResourceRefResponseModel `json:"MasterImage,omitempty"`
 	MachineProfile *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
 	// The maximum amount of memory that VMs will be created with when using this scheme.
-	MemoryMB int32 `json:"MemoryMB"`
+	MemoryMB *int32 `json:"MemoryMB,omitempty"`
 	// The metadata of provisioning scheme.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Networks used by provisioned VMs.
-	NetworkMaps []NetworkMapResponseModel `json:"NetworkMaps"`
+	NetworkMaps []NetworkMapResponseModel `json:"NetworkMaps,omitempty"`
 	// Nutanix container that the scheme uses.
 	NutanixContainer NullableString `json:"NutanixContainer,omitempty"`
 	// Indicates whether administrator passwords are reset automatically to a random password each time machines are provisioned.
-	ResetAdministratorPasswords bool `json:"ResetAdministratorPasswords"`
+	ResetAdministratorPasswords *bool `json:"ResetAdministratorPasswords,omitempty"`
 	// Network security groups used by Cloud provisioned VMs.
 	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 	// Service offering used by Cloud provisioned VMs.
 	ServiceOffering NullableString `json:"ServiceOffering,omitempty"`
 	// Indicates whether the machines are provisioned using the dedicated full disk clone feature.
-	UseFullDiskCloneProvisioning bool `json:"UseFullDiskCloneProvisioning"`
+	UseFullDiskCloneProvisioning *bool `json:"UseFullDiskCloneProvisioning,omitempty"`
 	// True if the scheme will use the write back cache feature.
-	UseWriteBackCache bool `json:"UseWriteBackCache"`
+	UseWriteBackCache *bool `json:"UseWriteBackCache,omitempty"`
 	VMMetadata *ProvisioningSchemeVmMetadataResponseModel `json:"VMMetadata,omitempty"`
 	// Windows Activation Type set on the master image, maybe MultipleActivationKey.
 	WindowsActivationType NullableString `json:"WindowsActivationType,omitempty"`
@@ -101,10 +101,10 @@ type ProvisioningSchemeResponseModel struct {
 	// Gets or sets the write back cache disk drive letter.
 	WriteBackCacheDriveLetter *string `json:"WriteBackCacheDriveLetter,omitempty"`
 	// True if the previous image is installed with a legacy VDA.
-	IsPreviousImageLegacyVda bool `json:"IsPreviousImageLegacyVda"`
+	IsPreviousImageLegacyVda *bool `json:"IsPreviousImageLegacyVda,omitempty"`
 	MachineAccountCreationRules *MachineAccountCreationRulesResponseModel `json:"MachineAccountCreationRules,omitempty"`
 	// Number of machine accounts available to be used by machines that will be provisioned in the machine catalog.  This will be the identities associated with the machine catalog where State is Available.
-	NumAvailableMachineAccounts int32 `json:"NumAvailableMachineAccounts"`
+	NumAvailableMachineAccounts *int32 `json:"NumAvailableMachineAccounts,omitempty"`
 	// PVS Site.
 	PVSSite NullableString `json:"PVSSite,omitempty"`
 	// PVS vDisk.
@@ -120,26 +120,8 @@ type ProvisioningSchemeResponseModel struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewProvisioningSchemeResponseModel(id string, name string, cleanOnBoot bool, controllerAddresses []string, cpuCount int32, dedicatedTenancy bool, diskSizeGB int32, resourcePool HypervisorResourcePoolRefResponseModel, identityPool RefResponseModel, machineCount int32, masterImage HypervisorResourceRefResponseModel, memoryMB int32, networkMaps []NetworkMapResponseModel, resetAdministratorPasswords bool, useFullDiskCloneProvisioning bool, useWriteBackCache bool, isPreviousImageLegacyVda bool, numAvailableMachineAccounts int32) *ProvisioningSchemeResponseModel {
+func NewProvisioningSchemeResponseModel() *ProvisioningSchemeResponseModel {
 	this := ProvisioningSchemeResponseModel{}
-	this.Id = id
-	this.Name = name
-	this.CleanOnBoot = cleanOnBoot
-	this.ControllerAddresses = controllerAddresses
-	this.CpuCount = cpuCount
-	this.DedicatedTenancy = dedicatedTenancy
-	this.DiskSizeGB = diskSizeGB
-	this.ResourcePool = resourcePool
-	this.IdentityPool = identityPool
-	this.MachineCount = machineCount
-	this.MasterImage = masterImage
-	this.MemoryMB = memoryMB
-	this.NetworkMaps = networkMaps
-	this.ResetAdministratorPasswords = resetAdministratorPasswords
-	this.UseFullDiskCloneProvisioning = useFullDiskCloneProvisioning
-	this.UseWriteBackCache = useWriteBackCache
-	this.IsPreviousImageLegacyVda = isPreviousImageLegacyVda
-	this.NumAvailableMachineAccounts = numAvailableMachineAccounts
 	return &this
 }
 
@@ -151,124 +133,175 @@ func NewProvisioningSchemeResponseModelWithDefaults() *ProvisioningSchemeRespons
 	return &this
 }
 
-// GetId returns the Id field value
+// GetId returns the Id field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetId() string {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetIdOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Id) {
 		return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
+// HasId returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasId() bool {
+	if o != nil && !IsNil(o.Id) {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
 func (o *ProvisioningSchemeResponseModel) SetId(v string) {
-	o.Id = v
+	o.Id = &v
 }
 
-// GetName returns the Name field value
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisioningSchemeResponseModel) GetName() string {
-	if o == nil {
+	if o == nil || IsNil(o.Name.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Name
+	return *o.Name.Get()
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisioningSchemeResponseModel) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Name, true
+	return o.Name.Get(), o.Name.IsSet()
 }
 
-// SetName sets field value
+// HasName returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
 func (o *ProvisioningSchemeResponseModel) SetName(v string) {
-	o.Name = v
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *ProvisioningSchemeResponseModel) SetNameNil() {
+	o.Name.Set(nil)
 }
 
-// GetCleanOnBoot returns the CleanOnBoot field value
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *ProvisioningSchemeResponseModel) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetCleanOnBoot returns the CleanOnBoot field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetCleanOnBoot() bool {
-	if o == nil {
+	if o == nil || IsNil(o.CleanOnBoot) {
 		var ret bool
 		return ret
 	}
-
-	return o.CleanOnBoot
+	return *o.CleanOnBoot
 }
 
-// GetCleanOnBootOk returns a tuple with the CleanOnBoot field value
+// GetCleanOnBootOk returns a tuple with the CleanOnBoot field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetCleanOnBootOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CleanOnBoot) {
 		return nil, false
 	}
-	return &o.CleanOnBoot, true
+	return o.CleanOnBoot, true
 }
 
-// SetCleanOnBoot sets field value
+// HasCleanOnBoot returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasCleanOnBoot() bool {
+	if o != nil && !IsNil(o.CleanOnBoot) {
+		return true
+	}
+
+	return false
+}
+
+// SetCleanOnBoot gets a reference to the given bool and assigns it to the CleanOnBoot field.
 func (o *ProvisioningSchemeResponseModel) SetCleanOnBoot(v bool) {
-	o.CleanOnBoot = v
+	o.CleanOnBoot = &v
 }
 
-// GetControllerAddresses returns the ControllerAddresses field value
+// GetControllerAddresses returns the ControllerAddresses field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisioningSchemeResponseModel) GetControllerAddresses() []string {
 	if o == nil {
 		var ret []string
 		return ret
 	}
-
 	return o.ControllerAddresses
 }
 
-// GetControllerAddressesOk returns a tuple with the ControllerAddresses field value
+// GetControllerAddressesOk returns a tuple with the ControllerAddresses field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisioningSchemeResponseModel) GetControllerAddressesOk() ([]string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ControllerAddresses) {
 		return nil, false
 	}
 	return o.ControllerAddresses, true
 }
 
-// SetControllerAddresses sets field value
+// HasControllerAddresses returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasControllerAddresses() bool {
+	if o != nil && IsNil(o.ControllerAddresses) {
+		return true
+	}
+
+	return false
+}
+
+// SetControllerAddresses gets a reference to the given []string and assigns it to the ControllerAddresses field.
 func (o *ProvisioningSchemeResponseModel) SetControllerAddresses(v []string) {
 	o.ControllerAddresses = v
 }
 
-// GetCpuCount returns the CpuCount field value
+// GetCpuCount returns the CpuCount field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetCpuCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.CpuCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.CpuCount
+	return *o.CpuCount
 }
 
-// GetCpuCountOk returns a tuple with the CpuCount field value
+// GetCpuCountOk returns a tuple with the CpuCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetCpuCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.CpuCount) {
 		return nil, false
 	}
-	return &o.CpuCount, true
+	return o.CpuCount, true
 }
 
-// SetCpuCount sets field value
+// HasCpuCount returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasCpuCount() bool {
+	if o != nil && !IsNil(o.CpuCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetCpuCount gets a reference to the given int32 and assigns it to the CpuCount field.
 func (o *ProvisioningSchemeResponseModel) SetCpuCount(v int32) {
-	o.CpuCount = v
+	o.CpuCount = &v
 }
 
 // GetCoresPerCpuCount returns the CoresPerCpuCount field value if set, zero value otherwise.
@@ -550,28 +583,36 @@ func (o *ProvisioningSchemeResponseModel) UnsetCustomPropertiesInString() {
 	o.CustomPropertiesInString.Unset()
 }
 
-// GetDedicatedTenancy returns the DedicatedTenancy field value
+// GetDedicatedTenancy returns the DedicatedTenancy field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetDedicatedTenancy() bool {
-	if o == nil {
+	if o == nil || IsNil(o.DedicatedTenancy) {
 		var ret bool
 		return ret
 	}
-
-	return o.DedicatedTenancy
+	return *o.DedicatedTenancy
 }
 
-// GetDedicatedTenancyOk returns a tuple with the DedicatedTenancy field value
+// GetDedicatedTenancyOk returns a tuple with the DedicatedTenancy field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetDedicatedTenancyOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DedicatedTenancy) {
 		return nil, false
 	}
-	return &o.DedicatedTenancy, true
+	return o.DedicatedTenancy, true
 }
 
-// SetDedicatedTenancy sets field value
+// HasDedicatedTenancy returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasDedicatedTenancy() bool {
+	if o != nil && !IsNil(o.DedicatedTenancy) {
+		return true
+	}
+
+	return false
+}
+
+// SetDedicatedTenancy gets a reference to the given bool and assigns it to the DedicatedTenancy field.
 func (o *ProvisioningSchemeResponseModel) SetDedicatedTenancy(v bool) {
-	o.DedicatedTenancy = v
+	o.DedicatedTenancy = &v
 }
 
 // GetTenancyType returns the TenancyType field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -881,28 +922,36 @@ func (o *ProvisioningSchemeResponseModel) UnsetIdentityContent() {
 	o.IdentityContent.Unset()
 }
 
-// GetDiskSizeGB returns the DiskSizeGB field value
+// GetDiskSizeGB returns the DiskSizeGB field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetDiskSizeGB() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.DiskSizeGB) {
 		var ret int32
 		return ret
 	}
-
-	return o.DiskSizeGB
+	return *o.DiskSizeGB
 }
 
-// GetDiskSizeGBOk returns a tuple with the DiskSizeGB field value
+// GetDiskSizeGBOk returns a tuple with the DiskSizeGB field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetDiskSizeGBOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.DiskSizeGB) {
 		return nil, false
 	}
-	return &o.DiskSizeGB, true
+	return o.DiskSizeGB, true
 }
 
-// SetDiskSizeGB sets field value
+// HasDiskSizeGB returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasDiskSizeGB() bool {
+	if o != nil && !IsNil(o.DiskSizeGB) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiskSizeGB gets a reference to the given int32 and assigns it to the DiskSizeGB field.
 func (o *ProvisioningSchemeResponseModel) SetDiskSizeGB(v int32) {
-	o.DiskSizeGB = v
+	o.DiskSizeGB = &v
 }
 
 // GetGpuTypeId returns the GpuTypeId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -947,100 +996,132 @@ func (o *ProvisioningSchemeResponseModel) UnsetGpuTypeId() {
 	o.GpuTypeId.Unset()
 }
 
-// GetResourcePool returns the ResourcePool field value
+// GetResourcePool returns the ResourcePool field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetResourcePool() HypervisorResourcePoolRefResponseModel {
-	if o == nil {
+	if o == nil || IsNil(o.ResourcePool) {
 		var ret HypervisorResourcePoolRefResponseModel
 		return ret
 	}
-
-	return o.ResourcePool
+	return *o.ResourcePool
 }
 
-// GetResourcePoolOk returns a tuple with the ResourcePool field value
+// GetResourcePoolOk returns a tuple with the ResourcePool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetResourcePoolOk() (*HypervisorResourcePoolRefResponseModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResourcePool) {
 		return nil, false
 	}
-	return &o.ResourcePool, true
+	return o.ResourcePool, true
 }
 
-// SetResourcePool sets field value
+// HasResourcePool returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasResourcePool() bool {
+	if o != nil && !IsNil(o.ResourcePool) {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcePool gets a reference to the given HypervisorResourcePoolRefResponseModel and assigns it to the ResourcePool field.
 func (o *ProvisioningSchemeResponseModel) SetResourcePool(v HypervisorResourcePoolRefResponseModel) {
-	o.ResourcePool = v
+	o.ResourcePool = &v
 }
 
-// GetIdentityPool returns the IdentityPool field value
+// GetIdentityPool returns the IdentityPool field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetIdentityPool() RefResponseModel {
-	if o == nil {
+	if o == nil || IsNil(o.IdentityPool) {
 		var ret RefResponseModel
 		return ret
 	}
-
-	return o.IdentityPool
+	return *o.IdentityPool
 }
 
-// GetIdentityPoolOk returns a tuple with the IdentityPool field value
+// GetIdentityPoolOk returns a tuple with the IdentityPool field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetIdentityPoolOk() (*RefResponseModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IdentityPool) {
 		return nil, false
 	}
-	return &o.IdentityPool, true
+	return o.IdentityPool, true
 }
 
-// SetIdentityPool sets field value
+// HasIdentityPool returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasIdentityPool() bool {
+	if o != nil && !IsNil(o.IdentityPool) {
+		return true
+	}
+
+	return false
+}
+
+// SetIdentityPool gets a reference to the given RefResponseModel and assigns it to the IdentityPool field.
 func (o *ProvisioningSchemeResponseModel) SetIdentityPool(v RefResponseModel) {
-	o.IdentityPool = v
+	o.IdentityPool = &v
 }
 
-// GetMachineCount returns the MachineCount field value
+// GetMachineCount returns the MachineCount field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetMachineCount() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.MachineCount) {
 		var ret int32
 		return ret
 	}
-
-	return o.MachineCount
+	return *o.MachineCount
 }
 
-// GetMachineCountOk returns a tuple with the MachineCount field value
+// GetMachineCountOk returns a tuple with the MachineCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetMachineCountOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MachineCount) {
 		return nil, false
 	}
-	return &o.MachineCount, true
+	return o.MachineCount, true
 }
 
-// SetMachineCount sets field value
+// HasMachineCount returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasMachineCount() bool {
+	if o != nil && !IsNil(o.MachineCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetMachineCount gets a reference to the given int32 and assigns it to the MachineCount field.
 func (o *ProvisioningSchemeResponseModel) SetMachineCount(v int32) {
-	o.MachineCount = v
+	o.MachineCount = &v
 }
 
-// GetMasterImage returns the MasterImage field value
+// GetMasterImage returns the MasterImage field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetMasterImage() HypervisorResourceRefResponseModel {
-	if o == nil {
+	if o == nil || IsNil(o.MasterImage) {
 		var ret HypervisorResourceRefResponseModel
 		return ret
 	}
-
-	return o.MasterImage
+	return *o.MasterImage
 }
 
-// GetMasterImageOk returns a tuple with the MasterImage field value
+// GetMasterImageOk returns a tuple with the MasterImage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetMasterImageOk() (*HypervisorResourceRefResponseModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MasterImage) {
 		return nil, false
 	}
-	return &o.MasterImage, true
+	return o.MasterImage, true
 }
 
-// SetMasterImage sets field value
+// HasMasterImage returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasMasterImage() bool {
+	if o != nil && !IsNil(o.MasterImage) {
+		return true
+	}
+
+	return false
+}
+
+// SetMasterImage gets a reference to the given HypervisorResourceRefResponseModel and assigns it to the MasterImage field.
 func (o *ProvisioningSchemeResponseModel) SetMasterImage(v HypervisorResourceRefResponseModel) {
-	o.MasterImage = v
+	o.MasterImage = &v
 }
 
 // GetMachineProfile returns the MachineProfile field value if set, zero value otherwise.
@@ -1075,28 +1156,36 @@ func (o *ProvisioningSchemeResponseModel) SetMachineProfile(v HypervisorResource
 	o.MachineProfile = &v
 }
 
-// GetMemoryMB returns the MemoryMB field value
+// GetMemoryMB returns the MemoryMB field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetMemoryMB() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.MemoryMB) {
 		var ret int32
 		return ret
 	}
-
-	return o.MemoryMB
+	return *o.MemoryMB
 }
 
-// GetMemoryMBOk returns a tuple with the MemoryMB field value
+// GetMemoryMBOk returns a tuple with the MemoryMB field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetMemoryMBOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.MemoryMB) {
 		return nil, false
 	}
-	return &o.MemoryMB, true
+	return o.MemoryMB, true
 }
 
-// SetMemoryMB sets field value
+// HasMemoryMB returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasMemoryMB() bool {
+	if o != nil && !IsNil(o.MemoryMB) {
+		return true
+	}
+
+	return false
+}
+
+// SetMemoryMB gets a reference to the given int32 and assigns it to the MemoryMB field.
 func (o *ProvisioningSchemeResponseModel) SetMemoryMB(v int32) {
-	o.MemoryMB = v
+	o.MemoryMB = &v
 }
 
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1132,26 +1221,35 @@ func (o *ProvisioningSchemeResponseModel) SetMetadata(v []NameValueStringPairMod
 	o.Metadata = v
 }
 
-// GetNetworkMaps returns the NetworkMaps field value
+// GetNetworkMaps returns the NetworkMaps field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ProvisioningSchemeResponseModel) GetNetworkMaps() []NetworkMapResponseModel {
 	if o == nil {
 		var ret []NetworkMapResponseModel
 		return ret
 	}
-
 	return o.NetworkMaps
 }
 
-// GetNetworkMapsOk returns a tuple with the NetworkMaps field value
+// GetNetworkMapsOk returns a tuple with the NetworkMaps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ProvisioningSchemeResponseModel) GetNetworkMapsOk() ([]NetworkMapResponseModel, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NetworkMaps) {
 		return nil, false
 	}
 	return o.NetworkMaps, true
 }
 
-// SetNetworkMaps sets field value
+// HasNetworkMaps returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasNetworkMaps() bool {
+	if o != nil && IsNil(o.NetworkMaps) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkMaps gets a reference to the given []NetworkMapResponseModel and assigns it to the NetworkMaps field.
 func (o *ProvisioningSchemeResponseModel) SetNetworkMaps(v []NetworkMapResponseModel) {
 	o.NetworkMaps = v
 }
@@ -1198,28 +1296,36 @@ func (o *ProvisioningSchemeResponseModel) UnsetNutanixContainer() {
 	o.NutanixContainer.Unset()
 }
 
-// GetResetAdministratorPasswords returns the ResetAdministratorPasswords field value
+// GetResetAdministratorPasswords returns the ResetAdministratorPasswords field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetResetAdministratorPasswords() bool {
-	if o == nil {
+	if o == nil || IsNil(o.ResetAdministratorPasswords) {
 		var ret bool
 		return ret
 	}
-
-	return o.ResetAdministratorPasswords
+	return *o.ResetAdministratorPasswords
 }
 
-// GetResetAdministratorPasswordsOk returns a tuple with the ResetAdministratorPasswords field value
+// GetResetAdministratorPasswordsOk returns a tuple with the ResetAdministratorPasswords field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetResetAdministratorPasswordsOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.ResetAdministratorPasswords) {
 		return nil, false
 	}
-	return &o.ResetAdministratorPasswords, true
+	return o.ResetAdministratorPasswords, true
 }
 
-// SetResetAdministratorPasswords sets field value
+// HasResetAdministratorPasswords returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasResetAdministratorPasswords() bool {
+	if o != nil && !IsNil(o.ResetAdministratorPasswords) {
+		return true
+	}
+
+	return false
+}
+
+// SetResetAdministratorPasswords gets a reference to the given bool and assigns it to the ResetAdministratorPasswords field.
 func (o *ProvisioningSchemeResponseModel) SetResetAdministratorPasswords(v bool) {
-	o.ResetAdministratorPasswords = v
+	o.ResetAdministratorPasswords = &v
 }
 
 // GetSecurityGroups returns the SecurityGroups field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1297,52 +1403,68 @@ func (o *ProvisioningSchemeResponseModel) UnsetServiceOffering() {
 	o.ServiceOffering.Unset()
 }
 
-// GetUseFullDiskCloneProvisioning returns the UseFullDiskCloneProvisioning field value
+// GetUseFullDiskCloneProvisioning returns the UseFullDiskCloneProvisioning field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetUseFullDiskCloneProvisioning() bool {
-	if o == nil {
+	if o == nil || IsNil(o.UseFullDiskCloneProvisioning) {
 		var ret bool
 		return ret
 	}
-
-	return o.UseFullDiskCloneProvisioning
+	return *o.UseFullDiskCloneProvisioning
 }
 
-// GetUseFullDiskCloneProvisioningOk returns a tuple with the UseFullDiskCloneProvisioning field value
+// GetUseFullDiskCloneProvisioningOk returns a tuple with the UseFullDiskCloneProvisioning field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetUseFullDiskCloneProvisioningOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UseFullDiskCloneProvisioning) {
 		return nil, false
 	}
-	return &o.UseFullDiskCloneProvisioning, true
+	return o.UseFullDiskCloneProvisioning, true
 }
 
-// SetUseFullDiskCloneProvisioning sets field value
+// HasUseFullDiskCloneProvisioning returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasUseFullDiskCloneProvisioning() bool {
+	if o != nil && !IsNil(o.UseFullDiskCloneProvisioning) {
+		return true
+	}
+
+	return false
+}
+
+// SetUseFullDiskCloneProvisioning gets a reference to the given bool and assigns it to the UseFullDiskCloneProvisioning field.
 func (o *ProvisioningSchemeResponseModel) SetUseFullDiskCloneProvisioning(v bool) {
-	o.UseFullDiskCloneProvisioning = v
+	o.UseFullDiskCloneProvisioning = &v
 }
 
-// GetUseWriteBackCache returns the UseWriteBackCache field value
+// GetUseWriteBackCache returns the UseWriteBackCache field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetUseWriteBackCache() bool {
-	if o == nil {
+	if o == nil || IsNil(o.UseWriteBackCache) {
 		var ret bool
 		return ret
 	}
-
-	return o.UseWriteBackCache
+	return *o.UseWriteBackCache
 }
 
-// GetUseWriteBackCacheOk returns a tuple with the UseWriteBackCache field value
+// GetUseWriteBackCacheOk returns a tuple with the UseWriteBackCache field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetUseWriteBackCacheOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.UseWriteBackCache) {
 		return nil, false
 	}
-	return &o.UseWriteBackCache, true
+	return o.UseWriteBackCache, true
 }
 
-// SetUseWriteBackCache sets field value
+// HasUseWriteBackCache returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasUseWriteBackCache() bool {
+	if o != nil && !IsNil(o.UseWriteBackCache) {
+		return true
+	}
+
+	return false
+}
+
+// SetUseWriteBackCache gets a reference to the given bool and assigns it to the UseWriteBackCache field.
 func (o *ProvisioningSchemeResponseModel) SetUseWriteBackCache(v bool) {
-	o.UseWriteBackCache = v
+	o.UseWriteBackCache = &v
 }
 
 // GetVMMetadata returns the VMMetadata field value if set, zero value otherwise.
@@ -1609,28 +1731,36 @@ func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDriveLetter(v string)
 	o.WriteBackCacheDriveLetter = &v
 }
 
-// GetIsPreviousImageLegacyVda returns the IsPreviousImageLegacyVda field value
+// GetIsPreviousImageLegacyVda returns the IsPreviousImageLegacyVda field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetIsPreviousImageLegacyVda() bool {
-	if o == nil {
+	if o == nil || IsNil(o.IsPreviousImageLegacyVda) {
 		var ret bool
 		return ret
 	}
-
-	return o.IsPreviousImageLegacyVda
+	return *o.IsPreviousImageLegacyVda
 }
 
-// GetIsPreviousImageLegacyVdaOk returns a tuple with the IsPreviousImageLegacyVda field value
+// GetIsPreviousImageLegacyVdaOk returns a tuple with the IsPreviousImageLegacyVda field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetIsPreviousImageLegacyVdaOk() (*bool, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.IsPreviousImageLegacyVda) {
 		return nil, false
 	}
-	return &o.IsPreviousImageLegacyVda, true
+	return o.IsPreviousImageLegacyVda, true
 }
 
-// SetIsPreviousImageLegacyVda sets field value
+// HasIsPreviousImageLegacyVda returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasIsPreviousImageLegacyVda() bool {
+	if o != nil && !IsNil(o.IsPreviousImageLegacyVda) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPreviousImageLegacyVda gets a reference to the given bool and assigns it to the IsPreviousImageLegacyVda field.
 func (o *ProvisioningSchemeResponseModel) SetIsPreviousImageLegacyVda(v bool) {
-	o.IsPreviousImageLegacyVda = v
+	o.IsPreviousImageLegacyVda = &v
 }
 
 // GetMachineAccountCreationRules returns the MachineAccountCreationRules field value if set, zero value otherwise.
@@ -1665,28 +1795,36 @@ func (o *ProvisioningSchemeResponseModel) SetMachineAccountCreationRules(v Machi
 	o.MachineAccountCreationRules = &v
 }
 
-// GetNumAvailableMachineAccounts returns the NumAvailableMachineAccounts field value
+// GetNumAvailableMachineAccounts returns the NumAvailableMachineAccounts field value if set, zero value otherwise.
 func (o *ProvisioningSchemeResponseModel) GetNumAvailableMachineAccounts() int32 {
-	if o == nil {
+	if o == nil || IsNil(o.NumAvailableMachineAccounts) {
 		var ret int32
 		return ret
 	}
-
-	return o.NumAvailableMachineAccounts
+	return *o.NumAvailableMachineAccounts
 }
 
-// GetNumAvailableMachineAccountsOk returns a tuple with the NumAvailableMachineAccounts field value
+// GetNumAvailableMachineAccountsOk returns a tuple with the NumAvailableMachineAccounts field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ProvisioningSchemeResponseModel) GetNumAvailableMachineAccountsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.NumAvailableMachineAccounts) {
 		return nil, false
 	}
-	return &o.NumAvailableMachineAccounts, true
+	return o.NumAvailableMachineAccounts, true
 }
 
-// SetNumAvailableMachineAccounts sets field value
+// HasNumAvailableMachineAccounts returns a boolean if a field has been set.
+func (o *ProvisioningSchemeResponseModel) HasNumAvailableMachineAccounts() bool {
+	if o != nil && !IsNil(o.NumAvailableMachineAccounts) {
+		return true
+	}
+
+	return false
+}
+
+// SetNumAvailableMachineAccounts gets a reference to the given int32 and assigns it to the NumAvailableMachineAccounts field.
 func (o *ProvisioningSchemeResponseModel) SetNumAvailableMachineAccounts(v int32) {
-	o.NumAvailableMachineAccounts = v
+	o.NumAvailableMachineAccounts = &v
 }
 
 // GetPVSSite returns the PVSSite field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1890,11 +2028,21 @@ func (o ProvisioningSchemeResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o ProvisioningSchemeResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["Id"] = o.Id
-	toSerialize["Name"] = o.Name
-	toSerialize["CleanOnBoot"] = o.CleanOnBoot
-	toSerialize["ControllerAddresses"] = o.ControllerAddresses
-	toSerialize["CpuCount"] = o.CpuCount
+	if !IsNil(o.Id) {
+		toSerialize["Id"] = o.Id
+	}
+	if o.Name.IsSet() {
+		toSerialize["Name"] = o.Name.Get()
+	}
+	if !IsNil(o.CleanOnBoot) {
+		toSerialize["CleanOnBoot"] = o.CleanOnBoot
+	}
+	if o.ControllerAddresses != nil {
+		toSerialize["ControllerAddresses"] = o.ControllerAddresses
+	}
+	if !IsNil(o.CpuCount) {
+		toSerialize["CpuCount"] = o.CpuCount
+	}
 	if !IsNil(o.CoresPerCpuCount) {
 		toSerialize["CoresPerCpuCount"] = o.CoresPerCpuCount
 	}
@@ -1919,7 +2067,9 @@ func (o ProvisioningSchemeResponseModel) ToMap() (map[string]interface{}, error)
 	if o.CustomPropertiesInString.IsSet() {
 		toSerialize["CustomPropertiesInString"] = o.CustomPropertiesInString.Get()
 	}
-	toSerialize["DedicatedTenancy"] = o.DedicatedTenancy
+	if !IsNil(o.DedicatedTenancy) {
+		toSerialize["DedicatedTenancy"] = o.DedicatedTenancy
+	}
 	if o.TenancyType.IsSet() {
 		toSerialize["TenancyType"] = o.TenancyType.Get()
 	}
@@ -1944,34 +2094,54 @@ func (o ProvisioningSchemeResponseModel) ToMap() (map[string]interface{}, error)
 	if o.IdentityContent.IsSet() {
 		toSerialize["IdentityContent"] = o.IdentityContent.Get()
 	}
-	toSerialize["DiskSizeGB"] = o.DiskSizeGB
+	if !IsNil(o.DiskSizeGB) {
+		toSerialize["DiskSizeGB"] = o.DiskSizeGB
+	}
 	if o.GpuTypeId.IsSet() {
 		toSerialize["GpuTypeId"] = o.GpuTypeId.Get()
 	}
-	toSerialize["ResourcePool"] = o.ResourcePool
-	toSerialize["IdentityPool"] = o.IdentityPool
-	toSerialize["MachineCount"] = o.MachineCount
-	toSerialize["MasterImage"] = o.MasterImage
+	if !IsNil(o.ResourcePool) {
+		toSerialize["ResourcePool"] = o.ResourcePool
+	}
+	if !IsNil(o.IdentityPool) {
+		toSerialize["IdentityPool"] = o.IdentityPool
+	}
+	if !IsNil(o.MachineCount) {
+		toSerialize["MachineCount"] = o.MachineCount
+	}
+	if !IsNil(o.MasterImage) {
+		toSerialize["MasterImage"] = o.MasterImage
+	}
 	if !IsNil(o.MachineProfile) {
 		toSerialize["MachineProfile"] = o.MachineProfile
 	}
-	toSerialize["MemoryMB"] = o.MemoryMB
+	if !IsNil(o.MemoryMB) {
+		toSerialize["MemoryMB"] = o.MemoryMB
+	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
 	}
-	toSerialize["NetworkMaps"] = o.NetworkMaps
+	if o.NetworkMaps != nil {
+		toSerialize["NetworkMaps"] = o.NetworkMaps
+	}
 	if o.NutanixContainer.IsSet() {
 		toSerialize["NutanixContainer"] = o.NutanixContainer.Get()
 	}
-	toSerialize["ResetAdministratorPasswords"] = o.ResetAdministratorPasswords
+	if !IsNil(o.ResetAdministratorPasswords) {
+		toSerialize["ResetAdministratorPasswords"] = o.ResetAdministratorPasswords
+	}
 	if o.SecurityGroups != nil {
 		toSerialize["SecurityGroups"] = o.SecurityGroups
 	}
 	if o.ServiceOffering.IsSet() {
 		toSerialize["ServiceOffering"] = o.ServiceOffering.Get()
 	}
-	toSerialize["UseFullDiskCloneProvisioning"] = o.UseFullDiskCloneProvisioning
-	toSerialize["UseWriteBackCache"] = o.UseWriteBackCache
+	if !IsNil(o.UseFullDiskCloneProvisioning) {
+		toSerialize["UseFullDiskCloneProvisioning"] = o.UseFullDiskCloneProvisioning
+	}
+	if !IsNil(o.UseWriteBackCache) {
+		toSerialize["UseWriteBackCache"] = o.UseWriteBackCache
+	}
 	if !IsNil(o.VMMetadata) {
 		toSerialize["VMMetadata"] = o.VMMetadata
 	}
@@ -1993,11 +2163,15 @@ func (o ProvisioningSchemeResponseModel) ToMap() (map[string]interface{}, error)
 	if !IsNil(o.WriteBackCacheDriveLetter) {
 		toSerialize["WriteBackCacheDriveLetter"] = o.WriteBackCacheDriveLetter
 	}
-	toSerialize["IsPreviousImageLegacyVda"] = o.IsPreviousImageLegacyVda
+	if !IsNil(o.IsPreviousImageLegacyVda) {
+		toSerialize["IsPreviousImageLegacyVda"] = o.IsPreviousImageLegacyVda
+	}
 	if !IsNil(o.MachineAccountCreationRules) {
 		toSerialize["MachineAccountCreationRules"] = o.MachineAccountCreationRules
 	}
-	toSerialize["NumAvailableMachineAccounts"] = o.NumAvailableMachineAccounts
+	if !IsNil(o.NumAvailableMachineAccounts) {
+		toSerialize["NumAvailableMachineAccounts"] = o.NumAvailableMachineAccounts
+	}
 	if o.PVSSite.IsSet() {
 		toSerialize["PVSSite"] = o.PVSSite.Get()
 	}

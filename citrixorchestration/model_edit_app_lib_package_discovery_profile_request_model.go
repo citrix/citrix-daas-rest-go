@@ -44,6 +44,8 @@ type EditAppLibPackageDiscoveryProfileRequestModel struct {
 	DiscoverAppAttach NullableBool `json:"DiscoverAppAttach,omitempty"`
 	// A value indicating whether or not to search should discover FlexApp Packages.
 	DiscoverFlexApp NullableBool `json:"DiscoverFlexApp,omitempty"`
+	// A value indicating whether or not to search should discover ElasticApp Layers packages.
+	DiscoverElasticAppLayers NullableBool `json:"DiscoverElasticAppLayers,omitempty"`
 	// A value indicating whether or not the discovery should run automatically.
 	AutomateDiscovery NullableBool `json:"AutomateDiscovery,omitempty"`
 	AutoDiscoveryPeriod *AutoDiscoveryPeriod `json:"AutoDiscoveryPeriod,omitempty"`
@@ -606,6 +608,48 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverFlexApp() {
 	o.DiscoverFlexApp.Unset()
 }
 
+// GetDiscoverElasticAppLayers returns the DiscoverElasticAppLayers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EditAppLibPackageDiscoveryProfileRequestModel) GetDiscoverElasticAppLayers() bool {
+	if o == nil || IsNil(o.DiscoverElasticAppLayers.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.DiscoverElasticAppLayers.Get()
+}
+
+// GetDiscoverElasticAppLayersOk returns a tuple with the DiscoverElasticAppLayers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EditAppLibPackageDiscoveryProfileRequestModel) GetDiscoverElasticAppLayersOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DiscoverElasticAppLayers.Get(), o.DiscoverElasticAppLayers.IsSet()
+}
+
+// HasDiscoverElasticAppLayers returns a boolean if a field has been set.
+func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDiscoverElasticAppLayers() bool {
+	if o != nil && o.DiscoverElasticAppLayers.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscoverElasticAppLayers gets a reference to the given NullableBool and assigns it to the DiscoverElasticAppLayers field.
+func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayers(v bool) {
+	o.DiscoverElasticAppLayers.Set(&v)
+}
+// SetDiscoverElasticAppLayersNil sets the value for DiscoverElasticAppLayers to be an explicit nil
+func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayersNil() {
+	o.DiscoverElasticAppLayers.Set(nil)
+}
+
+// UnsetDiscoverElasticAppLayers ensures that no value is present for DiscoverElasticAppLayers, not even an explicit nil
+func (o *EditAppLibPackageDiscoveryProfileRequestModel) UnsetDiscoverElasticAppLayers() {
+	o.DiscoverElasticAppLayers.Unset()
+}
+
 // GetAutomateDiscovery returns the AutomateDiscovery field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) GetAutomateDiscovery() bool {
 	if o == nil || IsNil(o.AutomateDiscovery.Get()) {
@@ -812,6 +856,9 @@ func (o EditAppLibPackageDiscoveryProfileRequestModel) ToMap() (map[string]inter
 	}
 	if o.DiscoverFlexApp.IsSet() {
 		toSerialize["DiscoverFlexApp"] = o.DiscoverFlexApp.Get()
+	}
+	if o.DiscoverElasticAppLayers.IsSet() {
+		toSerialize["DiscoverElasticAppLayers"] = o.DiscoverElasticAppLayers.Get()
 	}
 	if o.AutomateDiscovery.IsSet() {
 		toSerialize["AutomateDiscovery"] = o.AutomateDiscovery.Get()

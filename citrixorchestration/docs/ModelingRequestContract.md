@@ -4,26 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DomainController** | Pointer to **NullableString** | The domain controller | [optional] 
-**ComputerIdentity** | Pointer to **NullableString** | The computer | [optional] 
-**UserIdentity** | Pointer to **NullableString** | The user | [optional] 
-**SiteName** | Pointer to **NullableString** | The site name | [optional] 
-**Computer** | Pointer to **NullableString** | The selected computer | [optional] 
-**ComputerContainer** | Pointer to **NullableString** | Selected computer container | [optional] 
-**User** | Pointer to **NullableString** | Selected user | [optional] 
+**DomainController** | Pointer to **NullableString** | The domain controller. | [optional] 
+**ComputerIdentity** | Pointer to **NullableString** | The computer. | [optional] 
+**UserIdentity** | Pointer to **NullableString** | The user. | [optional] 
+**SiteName** | Pointer to **NullableString** | The site name. | [optional] 
+**Computer** | Pointer to **NullableString** | The selected computer. | [optional] 
+**ComputerContainer** | Pointer to **NullableString** | Selected computer container. | [optional] 
+**User** | Pointer to **NullableString** | Selected user. | [optional] 
 **UserSid** | Pointer to **NullableString** | SID of the selected user. | [optional] 
 **DistinguishedName** | Pointer to **NullableString** | User distinguished name. | [optional] 
 **GroupSids** | Pointer to **[]string** | SIDs of the groups to which the user belongs. | [optional] 
-**UserContainer** | Pointer to **NullableString** | Selected user container | [optional] 
-**ClientIPAddress** | Pointer to **NullableString** | Client IP address | [optional] 
-**ClientName** | Pointer to **NullableString** | Client name | [optional] 
-**DeliveryGroup** | Pointer to **NullableString** | Delivery group | [optional] 
+**UserContainer** | Pointer to **NullableString** | Selected user container. | [optional] 
+**ClientIPAddress** | Pointer to **NullableString** | Client IP address. | [optional] 
+**ClientName** | Pointer to **NullableString** | Client name. | [optional] 
+**ClientPlatform** | Pointer to **NullableString** | Client platform. | [optional] 
+**DeliveryGroup** | Pointer to **NullableString** | Delivery group. | [optional] 
 **DeliveryGroupType** | Pointer to **NullableString** | Delivery group type, values are members of enum DesktopKind. | [optional] 
-**DeliveryGroupTags** | Pointer to **[]string** | Delivery group tags | [optional] 
-**IsUsingAccessGateway** | Pointer to **bool** | Using Access Gateway | [optional] 
-**AccessGatewayFarm** | Pointer to **NullableString** | Access Gateway farm | [optional] 
-**AccessGatewayTags** | Pointer to **[]string** | Access Gateway tags | [optional] 
-**IsUsingWanScaler** | Pointer to **bool** | Using WanScaler (NetScaler SD-WAN) | [optional] 
+**DeliveryGroupTags** | Pointer to **[]string** | Delivery group tags. | [optional] 
+**IsUsingAccessGateway** | Pointer to **bool** | Using Access Gateway. | [optional] 
+**AccessGatewayFarm** | Pointer to **NullableString** | Access Gateway farm. | [optional] 
+**AccessGatewayTags** | Pointer to **[]string** | Access Gateway tags. | [optional] 
+**IsUsingWanScaler** | Pointer to **bool** | Using WanScaler (NetScaler SD-WAN). | [optional] 
 
 ## Methods
 
@@ -499,6 +500,41 @@ HasClientName returns a boolean if a field has been set.
 `func (o *ModelingRequestContract) UnsetClientName()`
 
 UnsetClientName ensures that no value is present for ClientName, not even an explicit nil
+### GetClientPlatform
+
+`func (o *ModelingRequestContract) GetClientPlatform() string`
+
+GetClientPlatform returns the ClientPlatform field if non-nil, zero value otherwise.
+
+### GetClientPlatformOk
+
+`func (o *ModelingRequestContract) GetClientPlatformOk() (*string, bool)`
+
+GetClientPlatformOk returns a tuple with the ClientPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClientPlatform
+
+`func (o *ModelingRequestContract) SetClientPlatform(v string)`
+
+SetClientPlatform sets ClientPlatform field to given value.
+
+### HasClientPlatform
+
+`func (o *ModelingRequestContract) HasClientPlatform() bool`
+
+HasClientPlatform returns a boolean if a field has been set.
+
+### SetClientPlatformNil
+
+`func (o *ModelingRequestContract) SetClientPlatformNil(b bool)`
+
+ SetClientPlatformNil sets the value for ClientPlatform to be an explicit nil
+
+### UnsetClientPlatform
+`func (o *ModelingRequestContract) UnsetClientPlatform()`
+
+UnsetClientPlatform ensures that no value is present for ClientPlatform, not even an explicit nil
 ### GetDeliveryGroup
 
 `func (o *ModelingRequestContract) GetDeliveryGroup() string`

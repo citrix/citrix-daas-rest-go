@@ -19,8 +19,9 @@ Name | Type | Description | Notes
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Region** | Pointer to **NullableString** | AWS region to connect to.  Optional.  If not specified, will connect to the global AWS APIs.  This can be used to discover the regions available within AWS.  Access to all other AWS resources requires the region to be set explicitly. | [optional] 
 **Address** | Pointer to **NullableString** | Custom AWS Address. | [optional] 
-**ApplicationId** | **string** | Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret or UserAssignedManagedIdentity. | 
-**ApplicationSecret** | **string** | The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat. | 
+**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
+**ApplicationId** | Pointer to **NullableString** | Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret or UserAssignedManagedIdentity. | [optional] 
+**ApplicationSecret** | Pointer to **NullableString** | The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **SubscriptionId** | **string** | Azure subscription ID.  Required. | 
 **ActiveDirectoryId** | **string** | Azure active directory ID.  Required. | 
@@ -28,7 +29,6 @@ Name | Type | Description | Notes
 **ManagementEndpoint** | Pointer to **NullableString** | Azure management endpoint.  Required if Environment is Custom. Optional otherwise. | [optional] 
 **AuthenticationAuthority** | Pointer to **NullableString** | Azure authentication authority.  Required if Environment is Custom. Optional otherwise. | [optional] 
 **StorageSuffix** | Pointer to **NullableString** | Azure storage suffix.  Required if Environment is Custom. Optional otherwise. | [optional] 
-**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
 **ServiceAccountId** | Pointer to **string** | The service account ID used to access the Google Cloud APIs. Required. | [optional] 
 **ServiceAccountCredentials** | Pointer to **string** | the JSON-encoded service account credentials used to access the Google Cloud APIs.  Required. Must be specified in the format indicated by ServiceAccountCredentialsFormat. | [optional] 
 **ServiceAccountCredentialsFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -50,7 +50,7 @@ Name | Type | Description | Notes
 
 ### NewHypervisorAzureConnectionDetailRequestModel
 
-`func NewHypervisorAzureConnectionDetailRequestModel(name string, connectionType HypervisorConnectionType, applicationId string, applicationSecret string, subscriptionId string, activeDirectoryId string, ) *HypervisorAzureConnectionDetailRequestModel`
+`func NewHypervisorAzureConnectionDetailRequestModel(name string, connectionType HypervisorConnectionType, subscriptionId string, activeDirectoryId string, ) *HypervisorAzureConnectionDetailRequestModel`
 
 NewHypervisorAzureConnectionDetailRequestModel instantiates a new HypervisorAzureConnectionDetailRequestModel object
 This constructor will assign default values to properties that have it defined,
@@ -530,6 +530,41 @@ HasAddress returns a boolean if a field has been set.
 `func (o *HypervisorAzureConnectionDetailRequestModel) UnsetAddress()`
 
 UnsetAddress ensures that no value is present for Address, not even an explicit nil
+### GetCustomProperties
+
+`func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomProperties() string`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomProperties(v string)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *HypervisorAzureConnectionDetailRequestModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *HypervisorAzureConnectionDetailRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetApplicationId
 
 `func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationId() string`
@@ -549,7 +584,22 @@ and a boolean to check if the value has been set.
 
 SetApplicationId sets ApplicationId field to given value.
 
+### HasApplicationId
 
+`func (o *HypervisorAzureConnectionDetailRequestModel) HasApplicationId() bool`
+
+HasApplicationId returns a boolean if a field has been set.
+
+### SetApplicationIdNil
+
+`func (o *HypervisorAzureConnectionDetailRequestModel) SetApplicationIdNil(b bool)`
+
+ SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+
+### UnsetApplicationId
+`func (o *HypervisorAzureConnectionDetailRequestModel) UnsetApplicationId()`
+
+UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
 ### GetApplicationSecret
 
 `func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationSecret() string`
@@ -569,7 +619,22 @@ and a boolean to check if the value has been set.
 
 SetApplicationSecret sets ApplicationSecret field to given value.
 
+### HasApplicationSecret
 
+`func (o *HypervisorAzureConnectionDetailRequestModel) HasApplicationSecret() bool`
+
+HasApplicationSecret returns a boolean if a field has been set.
+
+### SetApplicationSecretNil
+
+`func (o *HypervisorAzureConnectionDetailRequestModel) SetApplicationSecretNil(b bool)`
+
+ SetApplicationSecretNil sets the value for ApplicationSecret to be an explicit nil
+
+### UnsetApplicationSecret
+`func (o *HypervisorAzureConnectionDetailRequestModel) UnsetApplicationSecret()`
+
+UnsetApplicationSecret ensures that no value is present for ApplicationSecret, not even an explicit nil
 ### GetApplicationSecretFormat
 
 `func (o *HypervisorAzureConnectionDetailRequestModel) GetApplicationSecretFormat() IdentityPasswordFormat`
@@ -765,41 +830,6 @@ HasStorageSuffix returns a boolean if a field has been set.
 `func (o *HypervisorAzureConnectionDetailRequestModel) UnsetStorageSuffix()`
 
 UnsetStorageSuffix ensures that no value is present for StorageSuffix, not even an explicit nil
-### GetCustomProperties
-
-`func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomProperties() string`
-
-GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
-
-### GetCustomPropertiesOk
-
-`func (o *HypervisorAzureConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool)`
-
-GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCustomProperties
-
-`func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomProperties(v string)`
-
-SetCustomProperties sets CustomProperties field to given value.
-
-### HasCustomProperties
-
-`func (o *HypervisorAzureConnectionDetailRequestModel) HasCustomProperties() bool`
-
-HasCustomProperties returns a boolean if a field has been set.
-
-### SetCustomPropertiesNil
-
-`func (o *HypervisorAzureConnectionDetailRequestModel) SetCustomPropertiesNil(b bool)`
-
- SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-
-### UnsetCustomProperties
-`func (o *HypervisorAzureConnectionDetailRequestModel) UnsetCustomProperties()`
-
-UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetServiceAccountId
 
 `func (o *HypervisorAzureConnectionDetailRequestModel) GetServiceAccountId() string`

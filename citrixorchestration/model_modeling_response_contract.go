@@ -17,13 +17,13 @@ import (
 // checks if the ModelingResponseContract type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ModelingResponseContract{}
 
-// ModelingResponseContract Data contract for group policy modeling
+// ModelingResponseContract Data contract for group policy modeling response.
 type ModelingResponseContract struct {
-	// Gets or sets Name
+	// A name for the response. This is just hard coded.
 	Name NullableString `json:"Name,omitempty"`
-	// Gets or sets User
+	// The username.
 	User NullableString `json:"User,omitempty"`
-	// Gets or sets Machine
+	// The machine name.
 	Machine NullableString `json:"Machine,omitempty"`
 	Result *ModelingResultContract `json:"Result,omitempty"`
 }

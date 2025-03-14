@@ -40,6 +40,7 @@ const (
 	BCKRSTRAUTOCONFIGCOMPONENTS_USER_ZONE_PREFERENCES BckRstrAutoConfigComponents = "UserZonePreferences"
 	BCKRSTRAUTOCONFIGCOMPONENTS_SITE_DATA BckRstrAutoConfigComponents = "SiteData"
 	BCKRSTRAUTOCONFIGCOMPONENTS_ZONES BckRstrAutoConfigComponents = "Zones"
+	BCKRSTRAUTOCONFIGCOMPONENTS_BACKUP_SCHEDULES BckRstrAutoConfigComponents = "BackupSchedules"
 	BCKRSTRAUTOCONFIGCOMPONENTS_ALL BckRstrAutoConfigComponents = "All"
 	BCKRSTRAUTOCONFIGCOMPONENTS_MULTIPLE BckRstrAutoConfigComponents = "Multiple"
 	BCKRSTRAUTOCONFIGCOMPONENTS_UNDEFINED BckRstrAutoConfigComponents = "Undefined"
@@ -67,6 +68,7 @@ var AllowedBckRstrAutoConfigComponentsEnumValues = []BckRstrAutoConfigComponents
 	"UserZonePreferences",
 	"SiteData",
 	"Zones",
+	"BackupSchedules",
 	"All",
 	"Multiple",
 	"Undefined",

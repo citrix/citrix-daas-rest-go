@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ProductCode** | **string** | Product code for the site license. | 
 **ProductEdition** | **string** | Product edition for the site license. | 
 **ProductVersion** | **string** | Product version. | 
+**LicenseExpirationDate** | Pointer to **NullableString** | The expiration date( in UTC) of the license selected. Only availiable for On-Prem deployment. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of Site. | [optional] 
 **SiteServices** | [**[]SiteServiceResponseModel**](SiteServiceResponseModel.md) | Services running within the site. | 
 **EnabledFeatures** | **[]string** | Enabled features within the site. | 
@@ -32,6 +33,7 @@ Name | Type | Description | Notes
 **LicensedSessionsActive** | Pointer to **NullableInt32** | The number of active, licensed sessions. | [optional] 
 **LicensingGraceHoursLeft** | Pointer to **NullableInt32** | When in an active licensing grace period, indicates the number of hours remaining in the grace period. Will be null for XenApp &amp; XenDesktop service. | [optional] 
 **LicensingGracePeriodActive** | Pointer to **NullableBool** | Indicates whether a licensing grace period is active. Will be null for XenApp &amp; XenDesktop service. | [optional] 
+**LicensingOutOfBoxGracePeriodActive** | Pointer to **NullableBool** | The indicator for licensing out of the box grace period active. | [optional] 
 **PeakConcurrentLicenseUsers** | Pointer to **NullableInt32** | The peak number of concurrent licensed users. Only applies if LicensingModel is Concurrent. | [optional] 
 **ReuseMachinesWithoutShutdownInOutageAllowed** | Pointer to **bool** | Allow sessions to launch on shared machines without an intermediate shutdown while the system is operating in outage mode. | [optional] 
 **DefaultSecureIcaRequired** | Pointer to **bool** | The default SecureICA usage for new delivery groups. | [optional] 
@@ -440,6 +442,41 @@ and a boolean to check if the value has been set.
 SetProductVersion sets ProductVersion field to given value.
 
 
+### GetLicenseExpirationDate
+
+`func (o *SiteDetailResponseModel) GetLicenseExpirationDate() string`
+
+GetLicenseExpirationDate returns the LicenseExpirationDate field if non-nil, zero value otherwise.
+
+### GetLicenseExpirationDateOk
+
+`func (o *SiteDetailResponseModel) GetLicenseExpirationDateOk() (*string, bool)`
+
+GetLicenseExpirationDateOk returns a tuple with the LicenseExpirationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseExpirationDate
+
+`func (o *SiteDetailResponseModel) SetLicenseExpirationDate(v string)`
+
+SetLicenseExpirationDate sets LicenseExpirationDate field to given value.
+
+### HasLicenseExpirationDate
+
+`func (o *SiteDetailResponseModel) HasLicenseExpirationDate() bool`
+
+HasLicenseExpirationDate returns a boolean if a field has been set.
+
+### SetLicenseExpirationDateNil
+
+`func (o *SiteDetailResponseModel) SetLicenseExpirationDateNil(b bool)`
+
+ SetLicenseExpirationDateNil sets the value for LicenseExpirationDate to be an explicit nil
+
+### UnsetLicenseExpirationDate
+`func (o *SiteDetailResponseModel) UnsetLicenseExpirationDate()`
+
+UnsetLicenseExpirationDate ensures that no value is present for LicenseExpirationDate, not even an explicit nil
 ### GetMetadata
 
 `func (o *SiteDetailResponseModel) GetMetadata() []NameValueStringPairModel`
@@ -805,6 +842,41 @@ HasLicensingGracePeriodActive returns a boolean if a field has been set.
 `func (o *SiteDetailResponseModel) UnsetLicensingGracePeriodActive()`
 
 UnsetLicensingGracePeriodActive ensures that no value is present for LicensingGracePeriodActive, not even an explicit nil
+### GetLicensingOutOfBoxGracePeriodActive
+
+`func (o *SiteDetailResponseModel) GetLicensingOutOfBoxGracePeriodActive() bool`
+
+GetLicensingOutOfBoxGracePeriodActive returns the LicensingOutOfBoxGracePeriodActive field if non-nil, zero value otherwise.
+
+### GetLicensingOutOfBoxGracePeriodActiveOk
+
+`func (o *SiteDetailResponseModel) GetLicensingOutOfBoxGracePeriodActiveOk() (*bool, bool)`
+
+GetLicensingOutOfBoxGracePeriodActiveOk returns a tuple with the LicensingOutOfBoxGracePeriodActive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicensingOutOfBoxGracePeriodActive
+
+`func (o *SiteDetailResponseModel) SetLicensingOutOfBoxGracePeriodActive(v bool)`
+
+SetLicensingOutOfBoxGracePeriodActive sets LicensingOutOfBoxGracePeriodActive field to given value.
+
+### HasLicensingOutOfBoxGracePeriodActive
+
+`func (o *SiteDetailResponseModel) HasLicensingOutOfBoxGracePeriodActive() bool`
+
+HasLicensingOutOfBoxGracePeriodActive returns a boolean if a field has been set.
+
+### SetLicensingOutOfBoxGracePeriodActiveNil
+
+`func (o *SiteDetailResponseModel) SetLicensingOutOfBoxGracePeriodActiveNil(b bool)`
+
+ SetLicensingOutOfBoxGracePeriodActiveNil sets the value for LicensingOutOfBoxGracePeriodActive to be an explicit nil
+
+### UnsetLicensingOutOfBoxGracePeriodActive
+`func (o *SiteDetailResponseModel) UnsetLicensingOutOfBoxGracePeriodActive()`
+
+UnsetLicensingOutOfBoxGracePeriodActive ensures that no value is present for LicensingOutOfBoxGracePeriodActive, not even an explicit nil
 ### GetPeakConcurrentLicenseUsers
 
 `func (o *SiteDetailResponseModel) GetPeakConcurrentLicenseUsers() int32`

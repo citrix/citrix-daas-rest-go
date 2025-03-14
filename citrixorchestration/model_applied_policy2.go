@@ -17,15 +17,15 @@ import (
 // checks if the AppliedPolicy2 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AppliedPolicy2{}
 
-// AppliedPolicy2 Policy information
+// AppliedPolicy2 Policy information.
 type AppliedPolicy2 struct {
-	// Is policy applied
+	// Is policy applied.
 	IsApplied *bool `json:"IsApplied,omitempty"`
-	// Policy name
+	// Policy name.
 	PolicyName NullableString `json:"PolicyName,omitempty"`
-	// GPO name
+	// GPO name.
 	GpoName NullableString `json:"GpoName,omitempty"`
-	// Reasons why the policy is or is not applied
+	// Reasons why the policy is or is not applied.
 	Reasons map[string][]string `json:"Reasons,omitempty"`
 	// Reasons why the policy is or is not applied.
 	Details map[string][]FilterDetail `json:"Details,omitempty"`

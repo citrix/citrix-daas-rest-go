@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## ImageVersionsDeleteImageVersion
 
-> ImageVersionsDeleteImageVersion(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> ImageVersionsDeleteImageVersion(ctx, id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).PurgeDBOnly(purgeDBOnly).Async(async).Execute()
 
 Delete an image version.
 
@@ -40,11 +40,12 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    purgeDBOnly := true // bool | If this option is specified, this command will only remove the image version data from the Citrix site database.  However, the disk images created in the image version still remain in the hypervisor.   Optional; default is `false`. (optional) (default to false)
     async := true // bool | If `true`, the image version (and associated objects) will be deleted as a background task. The task will have JobType DeleteImageVersion. When the task is complete it will redirect to GetImageDefinitionImageVersion. The job's Parameters will contain properties: * _Id_ - ID of the image version being deleted, * _Number_ - Number of the image version being deleted. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.ImageVersionsAPIsDAAS.ImageVersionsDeleteImageVersion(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    r, err := apiClient.ImageVersionsAPIsDAAS.ImageVersionsDeleteImageVersion(context.Background(), id).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).PurgeDBOnly(purgeDBOnly).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ImageVersionsAPIsDAAS.ImageVersionsDeleteImageVersion``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -75,6 +76,7 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **purgeDBOnly** | **bool** | If this option is specified, this command will only remove the image version data from the Citrix site database.  However, the disk images created in the image version still remain in the hypervisor.   Optional; default is &#x60;false&#x60;. | [default to false]
  **async** | **bool** | If &#x60;true&#x60;, the image version (and associated objects) will be deleted as a background task. The task will have JobType DeleteImageVersion. When the task is complete it will redirect to GetImageDefinitionImageVersion. The job&#39;s Parameters will contain properties: * _Id_ - ID of the image version being deleted, * _Number_ - Number of the image version being deleted. | [default to false]
 
 ### Return type

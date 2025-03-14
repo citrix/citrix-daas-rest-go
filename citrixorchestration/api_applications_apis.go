@@ -3715,7 +3715,8 @@ AppV, or
 AppLibraryAppV, or
 Msix, or
 AppAttach, or
-FlexApp
+FlexApp, or
+ElasticAppLayer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.
@@ -4019,7 +4020,8 @@ AppV, or
 AppLibraryAppV, or
 Msix, or
 AppAttach, or
-FlexApp
+FlexApp, or
+ElasticAppLayer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param nameOrId Name or ID of the application. If the application is present in an application folder,             specify the name in this format: {application folder path plus application name}.             For example, FolderName1|FolderName2|ApplicationName.

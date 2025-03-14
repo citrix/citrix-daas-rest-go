@@ -1204,6 +1204,313 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCheckRebootScheduleNameExi
 	return localVarHTTPResponse, nil
 }
 
+type ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	type_ string
+	createAutoscalePluginTemplateRequestModel *CreateAutoscalePluginTemplateRequestModel
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// The template model.
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) CreateAutoscalePluginTemplateRequestModel(createAutoscalePluginTemplateRequestModel CreateAutoscalePluginTemplateRequestModel) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.createAutoscalePluginTemplateRequestModel = &createAutoscalePluginTemplateRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) UserAgent(userAgent string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) Authorization(authorization string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) Accept(accept string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the template will be created asynchronously.
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) Async(async bool) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeliveryGroupsCreateAutoscalePluginTemplateExecute(r)
+}
+
+/*
+DeliveryGroupsCreateAutoscalePluginTemplate Create a new autoscale plugin configuration template for the specified plugin type.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"             
+ @return ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTemplate(ctx context.Context, type_ string) ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest {
+	return ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest{
+		ApiService: a,
+		ctx: ctx,
+		type_: type_,
+	}
+}
+
+// Execute executes the request
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateAutoscalePluginTemplateExecute(r ApiDeliveryGroupsCreateAutoscalePluginTemplateRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateAutoscalePluginTemplate")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/AutoscalePlugin/{type}/Templates"
+	localVarPath = strings.Replace(localVarPath, "{"+"type"+"}", url.PathEscape(parameterValueToString(r.type_, "type_")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.createAutoscalePluginTemplateRequestModel == nil {
+		return nil, reportError("createAutoscalePluginTemplateRequestModel is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	// body params
+	localVarPostBody = r.createAutoscalePluginTemplateRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiDeliveryGroupsCreateDeliveryGroupRequest struct {
 	ctx context.Context
 	ApiService *DeliveryGroupsAPIsDAASService
@@ -1835,6 +2142,313 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAdvance
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	createAutoscaleGroupPluginRequestModel *CreateAutoscaleGroupPluginRequestModel
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// The autoscale group plugin create model
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) CreateAutoscaleGroupPluginRequestModel(createAutoscaleGroupPluginRequestModel CreateAutoscaleGroupPluginRequestModel) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.createAutoscaleGroupPluginRequestModel = &createAutoscaleGroupPluginRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) UserAgent(userAgent string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) Authorization(authorization string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) Accept(accept string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the template will be created asynchronously.
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) Async(async bool) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginExecute(r)
+}
+
+/*
+DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin Create an autoscale group plugin for the speicified delivery group.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,                 specify the name in this format: {admin folder path plus delivery group name}.                 For example, FolderName1|FolderName2|DeliveryGroupName.
+ @return ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string) ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest {
+	return ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+	}
+}
+
+// Execute executes the request
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.createAutoscaleGroupPluginRequestModel == nil {
+		return nil, reportError("createAutoscaleGroupPluginRequestModel is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	// body params
+	localVarPostBody = r.createAutoscaleGroupPluginRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiDeliveryGroupsCreateDeliveryGroupPowerTimeSchemeRequest struct {
 	ctx context.Context
 	ApiService *DeliveryGroupsAPIsDAASService
@@ -2463,6 +3077,283 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsCreateDeliveryGroupRebootS
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	type_ string
+	name string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) UserAgent(userAgent string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) Authorization(authorization string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) Accept(accept string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the template will be deleted asynchronously.
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) Async(async bool) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeliveryGroupsDeleteAutoscalePluginTemplateExecute(r)
+}
+
+/*
+DeliveryGroupsDeleteAutoscalePluginTemplate Delete the autoscale plugin configuration template for the specified plugin type and name.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
+ @param name The name of the template.
+ @return ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest {
+	return ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest{
+		ApiService: a,
+		ctx: ctx,
+		type_: type_,
+		name: name,
+	}
+}
+
+// Execute executes the request
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteAutoscalePluginTemplateExecute(r ApiDeliveryGroupsDeleteAutoscalePluginTemplateRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteAutoscalePluginTemplate")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/AutoscalePlugin/{type}/Templates/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type"+"}", url.PathEscape(parameterValueToString(r.type_, "type_")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
 type ApiDeliveryGroupsDeleteDeliveryGroupRequest struct {
 	ctx context.Context
 	ApiService *DeliveryGroupsAPIsDAASService
@@ -2846,6 +3737,283 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAdvance
 	localVarPath := localBasePath + "/DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"policyId"+"}", url.PathEscape(parameterValueToString(r.policyId, "policyId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	uid int32
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) UserAgent(userAgent string) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) Authorization(authorization string) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) Accept(accept string) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the template will be deleted asynchronously.
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) Async(async bool) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginExecute(r)
+}
+
+/*
+DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin Delete the autoscale group plugin by uid.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+ @param uid
+ @return ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string, uid int32) ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest {
+	return ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+		uid: uid,
+	}
+}
+
+// Execute executes the request
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodDelete
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"uid"+"}", url.PathEscape(parameterValueToString(r.uid, "uid")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5371,6 +6539,578 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsDoRemoveMachinesExecute(r 
 	return localVarHTTPResponse, nil
 }
 
+type ApiDeliveryGroupsGetAutoscalePluginTemplateRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	type_ string
+	name string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) UserAgent(userAgent string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) Authorization(authorization string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) Accept(accept string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the template will be gotten asynchronously.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) Async(async bool) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) Execute() (*AutoscalePluginTemplateResponseModel, *http.Response, error) {
+	return r.ApiService.DeliveryGroupsGetAutoscalePluginTemplateExecute(r)
+}
+
+/*
+DeliveryGroupsGetAutoscalePluginTemplate Return the autoscale plugin configuration template for the specified plugin type and name.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
+ @param name The name of the template.
+ @return ApiDeliveryGroupsGetAutoscalePluginTemplateRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsGetAutoscalePluginTemplateRequest {
+	return ApiDeliveryGroupsGetAutoscalePluginTemplateRequest{
+		ApiService: a,
+		ctx: ctx,
+		type_: type_,
+		name: name,
+	}
+}
+
+// Execute executes the request
+//  @return AutoscalePluginTemplateResponseModel
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplateExecute(r ApiDeliveryGroupsGetAutoscalePluginTemplateRequest) (*AutoscalePluginTemplateResponseModel, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AutoscalePluginTemplateResponseModel
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetAutoscalePluginTemplate")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/AutoscalePlugin/{type}/Templates/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type"+"}", url.PathEscape(parameterValueToString(r.type_, "type_")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	type_ string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) UserAgent(userAgent string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) Authorization(authorization string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) Accept(accept string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the templates will be gotten asynchronously.
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) Async(async bool) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) Execute() (*AutoscalePluginTemplateResponseModelCollection, *http.Response, error) {
+	return r.ApiService.DeliveryGroupsGetAutoscalePluginTemplatesExecute(r)
+}
+
+/*
+DeliveryGroupsGetAutoscalePluginTemplates Return all autoscale plugin configuration templates for the specified plugin type.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param type_ The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
+ @return ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplates(ctx context.Context, type_ string) ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest {
+	return ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest{
+		ApiService: a,
+		ctx: ctx,
+		type_: type_,
+	}
+}
+
+// Execute executes the request
+//  @return AutoscalePluginTemplateResponseModelCollection
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetAutoscalePluginTemplatesExecute(r ApiDeliveryGroupsGetAutoscalePluginTemplatesRequest) (*AutoscalePluginTemplateResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AutoscalePluginTemplateResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetAutoscalePluginTemplates")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/AutoscalePlugin/{type}/Templates"
+	localVarPath = strings.Replace(localVarPath, "{"+"type"+"}", url.PathEscape(parameterValueToString(r.type_, "type_")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiDeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachinesRequest struct {
 	ctx context.Context
 	ApiService *DeliveryGroupsAPIsDAASService
@@ -6651,6 +8391,300 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupApplicatio
 	}
 	if r.continuationToken != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	type_ *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) UserAgent(userAgent string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) Authorization(authorization string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) Accept(accept string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// The type of the plugin.             The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;             
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) Type_(type_ string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.type_ = &type_
+	return r
+}
+
+// If &#39;true&#39;, the autoscale group plugins will be gotten asynchronously.
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) Async(async bool) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) Execute() (*AutoscaleGroupPluginModelCollection, *http.Response, error) {
+	return r.ApiService.DeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsExecute(r)
+}
+
+/*
+DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins Get the autoscale group plugins for the specified delivery group.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+ @return ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins(ctx context.Context, nameOrId string) ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest {
+	return ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+	}
+}
+
+// Execute executes the request
+//  @return AutoscaleGroupPluginModelCollection
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsExecute(r ApiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest) (*AutoscaleGroupPluginModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *AutoscaleGroupPluginModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+
+	if r.type_ != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -8891,6 +10925,7 @@ type ApiDeliveryGroupsGetDeliveryGroupTagsRequest struct {
 	accept *string
 	citrixLocale *string
 	fields *string
+	async *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8938,6 +10973,12 @@ func (r ApiDeliveryGroupsGetDeliveryGroupTagsRequest) CitrixLocale(citrixLocale 
 // Optional parameter, removing unspecified properties that otherwise would have been sent by the server.
 func (r ApiDeliveryGroupsGetDeliveryGroupTagsRequest) Fields(fields string) ApiDeliveryGroupsGetDeliveryGroupTagsRequest {
 	r.fields = &fields
+	return r
+}
+
+// If &#x60;true&#x60;, this request will be handled asynchronously.
+func (r ApiDeliveryGroupsGetDeliveryGroupTagsRequest) Async(async bool) ApiDeliveryGroupsGetDeliveryGroupTagsRequest {
+	r.async = &async
 	return r
 }
 
@@ -8997,6 +11038,9 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsGetDeliveryGroupTagsExecut
 
 	if r.fields != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -14753,6 +16797,606 @@ func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsTestDeliveryGroupExistsExe
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	type_ string
+	name string
+	updateAutoscalePluginTemplateRequestModel *UpdateAutoscalePluginTemplateRequestModel
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// The template model.
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) UpdateAutoscalePluginTemplateRequestModel(updateAutoscalePluginTemplateRequestModel UpdateAutoscalePluginTemplateRequestModel) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.updateAutoscalePluginTemplateRequestModel = &updateAutoscalePluginTemplateRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) UserAgent(userAgent string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) Authorization(authorization string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) Accept(accept string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the template will be created asynchronously.
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) Async(async bool) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeliveryGroupsUpdateAutoscalePluginTemplateExecute(r)
+}
+
+/*
+DeliveryGroupsUpdateAutoscalePluginTemplate Update the autoscale plugin configuration template for the specified plugin type.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param type_ The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"             
+ @param name The name of the template.
+ @return ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTemplate(ctx context.Context, type_ string, name string) ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest {
+	return ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest{
+		ApiService: a,
+		ctx: ctx,
+		type_: type_,
+		name: name,
+	}
+}
+
+// Execute executes the request
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateAutoscalePluginTemplateExecute(r ApiDeliveryGroupsUpdateAutoscalePluginTemplateRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsUpdateAutoscalePluginTemplate")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/AutoscalePlugin/{type}/Templates/{name}"
+	localVarPath = strings.Replace(localVarPath, "{"+"type"+"}", url.PathEscape(parameterValueToString(r.type_, "type_")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", url.PathEscape(parameterValueToString(r.name, "name")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.updateAutoscalePluginTemplateRequestModel == nil {
+		return nil, reportError("updateAutoscalePluginTemplateRequestModel is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	// body params
+	localVarPostBody = r.updateAutoscalePluginTemplateRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarHTTPResponse, newErr
+	}
+
+	return localVarHTTPResponse, nil
+}
+
+type ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest struct {
+	ctx context.Context
+	ApiService *DeliveryGroupsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	uid int32
+	updateAutoscaleGroupPluginRequestModel *UpdateAutoscaleGroupPluginRequestModel
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) CitrixCustomerId(citrixCustomerId string) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) CitrixInstanceId(citrixInstanceId string) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// The autoscale group plugin update model
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) UpdateAutoscaleGroupPluginRequestModel(updateAutoscaleGroupPluginRequestModel UpdateAutoscaleGroupPluginRequestModel) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.updateAutoscaleGroupPluginRequestModel = &updateAutoscaleGroupPluginRequestModel
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) UserAgent(userAgent string) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) Authorization(authorization string) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) CitrixTransactionId(citrixTransactionId string) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) Accept(accept string) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) CitrixLocale(citrixLocale string) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#39;true&#39;, the template will be updated asynchronously.
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) Async(async bool) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginExecute(r)
+}
+
+/*
+DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin Update the autoscale group plugin by uid.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+ @param uid The group plugin uid
+ @return ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest
+*/
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin(ctx context.Context, nameOrId string, uid int32) ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest {
+	return ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+		uid: uid,
+	}
+}
+
+// Execute executes the request
+func (a *DeliveryGroupsAPIsDAASService) DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginExecute(r ApiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest) (*http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		formFiles            []formFile
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeliveryGroupsAPIsDAASService.DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin")
+	if err != nil {
+		return nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid}"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"uid"+"}", url.PathEscape(parameterValueToString(r.uid, "uid")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.updateAutoscaleGroupPluginRequestModel == nil {
+		return nil, reportError("updateAutoscaleGroupPluginRequestModel is required and must be specified")
+	}
+
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	// body params
+	localVarPostBody = r.updateAutoscaleGroupPluginRequestModel
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
 			var v ErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

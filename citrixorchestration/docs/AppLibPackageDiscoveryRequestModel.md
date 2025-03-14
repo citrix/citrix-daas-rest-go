@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **DiscoverMsiX** | Pointer to **NullableBool** | A value indicating whether or not to discover MSIX packages | [optional] [default to false]
 **DiscoverAppAttach** | Pointer to **NullableBool** | A value indicating whether or not to discover AppAttach packages | [optional] [default to false]
 **DiscoverFlexApp** | Pointer to **NullableBool** | A value indicating whether or not to discover FlexApp packages | [optional] [default to false]
+**DiscoverElasticAppLayers** | Pointer to **NullableBool** | A value indicating whether or not to discover ElasticApp layers packages | [optional] [default to false]
 **ManagementServer** | Pointer to **NullableString** | The url of the App-V Management Server that packages will be discovered from. | [optional] 
 **PublishingServer** | Pointer to **NullableString** | A value indicating whether or not to discover AppAttach packages | [optional] 
 **Username** | Pointer to **NullableString** | the username of App-V server admin | [optional] 
@@ -344,6 +345,41 @@ HasDiscoverFlexApp returns a boolean if a field has been set.
 `func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverFlexApp()`
 
 UnsetDiscoverFlexApp ensures that no value is present for DiscoverFlexApp, not even an explicit nil
+### GetDiscoverElasticAppLayers
+
+`func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverElasticAppLayers() bool`
+
+GetDiscoverElasticAppLayers returns the DiscoverElasticAppLayers field if non-nil, zero value otherwise.
+
+### GetDiscoverElasticAppLayersOk
+
+`func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverElasticAppLayersOk() (*bool, bool)`
+
+GetDiscoverElasticAppLayersOk returns a tuple with the DiscoverElasticAppLayers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiscoverElasticAppLayers
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverElasticAppLayers(v bool)`
+
+SetDiscoverElasticAppLayers sets DiscoverElasticAppLayers field to given value.
+
+### HasDiscoverElasticAppLayers
+
+`func (o *AppLibPackageDiscoveryRequestModel) HasDiscoverElasticAppLayers() bool`
+
+HasDiscoverElasticAppLayers returns a boolean if a field has been set.
+
+### SetDiscoverElasticAppLayersNil
+
+`func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverElasticAppLayersNil(b bool)`
+
+ SetDiscoverElasticAppLayersNil sets the value for DiscoverElasticAppLayers to be an explicit nil
+
+### UnsetDiscoverElasticAppLayers
+`func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverElasticAppLayers()`
+
+UnsetDiscoverElasticAppLayers ensures that no value is present for DiscoverElasticAppLayers, not even an explicit nil
 ### GetManagementServer
 
 `func (o *AppLibPackageDiscoveryRequestModel) GetManagementServer() string`

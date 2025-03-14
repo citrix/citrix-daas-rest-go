@@ -17,21 +17,21 @@ import (
 // checks if the ModelingRequestContract type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ModelingRequestContract{}
 
-// ModelingRequestContract Modeling request model
+// ModelingRequestContract Modeling request model.
 type ModelingRequestContract struct {
-	// The domain controller
+	// The domain controller.
 	DomainController NullableString `json:"DomainController,omitempty"`
-	// The computer
+	// The computer.
 	ComputerIdentity NullableString `json:"ComputerIdentity,omitempty"`
-	// The user
+	// The user.
 	UserIdentity NullableString `json:"UserIdentity,omitempty"`
-	// The site name
+	// The site name.
 	SiteName NullableString `json:"SiteName,omitempty"`
-	// The selected computer
+	// The selected computer.
 	Computer NullableString `json:"Computer,omitempty"`
-	// Selected computer container
+	// Selected computer container.
 	ComputerContainer NullableString `json:"ComputerContainer,omitempty"`
-	// Selected user
+	// Selected user.
 	User NullableString `json:"User,omitempty"`
 	// SID of the selected user.
 	UserSid NullableString `json:"UserSid,omitempty"`
@@ -39,25 +39,27 @@ type ModelingRequestContract struct {
 	DistinguishedName NullableString `json:"DistinguishedName,omitempty"`
 	// SIDs of the groups to which the user belongs.
 	GroupSids []string `json:"GroupSids,omitempty"`
-	// Selected user container
+	// Selected user container.
 	UserContainer NullableString `json:"UserContainer,omitempty"`
-	// Client IP address
+	// Client IP address.
 	ClientIPAddress NullableString `json:"ClientIPAddress,omitempty"`
-	// Client name
+	// Client name.
 	ClientName NullableString `json:"ClientName,omitempty"`
-	// Delivery group
+	// Client platform.
+	ClientPlatform NullableString `json:"ClientPlatform,omitempty"`
+	// Delivery group.
 	DeliveryGroup NullableString `json:"DeliveryGroup,omitempty"`
 	// Delivery group type, values are members of enum DesktopKind.
 	DeliveryGroupType NullableString `json:"DeliveryGroupType,omitempty"`
-	// Delivery group tags
+	// Delivery group tags.
 	DeliveryGroupTags []string `json:"DeliveryGroupTags,omitempty"`
-	// Using Access Gateway
+	// Using Access Gateway.
 	IsUsingAccessGateway *bool `json:"IsUsingAccessGateway,omitempty"`
-	// Access Gateway farm
+	// Access Gateway farm.
 	AccessGatewayFarm NullableString `json:"AccessGatewayFarm,omitempty"`
-	// Access Gateway tags
+	// Access Gateway tags.
 	AccessGatewayTags []string `json:"AccessGatewayTags,omitempty"`
-	// Using WanScaler (NetScaler SD-WAN)
+	// Using WanScaler (NetScaler SD-WAN).
 	IsUsingWanScaler *bool `json:"IsUsingWanScaler,omitempty"`
 }
 
@@ -615,6 +617,48 @@ func (o *ModelingRequestContract) UnsetClientName() {
 	o.ClientName.Unset()
 }
 
+// GetClientPlatform returns the ClientPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ModelingRequestContract) GetClientPlatform() string {
+	if o == nil || IsNil(o.ClientPlatform.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ClientPlatform.Get()
+}
+
+// GetClientPlatformOk returns a tuple with the ClientPlatform field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ModelingRequestContract) GetClientPlatformOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ClientPlatform.Get(), o.ClientPlatform.IsSet()
+}
+
+// HasClientPlatform returns a boolean if a field has been set.
+func (o *ModelingRequestContract) HasClientPlatform() bool {
+	if o != nil && o.ClientPlatform.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetClientPlatform gets a reference to the given NullableString and assigns it to the ClientPlatform field.
+func (o *ModelingRequestContract) SetClientPlatform(v string) {
+	o.ClientPlatform.Set(&v)
+}
+// SetClientPlatformNil sets the value for ClientPlatform to be an explicit nil
+func (o *ModelingRequestContract) SetClientPlatformNil() {
+	o.ClientPlatform.Set(nil)
+}
+
+// UnsetClientPlatform ensures that no value is present for ClientPlatform, not even an explicit nil
+func (o *ModelingRequestContract) UnsetClientPlatform() {
+	o.ClientPlatform.Unset()
+}
+
 // GetDeliveryGroup returns the DeliveryGroup field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModelingRequestContract) GetDeliveryGroup() string {
 	if o == nil || IsNil(o.DeliveryGroup.Get()) {
@@ -919,6 +963,9 @@ func (o ModelingRequestContract) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ClientName.IsSet() {
 		toSerialize["ClientName"] = o.ClientName.Get()
+	}
+	if o.ClientPlatform.IsSet() {
+		toSerialize["ClientPlatform"] = o.ClientPlatform.Get()
 	}
 	if o.DeliveryGroup.IsSet() {
 		toSerialize["DeliveryGroup"] = o.DeliveryGroup.Get()

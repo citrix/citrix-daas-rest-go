@@ -16,8 +16,9 @@ Name | Type | Description | Notes
 **DiscoverMsix** | Pointer to **bool** | A value indicating whether or not to search should Discover Msix Packages. | [optional] 
 **DiscoverAppAttach** | Pointer to **bool** | A value indicating whether or not to search should Discover AppAttach Packages. | [optional] 
 **DiscoverFlexApp** | Pointer to **bool** | A value indicating whether or not to search should Discover FlexApp Packages. | [optional] 
+**DiscoverElasticAppLayers** | Pointer to **bool** | A value indicating whether or not to search should Discover ElasticApp Layers Packages. | [optional] 
 **AutomateDiscovery** | Pointer to **bool** | A value indicating whether or not the discovery should run automatically. | [optional] 
-**AutoDiscoveryPeriod** | Pointer to **NullableString** | A value indicating what time period should used to trigger the discovery. | [optional] 
+**AutoDiscoveryPeriod** | Pointer to **NullableString** | A value indicating what time period should use to trigger the discovery. | [optional] 
 **AutoDiscoveryCadence** | Pointer to **int32** | A value indicating how often to trigger the discovery. | [optional] 
 
 ## Methods
@@ -398,6 +399,31 @@ SetDiscoverFlexApp sets DiscoverFlexApp field to given value.
 `func (o *AppLibPackageDiscoveryProfileResponseModel) HasDiscoverFlexApp() bool`
 
 HasDiscoverFlexApp returns a boolean if a field has been set.
+
+### GetDiscoverElasticAppLayers
+
+`func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverElasticAppLayers() bool`
+
+GetDiscoverElasticAppLayers returns the DiscoverElasticAppLayers field if non-nil, zero value otherwise.
+
+### GetDiscoverElasticAppLayersOk
+
+`func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverElasticAppLayersOk() (*bool, bool)`
+
+GetDiscoverElasticAppLayersOk returns a tuple with the DiscoverElasticAppLayers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDiscoverElasticAppLayers
+
+`func (o *AppLibPackageDiscoveryProfileResponseModel) SetDiscoverElasticAppLayers(v bool)`
+
+SetDiscoverElasticAppLayers sets DiscoverElasticAppLayers field to given value.
+
+### HasDiscoverElasticAppLayers
+
+`func (o *AppLibPackageDiscoveryProfileResponseModel) HasDiscoverElasticAppLayers() bool`
+
+HasDiscoverElasticAppLayers returns a boolean if a field has been set.
 
 ### GetAutomateDiscovery
 

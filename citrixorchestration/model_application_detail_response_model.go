@@ -17,9 +17,9 @@ import (
 // checks if the ApplicationDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationDetailResponseModel{}
 
-// ApplicationDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): BrowserName,Categories,ConfiguredFtas,CpuPriorityLevel,HomeZone,HomeZoneMode,IncludedUserFilterEnabled,IconFromClient,IncludedUsers,MaxPerUserInstances,MaxTotalInstances,ShortcutAddedToDesktop,ShortcutAddedToStartMenu,StartMenuFolder,WaitForPrinterCreation,Id,Uid,ApplicationFolder,ApplicationType,PackagedApplicationType,ClientFolder,Description,DoNotEnumerate,Enabled,IconId,ContentLocation,Name,PublishedName,Visible,SharingKind,ZoneId.               Response object for application details.              
+// ApplicationDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): BrowserName,Categories,ConfiguredFtas,CpuPriorityLevel,HomeZone,HomeZoneMode,IncludedUserFilterEnabled,IconFromClient,IncludedUsers,MaxPerUserInstances,MaxTotalInstances,ShortcutAddedToDesktop,ShortcutAddedToStartMenu,StartMenuFolder,WaitForPrinterCreation,Id,Uid,ApplicationFolder,ApplicationType,PackagedApplicationType,PackagedApplicationVisibility,ClientFolder,Description,DoNotEnumerate,Enabled,IconId,ContentLocation,Name,PublishedName,Visible,SharingKind,ZoneId.               Response object for application details.              
 type ApplicationDetailResponseModel struct {
-	// Id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
+	// The id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
 	Id NullableString `json:"Id,omitempty"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED. Use Id.
 	// Deprecated
@@ -27,17 +27,18 @@ type ApplicationDetailResponseModel struct {
 	ApplicationFolder *RefResponseModel `json:"ApplicationFolder,omitempty"`
 	ApplicationType *ApplicationType `json:"ApplicationType,omitempty"`
 	PackagedApplicationType *PackagedApplicationType `json:"PackagedApplicationType,omitempty"`
+	PackagedApplicationVisibility *PackagedApplicationVisibility `json:"PackagedApplicationVisibility,omitempty"`
 	// The folder that the application belongs to as the user sees it.
 	ClientFolder NullableString `json:"ClientFolder,omitempty"`
 	// Delegated admin scopes in which the containers of the application reside.
 	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
 	// The description of the application.
 	Description NullableString `json:"Description,omitempty"`
-	// Indicates whether or not this application is enumerable
+	// Indicates whether this application is enumerable
 	DoNotEnumerate *bool `json:"DoNotEnumerate,omitempty"`
-	// Indicates whether or not this application can be launched.
+	// Indicates whether this application can be launched.
 	Enabled *bool `json:"Enabled,omitempty"`
-	// Id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid
+	// The id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid
 	IconId NullableString `json:"IconId,omitempty"`
 	InstalledAppProperties *InstalledAppResponseModel `json:"InstalledAppProperties,omitempty"`
 	PackagedAppProperties *AppVAppResponseModel `json:"PackagedAppProperties,omitempty"`
@@ -50,7 +51,7 @@ type ApplicationDetailResponseModel struct {
 	PublishedName NullableString `json:"PublishedName,omitempty"`
 	// The metadata of application.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
-	// Indicates whether or not this application is visible to users.
+	// Indicates whether this application is visible to users.
 	Visible *bool `json:"Visible,omitempty"`
 	SharingKind *SharingKind `json:"SharingKind,omitempty"`
 	// Tags associated with this application.
@@ -303,6 +304,38 @@ func (o *ApplicationDetailResponseModel) HasPackagedApplicationType() bool {
 // SetPackagedApplicationType gets a reference to the given PackagedApplicationType and assigns it to the PackagedApplicationType field.
 func (o *ApplicationDetailResponseModel) SetPackagedApplicationType(v PackagedApplicationType) {
 	o.PackagedApplicationType = &v
+}
+
+// GetPackagedApplicationVisibility returns the PackagedApplicationVisibility field value if set, zero value otherwise.
+func (o *ApplicationDetailResponseModel) GetPackagedApplicationVisibility() PackagedApplicationVisibility {
+	if o == nil || IsNil(o.PackagedApplicationVisibility) {
+		var ret PackagedApplicationVisibility
+		return ret
+	}
+	return *o.PackagedApplicationVisibility
+}
+
+// GetPackagedApplicationVisibilityOk returns a tuple with the PackagedApplicationVisibility field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ApplicationDetailResponseModel) GetPackagedApplicationVisibilityOk() (*PackagedApplicationVisibility, bool) {
+	if o == nil || IsNil(o.PackagedApplicationVisibility) {
+		return nil, false
+	}
+	return o.PackagedApplicationVisibility, true
+}
+
+// HasPackagedApplicationVisibility returns a boolean if a field has been set.
+func (o *ApplicationDetailResponseModel) HasPackagedApplicationVisibility() bool {
+	if o != nil && !IsNil(o.PackagedApplicationVisibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetPackagedApplicationVisibility gets a reference to the given PackagedApplicationVisibility and assigns it to the PackagedApplicationVisibility field.
+func (o *ApplicationDetailResponseModel) SetPackagedApplicationVisibility(v PackagedApplicationVisibility) {
+	o.PackagedApplicationVisibility = &v
 }
 
 // GetClientFolder returns the ClientFolder field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1687,6 +1720,9 @@ func (o ApplicationDetailResponseModel) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.PackagedApplicationType) {
 		toSerialize["PackagedApplicationType"] = o.PackagedApplicationType
+	}
+	if !IsNil(o.PackagedApplicationVisibility) {
+		toSerialize["PackagedApplicationVisibility"] = o.PackagedApplicationVisibility
 	}
 	if o.ClientFolder.IsSet() {
 		toSerialize["ClientFolder"] = o.ClientFolder.Get()

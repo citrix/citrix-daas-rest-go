@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IsMachineRsop** | Pointer to **bool** | The report is for machine or user | [optional] 
-**LastProcessTime** | Pointer to **time.Time** | The most recent simulation time | [optional] 
-**AppliedSettings** | Pointer to [**[]AppliedSetting2**](AppliedSetting2.md) | Applied settings | [optional] 
-**AppliedPolicies** | Pointer to [**[]AppliedPolicy2**](AppliedPolicy2.md) | Applied policies | [optional] 
-**FilterEvidence** | Pointer to **map[string]string** | Filter evidence used for the simulation | [optional] 
+**IsMachineRsop** | Pointer to **bool** | The report is for machine or user. | [optional] 
+**LastProcessTime** | Pointer to **time.Time** | The most recent simulation time. | [optional] 
+**AppliedSettings** | Pointer to [**[]AppliedSetting2**](AppliedSetting2.md) | Applied settings. | [optional] 
+**AppliedPolicies** | Pointer to [**[]AppliedPolicy2**](AppliedPolicy2.md) | Applied policies. | [optional] 
+**FilterEvidence** | Pointer to **map[string]string** | Filter evidence used for the simulation. | [optional] 
 **LosingSettings** | Pointer to [**[]LosingSetting2**](LosingSetting2.md) | Settings that did not get applied. | [optional] 
 **LosingPolicies** | Pointer to [**[]LosingPolicy2**](LosingPolicy2.md) | Policies that did not get applied. Some of them should be applied in theory but not applied in practice. | [optional] 
 

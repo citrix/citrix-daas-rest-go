@@ -34,6 +34,8 @@ type PolicySetResponse struct {
 	Scopes []string `json:"scopes,omitempty"`
 	// Indicate if policy set is assigned to at least one delivery group.
 	IsAssigned *bool `json:"isAssigned,omitempty"`
+	// The most recent error that occurred when the policy data was converted to/from policy set.
+	LastError NullableString `json:"lastError,omitempty"`
 }
 
 // NewPolicySetResponse instantiates a new PolicySetResponse object
@@ -331,6 +333,48 @@ func (o *PolicySetResponse) SetIsAssigned(v bool) {
 	o.IsAssigned = &v
 }
 
+// GetLastError returns the LastError field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PolicySetResponse) GetLastError() string {
+	if o == nil || IsNil(o.LastError.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LastError.Get()
+}
+
+// GetLastErrorOk returns a tuple with the LastError field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PolicySetResponse) GetLastErrorOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LastError.Get(), o.LastError.IsSet()
+}
+
+// HasLastError returns a boolean if a field has been set.
+func (o *PolicySetResponse) HasLastError() bool {
+	if o != nil && o.LastError.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastError gets a reference to the given NullableString and assigns it to the LastError field.
+func (o *PolicySetResponse) SetLastError(v string) {
+	o.LastError.Set(&v)
+}
+// SetLastErrorNil sets the value for LastError to be an explicit nil
+func (o *PolicySetResponse) SetLastErrorNil() {
+	o.LastError.Set(nil)
+}
+
+// UnsetLastError ensures that no value is present for LastError, not even an explicit nil
+func (o *PolicySetResponse) UnsetLastError() {
+	o.LastError.Unset()
+}
+
 func (o PolicySetResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -364,6 +408,9 @@ func (o PolicySetResponse) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.IsAssigned) {
 		toSerialize["isAssigned"] = o.IsAssigned
+	}
+	if o.LastError.IsSet() {
+		toSerialize["lastError"] = o.LastError.Get()
 	}
 	return toSerialize, nil
 }

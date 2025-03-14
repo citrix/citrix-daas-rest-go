@@ -40,6 +40,8 @@ Name | Type | Description | Notes
 **LastErrorTime** | Pointer to **NullableString** | The time of the last detected error. | [optional] 
 **FormattedLastErrorTime** | Pointer to **NullableString** | The formatted time of the last detected error. RFC 3339 compatible format. | [optional] 
 **LoadIndex** | Pointer to **NullableInt32** | Gives current effective load index. Only used when SessionSupport is equal to MultiSession. | [optional] 
+**LoadIndexes** | Pointer to **[]int32** | Gives the last reported individual load indexes that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession. | [optional] 
+**LoadIndexNames** | Pointer to **[]string** | Gives the last reported individual load index names that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession. | [optional] 
 **MachineUnavailableReason** | Pointer to [**MachineUnavailableReason**](MachineUnavailableReason.md) |  | [optional] 
 **OSType** | Pointer to **NullableString** | A string that can be used to identify the operating system that is running on the machine. | [optional] 
 **OSVersion** | Pointer to **NullableString** | A string that can be used to identify the version of the operating system running on the machine, if known. | [optional] 
@@ -86,7 +88,7 @@ Name | Type | Description | Notes
 **UpgradeState** | Pointer to [**VdaUpgradeState**](VdaUpgradeState.md) |  | [optional] 
 **MachineConfigurationOutOfSync** | Pointer to **NullableBool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
 **UpgradeDetail** | Pointer to [**MachineUpgradeDetail**](MachineUpgradeDetail.md) |  | [optional] 
-**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The meta data of this machine. | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of this machine. | [optional] 
 
 ## Methods
 
@@ -1212,6 +1214,76 @@ HasLoadIndex returns a boolean if a field has been set.
 `func (o *MachineResponseModel) UnsetLoadIndex()`
 
 UnsetLoadIndex ensures that no value is present for LoadIndex, not even an explicit nil
+### GetLoadIndexes
+
+`func (o *MachineResponseModel) GetLoadIndexes() []int32`
+
+GetLoadIndexes returns the LoadIndexes field if non-nil, zero value otherwise.
+
+### GetLoadIndexesOk
+
+`func (o *MachineResponseModel) GetLoadIndexesOk() (*[]int32, bool)`
+
+GetLoadIndexesOk returns a tuple with the LoadIndexes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadIndexes
+
+`func (o *MachineResponseModel) SetLoadIndexes(v []int32)`
+
+SetLoadIndexes sets LoadIndexes field to given value.
+
+### HasLoadIndexes
+
+`func (o *MachineResponseModel) HasLoadIndexes() bool`
+
+HasLoadIndexes returns a boolean if a field has been set.
+
+### SetLoadIndexesNil
+
+`func (o *MachineResponseModel) SetLoadIndexesNil(b bool)`
+
+ SetLoadIndexesNil sets the value for LoadIndexes to be an explicit nil
+
+### UnsetLoadIndexes
+`func (o *MachineResponseModel) UnsetLoadIndexes()`
+
+UnsetLoadIndexes ensures that no value is present for LoadIndexes, not even an explicit nil
+### GetLoadIndexNames
+
+`func (o *MachineResponseModel) GetLoadIndexNames() []string`
+
+GetLoadIndexNames returns the LoadIndexNames field if non-nil, zero value otherwise.
+
+### GetLoadIndexNamesOk
+
+`func (o *MachineResponseModel) GetLoadIndexNamesOk() (*[]string, bool)`
+
+GetLoadIndexNamesOk returns a tuple with the LoadIndexNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadIndexNames
+
+`func (o *MachineResponseModel) SetLoadIndexNames(v []string)`
+
+SetLoadIndexNames sets LoadIndexNames field to given value.
+
+### HasLoadIndexNames
+
+`func (o *MachineResponseModel) HasLoadIndexNames() bool`
+
+HasLoadIndexNames returns a boolean if a field has been set.
+
+### SetLoadIndexNamesNil
+
+`func (o *MachineResponseModel) SetLoadIndexNamesNil(b bool)`
+
+ SetLoadIndexNamesNil sets the value for LoadIndexNames to be an explicit nil
+
+### UnsetLoadIndexNames
+`func (o *MachineResponseModel) UnsetLoadIndexNames()`
+
+UnsetLoadIndexNames ensures that no value is present for LoadIndexNames, not even an explicit nil
 ### GetMachineUnavailableReason
 
 `func (o *MachineResponseModel) GetMachineUnavailableReason() MachineUnavailableReason`

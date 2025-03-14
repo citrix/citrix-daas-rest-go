@@ -28,6 +28,7 @@ const (
 	MACHINEUNAVAILABLEREASON_GCT_CONNECTION_INITIALIZING MachineUnavailableReason = "GctConnectionInitializing"
 	MACHINEUNAVAILABLEREASON_AZURE_AD_JOIN_INITIALIZING MachineUnavailableReason = "AzureAdJoinInitializing"
 	MACHINEUNAVAILABLEREASON_INTUNE_ENROLL_PENDING MachineUnavailableReason = "IntuneEnrollPending"
+	MACHINEUNAVAILABLEREASON_AZURE_ARC_ONBOARDING_REQUIRED MachineUnavailableReason = "AzureArcOnboardingRequired"
 )
 
 // All allowed values of MachineUnavailableReason enum
@@ -40,6 +41,7 @@ var AllowedMachineUnavailableReasonEnumValues = []MachineUnavailableReason{
 	"GctConnectionInitializing",
 	"AzureAdJoinInitializing",
 	"IntuneEnrollPending",
+	"AzureArcOnboardingRequired",
 }
 
 func (v *MachineUnavailableReason) UnmarshalJSON(src []byte) error {

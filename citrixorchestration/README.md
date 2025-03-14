@@ -214,12 +214,16 @@ Class | Method | HTTP request | Description
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsAddDeliveryGroupTags**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsadddeliverygrouptags) | **Post** /DeliveryGroups/{nameOrId}/Tags/{tagNameOrId} | Add a tag to a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCheckDeliveryGroupExists**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscheckdeliverygroupexists) | **Head** /DeliveryGroups/{name} | Check for the existence of a delivery group by name.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCheckRebootScheduleNameExists**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscheckrebootschedulenameexists) | **Head** /DeliveryGroups/{nameOrId}/RebootSchedules/{name} | Check for the existence of a reboot schedule by name.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateAutoscalePluginTemplate**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreateautoscaleplugintemplate) | **Post** /DeliveryGroups/AutoscalePlugin/{type}/Templates | Create a new autoscale plugin configuration template for the specified plugin type.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroup**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygroup) | **Post** /DeliveryGroups | Create a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygroupadvancedaccesspolicy) | **Post** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies | Create an advanced access policy associated with a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygroupautoscalegroupplugin) | **Post** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins | Create an autoscale group plugin for the speicified delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroupPowerTimeScheme**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygrouppowertimescheme) | **Post** /DeliveryGroups/{nameOrId}/PowerTimeSchemes | Create a power time scheme for a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsCreateDeliveryGroupRebootSchedule**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupscreatedeliverygrouprebootschedule) | **Post** /DeliveryGroups/{nameOrId}/RebootSchedules | Create a reboot schedule for a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteAutoscalePluginTemplate**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeleteautoscaleplugintemplate) | **Delete** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Delete the autoscale plugin configuration template for the specified plugin type and name.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroup**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygroup) | **Delete** /DeliveryGroups/{nameOrId} | Delete a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygroupadvancedaccesspolicy) | **Delete** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Delete an advanced access policy associated with a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygroupautoscalegroupplugin) | **Delete** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid} | Delete the autoscale group plugin by uid.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygrouppowertimescheme) | **Delete** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Delete a power time scheme from a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDeleteDeliveryGroupRebootSchedule**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdeletedeliverygrouprebootschedule) | **Delete** /DeliveryGroups/{nameOrId}/RebootSchedules/{scheduleNameOrId} | Delete a reboot schedule from a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDoAddApplications**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdoaddapplications) | **Post** /DeliveryGroups/{nameOrId}/Applications | Add applications and/or application groups to a delivery group.
@@ -228,11 +232,14 @@ Class | Method | HTTP request | Description
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDoRemoveApplicationGroups**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdoremoveapplicationgroups) | **Delete** /DeliveryGroups/{nameOrId}/ApplicationGroups/{appGroupNameOrId} | Remove an application group from a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDoRemoveApplications**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdoremoveapplications) | **Delete** /DeliveryGroups/{nameOrId}/Applications/{appNameOrId} | Remove an application from a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsDoRemoveMachines**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsdoremovemachines) | **Delete** /DeliveryGroups/{nameOrId}/Machines/{machineNameOrId} | Remove a machine from a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetAutoscalePluginTemplate**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetautoscaleplugintemplate) | **Get** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Return the autoscale plugin configuration template for the specified plugin type and name.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetAutoscalePluginTemplates**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetautoscaleplugintemplates) | **Get** /DeliveryGroups/AutoscalePlugin/{type}/Templates | Return all autoscale plugin configuration templates for the specified plugin type.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeiliverygroupprojectedautoscalemachines) | **Get** /DeliveryGroups/{nameOrId}/ProjectedAutoscaleMachines | Gets the projected number of machines that Autoscale will keep powered on over the specified period
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroup**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroup) | **Get** /DeliveryGroups/{nameOrId} | Get details of a single delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupadvancedaccesspolicies) | **Get** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies | Get the advanced access policies associated with a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupadvancedaccesspolicy) | **Get** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Get the details of a single advanced access policy associated with a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupApplications**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupapplications) | **Get** /DeliveryGroups/{nameOrId}/Applications | Get the applications associated with a delivery group.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupautoscalegroupplugins) | **Get** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins | Get the autoscale group plugins for the specified delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupFtas**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupftas) | **Post** /DeliveryGroups/$GetFileTypes | Returns the file type associations the system imports from worker machines in the specified delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupMachines**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygroupmachines) | **Get** /DeliveryGroups/{nameOrId}/Machines | Get the machines associated with a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsGetDeliveryGroupPowerTimeScheme**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsgetdeliverygrouppowertimescheme) | **Get** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Get the details about a single power time scheme associated with a delivery group.
@@ -260,6 +267,8 @@ Class | Method | HTTP request | Description
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsStartDeliveryGroupRebootCycle**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsstartdeliverygrouprebootcycle) | **Post** /DeliveryGroups/{nameOrId}/$StartRebootCycle | Start a reboot cycle for machines in a delivery group.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsTestDeliveryGroup**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupstestdeliverygroup) | **Post** /DeliveryGroups/{nameOrId}/$test | Run tests on a delivery group and create a test report.
 *DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsTestDeliveryGroupExists**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupstestdeliverygroupexists) | **Post** /DeliveryGroups/$checkName | Test the existence of a delivery group by name.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsUpdateAutoscalePluginTemplate**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsupdateautoscaleplugintemplate) | **Patch** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Update the autoscale plugin configuration template for the specified plugin type.
+*DeliveryGroupsAPIsDAAS* | [**DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin**](docs/DeliveryGroupsAPIsDAAS.md#deliverygroupsupdatedeliverygroupautoscalegroupplugin) | **Patch** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid} | Update the autoscale group plugin by uid.
 *GpoDAAS* | [**GpoComparePolicies**](docs/GpoDAAS.md#gpocomparepolicies) | **Post** /gpo/comparePolicies | Compare policies. The policies can be from different policy sets.
 *GpoDAAS* | [**GpoCopyGpoPolicies**](docs/GpoDAAS.md#gpocopygpopolicies) | **Post** /gpo/policies/$copy | Copy some policies of a policy set to other policy sets.
 *GpoDAAS* | [**GpoCopyGpoPolicySet**](docs/GpoDAAS.md#gpocopygpopolicyset) | **Post** /gpo/policySets/{policySetGuid} | Create a new GPO policy set by copying an existing policy set. The policies and settings in each policy are copied to the new policy set. Optionally, the filters in the policies may be copied. Regardless of the type of the source policy set, the resulting policy set is always of type DeliveryGroupPolicies.
@@ -306,6 +315,7 @@ Class | Method | HTTP request | Description
 *HypervisorsAPIsDAAS* | [**HypervisorsDeleteHypervisor**](docs/HypervisorsAPIsDAAS.md#hypervisorsdeletehypervisor) | **Delete** /hypervisors/{nameOrId} | Delete a hypervisor and related resource pools.
 *HypervisorsAPIsDAAS* | [**HypervisorsDeleteHypervisorResourcePool**](docs/HypervisorsAPIsDAAS.md#hypervisorsdeletehypervisorresourcepool) | **Delete** /hypervisors/{nameOrId}/resourcePools/{poolId} | Delete a hypervisor resource pool.
 *HypervisorsAPIsDAAS* | [**HypervisorsDoHypervisorAllResourcesSearch**](docs/HypervisorsAPIsDAAS.md#hypervisorsdohypervisorallresourcessearch) | **Post** /hypervisors/{nameOrId}/allResources/$search | Search the resources within a hypervisor.
+*HypervisorsAPIsDAAS* | [**HypervisorsDoHypervisorAllResourcesSearchWithoutConnection**](docs/HypervisorsAPIsDAAS.md#hypervisorsdohypervisorallresourcessearchwithoutconnection) | **Post** /hypervisors/allResources/$search | Search all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
 *HypervisorsAPIsDAAS* | [**HypervisorsDoHypervisorResourceSearch**](docs/HypervisorsAPIsDAAS.md#hypervisorsdohypervisorresourcesearch) | **Post** /hypervisors/{nameOrId}/resourcePools/{poolId}/resources/$search | Search the resources within a hypervisor resource pool.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisor**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisor) | **Get** /hypervisors/{nameOrId} | Get the details for a single hypervisor.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorAdministrators**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisoradministrators) | **Get** /hypervisors/{nameOrId}/administrators | Get administrators who can administer a hypervisor.
@@ -317,6 +327,7 @@ Class | Method | HTTP request | Description
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorOrphanedResources**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisororphanedresources) | **Get** /Hypervisors/{nameOrId}/OrphanedResources | Run detect on a hypervisor and retrieve orphaned resources.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorResourcePool**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorresourcepool) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId} | Get details about a hypervisor resource pool.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorResourcePoolAdministrators**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorresourcepooladministrators) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/administrators | Get administrators who can administer a resource pool.
+*HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorResourcePoolAllAvailableNetworks**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorresourcepoolallavailablenetworks) | **Get** /hypervisorResourcePoolAllAvailableNetworks | Get all available networks among hypervisors and resource pools.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorResourcePoolDeletePreview**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorresourcepooldeletepreview) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/deletePreview | Get the hypervisor resource pool delete preview.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorResourcePoolJobs**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorresourcepooljobs) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/jobs | Get the currently active jobs that are using a resource pool.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorResourcePoolMachineCatalogs**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorresourcepoolmachinecatalogs) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/machineCatalogs | Get the machine catalogs that are using a resource pool.
@@ -415,6 +426,8 @@ Class | Method | HTTP request | Description
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsExport**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsexport) | **Post** /MachineCatalogs/{nameOrId}/$export | Exports a MCS machine catalog.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsExportMachineProfile**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsexportmachineprofile) | **Post** /MachineCatalogs/{nameOrId}/$exportMachineProfile | Exports a MCS machine catalog&#39;s machine profile.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalog**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalog) | **Get** /MachineCatalogs/{nameOrId} | Get details about a single machine catalog.
+*MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalogCostSummary**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalogcostsummary) | **Get** /MachineCatalogs/{nameOrId}/CostSummary | Get the machine catalog&#39;s cost summary.
+*MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalogDailyCost**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalogdailycost) | **Get** /MachineCatalogs/{nameOrId}/DailyCost | Get the machine catalog&#39;s daily cost.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalogDeliveryGroupAssociations**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalogdeliverygroupassociations) | **Get** /MachineCatalogs/{nameOrId}/DeliveryGroupAssociations | Get delivery group associations of a machine catalog.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalogEnrollments**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecatalogenrollments) | **Get** /MachineCatalogs/{nameOrId}/Enrollments | Get the list of enrollments in the machine catalog.
 *MachineCatalogsAPIsDAAS* | [**MachineCatalogsGetMachineCatalogLastMasterImage**](docs/MachineCatalogsAPIsDAAS.md#machinecatalogsgetmachinecataloglastmasterimage) | **Get** /MachineCatalogs/{nameOrId}/LastMasterImage | Get the last master VM images used by the machine catalog.
@@ -474,7 +487,6 @@ Class | Method | HTTP request | Description
 *MachinesAPIsDAAS* | [**MachinesRemoveMachineTags**](docs/MachinesAPIsDAAS.md#machinesremovemachinetags) | **Delete** /Machines/{nameOrId}/Tags/{tagNameOrId} | Remove a tag from a machine.
 *MachinesAPIsDAAS* | [**MachinesRemoveMachineUpgradeSchedule**](docs/MachinesAPIsDAAS.md#machinesremovemachineupgradeschedule) | **Delete** /Machines/{nameOrId}/UpgradeSchedule | Remove a pending VDA upgrade schedule for a machine.
 *MachinesAPIsDAAS* | [**MachinesRemovePowerActionSchedule**](docs/MachinesAPIsDAAS.md#machinesremovepoweractionschedule) | **Delete** /Machines/{nameOrId}/PowerActionSchedules | Remove pending power action schedules for a machine.
-*MachinesAPIsDAAS* | [**MachinesResetProvVMDisk**](docs/MachinesAPIsDAAS.md#machinesresetprovvmdisk) | **Post** /Machines/{nameOrId}/$ResetProvVMDisk | Resets the OS disk of persistent VMs to the current master image.
 *MachinesAPIsDAAS* | [**MachinesResumeMachine**](docs/MachinesAPIsDAAS.md#machinesresumemachine) | **Post** /Machines/{nameOrId}/$resume | Resume a machine.
 *MachinesAPIsDAAS* | [**MachinesSetMachineTags**](docs/MachinesAPIsDAAS.md#machinessetmachinetags) | **Put** /Machines/{nameOrId}/Tags | Set tags associated with a machine.
 *MachinesAPIsDAAS* | [**MachinesShutdownMachine**](docs/MachinesAPIsDAAS.md#machinesshutdownmachine) | **Post** /Machines/{nameOrId}/$shutdown | Shut down a machine.
@@ -484,16 +496,34 @@ Class | Method | HTTP request | Description
 *MachinesAPIsDAAS* | [**MachinesUpdateMachineCatalogMachine**](docs/MachinesAPIsDAAS.md#machinesupdatemachinecatalogmachine) | **Patch** /Machines/{nameOrId} | Update a machine.
 *MachinesAPIsDAAS* | [**MachinesUpdateMachineUpgradeSchedule**](docs/MachinesAPIsDAAS.md#machinesupdatemachineupgradeschedule) | **Patch** /Machines/{nameOrId}/UpgradeSchedule | Reschedule a pending VDA upgrade schedule for a machine.
 *MachinesAPIsDAAS* | [**MachinesValidateVDAComponentsAndFeaturesSelection**](docs/MachinesAPIsDAAS.md#machinesvalidatevdacomponentsandfeaturesselection) | **Post** /Machines/{nameOrId}/VDAComponentsAndFeatures/$validate | Validate the VDA component selection at machine level that can be Included/Excluded and features that need enable during an VDA upgrade using VDA Upgrade Service.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesCancelMaintenanceCycle**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclescancelmaintenancecycle) | **Post** /maintenanceCycles/{nameOrId}/$cancel | Cancel a maintenance cycle for a machine catalog.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesCreateMaintenanceCycle**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclescreatemaintenancecycle) | **Post** /maintenanceCycles | Create a maintenance cycle for a machine catalog.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesDoMaintenanceCycleSearch**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclesdomaintenancecyclesearch) | **Post** /maintenanceCycles/$search | Perform an advanced search for maintenance cycles.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesDoMaintenanceCycleVMOperationJobSearch**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclesdomaintenancecyclevmoperationjobsearch) | **Post** /maintenanceCycles/operationJobs/$search | Perform an advanced search for maintenance cycle vm operation jobs.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesGetMaintenanceCycle**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclesgetmaintenancecycle) | **Get** /maintenanceCycles/{nameOrId} | Get a maintenance cycle for a machine catalog.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesRemoveMaintenanceCycle**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclesremovemaintenancecycle) | **Delete** /maintenanceCycles/{nameOrId} | Remove a maintenance cycle for a machine catalog.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesRestartMaintenanceCycle**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclesrestartmaintenancecycle) | **Post** /maintenanceCycles/{nameOrId}/$restart | Restart a maintenance cycle for a machine catalog.
+*MaintenanceCyclesAPIsDAAS* | [**MaintenanceCyclesUpdateMaintenanceCycle**](docs/MaintenanceCyclesAPIsDAAS.md#maintenancecyclesupdatemaintenancecycle) | **Patch** /maintenanceCycles | Update a maintenance cycle for a machine catalog.
 *MeAPIsDAAS* | [**MeDeleteMyPreference**](docs/MeAPIsDAAS.md#medeletemypreference) | **Delete** /me/Preferences/{name} | Delete one of admin preferences by name.
 *MeAPIsDAAS* | [**MeGetMe**](docs/MeAPIsDAAS.md#megetme) | **Get** /me | Get my details.
 *MeAPIsDAAS* | [**MeGetMyPreference**](docs/MeAPIsDAAS.md#megetmypreference) | **Get** /me/Preferences/{name} | Get one of my preferences by name.
 *MeAPIsDAAS* | [**MeGetMyPreferences**](docs/MeAPIsDAAS.md#megetmypreferences) | **Get** /me/Preferences | Get my preferences.
 *MeAPIsDAAS* | [**MeSetMyPreference**](docs/MeAPIsDAAS.md#mesetmypreference) | **Put** /me/Preferences | Set a preference value.
+*ProvisionedVirtualMachineAPIsDAAS* | [**ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate**](docs/ProvisionedVirtualMachineAPIsDAAS.md#provisionedvirtualmachineapplyprovisionedvirtualmachineconfigurationupdate) | **Post** /provisionedVirtualMachines/{vmSid}/$applyUpdate | Performs an immediate update of the configuration for a specific provisioned virtual machine.
+*ProvisionedVirtualMachineAPIsDAAS* | [**ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs**](docs/ProvisionedVirtualMachineAPIsDAAS.md#provisionedvirtualmachinegetmaintenancecyclevmoperationjobs) | **Get** /provisionedVirtualMachines/{vmSid}/operationJobs | Get the maintenance cycle vm operation jobs for a machine.
+*ProvisionedVirtualMachineAPIsDAAS* | [**ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk**](docs/ProvisionedVirtualMachineAPIsDAAS.md#provisionedvirtualmachineresetprovisionedvirtualmachineosdisk) | **Post** /provisionedVirtualMachines/{vmSid}/$resetProvVmOSDisk | Performs an immediate reset of the OS disk for a specific provisioned virtual machine.
+*ProvisionedVirtualMachineAPIsDAAS* | [**ProvisionedVirtualMachineUpdateProvisionedVirtualMachine**](docs/ProvisionedVirtualMachineAPIsDAAS.md#provisionedvirtualmachineupdateprovisionedvirtualmachine) | **Patch** /provisionedVirtualMachines/{vmSid} | Changes the configuration for a specific provisioned virtual machine.
+*ProvisioningSchemesAPIsDAAS* | [**ProvisioningSchemesGetMaintenanceCycles**](docs/ProvisioningSchemesAPIsDAAS.md#provisioningschemesgetmaintenancecycles) | **Get** /provisioningSchemes/{nameOrId}/maintenanceCycles | 
+*ProvisioningSchemesAPIsDAAS* | [**ProvisioningSchemesGetProvisioiningSchemeConfigurations**](docs/ProvisioningSchemesAPIsDAAS.md#provisioningschemesgetprovisioiningschemeconfigurations) | **Get** /provisioningSchemes/{nameOrId}/configurations | Get provisioning scheme configurations.
+*ProvisioningSchemesAPIsDAAS* | [**ProvisioningSchemesGetVMConfigurationResultantSet**](docs/ProvisioningSchemesAPIsDAAS.md#provisioningschemesgetvmconfigurationresultantset) | **Get** /provisioningSchemes/{nameOrId}/provisionedVirtualMachines/{vmSid}/configurationResultantSet | Provides the ability get the resultant configuration properties for virtual machine created using Machine Creation Services. This merges properties at the provisioning scheme level with those set on a machine with Set-ProvVM specifically.
 *PvsStreamingAPIsDAAS* | [**PvsStreamingGetPvsStreamingSites**](docs/PvsStreamingAPIsDAAS.md#pvsstreaminggetpvsstreamingsites) | **Get** /PvsStreaming/Sites | Get the list of PVS sites.
 *PvsStreamingAPIsDAAS* | [**PvsStreamingGetPvsStreamingStores**](docs/PvsStreamingAPIsDAAS.md#pvsstreaminggetpvsstreamingstores) | **Get** /PvsStreaming/Stores/{farmId} | Get the list of PVS stores.
 *PvsStreamingAPIsDAAS* | [**PvsStreamingGetPvsStreamingVDisks**](docs/PvsStreamingAPIsDAAS.md#pvsstreaminggetpvsstreamingvdisks) | **Get** /PvsStreaming/vDisks | Get the list of PVS vDisks.
 *PvsStreamingAPIsDAAS* | [**PvsStreamingTestDeviceCollectionExists**](docs/PvsStreamingAPIsDAAS.md#pvsstreamingtestdevicecollectionexists) | **Post** /PvsStreaming/$checkDeviceCollectionName | Test the existence of a device collection by name.
 *RebootSchedulesAPIsDAAS* | [**RebootSchedulesGetRebootSchedules**](docs/RebootSchedulesAPIsDAAS.md#rebootschedulesgetrebootschedules) | **Get** /RebootSchedules | Get all reboot schedules in the site.
+*RecommendationsAPIsDAAS* | [**RecommendationsGetRecommendations**](docs/RecommendationsAPIsDAAS.md#recommendationsgetrecommendations) | **Get** /recommendations | Get all the recommendations.
+*RecommendationsAPIsDAAS* | [**RecommendationsSetRecommendation**](docs/RecommendationsAPIsDAAS.md#recommendationssetrecommendation) | **Patch** /recommendations/{id} | Set the state of the specified recommendation.
+*RecommendationsAPIsDAAS* | [**RecommendationsSetRecommendations**](docs/RecommendationsAPIsDAAS.md#recommendationssetrecommendations) | **Patch** /recommendations | Set the state of a list of recommendations.
 *SessionsAPIsDAAS* | [**SessionsDisconnectSession**](docs/SessionsAPIsDAAS.md#sessionsdisconnectsession) | **Post** /Sessions/{id}/$disconnect | Disconnect a session.
 *SessionsAPIsDAAS* | [**SessionsDoSessionSearch**](docs/SessionsAPIsDAAS.md#sessionsdosessionsearch) | **Post** /Sessions/$search | Perform an advanced search for sessions.
 *SessionsAPIsDAAS* | [**SessionsGetSession**](docs/SessionsAPIsDAAS.md#sessionsgetsession) | **Get** /Sessions/{id} | Get details of a single session.
@@ -520,7 +550,7 @@ Class | Method | HTTP request | Description
 *SitesAPIsDAAS* | [**SitesGetSites**](docs/SitesAPIsDAAS.md#sitesgetsites) | **Get** /Sites | Get the list of sites that are available to the customer and visible to the admin.
 *SitesAPIsDAAS* | [**SitesGetUpgradePackageVersions**](docs/SitesAPIsDAAS.md#sitesgetupgradepackageversions) | **Get** /Sites/{nameOrId}/UpgradePackageVersions | Get the latest released VDA upgrade package versions in the site.
 *SitesAPIsDAAS* | [**SitesPatchMultipleRemotePCAssignments**](docs/SitesAPIsDAAS.md#sitespatchmultipleremotepcassignments) | **Patch** /Sites/{nameOrId}/MultipleRemotePCAssignments | Update multi-user auto-assignment for Remote PC Access.
-*SitesAPIsDAAS* | [**SitesPatchSiteSettings**](docs/SitesAPIsDAAS.md#sitespatchsitesettings) | **Patch** /Sites/{nameOrId}/Settings | Update the broker site settings.
+*SitesAPIsDAAS* | [**SitesPatchSiteSettings**](docs/SitesAPIsDAAS.md#sitespatchsitesettings) | **Patch** /Sites/{nameOrId}/Settings | Update the site settings.
 *SitesAPIsDAAS* | [**SitesTestSite**](docs/SitesAPIsDAAS.md#sitestestsite) | **Post** /Sites/{nameOrId}/$test | Run tests on a site and create a test report.
 *StoreFrontServersAPIsDAAS* | [**StoreFrontServersCreateStoreFrontServer**](docs/StoreFrontServersAPIsDAAS.md#storefrontserverscreatestorefrontserver) | **Post** /StoreFrontServers | Create a StoreFront server.
 *StoreFrontServersAPIsDAAS* | [**StoreFrontServersDeleteStoreFrontServer**](docs/StoreFrontServersAPIsDAAS.md#storefrontserversdeletestorefrontserver) | **Delete** /StoreFrontServers/{nameOrId} | Delete a StoreFront server from the site.
@@ -598,6 +628,9 @@ Class | Method | HTTP request | Description
  - [AdvancedAccessPolicyRequestModel](docs/AdvancedAccessPolicyRequestModel.md)
  - [AdvancedAccessPolicyResponseModel](docs/AdvancedAccessPolicyResponseModel.md)
  - [AdvancedAccessPolicyResponseModelCollection](docs/AdvancedAccessPolicyResponseModelCollection.md)
+ - [AdvisorRecommendationRequestModel](docs/AdvisorRecommendationRequestModel.md)
+ - [AdvisorRecommendationResponseModel](docs/AdvisorRecommendationResponseModel.md)
+ - [AdvisorRecommendationResponseModelCollection](docs/AdvisorRecommendationResponseModelCollection.md)
  - [AllResponseContract](docs/AllResponseContract.md)
  - [AllocationType](docs/AllocationType.md)
  - [AllowedConnection](docs/AllowedConnection.md)
@@ -669,6 +702,11 @@ Class | Method | HTTP request | Description
  - [AuthTokenResponseModel](docs/AuthTokenResponseModel.md)
  - [Authenticator](docs/Authenticator.md)
  - [AutoDiscoveryPeriod](docs/AutoDiscoveryPeriod.md)
+ - [AutoscaleGroupPluginModel](docs/AutoscaleGroupPluginModel.md)
+ - [AutoscaleGroupPluginModelCollection](docs/AutoscaleGroupPluginModelCollection.md)
+ - [AutoscalePluginTemplateResponseModel](docs/AutoscalePluginTemplateResponseModel.md)
+ - [AutoscalePluginTemplateResponseModelCollection](docs/AutoscalePluginTemplateResponseModelCollection.md)
+ - [AutoscalePluginType](docs/AutoscalePluginType.md)
  - [AutoscaleScaleDownAction](docs/AutoscaleScaleDownAction.md)
  - [AzureADCustomDomainResponseModel](docs/AzureADCustomDomainResponseModel.md)
  - [AzureADSecurityGroupResponseModel](docs/AzureADSecurityGroupResponseModel.md)
@@ -749,6 +787,7 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfAdministratorResponseModel](docs/CollectionModelOfAdministratorResponseModel.md)
  - [CollectionModelOfAdministratorRightResponseModel](docs/CollectionModelOfAdministratorRightResponseModel.md)
  - [CollectionModelOfAdvancedAccessPolicyResponseModel](docs/CollectionModelOfAdvancedAccessPolicyResponseModel.md)
+ - [CollectionModelOfAdvisorRecommendationResponseModel](docs/CollectionModelOfAdvisorRecommendationResponseModel.md)
  - [CollectionModelOfAppLibPackageDiscoveryProfileResponseModel](docs/CollectionModelOfAppLibPackageDiscoveryProfileResponseModel.md)
  - [CollectionModelOfAppLibPackageDiscoveryResponseModel](docs/CollectionModelOfAppLibPackageDiscoveryResponseModel.md)
  - [CollectionModelOfAppVApplicationResponseModel](docs/CollectionModelOfAppVApplicationResponseModel.md)
@@ -760,6 +799,8 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfApplicationGroupDeliveryGroupResponseModel](docs/CollectionModelOfApplicationGroupDeliveryGroupResponseModel.md)
  - [CollectionModelOfApplicationGroupResponseModel](docs/CollectionModelOfApplicationGroupResponseModel.md)
  - [CollectionModelOfApplicationResponseModel](docs/CollectionModelOfApplicationResponseModel.md)
+ - [CollectionModelOfAutoscaleGroupPluginModel](docs/CollectionModelOfAutoscaleGroupPluginModel.md)
+ - [CollectionModelOfAutoscalePluginTemplateResponseModel](docs/CollectionModelOfAutoscalePluginTemplateResponseModel.md)
  - [CollectionModelOfAzureADSecurityGroupResponseModel](docs/CollectionModelOfAzureADSecurityGroupResponseModel.md)
  - [CollectionModelOfBackupRestoreBackupResponseModel](docs/CollectionModelOfBackupRestoreBackupResponseModel.md)
  - [CollectionModelOfBackupRestoreHistoryInformation](docs/CollectionModelOfBackupRestoreHistoryInformation.md)
@@ -767,6 +808,7 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfBackupRestoreScheduleModel](docs/CollectionModelOfBackupRestoreScheduleModel.md)
  - [CollectionModelOfCatalogSearchResponseModel](docs/CollectionModelOfCatalogSearchResponseModel.md)
  - [CollectionModelOfConfigurationSlotResponseModel](docs/CollectionModelOfConfigurationSlotResponseModel.md)
+ - [CollectionModelOfDailyCostItemResponseModel](docs/CollectionModelOfDailyCostItemResponseModel.md)
  - [CollectionModelOfDatabaseChangeScriptModel](docs/CollectionModelOfDatabaseChangeScriptModel.md)
  - [CollectionModelOfDatabaseResponseModel](docs/CollectionModelOfDatabaseResponseModel.md)
  - [CollectionModelOfDeliveryControllerDeleteScriptModel](docs/CollectionModelOfDeliveryControllerDeleteScriptModel.md)
@@ -780,6 +822,7 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfHypervisorMachineCatalogResponseModel](docs/CollectionModelOfHypervisorMachineCatalogResponseModel.md)
  - [CollectionModelOfHypervisorPluginResponseModel](docs/CollectionModelOfHypervisorPluginResponseModel.md)
  - [CollectionModelOfHypervisorResourcePoolDetailResponseModel](docs/CollectionModelOfHypervisorResourcePoolDetailResponseModel.md)
+ - [CollectionModelOfHypervisorResourcePoolNetworkResponseModel](docs/CollectionModelOfHypervisorResourcePoolNetworkResponseModel.md)
  - [CollectionModelOfHypervisorResourceResponseModel](docs/CollectionModelOfHypervisorResourceResponseModel.md)
  - [CollectionModelOfHypervisorResponseModel](docs/CollectionModelOfHypervisorResponseModel.md)
  - [CollectionModelOfHypervisorVmValidationResponseModel](docs/CollectionModelOfHypervisorVmValidationResponseModel.md)
@@ -809,6 +852,8 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfMachineConfigurationResponseModel](docs/CollectionModelOfMachineConfigurationResponseModel.md)
  - [CollectionModelOfMachineIdentityPoolResponseModel](docs/CollectionModelOfMachineIdentityPoolResponseModel.md)
  - [CollectionModelOfMachineResponseModel](docs/CollectionModelOfMachineResponseModel.md)
+ - [CollectionModelOfMaintenanceCycleResponseModel](docs/CollectionModelOfMaintenanceCycleResponseModel.md)
+ - [CollectionModelOfMaintenanceCycleVMOperationJobResponseModel](docs/CollectionModelOfMaintenanceCycleVMOperationJobResponseModel.md)
  - [CollectionModelOfNameValueStringPairModel](docs/CollectionModelOfNameValueStringPairModel.md)
  - [CollectionModelOfPowerActionScheduleResponseModel](docs/CollectionModelOfPowerActionScheduleResponseModel.md)
  - [CollectionModelOfPowerShellHistoryResponseModel](docs/CollectionModelOfPowerShellHistoryResponseModel.md)
@@ -817,8 +862,10 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfPredefinedPermissionResponseModel](docs/CollectionModelOfPredefinedPermissionResponseModel.md)
  - [CollectionModelOfProvisionedVirtualMachineSearchResponseModel](docs/CollectionModelOfProvisionedVirtualMachineSearchResponseModel.md)
  - [CollectionModelOfProvisioningOperationEventSearchResponseModel](docs/CollectionModelOfProvisioningOperationEventSearchResponseModel.md)
+ - [CollectionModelOfProvisioningSchemeConfigurationResponseModel](docs/CollectionModelOfProvisioningSchemeConfigurationResponseModel.md)
  - [CollectionModelOfProvisioningSchemeMachineAccountResponseModel](docs/CollectionModelOfProvisioningSchemeMachineAccountResponseModel.md)
  - [CollectionModelOfProvisioningSchemeResponseModel](docs/CollectionModelOfProvisioningSchemeResponseModel.md)
+ - [CollectionModelOfProvisioningSchemeSearchResponseModel](docs/CollectionModelOfProvisioningSchemeSearchResponseModel.md)
  - [CollectionModelOfPvsCollectionResponseModel](docs/CollectionModelOfPvsCollectionResponseModel.md)
  - [CollectionModelOfPvsDeviceResponseModel](docs/CollectionModelOfPvsDeviceResponseModel.md)
  - [CollectionModelOfPvsSiteResponseModel](docs/CollectionModelOfPvsSiteResponseModel.md)
@@ -826,6 +873,8 @@ Class | Method | HTTP request | Description
  - [CollectionModelOfPvsStreamingStoreResponseModel](docs/CollectionModelOfPvsStreamingStoreResponseModel.md)
  - [CollectionModelOfPvsStreamingVDiskResponseModel](docs/CollectionModelOfPvsStreamingVDiskResponseModel.md)
  - [CollectionModelOfRebootScheduleResponseModel](docs/CollectionModelOfRebootScheduleResponseModel.md)
+ - [CollectionModelOfRecommendationModel](docs/CollectionModelOfRecommendationModel.md)
+ - [CollectionModelOfResourceCostItemResponseModel](docs/CollectionModelOfResourceCostItemResponseModel.md)
  - [CollectionModelOfRoleResponseModel](docs/CollectionModelOfRoleResponseModel.md)
  - [CollectionModelOfScopeResponseModel](docs/CollectionModelOfScopeResponseModel.md)
  - [CollectionModelOfScopedObjectResponseModel](docs/CollectionModelOfScopedObjectResponseModel.md)
@@ -867,6 +916,8 @@ Class | Method | HTTP request | Description
  - [CreateApplicationFolderRequestModel](docs/CreateApplicationFolderRequestModel.md)
  - [CreateApplicationGroupRequestModel](docs/CreateApplicationGroupRequestModel.md)
  - [CreateApplicationRequestModel](docs/CreateApplicationRequestModel.md)
+ - [CreateAutoscaleGroupPluginRequestModel](docs/CreateAutoscaleGroupPluginRequestModel.md)
+ - [CreateAutoscalePluginTemplateRequestModel](docs/CreateAutoscalePluginTemplateRequestModel.md)
  - [CreateConfigurationSlotRequestModel](docs/CreateConfigurationSlotRequestModel.md)
  - [CreateDeliveryGroupRequestModel](docs/CreateDeliveryGroupRequestModel.md)
  - [CreateHypervisorRequestModel](docs/CreateHypervisorRequestModel.md)
@@ -883,6 +934,7 @@ Class | Method | HTTP request | Description
  - [CreateMachineCatalogProvisioningSchemeRequestModel](docs/CreateMachineCatalogProvisioningSchemeRequestModel.md)
  - [CreateMachineCatalogRequestModel](docs/CreateMachineCatalogRequestModel.md)
  - [CreateMachineConfigurationRequestModel](docs/CreateMachineConfigurationRequestModel.md)
+ - [CreateMaintenanceCycleRequestModel](docs/CreateMaintenanceCycleRequestModel.md)
  - [CreateServiceAccountRequestModel](docs/CreateServiceAccountRequestModel.md)
  - [CreateUpgradeScheduleForMachinesRequestModel](docs/CreateUpgradeScheduleForMachinesRequestModel.md)
  - [CreateUpgradeScheduleRequestModel](docs/CreateUpgradeScheduleRequestModel.md)
@@ -893,6 +945,8 @@ Class | Method | HTTP request | Description
  - [CustomReportFormatType](docs/CustomReportFormatType.md)
  - [CustomReportInfoRequestModel](docs/CustomReportInfoRequestModel.md)
  - [CvadSecurityTypes](docs/CvadSecurityTypes.md)
+ - [DailyCostItemResponseModel](docs/DailyCostItemResponseModel.md)
+ - [DailyCostResponseModelCollection](docs/DailyCostResponseModelCollection.md)
  - [DataStore](docs/DataStore.md)
  - [DatabaseAuthenticationMode](docs/DatabaseAuthenticationMode.md)
  - [DatabaseChangePropertiesModel](docs/DatabaseChangePropertiesModel.md)
@@ -948,6 +1002,7 @@ Class | Method | HTTP request | Description
  - [EditAdminFolderRequestModel](docs/EditAdminFolderRequestModel.md)
  - [EditAdminRoleRequestModel](docs/EditAdminRoleRequestModel.md)
  - [EditAdminScopeRequestModel](docs/EditAdminScopeRequestModel.md)
+ - [EditAdvisorRecommendationRequestModel](docs/EditAdvisorRecommendationRequestModel.md)
  - [EditAppLibPackageDiscoveryProfileRequestModel](docs/EditAppLibPackageDiscoveryProfileRequestModel.md)
  - [EditApplicationFolderRequestModel](docs/EditApplicationFolderRequestModel.md)
  - [EditApplicationGroupRequestModel](docs/EditApplicationGroupRequestModel.md)
@@ -960,6 +1015,7 @@ Class | Method | HTTP request | Description
  - [EditHypervisorConnectionRequestModel](docs/EditHypervisorConnectionRequestModel.md)
  - [EditHypervisorGCPConnectionRequestModel](docs/EditHypervisorGCPConnectionRequestModel.md)
  - [EditHypervisorOciConnectionRequestModel](docs/EditHypervisorOciConnectionRequestModel.md)
+ - [EditHypervisorOpenShiftConnectionRequestModel](docs/EditHypervisorOpenShiftConnectionRequestModel.md)
  - [EditHypervisorResourcePoolAWSOrGcpRequestModel](docs/EditHypervisorResourcePoolAWSOrGcpRequestModel.md)
  - [EditHypervisorResourcePoolAzureRequestModel](docs/EditHypervisorResourcePoolAzureRequestModel.md)
  - [EditHypervisorResourcePoolRequestModel](docs/EditHypervisorResourcePoolRequestModel.md)
@@ -1019,6 +1075,7 @@ Class | Method | HTTP request | Description
  - [GpoTestSettingData](docs/GpoTestSettingData.md)
  - [HomeZoneMode](docs/HomeZoneMode.md)
  - [HypervisorAWSConnectionDetailRequestModel](docs/HypervisorAWSConnectionDetailRequestModel.md)
+ - [HypervisorAllResourceSearchRequestModel](docs/HypervisorAllResourceSearchRequestModel.md)
  - [HypervisorAvailabilityZoneResourceResponseModel](docs/HypervisorAvailabilityZoneResourceResponseModel.md)
  - [HypervisorAzureArcConnectionDetailRequestModel](docs/HypervisorAzureArcConnectionDetailRequestModel.md)
  - [HypervisorAzureConnectionDetailRequestModel](docs/HypervisorAzureConnectionDetailRequestModel.md)
@@ -1034,6 +1091,7 @@ Class | Method | HTTP request | Description
  - [HypervisorDetailAzureResponseModel](docs/HypervisorDetailAzureResponseModel.md)
  - [HypervisorDetailGCPResponseModel](docs/HypervisorDetailGCPResponseModel.md)
  - [HypervisorDetailOciResponseModel](docs/HypervisorDetailOciResponseModel.md)
+ - [HypervisorDetailOpenShiftResponseModel](docs/HypervisorDetailOpenShiftResponseModel.md)
  - [HypervisorDetailResponseModel](docs/HypervisorDetailResponseModel.md)
  - [HypervisorDetailTraditionalResponseModel](docs/HypervisorDetailTraditionalResponseModel.md)
  - [HypervisorDetailWOLResponseModel](docs/HypervisorDetailWOLResponseModel.md)
@@ -1043,6 +1101,7 @@ Class | Method | HTTP request | Description
  - [HypervisorMachineCatalogResponseModel](docs/HypervisorMachineCatalogResponseModel.md)
  - [HypervisorMachineCatalogResponseModelCollection](docs/HypervisorMachineCatalogResponseModelCollection.md)
  - [HypervisorOciConnectionDetailRequestModel](docs/HypervisorOciConnectionDetailRequestModel.md)
+ - [HypervisorOpenShiftConnectionDetailRequestModel](docs/HypervisorOpenShiftConnectionDetailRequestModel.md)
  - [HypervisorPluginResponseModel](docs/HypervisorPluginResponseModel.md)
  - [HypervisorPluginResponseModelCollection](docs/HypervisorPluginResponseModelCollection.md)
  - [HypervisorRefResponseModel](docs/HypervisorRefResponseModel.md)
@@ -1050,6 +1109,8 @@ Class | Method | HTTP request | Description
  - [HypervisorResourcePoolAzureDetailResponseModel](docs/HypervisorResourcePoolAzureDetailResponseModel.md)
  - [HypervisorResourcePoolDetailResponseModel](docs/HypervisorResourcePoolDetailResponseModel.md)
  - [HypervisorResourcePoolGcpDetailResponseModel](docs/HypervisorResourcePoolGcpDetailResponseModel.md)
+ - [HypervisorResourcePoolNetworkResponseModel](docs/HypervisorResourcePoolNetworkResponseModel.md)
+ - [HypervisorResourcePoolNetworkResponseModelCollection](docs/HypervisorResourcePoolNetworkResponseModelCollection.md)
  - [HypervisorResourcePoolPatchPreviewRequestModel](docs/HypervisorResourcePoolPatchPreviewRequestModel.md)
  - [HypervisorResourcePoolPatchPreviewResponseModel](docs/HypervisorResourcePoolPatchPreviewResponseModel.md)
  - [HypervisorResourcePoolRefResponseModel](docs/HypervisorResourcePoolRefResponseModel.md)
@@ -1132,6 +1193,7 @@ Class | Method | HTTP request | Description
  - [ImageVersionProvisioningSchemeRefResponseModel](docs/ImageVersionProvisioningSchemeRefResponseModel.md)
  - [ImageVersionProvisioningSchemeRefResponseModelCollection](docs/ImageVersionProvisioningSchemeRefResponseModelCollection.md)
  - [ImageVersionRefResponseModel](docs/ImageVersionRefResponseModel.md)
+ - [ImageVersionResourcePoolRequestModel](docs/ImageVersionResourcePoolRequestModel.md)
  - [ImageVersionResponseModel](docs/ImageVersionResponseModel.md)
  - [ImageVersionResponseModelCollection](docs/ImageVersionResponseModelCollection.md)
  - [ImageVersionSpecContextResponseModel](docs/ImageVersionSpecContextResponseModel.md)
@@ -1154,12 +1216,14 @@ Class | Method | HTTP request | Description
  - [JobResponseModelCollection](docs/JobResponseModelCollection.md)
  - [JobStatus](docs/JobStatus.md)
  - [JobType](docs/JobType.md)
+ - [LasActivationStatus](docs/LasActivationStatus.md)
  - [LeasingBehavior](docs/LeasingBehavior.md)
  - [LicenseAccessCodeRequestModel](docs/LicenseAccessCodeRequestModel.md)
  - [LicenseCertificateResponseModel](docs/LicenseCertificateResponseModel.md)
  - [LicenseEntitlementRequestModel](docs/LicenseEntitlementRequestModel.md)
  - [LicenseEntitlementResponseModel](docs/LicenseEntitlementResponseModel.md)
  - [LicenseEntitlementResponseModelCollection](docs/LicenseEntitlementResponseModelCollection.md)
+ - [LicenseErrorWarningModel](docs/LicenseErrorWarningModel.md)
  - [LicenseInformationModel](docs/LicenseInformationModel.md)
  - [LicenseInventoryModel](docs/LicenseInventoryModel.md)
  - [LicenseModel](docs/LicenseModel.md)
@@ -1169,6 +1233,7 @@ Class | Method | HTTP request | Description
  - [LicenseRequestModel](docs/LicenseRequestModel.md)
  - [LicenseResponseModel](docs/LicenseResponseModel.md)
  - [LicenseResponseModelCollection](docs/LicenseResponseModelCollection.md)
+ - [LicenseServerStatus](docs/LicenseServerStatus.md)
  - [LicenseSummaryResponseModel](docs/LicenseSummaryResponseModel.md)
  - [LicensingAlertLevel](docs/LicensingAlertLevel.md)
  - [LicensingAlertLevel2](docs/LicensingAlertLevel2.md)
@@ -1242,6 +1307,28 @@ Class | Method | HTTP request | Description
  - [MachineType](docs/MachineType.md)
  - [MachineUnavailableReason](docs/MachineUnavailableReason.md)
  - [MachineUpgradeDetail](docs/MachineUpgradeDetail.md)
+ - [MaintenanceCycleDetailsResponseModel](docs/MaintenanceCycleDetailsResponseModel.md)
+ - [MaintenanceCycleOperation](docs/MaintenanceCycleOperation.md)
+ - [MaintenanceCycleOperation2](docs/MaintenanceCycleOperation2.md)
+ - [MaintenanceCycleResponseModel](docs/MaintenanceCycleResponseModel.md)
+ - [MaintenanceCycleResponseModelCollection](docs/MaintenanceCycleResponseModelCollection.md)
+ - [MaintenanceCycleSearchFilterGroupType](docs/MaintenanceCycleSearchFilterGroupType.md)
+ - [MaintenanceCycleSearchFilterGroupsRequestModel](docs/MaintenanceCycleSearchFilterGroupsRequestModel.md)
+ - [MaintenanceCycleSearchFilterGroupsType](docs/MaintenanceCycleSearchFilterGroupsType.md)
+ - [MaintenanceCycleSearchFilterRequestModel](docs/MaintenanceCycleSearchFilterRequestModel.md)
+ - [MaintenanceCycleSearchProperty](docs/MaintenanceCycleSearchProperty.md)
+ - [MaintenanceCycleSearchRequestModel](docs/MaintenanceCycleSearchRequestModel.md)
+ - [MaintenanceCycleSortCriteriaRequestModel](docs/MaintenanceCycleSortCriteriaRequestModel.md)
+ - [MaintenanceCycleStatus](docs/MaintenanceCycleStatus.md)
+ - [MaintenanceCycleVMOperationJobResponseModel](docs/MaintenanceCycleVMOperationJobResponseModel.md)
+ - [MaintenanceCycleVMOperationJobResponseModelCollection](docs/MaintenanceCycleVMOperationJobResponseModelCollection.md)
+ - [MaintenanceCycleVMOperationJobSearchFilterRequestModel](docs/MaintenanceCycleVMOperationJobSearchFilterRequestModel.md)
+ - [MaintenanceCycleVMOperationJobSearchProperty](docs/MaintenanceCycleVMOperationJobSearchProperty.md)
+ - [MaintenanceCycleVMOperationJobSearchRequestModel](docs/MaintenanceCycleVMOperationJobSearchRequestModel.md)
+ - [MaintenanceCycleVMOperationJobSortCriteriaRequestModel](docs/MaintenanceCycleVMOperationJobSortCriteriaRequestModel.md)
+ - [MaintenanceCycleVmOperationJobSearchFilterGroupType](docs/MaintenanceCycleVmOperationJobSearchFilterGroupType.md)
+ - [MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel](docs/MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel.md)
+ - [MaintenanceCycleVmOperationJobSearchFilterGroupsType](docs/MaintenanceCycleVmOperationJobSearchFilterGroupsType.md)
  - [MaintenanceModeReason](docs/MaintenanceModeReason.md)
  - [MeResponseModel](docs/MeResponseModel.md)
  - [MessageStyle](docs/MessageStyle.md)
@@ -1250,6 +1337,7 @@ Class | Method | HTTP request | Description
  - [ModelingResponseContract](docs/ModelingResponseContract.md)
  - [ModelingResultContract](docs/ModelingResultContract.md)
  - [MultiSiteModel](docs/MultiSiteModel.md)
+ - [MultiTenantServicesAccessModel](docs/MultiTenantServicesAccessModel.md)
  - [MyCustomerResponseModel](docs/MyCustomerResponseModel.md)
  - [MySiteResponseModel](docs/MySiteResponseModel.md)
  - [NameValueIntPairModel](docs/NameValueIntPairModel.md)
@@ -1261,9 +1349,11 @@ Class | Method | HTTP request | Description
  - [NewHighLevelOperationRequestModel](docs/NewHighLevelOperationRequestModel.md)
  - [ObjectType](docs/ObjectType.md)
  - [OciEnvironment](docs/OciEnvironment.md)
+ - [OfCDisplayClass10](docs/OfCDisplayClass10.md)
  - [OperatingSystemInfoResponseModel](docs/OperatingSystemInfoResponseModel.md)
  - [OsType](docs/OsType.md)
  - [PackagedApplicationType](docs/PackagedApplicationType.md)
+ - [PackagedApplicationVisibility](docs/PackagedApplicationVisibility.md)
  - [PagingFileSettingResponseModel](docs/PagingFileSettingResponseModel.md)
  - [PersistChanges](docs/PersistChanges.md)
  - [PolicyBodyRequest](docs/PolicyBodyRequest.md)
@@ -1312,10 +1402,9 @@ Class | Method | HTTP request | Description
  - [ProjectedMachinesTimeSlotResponseModel](docs/ProjectedMachinesTimeSlotResponseModel.md)
  - [ProtocolType](docs/ProtocolType.md)
  - [ProvSchemeWarningType](docs/ProvSchemeWarningType.md)
- - [ProvisionedVirtualMachineCustomVmDataResponseModel](docs/ProvisionedVirtualMachineCustomVmDataResponseModel.md)
+ - [ProvisionedVirtualMachineConfigurationResultantSetResponseModel](docs/ProvisionedVirtualMachineConfigurationResultantSetResponseModel.md)
  - [ProvisionedVirtualMachineDetailsResponseModel](docs/ProvisionedVirtualMachineDetailsResponseModel.md)
- - [ProvisionedVirtualMachineDetailsWarningReponseModel](docs/ProvisionedVirtualMachineDetailsWarningReponseModel.md)
- - [ProvisionedVirtualMachineDetailsWarningType](docs/ProvisionedVirtualMachineDetailsWarningType.md)
+ - [ProvisionedVirtualMachineNetworkMapSearchResponseModel](docs/ProvisionedVirtualMachineNetworkMapSearchResponseModel.md)
  - [ProvisionedVirtualMachineSearchFilterGroupRequestModel](docs/ProvisionedVirtualMachineSearchFilterGroupRequestModel.md)
  - [ProvisionedVirtualMachineSearchFilterGroupType](docs/ProvisionedVirtualMachineSearchFilterGroupType.md)
  - [ProvisionedVirtualMachineSearchFilterGroupsType](docs/ProvisionedVirtualMachineSearchFilterGroupsType.md)
@@ -1336,12 +1425,23 @@ Class | Method | HTTP request | Description
  - [ProvisioningOperationEventSearchResponseModelCollection](docs/ProvisioningOperationEventSearchResponseModelCollection.md)
  - [ProvisioningOperationEventSortCriteriaRequestModel](docs/ProvisioningOperationEventSortCriteriaRequestModel.md)
  - [ProvisioningProgressResponseModel](docs/ProvisioningProgressResponseModel.md)
+ - [ProvisioningSchemeConfigurationResponseModel](docs/ProvisioningSchemeConfigurationResponseModel.md)
+ - [ProvisioningSchemeConfigurationResponseModelCollection](docs/ProvisioningSchemeConfigurationResponseModelCollection.md)
  - [ProvisioningSchemeImageVersionHistoryResponseModel](docs/ProvisioningSchemeImageVersionHistoryResponseModel.md)
  - [ProvisioningSchemeMachineAccountResponseModel](docs/ProvisioningSchemeMachineAccountResponseModel.md)
  - [ProvisioningSchemeMachineAccountResponseModelCollection](docs/ProvisioningSchemeMachineAccountResponseModelCollection.md)
  - [ProvisioningSchemeMachineAccountState](docs/ProvisioningSchemeMachineAccountState.md)
  - [ProvisioningSchemeResponseModel](docs/ProvisioningSchemeResponseModel.md)
  - [ProvisioningSchemeResponseModelCollection](docs/ProvisioningSchemeResponseModelCollection.md)
+ - [ProvisioningSchemeSearchFilterGroupRequestModel](docs/ProvisioningSchemeSearchFilterGroupRequestModel.md)
+ - [ProvisioningSchemeSearchFilterGroupType](docs/ProvisioningSchemeSearchFilterGroupType.md)
+ - [ProvisioningSchemeSearchFilterGroupsType](docs/ProvisioningSchemeSearchFilterGroupsType.md)
+ - [ProvisioningSchemeSearchFilterRequestModel](docs/ProvisioningSchemeSearchFilterRequestModel.md)
+ - [ProvisioningSchemeSearchProperty](docs/ProvisioningSchemeSearchProperty.md)
+ - [ProvisioningSchemeSearchRequestModel](docs/ProvisioningSchemeSearchRequestModel.md)
+ - [ProvisioningSchemeSearchResponseModel](docs/ProvisioningSchemeSearchResponseModel.md)
+ - [ProvisioningSchemeSearchResponseModelCollection](docs/ProvisioningSchemeSearchResponseModelCollection.md)
+ - [ProvisioningSchemeSortCriteriaRequestModel](docs/ProvisioningSchemeSortCriteriaRequestModel.md)
  - [ProvisioningSchemeVmMetadataResponseModel](docs/ProvisioningSchemeVmMetadataResponseModel.md)
  - [ProvisioningSchemeWarningReponseModel](docs/ProvisioningSchemeWarningReponseModel.md)
  - [ProvisioningType](docs/ProvisioningType.md)
@@ -1367,6 +1467,9 @@ Class | Method | HTTP request | Description
  - [RebootScheduleResponseModel](docs/RebootScheduleResponseModel.md)
  - [RebootScheduleResponseModelCollection](docs/RebootScheduleResponseModelCollection.md)
  - [RebootScheduleWeeks](docs/RebootScheduleWeeks.md)
+ - [RecommendationModel](docs/RecommendationModel.md)
+ - [RecommendationResponseModelCollection](docs/RecommendationResponseModelCollection.md)
+ - [RecommendationState](docs/RecommendationState.md)
  - [RefResponseModel](docs/RefResponseModel.md)
  - [RefSafetyRulesAttribute](docs/RefSafetyRulesAttribute.md)
  - [RefsRequestModel](docs/RefsRequestModel.md)
@@ -1376,6 +1479,8 @@ Class | Method | HTTP request | Description
  - [RemotePCEnrollmentScopeResponseModel](docs/RemotePCEnrollmentScopeResponseModel.md)
  - [RequiredSleepCapability](docs/RequiredSleepCapability.md)
  - [ReservationResponseModel](docs/ReservationResponseModel.md)
+ - [ResourceCostItemResponseModel](docs/ResourceCostItemResponseModel.md)
+ - [ResourceCostResponseModelCollection](docs/ResourceCostResponseModelCollection.md)
  - [ResourcePriceResponseModel](docs/ResourcePriceResponseModel.md)
  - [ResourceValidationCategory](docs/ResourceValidationCategory.md)
  - [ResourceValidationReportModel](docs/ResourceValidationReportModel.md)
@@ -1383,6 +1488,7 @@ Class | Method | HTTP request | Description
  - [ResourceValidationViolationModel](docs/ResourceValidationViolationModel.md)
  - [ResourceViolationLevel](docs/ResourceViolationLevel.md)
  - [RestApiStatus](docs/RestApiStatus.md)
+ - [RestartMaintenanceCycleRequestModel](docs/RestartMaintenanceCycleRequestModel.md)
  - [RoleResponseModel](docs/RoleResponseModel.md)
  - [RoleResponseModelCollection](docs/RoleResponseModelCollection.md)
  - [SavingPlanResponseModel](docs/SavingPlanResponseModel.md)
@@ -1403,6 +1509,8 @@ Class | Method | HTTP request | Description
  - [SearchOperator](docs/SearchOperator.md)
  - [SearchProperty](docs/SearchProperty.md)
  - [SearchStartMenuApplicationsRequestModel](docs/SearchStartMenuApplicationsRequestModel.md)
+ - [SecurityGroup](docs/SecurityGroup.md)
+ - [SecurityGroupRule](docs/SecurityGroupRule.md)
  - [SecurityKeyConfigurationRequestModel](docs/SecurityKeyConfigurationRequestModel.md)
  - [SecurityKeyConfigurationResponseModel](docs/SecurityKeyConfigurationResponseModel.md)
  - [SendMessageRequestModel](docs/SendMessageRequestModel.md)
@@ -1425,6 +1533,8 @@ Class | Method | HTTP request | Description
  - [SessionType](docs/SessionType.md)
  - [SessionsTrendResponseModel](docs/SessionsTrendResponseModel.md)
  - [SetPreferenceModel](docs/SetPreferenceModel.md)
+ - [SetRecommendationRequestModel](docs/SetRecommendationRequestModel.md)
+ - [SetRecommendationsRequestModel](docs/SetRecommendationsRequestModel.md)
  - [SettingDefinition](docs/SettingDefinition.md)
  - [SettingDefinitionContract](docs/SettingDefinitionContract.md)
  - [SettingDefinitionEnvelope](docs/SettingDefinitionEnvelope.md)
@@ -1459,6 +1569,7 @@ Class | Method | HTTP request | Description
  - [StartMenuApplicationResponseModel](docs/StartMenuApplicationResponseModel.md)
  - [StartMenuApplicationResponseModelCollection](docs/StartMenuApplicationResponseModelCollection.md)
  - [StatusModel](docs/StatusModel.md)
+ - [StorageBalanceType](docs/StorageBalanceType.md)
  - [StoreFrontDeliveryGroupResponseModel](docs/StoreFrontDeliveryGroupResponseModel.md)
  - [StoreFrontDeliveryGroupResponseModelCollection](docs/StoreFrontDeliveryGroupResponseModelCollection.md)
  - [StoreFrontServerRequestModel](docs/StoreFrontServerRequestModel.md)
@@ -1466,6 +1577,7 @@ Class | Method | HTTP request | Description
  - [StoreFrontServerResponseModelCollection](docs/StoreFrontServerResponseModelCollection.md)
  - [StudioSettingsResponseModel](docs/StudioSettingsResponseModel.md)
  - [SummaryState](docs/SummaryState.md)
+ - [SummaryType](docs/SummaryType.md)
  - [SupportedPowerAction](docs/SupportedPowerAction.md)
  - [TagDetailResponseModel](docs/TagDetailResponseModel.md)
  - [TagRequestModel](docs/TagRequestModel.md)
@@ -1492,6 +1604,8 @@ Class | Method | HTTP request | Description
  - [UpdateAdminAdministratorRequestModel](docs/UpdateAdminAdministratorRequestModel.md)
  - [UpdateAppVIsolationGroupRequestModel](docs/UpdateAppVIsolationGroupRequestModel.md)
  - [UpdateAppVServerRequestModel](docs/UpdateAppVServerRequestModel.md)
+ - [UpdateAutoscaleGroupPluginRequestModel](docs/UpdateAutoscaleGroupPluginRequestModel.md)
+ - [UpdateAutoscalePluginTemplateRequestModel](docs/UpdateAutoscalePluginTemplateRequestModel.md)
  - [UpdateImageDefinitionRequestModel](docs/UpdateImageDefinitionRequestModel.md)
  - [UpdateImageVersionRequestModel](docs/UpdateImageVersionRequestModel.md)
  - [UpdateImageVersionResourcePoolsRequestModel](docs/UpdateImageVersionResourcePoolsRequestModel.md)
@@ -1502,6 +1616,8 @@ Class | Method | HTTP request | Description
  - [UpdateMachineCatalogRequestModel](docs/UpdateMachineCatalogRequestModel.md)
  - [UpdateMachineConfigurationRequestModel](docs/UpdateMachineConfigurationRequestModel.md)
  - [UpdateMachineRequestModel](docs/UpdateMachineRequestModel.md)
+ - [UpdateMaintenanceCycleRequestModel](docs/UpdateMaintenanceCycleRequestModel.md)
+ - [UpdateProvisionedVirtualMachineRequestModel](docs/UpdateProvisionedVirtualMachineRequestModel.md)
  - [UpdateServiceAccountCapabilityPreviewRequestModel](docs/UpdateServiceAccountCapabilityPreviewRequestModel.md)
  - [UpdateServiceAccountCapabilityPreviewResponseModel](docs/UpdateServiceAccountCapabilityPreviewResponseModel.md)
  - [UpdateServiceAccountRequestModel](docs/UpdateServiceAccountRequestModel.md)
@@ -1509,6 +1625,8 @@ Class | Method | HTTP request | Description
  - [UpgradePackageVersionResponseModel](docs/UpgradePackageVersionResponseModel.md)
  - [UpgradePackageVersionResponseModelCollection](docs/UpgradePackageVersionResponseModelCollection.md)
  - [UserManagementModel](docs/UserManagementModel.md)
+ - [UserTokenRequestModel](docs/UserTokenRequestModel.md)
+ - [UserTokenResponseModel](docs/UserTokenResponseModel.md)
  - [UserZonePreferenceResponseModel](docs/UserZonePreferenceResponseModel.md)
  - [UserZonePreferenceResponseModelCollection](docs/UserZonePreferenceResponseModelCollection.md)
  - [VDAComponentModel](docs/VDAComponentModel.md)

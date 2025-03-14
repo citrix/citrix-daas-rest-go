@@ -8,12 +8,16 @@ Method | HTTP request | Description
 [**DeliveryGroupsAddDeliveryGroupTags**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsAddDeliveryGroupTags) | **Post** /DeliveryGroups/{nameOrId}/Tags/{tagNameOrId} | Add a tag to a delivery group.
 [**DeliveryGroupsCheckDeliveryGroupExists**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCheckDeliveryGroupExists) | **Head** /DeliveryGroups/{name} | Check for the existence of a delivery group by name.
 [**DeliveryGroupsCheckRebootScheduleNameExists**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCheckRebootScheduleNameExists) | **Head** /DeliveryGroups/{nameOrId}/RebootSchedules/{name} | Check for the existence of a reboot schedule by name.
+[**DeliveryGroupsCreateAutoscalePluginTemplate**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateAutoscalePluginTemplate) | **Post** /DeliveryGroups/AutoscalePlugin/{type}/Templates | Create a new autoscale plugin configuration template for the specified plugin type.
 [**DeliveryGroupsCreateDeliveryGroup**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroup) | **Post** /DeliveryGroups | Create a delivery group.
 [**DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy) | **Post** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies | Create an advanced access policy associated with a delivery group.
+[**DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin) | **Post** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins | Create an autoscale group plugin for the speicified delivery group.
 [**DeliveryGroupsCreateDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroupPowerTimeScheme) | **Post** /DeliveryGroups/{nameOrId}/PowerTimeSchemes | Create a power time scheme for a delivery group.
 [**DeliveryGroupsCreateDeliveryGroupRebootSchedule**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsCreateDeliveryGroupRebootSchedule) | **Post** /DeliveryGroups/{nameOrId}/RebootSchedules | Create a reboot schedule for a delivery group.
+[**DeliveryGroupsDeleteAutoscalePluginTemplate**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteAutoscalePluginTemplate) | **Delete** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Delete the autoscale plugin configuration template for the specified plugin type and name.
 [**DeliveryGroupsDeleteDeliveryGroup**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroup) | **Delete** /DeliveryGroups/{nameOrId} | Delete a delivery group.
 [**DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy) | **Delete** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Delete an advanced access policy associated with a delivery group.
+[**DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin) | **Delete** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid} | Delete the autoscale group plugin by uid.
 [**DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme) | **Delete** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Delete a power time scheme from a delivery group.
 [**DeliveryGroupsDeleteDeliveryGroupRebootSchedule**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDeleteDeliveryGroupRebootSchedule) | **Delete** /DeliveryGroups/{nameOrId}/RebootSchedules/{scheduleNameOrId} | Delete a reboot schedule from a delivery group.
 [**DeliveryGroupsDoAddApplications**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDoAddApplications) | **Post** /DeliveryGroups/{nameOrId}/Applications | Add applications and/or application groups to a delivery group.
@@ -22,11 +26,14 @@ Method | HTTP request | Description
 [**DeliveryGroupsDoRemoveApplicationGroups**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDoRemoveApplicationGroups) | **Delete** /DeliveryGroups/{nameOrId}/ApplicationGroups/{appGroupNameOrId} | Remove an application group from a delivery group.
 [**DeliveryGroupsDoRemoveApplications**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDoRemoveApplications) | **Delete** /DeliveryGroups/{nameOrId}/Applications/{appNameOrId} | Remove an application from a delivery group.
 [**DeliveryGroupsDoRemoveMachines**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsDoRemoveMachines) | **Delete** /DeliveryGroups/{nameOrId}/Machines/{machineNameOrId} | Remove a machine from a delivery group.
+[**DeliveryGroupsGetAutoscalePluginTemplate**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetAutoscalePluginTemplate) | **Get** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Return the autoscale plugin configuration template for the specified plugin type and name.
+[**DeliveryGroupsGetAutoscalePluginTemplates**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetAutoscalePluginTemplates) | **Get** /DeliveryGroups/AutoscalePlugin/{type}/Templates | Return all autoscale plugin configuration templates for the specified plugin type.
 [**DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines) | **Get** /DeliveryGroups/{nameOrId}/ProjectedAutoscaleMachines | Gets the projected number of machines that Autoscale will keep powered on over the specified period
 [**DeliveryGroupsGetDeliveryGroup**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroup) | **Get** /DeliveryGroups/{nameOrId} | Get details of a single delivery group.
 [**DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies) | **Get** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies | Get the advanced access policies associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy) | **Get** /DeliveryGroups/{nameOrId}/AdvancedAccessPolicies/{policyId} | Get the details of a single advanced access policy associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupApplications**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupApplications) | **Get** /DeliveryGroups/{nameOrId}/Applications | Get the applications associated with a delivery group.
+[**DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins) | **Get** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins | Get the autoscale group plugins for the specified delivery group.
 [**DeliveryGroupsGetDeliveryGroupFtas**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupFtas) | **Post** /DeliveryGroups/$GetFileTypes | Returns the file type associations the system imports from worker machines in the specified delivery group.
 [**DeliveryGroupsGetDeliveryGroupMachines**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupMachines) | **Get** /DeliveryGroups/{nameOrId}/Machines | Get the machines associated with a delivery group.
 [**DeliveryGroupsGetDeliveryGroupPowerTimeScheme**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsGetDeliveryGroupPowerTimeScheme) | **Get** /DeliveryGroups/{nameOrId}/PowerTimeSchemes/{schemeNameOrId} | Get the details about a single power time scheme associated with a delivery group.
@@ -54,6 +61,8 @@ Method | HTTP request | Description
 [**DeliveryGroupsStartDeliveryGroupRebootCycle**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsStartDeliveryGroupRebootCycle) | **Post** /DeliveryGroups/{nameOrId}/$StartRebootCycle | Start a reboot cycle for machines in a delivery group.
 [**DeliveryGroupsTestDeliveryGroup**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsTestDeliveryGroup) | **Post** /DeliveryGroups/{nameOrId}/$test | Run tests on a delivery group and create a test report.
 [**DeliveryGroupsTestDeliveryGroupExists**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsTestDeliveryGroupExists) | **Post** /DeliveryGroups/$checkName | Test the existence of a delivery group by name.
+[**DeliveryGroupsUpdateAutoscalePluginTemplate**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsUpdateAutoscalePluginTemplate) | **Patch** /DeliveryGroups/AutoscalePlugin/{type}/Templates/{name} | Update the autoscale plugin configuration template for the specified plugin type.
+[**DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin**](DeliveryGroupsAPIsDAAS.md#DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin) | **Patch** /DeliveryGroups/{nameOrId}/AutoscaleGroupPlugins/{uid} | Update the autoscale group plugin by uid.
 
 
 
@@ -399,6 +408,90 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeliveryGroupsCreateAutoscalePluginTemplate
+
+> DeliveryGroupsCreateAutoscalePluginTemplate(ctx, type_).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateAutoscalePluginTemplateRequestModel(createAutoscalePluginTemplateRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Create a new autoscale plugin configuration template for the specified plugin type.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    type_ := "type__example" // string | The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"             
+    createAutoscalePluginTemplateRequestModel := *openapiclient.NewCreateAutoscalePluginTemplateRequestModel("Name_example") // CreateAutoscalePluginTemplateRequestModel | The template model.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the template will be created asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateAutoscalePluginTemplate(context.Background(), type_).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateAutoscalePluginTemplateRequestModel(createAutoscalePluginTemplateRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateAutoscalePluginTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**type_** | **string** | The type of the plugin.                 The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;              | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsCreateAutoscalePluginTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **createAutoscalePluginTemplateRequestModel** | [**CreateAutoscalePluginTemplateRequestModel**](CreateAutoscalePluginTemplateRequestModel.md) | The template model. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the template will be created asynchronously. | [default to false]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeliveryGroupsCreateDeliveryGroup
 
 > DeliveryGroupDetailResponseModel DeliveryGroupsCreateDeliveryGroup(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateDeliveryGroupRequestModel(createDeliveryGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).DetailResponseRequired(detailResponseRequired).Async(async).Execute()
@@ -552,6 +645,90 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdvancedAccessPolicyResponseModel**](AdvancedAccessPolicyResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin
+
+> DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateAutoscaleGroupPluginRequestModel(createAutoscaleGroupPluginRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Create an autoscale group plugin for the speicified delivery group.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the delivery group. If the delivery group is present in an admin folder,                 specify the name in this format: {admin folder path plus delivery group name}.                 For example, FolderName1|FolderName2|DeliveryGroupName.
+    createAutoscaleGroupPluginRequestModel := *openapiclient.NewCreateAutoscaleGroupPluginRequestModel("Name_example", openapiclient.AutoscalePluginType("Unknown")) // CreateAutoscaleGroupPluginRequestModel | The autoscale group plugin create model
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the template will be created asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateAutoscaleGroupPluginRequestModel(createAutoscaleGroupPluginRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the delivery group. If the delivery group is present in an admin folder,                 specify the name in this format: {admin folder path plus delivery group name}.                 For example, FolderName1|FolderName2|DeliveryGroupName. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsCreateDeliveryGroupAutoscaleGroupPluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **createAutoscaleGroupPluginRequestModel** | [**CreateAutoscaleGroupPluginRequestModel**](CreateAutoscaleGroupPluginRequestModel.md) | The autoscale group plugin create model | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the template will be created asynchronously. | [default to false]
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -739,6 +916,91 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeliveryGroupsDeleteAutoscalePluginTemplate
+
+> DeliveryGroupsDeleteAutoscalePluginTemplate(ctx, type_, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Delete the autoscale plugin configuration template for the specified plugin type and name.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    type_ := "type__example" // string | The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
+    name := "name_example" // string | The name of the template.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the template will be deleted asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteAutoscalePluginTemplate(context.Background(), type_, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteAutoscalePluginTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**type_** | **string** | The type of the plugin.             The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;              | 
+**name** | **string** | The name of the template. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsDeleteAutoscalePluginTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the template will be deleted asynchronously. | [default to false]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeliveryGroupsDeleteDeliveryGroup
 
 > DeliveryGroupsDeleteDeliveryGroup(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Force(force).Execute()
@@ -889,6 +1151,91 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If &#x60;true&#x60;, the advanced access policy will be deleted as a background task. | [default to false]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin
+
+> DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin(ctx, nameOrId, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Delete the autoscale group plugin by uid.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+    uid := int32(56) // int32 | 
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the template will be deleted asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin(context.Background(), nameOrId, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName. | 
+**uid** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the template will be deleted asynchronously. | [default to false]
 
 ### Return type
 
@@ -1593,6 +1940,177 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## DeliveryGroupsGetAutoscalePluginTemplate
+
+> AutoscalePluginTemplateResponseModel DeliveryGroupsGetAutoscalePluginTemplate(ctx, type_, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Return the autoscale plugin configuration template for the specified plugin type and name.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    type_ := "type__example" // string | The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
+    name := "name_example" // string | The name of the template.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the template will be gotten asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplate(context.Background(), type_, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeliveryGroupsGetAutoscalePluginTemplate`: AutoscalePluginTemplateResponseModel
+    fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**type_** | **string** | The type of the plugin.             The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;              | 
+**name** | **string** | The name of the template. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsGetAutoscalePluginTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the template will be gotten asynchronously. | [default to false]
+
+### Return type
+
+[**AutoscalePluginTemplateResponseModel**](AutoscalePluginTemplateResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsGetAutoscalePluginTemplates
+
+> AutoscalePluginTemplateResponseModelCollection DeliveryGroupsGetAutoscalePluginTemplates(ctx, type_).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Return all autoscale plugin configuration templates for the specified plugin type.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    type_ := "type__example" // string | The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"             
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the templates will be gotten asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplates(context.Background(), type_).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplates``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeliveryGroupsGetAutoscalePluginTemplates`: AutoscalePluginTemplateResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplates`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**type_** | **string** | The type of the plugin.             The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;              | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsGetAutoscalePluginTemplatesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the templates will be gotten asynchronously. | [default to false]
+
+### Return type
+
+[**AutoscalePluginTemplateResponseModelCollection**](AutoscalePluginTemplateResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines
 
 > ProjectedAutoscaleMachinesResponseModel DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).FromDate(fromDate).NumberOfDays(numberOfDays).Execute()
@@ -2008,6 +2526,92 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ApplicationResponseModelCollection**](ApplicationResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins
+
+> AutoscaleGroupPluginModelCollection DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).Async(async).Execute()
+
+Get the autoscale group plugins for the specified delivery group.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    type_ := "type__example" // string | The type of the plugin.             The supported types are: \"Holiday\", \"Intelligent\"              (optional)
+    async := true // bool | If 'true', the autoscale group plugins will be gotten asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins`: AutoscaleGroupPluginModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsGetDeliveryGroupAutoscaleGroupPluginsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **type_** | **string** | The type of the plugin.             The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;              | 
+ **async** | **bool** | If &#39;true&#39;, the autoscale group plugins will be gotten asynchronously. | [default to false]
+
+### Return type
+
+[**AutoscaleGroupPluginModelCollection**](AutoscaleGroupPluginModelCollection.md)
 
 ### Authorization
 
@@ -2629,7 +3233,7 @@ Name | Type | Description  | Notes
 
 ## DeliveryGroupsGetDeliveryGroupTags
 
-> TagResponseModelCollection DeliveryGroupsGetDeliveryGroupTags(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
+> TagResponseModelCollection DeliveryGroupsGetDeliveryGroupTags(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
 
 Get tags associated with a delivery group.
 
@@ -2657,10 +3261,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     fields := "Name,Id,Description" // string | Optional parameter, removing unspecified properties that otherwise would have been sent by the server. (optional)
+    async := true // bool | If `true`, this request will be handled asynchronously. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupTags(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
+    resp, r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupTags(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupTags``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2694,6 +3299,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **fields** | **string** | Optional parameter, removing unspecified properties that otherwise would have been sent by the server. | 
+ **async** | **bool** | If &#x60;true&#x60;, this request will be handled asynchronously. | [default to false]
 
 ### Return type
 
@@ -4328,6 +4934,180 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsUpdateAutoscalePluginTemplate
+
+> DeliveryGroupsUpdateAutoscalePluginTemplate(ctx, type_, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateAutoscalePluginTemplateRequestModel(updateAutoscalePluginTemplateRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Update the autoscale plugin configuration template for the specified plugin type.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    type_ := "type__example" // string | The type of the plugin.                 The supported types are: \"Holiday\", \"Intelligent\"             
+    name := "name_example" // string | The name of the template.
+    updateAutoscalePluginTemplateRequestModel := *openapiclient.NewUpdateAutoscalePluginTemplateRequestModel() // UpdateAutoscalePluginTemplateRequestModel | The template model.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the template will be created asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsUpdateAutoscalePluginTemplate(context.Background(), type_, name).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateAutoscalePluginTemplateRequestModel(updateAutoscalePluginTemplateRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsUpdateAutoscalePluginTemplate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**type_** | **string** | The type of the plugin.                 The supported types are: \&quot;Holiday\&quot;, \&quot;Intelligent\&quot;              | 
+**name** | **string** | The name of the template. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsUpdateAutoscalePluginTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+
+ **updateAutoscalePluginTemplateRequestModel** | [**UpdateAutoscalePluginTemplateRequestModel**](UpdateAutoscalePluginTemplateRequestModel.md) | The template model. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the template will be created asynchronously. | [default to false]
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin
+
+> DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin(ctx, nameOrId, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateAutoscaleGroupPluginRequestModel(updateAutoscaleGroupPluginRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Update the autoscale group plugin by uid.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName.
+    uid := int32(56) // int32 | The group plugin uid
+    updateAutoscaleGroupPluginRequestModel := *openapiclient.NewUpdateAutoscaleGroupPluginRequestModel() // UpdateAutoscaleGroupPluginRequestModel | The autoscale group plugin update model
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If 'true', the template will be updated asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    r, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin(context.Background(), nameOrId, uid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateAutoscaleGroupPluginRequestModel(updateAutoscaleGroupPluginRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DeliveryGroupsAPIsDAAS.DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | Name or ID of the delivery group. If the delivery group is present in an admin folder,             specify the name in this format: {admin folder path plus delivery group name}.             For example, FolderName1|FolderName2|DeliveryGroupName. | 
+**uid** | **int32** | The group plugin uid | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPluginRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+
+ **updateAutoscaleGroupPluginRequestModel** | [**UpdateAutoscaleGroupPluginRequestModel**](UpdateAutoscaleGroupPluginRequestModel.md) | The autoscale group plugin update model | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#39;true&#39;, the template will be updated asynchronously. | [default to false]
 
 ### Return type
 

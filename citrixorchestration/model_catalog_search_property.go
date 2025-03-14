@@ -36,6 +36,7 @@ const (
 	CATALOGSEARCHPROPERTY_UNASSIGNED_COUNT CatalogSearchProperty = "UnassignedCount"
 	CATALOGSEARCHPROPERTY_USED_COUNT CatalogSearchProperty = "UsedCount"
 	CATALOGSEARCHPROPERTY_PERSIST_CHANGES CatalogSearchProperty = "PersistChanges"
+	CATALOGSEARCHPROPERTY_PROVISIONING_SCHEME_ID CatalogSearchProperty = "ProvisioningSchemeId"
 )
 
 // All allowed values of CatalogSearchProperty enum
@@ -56,6 +57,7 @@ var AllowedCatalogSearchPropertyEnumValues = []CatalogSearchProperty{
 	"UnassignedCount",
 	"UsedCount",
 	"PersistChanges",
+	"ProvisioningSchemeId",
 }
 
 func (v *CatalogSearchProperty) UnmarshalJSON(src []byte) error {

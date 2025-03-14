@@ -19,6 +19,8 @@ var _ MappedNullable = &EditLicenseProductEditionRequestModel{}
 
 // EditLicenseProductEditionRequestModel Request model to edit license product edition
 type EditLicenseProductEditionRequestModel struct {
+	// Use License Activation Service and should be used exclusively
+	UseLicenseActivationService NullableBool `json:"UseLicenseActivationService,omitempty"`
 	LicenseProduct *LicenseProduct `json:"LicenseProduct,omitempty"`
 	ProductEdition *ProductEdition `json:"ProductEdition,omitempty"`
 	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
@@ -39,6 +41,48 @@ func NewEditLicenseProductEditionRequestModel() *EditLicenseProductEditionReques
 func NewEditLicenseProductEditionRequestModelWithDefaults() *EditLicenseProductEditionRequestModel {
 	this := EditLicenseProductEditionRequestModel{}
 	return &this
+}
+
+// GetUseLicenseActivationService returns the UseLicenseActivationService field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EditLicenseProductEditionRequestModel) GetUseLicenseActivationService() bool {
+	if o == nil || IsNil(o.UseLicenseActivationService.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.UseLicenseActivationService.Get()
+}
+
+// GetUseLicenseActivationServiceOk returns a tuple with the UseLicenseActivationService field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EditLicenseProductEditionRequestModel) GetUseLicenseActivationServiceOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UseLicenseActivationService.Get(), o.UseLicenseActivationService.IsSet()
+}
+
+// HasUseLicenseActivationService returns a boolean if a field has been set.
+func (o *EditLicenseProductEditionRequestModel) HasUseLicenseActivationService() bool {
+	if o != nil && o.UseLicenseActivationService.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUseLicenseActivationService gets a reference to the given NullableBool and assigns it to the UseLicenseActivationService field.
+func (o *EditLicenseProductEditionRequestModel) SetUseLicenseActivationService(v bool) {
+	o.UseLicenseActivationService.Set(&v)
+}
+// SetUseLicenseActivationServiceNil sets the value for UseLicenseActivationService to be an explicit nil
+func (o *EditLicenseProductEditionRequestModel) SetUseLicenseActivationServiceNil() {
+	o.UseLicenseActivationService.Set(nil)
+}
+
+// UnsetUseLicenseActivationService ensures that no value is present for UseLicenseActivationService, not even an explicit nil
+func (o *EditLicenseProductEditionRequestModel) UnsetUseLicenseActivationService() {
+	o.UseLicenseActivationService.Unset()
 }
 
 // GetLicenseProduct returns the LicenseProduct field value if set, zero value otherwise.
@@ -147,6 +191,9 @@ func (o EditLicenseProductEditionRequestModel) MarshalJSON() ([]byte, error) {
 
 func (o EditLicenseProductEditionRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.UseLicenseActivationService.IsSet() {
+		toSerialize["UseLicenseActivationService"] = o.UseLicenseActivationService.Get()
+	}
 	if !IsNil(o.LicenseProduct) {
 		toSerialize["LicenseProduct"] = o.LicenseProduct
 	}

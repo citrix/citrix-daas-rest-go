@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **DnsName** | Pointer to **NullableString** | The dns name of the delivery controller | [optional] 
 **ServiceHostId** | Pointer to **string** | The service host id of the delivery controller | [optional] 
 **ControllerVersion** | Pointer to **NullableString** | The controller version of the delivery controller | [optional] 
+**ControllerExternalVersion** | Pointer to **NullableString** | The external version of the delivery controller | [optional] 
 **RegisteredDesktops** | Pointer to **int32** | The number of registered desktops in the delivery controller | [optional] 
 **LastActivityTime** | Pointer to **NullableString** | The LastActivityTime of the delivery controller | [optional] 
 **LastStartTime** | Pointer to **NullableString** | The LastStartTime of the delivery controller | [optional] 
@@ -17,6 +18,10 @@ Name | Type | Description | Notes
 **OSType** | Pointer to **NullableString** | The OSType of the delivery controller | [optional] 
 **ServiceStatuses** | Pointer to [**[]DeliveryControllerServiceStatusResponseModel**](DeliveryControllerServiceStatusResponseModel.md) | The service statuses of the delivery controller. | [optional] 
 **ControllerState** | Pointer to [**DeliveryControllerState**](DeliveryControllerState.md) |  | [optional] 
+**LasUniqueEnvId** | Pointer to **NullableString** | Las unique env Id | [optional] 
+**LasActivationStatus** | Pointer to [**LasActivationStatus**](LasActivationStatus.md) |  | [optional] 
+**LasActivationExpiry** | Pointer to **NullableString** | Las activation expiry | [optional] 
+**IsLasAware** | Pointer to **NullableBool** | Las Aware of current DDC              | [optional] 
 **ZoneId** | Pointer to **NullableString** | The ID of the zone this zonable item belongs to | [optional] 
 **ZonableItemId** | Pointer to **NullableString** | The Id of this zonable Item. This is a generic name to access non-generic properties | [optional] 
 **ZonableItemType** | Pointer to [**ZonableItemType**](ZonableItemType.md) |  | [optional] 
@@ -243,6 +248,41 @@ HasControllerVersion returns a boolean if a field has been set.
 `func (o *DeliveryControllerResponseModel) UnsetControllerVersion()`
 
 UnsetControllerVersion ensures that no value is present for ControllerVersion, not even an explicit nil
+### GetControllerExternalVersion
+
+`func (o *DeliveryControllerResponseModel) GetControllerExternalVersion() string`
+
+GetControllerExternalVersion returns the ControllerExternalVersion field if non-nil, zero value otherwise.
+
+### GetControllerExternalVersionOk
+
+`func (o *DeliveryControllerResponseModel) GetControllerExternalVersionOk() (*string, bool)`
+
+GetControllerExternalVersionOk returns a tuple with the ControllerExternalVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetControllerExternalVersion
+
+`func (o *DeliveryControllerResponseModel) SetControllerExternalVersion(v string)`
+
+SetControllerExternalVersion sets ControllerExternalVersion field to given value.
+
+### HasControllerExternalVersion
+
+`func (o *DeliveryControllerResponseModel) HasControllerExternalVersion() bool`
+
+HasControllerExternalVersion returns a boolean if a field has been set.
+
+### SetControllerExternalVersionNil
+
+`func (o *DeliveryControllerResponseModel) SetControllerExternalVersionNil(b bool)`
+
+ SetControllerExternalVersionNil sets the value for ControllerExternalVersion to be an explicit nil
+
+### UnsetControllerExternalVersion
+`func (o *DeliveryControllerResponseModel) UnsetControllerExternalVersion()`
+
+UnsetControllerExternalVersion ensures that no value is present for ControllerExternalVersion, not even an explicit nil
 ### GetRegisteredDesktops
 
 `func (o *DeliveryControllerResponseModel) GetRegisteredDesktops() int32`
@@ -468,6 +508,136 @@ SetControllerState sets ControllerState field to given value.
 
 HasControllerState returns a boolean if a field has been set.
 
+### GetLasUniqueEnvId
+
+`func (o *DeliveryControllerResponseModel) GetLasUniqueEnvId() string`
+
+GetLasUniqueEnvId returns the LasUniqueEnvId field if non-nil, zero value otherwise.
+
+### GetLasUniqueEnvIdOk
+
+`func (o *DeliveryControllerResponseModel) GetLasUniqueEnvIdOk() (*string, bool)`
+
+GetLasUniqueEnvIdOk returns a tuple with the LasUniqueEnvId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLasUniqueEnvId
+
+`func (o *DeliveryControllerResponseModel) SetLasUniqueEnvId(v string)`
+
+SetLasUniqueEnvId sets LasUniqueEnvId field to given value.
+
+### HasLasUniqueEnvId
+
+`func (o *DeliveryControllerResponseModel) HasLasUniqueEnvId() bool`
+
+HasLasUniqueEnvId returns a boolean if a field has been set.
+
+### SetLasUniqueEnvIdNil
+
+`func (o *DeliveryControllerResponseModel) SetLasUniqueEnvIdNil(b bool)`
+
+ SetLasUniqueEnvIdNil sets the value for LasUniqueEnvId to be an explicit nil
+
+### UnsetLasUniqueEnvId
+`func (o *DeliveryControllerResponseModel) UnsetLasUniqueEnvId()`
+
+UnsetLasUniqueEnvId ensures that no value is present for LasUniqueEnvId, not even an explicit nil
+### GetLasActivationStatus
+
+`func (o *DeliveryControllerResponseModel) GetLasActivationStatus() LasActivationStatus`
+
+GetLasActivationStatus returns the LasActivationStatus field if non-nil, zero value otherwise.
+
+### GetLasActivationStatusOk
+
+`func (o *DeliveryControllerResponseModel) GetLasActivationStatusOk() (*LasActivationStatus, bool)`
+
+GetLasActivationStatusOk returns a tuple with the LasActivationStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLasActivationStatus
+
+`func (o *DeliveryControllerResponseModel) SetLasActivationStatus(v LasActivationStatus)`
+
+SetLasActivationStatus sets LasActivationStatus field to given value.
+
+### HasLasActivationStatus
+
+`func (o *DeliveryControllerResponseModel) HasLasActivationStatus() bool`
+
+HasLasActivationStatus returns a boolean if a field has been set.
+
+### GetLasActivationExpiry
+
+`func (o *DeliveryControllerResponseModel) GetLasActivationExpiry() string`
+
+GetLasActivationExpiry returns the LasActivationExpiry field if non-nil, zero value otherwise.
+
+### GetLasActivationExpiryOk
+
+`func (o *DeliveryControllerResponseModel) GetLasActivationExpiryOk() (*string, bool)`
+
+GetLasActivationExpiryOk returns a tuple with the LasActivationExpiry field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLasActivationExpiry
+
+`func (o *DeliveryControllerResponseModel) SetLasActivationExpiry(v string)`
+
+SetLasActivationExpiry sets LasActivationExpiry field to given value.
+
+### HasLasActivationExpiry
+
+`func (o *DeliveryControllerResponseModel) HasLasActivationExpiry() bool`
+
+HasLasActivationExpiry returns a boolean if a field has been set.
+
+### SetLasActivationExpiryNil
+
+`func (o *DeliveryControllerResponseModel) SetLasActivationExpiryNil(b bool)`
+
+ SetLasActivationExpiryNil sets the value for LasActivationExpiry to be an explicit nil
+
+### UnsetLasActivationExpiry
+`func (o *DeliveryControllerResponseModel) UnsetLasActivationExpiry()`
+
+UnsetLasActivationExpiry ensures that no value is present for LasActivationExpiry, not even an explicit nil
+### GetIsLasAware
+
+`func (o *DeliveryControllerResponseModel) GetIsLasAware() bool`
+
+GetIsLasAware returns the IsLasAware field if non-nil, zero value otherwise.
+
+### GetIsLasAwareOk
+
+`func (o *DeliveryControllerResponseModel) GetIsLasAwareOk() (*bool, bool)`
+
+GetIsLasAwareOk returns a tuple with the IsLasAware field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsLasAware
+
+`func (o *DeliveryControllerResponseModel) SetIsLasAware(v bool)`
+
+SetIsLasAware sets IsLasAware field to given value.
+
+### HasIsLasAware
+
+`func (o *DeliveryControllerResponseModel) HasIsLasAware() bool`
+
+HasIsLasAware returns a boolean if a field has been set.
+
+### SetIsLasAwareNil
+
+`func (o *DeliveryControllerResponseModel) SetIsLasAwareNil(b bool)`
+
+ SetIsLasAwareNil sets the value for IsLasAware to be an explicit nil
+
+### UnsetIsLasAware
+`func (o *DeliveryControllerResponseModel) UnsetIsLasAware()`
+
+UnsetIsLasAware ensures that no value is present for IsLasAware, not even an explicit nil
 ### GetZoneId
 
 `func (o *DeliveryControllerResponseModel) GetZoneId() string`

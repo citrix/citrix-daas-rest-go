@@ -37,6 +37,7 @@ const (
 	OBJECTTYPE_IMAGE ObjectType = "Image"
 	OBJECTTYPE_ZONE ObjectType = "Zone"
 	OBJECTTYPE_SITE ObjectType = "Site"
+	OBJECTTYPE_LICENSING ObjectType = "Licensing"
 )
 
 // All allowed values of ObjectType enum
@@ -58,6 +59,7 @@ var AllowedObjectTypeEnumValues = []ObjectType{
 	"Image",
 	"Zone",
 	"Site",
+	"Licensing",
 }
 
 func (v *ObjectType) UnmarshalJSON(src []byte) error {

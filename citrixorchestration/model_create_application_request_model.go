@@ -23,6 +23,7 @@ type CreateApplicationRequestModel struct {
 	ApplicationFolder NullableString `json:"ApplicationFolder,omitempty"`
 	ApplicationType *ApplicationType `json:"ApplicationType,omitempty"`
 	PackagedApplicationType *PackagedApplicationType `json:"PackagedApplicationType,omitempty"`
+	PackagedApplicationVisibility *PackagedApplicationVisibility `json:"PackagedApplicationVisibility,omitempty"`
 	// Internal name of the application.
 	BrowserName NullableString `json:"BrowserName,omitempty"`
 	// Specifies the folder that the application belongs to as the user sees it.
@@ -238,6 +239,38 @@ func (o *CreateApplicationRequestModel) HasPackagedApplicationType() bool {
 // SetPackagedApplicationType gets a reference to the given PackagedApplicationType and assigns it to the PackagedApplicationType field.
 func (o *CreateApplicationRequestModel) SetPackagedApplicationType(v PackagedApplicationType) {
 	o.PackagedApplicationType = &v
+}
+
+// GetPackagedApplicationVisibility returns the PackagedApplicationVisibility field value if set, zero value otherwise.
+func (o *CreateApplicationRequestModel) GetPackagedApplicationVisibility() PackagedApplicationVisibility {
+	if o == nil || IsNil(o.PackagedApplicationVisibility) {
+		var ret PackagedApplicationVisibility
+		return ret
+	}
+	return *o.PackagedApplicationVisibility
+}
+
+// GetPackagedApplicationVisibilityOk returns a tuple with the PackagedApplicationVisibility field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateApplicationRequestModel) GetPackagedApplicationVisibilityOk() (*PackagedApplicationVisibility, bool) {
+	if o == nil || IsNil(o.PackagedApplicationVisibility) {
+		return nil, false
+	}
+	return o.PackagedApplicationVisibility, true
+}
+
+// HasPackagedApplicationVisibility returns a boolean if a field has been set.
+func (o *CreateApplicationRequestModel) HasPackagedApplicationVisibility() bool {
+	if o != nil && !IsNil(o.PackagedApplicationVisibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetPackagedApplicationVisibility gets a reference to the given PackagedApplicationVisibility and assigns it to the PackagedApplicationVisibility field.
+func (o *CreateApplicationRequestModel) SetPackagedApplicationVisibility(v PackagedApplicationVisibility) {
+	o.PackagedApplicationVisibility = &v
 }
 
 // GetBrowserName returns the BrowserName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1330,6 +1363,9 @@ func (o CreateApplicationRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PackagedApplicationType) {
 		toSerialize["PackagedApplicationType"] = o.PackagedApplicationType
+	}
+	if !IsNil(o.PackagedApplicationVisibility) {
+		toSerialize["PackagedApplicationVisibility"] = o.PackagedApplicationVisibility
 	}
 	if o.BrowserName.IsSet() {
 		toSerialize["BrowserName"] = o.BrowserName.Get()

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **RemoveAvailableMachineAccounts** | Pointer to **[]string** | &#x60;DEPRECATED.&#x60; List of Active Directory machine accounts to remove from the pool of available accounts that are used when machines are provisioned. | [optional] 
 **MachineAccountDeleteOption** | Pointer to [**MachineAccountDeleteOption**](MachineAccountDeleteOption.md) |  | [optional] 
 **AssignImageVersionToProvisioningScheme** | Pointer to [**AssignImageVersionToProvisioningSchemeRequestModel**](AssignImageVersionToProvisioningSchemeRequestModel.md) |  | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of provisioning scheme. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated. If Metadata is specified, note that other properties in request will be ignored. So MasterImagePath and  AssignImageVersionToProvisioningScheme only can be null or empty, to avoid unintented update. | [optional] 
 
 ## Methods
 
@@ -586,6 +587,41 @@ SetAssignImageVersionToProvisioningScheme sets AssignImageVersionToProvisioningS
 
 HasAssignImageVersionToProvisioningScheme returns a boolean if a field has been set.
 
+### GetMetadata
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMetadata() []NameValueStringPairModel`
+
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
+
+### GetMetadataOk
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMetadataOk() (*[]NameValueStringPairModel, bool)`
+
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMetadata
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMetadata(v []NameValueStringPairModel)`
+
+SetMetadata sets Metadata field to given value.
+
+### HasMetadata
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasMetadata() bool`
+
+HasMetadata returns a boolean if a field has been set.
+
+### SetMetadataNil
+
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

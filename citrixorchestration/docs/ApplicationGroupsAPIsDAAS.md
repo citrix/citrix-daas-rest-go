@@ -531,7 +531,7 @@ Name | Type | Description  | Notes
 
 ## ApplicationGroupsGetApplicationGroup
 
-> ApplicationGroupDetailResponseModel ApplicationGroupsGetApplicationGroup(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
+> ApplicationGroupDetailResponseModel ApplicationGroupsGetApplicationGroup(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
 
 Get details of a single application group.
 
@@ -557,10 +557,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     fields := "Id,Uid,ContainerScopes" // string | Optional filter, removing unspecified properties that otherwise would have been sent by the server              (optional)
+    async := true // bool | If `true`, the application group details will be fetched as a background task. The task will have JobType GetApplicationGroup. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
+    resp, r, err := apiClient.ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ApplicationGroupsAPIsDAAS.ApplicationGroupsGetApplicationGroup``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -594,6 +595,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **fields** | **string** | Optional filter, removing unspecified properties that otherwise would have been sent by the server              | 
+ **async** | **bool** | If &#x60;true&#x60;, the application group details will be fetched as a background task. The task will have JobType GetApplicationGroup. | [default to false]
 
 ### Return type
 

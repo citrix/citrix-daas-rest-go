@@ -23,6 +23,7 @@ const (
 	MISCONFIGURATIONCATEGORY_UNKNOWN MisConfigurationCategory = "Unknown"
 	MISCONFIGURATIONCATEGORY_WARNING MisConfigurationCategory = "Warning"
 	MISCONFIGURATIONCATEGORY_ERROR MisConfigurationCategory = "Error"
+	MISCONFIGURATIONCATEGORY_INFO MisConfigurationCategory = "Info"
 )
 
 // All allowed values of MisConfigurationCategory enum
@@ -30,6 +31,7 @@ var AllowedMisConfigurationCategoryEnumValues = []MisConfigurationCategory{
 	"Unknown",
 	"Warning",
 	"Error",
+	"Info",
 }
 
 func (v *MisConfigurationCategory) UnmarshalJSON(src []byte) error {

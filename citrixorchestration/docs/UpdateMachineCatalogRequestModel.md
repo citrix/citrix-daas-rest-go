@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **AzureADSecurityGroupName** | Pointer to **NullableString** | Name of Azure AD security group to be created. | [optional] 
 **AzureADTenantId** | Pointer to **NullableString** | TenantId of Azure Directory. | [optional] 
 **ServiceAccountUid** | Pointer to **[]string** | Indicates whether to associate service accounts to the IdentityPool. | [optional] 
+**HypervisorVMTagging** | Pointer to **NullableBool** | Indicates that assigned VMs from this catalog will carry a hypervisor-level tag. | [optional] 
 
 ## Methods
 
@@ -940,6 +941,41 @@ HasServiceAccountUid returns a boolean if a field has been set.
 `func (o *UpdateMachineCatalogRequestModel) UnsetServiceAccountUid()`
 
 UnsetServiceAccountUid ensures that no value is present for ServiceAccountUid, not even an explicit nil
+### GetHypervisorVMTagging
+
+`func (o *UpdateMachineCatalogRequestModel) GetHypervisorVMTagging() bool`
+
+GetHypervisorVMTagging returns the HypervisorVMTagging field if non-nil, zero value otherwise.
+
+### GetHypervisorVMTaggingOk
+
+`func (o *UpdateMachineCatalogRequestModel) GetHypervisorVMTaggingOk() (*bool, bool)`
+
+GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisorVMTagging
+
+`func (o *UpdateMachineCatalogRequestModel) SetHypervisorVMTagging(v bool)`
+
+SetHypervisorVMTagging sets HypervisorVMTagging field to given value.
+
+### HasHypervisorVMTagging
+
+`func (o *UpdateMachineCatalogRequestModel) HasHypervisorVMTagging() bool`
+
+HasHypervisorVMTagging returns a boolean if a field has been set.
+
+### SetHypervisorVMTaggingNil
+
+`func (o *UpdateMachineCatalogRequestModel) SetHypervisorVMTaggingNil(b bool)`
+
+ SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+
+### UnsetHypervisorVMTagging
+`func (o *UpdateMachineCatalogRequestModel) UnsetHypervisorVMTagging()`
+
+UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

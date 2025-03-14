@@ -39,6 +39,8 @@ type ProvisionedVirtualMachineSearchResponseModel struct {
 	Persistency *bool `json:"Persistency,omitempty"`
 	// Provision Scheme Name.
 	ProvisioningSchemeName NullableString `json:"ProvisioningSchemeName,omitempty"`
+	// Provision Scheme Id
+	ProvisioningSchemeId NullableString `json:"ProvisioningSchemeId,omitempty"`
 	// Provision Scheme Version.
 	ProvisioningSchemeVersion *int32 `json:"ProvisioningSchemeVersion,omitempty"`
 	// Provisioned Virtual Machine Update Configuration Version.
@@ -46,7 +48,7 @@ type ProvisionedVirtualMachineSearchResponseModel struct {
 	// Provisioned virtual machine name on hypervisor.
 	VMName NullableString `json:"VMName,omitempty"`
 	ActivationType *WindowsActivationType `json:"ActivationType,omitempty"`
-	// Whether use write back cache. 
+	// Whether use write back cache.
 	UseWriteBackCache *bool `json:"UseWriteBackCache,omitempty"`
 	// Write back cache disk size.
 	WriteBackCacheDiskSize *int32 `json:"WriteBackCacheDiskSize,omitempty"`
@@ -54,6 +56,25 @@ type ProvisionedVirtualMachineSearchResponseModel struct {
 	WriteBackCacheMemorySize *int32 `json:"WriteBackCacheMemorySize,omitempty"`
 	// List of ProvisioningOperationEventSearchResponseModel.
 	OperationEvents []ProvisioningOperationEventSearchResponseModel `json:"OperationEvents,omitempty"`
+	// Resource pool name.
+	ResourcePoolName NullableString `json:"ResourcePoolName,omitempty"`
+	// Resource pool id.
+	ResourcePoolId NullableString `json:"ResourcePoolId,omitempty"`
+	// Network maps.
+	NetworkMaps []ProvisionedVirtualMachineNetworkMapSearchResponseModel `json:"NetworkMaps,omitempty"`
+	// Provision Scheme Version.
+	CurrentProvisioningSchemeVersion *int32 `json:"CurrentProvisioningSchemeVersion,omitempty"`
+	PowerState *PowerState `json:"PowerState,omitempty"`
+	// Hypervisor connection id.
+	HypervisorConnectionId NullableString `json:"HypervisorConnectionId,omitempty"`
+	// Property Update Window Start.
+	PropertyUpdateWindowStart NullableString `json:"PropertyUpdateWindowStart,omitempty"`
+	// Property Update Window End.
+	PropertyUpdateWindowEnd NullableString `json:"PropertyUpdateWindowEnd,omitempty"`
+	// A list of power actions supported by this machine.
+	SupportedPowerActions []SupportedPowerAction `json:"SupportedPowerActions,omitempty"`
+	// Denotes if the machine is in maintenance mode. Machines in maintenance mode will not accept new sessions.
+	InMaintenanceMode *bool `json:"InMaintenanceMode,omitempty"`
 }
 
 // NewProvisionedVirtualMachineSearchResponseModel instantiates a new ProvisionedVirtualMachineSearchResponseModel object
@@ -453,6 +474,48 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetProvisioningSchemeNa
 	o.ProvisioningSchemeName.Unset()
 }
 
+// GetProvisioningSchemeId returns the ProvisioningSchemeId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetProvisioningSchemeId() string {
+	if o == nil || IsNil(o.ProvisioningSchemeId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ProvisioningSchemeId.Get()
+}
+
+// GetProvisioningSchemeIdOk returns a tuple with the ProvisioningSchemeId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetProvisioningSchemeIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ProvisioningSchemeId.Get(), o.ProvisioningSchemeId.IsSet()
+}
+
+// HasProvisioningSchemeId returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasProvisioningSchemeId() bool {
+	if o != nil && o.ProvisioningSchemeId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetProvisioningSchemeId gets a reference to the given NullableString and assigns it to the ProvisioningSchemeId field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeId(v string) {
+	o.ProvisioningSchemeId.Set(&v)
+}
+// SetProvisioningSchemeIdNil sets the value for ProvisioningSchemeId to be an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeIdNil() {
+	o.ProvisioningSchemeId.Set(nil)
+}
+
+// UnsetProvisioningSchemeId ensures that no value is present for ProvisioningSchemeId, not even an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetProvisioningSchemeId() {
+	o.ProvisioningSchemeId.Unset()
+}
+
 // GetProvisioningSchemeVersion returns the ProvisioningSchemeVersion field value if set, zero value otherwise.
 func (o *ProvisionedVirtualMachineSearchResponseModel) GetProvisioningSchemeVersion() int32 {
 	if o == nil || IsNil(o.ProvisioningSchemeVersion) {
@@ -730,6 +793,378 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) SetOperationEvents(v []Pr
 	o.OperationEvents = v
 }
 
+// GetResourcePoolName returns the ResourcePoolName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolName() string {
+	if o == nil || IsNil(o.ResourcePoolName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ResourcePoolName.Get()
+}
+
+// GetResourcePoolNameOk returns a tuple with the ResourcePoolName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ResourcePoolName.Get(), o.ResourcePoolName.IsSet()
+}
+
+// HasResourcePoolName returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasResourcePoolName() bool {
+	if o != nil && o.ResourcePoolName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcePoolName gets a reference to the given NullableString and assigns it to the ResourcePoolName field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolName(v string) {
+	o.ResourcePoolName.Set(&v)
+}
+// SetResourcePoolNameNil sets the value for ResourcePoolName to be an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolNameNil() {
+	o.ResourcePoolName.Set(nil)
+}
+
+// UnsetResourcePoolName ensures that no value is present for ResourcePoolName, not even an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetResourcePoolName() {
+	o.ResourcePoolName.Unset()
+}
+
+// GetResourcePoolId returns the ResourcePoolId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolId() string {
+	if o == nil || IsNil(o.ResourcePoolId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ResourcePoolId.Get()
+}
+
+// GetResourcePoolIdOk returns a tuple with the ResourcePoolId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ResourcePoolId.Get(), o.ResourcePoolId.IsSet()
+}
+
+// HasResourcePoolId returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasResourcePoolId() bool {
+	if o != nil && o.ResourcePoolId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetResourcePoolId gets a reference to the given NullableString and assigns it to the ResourcePoolId field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolId(v string) {
+	o.ResourcePoolId.Set(&v)
+}
+// SetResourcePoolIdNil sets the value for ResourcePoolId to be an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolIdNil() {
+	o.ResourcePoolId.Set(nil)
+}
+
+// UnsetResourcePoolId ensures that no value is present for ResourcePoolId, not even an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetResourcePoolId() {
+	o.ResourcePoolId.Unset()
+}
+
+// GetNetworkMaps returns the NetworkMaps field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetNetworkMaps() []ProvisionedVirtualMachineNetworkMapSearchResponseModel {
+	if o == nil {
+		var ret []ProvisionedVirtualMachineNetworkMapSearchResponseModel
+		return ret
+	}
+	return o.NetworkMaps
+}
+
+// GetNetworkMapsOk returns a tuple with the NetworkMaps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetNetworkMapsOk() ([]ProvisionedVirtualMachineNetworkMapSearchResponseModel, bool) {
+	if o == nil || IsNil(o.NetworkMaps) {
+		return nil, false
+	}
+	return o.NetworkMaps, true
+}
+
+// HasNetworkMaps returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasNetworkMaps() bool {
+	if o != nil && IsNil(o.NetworkMaps) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkMaps gets a reference to the given []ProvisionedVirtualMachineNetworkMapSearchResponseModel and assigns it to the NetworkMaps field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetNetworkMaps(v []ProvisionedVirtualMachineNetworkMapSearchResponseModel) {
+	o.NetworkMaps = v
+}
+
+// GetCurrentProvisioningSchemeVersion returns the CurrentProvisioningSchemeVersion field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetCurrentProvisioningSchemeVersion() int32 {
+	if o == nil || IsNil(o.CurrentProvisioningSchemeVersion) {
+		var ret int32
+		return ret
+	}
+	return *o.CurrentProvisioningSchemeVersion
+}
+
+// GetCurrentProvisioningSchemeVersionOk returns a tuple with the CurrentProvisioningSchemeVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetCurrentProvisioningSchemeVersionOk() (*int32, bool) {
+	if o == nil || IsNil(o.CurrentProvisioningSchemeVersion) {
+		return nil, false
+	}
+	return o.CurrentProvisioningSchemeVersion, true
+}
+
+// HasCurrentProvisioningSchemeVersion returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasCurrentProvisioningSchemeVersion() bool {
+	if o != nil && !IsNil(o.CurrentProvisioningSchemeVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetCurrentProvisioningSchemeVersion gets a reference to the given int32 and assigns it to the CurrentProvisioningSchemeVersion field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetCurrentProvisioningSchemeVersion(v int32) {
+	o.CurrentProvisioningSchemeVersion = &v
+}
+
+// GetPowerState returns the PowerState field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetPowerState() PowerState {
+	if o == nil || IsNil(o.PowerState) {
+		var ret PowerState
+		return ret
+	}
+	return *o.PowerState
+}
+
+// GetPowerStateOk returns a tuple with the PowerState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetPowerStateOk() (*PowerState, bool) {
+	if o == nil || IsNil(o.PowerState) {
+		return nil, false
+	}
+	return o.PowerState, true
+}
+
+// HasPowerState returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasPowerState() bool {
+	if o != nil && !IsNil(o.PowerState) {
+		return true
+	}
+
+	return false
+}
+
+// SetPowerState gets a reference to the given PowerState and assigns it to the PowerState field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetPowerState(v PowerState) {
+	o.PowerState = &v
+}
+
+// GetHypervisorConnectionId returns the HypervisorConnectionId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetHypervisorConnectionId() string {
+	if o == nil || IsNil(o.HypervisorConnectionId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.HypervisorConnectionId.Get()
+}
+
+// GetHypervisorConnectionIdOk returns a tuple with the HypervisorConnectionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetHypervisorConnectionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HypervisorConnectionId.Get(), o.HypervisorConnectionId.IsSet()
+}
+
+// HasHypervisorConnectionId returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasHypervisorConnectionId() bool {
+	if o != nil && o.HypervisorConnectionId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorConnectionId gets a reference to the given NullableString and assigns it to the HypervisorConnectionId field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetHypervisorConnectionId(v string) {
+	o.HypervisorConnectionId.Set(&v)
+}
+// SetHypervisorConnectionIdNil sets the value for HypervisorConnectionId to be an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetHypervisorConnectionIdNil() {
+	o.HypervisorConnectionId.Set(nil)
+}
+
+// UnsetHypervisorConnectionId ensures that no value is present for HypervisorConnectionId, not even an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetHypervisorConnectionId() {
+	o.HypervisorConnectionId.Unset()
+}
+
+// GetPropertyUpdateWindowStart returns the PropertyUpdateWindowStart field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowStart() string {
+	if o == nil || IsNil(o.PropertyUpdateWindowStart.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PropertyUpdateWindowStart.Get()
+}
+
+// GetPropertyUpdateWindowStartOk returns a tuple with the PropertyUpdateWindowStart field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowStartOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PropertyUpdateWindowStart.Get(), o.PropertyUpdateWindowStart.IsSet()
+}
+
+// HasPropertyUpdateWindowStart returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasPropertyUpdateWindowStart() bool {
+	if o != nil && o.PropertyUpdateWindowStart.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPropertyUpdateWindowStart gets a reference to the given NullableString and assigns it to the PropertyUpdateWindowStart field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowStart(v string) {
+	o.PropertyUpdateWindowStart.Set(&v)
+}
+// SetPropertyUpdateWindowStartNil sets the value for PropertyUpdateWindowStart to be an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowStartNil() {
+	o.PropertyUpdateWindowStart.Set(nil)
+}
+
+// UnsetPropertyUpdateWindowStart ensures that no value is present for PropertyUpdateWindowStart, not even an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetPropertyUpdateWindowStart() {
+	o.PropertyUpdateWindowStart.Unset()
+}
+
+// GetPropertyUpdateWindowEnd returns the PropertyUpdateWindowEnd field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowEnd() string {
+	if o == nil || IsNil(o.PropertyUpdateWindowEnd.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.PropertyUpdateWindowEnd.Get()
+}
+
+// GetPropertyUpdateWindowEndOk returns a tuple with the PropertyUpdateWindowEnd field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowEndOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PropertyUpdateWindowEnd.Get(), o.PropertyUpdateWindowEnd.IsSet()
+}
+
+// HasPropertyUpdateWindowEnd returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasPropertyUpdateWindowEnd() bool {
+	if o != nil && o.PropertyUpdateWindowEnd.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPropertyUpdateWindowEnd gets a reference to the given NullableString and assigns it to the PropertyUpdateWindowEnd field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowEnd(v string) {
+	o.PropertyUpdateWindowEnd.Set(&v)
+}
+// SetPropertyUpdateWindowEndNil sets the value for PropertyUpdateWindowEnd to be an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowEndNil() {
+	o.PropertyUpdateWindowEnd.Set(nil)
+}
+
+// UnsetPropertyUpdateWindowEnd ensures that no value is present for PropertyUpdateWindowEnd, not even an explicit nil
+func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetPropertyUpdateWindowEnd() {
+	o.PropertyUpdateWindowEnd.Unset()
+}
+
+// GetSupportedPowerActions returns the SupportedPowerActions field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetSupportedPowerActions() []SupportedPowerAction {
+	if o == nil {
+		var ret []SupportedPowerAction
+		return ret
+	}
+	return o.SupportedPowerActions
+}
+
+// GetSupportedPowerActionsOk returns a tuple with the SupportedPowerActions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetSupportedPowerActionsOk() ([]SupportedPowerAction, bool) {
+	if o == nil || IsNil(o.SupportedPowerActions) {
+		return nil, false
+	}
+	return o.SupportedPowerActions, true
+}
+
+// HasSupportedPowerActions returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasSupportedPowerActions() bool {
+	if o != nil && IsNil(o.SupportedPowerActions) {
+		return true
+	}
+
+	return false
+}
+
+// SetSupportedPowerActions gets a reference to the given []SupportedPowerAction and assigns it to the SupportedPowerActions field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetSupportedPowerActions(v []SupportedPowerAction) {
+	o.SupportedPowerActions = v
+}
+
+// GetInMaintenanceMode returns the InMaintenanceMode field value if set, zero value otherwise.
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetInMaintenanceMode() bool {
+	if o == nil || IsNil(o.InMaintenanceMode) {
+		var ret bool
+		return ret
+	}
+	return *o.InMaintenanceMode
+}
+
+// GetInMaintenanceModeOk returns a tuple with the InMaintenanceMode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) GetInMaintenanceModeOk() (*bool, bool) {
+	if o == nil || IsNil(o.InMaintenanceMode) {
+		return nil, false
+	}
+	return o.InMaintenanceMode, true
+}
+
+// HasInMaintenanceMode returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineSearchResponseModel) HasInMaintenanceMode() bool {
+	if o != nil && !IsNil(o.InMaintenanceMode) {
+		return true
+	}
+
+	return false
+}
+
+// SetInMaintenanceMode gets a reference to the given bool and assigns it to the InMaintenanceMode field.
+func (o *ProvisionedVirtualMachineSearchResponseModel) SetInMaintenanceMode(v bool) {
+	o.InMaintenanceMode = &v
+}
+
 func (o ProvisionedVirtualMachineSearchResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -770,6 +1205,9 @@ func (o ProvisionedVirtualMachineSearchResponseModel) ToMap() (map[string]interf
 	if o.ProvisioningSchemeName.IsSet() {
 		toSerialize["ProvisioningSchemeName"] = o.ProvisioningSchemeName.Get()
 	}
+	if o.ProvisioningSchemeId.IsSet() {
+		toSerialize["ProvisioningSchemeId"] = o.ProvisioningSchemeId.Get()
+	}
 	if !IsNil(o.ProvisioningSchemeVersion) {
 		toSerialize["ProvisioningSchemeVersion"] = o.ProvisioningSchemeVersion
 	}
@@ -793,6 +1231,36 @@ func (o ProvisionedVirtualMachineSearchResponseModel) ToMap() (map[string]interf
 	}
 	if o.OperationEvents != nil {
 		toSerialize["OperationEvents"] = o.OperationEvents
+	}
+	if o.ResourcePoolName.IsSet() {
+		toSerialize["ResourcePoolName"] = o.ResourcePoolName.Get()
+	}
+	if o.ResourcePoolId.IsSet() {
+		toSerialize["ResourcePoolId"] = o.ResourcePoolId.Get()
+	}
+	if o.NetworkMaps != nil {
+		toSerialize["NetworkMaps"] = o.NetworkMaps
+	}
+	if !IsNil(o.CurrentProvisioningSchemeVersion) {
+		toSerialize["CurrentProvisioningSchemeVersion"] = o.CurrentProvisioningSchemeVersion
+	}
+	if !IsNil(o.PowerState) {
+		toSerialize["PowerState"] = o.PowerState
+	}
+	if o.HypervisorConnectionId.IsSet() {
+		toSerialize["HypervisorConnectionId"] = o.HypervisorConnectionId.Get()
+	}
+	if o.PropertyUpdateWindowStart.IsSet() {
+		toSerialize["PropertyUpdateWindowStart"] = o.PropertyUpdateWindowStart.Get()
+	}
+	if o.PropertyUpdateWindowEnd.IsSet() {
+		toSerialize["PropertyUpdateWindowEnd"] = o.PropertyUpdateWindowEnd.Get()
+	}
+	if o.SupportedPowerActions != nil {
+		toSerialize["SupportedPowerActions"] = o.SupportedPowerActions
+	}
+	if !IsNil(o.InMaintenanceMode) {
+		toSerialize["InMaintenanceMode"] = o.InMaintenanceMode
 	}
 	return toSerialize, nil
 }

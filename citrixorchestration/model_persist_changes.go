@@ -23,7 +23,6 @@ const (
 	PERSISTCHANGES_UNKNOWN PersistChanges = "Unknown"
 	PERSISTCHANGES_DISCARD PersistChanges = "Discard"
 	PERSISTCHANGES_ON_LOCAL PersistChanges = "OnLocal"
-	PERSISTCHANGES_ON_PVD PersistChanges = "OnPvd"
 )
 
 // All allowed values of PersistChanges enum
@@ -31,7 +30,6 @@ var AllowedPersistChangesEnumValues = []PersistChanges{
 	"Unknown",
 	"Discard",
 	"OnLocal",
-	"OnPvd",
 }
 
 func (v *PersistChanges) UnmarshalJSON(src []byte) error {

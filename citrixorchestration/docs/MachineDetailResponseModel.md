@@ -40,6 +40,8 @@ Name | Type | Description | Notes
 **LastErrorTime** | Pointer to **NullableString** | The time of the last detected error. | [optional] 
 **FormattedLastErrorTime** | Pointer to **NullableString** | The formatted time of the last detected error. RFC 3339 compatible format. | [optional] 
 **LoadIndex** | Pointer to **NullableInt32** | Gives current effective load index. Only used when SessionSupport is equal to MultiSession. | [optional] 
+**LoadIndexes** | Pointer to **[]int32** | Gives the last reported individual load indexes that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession. | [optional] 
+**LoadIndexNames** | Pointer to **[]string** | Gives the last reported individual load index names that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession. | [optional] 
 **MachineUnavailableReason** | Pointer to [**MachineUnavailableReason**](MachineUnavailableReason.md) |  | [optional] 
 **OSType** | Pointer to **NullableString** | A string that can be used to identify the operating system that is running on the machine. | [optional] 
 **OSVersion** | Pointer to **NullableString** | A string that can be used to identify the version of the operating system running on the machine, if known. | [optional] 
@@ -86,14 +88,13 @@ Name | Type | Description | Notes
 **UpgradeState** | Pointer to [**VdaUpgradeState**](VdaUpgradeState.md) |  | [optional] 
 **MachineConfigurationOutOfSync** | Pointer to **NullableBool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
 **UpgradeDetail** | Pointer to [**MachineUpgradeDetail**](MachineUpgradeDetail.md) |  | [optional] 
-**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The meta data of this machine. | [optional] 
+**Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of this machine. | [optional] 
 **AssignedClientName** | Pointer to **NullableString** | The name of the endpoint client device that the machine has been assigned to. | [optional] 
 **AssignedIPAddress** | Pointer to **NullableString** | The IP address of the endpoint client device that the machine has been assigned to. | [optional] 
 **BrowserName** | Pointer to **NullableString** | Site-wide unique name identifying associated desktop to other components (for example StoreFront). This is typically non-null only for machines backing assigned private desktops. | [optional] 
 **ColorDepth** | Pointer to [**ColorDepth**](ColorDepth.md) |  | [optional] 
 **IconId** | Pointer to **NullableString** | The machine&#39;s icon that is displayed in Receiver. | [optional] 
 **IsReserved** | **bool** | Indicates if machine is reserved for special use, for example for AppDisk preparation. A reserved machine cannot be a member of a delivery group. | 
-**LoadIndexes** | Pointer to **[]int32** | Gives the last reported individual load indexes that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession. | [optional] 
 **SecureIcaRequired** | Pointer to **NullableBool** | Flag indicating whether SecureICA is required or not when starting a session on the machine. | [optional] 
 **SessionsEstablished** | **int32** | Number of established sessions on this machine.  When SessionSupport is equal to MultiSession, this excludes established sessions which have not yet completed their logon processing. | 
 **SessionsPending** | **int32** | Number of pending (brokered but not yet established) sessions on this machine.  When SessionSupport is equal to MultiSession, this also includes established sessions which have not yet completed their logon processing. | 
@@ -1226,6 +1227,76 @@ HasLoadIndex returns a boolean if a field has been set.
 `func (o *MachineDetailResponseModel) UnsetLoadIndex()`
 
 UnsetLoadIndex ensures that no value is present for LoadIndex, not even an explicit nil
+### GetLoadIndexes
+
+`func (o *MachineDetailResponseModel) GetLoadIndexes() []int32`
+
+GetLoadIndexes returns the LoadIndexes field if non-nil, zero value otherwise.
+
+### GetLoadIndexesOk
+
+`func (o *MachineDetailResponseModel) GetLoadIndexesOk() (*[]int32, bool)`
+
+GetLoadIndexesOk returns a tuple with the LoadIndexes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadIndexes
+
+`func (o *MachineDetailResponseModel) SetLoadIndexes(v []int32)`
+
+SetLoadIndexes sets LoadIndexes field to given value.
+
+### HasLoadIndexes
+
+`func (o *MachineDetailResponseModel) HasLoadIndexes() bool`
+
+HasLoadIndexes returns a boolean if a field has been set.
+
+### SetLoadIndexesNil
+
+`func (o *MachineDetailResponseModel) SetLoadIndexesNil(b bool)`
+
+ SetLoadIndexesNil sets the value for LoadIndexes to be an explicit nil
+
+### UnsetLoadIndexes
+`func (o *MachineDetailResponseModel) UnsetLoadIndexes()`
+
+UnsetLoadIndexes ensures that no value is present for LoadIndexes, not even an explicit nil
+### GetLoadIndexNames
+
+`func (o *MachineDetailResponseModel) GetLoadIndexNames() []string`
+
+GetLoadIndexNames returns the LoadIndexNames field if non-nil, zero value otherwise.
+
+### GetLoadIndexNamesOk
+
+`func (o *MachineDetailResponseModel) GetLoadIndexNamesOk() (*[]string, bool)`
+
+GetLoadIndexNamesOk returns a tuple with the LoadIndexNames field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLoadIndexNames
+
+`func (o *MachineDetailResponseModel) SetLoadIndexNames(v []string)`
+
+SetLoadIndexNames sets LoadIndexNames field to given value.
+
+### HasLoadIndexNames
+
+`func (o *MachineDetailResponseModel) HasLoadIndexNames() bool`
+
+HasLoadIndexNames returns a boolean if a field has been set.
+
+### SetLoadIndexNamesNil
+
+`func (o *MachineDetailResponseModel) SetLoadIndexNamesNil(b bool)`
+
+ SetLoadIndexNamesNil sets the value for LoadIndexNames to be an explicit nil
+
+### UnsetLoadIndexNames
+`func (o *MachineDetailResponseModel) UnsetLoadIndexNames()`
+
+UnsetLoadIndexNames ensures that no value is present for LoadIndexNames, not even an explicit nil
 ### GetMachineUnavailableReason
 
 `func (o *MachineDetailResponseModel) GetMachineUnavailableReason() MachineUnavailableReason`
@@ -2886,41 +2957,6 @@ and a boolean to check if the value has been set.
 SetIsReserved sets IsReserved field to given value.
 
 
-### GetLoadIndexes
-
-`func (o *MachineDetailResponseModel) GetLoadIndexes() []int32`
-
-GetLoadIndexes returns the LoadIndexes field if non-nil, zero value otherwise.
-
-### GetLoadIndexesOk
-
-`func (o *MachineDetailResponseModel) GetLoadIndexesOk() (*[]int32, bool)`
-
-GetLoadIndexesOk returns a tuple with the LoadIndexes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLoadIndexes
-
-`func (o *MachineDetailResponseModel) SetLoadIndexes(v []int32)`
-
-SetLoadIndexes sets LoadIndexes field to given value.
-
-### HasLoadIndexes
-
-`func (o *MachineDetailResponseModel) HasLoadIndexes() bool`
-
-HasLoadIndexes returns a boolean if a field has been set.
-
-### SetLoadIndexesNil
-
-`func (o *MachineDetailResponseModel) SetLoadIndexesNil(b bool)`
-
- SetLoadIndexesNil sets the value for LoadIndexes to be an explicit nil
-
-### UnsetLoadIndexes
-`func (o *MachineDetailResponseModel) UnsetLoadIndexes()`
-
-UnsetLoadIndexes ensures that no value is present for LoadIndexes, not even an explicit nil
 ### GetSecureIcaRequired
 
 `func (o *MachineDetailResponseModel) GetSecureIcaRequired() bool`

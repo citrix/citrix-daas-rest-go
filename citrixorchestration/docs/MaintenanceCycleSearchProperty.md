@@ -1,0 +1,15 @@
+# MaintenanceCycleSearchProperty
+
+## Enum
+
+
+* `CATALOG_NAME` (value: `"CatalogName"`)
+
+* `OPERATION` (value: `"Operation"`)
+
+* `STATUS` (value: `"Status"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Policies** | Pointer to [**[]PolicyResponse**](PolicyResponse.md) | Policies in the policy set. | [optional] 
 **Scopes** | Pointer to **[]string** | Delegated admin scopes. | [optional] 
 **IsAssigned** | Pointer to **bool** | Indicate if policy set is assigned to at least one delivery group. | [optional] 
+**LastError** | Pointer to **NullableString** | The most recent error that occurred when the policy data was converted to/from policy set. | [optional] 
 
 ## Methods
 
@@ -272,6 +273,41 @@ SetIsAssigned sets IsAssigned field to given value.
 
 HasIsAssigned returns a boolean if a field has been set.
 
+### GetLastError
+
+`func (o *PolicySetResponse) GetLastError() string`
+
+GetLastError returns the LastError field if non-nil, zero value otherwise.
+
+### GetLastErrorOk
+
+`func (o *PolicySetResponse) GetLastErrorOk() (*string, bool)`
+
+GetLastErrorOk returns a tuple with the LastError field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastError
+
+`func (o *PolicySetResponse) SetLastError(v string)`
+
+SetLastError sets LastError field to given value.
+
+### HasLastError
+
+`func (o *PolicySetResponse) HasLastError() bool`
+
+HasLastError returns a boolean if a field has been set.
+
+### SetLastErrorNil
+
+`func (o *PolicySetResponse) SetLastErrorNil(b bool)`
+
+ SetLastErrorNil sets the value for LastError to be an explicit nil
+
+### UnsetLastError
+`func (o *PolicySetResponse) UnsetLastError()`
+
+UnsetLastError ensures that no value is present for LastError, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

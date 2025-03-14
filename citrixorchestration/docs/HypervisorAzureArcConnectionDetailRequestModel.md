@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Region** | Pointer to **NullableString** | AWS region to connect to.  Optional.  If not specified, will connect to the global AWS APIs.  This can be used to discover the regions available within AWS.  Access to all other AWS resources requires the region to be set explicitly. | [optional] 
 **Address** | Pointer to **NullableString** | Custom AWS Address. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
 **ApplicationId** | **string** | Application ID of the service principal used to access the Azure Arc APIs.  Required. | 
 **ApplicationSecret** | **string** | The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat. | 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -28,7 +29,6 @@ Name | Type | Description | Notes
 **ManagementEndpoint** | Pointer to **NullableString** | Azure management endpoint.  Required if Environment is Custom. Optional otherwise. | [optional] 
 **AuthenticationAuthority** | Pointer to **NullableString** | Azure authentication authority.  Required if Environment is Custom. Optional otherwise. | [optional] 
 **StorageSuffix** | Pointer to **NullableString** | Azure storage suffix.  Required if Environment is Custom. Optional otherwise. | [optional] 
-**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
 **ServiceAccountId** | Pointer to **string** | The service account ID used to access the Google Cloud APIs. Required. | [optional] 
 **ServiceAccountCredentials** | Pointer to **string** | the JSON-encoded service account credentials used to access the Google Cloud APIs.  Required. Must be specified in the format indicated by ServiceAccountCredentialsFormat. | [optional] 
 **ServiceAccountCredentialsFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -530,6 +530,41 @@ HasAddress returns a boolean if a field has been set.
 `func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetAddress()`
 
 UnsetAddress ensures that no value is present for Address, not even an explicit nil
+### GetCustomProperties
+
+`func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomProperties() string`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomProperties(v string)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *HypervisorAzureArcConnectionDetailRequestModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetApplicationId
 
 `func (o *HypervisorAzureArcConnectionDetailRequestModel) GetApplicationId() string`
@@ -765,41 +800,6 @@ HasStorageSuffix returns a boolean if a field has been set.
 `func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetStorageSuffix()`
 
 UnsetStorageSuffix ensures that no value is present for StorageSuffix, not even an explicit nil
-### GetCustomProperties
-
-`func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomProperties() string`
-
-GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
-
-### GetCustomPropertiesOk
-
-`func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool)`
-
-GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCustomProperties
-
-`func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomProperties(v string)`
-
-SetCustomProperties sets CustomProperties field to given value.
-
-### HasCustomProperties
-
-`func (o *HypervisorAzureArcConnectionDetailRequestModel) HasCustomProperties() bool`
-
-HasCustomProperties returns a boolean if a field has been set.
-
-### SetCustomPropertiesNil
-
-`func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomPropertiesNil(b bool)`
-
- SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-
-### UnsetCustomProperties
-`func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetCustomProperties()`
-
-UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetServiceAccountId
 
 `func (o *HypervisorAzureArcConnectionDetailRequestModel) GetServiceAccountId() string`

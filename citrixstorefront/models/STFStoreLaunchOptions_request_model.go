@@ -11,9 +11,7 @@ type SetSTFStoreLaunchOptionsRequestModel struct {
 	OverlayAutoLoginCredentialsWithTicket  NullableBool   `json:"OverlayAutoLoginCredentialsWithTicket,omitempty"`
 	IgnoreClientProvidedClientAddress      NullableBool   `json:"IgnoreClientProvidedClientAddress,omitempty"`
 	SetNoLoadBiasFlag                      NullableBool   `json:"SetNoLoadBiasFlag,omitempty"`
-	RDPOnly                                NullableBool   `json:"RDPOnly,omitempty"`
 	VdaLogonDataProvider                   NullableString `json:"VdaLogonDataProvider,omitempty"`
-	IcaTemplateName                        NullableString `json:"IcaTemplateName,omitempty"`
 	FederatedAuthenticationServiceFailover NullableBool   `json:"FederatedAuthenticationServiceFailover,omitempty"`
 }
 
@@ -48,14 +46,8 @@ func (o SetSTFStoreLaunchOptionsRequestModel) ToMap() (map[string]interface{}, e
 	if o.SetNoLoadBiasFlag.IsSet() {
 		toSerialize["SetNoLoadBiasFlag"] = o.SetNoLoadBiasFlag.Get()
 	}
-	if o.RDPOnly.IsSet() {
-		toSerialize["RDPOnly"] = o.RDPOnly.Get()
-	}
 	if o.VdaLogonDataProvider.IsSet() {
 		toSerialize["VdaLogonDataProvider"] = o.VdaLogonDataProvider.Get()
-	}
-	if o.IcaTemplateName.IsSet() {
-		toSerialize["IcaTemplateName"] = o.IcaTemplateName.Get()
 	}
 	if o.FederatedAuthenticationServiceFailover.IsSet() {
 		toSerialize["FederatedAuthenticationServiceFailover"] = o.FederatedAuthenticationServiceFailover.Get()
@@ -99,16 +91,8 @@ func (o *SetSTFStoreLaunchOptionsRequestModel) SetSetNoLoadBiasFlag(v bool) {
 	o.SetNoLoadBiasFlag.Set(&v)
 }
 
-func (o *SetSTFStoreLaunchOptionsRequestModel) SetRDPOnly(v bool) {
-	o.RDPOnly.Set(&v)
-}
-
 func (o *SetSTFStoreLaunchOptionsRequestModel) SetVdaLogonDataProvider(v string) {
 	o.VdaLogonDataProvider.Set(&v)
-}
-
-func (o *SetSTFStoreLaunchOptionsRequestModel) SetIcaTemplateName(v string) {
-	o.IcaTemplateName.Set(&v)
 }
 
 func (o *SetSTFStoreLaunchOptionsRequestModel) SetFederatedAuthenticationServiceFailover(v bool) {

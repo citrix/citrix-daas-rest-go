@@ -47,13 +47,13 @@ type EditHypervisorGCPConnectionRequestModel struct {
 	MaximumConcurrentProvisioningOperations NullableInt32 `json:"MaximumConcurrentProvisioningOperations,omitempty"`
 	// Custom AWS Address. Only when the connection without the resourcePool can be updated.
 	Address NullableString `json:"Address,omitempty"`
+	// The properties of host connection that are specific to the target hosting infrastructure.
+	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified.
 	ApplicationId NullableString `json:"ApplicationId,omitempty"`
 	// The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat.
 	ApplicationSecret NullableString `json:"ApplicationSecret,omitempty"`
 	ApplicationSecretFormat *IdentityPasswordFormat `json:"ApplicationSecretFormat,omitempty"`
-	// The properties of host connection that are specific to the target hosting infrastructure.
-	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// The service account ID used to access the Google Cloud APIs. Optional.  If not specified, will not be changed.  If specified, ServiceAccountCredentials must also be specified.
 	ServiceAccountId NullableString `json:"ServiceAccountId,omitempty"`
 	// the JSON-encoded service account credentials used to access the Google Cloud APIs.  Optional.  If not specified, will not be changed.  If specified, must be in the format indicated by ServiceAccountCredentialsFormat.
@@ -671,6 +671,48 @@ func (o *EditHypervisorGCPConnectionRequestModel) UnsetAddress() {
 	o.Address.Unset()
 }
 
+// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *EditHypervisorGCPConnectionRequestModel) GetCustomProperties() string {
+	if o == nil || IsNil(o.CustomProperties.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CustomProperties.Get()
+}
+
+// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *EditHypervisorGCPConnectionRequestModel) GetCustomPropertiesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
+}
+
+// HasCustomProperties returns a boolean if a field has been set.
+func (o *EditHypervisorGCPConnectionRequestModel) HasCustomProperties() bool {
+	if o != nil && o.CustomProperties.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
+func (o *EditHypervisorGCPConnectionRequestModel) SetCustomProperties(v string) {
+	o.CustomProperties.Set(&v)
+}
+// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+func (o *EditHypervisorGCPConnectionRequestModel) SetCustomPropertiesNil() {
+	o.CustomProperties.Set(nil)
+}
+
+// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+func (o *EditHypervisorGCPConnectionRequestModel) UnsetCustomProperties() {
+	o.CustomProperties.Unset()
+}
+
 // GetApplicationId returns the ApplicationId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditHypervisorGCPConnectionRequestModel) GetApplicationId() string {
 	if o == nil || IsNil(o.ApplicationId.Get()) {
@@ -785,48 +827,6 @@ func (o *EditHypervisorGCPConnectionRequestModel) HasApplicationSecretFormat() b
 // SetApplicationSecretFormat gets a reference to the given IdentityPasswordFormat and assigns it to the ApplicationSecretFormat field.
 func (o *EditHypervisorGCPConnectionRequestModel) SetApplicationSecretFormat(v IdentityPasswordFormat) {
 	o.ApplicationSecretFormat = &v
-}
-
-// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *EditHypervisorGCPConnectionRequestModel) GetCustomProperties() string {
-	if o == nil || IsNil(o.CustomProperties.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CustomProperties.Get()
-}
-
-// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *EditHypervisorGCPConnectionRequestModel) GetCustomPropertiesOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
-}
-
-// HasCustomProperties returns a boolean if a field has been set.
-func (o *EditHypervisorGCPConnectionRequestModel) HasCustomProperties() bool {
-	if o != nil && o.CustomProperties.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
-func (o *EditHypervisorGCPConnectionRequestModel) SetCustomProperties(v string) {
-	o.CustomProperties.Set(&v)
-}
-// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-func (o *EditHypervisorGCPConnectionRequestModel) SetCustomPropertiesNil() {
-	o.CustomProperties.Set(nil)
-}
-
-// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
-func (o *EditHypervisorGCPConnectionRequestModel) UnsetCustomProperties() {
-	o.CustomProperties.Unset()
 }
 
 // GetServiceAccountId returns the ServiceAccountId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1349,6 +1349,9 @@ func (o EditHypervisorGCPConnectionRequestModel) ToMap() (map[string]interface{}
 	if o.Address.IsSet() {
 		toSerialize["Address"] = o.Address.Get()
 	}
+	if o.CustomProperties.IsSet() {
+		toSerialize["CustomProperties"] = o.CustomProperties.Get()
+	}
 	if o.ApplicationId.IsSet() {
 		toSerialize["ApplicationId"] = o.ApplicationId.Get()
 	}
@@ -1357,9 +1360,6 @@ func (o EditHypervisorGCPConnectionRequestModel) ToMap() (map[string]interface{}
 	}
 	if !IsNil(o.ApplicationSecretFormat) {
 		toSerialize["ApplicationSecretFormat"] = o.ApplicationSecretFormat
-	}
-	if o.CustomProperties.IsSet() {
-		toSerialize["CustomProperties"] = o.CustomProperties.Get()
 	}
 	if o.ServiceAccountId.IsSet() {
 		toSerialize["ServiceAccountId"] = o.ServiceAccountId.Get()

@@ -24,6 +24,8 @@ type UpdateMachineAccountRequestModel struct {
 	// The current password for the machine account, in the format specified by PasswordFormat.
 	Password NullableString `json:"Password,omitempty"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
+	// Indicates whether accounts that are marked as 'in-use' can be reset or not.
+	ForceReset NullableBool `json:"ForceReset,omitempty"`
 }
 
 // NewUpdateMachineAccountRequestModel instantiates a new UpdateMachineAccountRequestModel object
@@ -159,6 +161,48 @@ func (o *UpdateMachineAccountRequestModel) SetPasswordFormat(v IdentityPasswordF
 	o.PasswordFormat = &v
 }
 
+// GetForceReset returns the ForceReset field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMachineAccountRequestModel) GetForceReset() bool {
+	if o == nil || IsNil(o.ForceReset.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ForceReset.Get()
+}
+
+// GetForceResetOk returns a tuple with the ForceReset field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMachineAccountRequestModel) GetForceResetOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ForceReset.Get(), o.ForceReset.IsSet()
+}
+
+// HasForceReset returns a boolean if a field has been set.
+func (o *UpdateMachineAccountRequestModel) HasForceReset() bool {
+	if o != nil && o.ForceReset.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetForceReset gets a reference to the given NullableBool and assigns it to the ForceReset field.
+func (o *UpdateMachineAccountRequestModel) SetForceReset(v bool) {
+	o.ForceReset.Set(&v)
+}
+// SetForceResetNil sets the value for ForceReset to be an explicit nil
+func (o *UpdateMachineAccountRequestModel) SetForceResetNil() {
+	o.ForceReset.Set(nil)
+}
+
+// UnsetForceReset ensures that no value is present for ForceReset, not even an explicit nil
+func (o *UpdateMachineAccountRequestModel) UnsetForceReset() {
+	o.ForceReset.Unset()
+}
+
 func (o UpdateMachineAccountRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -177,6 +221,9 @@ func (o UpdateMachineAccountRequestModel) ToMap() (map[string]interface{}, error
 	}
 	if !IsNil(o.PasswordFormat) {
 		toSerialize["PasswordFormat"] = o.PasswordFormat
+	}
+	if o.ForceReset.IsSet() {
+		toSerialize["ForceReset"] = o.ForceReset.Get()
 	}
 	return toSerialize, nil
 }

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**LicenseServerStatus** | Pointer to [**LicenseServerStatus**](LicenseServerStatus.md) |  | [optional] 
 **LicenseServerWslAddress** | Pointer to **NullableString** | The WSL Address of the license server, the format is https://[FQDN:Port] | [optional] 
 **LicenseServerLicensingAddress** | Pointer to **NullableString** | The address of License Address | [optional] 
 **LicenseServer** | Pointer to **NullableString** | The address of license server without the schema | [optional] 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 **LicenseModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 **OutOfBoxGracePeriodActive** | Pointer to **bool** | Indicate if trial license is used | [optional] 
 **OutOfBoxGracePeriodHoursLeft** | Pointer to **NullableInt32** | Indicate remaining hours for the trial period | [optional] 
+**UseLicenseActivationService** | Pointer to **NullableBool** | Indicate if License Activation Service is used | [optional] 
 
 ## Methods
 
@@ -33,6 +35,31 @@ will change when the set of required properties is changed
 NewLicenseInformationModelWithDefaults instantiates a new LicenseInformationModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetLicenseServerStatus
+
+`func (o *LicenseInformationModel) GetLicenseServerStatus() LicenseServerStatus`
+
+GetLicenseServerStatus returns the LicenseServerStatus field if non-nil, zero value otherwise.
+
+### GetLicenseServerStatusOk
+
+`func (o *LicenseInformationModel) GetLicenseServerStatusOk() (*LicenseServerStatus, bool)`
+
+GetLicenseServerStatusOk returns a tuple with the LicenseServerStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseServerStatus
+
+`func (o *LicenseInformationModel) SetLicenseServerStatus(v LicenseServerStatus)`
+
+SetLicenseServerStatus sets LicenseServerStatus field to given value.
+
+### HasLicenseServerStatus
+
+`func (o *LicenseInformationModel) HasLicenseServerStatus() bool`
+
+HasLicenseServerStatus returns a boolean if a field has been set.
 
 ### GetLicenseServerWslAddress
 
@@ -334,6 +361,41 @@ HasOutOfBoxGracePeriodHoursLeft returns a boolean if a field has been set.
 `func (o *LicenseInformationModel) UnsetOutOfBoxGracePeriodHoursLeft()`
 
 UnsetOutOfBoxGracePeriodHoursLeft ensures that no value is present for OutOfBoxGracePeriodHoursLeft, not even an explicit nil
+### GetUseLicenseActivationService
+
+`func (o *LicenseInformationModel) GetUseLicenseActivationService() bool`
+
+GetUseLicenseActivationService returns the UseLicenseActivationService field if non-nil, zero value otherwise.
+
+### GetUseLicenseActivationServiceOk
+
+`func (o *LicenseInformationModel) GetUseLicenseActivationServiceOk() (*bool, bool)`
+
+GetUseLicenseActivationServiceOk returns a tuple with the UseLicenseActivationService field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUseLicenseActivationService
+
+`func (o *LicenseInformationModel) SetUseLicenseActivationService(v bool)`
+
+SetUseLicenseActivationService sets UseLicenseActivationService field to given value.
+
+### HasUseLicenseActivationService
+
+`func (o *LicenseInformationModel) HasUseLicenseActivationService() bool`
+
+HasUseLicenseActivationService returns a boolean if a field has been set.
+
+### SetUseLicenseActivationServiceNil
+
+`func (o *LicenseInformationModel) SetUseLicenseActivationServiceNil(b bool)`
+
+ SetUseLicenseActivationServiceNil sets the value for UseLicenseActivationService to be an explicit nil
+
+### UnsetUseLicenseActivationService
+`func (o *LicenseInformationModel) UnsetUseLicenseActivationService()`
+
+UnsetUseLicenseActivationService ensures that no value is present for UseLicenseActivationService, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -33,6 +33,7 @@ const (
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_RESOURCE_GROUP HypervisorResourceSearchResourceType = "ResourceGroup"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_SECURITY_GROUP HypervisorResourceSearchResourceType = "SecurityGroup"
 	HYPERVISORRESOURCESEARCHRESOURCETYPE_AVAILABILITY_ZONE HypervisorResourceSearchResourceType = "AvailabilityZone"
+	HYPERVISORRESOURCESEARCHRESOURCETYPE_NETWORK HypervisorResourceSearchResourceType = "Network"
 )
 
 // All allowed values of HypervisorResourceSearchResourceType enum
@@ -50,6 +51,7 @@ var AllowedHypervisorResourceSearchResourceTypeEnumValues = []HypervisorResource
 	"ResourceGroup",
 	"SecurityGroup",
 	"AvailabilityZone",
+	"Network",
 }
 
 func (v *HypervisorResourceSearchResourceType) UnmarshalJSON(src []byte) error {

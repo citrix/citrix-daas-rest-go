@@ -48,6 +48,7 @@ Name | Type | Description | Notes
 **UpgradeInfo** | Pointer to [**MachineCatalogUpgradeInfo**](MachineCatalogUpgradeInfo.md) |  | [optional] 
 **Zone** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**HypervisorVMTagging** | Pointer to **NullableBool** | Indicates that assigned VMs from this catalog will carry a hypervisor-level tag. | [optional] 
 **AgentVersion** | Pointer to **NullableString** | Version of the Citrix Virtual Delivery Agent (VDA) installed on the machine. | [optional] 
 **HypervisorConnection** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **OSType** | Pointer to **NullableString** | A string that can be used to identify the operating system that is running on machines in the catalog. | [optional] 
@@ -1364,6 +1365,41 @@ SetAdminFolder sets AdminFolder field to given value.
 
 HasAdminFolder returns a boolean if a field has been set.
 
+### GetHypervisorVMTagging
+
+`func (o *MachineCatalogDetailResponseModel) GetHypervisorVMTagging() bool`
+
+GetHypervisorVMTagging returns the HypervisorVMTagging field if non-nil, zero value otherwise.
+
+### GetHypervisorVMTaggingOk
+
+`func (o *MachineCatalogDetailResponseModel) GetHypervisorVMTaggingOk() (*bool, bool)`
+
+GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisorVMTagging
+
+`func (o *MachineCatalogDetailResponseModel) SetHypervisorVMTagging(v bool)`
+
+SetHypervisorVMTagging sets HypervisorVMTagging field to given value.
+
+### HasHypervisorVMTagging
+
+`func (o *MachineCatalogDetailResponseModel) HasHypervisorVMTagging() bool`
+
+HasHypervisorVMTagging returns a boolean if a field has been set.
+
+### SetHypervisorVMTaggingNil
+
+`func (o *MachineCatalogDetailResponseModel) SetHypervisorVMTaggingNil(b bool)`
+
+ SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+
+### UnsetHypervisorVMTagging
+`func (o *MachineCatalogDetailResponseModel) UnsetHypervisorVMTagging()`
+
+UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
 ### GetAgentVersion
 
 `func (o *MachineCatalogDetailResponseModel) GetAgentVersion() string`

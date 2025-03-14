@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **FullRelativePath** | **string** | Full path to the resources within the resource pool, including the hypervisor, relative to the root of the API. Example: &#x60;Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources&#x60; | 
 **Hypervisor** | [**HypervisorRefResponseModel**](HypervisorRefResponseModel.md) |  | 
 **IsPrimary** | Pointer to **bool** | Indicates whether the resource pool is the primary resource pool for the image version. Resource pool used to prepare the image is the default primary resource pool. | [optional] 
+**CustomProperties** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The properties of the image that are specific to the target hosting infrastructure. | [optional] 
+**CustomPropertiesInString** | Pointer to **NullableString** | The properties of the image that are specific to the target hosting infrastructure in string format. | [optional] 
 **Errors** | Pointer to **[]string** | The errors in this image version specification within this resource pool. | [optional] 
 **ImageVersionSpecResourcePoolStatus** | Pointer to [**ImageVersionSpecResourcePoolStatus**](ImageVersionSpecResourcePoolStatus.md) |  | [optional] 
 
@@ -202,6 +204,76 @@ SetIsPrimary sets IsPrimary field to given value.
 
 HasIsPrimary returns a boolean if a field has been set.
 
+### GetCustomProperties
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomProperties() []NameValueStringPairModel`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomPropertiesOk() (*[]NameValueStringPairModel, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomProperties(v []NameValueStringPairModel)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *ImageVersionSpecResourcePoolResponseModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+### GetCustomPropertiesInString
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomPropertiesInString() string`
+
+GetCustomPropertiesInString returns the CustomPropertiesInString field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesInStringOk
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomPropertiesInStringOk() (*string, bool)`
+
+GetCustomPropertiesInStringOk returns a tuple with the CustomPropertiesInString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomPropertiesInString
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomPropertiesInString(v string)`
+
+SetCustomPropertiesInString sets CustomPropertiesInString field to given value.
+
+### HasCustomPropertiesInString
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) HasCustomPropertiesInString() bool`
+
+HasCustomPropertiesInString returns a boolean if a field has been set.
+
+### SetCustomPropertiesInStringNil
+
+`func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomPropertiesInStringNil(b bool)`
+
+ SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
+
+### UnsetCustomPropertiesInString
+`func (o *ImageVersionSpecResourcePoolResponseModel) UnsetCustomPropertiesInString()`
+
+UnsetCustomPropertiesInString ensures that no value is present for CustomPropertiesInString, not even an explicit nil
 ### GetErrors
 
 `func (o *ImageVersionSpecResourcePoolResponseModel) GetErrors() []string`

@@ -16,6 +16,8 @@ Method | HTTP request | Description
 [**MachineCatalogsExport**](MachineCatalogsAPIsDAAS.md#MachineCatalogsExport) | **Post** /MachineCatalogs/{nameOrId}/$export | Exports a MCS machine catalog.
 [**MachineCatalogsExportMachineProfile**](MachineCatalogsAPIsDAAS.md#MachineCatalogsExportMachineProfile) | **Post** /MachineCatalogs/{nameOrId}/$exportMachineProfile | Exports a MCS machine catalog&#39;s machine profile.
 [**MachineCatalogsGetMachineCatalog**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalog) | **Get** /MachineCatalogs/{nameOrId} | Get details about a single machine catalog.
+[**MachineCatalogsGetMachineCatalogCostSummary**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogCostSummary) | **Get** /MachineCatalogs/{nameOrId}/CostSummary | Get the machine catalog&#39;s cost summary.
+[**MachineCatalogsGetMachineCatalogDailyCost**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogDailyCost) | **Get** /MachineCatalogs/{nameOrId}/DailyCost | Get the machine catalog&#39;s daily cost.
 [**MachineCatalogsGetMachineCatalogDeliveryGroupAssociations**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogDeliveryGroupAssociations) | **Get** /MachineCatalogs/{nameOrId}/DeliveryGroupAssociations | Get delivery group associations of a machine catalog.
 [**MachineCatalogsGetMachineCatalogEnrollments**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogEnrollments) | **Get** /MachineCatalogs/{nameOrId}/Enrollments | Get the list of enrollments in the machine catalog.
 [**MachineCatalogsGetMachineCatalogLastMasterImage**](MachineCatalogsAPIsDAAS.md#MachineCatalogsGetMachineCatalogLastMasterImage) | **Get** /MachineCatalogs/{nameOrId}/LastMasterImage | Get the last master VM images used by the machine catalog.
@@ -1079,6 +1081,186 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MachineCatalogDetailResponseModel**](MachineCatalogDetailResponseModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachineCatalogsGetMachineCatalogCostSummary
+
+> ResourceCostResponseModelCollection MachineCatalogsGetMachineCatalogCostSummary(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Start(start).End(end).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).SummaryType(summaryType).Async(async).Execute()
+
+Get the machine catalog's cost summary.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | The name or ID of the machine catalog.
+    start := time.Now() // time.Time | The start date of the cost summary, the date format is `yyyy-MM-ddT00:00:00Z`.
+    end := time.Now() // time.Time | The end date of the cost summary, the date format is `yyyy-MM-ddT00:00:00Z`.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    summaryType := openapiclient.SummaryType("VM") // SummaryType | The summary type of the cost, Currently only `VM` and `Disk` are supported. (optional)
+    async := true // bool | if the value is `true`, the machine catalog's cost summary will be calculated asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogCostSummary(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Start(start).End(end).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).SummaryType(summaryType).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogCostSummary``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachineCatalogsGetMachineCatalogCostSummary`: ResourceCostResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogCostSummary`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | The name or ID of the machine catalog. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachineCatalogsGetMachineCatalogCostSummaryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **start** | **time.Time** | The start date of the cost summary, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;. | 
+ **end** | **time.Time** | The end date of the cost summary, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **summaryType** | [**SummaryType**](SummaryType.md) | The summary type of the cost, Currently only &#x60;VM&#x60; and &#x60;Disk&#x60; are supported. | 
+ **async** | **bool** | if the value is &#x60;true&#x60;, the machine catalog&#39;s cost summary will be calculated asynchronously. | [default to false]
+
+### Return type
+
+[**ResourceCostResponseModelCollection**](ResourceCostResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachineCatalogsGetMachineCatalogDailyCost
+
+> DailyCostResponseModelCollection MachineCatalogsGetMachineCatalogDailyCost(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Start(start).End(end).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Get the machine catalog's daily cost.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    "time"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    nameOrId := "nameOrId_example" // string | The name or ID of the machine catalog.
+    start := time.Now() // time.Time | The start date of the daily cost, the date format is `yyyy-MM-ddT00:00:00Z`.
+    end := time.Now() // time.Time | The end date of the daily cost, the date format is `yyyy-MM-ddT00:00:00Z`.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If the value is `true`, the machine catalog's daily cost will be calculated asynchronously. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogDailyCost(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).Start(start).End(end).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogDailyCost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachineCatalogsGetMachineCatalogDailyCost`: DailyCostResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogDailyCost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**nameOrId** | **string** | The name or ID of the machine catalog. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachineCatalogsGetMachineCatalogDailyCostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+
+ **start** | **time.Time** | The start date of the daily cost, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;. | 
+ **end** | **time.Time** | The end date of the daily cost, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If the value is &#x60;true&#x60;, the machine catalog&#39;s daily cost will be calculated asynchronously. | [default to false]
+
+### Return type
+
+[**DailyCostResponseModelCollection**](DailyCostResponseModelCollection.md)
 
 ### Authorization
 

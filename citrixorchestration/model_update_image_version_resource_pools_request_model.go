@@ -19,8 +19,10 @@ var _ MappedNullable = &UpdateImageVersionResourcePoolsRequestModel{}
 
 // UpdateImageVersionResourcePoolsRequestModel Request object allowing caller to specify a list of resource pools to associate with an image version.
 type UpdateImageVersionResourcePoolsRequestModel struct {
-	// List of references to resource pools.
+	// List of references to resource pools. This will be deprecated and replaced by ImageVersionResourcePools in future.
 	ResourcePools []string `json:"ResourcePools,omitempty"`
+	// List of references to image version resource pools. This will replace ResourcePools.
+	ImageVersionResourcePools []ImageVersionResourcePoolRequestModel `json:"ImageVersionResourcePools,omitempty"`
 }
 
 // NewUpdateImageVersionResourcePoolsRequestModel instantiates a new UpdateImageVersionResourcePoolsRequestModel object
@@ -73,6 +75,39 @@ func (o *UpdateImageVersionResourcePoolsRequestModel) SetResourcePools(v []strin
 	o.ResourcePools = v
 }
 
+// GetImageVersionResourcePools returns the ImageVersionResourcePools field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateImageVersionResourcePoolsRequestModel) GetImageVersionResourcePools() []ImageVersionResourcePoolRequestModel {
+	if o == nil {
+		var ret []ImageVersionResourcePoolRequestModel
+		return ret
+	}
+	return o.ImageVersionResourcePools
+}
+
+// GetImageVersionResourcePoolsOk returns a tuple with the ImageVersionResourcePools field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateImageVersionResourcePoolsRequestModel) GetImageVersionResourcePoolsOk() ([]ImageVersionResourcePoolRequestModel, bool) {
+	if o == nil || IsNil(o.ImageVersionResourcePools) {
+		return nil, false
+	}
+	return o.ImageVersionResourcePools, true
+}
+
+// HasImageVersionResourcePools returns a boolean if a field has been set.
+func (o *UpdateImageVersionResourcePoolsRequestModel) HasImageVersionResourcePools() bool {
+	if o != nil && IsNil(o.ImageVersionResourcePools) {
+		return true
+	}
+
+	return false
+}
+
+// SetImageVersionResourcePools gets a reference to the given []ImageVersionResourcePoolRequestModel and assigns it to the ImageVersionResourcePools field.
+func (o *UpdateImageVersionResourcePoolsRequestModel) SetImageVersionResourcePools(v []ImageVersionResourcePoolRequestModel) {
+	o.ImageVersionResourcePools = v
+}
+
 func (o UpdateImageVersionResourcePoolsRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -85,6 +120,9 @@ func (o UpdateImageVersionResourcePoolsRequestModel) ToMap() (map[string]interfa
 	toSerialize := map[string]interface{}{}
 	if o.ResourcePools != nil {
 		toSerialize["ResourcePools"] = o.ResourcePools
+	}
+	if o.ImageVersionResourcePools != nil {
+		toSerialize["ImageVersionResourcePools"] = o.ImageVersionResourcePools
 	}
 	return toSerialize, nil
 }

@@ -1173,7 +1173,7 @@ func (r ApiSitesGetSiteErrorWarningRequest) Execute() (*ErrorWarningResponseMode
 SitesGetSiteErrorWarning Get number of errors and warnings for the specified objects in the site.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId
+ @param nameOrId Name or ID of the site.
  @return ApiSitesGetSiteErrorWarningRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSiteErrorWarning(ctx context.Context, nameOrId string) ApiSitesGetSiteErrorWarningRequest {
@@ -1647,6 +1647,7 @@ type ApiSitesGetSiteSettingsRequest struct {
 	citrixTransactionId *string
 	accept *string
 	citrixLocale *string
+	fields *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1676,6 +1677,12 @@ func (r ApiSitesGetSiteSettingsRequest) Accept(accept string) ApiSitesGetSiteSet
 // Locale of the request.
 func (r ApiSitesGetSiteSettingsRequest) CitrixLocale(citrixLocale string) ApiSitesGetSiteSettingsRequest {
 	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// To specify the object for which the settings are returned. The value should be a comma-separated list of object types. Supported object types are: DnsResolutionEnabled, TrustRequestsSentToTheXmlServicePort, UseVerticalScalingForRdsLaunches, WebUiPolicySetEnabled, ConsoleInactivityTimeoutMinutes Cloud-Only: MultiTenantServicesAccess OnPrem-Only: SupportedAuthenticators, AllowedCorsOriginsForIwa, MultiSites, DefaultDomain, XmlServicesSslConfigurations
+func (r ApiSitesGetSiteSettingsRequest) Fields(fields string) ApiSitesGetSiteSettingsRequest {
+	r.fields = &fields
 	return r
 }
 
@@ -1723,6 +1730,9 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
 	}
 
+	if r.fields != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -3206,7 +3216,7 @@ func (r ApiSitesPatchSiteSettingsRequest) Execute() (*http.Response, error) {
 }
 
 /*
-SitesPatchSiteSettings Update the broker site settings.
+SitesPatchSiteSettings Update the site settings.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param nameOrId Name or ID of the site.

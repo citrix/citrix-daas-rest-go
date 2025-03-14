@@ -30,6 +30,10 @@ type ImageVersionSpecResourcePoolResponseModel struct {
 	Hypervisor HypervisorRefResponseModel `json:"Hypervisor"`
 	// Indicates whether the resource pool is the primary resource pool for the image version. Resource pool used to prepare the image is the default primary resource pool.
 	IsPrimary *bool `json:"IsPrimary,omitempty"`
+	// The properties of the image that are specific to the target hosting infrastructure.
+	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
+	// The properties of the image that are specific to the target hosting infrastructure in string format.
+	CustomPropertiesInString NullableString `json:"CustomPropertiesInString,omitempty"`
 	// The errors in this image version specification within this resource pool.
 	Errors []string `json:"Errors,omitempty"`
 	ImageVersionSpecResourcePoolStatus *ImageVersionSpecResourcePoolStatus `json:"ImageVersionSpecResourcePoolStatus,omitempty"`
@@ -260,6 +264,81 @@ func (o *ImageVersionSpecResourcePoolResponseModel) SetIsPrimary(v bool) {
 	o.IsPrimary = &v
 }
 
+// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomProperties() []NameValueStringPairModel {
+	if o == nil {
+		var ret []NameValueStringPairModel
+		return ret
+	}
+	return o.CustomProperties
+}
+
+// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomPropertiesOk() ([]NameValueStringPairModel, bool) {
+	if o == nil || IsNil(o.CustomProperties) {
+		return nil, false
+	}
+	return o.CustomProperties, true
+}
+
+// HasCustomProperties returns a boolean if a field has been set.
+func (o *ImageVersionSpecResourcePoolResponseModel) HasCustomProperties() bool {
+	if o != nil && IsNil(o.CustomProperties) {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomProperties gets a reference to the given []NameValueStringPairModel and assigns it to the CustomProperties field.
+func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomProperties(v []NameValueStringPairModel) {
+	o.CustomProperties = v
+}
+
+// GetCustomPropertiesInString returns the CustomPropertiesInString field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomPropertiesInString() string {
+	if o == nil || IsNil(o.CustomPropertiesInString.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CustomPropertiesInString.Get()
+}
+
+// GetCustomPropertiesInStringOk returns a tuple with the CustomPropertiesInString field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ImageVersionSpecResourcePoolResponseModel) GetCustomPropertiesInStringOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomPropertiesInString.Get(), o.CustomPropertiesInString.IsSet()
+}
+
+// HasCustomPropertiesInString returns a boolean if a field has been set.
+func (o *ImageVersionSpecResourcePoolResponseModel) HasCustomPropertiesInString() bool {
+	if o != nil && o.CustomPropertiesInString.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomPropertiesInString gets a reference to the given NullableString and assigns it to the CustomPropertiesInString field.
+func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomPropertiesInString(v string) {
+	o.CustomPropertiesInString.Set(&v)
+}
+// SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
+func (o *ImageVersionSpecResourcePoolResponseModel) SetCustomPropertiesInStringNil() {
+	o.CustomPropertiesInString.Set(nil)
+}
+
+// UnsetCustomPropertiesInString ensures that no value is present for CustomPropertiesInString, not even an explicit nil
+func (o *ImageVersionSpecResourcePoolResponseModel) UnsetCustomPropertiesInString() {
+	o.CustomPropertiesInString.Unset()
+}
+
 // GetErrors returns the Errors field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ImageVersionSpecResourcePoolResponseModel) GetErrors() []string {
 	if o == nil {
@@ -348,6 +427,12 @@ func (o ImageVersionSpecResourcePoolResponseModel) ToMap() (map[string]interface
 	toSerialize["Hypervisor"] = o.Hypervisor
 	if !IsNil(o.IsPrimary) {
 		toSerialize["IsPrimary"] = o.IsPrimary
+	}
+	if o.CustomProperties != nil {
+		toSerialize["CustomProperties"] = o.CustomProperties
+	}
+	if o.CustomPropertiesInString.IsSet() {
+		toSerialize["CustomPropertiesInString"] = o.CustomPropertiesInString.Get()
 	}
 	if o.Errors != nil {
 		toSerialize["Errors"] = o.Errors
