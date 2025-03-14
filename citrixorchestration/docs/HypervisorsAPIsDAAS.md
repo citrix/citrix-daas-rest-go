@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**HypervisorsDeleteHypervisor**](HypervisorsAPIsDAAS.md#HypervisorsDeleteHypervisor) | **Delete** /hypervisors/{nameOrId} | Delete a hypervisor and related resource pools.
 [**HypervisorsDeleteHypervisorResourcePool**](HypervisorsAPIsDAAS.md#HypervisorsDeleteHypervisorResourcePool) | **Delete** /hypervisors/{nameOrId}/resourcePools/{poolId} | Delete a hypervisor resource pool.
 [**HypervisorsDoHypervisorAllResourcesSearch**](HypervisorsAPIsDAAS.md#HypervisorsDoHypervisorAllResourcesSearch) | **Post** /hypervisors/{nameOrId}/allResources/$search | Search the resources within a hypervisor.
+[**HypervisorsDoHypervisorAllResourcesSearchWithoutConnection**](HypervisorsAPIsDAAS.md#HypervisorsDoHypervisorAllResourcesSearchWithoutConnection) | **Post** /hypervisors/allResources/$search | Search all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
 [**HypervisorsDoHypervisorResourceSearch**](HypervisorsAPIsDAAS.md#HypervisorsDoHypervisorResourceSearch) | **Post** /hypervisors/{nameOrId}/resourcePools/{poolId}/resources/$search | Search the resources within a hypervisor resource pool.
 [**HypervisorsGetHypervisor**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisor) | **Get** /hypervisors/{nameOrId} | Get the details for a single hypervisor.
 [**HypervisorsGetHypervisorAdministrators**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorAdministrators) | **Get** /hypervisors/{nameOrId}/administrators | Get administrators who can administer a hypervisor.
@@ -22,6 +23,7 @@ Method | HTTP request | Description
 [**HypervisorsGetHypervisorOrphanedResources**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorOrphanedResources) | **Get** /Hypervisors/{nameOrId}/OrphanedResources | Run detect on a hypervisor and retrieve orphaned resources.
 [**HypervisorsGetHypervisorResourcePool**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePool) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId} | Get details about a hypervisor resource pool.
 [**HypervisorsGetHypervisorResourcePoolAdministrators**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePoolAdministrators) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/administrators | Get administrators who can administer a resource pool.
+[**HypervisorsGetHypervisorResourcePoolAllAvailableNetworks**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePoolAllAvailableNetworks) | **Get** /hypervisorResourcePoolAllAvailableNetworks | Get all available networks among hypervisors and resource pools.
 [**HypervisorsGetHypervisorResourcePoolDeletePreview**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePoolDeletePreview) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/deletePreview | Get the hypervisor resource pool delete preview.
 [**HypervisorsGetHypervisorResourcePoolJobs**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePoolJobs) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/jobs | Get the currently active jobs that are using a resource pool.
 [**HypervisorsGetHypervisorResourcePoolMachineCatalogs**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorResourcePoolMachineCatalogs) | **Get** /hypervisors/{nameOrId}/resourcePools/{poolId}/machineCatalogs | Get the machine catalogs that are using a resource pool.
@@ -645,6 +647,92 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## HypervisorsDoHypervisorAllResourcesSearchWithoutConnection
+
+> HypervisorResourceResponseModelCollection HypervisorsDoHypervisorAllResourcesSearchWithoutConnection(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorAllResourceSearchRequestModel(hypervisorAllResourceSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Detail(detail).Async(async).Execute()
+
+Search all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    hypervisorAllResourceSearchRequestModel := *openapiclient.NewHypervisorAllResourceSearchRequestModel(*openapiclient.NewHypervisorConnectionDetailRequestModel("Name of the hypervisor", openapiclient.HypervisorConnectionType("Unknown")), *openapiclient.NewHypervisorResourceSearchRequestModel()) // HypervisorAllResourceSearchRequestModel | Contains hypervisor details and search criteria.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    limit := int32(56) // int32 | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. (optional)
+    continuationToken := "continuationToken_example" // string | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. (optional)
+    detail := true // bool | If `true`, full details of templates will be retrieved. This can be very time consuming and will reduce the performance of the call. (optional) (default to false)
+    async := true // bool | Async request to get the resources with *path.  (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearchWithoutConnection(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorAllResourceSearchRequestModel(hypervisorAllResourceSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Detail(detail).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearchWithoutConnection``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HypervisorsDoHypervisorAllResourcesSearchWithoutConnection`: HypervisorResourceResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearchWithoutConnection`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHypervisorsDoHypervisorAllResourcesSearchWithoutConnectionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **hypervisorAllResourceSearchRequestModel** | [**HypervisorAllResourceSearchRequestModel**](HypervisorAllResourceSearchRequestModel.md) | Contains hypervisor details and search criteria. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **limit** | **int32** | The max number of resources returned by this query. If not specified, the server might use a default limit of 1 items. If the specified value is larger than 1000, the server might reject the call. The default and maximum values depend on server settings. | 
+ **continuationToken** | **string** | If a query cannot be completed, the response will have a ContinuationToken set. To obtain more results from the query, pass the continuation token back into the query to get the next batch of results. | 
+ **detail** | **bool** | If &#x60;true&#x60;, full details of templates will be retrieved. This can be very time consuming and will reduce the performance of the call. | [default to false]
+ **async** | **bool** | Async request to get the resources with *path.  | [default to false]
+
+### Return type
+
+[**HypervisorResourceResponseModelCollection**](HypervisorResourceResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## HypervisorsDoHypervisorResourceSearch
 
 > HypervisorResourceResponseModelCollection HypervisorsDoHypervisorResourceSearch(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorResourceSearchRequestModel(hypervisorResourceSearchRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Limit(limit).ContinuationToken(continuationToken).Detail(detail).Async(async).Execute()
@@ -744,7 +832,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisor
 
-> HypervisorDetailResponseModel HypervisorsGetHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> HypervisorDetailResponseModel HypervisorsGetHypervisor(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
 
 Get the details for a single hypervisor.
 
@@ -772,10 +860,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | Async request to hypervisor.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisor(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisor``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -809,6 +898,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | Async request to hypervisor.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
 
 ### Return type
 
@@ -920,7 +1010,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorAllResources
 
-> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResources(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
+> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResources(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).NoCache(noCache).Force(force).Recurse(recurse).Execute()
 
 Get all resources within a hypervisor.
 
@@ -953,10 +1043,13 @@ func main() {
     showTagged := true // bool | By default, items which are tagged by XenDesktop are not shown. Set this to `true` to override that behavior. (optional)
     detail := true // bool | If `true`, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if `path` refers to a VM, snapshot, or template resource. <!-- Internally this calls Get-HypConfigurationObjectForItem --> (optional)
     async := true // bool | Async request to get the resources with *path. (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
+    force := true // bool | Get the VMs provisioned by MCS.  (optional) (default to false)
+    recurse := true // bool | Fetch all resources under this folder.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResources(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResources(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).NoCache(noCache).Force(force).Recurse(recurse).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResources``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -995,6 +1088,9 @@ Name | Type | Description  | Notes
  **showTagged** | **bool** | By default, items which are tagged by XenDesktop are not shown. Set this to &#x60;true&#x60; to override that behavior. | 
  **detail** | **bool** | If &#x60;true&#x60;, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if &#x60;path&#x60; refers to a VM, snapshot, or template resource. &lt;!-- Internally this calls Get-HypConfigurationObjectForItem --&gt; | 
  **async** | **bool** | Async request to get the resources with *path. | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
+ **force** | **bool** | Get the VMs provisioned by MCS.  | [default to false]
+ **recurse** | **bool** | Fetch all resources under this folder.  | [default to false]
 
 ### Return type
 
@@ -1016,7 +1112,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorAllResourcesWithoutConnection
 
-> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResourcesWithoutConnection(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
+> HypervisorResourceResponseModel HypervisorsGetHypervisorAllResourcesWithoutConnection(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Force(force).Recurse(recurse).Execute()
 
 Get all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
 
@@ -1049,10 +1145,12 @@ func main() {
     showTagged := true // bool | By default, items which are tagged by XenDesktop are not shown. Set this to `true` to override that behavior. (optional)
     detail := true // bool | If `true`, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if `path` refers to a VM, snapshot, or template resource. <!-- Internally this calls Get-HypConfigurationObjectForItem --> (optional)
     async := true // bool | Async request to get the resources with *path. (optional) (default to false)
+    force := true // bool | Get the VMs provisioned by MCS.  (optional)
+    recurse := true // bool | Fetch all resources under this folder.  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).HypervisorConnectionDetailRequestModel(hypervisorConnectionDetailRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Force(force).Recurse(recurse).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1087,6 +1185,8 @@ Name | Type | Description  | Notes
  **showTagged** | **bool** | By default, items which are tagged by XenDesktop are not shown. Set this to &#x60;true&#x60; to override that behavior. | 
  **detail** | **bool** | If &#x60;true&#x60;, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if &#x60;path&#x60; refers to a VM, snapshot, or template resource. &lt;!-- Internally this calls Get-HypConfigurationObjectForItem --&gt; | 
  **async** | **bool** | Async request to get the resources with *path. | [default to false]
+ **force** | **bool** | Get the VMs provisioned by MCS.  | 
+ **recurse** | **bool** | Fetch all resources under this folder.  | 
 
 ### Return type
 
@@ -1454,7 +1554,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePool
 
-> HypervisorResourcePoolDetailResponseModel HypervisorsGetHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> HypervisorResourcePoolDetailResponseModel HypervisorsGetHypervisorResourcePool(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
 
 Get details about a hypervisor resource pool.
 
@@ -1483,10 +1583,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | Async request to get the resource pool.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePool(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePool``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1522,6 +1623,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | Async request to get the resource pool.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
 
 ### Return type
 
@@ -1619,6 +1721,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdministratorResponseModelCollection**](AdministratorResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HypervisorsGetHypervisorResourcePoolAllAvailableNetworks
+
+> HypervisorResourcePoolNetworkResponseModelCollection HypervisorsGetHypervisorResourcePoolAllAvailableNetworks(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Get all available networks among hypervisors and resource pools.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If execute this API asynchronous.  (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAllAvailableNetworks(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAllAvailableNetworks``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HypervisorsGetHypervisorResourcePoolAllAvailableNetworks`: HypervisorResourcePoolNetworkResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAllAvailableNetworks`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorResourcePoolAllAvailableNetworksRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If execute this API asynchronous.  | [default to false]
+
+### Return type
+
+[**HypervisorResourcePoolNetworkResponseModelCollection**](HypervisorResourcePoolNetworkResponseModelCollection.md)
 
 ### Authorization
 
@@ -1994,7 +2174,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePoolResources
 
-> HypervisorResourceResponseModel HypervisorsGetHypervisorResourcePoolResources(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
+> HypervisorResourceResponseModel HypervisorsGetHypervisorResourcePoolResources(ctx, nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).NoCache(noCache).Force(force).Recurse(recurse).Execute()
 
 Get the resources within a hypervisor resource pool.
 
@@ -2028,10 +2208,13 @@ func main() {
     showTagged := true // bool | By default, items which are tagged by XenDesktop are not shown. Set this to `true` to override that behavior. (optional)
     detail := true // bool | If `true`, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if `path` refers to a VM, snapshot, or template resource. <!-- Internally this calls Get-HypConfigurationObjectForItem --> (optional)
     async := true // bool | Async request to get the resources with *path.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
+    force := true // bool | Get the VMs provisioned by MCS.  (optional) (default to false)
+    recurse := true // bool | Fetch all resources under this folder.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolResources(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolResources(context.Background(), nameOrId, poolId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Path(path).Children(children).Type_(type_).ShowTagged(showTagged).Detail(detail).Async(async).NoCache(noCache).Force(force).Recurse(recurse).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolResources``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2072,6 +2255,9 @@ Name | Type | Description  | Notes
  **showTagged** | **bool** | By default, items which are tagged by XenDesktop are not shown. Set this to &#x60;true&#x60; to override that behavior. | 
  **detail** | **bool** | If &#x60;true&#x60;, full details of VMs, snapshots, and templates will be retrieved. This can be very time consuming and will reduce the performance of the call. May only be used if &#x60;path&#x60; refers to a VM, snapshot, or template resource. &lt;!-- Internally this calls Get-HypConfigurationObjectForItem --&gt; | 
  **async** | **bool** | Async request to get the resources with *path.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
+ **force** | **bool** | Get the VMs provisioned by MCS.  | [default to false]
+ **recurse** | **bool** | Fetch all resources under this folder.  | [default to false]
 
 ### Return type
 
@@ -2180,7 +2366,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorResourcePools
 
-> HypervisorResourcePoolResponseModelCollection HypervisorsGetHypervisorResourcePools(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> HypervisorResourcePoolResponseModelCollection HypervisorsGetHypervisorResourcePools(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
 
 Get the list of hypervisor resource pools.
 
@@ -2208,10 +2394,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | Async request to get the resource pool.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePools(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePools(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePools``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2245,6 +2432,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | Async request to get the resource pool.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
 
 ### Return type
 
@@ -2352,7 +2540,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorServerHAAddresses
 
-> HypervisorServerHAAddressesResponseModel HypervisorsGetHypervisorServerHAAddresses(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> HypervisorServerHAAddressesResponseModel HypervisorsGetHypervisorServerHAAddresses(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
 
 Get hypervisor server HA addresses. Currently, it only valid for Citrix hypervisors.
 
@@ -2380,10 +2568,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If the execution with async model.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorServerHAAddresses(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorServerHAAddresses(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorServerHAAddresses``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2417,6 +2606,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If the execution with async model.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
 
 ### Return type
 
@@ -2602,7 +2792,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisors
 
-> HypervisorResponseModelCollection HypervisorsGetHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> HypervisorResponseModelCollection HypervisorsGetHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
 
 Get the hypervisors.
 
@@ -2629,10 +2819,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | Async request to hypervisor.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2661,6 +2852,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | Async request to hypervisor.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
 
 ### Return type
 
@@ -2682,7 +2874,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetHypervisorsAndResourcePools
 
-> HypervisorsAndResourcePoolsResponseModelCollection HypervisorsGetHypervisorsAndResourcePools(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+> HypervisorsAndResourcePoolsResponseModelCollection HypervisorsGetHypervisorsAndResourcePools(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
 
 Get hypervisors and resource pools. This API is used for the hosting main view.
 
@@ -2709,10 +2901,11 @@ func main() {
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     async := true // bool | If execute this API asynchronous.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2741,6 +2934,7 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If execute this API asynchronous.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
 
 ### Return type
 
@@ -2762,7 +2956,7 @@ Name | Type | Description  | Notes
 
 ## HypervisorsGetSupportHypervisors
 
-> HypervisorPluginResponseModelCollection HypervisorsGetSupportHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).Execute()
+> HypervisorPluginResponseModelCollection HypervisorsGetSupportHypervisors(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).NoCache(noCache).Execute()
 
 Get current server support hypervisors.
 
@@ -2791,10 +2985,11 @@ func main() {
     async := true // bool | If execute this API asynchronous.  (optional) (default to false)
     zoneNameOrId := "zoneNameOrId_example" // string | The zone name or id.  (optional)
     includeUnavailable := true // bool | Flag to show all supported hypervisor plugins. (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).Execute()
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).ZoneNameOrId(zoneNameOrId).IncludeUnavailable(includeUnavailable).NoCache(noCache).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2825,6 +3020,7 @@ Name | Type | Description  | Notes
  **async** | **bool** | If execute this API asynchronous.  | [default to false]
  **zoneNameOrId** | **string** | The zone name or id.  | 
  **includeUnavailable** | **bool** | Flag to show all supported hypervisor plugins. | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
 
 ### Return type
 
@@ -2868,7 +3064,7 @@ func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    editHypervisorConnectionRequestModel := *openapiclient.NewEditHypervisorConnectionRequestModel(openapiclient.HypervisorConnectionType("Unknown")) // EditHypervisorConnectionRequestModel | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel.
+    editHypervisorConnectionRequestModel := *openapiclient.NewEditHypervisorConnectionRequestModel(openapiclient.HypervisorConnectionType("Unknown")) // EditHypervisorConnectionRequestModel | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * OpenShift requires a model of type EditHypervisorOpenShiftConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -2904,7 +3100,7 @@ Name | Type | Description  | Notes
  **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
  **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **editHypervisorConnectionRequestModel** | [**EditHypervisorConnectionRequestModel**](EditHypervisorConnectionRequestModel.md) | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel. | 
+ **editHypervisorConnectionRequestModel** | [**EditHypervisorConnectionRequestModel**](EditHypervisorConnectionRequestModel.md) | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * OpenShift requires a model of type EditHypervisorOpenShiftConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel. | 
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 

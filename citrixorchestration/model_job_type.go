@@ -87,6 +87,7 @@ const (
 	JOBTYPE_SEND_SESSION_MESSAGE JobType = "SendSessionMessage"
 	JOBTYPE_ADD_APPLICATIONS JobType = "AddApplications"
 	JOBTYPE_GET_APPLICATION_GROUPS JobType = "GetApplicationGroups"
+	JOBTYPE_GET_APPLICATION_GROUP JobType = "GetApplicationGroup"
 	JOBTYPE_GET_APPLICATION_GROUP_APPLICATIONS JobType = "GetApplicationGroupApplications"
 	JOBTYPE_GET_APPLICATION_GROUP_DELIVERY_GROUPS JobType = "GetApplicationGroupDeliveryGroups"
 	JOBTYPE_CREATE_APPLICATION_GROUP JobType = "CreateApplicationGroup"
@@ -131,6 +132,7 @@ const (
 	JOBTYPE_GET_HYPERVISOR_ALL_RESOURCES JobType = "GetHypervisorAllResources"
 	JOBTYPE_SEARCH_HYPERVISOR_ALL_RESOURCES JobType = "SearchHypervisorAllResources"
 	JOBTYPE_GET_HYPERVISOR_ALL_RESOURCES_WITHOUT_CONNECTION JobType = "GetHypervisorAllResourcesWithoutConnection"
+	JOBTYPE_SEARCH_HYPERVISOR_ALL_RESOURCES_WITHOUT_CONNECTION JobType = "SearchHypervisorAllResourcesWithoutConnection"
 	JOBTYPE_GET_HYPERVISOR_RESOURCE_POOLS JobType = "GetHypervisorResourcePools"
 	JOBTYPE_GET_HYPERVISOR JobType = "GetHypervisor"
 	JOBTYPE_GET_HYPERVISORS JobType = "GetHypervisors"
@@ -207,6 +209,18 @@ const (
 	JOBTYPE_CREATE_MACHINE_CATALOG_UPGRADE_SCHEDULE JobType = "CreateMachineCatalogUpgradeSchedule"
 	JOBTYPE_REMOVE_MACHINE_CATALOG_UPGRADE_SCHEDULE JobType = "RemoveMachineCatalogUpgradeSchedule"
 	JOBTYPE_UPDATE_MACHINE_CATALOG_UPGRADE_SCHEDULE JobType = "UpdateMachineCatalogUpgradeSchedule"
+	JOBTYPE_GET_PROVISIONING_SCHEME_CONFIGURATIONS JobType = "GetProvisioningSchemeConfigurations"
+	JOBTYPE_REMOVE_MAINTENANCE_CYCLE JobType = "RemoveMaintenanceCycle"
+	JOBTYPE_CANCEL_MAINTENANCE_CYCLE JobType = "CancelMaintenanceCycle"
+	JOBTYPE_RESTART_MAINTENANCE_CYCLE JobType = "RestartMaintenanceCycle"
+	JOBTYPE_CREATE_MAINTENANCE_CYCLE JobType = "CreateMaintenanceCycle"
+	JOBTYPE_UPDATE_MAINTENANCE_CYCLE JobType = "UpdateMaintenanceCycle"
+	JOBTYPE_GET_MAINTENANCE_CYCLE JobType = "GetMaintenanceCycle"
+	JOBTYPE_GET_MAINTENANCE_CYCLE_VM_OPERATION_JOBS JobType = "GetMaintenanceCycleVMOperationJobs"
+	JOBTYPE_GET_VM_CONFIGURATION_RESULTANT_SET JobType = "GetVMConfigurationResultantSet"
+	JOBTYPE_SEARCH_MAINTENANCE_CYCLE_VM_OPERATION_JOBS JobType = "SearchMaintenanceCycleVMOperationJobs"
+	JOBTYPE_SEARCH_MAINTENANCE_CYCLES JobType = "SearchMaintenanceCycles"
+	JOBTYPE_RESET_PROVISIONED_VIRTUAL_MACHINE_OS_DISK JobType = "ResetProvisionedVirtualMachineOSDisk"
 	JOBTYPE_GET_HYPERVISOR_MACHINE_CATALOGS JobType = "GetHypervisorMachineCatalogs"
 	JOBTYPE_GET_HYPERVISOR_RESOURCE_POOL_MACHINE_CATALOGS JobType = "GetHypervisorResourcePoolMachineCatalogs"
 	JOBTYPE_GET_HYPERVISOR_ADMINISTRATORS JobType = "GetHypervisorAdministrators"
@@ -285,6 +299,24 @@ const (
 	JOBTYPE_GET_PATCH_PREVIEW_SERVICE_ACCOUNT JobType = "GetPatchPreviewServiceAccount"
 	JOBTYPE_GET_HYPERVISOR_RESOURCE_PRICES JobType = "GetHypervisorResourcePrices"
 	JOBTYPE_VALIDATE_VDA_COMPONENTS_AND_FEATURES_SELECTION JobType = "ValidateVDAComponentsAndFeaturesSelection"
+	JOBTYPE_UPDATE_PROVISIONED_VIRTUAL_MACHINE JobType = "UpdateProvisionedVirtualMachine"
+	JOBTYPE_GET_TAGS_ASSOCIATED_WITH_DELIVERY_GROUP JobType = "GetTagsAssociatedWithDeliveryGroup"
+	JOBTYPE_GET_PROV_RECOMMENDATION JobType = "GetProvRecommendation"
+	JOBTYPE_GET_HYPERVISOR_RESOURCE_POOL_ALL_AVAILABLE_NETWORKS JobType = "GetHypervisorResourcePoolAllAvailableNetworks"
+	JOBTYPE_APPLY_PROVISIONED_VIRTUAL_MACHINE_CONFIGURATION_UPDATE JobType = "ApplyProvisionedVirtualMachineConfigurationUpdate"
+	JOBTYPE_GET_AUTOSCALE_PLUGIN_TEMPLATES JobType = "GetAutoscalePluginTemplates"
+	JOBTYPE_GET_AUTOSCALE_PLUGIN_TEMPLATE JobType = "GetAutoscalePluginTemplate"
+	JOBTYPE_NEW_AUTOSCALE_PLUGIN_TEMPLATE JobType = "NewAutoscalePluginTemplate"
+	JOBTYPE_UPDATE_AUTOSCALE_PLUGIN_TEMPLATE JobType = "UpdateAutoscalePluginTemplate"
+	JOBTYPE_DELETE_AUTOSCALE_PLUGIN_TEMPLATE JobType = "DeleteAutoscalePluginTemplate"
+	JOBTYPE_GET_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGINS JobType = "GetDeliveryGroupAutoscaleGroupPlugins"
+	JOBTYPE_NEW_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGIN JobType = "NewDeliveryGroupAutoscaleGroupPlugin"
+	JOBTYPE_UPDATE_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGIN JobType = "UpdateDeliveryGroupAutoscaleGroupPlugin"
+	JOBTYPE_DELETE_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGIN_BY_UID JobType = "DeleteDeliveryGroupAutoscaleGroupPluginByUid"
+	JOBTYPE_GET_MACHINE_CATALOG_DAILY_COST JobType = "GetMachineCatalogDailyCost"
+	JOBTYPE_GET_MACHINE_CATALOG_COST_SUMMARY JobType = "GetMachineCatalogCostSummary"
+	JOBTYPE_GENERATE_ADVISOR_RECOMMENDATION JobType = "GenerateAdvisorRecommendation"
+	JOBTYPE_SEARCH_PROVISIONING_SCHEME JobType = "SearchProvisioningScheme"
 )
 
 // All allowed values of JobType enum
@@ -356,6 +388,7 @@ var AllowedJobTypeEnumValues = []JobType{
 	"SendSessionMessage",
 	"AddApplications",
 	"GetApplicationGroups",
+	"GetApplicationGroup",
 	"GetApplicationGroupApplications",
 	"GetApplicationGroupDeliveryGroups",
 	"CreateApplicationGroup",
@@ -400,6 +433,7 @@ var AllowedJobTypeEnumValues = []JobType{
 	"GetHypervisorAllResources",
 	"SearchHypervisorAllResources",
 	"GetHypervisorAllResourcesWithoutConnection",
+	"SearchHypervisorAllResourcesWithoutConnection",
 	"GetHypervisorResourcePools",
 	"GetHypervisor",
 	"GetHypervisors",
@@ -476,6 +510,18 @@ var AllowedJobTypeEnumValues = []JobType{
 	"CreateMachineCatalogUpgradeSchedule",
 	"RemoveMachineCatalogUpgradeSchedule",
 	"UpdateMachineCatalogUpgradeSchedule",
+	"GetProvisioningSchemeConfigurations",
+	"RemoveMaintenanceCycle",
+	"CancelMaintenanceCycle",
+	"RestartMaintenanceCycle",
+	"CreateMaintenanceCycle",
+	"UpdateMaintenanceCycle",
+	"GetMaintenanceCycle",
+	"GetMaintenanceCycleVMOperationJobs",
+	"GetVMConfigurationResultantSet",
+	"SearchMaintenanceCycleVMOperationJobs",
+	"SearchMaintenanceCycles",
+	"ResetProvisionedVirtualMachineOSDisk",
 	"GetHypervisorMachineCatalogs",
 	"GetHypervisorResourcePoolMachineCatalogs",
 	"GetHypervisorAdministrators",
@@ -554,6 +600,24 @@ var AllowedJobTypeEnumValues = []JobType{
 	"GetPatchPreviewServiceAccount",
 	"GetHypervisorResourcePrices",
 	"ValidateVDAComponentsAndFeaturesSelection",
+	"UpdateProvisionedVirtualMachine",
+	"GetTagsAssociatedWithDeliveryGroup",
+	"GetProvRecommendation",
+	"GetHypervisorResourcePoolAllAvailableNetworks",
+	"ApplyProvisionedVirtualMachineConfigurationUpdate",
+	"GetAutoscalePluginTemplates",
+	"GetAutoscalePluginTemplate",
+	"NewAutoscalePluginTemplate",
+	"UpdateAutoscalePluginTemplate",
+	"DeleteAutoscalePluginTemplate",
+	"GetDeliveryGroupAutoscaleGroupPlugins",
+	"NewDeliveryGroupAutoscaleGroupPlugin",
+	"UpdateDeliveryGroupAutoscaleGroupPlugin",
+	"DeleteDeliveryGroupAutoscaleGroupPluginByUid",
+	"GetMachineCatalogDailyCost",
+	"GetMachineCatalogCostSummary",
+	"GenerateAdvisorRecommendation",
+	"SearchProvisioningScheme",
 }
 
 func (v *JobType) UnmarshalJSON(src []byte) error {

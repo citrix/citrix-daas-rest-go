@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **NullableString** | Gets or sets Name | [optional] 
-**User** | Pointer to **NullableString** | Gets or sets User | [optional] 
-**Machine** | Pointer to **NullableString** | Gets or sets Machine | [optional] 
+**Name** | Pointer to **NullableString** | A name for the response. This is just hard coded. | [optional] 
+**User** | Pointer to **NullableString** | The username. | [optional] 
+**Machine** | Pointer to **NullableString** | The machine name. | [optional] 
 **Result** | Pointer to [**ModelingResultContract**](ModelingResultContract.md) |  | [optional] 
 
 ## Methods

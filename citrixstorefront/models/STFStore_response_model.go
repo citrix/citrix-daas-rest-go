@@ -7,10 +7,10 @@ type STFStoreDetailModel struct {
 	FriendlyName                       NullableString                 `json:"FriendlyName,omitempty"`
 	Service                            StoreServiceModel              `json:"Service,omitempty"`
 	FarmsConfiguration                 StoreFarmsConfiguration        `json:"FarmsConfiguration,omitempty"`
-	UserFarmMappings                   []string                       `json:"UserFarmMappings,omitempty"`
+	UserFarmMappings                   []UserFarmMappingModel         `json:"UserFarmMappings,omitempty"`
 	Authentication                     StoreAuthenticationModel       `json:"Authentication,omitempty"`
 	Subscription                       StoreSubscriptionModel         `json:"Subscription,omitempty"`
-	Gateways                           []string                       `json:"Gateways,omitempty"`
+	Gateways                           []StoreGatewaysModel           `json:"Gateways,omitempty"`
 	GatewayService                     StoreGatewayServiceModel       `json:"GatewayService,omitempty"`
 	OptimalGatewaysForFarms            []string                       `json:"OptimalGatewaysForFarms,omitempty"`
 	DiscoveryService                   StoreDiscoveryServiceModel     `json:"DiscoveryService,omitempty"`
@@ -47,6 +47,10 @@ type STFStoreDetailModel struct {
 	Configuration                      StoreConfiguration             `json:"Configuration,omitempty"`
 	ConfigurationFile                  NullableString                 `json:"ConfigurationFile,omitempty"`
 	TenantId                           NullableString                 `json:"TenantId,omitempty"`
+}
+
+type UserFarmMappingModel struct {
+	Name NullableString `json:"Name,omitempty"`
 }
 
 type TokenManagerModel struct {
@@ -110,6 +114,10 @@ type StoreFarmsConfiguration struct {
 	BackgroundHealthCheckPollingPeriod TimeModel      `json:"BackgroundHealthCheckPollingPeriod,omitempty"`
 	AdvancedHealthCheck                NullableBool   `json:"AdvancedHealthCheck,omitempty"`
 	Farms                              []string       `json:"Farms,omitempty"`
+}
+
+type StoreGatewaysModel struct {
+	Name NullableString `json:"Name,omitempty"`
 }
 
 type StoreFarmModel struct {

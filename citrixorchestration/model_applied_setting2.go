@@ -17,15 +17,15 @@ import (
 // checks if the AppliedSetting2 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AppliedSetting2{}
 
-// AppliedSetting2 Winning setting information
+// AppliedSetting2 Winning setting information.
 type AppliedSetting2 struct {
-	// Setting name
+	// Setting name.
 	SettingName NullableString `json:"SettingName,omitempty"`
-	// Setting value
+	// Setting value.
 	SettingValue NullableString `json:"SettingValue,omitempty"`
-	// Source GPO for the setting
+	// Source GPO for the setting.
 	WinningGpo NullableString `json:"WinningGpo,omitempty"`
-	// Source policy for the setting
+	// Source policy for the setting.
 	WinningPolicy NullableString `json:"WinningPolicy,omitempty"`
 }
 

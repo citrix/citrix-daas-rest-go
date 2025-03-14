@@ -54,6 +54,8 @@ type UpdateMachineCatalogProvisioningSchemeRequestModel struct {
 	RemoveAvailableMachineAccounts []string `json:"RemoveAvailableMachineAccounts,omitempty"`
 	MachineAccountDeleteOption *MachineAccountDeleteOption `json:"MachineAccountDeleteOption,omitempty"`
 	AssignImageVersionToProvisioningScheme *AssignImageVersionToProvisioningSchemeRequestModel `json:"AssignImageVersionToProvisioningScheme,omitempty"`
+	// The metadata of provisioning scheme. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated. If Metadata is specified, note that other properties in request will be ignored. So MasterImagePath and  AssignImageVersionToProvisioningScheme only can be null or empty, to avoid unintented update.
+	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
 // NewUpdateMachineCatalogProvisioningSchemeRequestModel instantiates a new UpdateMachineCatalogProvisioningSchemeRequestModel object
@@ -728,6 +730,39 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetAssignImageVersi
 	o.AssignImageVersionToProvisioningScheme = &v
 }
 
+// GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMetadata() []NameValueStringPairModel {
+	if o == nil {
+		var ret []NameValueStringPairModel
+		return ret
+	}
+	return o.Metadata
+}
+
+// GetMetadataOk returns a tuple with the Metadata field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) GetMetadataOk() ([]NameValueStringPairModel, bool) {
+	if o == nil || IsNil(o.Metadata) {
+		return nil, false
+	}
+	return o.Metadata, true
+}
+
+// HasMetadata returns a boolean if a field has been set.
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasMetadata() bool {
+	if o != nil && IsNil(o.Metadata) {
+		return true
+	}
+
+	return false
+}
+
+// SetMetadata gets a reference to the given []NameValueStringPairModel and assigns it to the Metadata field.
+func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMetadata(v []NameValueStringPairModel) {
+	o.Metadata = v
+}
+
 func (o UpdateMachineCatalogProvisioningSchemeRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -788,6 +823,9 @@ func (o UpdateMachineCatalogProvisioningSchemeRequestModel) ToMap() (map[string]
 	}
 	if !IsNil(o.AssignImageVersionToProvisioningScheme) {
 		toSerialize["AssignImageVersionToProvisioningScheme"] = o.AssignImageVersionToProvisioningScheme
+	}
+	if o.Metadata != nil {
+		toSerialize["Metadata"] = o.Metadata
 	}
 	return toSerialize, nil
 }

@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// FilterType Names of all filters. The names get stored. So they must not be changed.
+// FilterType Names of all filters. The names get stored. So they must not be changed. Filter types are stored in the database as integers. These are the values defined as GPOFTXxx values in the SQL filter definitions, e.g., GPOFTUser. The numbers are explicitly assigned here so that the values stored in the database are always correct even in case any changes are made here. We should never delete a filter type, nor change the numerical value of a filter type, although the enum name may be changed.
 type FilterType string
 
 // List of FilterType
@@ -30,6 +30,7 @@ const (
 	FILTERTYPE_OU FilterType = "OU"
 	FILTERTYPE_USER FilterType = "User"
 	FILTERTYPE_SECURE_BROWSER_TAG FilterType = "SecureBrowserTag"
+	FILTERTYPE_CLIENT_PLATFORM FilterType = "ClientPlatform"
 )
 
 // All allowed values of FilterType enum
@@ -44,6 +45,7 @@ var AllowedFilterTypeEnumValues = []FilterType{
 	"OU",
 	"User",
 	"SecureBrowserTag",
+	"ClientPlatform",
 }
 
 func (v *FilterType) UnmarshalJSON(src []byte) error {

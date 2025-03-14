@@ -198,8 +198,6 @@ func (o *GetSTFStoreRequestModel) SetGetSTFStoreRequestModel(v string) {
 var _ MappedNullable = &GetSTFStoreRequestModel{}
 
 type SetSTFStoreRequestModel struct {
-	RDPOnly                             NullableBool   //Configure the Store to launch all requests using the RDP protocol.
-	IcaTemplateName                     NullableString //Ica template to use when launching an application or desktop.
 	IcaFileSigning                      NullableBool   //Sign the ica file used for launch.
 	IcaFileSigningCertificateThumbprint NullableString //Thumbprint of the certificate to use for signing the ica file.
 	IcaFileSigningHashAlgorithm         NullableString //Algorithm used to sign the ica file. The setting should not normally require changing from the default.
@@ -216,12 +214,7 @@ type SetSTFStoreRequestModel struct {
 // ToMap implements MappedNullable.
 func (o SetSTFStoreRequestModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.RDPOnly.IsSet() {
-		toSerialize["RDPOnly"] = o.RDPOnly.Get()
-	}
-	if o.IcaTemplateName.IsSet() {
-		toSerialize["IcaTemplateName"] = o.IcaTemplateName.Get()
-	}
+
 	if o.IcaFileSigning.IsSet() {
 		toSerialize["IcaFileSigning"] = o.IcaFileSigning.Get()
 	}
@@ -256,16 +249,6 @@ func (o SetSTFStoreRequestModel) ToMap() (map[string]interface{}, error) {
 		toSerialize["PassThru"] = o.PassThru.Get()
 	}
 	return toSerialize, nil
-}
-
-// SetRDPOnly configures the Store to launch all requests using the RDP protocol.
-func (o *SetSTFStoreRequestModel) SetRDPOnly(v bool) {
-	o.RDPOnly.Set(&v)
-}
-
-// SetIcaTemplateName sets the ICA template to use when launching an application or desktop.
-func (o *SetSTFStoreRequestModel) SetIcaTemplateName(v string) {
-	o.IcaTemplateName.Set(&v)
 }
 
 // SetIcaFileSigning enables or disables signing the ICA file used for launch.

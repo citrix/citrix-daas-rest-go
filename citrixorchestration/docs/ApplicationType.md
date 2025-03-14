@@ -13,6 +13,12 @@
 
 * `PUBLISHED_CONTENT` (value: `"PublishedContent"`)
 
+* `PACKAGED_APPLICATION` (value: `"PackagedApplication"`)
+
+* `FLEX_APP` (value: `"FlexApp"`)
+
+* `ELASTIC_APP_LAYER` (value: `"ElasticAppLayer"`)
+
 * `APP_V` (value: `"AppV"`)
 
 * `APP_LIBRARY_APP_V` (value: `"AppLibraryAppV"`)
@@ -20,10 +26,6 @@
 * `MSIX` (value: `"Msix"`)
 
 * `APP_ATTACH` (value: `"AppAttach"`)
-
-* `FLEX_APP` (value: `"FlexApp"`)
-
-* `PACKAGED_APPLICATION` (value: `"PackagedApplication"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

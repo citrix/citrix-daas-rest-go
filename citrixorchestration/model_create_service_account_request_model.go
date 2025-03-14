@@ -40,6 +40,8 @@ type CreateServiceAccountRequestModel struct {
 	DisplayName NullableString `json:"DisplayName,omitempty"`
 	// Gets or sets the description
 	Description NullableString `json:"Description,omitempty"`
+	// Gets or sets the custom properties Format is the following: \"CustomProperties\":\"[{\\\"Name\\\":\\\"ProxyHypervisorTrafficThroughConnector\\\",\\\"Value\\\":\\\"true\\\"},{\\\"Name\\\":\\\"ZoneUid\\\",\\\"Value\\\":\\\"4e1d7040-d830-4d97-8f94-342c03846f19\\\"}]\".
+	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 }
 
 // NewCreateServiceAccountRequestModel instantiates a new CreateServiceAccountRequestModel object
@@ -408,6 +410,48 @@ func (o *CreateServiceAccountRequestModel) UnsetDescription() {
 	o.Description.Unset()
 }
 
+// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateServiceAccountRequestModel) GetCustomProperties() string {
+	if o == nil || IsNil(o.CustomProperties.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CustomProperties.Get()
+}
+
+// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateServiceAccountRequestModel) GetCustomPropertiesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
+}
+
+// HasCustomProperties returns a boolean if a field has been set.
+func (o *CreateServiceAccountRequestModel) HasCustomProperties() bool {
+	if o != nil && o.CustomProperties.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
+func (o *CreateServiceAccountRequestModel) SetCustomProperties(v string) {
+	o.CustomProperties.Set(&v)
+}
+// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+func (o *CreateServiceAccountRequestModel) SetCustomPropertiesNil() {
+	o.CustomProperties.Set(nil)
+}
+
+// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+func (o *CreateServiceAccountRequestModel) UnsetCustomProperties() {
+	o.CustomProperties.Unset()
+}
+
 func (o CreateServiceAccountRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -440,6 +484,9 @@ func (o CreateServiceAccountRequestModel) ToMap() (map[string]interface{}, error
 	}
 	if o.Description.IsSet() {
 		toSerialize["Description"] = o.Description.Get()
+	}
+	if o.CustomProperties.IsSet() {
+		toSerialize["CustomProperties"] = o.CustomProperties.Get()
 	}
 	return toSerialize, nil
 }

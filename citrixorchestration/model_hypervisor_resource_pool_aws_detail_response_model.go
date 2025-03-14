@@ -35,6 +35,7 @@ type HypervisorResourcePoolAWSDetailResponseModel struct {
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines.
 	PersonalvDiskStorage []HypervisorStorageResourceResponseModel `json:"PersonalvDiskStorage,omitempty"`
+	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 	// GPU types available in the resource pool.  Only applicable to hypervisors that support GPU types.
 	GpuTypes []HypervisorResourceRefResponseModel `json:"GpuTypes,omitempty"`
 	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
@@ -377,6 +378,38 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasPersonalvDiskStorage()
 // SetPersonalvDiskStorage gets a reference to the given []HypervisorStorageResourceResponseModel and assigns it to the PersonalvDiskStorage field.
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetPersonalvDiskStorage(v []HypervisorStorageResourceResponseModel) {
 	o.PersonalvDiskStorage = v
+}
+
+// GetStorageBalanceType returns the StorageBalanceType field value if set, zero value otherwise.
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetStorageBalanceType() StorageBalanceType {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		var ret StorageBalanceType
+		return ret
+	}
+	return *o.StorageBalanceType
+}
+
+// GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool) {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		return nil, false
+	}
+	return o.StorageBalanceType, true
+}
+
+// HasStorageBalanceType returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolAWSDetailResponseModel) HasStorageBalanceType() bool {
+	if o != nil && !IsNil(o.StorageBalanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageBalanceType gets a reference to the given StorageBalanceType and assigns it to the StorageBalanceType field.
+func (o *HypervisorResourcePoolAWSDetailResponseModel) SetStorageBalanceType(v StorageBalanceType) {
+	o.StorageBalanceType = &v
 }
 
 // GetGpuTypes returns the GpuTypes field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -882,6 +915,9 @@ func (o HypervisorResourcePoolAWSDetailResponseModel) ToMap() (map[string]interf
 	}
 	if o.PersonalvDiskStorage != nil {
 		toSerialize["PersonalvDiskStorage"] = o.PersonalvDiskStorage
+	}
+	if !IsNil(o.StorageBalanceType) {
+		toSerialize["StorageBalanceType"] = o.StorageBalanceType
 	}
 	if o.GpuTypes != nil {
 		toSerialize["GpuTypes"] = o.GpuTypes

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**UseLicenseActivationService** | Pointer to **NullableBool** | Use License Activation Service and should be used exclusively | [optional] 
 **LicenseProduct** | Pointer to [**LicenseProduct**](LicenseProduct.md) |  | [optional] 
 **ProductEdition** | Pointer to [**ProductEdition**](ProductEdition.md) |  | [optional] 
 **LicenseModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
@@ -27,6 +28,41 @@ NewEditLicenseProductEditionRequestModelWithDefaults instantiates a new EditLice
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetUseLicenseActivationService
+
+`func (o *EditLicenseProductEditionRequestModel) GetUseLicenseActivationService() bool`
+
+GetUseLicenseActivationService returns the UseLicenseActivationService field if non-nil, zero value otherwise.
+
+### GetUseLicenseActivationServiceOk
+
+`func (o *EditLicenseProductEditionRequestModel) GetUseLicenseActivationServiceOk() (*bool, bool)`
+
+GetUseLicenseActivationServiceOk returns a tuple with the UseLicenseActivationService field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUseLicenseActivationService
+
+`func (o *EditLicenseProductEditionRequestModel) SetUseLicenseActivationService(v bool)`
+
+SetUseLicenseActivationService sets UseLicenseActivationService field to given value.
+
+### HasUseLicenseActivationService
+
+`func (o *EditLicenseProductEditionRequestModel) HasUseLicenseActivationService() bool`
+
+HasUseLicenseActivationService returns a boolean if a field has been set.
+
+### SetUseLicenseActivationServiceNil
+
+`func (o *EditLicenseProductEditionRequestModel) SetUseLicenseActivationServiceNil(b bool)`
+
+ SetUseLicenseActivationServiceNil sets the value for UseLicenseActivationService to be an explicit nil
+
+### UnsetUseLicenseActivationService
+`func (o *EditLicenseProductEditionRequestModel) UnsetUseLicenseActivationService()`
+
+UnsetUseLicenseActivationService ensures that no value is present for UseLicenseActivationService, not even an explicit nil
 ### GetLicenseProduct
 
 `func (o *EditLicenseProductEditionRequestModel) GetLicenseProduct() LicenseProduct`

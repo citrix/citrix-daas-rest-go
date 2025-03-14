@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether virtual machines created within this resource pool will use local storage caching for their disk images. | [optional] 
 **CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 **PersonalvDiskStorage** | Pointer to [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines. | [optional] 
+**StorageBalanceType** | Pointer to [**StorageBalanceType**](StorageBalanceType.md) |  | [optional] 
 **Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
 **Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
 **XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
@@ -359,6 +360,31 @@ HasPersonalvDiskStorage returns a boolean if a field has been set.
 `func (o *HypervisorResourcePoolDetailResponseModel) UnsetPersonalvDiskStorage()`
 
 UnsetPersonalvDiskStorage ensures that no value is present for PersonalvDiskStorage, not even an explicit nil
+### GetStorageBalanceType
+
+`func (o *HypervisorResourcePoolDetailResponseModel) GetStorageBalanceType() StorageBalanceType`
+
+GetStorageBalanceType returns the StorageBalanceType field if non-nil, zero value otherwise.
+
+### GetStorageBalanceTypeOk
+
+`func (o *HypervisorResourcePoolDetailResponseModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool)`
+
+GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageBalanceType
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetStorageBalanceType(v StorageBalanceType)`
+
+SetStorageBalanceType sets StorageBalanceType field to given value.
+
+### HasStorageBalanceType
+
+`func (o *HypervisorResourcePoolDetailResponseModel) HasStorageBalanceType() bool`
+
+HasStorageBalanceType returns a boolean if a field has been set.
+
 ### GetId
 
 `func (o *HypervisorResourcePoolDetailResponseModel) GetId() string`

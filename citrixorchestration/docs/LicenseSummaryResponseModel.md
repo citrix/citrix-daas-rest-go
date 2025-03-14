@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LicenseInformation** | Pointer to [**LicenseInformationModel**](LicenseInformationModel.md) |  | [optional] 
 **LicenseInventories** | Pointer to [**[]LicenseInventoryModel**](LicenseInventoryModel.md) | Get license inventory list | [optional] 
+**LicenseLasInventories** | Pointer to [**[]LicenseInventoryModel**](LicenseInventoryModel.md) | Get license Las inventory list | [optional] 
 **NormalLicenses** | Pointer to **NullableInt32** | The number of the available licenses | [optional] 
 **OverdraftLicenses** | Pointer to **NullableInt32** | The number of the overdraft licenses | [optional] 
 **LicensesUsage** | Pointer to **NullableInt32** | The usage of the licenses | [optional] 
@@ -90,6 +91,41 @@ HasLicenseInventories returns a boolean if a field has been set.
 `func (o *LicenseSummaryResponseModel) UnsetLicenseInventories()`
 
 UnsetLicenseInventories ensures that no value is present for LicenseInventories, not even an explicit nil
+### GetLicenseLasInventories
+
+`func (o *LicenseSummaryResponseModel) GetLicenseLasInventories() []LicenseInventoryModel`
+
+GetLicenseLasInventories returns the LicenseLasInventories field if non-nil, zero value otherwise.
+
+### GetLicenseLasInventoriesOk
+
+`func (o *LicenseSummaryResponseModel) GetLicenseLasInventoriesOk() (*[]LicenseInventoryModel, bool)`
+
+GetLicenseLasInventoriesOk returns a tuple with the LicenseLasInventories field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicenseLasInventories
+
+`func (o *LicenseSummaryResponseModel) SetLicenseLasInventories(v []LicenseInventoryModel)`
+
+SetLicenseLasInventories sets LicenseLasInventories field to given value.
+
+### HasLicenseLasInventories
+
+`func (o *LicenseSummaryResponseModel) HasLicenseLasInventories() bool`
+
+HasLicenseLasInventories returns a boolean if a field has been set.
+
+### SetLicenseLasInventoriesNil
+
+`func (o *LicenseSummaryResponseModel) SetLicenseLasInventoriesNil(b bool)`
+
+ SetLicenseLasInventoriesNil sets the value for LicenseLasInventories to be an explicit nil
+
+### UnsetLicenseLasInventories
+`func (o *LicenseSummaryResponseModel) UnsetLicenseLasInventories()`
+
+UnsetLicenseLasInventories ensures that no value is present for LicenseLasInventories, not even an explicit nil
 ### GetNormalLicenses
 
 `func (o *LicenseSummaryResponseModel) GetNormalLicenses() int32`

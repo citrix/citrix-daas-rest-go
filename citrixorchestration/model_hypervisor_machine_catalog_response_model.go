@@ -17,7 +17,7 @@ import (
 // checks if the HypervisorMachineCatalogResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &HypervisorMachineCatalogResponseModel{}
 
-// HypervisorMachineCatalogResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder.               Machine catalog related to a hypervisor or resource pool.              
+// HypervisorMachineCatalogResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder,HypervisorVMTagging.               Machine catalog related to a hypervisor or resource pool.              
 type HypervisorMachineCatalogResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name NullableString `json:"Name,omitempty"`
@@ -94,6 +94,8 @@ type HypervisorMachineCatalogResponseModel struct {
 	UpgradeInfo *MachineCatalogUpgradeInfo `json:"UpgradeInfo,omitempty"`
 	Zone *RefResponseModel `json:"Zone,omitempty"`
 	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
+	// Indicates that assigned VMs from this catalog will carry a hypervisor-level tag.
+	HypervisorVMTagging NullableBool `json:"HypervisorVMTagging,omitempty"`
 	// Number of machines from the catalog that are provisioned on the hypervisor or resource pool.
 	NumProvisionedMachines *int32 `json:"NumProvisionedMachines,omitempty"`
 }
@@ -1653,6 +1655,48 @@ func (o *HypervisorMachineCatalogResponseModel) SetAdminFolder(v RefResponseMode
 	o.AdminFolder = &v
 }
 
+// GetHypervisorVMTagging returns the HypervisorVMTagging field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorMachineCatalogResponseModel) GetHypervisorVMTagging() bool {
+	if o == nil || IsNil(o.HypervisorVMTagging.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.HypervisorVMTagging.Get()
+}
+
+// GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorMachineCatalogResponseModel) GetHypervisorVMTaggingOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HypervisorVMTagging.Get(), o.HypervisorVMTagging.IsSet()
+}
+
+// HasHypervisorVMTagging returns a boolean if a field has been set.
+func (o *HypervisorMachineCatalogResponseModel) HasHypervisorVMTagging() bool {
+	if o != nil && o.HypervisorVMTagging.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorVMTagging gets a reference to the given NullableBool and assigns it to the HypervisorVMTagging field.
+func (o *HypervisorMachineCatalogResponseModel) SetHypervisorVMTagging(v bool) {
+	o.HypervisorVMTagging.Set(&v)
+}
+// SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+func (o *HypervisorMachineCatalogResponseModel) SetHypervisorVMTaggingNil() {
+	o.HypervisorVMTagging.Set(nil)
+}
+
+// UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
+func (o *HypervisorMachineCatalogResponseModel) UnsetHypervisorVMTagging() {
+	o.HypervisorVMTagging.Unset()
+}
+
 // GetNumProvisionedMachines returns the NumProvisionedMachines field value if set, zero value otherwise.
 func (o *HypervisorMachineCatalogResponseModel) GetNumProvisionedMachines() int32 {
 	if o == nil || IsNil(o.NumProvisionedMachines) {
@@ -1826,6 +1870,9 @@ func (o HypervisorMachineCatalogResponseModel) ToMap() (map[string]interface{}, 
 	}
 	if !IsNil(o.AdminFolder) {
 		toSerialize["AdminFolder"] = o.AdminFolder
+	}
+	if o.HypervisorVMTagging.IsSet() {
+		toSerialize["HypervisorVMTagging"] = o.HypervisorVMTagging.Get()
 	}
 	if !IsNil(o.NumProvisionedMachines) {
 		toSerialize["NumProvisionedMachines"] = o.NumProvisionedMachines

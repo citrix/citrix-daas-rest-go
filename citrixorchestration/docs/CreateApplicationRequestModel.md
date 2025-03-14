@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ApplicationFolder** | Pointer to **NullableString** | The application folder in which the application should be created. | [optional] 
 **ApplicationType** | Pointer to [**ApplicationType**](ApplicationType.md) |  | [optional] 
 **PackagedApplicationType** | Pointer to [**PackagedApplicationType**](PackagedApplicationType.md) |  | [optional] 
+**PackagedApplicationVisibility** | Pointer to [**PackagedApplicationVisibility**](PackagedApplicationVisibility.md) |  | [optional] 
 **BrowserName** | Pointer to **NullableString** | Internal name of the application. | [optional] 
 **ClientFolder** | Pointer to **NullableString** | Specifies the folder that the application belongs to as the user sees it. | [optional] 
 **CpuPriorityLevel** | Pointer to [**CpuPriorityLevel**](CpuPriorityLevel.md) |  | [optional] 
@@ -139,6 +140,31 @@ SetPackagedApplicationType sets PackagedApplicationType field to given value.
 `func (o *CreateApplicationRequestModel) HasPackagedApplicationType() bool`
 
 HasPackagedApplicationType returns a boolean if a field has been set.
+
+### GetPackagedApplicationVisibility
+
+`func (o *CreateApplicationRequestModel) GetPackagedApplicationVisibility() PackagedApplicationVisibility`
+
+GetPackagedApplicationVisibility returns the PackagedApplicationVisibility field if non-nil, zero value otherwise.
+
+### GetPackagedApplicationVisibilityOk
+
+`func (o *CreateApplicationRequestModel) GetPackagedApplicationVisibilityOk() (*PackagedApplicationVisibility, bool)`
+
+GetPackagedApplicationVisibilityOk returns a tuple with the PackagedApplicationVisibility field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedApplicationVisibility
+
+`func (o *CreateApplicationRequestModel) SetPackagedApplicationVisibility(v PackagedApplicationVisibility)`
+
+SetPackagedApplicationVisibility sets PackagedApplicationVisibility field to given value.
+
+### HasPackagedApplicationVisibility
+
+`func (o *CreateApplicationRequestModel) HasPackagedApplicationVisibility() bool`
+
+HasPackagedApplicationVisibility returns a boolean if a field has been set.
 
 ### GetBrowserName
 

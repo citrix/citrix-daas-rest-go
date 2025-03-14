@@ -23,6 +23,8 @@ type AssignImageVersionToProvisioningSchemeRequestModel struct {
 	ImageDefinition string `json:"ImageDefinition"`
 	// The image version to assign. May be an Id or number.
 	ImageVersion string `json:"ImageVersion"`
+	// The note for assigning the prepared image to provs cheme.
+	ImageAssignmentNote NullableString `json:"ImageAssignmentNote,omitempty"`
 }
 
 // NewAssignImageVersionToProvisioningSchemeRequestModel instantiates a new AssignImageVersionToProvisioningSchemeRequestModel object
@@ -92,6 +94,48 @@ func (o *AssignImageVersionToProvisioningSchemeRequestModel) SetImageVersion(v s
 	o.ImageVersion = v
 }
 
+// GetImageAssignmentNote returns the ImageAssignmentNote field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AssignImageVersionToProvisioningSchemeRequestModel) GetImageAssignmentNote() string {
+	if o == nil || IsNil(o.ImageAssignmentNote.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ImageAssignmentNote.Get()
+}
+
+// GetImageAssignmentNoteOk returns a tuple with the ImageAssignmentNote field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AssignImageVersionToProvisioningSchemeRequestModel) GetImageAssignmentNoteOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ImageAssignmentNote.Get(), o.ImageAssignmentNote.IsSet()
+}
+
+// HasImageAssignmentNote returns a boolean if a field has been set.
+func (o *AssignImageVersionToProvisioningSchemeRequestModel) HasImageAssignmentNote() bool {
+	if o != nil && o.ImageAssignmentNote.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetImageAssignmentNote gets a reference to the given NullableString and assigns it to the ImageAssignmentNote field.
+func (o *AssignImageVersionToProvisioningSchemeRequestModel) SetImageAssignmentNote(v string) {
+	o.ImageAssignmentNote.Set(&v)
+}
+// SetImageAssignmentNoteNil sets the value for ImageAssignmentNote to be an explicit nil
+func (o *AssignImageVersionToProvisioningSchemeRequestModel) SetImageAssignmentNoteNil() {
+	o.ImageAssignmentNote.Set(nil)
+}
+
+// UnsetImageAssignmentNote ensures that no value is present for ImageAssignmentNote, not even an explicit nil
+func (o *AssignImageVersionToProvisioningSchemeRequestModel) UnsetImageAssignmentNote() {
+	o.ImageAssignmentNote.Unset()
+}
+
 func (o AssignImageVersionToProvisioningSchemeRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -104,6 +148,9 @@ func (o AssignImageVersionToProvisioningSchemeRequestModel) ToMap() (map[string]
 	toSerialize := map[string]interface{}{}
 	toSerialize["ImageDefinition"] = o.ImageDefinition
 	toSerialize["ImageVersion"] = o.ImageVersion
+	if o.ImageAssignmentNote.IsSet() {
+		toSerialize["ImageAssignmentNote"] = o.ImageAssignmentNote.Get()
+	}
 	return toSerialize, nil
 }
 

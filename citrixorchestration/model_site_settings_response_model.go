@@ -17,7 +17,7 @@ import (
 // checks if the SiteSettingsResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SiteSettingsResponseModel{}
 
-// SiteSettingsResponseModel struct for SiteSettingsResponseModel
+// SiteSettingsResponseModel The site settings response model.
 type SiteSettingsResponseModel struct {
 	UseVerticalScalingForRdsLaunches NullableBool `json:"UseVerticalScalingForRdsLaunches,omitempty"`
 	DnsResolutionEnabled NullableBool `json:"DnsResolutionEnabled,omitempty"`
@@ -27,12 +27,21 @@ type SiteSettingsResponseModel struct {
 	// The max number of minutes that console can be inactive.
 	ConsoleInactivityTimeoutMinutes NullableInt32 `json:"ConsoleInactivityTimeoutMinutes,omitempty"`
 	SupportedAuthenticators *Authenticator `json:"SupportedAuthenticators,omitempty"`
+	// Applicable only for On-Premise. Indicate whether to display security banner on the login page.
+	ShowSecurityBannerOnLoginPage NullableBool `json:"ShowSecurityBannerOnLoginPage,omitempty"`
+	// Applicable only for On-Premise. The custom security banner on the login page, max length is 5000.
+	SecurityBannerOnLoginPage NullableString `json:"SecurityBannerOnLoginPage,omitempty"`
+	// Applicable only for On-Premise. Indicate whether to display the DDC used for the current Studio session on the login page.
+	ShowConnectedControllerOnLoginPage NullableBool `json:"ShowConnectedControllerOnLoginPage,omitempty"`
 	// Application only for On-Premise. List of origins allowed to make cross-origin requests for Integrated Windows Authentication.
 	AllowedCorsOriginsForIwa []string `json:"AllowedCorsOriginsForIwa,omitempty"`
 	// Applicable only for On-Premise Multiple sites configuration
 	MultiSites []MultiSiteModel `json:"MultiSites,omitempty"`
 	// The default domain to be used in the login page.
 	DefaultDomain NullableString `json:"DefaultDomain,omitempty"`
+	// XML service configurations of enabling listening for https/http requests. Only applicable for On-Premise deployments.
+	XmlServicesSslConfigurations []NameValueStringPairModel `json:"XmlServicesSslConfigurations,omitempty"`
+	MultiTenantServicesAccess *MultiTenantServicesAccessModel `json:"MultiTenantServicesAccess,omitempty"`
 }
 
 // NewSiteSettingsResponseModel instantiates a new SiteSettingsResponseModel object
@@ -294,6 +303,132 @@ func (o *SiteSettingsResponseModel) SetSupportedAuthenticators(v Authenticator) 
 	o.SupportedAuthenticators = &v
 }
 
+// GetShowSecurityBannerOnLoginPage returns the ShowSecurityBannerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteSettingsResponseModel) GetShowSecurityBannerOnLoginPage() bool {
+	if o == nil || IsNil(o.ShowSecurityBannerOnLoginPage.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ShowSecurityBannerOnLoginPage.Get()
+}
+
+// GetShowSecurityBannerOnLoginPageOk returns a tuple with the ShowSecurityBannerOnLoginPage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteSettingsResponseModel) GetShowSecurityBannerOnLoginPageOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShowSecurityBannerOnLoginPage.Get(), o.ShowSecurityBannerOnLoginPage.IsSet()
+}
+
+// HasShowSecurityBannerOnLoginPage returns a boolean if a field has been set.
+func (o *SiteSettingsResponseModel) HasShowSecurityBannerOnLoginPage() bool {
+	if o != nil && o.ShowSecurityBannerOnLoginPage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShowSecurityBannerOnLoginPage gets a reference to the given NullableBool and assigns it to the ShowSecurityBannerOnLoginPage field.
+func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPage(v bool) {
+	o.ShowSecurityBannerOnLoginPage.Set(&v)
+}
+// SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
+func (o *SiteSettingsResponseModel) SetShowSecurityBannerOnLoginPageNil() {
+	o.ShowSecurityBannerOnLoginPage.Set(nil)
+}
+
+// UnsetShowSecurityBannerOnLoginPage ensures that no value is present for ShowSecurityBannerOnLoginPage, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetShowSecurityBannerOnLoginPage() {
+	o.ShowSecurityBannerOnLoginPage.Unset()
+}
+
+// GetSecurityBannerOnLoginPage returns the SecurityBannerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteSettingsResponseModel) GetSecurityBannerOnLoginPage() string {
+	if o == nil || IsNil(o.SecurityBannerOnLoginPage.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SecurityBannerOnLoginPage.Get()
+}
+
+// GetSecurityBannerOnLoginPageOk returns a tuple with the SecurityBannerOnLoginPage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteSettingsResponseModel) GetSecurityBannerOnLoginPageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SecurityBannerOnLoginPage.Get(), o.SecurityBannerOnLoginPage.IsSet()
+}
+
+// HasSecurityBannerOnLoginPage returns a boolean if a field has been set.
+func (o *SiteSettingsResponseModel) HasSecurityBannerOnLoginPage() bool {
+	if o != nil && o.SecurityBannerOnLoginPage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSecurityBannerOnLoginPage gets a reference to the given NullableString and assigns it to the SecurityBannerOnLoginPage field.
+func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPage(v string) {
+	o.SecurityBannerOnLoginPage.Set(&v)
+}
+// SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
+func (o *SiteSettingsResponseModel) SetSecurityBannerOnLoginPageNil() {
+	o.SecurityBannerOnLoginPage.Set(nil)
+}
+
+// UnsetSecurityBannerOnLoginPage ensures that no value is present for SecurityBannerOnLoginPage, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetSecurityBannerOnLoginPage() {
+	o.SecurityBannerOnLoginPage.Unset()
+}
+
+// GetShowConnectedControllerOnLoginPage returns the ShowConnectedControllerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteSettingsResponseModel) GetShowConnectedControllerOnLoginPage() bool {
+	if o == nil || IsNil(o.ShowConnectedControllerOnLoginPage.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ShowConnectedControllerOnLoginPage.Get()
+}
+
+// GetShowConnectedControllerOnLoginPageOk returns a tuple with the ShowConnectedControllerOnLoginPage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteSettingsResponseModel) GetShowConnectedControllerOnLoginPageOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShowConnectedControllerOnLoginPage.Get(), o.ShowConnectedControllerOnLoginPage.IsSet()
+}
+
+// HasShowConnectedControllerOnLoginPage returns a boolean if a field has been set.
+func (o *SiteSettingsResponseModel) HasShowConnectedControllerOnLoginPage() bool {
+	if o != nil && o.ShowConnectedControllerOnLoginPage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShowConnectedControllerOnLoginPage gets a reference to the given NullableBool and assigns it to the ShowConnectedControllerOnLoginPage field.
+func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPage(v bool) {
+	o.ShowConnectedControllerOnLoginPage.Set(&v)
+}
+// SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
+func (o *SiteSettingsResponseModel) SetShowConnectedControllerOnLoginPageNil() {
+	o.ShowConnectedControllerOnLoginPage.Set(nil)
+}
+
+// UnsetShowConnectedControllerOnLoginPage ensures that no value is present for ShowConnectedControllerOnLoginPage, not even an explicit nil
+func (o *SiteSettingsResponseModel) UnsetShowConnectedControllerOnLoginPage() {
+	o.ShowConnectedControllerOnLoginPage.Unset()
+}
+
 // GetAllowedCorsOriginsForIwa returns the AllowedCorsOriginsForIwa field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteSettingsResponseModel) GetAllowedCorsOriginsForIwa() []string {
 	if o == nil {
@@ -402,6 +537,71 @@ func (o *SiteSettingsResponseModel) UnsetDefaultDomain() {
 	o.DefaultDomain.Unset()
 }
 
+// GetXmlServicesSslConfigurations returns the XmlServicesSslConfigurations field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurations() []NameValueStringPairModel {
+	if o == nil {
+		var ret []NameValueStringPairModel
+		return ret
+	}
+	return o.XmlServicesSslConfigurations
+}
+
+// GetXmlServicesSslConfigurationsOk returns a tuple with the XmlServicesSslConfigurations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteSettingsResponseModel) GetXmlServicesSslConfigurationsOk() ([]NameValueStringPairModel, bool) {
+	if o == nil || IsNil(o.XmlServicesSslConfigurations) {
+		return nil, false
+	}
+	return o.XmlServicesSslConfigurations, true
+}
+
+// HasXmlServicesSslConfigurations returns a boolean if a field has been set.
+func (o *SiteSettingsResponseModel) HasXmlServicesSslConfigurations() bool {
+	if o != nil && IsNil(o.XmlServicesSslConfigurations) {
+		return true
+	}
+
+	return false
+}
+
+// SetXmlServicesSslConfigurations gets a reference to the given []NameValueStringPairModel and assigns it to the XmlServicesSslConfigurations field.
+func (o *SiteSettingsResponseModel) SetXmlServicesSslConfigurations(v []NameValueStringPairModel) {
+	o.XmlServicesSslConfigurations = v
+}
+
+// GetMultiTenantServicesAccess returns the MultiTenantServicesAccess field value if set, zero value otherwise.
+func (o *SiteSettingsResponseModel) GetMultiTenantServicesAccess() MultiTenantServicesAccessModel {
+	if o == nil || IsNil(o.MultiTenantServicesAccess) {
+		var ret MultiTenantServicesAccessModel
+		return ret
+	}
+	return *o.MultiTenantServicesAccess
+}
+
+// GetMultiTenantServicesAccessOk returns a tuple with the MultiTenantServicesAccess field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SiteSettingsResponseModel) GetMultiTenantServicesAccessOk() (*MultiTenantServicesAccessModel, bool) {
+	if o == nil || IsNil(o.MultiTenantServicesAccess) {
+		return nil, false
+	}
+	return o.MultiTenantServicesAccess, true
+}
+
+// HasMultiTenantServicesAccess returns a boolean if a field has been set.
+func (o *SiteSettingsResponseModel) HasMultiTenantServicesAccess() bool {
+	if o != nil && !IsNil(o.MultiTenantServicesAccess) {
+		return true
+	}
+
+	return false
+}
+
+// SetMultiTenantServicesAccess gets a reference to the given MultiTenantServicesAccessModel and assigns it to the MultiTenantServicesAccess field.
+func (o *SiteSettingsResponseModel) SetMultiTenantServicesAccess(v MultiTenantServicesAccessModel) {
+	o.MultiTenantServicesAccess = &v
+}
+
 func (o SiteSettingsResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -430,6 +630,15 @@ func (o SiteSettingsResponseModel) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SupportedAuthenticators) {
 		toSerialize["SupportedAuthenticators"] = o.SupportedAuthenticators
 	}
+	if o.ShowSecurityBannerOnLoginPage.IsSet() {
+		toSerialize["ShowSecurityBannerOnLoginPage"] = o.ShowSecurityBannerOnLoginPage.Get()
+	}
+	if o.SecurityBannerOnLoginPage.IsSet() {
+		toSerialize["SecurityBannerOnLoginPage"] = o.SecurityBannerOnLoginPage.Get()
+	}
+	if o.ShowConnectedControllerOnLoginPage.IsSet() {
+		toSerialize["ShowConnectedControllerOnLoginPage"] = o.ShowConnectedControllerOnLoginPage.Get()
+	}
 	if o.AllowedCorsOriginsForIwa != nil {
 		toSerialize["AllowedCorsOriginsForIwa"] = o.AllowedCorsOriginsForIwa
 	}
@@ -438,6 +647,12 @@ func (o SiteSettingsResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.DefaultDomain.IsSet() {
 		toSerialize["DefaultDomain"] = o.DefaultDomain.Get()
+	}
+	if o.XmlServicesSslConfigurations != nil {
+		toSerialize["XmlServicesSslConfigurations"] = o.XmlServicesSslConfigurations
+	}
+	if !IsNil(o.MultiTenantServicesAccess) {
+		toSerialize["MultiTenantServicesAccess"] = o.MultiTenantServicesAccess
 	}
 	return toSerialize, nil
 }

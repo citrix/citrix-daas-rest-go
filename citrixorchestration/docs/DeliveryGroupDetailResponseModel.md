@@ -121,6 +121,7 @@ Name | Type | Description | Notes
 **AutoscaleLogOffReminderIntervalSecondsPeak** | Pointer to **NullableInt32** | Represents the time interval at which messages are  sent to the user during peak time when autoscale is enabled. This message will nudge users to log off instead of forcibly logging them off. | [optional] 
 **AutoscaleLogOffReminderMessage** | Pointer to **NullableString** | Notification message to display to users in active sessions belonging to machines needed by Autoscale for shutdown. | [optional] 
 **AutoscaleLogOffReminderTitle** | Pointer to **NullableString** | Notification message dialog title displayed when Autoscale issues a logoff reminder request. | [optional] 
+**AutoscaleGroupPlugins** | Pointer to [**[]AutoscaleGroupPluginModel**](AutoscaleGroupPluginModel.md) | Autoscale group plugins. | [optional] 
 
 ## Methods
 
@@ -3291,6 +3292,41 @@ HasAutoscaleLogOffReminderTitle returns a boolean if a field has been set.
 `func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleLogOffReminderTitle()`
 
 UnsetAutoscaleLogOffReminderTitle ensures that no value is present for AutoscaleLogOffReminderTitle, not even an explicit nil
+### GetAutoscaleGroupPlugins
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscaleGroupPlugins() []AutoscaleGroupPluginModel`
+
+GetAutoscaleGroupPlugins returns the AutoscaleGroupPlugins field if non-nil, zero value otherwise.
+
+### GetAutoscaleGroupPluginsOk
+
+`func (o *DeliveryGroupDetailResponseModel) GetAutoscaleGroupPluginsOk() (*[]AutoscaleGroupPluginModel, bool)`
+
+GetAutoscaleGroupPluginsOk returns a tuple with the AutoscaleGroupPlugins field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoscaleGroupPlugins
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleGroupPlugins(v []AutoscaleGroupPluginModel)`
+
+SetAutoscaleGroupPlugins sets AutoscaleGroupPlugins field to given value.
+
+### HasAutoscaleGroupPlugins
+
+`func (o *DeliveryGroupDetailResponseModel) HasAutoscaleGroupPlugins() bool`
+
+HasAutoscaleGroupPlugins returns a boolean if a field has been set.
+
+### SetAutoscaleGroupPluginsNil
+
+`func (o *DeliveryGroupDetailResponseModel) SetAutoscaleGroupPluginsNil(b bool)`
+
+ SetAutoscaleGroupPluginsNil sets the value for AutoscaleGroupPlugins to be an explicit nil
+
+### UnsetAutoscaleGroupPlugins
+`func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleGroupPlugins()`
+
+UnsetAutoscaleGroupPlugins ensures that no value is present for AutoscaleGroupPlugins, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

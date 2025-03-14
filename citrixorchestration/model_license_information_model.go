@@ -19,6 +19,7 @@ var _ MappedNullable = &LicenseInformationModel{}
 
 // LicenseInformationModel LicenseInformationModel
 type LicenseInformationModel struct {
+	LicenseServerStatus *LicenseServerStatus `json:"LicenseServerStatus,omitempty"`
 	// The WSL Address of the license server, the format is https://[FQDN:Port]
 	LicenseServerWslAddress NullableString `json:"LicenseServerWslAddress,omitempty"`
 	// The address of License Address
@@ -36,6 +37,8 @@ type LicenseInformationModel struct {
 	OutOfBoxGracePeriodActive *bool `json:"OutOfBoxGracePeriodActive,omitempty"`
 	// Indicate remaining hours for the trial period
 	OutOfBoxGracePeriodHoursLeft NullableInt32 `json:"OutOfBoxGracePeriodHoursLeft,omitempty"`
+	// Indicate if License Activation Service is used
+	UseLicenseActivationService NullableBool `json:"UseLicenseActivationService,omitempty"`
 }
 
 // NewLicenseInformationModel instantiates a new LicenseInformationModel object
@@ -53,6 +56,38 @@ func NewLicenseInformationModel() *LicenseInformationModel {
 func NewLicenseInformationModelWithDefaults() *LicenseInformationModel {
 	this := LicenseInformationModel{}
 	return &this
+}
+
+// GetLicenseServerStatus returns the LicenseServerStatus field value if set, zero value otherwise.
+func (o *LicenseInformationModel) GetLicenseServerStatus() LicenseServerStatus {
+	if o == nil || IsNil(o.LicenseServerStatus) {
+		var ret LicenseServerStatus
+		return ret
+	}
+	return *o.LicenseServerStatus
+}
+
+// GetLicenseServerStatusOk returns a tuple with the LicenseServerStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LicenseInformationModel) GetLicenseServerStatusOk() (*LicenseServerStatus, bool) {
+	if o == nil || IsNil(o.LicenseServerStatus) {
+		return nil, false
+	}
+	return o.LicenseServerStatus, true
+}
+
+// HasLicenseServerStatus returns a boolean if a field has been set.
+func (o *LicenseInformationModel) HasLicenseServerStatus() bool {
+	if o != nil && !IsNil(o.LicenseServerStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetLicenseServerStatus gets a reference to the given LicenseServerStatus and assigns it to the LicenseServerStatus field.
+func (o *LicenseInformationModel) SetLicenseServerStatus(v LicenseServerStatus) {
+	o.LicenseServerStatus = &v
 }
 
 // GetLicenseServerWslAddress returns the LicenseServerWslAddress field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -425,6 +460,48 @@ func (o *LicenseInformationModel) UnsetOutOfBoxGracePeriodHoursLeft() {
 	o.OutOfBoxGracePeriodHoursLeft.Unset()
 }
 
+// GetUseLicenseActivationService returns the UseLicenseActivationService field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LicenseInformationModel) GetUseLicenseActivationService() bool {
+	if o == nil || IsNil(o.UseLicenseActivationService.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.UseLicenseActivationService.Get()
+}
+
+// GetUseLicenseActivationServiceOk returns a tuple with the UseLicenseActivationService field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LicenseInformationModel) GetUseLicenseActivationServiceOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UseLicenseActivationService.Get(), o.UseLicenseActivationService.IsSet()
+}
+
+// HasUseLicenseActivationService returns a boolean if a field has been set.
+func (o *LicenseInformationModel) HasUseLicenseActivationService() bool {
+	if o != nil && o.UseLicenseActivationService.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUseLicenseActivationService gets a reference to the given NullableBool and assigns it to the UseLicenseActivationService field.
+func (o *LicenseInformationModel) SetUseLicenseActivationService(v bool) {
+	o.UseLicenseActivationService.Set(&v)
+}
+// SetUseLicenseActivationServiceNil sets the value for UseLicenseActivationService to be an explicit nil
+func (o *LicenseInformationModel) SetUseLicenseActivationServiceNil() {
+	o.UseLicenseActivationService.Set(nil)
+}
+
+// UnsetUseLicenseActivationService ensures that no value is present for UseLicenseActivationService, not even an explicit nil
+func (o *LicenseInformationModel) UnsetUseLicenseActivationService() {
+	o.UseLicenseActivationService.Unset()
+}
+
 func (o LicenseInformationModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -435,6 +512,9 @@ func (o LicenseInformationModel) MarshalJSON() ([]byte, error) {
 
 func (o LicenseInformationModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.LicenseServerStatus) {
+		toSerialize["LicenseServerStatus"] = o.LicenseServerStatus
+	}
 	if o.LicenseServerWslAddress.IsSet() {
 		toSerialize["LicenseServerWslAddress"] = o.LicenseServerWslAddress.Get()
 	}
@@ -464,6 +544,9 @@ func (o LicenseInformationModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.OutOfBoxGracePeriodHoursLeft.IsSet() {
 		toSerialize["OutOfBoxGracePeriodHoursLeft"] = o.OutOfBoxGracePeriodHoursLeft.Get()
+	}
+	if o.UseLicenseActivationService.IsSet() {
+		toSerialize["UseLicenseActivationService"] = o.UseLicenseActivationService.Get()
 	}
 	return toSerialize, nil
 }

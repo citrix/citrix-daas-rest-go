@@ -21,6 +21,8 @@ var _ MappedNullable = &HypervisorResourcePoolPatchPreviewRequestModel{}
 type HypervisorResourcePoolPatchPreviewRequestModel struct {
 	// Path to the networks/subnets that are available for provisioning operations in this resource pool. At least one is required.
 	Networks []string `json:"Networks,omitempty"`
+	// Ids of the networks/subnets that are available for provisioning operations, at least one is required.
+	NetworkIds []string `json:"NetworkIds,omitempty"`
 }
 
 // NewHypervisorResourcePoolPatchPreviewRequestModel instantiates a new HypervisorResourcePoolPatchPreviewRequestModel object
@@ -73,6 +75,39 @@ func (o *HypervisorResourcePoolPatchPreviewRequestModel) SetNetworks(v []string)
 	o.Networks = v
 }
 
+// GetNetworkIds returns the NetworkIds field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourcePoolPatchPreviewRequestModel) GetNetworkIds() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.NetworkIds
+}
+
+// GetNetworkIdsOk returns a tuple with the NetworkIds field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourcePoolPatchPreviewRequestModel) GetNetworkIdsOk() ([]string, bool) {
+	if o == nil || IsNil(o.NetworkIds) {
+		return nil, false
+	}
+	return o.NetworkIds, true
+}
+
+// HasNetworkIds returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolPatchPreviewRequestModel) HasNetworkIds() bool {
+	if o != nil && IsNil(o.NetworkIds) {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkIds gets a reference to the given []string and assigns it to the NetworkIds field.
+func (o *HypervisorResourcePoolPatchPreviewRequestModel) SetNetworkIds(v []string) {
+	o.NetworkIds = v
+}
+
 func (o HypervisorResourcePoolPatchPreviewRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -85,6 +120,9 @@ func (o HypervisorResourcePoolPatchPreviewRequestModel) ToMap() (map[string]inte
 	toSerialize := map[string]interface{}{}
 	if o.Networks != nil {
 		toSerialize["Networks"] = o.Networks
+	}
+	if o.NetworkIds != nil {
+		toSerialize["NetworkIds"] = o.NetworkIds
 	}
 	return toSerialize, nil
 }

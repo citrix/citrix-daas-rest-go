@@ -36,6 +36,8 @@ type LicenseInventoryModel struct {
 	LicenseOverdraft *int32 `json:"LicenseOverdraft,omitempty"`
 	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
 	ProductEdition *ProductEdition `json:"ProductEdition,omitempty"`
+	// Localized license name of the product edition
+	LocalizedLicenseProductEdition NullableString `json:"LocalizedLicenseProductEdition,omitempty"`
 }
 
 // NewLicenseInventoryModel instantiates a new LicenseInventoryModel object
@@ -415,6 +417,48 @@ func (o *LicenseInventoryModel) SetProductEdition(v ProductEdition) {
 	o.ProductEdition = &v
 }
 
+// GetLocalizedLicenseProductEdition returns the LocalizedLicenseProductEdition field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LicenseInventoryModel) GetLocalizedLicenseProductEdition() string {
+	if o == nil || IsNil(o.LocalizedLicenseProductEdition.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LocalizedLicenseProductEdition.Get()
+}
+
+// GetLocalizedLicenseProductEditionOk returns a tuple with the LocalizedLicenseProductEdition field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LicenseInventoryModel) GetLocalizedLicenseProductEditionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LocalizedLicenseProductEdition.Get(), o.LocalizedLicenseProductEdition.IsSet()
+}
+
+// HasLocalizedLicenseProductEdition returns a boolean if a field has been set.
+func (o *LicenseInventoryModel) HasLocalizedLicenseProductEdition() bool {
+	if o != nil && o.LocalizedLicenseProductEdition.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLocalizedLicenseProductEdition gets a reference to the given NullableString and assigns it to the LocalizedLicenseProductEdition field.
+func (o *LicenseInventoryModel) SetLocalizedLicenseProductEdition(v string) {
+	o.LocalizedLicenseProductEdition.Set(&v)
+}
+// SetLocalizedLicenseProductEditionNil sets the value for LocalizedLicenseProductEdition to be an explicit nil
+func (o *LicenseInventoryModel) SetLocalizedLicenseProductEditionNil() {
+	o.LocalizedLicenseProductEdition.Set(nil)
+}
+
+// UnsetLocalizedLicenseProductEdition ensures that no value is present for LocalizedLicenseProductEdition, not even an explicit nil
+func (o *LicenseInventoryModel) UnsetLocalizedLicenseProductEdition() {
+	o.LocalizedLicenseProductEdition.Unset()
+}
+
 func (o LicenseInventoryModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -454,6 +498,9 @@ func (o LicenseInventoryModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ProductEdition) {
 		toSerialize["ProductEdition"] = o.ProductEdition
+	}
+	if o.LocalizedLicenseProductEdition.IsSet() {
+		toSerialize["LocalizedLicenseProductEdition"] = o.LocalizedLicenseProductEdition.Get()
 	}
 	return toSerialize, nil
 }

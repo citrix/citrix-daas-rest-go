@@ -23,6 +23,7 @@ const (
 	WINDOWSACTIVATIONTYPE_UNSUPPORTED_VDA WindowsActivationType = "UnsupportedVDA"
 	WINDOWSACTIVATIONTYPE_KEY_MANAGEMENT_SERVICE WindowsActivationType = "KeyManagementService"
 	WINDOWSACTIVATIONTYPE_MULTIPLE_ACTIVATION_KEY WindowsActivationType = "MultipleActivationKey"
+	WINDOWSACTIVATIONTYPE_UNKNOWN WindowsActivationType = "Unknown"
 	WINDOWSACTIVATIONTYPE_NOT_VALID WindowsActivationType = "NotValid"
 )
 
@@ -31,6 +32,7 @@ var AllowedWindowsActivationTypeEnumValues = []WindowsActivationType{
 	"UnsupportedVDA",
 	"KeyManagementService",
 	"MultipleActivationKey",
+	"Unknown",
 	"NotValid",
 }
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**SitesGetSites**](SitesAPIsDAAS.md#SitesGetSites) | **Get** /Sites | Get the list of sites that are available to the customer and visible to the admin.
 [**SitesGetUpgradePackageVersions**](SitesAPIsDAAS.md#SitesGetUpgradePackageVersions) | **Get** /Sites/{nameOrId}/UpgradePackageVersions | Get the latest released VDA upgrade package versions in the site.
 [**SitesPatchMultipleRemotePCAssignments**](SitesAPIsDAAS.md#SitesPatchMultipleRemotePCAssignments) | **Patch** /Sites/{nameOrId}/MultipleRemotePCAssignments | Update multi-user auto-assignment for Remote PC Access.
-[**SitesPatchSiteSettings**](SitesAPIsDAAS.md#SitesPatchSiteSettings) | **Patch** /Sites/{nameOrId}/Settings | Update the broker site settings.
+[**SitesPatchSiteSettings**](SitesAPIsDAAS.md#SitesPatchSiteSettings) | **Patch** /Sites/{nameOrId}/Settings | Update the site settings.
 [**SitesTestSite**](SitesAPIsDAAS.md#SitesTestSite) | **Post** /Sites/{nameOrId}/$test | Run tests on a site and create a test report.
 
 
@@ -361,7 +361,7 @@ import (
 
 func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    nameOrId := "nameOrId_example" // string | 
+    nameOrId := "nameOrId_example" // string | Name or ID of the site.
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
@@ -387,7 +387,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** |  | 
+**nameOrId** | **string** | Name or ID of the site. | 
 
 ### Other Parameters
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 
 ## SitesGetSiteSettings
 
-> SiteSettingsResponseModel SitesGetSiteSettings(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> SiteSettingsResponseModel SitesGetSiteSettings(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
 
 Get the settings for the site.
 
@@ -528,10 +528,11 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    fields := "UseVerticalScalingForRdsLaunches,DnsResolutionEnabled,TrustRequestsSentToTheXmlServicePortEnabled" // string | To specify the object for which the settings are returned. The value should be a comma-separated list of object types. Supported object types are: DnsResolutionEnabled, TrustRequestsSentToTheXmlServicePort, UseVerticalScalingForRdsLaunches, WebUiPolicySetEnabled, ConsoleInactivityTimeoutMinutes Cloud-Only: MultiTenantServicesAccess OnPrem-Only: SupportedAuthenticators, AllowedCorsOriginsForIwa, MultiSites, DefaultDomain, XmlServicesSslConfigurations (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPIsDAAS.SitesGetSiteSettings(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.SitesAPIsDAAS.SitesGetSiteSettings(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Fields(fields).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SitesAPIsDAAS.SitesGetSiteSettings``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -562,6 +563,7 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **fields** | **string** | To specify the object for which the settings are returned. The value should be a comma-separated list of object types. Supported object types are: DnsResolutionEnabled, TrustRequestsSentToTheXmlServicePort, UseVerticalScalingForRdsLaunches, WebUiPolicySetEnabled, ConsoleInactivityTimeoutMinutes Cloud-Only: MultiTenantServicesAccess OnPrem-Only: SupportedAuthenticators, AllowedCorsOriginsForIwa, MultiSites, DefaultDomain, XmlServicesSslConfigurations | 
 
 ### Return type
 
@@ -973,7 +975,7 @@ Name | Type | Description  | Notes
 
 > SitesPatchSiteSettings(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).EditSiteSettingsRequestModel(editSiteSettingsRequestModel).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
-Update the broker site settings.
+Update the site settings.
 
 ### Example
 

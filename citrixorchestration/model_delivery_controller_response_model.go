@@ -31,6 +31,8 @@ type DeliveryControllerResponseModel struct {
 	ServiceHostId *string `json:"ServiceHostId,omitempty"`
 	// The controller version of the delivery controller
 	ControllerVersion NullableString `json:"ControllerVersion,omitempty"`
+	// The external version of the delivery controller
+	ControllerExternalVersion NullableString `json:"ControllerExternalVersion,omitempty"`
 	// The number of registered desktops in the delivery controller
 	RegisteredDesktops *int32 `json:"RegisteredDesktops,omitempty"`
 	// The LastActivityTime of the delivery controller
@@ -44,6 +46,13 @@ type DeliveryControllerResponseModel struct {
 	// The service statuses of the delivery controller.
 	ServiceStatuses []DeliveryControllerServiceStatusResponseModel `json:"ServiceStatuses,omitempty"`
 	ControllerState *DeliveryControllerState `json:"ControllerState,omitempty"`
+	// Las unique env Id
+	LasUniqueEnvId NullableString `json:"LasUniqueEnvId,omitempty"`
+	LasActivationStatus *LasActivationStatus `json:"LasActivationStatus,omitempty"`
+	// Las activation expiry
+	LasActivationExpiry NullableString `json:"LasActivationExpiry,omitempty"`
+	// Las Aware of current DDC             
+	IsLasAware NullableBool `json:"IsLasAware,omitempty"`
 	// The ID of the zone this zonable item belongs to
 	ZoneId NullableString `json:"ZoneId,omitempty"`
 	// The Id of this zonable Item. This is a generic name to access non-generic properties
@@ -316,6 +325,48 @@ func (o *DeliveryControllerResponseModel) UnsetControllerVersion() {
 	o.ControllerVersion.Unset()
 }
 
+// GetControllerExternalVersion returns the ControllerExternalVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryControllerResponseModel) GetControllerExternalVersion() string {
+	if o == nil || IsNil(o.ControllerExternalVersion.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ControllerExternalVersion.Get()
+}
+
+// GetControllerExternalVersionOk returns a tuple with the ControllerExternalVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryControllerResponseModel) GetControllerExternalVersionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ControllerExternalVersion.Get(), o.ControllerExternalVersion.IsSet()
+}
+
+// HasControllerExternalVersion returns a boolean if a field has been set.
+func (o *DeliveryControllerResponseModel) HasControllerExternalVersion() bool {
+	if o != nil && o.ControllerExternalVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetControllerExternalVersion gets a reference to the given NullableString and assigns it to the ControllerExternalVersion field.
+func (o *DeliveryControllerResponseModel) SetControllerExternalVersion(v string) {
+	o.ControllerExternalVersion.Set(&v)
+}
+// SetControllerExternalVersionNil sets the value for ControllerExternalVersion to be an explicit nil
+func (o *DeliveryControllerResponseModel) SetControllerExternalVersionNil() {
+	o.ControllerExternalVersion.Set(nil)
+}
+
+// UnsetControllerExternalVersion ensures that no value is present for ControllerExternalVersion, not even an explicit nil
+func (o *DeliveryControllerResponseModel) UnsetControllerExternalVersion() {
+	o.ControllerExternalVersion.Unset()
+}
+
 // GetRegisteredDesktops returns the RegisteredDesktops field value if set, zero value otherwise.
 func (o *DeliveryControllerResponseModel) GetRegisteredDesktops() int32 {
 	if o == nil || IsNil(o.RegisteredDesktops) {
@@ -579,6 +630,164 @@ func (o *DeliveryControllerResponseModel) HasControllerState() bool {
 // SetControllerState gets a reference to the given DeliveryControllerState and assigns it to the ControllerState field.
 func (o *DeliveryControllerResponseModel) SetControllerState(v DeliveryControllerState) {
 	o.ControllerState = &v
+}
+
+// GetLasUniqueEnvId returns the LasUniqueEnvId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryControllerResponseModel) GetLasUniqueEnvId() string {
+	if o == nil || IsNil(o.LasUniqueEnvId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LasUniqueEnvId.Get()
+}
+
+// GetLasUniqueEnvIdOk returns a tuple with the LasUniqueEnvId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryControllerResponseModel) GetLasUniqueEnvIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LasUniqueEnvId.Get(), o.LasUniqueEnvId.IsSet()
+}
+
+// HasLasUniqueEnvId returns a boolean if a field has been set.
+func (o *DeliveryControllerResponseModel) HasLasUniqueEnvId() bool {
+	if o != nil && o.LasUniqueEnvId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLasUniqueEnvId gets a reference to the given NullableString and assigns it to the LasUniqueEnvId field.
+func (o *DeliveryControllerResponseModel) SetLasUniqueEnvId(v string) {
+	o.LasUniqueEnvId.Set(&v)
+}
+// SetLasUniqueEnvIdNil sets the value for LasUniqueEnvId to be an explicit nil
+func (o *DeliveryControllerResponseModel) SetLasUniqueEnvIdNil() {
+	o.LasUniqueEnvId.Set(nil)
+}
+
+// UnsetLasUniqueEnvId ensures that no value is present for LasUniqueEnvId, not even an explicit nil
+func (o *DeliveryControllerResponseModel) UnsetLasUniqueEnvId() {
+	o.LasUniqueEnvId.Unset()
+}
+
+// GetLasActivationStatus returns the LasActivationStatus field value if set, zero value otherwise.
+func (o *DeliveryControllerResponseModel) GetLasActivationStatus() LasActivationStatus {
+	if o == nil || IsNil(o.LasActivationStatus) {
+		var ret LasActivationStatus
+		return ret
+	}
+	return *o.LasActivationStatus
+}
+
+// GetLasActivationStatusOk returns a tuple with the LasActivationStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DeliveryControllerResponseModel) GetLasActivationStatusOk() (*LasActivationStatus, bool) {
+	if o == nil || IsNil(o.LasActivationStatus) {
+		return nil, false
+	}
+	return o.LasActivationStatus, true
+}
+
+// HasLasActivationStatus returns a boolean if a field has been set.
+func (o *DeliveryControllerResponseModel) HasLasActivationStatus() bool {
+	if o != nil && !IsNil(o.LasActivationStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetLasActivationStatus gets a reference to the given LasActivationStatus and assigns it to the LasActivationStatus field.
+func (o *DeliveryControllerResponseModel) SetLasActivationStatus(v LasActivationStatus) {
+	o.LasActivationStatus = &v
+}
+
+// GetLasActivationExpiry returns the LasActivationExpiry field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryControllerResponseModel) GetLasActivationExpiry() string {
+	if o == nil || IsNil(o.LasActivationExpiry.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LasActivationExpiry.Get()
+}
+
+// GetLasActivationExpiryOk returns a tuple with the LasActivationExpiry field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryControllerResponseModel) GetLasActivationExpiryOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LasActivationExpiry.Get(), o.LasActivationExpiry.IsSet()
+}
+
+// HasLasActivationExpiry returns a boolean if a field has been set.
+func (o *DeliveryControllerResponseModel) HasLasActivationExpiry() bool {
+	if o != nil && o.LasActivationExpiry.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLasActivationExpiry gets a reference to the given NullableString and assigns it to the LasActivationExpiry field.
+func (o *DeliveryControllerResponseModel) SetLasActivationExpiry(v string) {
+	o.LasActivationExpiry.Set(&v)
+}
+// SetLasActivationExpiryNil sets the value for LasActivationExpiry to be an explicit nil
+func (o *DeliveryControllerResponseModel) SetLasActivationExpiryNil() {
+	o.LasActivationExpiry.Set(nil)
+}
+
+// UnsetLasActivationExpiry ensures that no value is present for LasActivationExpiry, not even an explicit nil
+func (o *DeliveryControllerResponseModel) UnsetLasActivationExpiry() {
+	o.LasActivationExpiry.Unset()
+}
+
+// GetIsLasAware returns the IsLasAware field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryControllerResponseModel) GetIsLasAware() bool {
+	if o == nil || IsNil(o.IsLasAware.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsLasAware.Get()
+}
+
+// GetIsLasAwareOk returns a tuple with the IsLasAware field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryControllerResponseModel) GetIsLasAwareOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsLasAware.Get(), o.IsLasAware.IsSet()
+}
+
+// HasIsLasAware returns a boolean if a field has been set.
+func (o *DeliveryControllerResponseModel) HasIsLasAware() bool {
+	if o != nil && o.IsLasAware.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsLasAware gets a reference to the given NullableBool and assigns it to the IsLasAware field.
+func (o *DeliveryControllerResponseModel) SetIsLasAware(v bool) {
+	o.IsLasAware.Set(&v)
+}
+// SetIsLasAwareNil sets the value for IsLasAware to be an explicit nil
+func (o *DeliveryControllerResponseModel) SetIsLasAwareNil() {
+	o.IsLasAware.Set(nil)
+}
+
+// UnsetIsLasAware ensures that no value is present for IsLasAware, not even an explicit nil
+func (o *DeliveryControllerResponseModel) UnsetIsLasAware() {
+	o.IsLasAware.Unset()
 }
 
 // GetZoneId returns the ZoneId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -851,6 +1060,9 @@ func (o DeliveryControllerResponseModel) ToMap() (map[string]interface{}, error)
 	if o.ControllerVersion.IsSet() {
 		toSerialize["ControllerVersion"] = o.ControllerVersion.Get()
 	}
+	if o.ControllerExternalVersion.IsSet() {
+		toSerialize["ControllerExternalVersion"] = o.ControllerExternalVersion.Get()
+	}
 	if !IsNil(o.RegisteredDesktops) {
 		toSerialize["RegisteredDesktops"] = o.RegisteredDesktops
 	}
@@ -871,6 +1083,18 @@ func (o DeliveryControllerResponseModel) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.ControllerState) {
 		toSerialize["ControllerState"] = o.ControllerState
+	}
+	if o.LasUniqueEnvId.IsSet() {
+		toSerialize["LasUniqueEnvId"] = o.LasUniqueEnvId.Get()
+	}
+	if !IsNil(o.LasActivationStatus) {
+		toSerialize["LasActivationStatus"] = o.LasActivationStatus
+	}
+	if o.LasActivationExpiry.IsSet() {
+		toSerialize["LasActivationExpiry"] = o.LasActivationExpiry.Get()
+	}
+	if o.IsLasAware.IsSet() {
+		toSerialize["IsLasAware"] = o.IsLasAware.Get()
 	}
 	if o.ZoneId.IsSet() {
 		toSerialize["ZoneId"] = o.ZoneId.Get()

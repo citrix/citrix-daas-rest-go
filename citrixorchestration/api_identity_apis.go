@@ -38,6 +38,7 @@ type ApiIdentityAddAzureAdSecurityGroupMemberRequest struct {
 	xAccessToken *string
 	accept *string
 	citrixLocale *string
+	serviceAccountUid *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -85,6 +86,11 @@ func (r ApiIdentityAddAzureAdSecurityGroupMemberRequest) Accept(accept string) A
 // Locale of the request.
 func (r ApiIdentityAddAzureAdSecurityGroupMemberRequest) CitrixLocale(citrixLocale string) ApiIdentityAddAzureAdSecurityGroupMemberRequest {
 	r.citrixLocale = &citrixLocale
+	return r
+}
+
+func (r ApiIdentityAddAzureAdSecurityGroupMemberRequest) ServiceAccountUid(serviceAccountUid string) ApiIdentityAddAzureAdSecurityGroupMemberRequest {
+	r.serviceAccountUid = &serviceAccountUid
 	return r
 }
 
@@ -139,6 +145,9 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 		return nil, reportError("citrixInstanceId is required and must be specified")
 	}
 
+	if r.serviceAccountUid != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceAccountUid", r.serviceAccountUid, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1506,6 +1515,7 @@ type ApiIdentityGetAzureADSecurityGroupsRequest struct {
 	xAccessToken *string
 	accept *string
 	citrixLocale *string
+	serviceAccountUid *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1553,6 +1563,12 @@ func (r ApiIdentityGetAzureADSecurityGroupsRequest) Accept(accept string) ApiIde
 // Locale of the request.
 func (r ApiIdentityGetAzureADSecurityGroupsRequest) CitrixLocale(citrixLocale string) ApiIdentityGetAzureADSecurityGroupsRequest {
 	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// Service account objectId
+func (r ApiIdentityGetAzureADSecurityGroupsRequest) ServiceAccountUid(serviceAccountUid string) ApiIdentityGetAzureADSecurityGroupsRequest {
+	r.serviceAccountUid = &serviceAccountUid
 	return r
 }
 
@@ -1608,6 +1624,9 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
 	}
 
+	if r.serviceAccountUid != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceAccountUid", r.serviceAccountUid, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1798,6 +1817,7 @@ type ApiIdentityGetAzureAdSecurityGroupMemberRequest struct {
 	citrixLocale *string
 	type_ *string
 	maxCount *int32
+	serviceAccountUid *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1860,6 +1880,12 @@ func (r ApiIdentityGetAzureAdSecurityGroupMemberRequest) MaxCount(maxCount int32
 	return r
 }
 
+// The service account uid.
+func (r ApiIdentityGetAzureAdSecurityGroupMemberRequest) ServiceAccountUid(serviceAccountUid string) ApiIdentityGetAzureAdSecurityGroupMemberRequest {
+	r.serviceAccountUid = &serviceAccountUid
+	return r
+}
+
 func (r ApiIdentityGetAzureAdSecurityGroupMemberRequest) Execute() (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
 	return r.ApiService.IdentityGetAzureAdSecurityGroupMemberExecute(r)
 }
@@ -1915,6 +1941,9 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 	}
 	if r.maxCount != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "maxCount", r.maxCount, "")
+	}
+	if r.serviceAccountUid != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceAccountUid", r.serviceAccountUid, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -8339,6 +8368,7 @@ type ApiIdentityQueryAzureAdSecurityGroupsRequest struct {
 	name *string
 	assigned *bool
 	maxCount *int32
+	serviceAccountUid *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8407,6 +8437,12 @@ func (r ApiIdentityQueryAzureAdSecurityGroupsRequest) MaxCount(maxCount int32) A
 	return r
 }
 
+// The service account uid.
+func (r ApiIdentityQueryAzureAdSecurityGroupsRequest) ServiceAccountUid(serviceAccountUid string) ApiIdentityQueryAzureAdSecurityGroupsRequest {
+	r.serviceAccountUid = &serviceAccountUid
+	return r
+}
+
 func (r ApiIdentityQueryAzureAdSecurityGroupsRequest) Execute() (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
 	return r.ApiService.IdentityQueryAzureAdSecurityGroupsExecute(r)
 }
@@ -8464,6 +8500,9 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 	}
 	if r.maxCount != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "maxCount", r.maxCount, "")
+	}
+	if r.serviceAccountUid != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "serviceAccountUid", r.serviceAccountUid, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -8702,7 +8741,7 @@ func (r ApiIdentitySetServiceAccountRequest) CitrixLocale(citrixLocale string) A
 	return r
 }
 
-func (r ApiIdentitySetServiceAccountRequest) Execute() (*UpdateServiceAccountRequestModel, *http.Response, error) {
+func (r ApiIdentitySetServiceAccountRequest) Execute() (*ServiceAccountResponseModel, *http.Response, error) {
 	return r.ApiService.IdentitySetServiceAccountExecute(r)
 }
 
@@ -8722,13 +8761,13 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccount(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return UpdateServiceAccountRequestModel
-func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentitySetServiceAccountRequest) (*UpdateServiceAccountRequestModel, *http.Response, error) {
+//  @return ServiceAccountResponseModel
+func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentitySetServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *UpdateServiceAccountRequestModel
+		localVarReturnValue  *ServiceAccountResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentitySetServiceAccount")

@@ -137,6 +137,8 @@
 
 * `GET_APPLICATION_GROUPS` (value: `"GetApplicationGroups"`)
 
+* `GET_APPLICATION_GROUP` (value: `"GetApplicationGroup"`)
+
 * `GET_APPLICATION_GROUP_APPLICATIONS` (value: `"GetApplicationGroupApplications"`)
 
 * `GET_APPLICATION_GROUP_DELIVERY_GROUPS` (value: `"GetApplicationGroupDeliveryGroups"`)
@@ -224,6 +226,8 @@
 * `SEARCH_HYPERVISOR_ALL_RESOURCES` (value: `"SearchHypervisorAllResources"`)
 
 * `GET_HYPERVISOR_ALL_RESOURCES_WITHOUT_CONNECTION` (value: `"GetHypervisorAllResourcesWithoutConnection"`)
+
+* `SEARCH_HYPERVISOR_ALL_RESOURCES_WITHOUT_CONNECTION` (value: `"SearchHypervisorAllResourcesWithoutConnection"`)
 
 * `GET_HYPERVISOR_RESOURCE_POOLS` (value: `"GetHypervisorResourcePools"`)
 
@@ -376,6 +380,30 @@
 * `REMOVE_MACHINE_CATALOG_UPGRADE_SCHEDULE` (value: `"RemoveMachineCatalogUpgradeSchedule"`)
 
 * `UPDATE_MACHINE_CATALOG_UPGRADE_SCHEDULE` (value: `"UpdateMachineCatalogUpgradeSchedule"`)
+
+* `GET_PROVISIONING_SCHEME_CONFIGURATIONS` (value: `"GetProvisioningSchemeConfigurations"`)
+
+* `REMOVE_MAINTENANCE_CYCLE` (value: `"RemoveMaintenanceCycle"`)
+
+* `CANCEL_MAINTENANCE_CYCLE` (value: `"CancelMaintenanceCycle"`)
+
+* `RESTART_MAINTENANCE_CYCLE` (value: `"RestartMaintenanceCycle"`)
+
+* `CREATE_MAINTENANCE_CYCLE` (value: `"CreateMaintenanceCycle"`)
+
+* `UPDATE_MAINTENANCE_CYCLE` (value: `"UpdateMaintenanceCycle"`)
+
+* `GET_MAINTENANCE_CYCLE` (value: `"GetMaintenanceCycle"`)
+
+* `GET_MAINTENANCE_CYCLE_VM_OPERATION_JOBS` (value: `"GetMaintenanceCycleVMOperationJobs"`)
+
+* `GET_VM_CONFIGURATION_RESULTANT_SET` (value: `"GetVMConfigurationResultantSet"`)
+
+* `SEARCH_MAINTENANCE_CYCLE_VM_OPERATION_JOBS` (value: `"SearchMaintenanceCycleVMOperationJobs"`)
+
+* `SEARCH_MAINTENANCE_CYCLES` (value: `"SearchMaintenanceCycles"`)
+
+* `RESET_PROVISIONED_VIRTUAL_MACHINE_OS_DISK` (value: `"ResetProvisionedVirtualMachineOSDisk"`)
 
 * `GET_HYPERVISOR_MACHINE_CATALOGS` (value: `"GetHypervisorMachineCatalogs"`)
 
@@ -532,6 +560,42 @@
 * `GET_HYPERVISOR_RESOURCE_PRICES` (value: `"GetHypervisorResourcePrices"`)
 
 * `VALIDATE_VDA_COMPONENTS_AND_FEATURES_SELECTION` (value: `"ValidateVDAComponentsAndFeaturesSelection"`)
+
+* `UPDATE_PROVISIONED_VIRTUAL_MACHINE` (value: `"UpdateProvisionedVirtualMachine"`)
+
+* `GET_TAGS_ASSOCIATED_WITH_DELIVERY_GROUP` (value: `"GetTagsAssociatedWithDeliveryGroup"`)
+
+* `GET_PROV_RECOMMENDATION` (value: `"GetProvRecommendation"`)
+
+* `GET_HYPERVISOR_RESOURCE_POOL_ALL_AVAILABLE_NETWORKS` (value: `"GetHypervisorResourcePoolAllAvailableNetworks"`)
+
+* `APPLY_PROVISIONED_VIRTUAL_MACHINE_CONFIGURATION_UPDATE` (value: `"ApplyProvisionedVirtualMachineConfigurationUpdate"`)
+
+* `GET_AUTOSCALE_PLUGIN_TEMPLATES` (value: `"GetAutoscalePluginTemplates"`)
+
+* `GET_AUTOSCALE_PLUGIN_TEMPLATE` (value: `"GetAutoscalePluginTemplate"`)
+
+* `NEW_AUTOSCALE_PLUGIN_TEMPLATE` (value: `"NewAutoscalePluginTemplate"`)
+
+* `UPDATE_AUTOSCALE_PLUGIN_TEMPLATE` (value: `"UpdateAutoscalePluginTemplate"`)
+
+* `DELETE_AUTOSCALE_PLUGIN_TEMPLATE` (value: `"DeleteAutoscalePluginTemplate"`)
+
+* `GET_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGINS` (value: `"GetDeliveryGroupAutoscaleGroupPlugins"`)
+
+* `NEW_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGIN` (value: `"NewDeliveryGroupAutoscaleGroupPlugin"`)
+
+* `UPDATE_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGIN` (value: `"UpdateDeliveryGroupAutoscaleGroupPlugin"`)
+
+* `DELETE_DELIVERY_GROUP_AUTOSCALE_GROUP_PLUGIN_BY_UID` (value: `"DeleteDeliveryGroupAutoscaleGroupPluginByUid"`)
+
+* `GET_MACHINE_CATALOG_DAILY_COST` (value: `"GetMachineCatalogDailyCost"`)
+
+* `GET_MACHINE_CATALOG_COST_SUMMARY` (value: `"GetMachineCatalogCostSummary"`)
+
+* `GENERATE_ADVISOR_RECOMMENDATION` (value: `"GenerateAdvisorRecommendation"`)
+
+* `SEARCH_PROVISIONING_SCHEME` (value: `"SearchProvisioningScheme"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

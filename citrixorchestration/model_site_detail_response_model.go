@@ -45,6 +45,8 @@ type SiteDetailResponseModel struct {
 	ProductEdition string `json:"ProductEdition"`
 	// Product version.
 	ProductVersion string `json:"ProductVersion"`
+	// The expiration date( in UTC) of the license selected. Only availiable for On-Prem deployment.
+	LicenseExpirationDate NullableString `json:"LicenseExpirationDate,omitempty"`
 	// The metadata of Site.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Services running within the site.
@@ -69,6 +71,8 @@ type SiteDetailResponseModel struct {
 	LicensingGraceHoursLeft NullableInt32 `json:"LicensingGraceHoursLeft,omitempty"`
 	// Indicates whether a licensing grace period is active. Will be null for XenApp & XenDesktop service.
 	LicensingGracePeriodActive NullableBool `json:"LicensingGracePeriodActive,omitempty"`
+	// The indicator for licensing out of the box grace period active.
+	LicensingOutOfBoxGracePeriodActive NullableBool `json:"LicensingOutOfBoxGracePeriodActive,omitempty"`
 	// The peak number of concurrent licensed users. Only applies if LicensingModel is Concurrent.
 	PeakConcurrentLicenseUsers NullableInt32 `json:"PeakConcurrentLicenseUsers,omitempty"`
 	// Allow sessions to launch on shared machines without an intermediate shutdown while the system is operating in outage mode.
@@ -579,6 +583,48 @@ func (o *SiteDetailResponseModel) SetProductVersion(v string) {
 	o.ProductVersion = v
 }
 
+// GetLicenseExpirationDate returns the LicenseExpirationDate field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteDetailResponseModel) GetLicenseExpirationDate() string {
+	if o == nil || IsNil(o.LicenseExpirationDate.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.LicenseExpirationDate.Get()
+}
+
+// GetLicenseExpirationDateOk returns a tuple with the LicenseExpirationDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteDetailResponseModel) GetLicenseExpirationDateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LicenseExpirationDate.Get(), o.LicenseExpirationDate.IsSet()
+}
+
+// HasLicenseExpirationDate returns a boolean if a field has been set.
+func (o *SiteDetailResponseModel) HasLicenseExpirationDate() bool {
+	if o != nil && o.LicenseExpirationDate.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLicenseExpirationDate gets a reference to the given NullableString and assigns it to the LicenseExpirationDate field.
+func (o *SiteDetailResponseModel) SetLicenseExpirationDate(v string) {
+	o.LicenseExpirationDate.Set(&v)
+}
+// SetLicenseExpirationDateNil sets the value for LicenseExpirationDate to be an explicit nil
+func (o *SiteDetailResponseModel) SetLicenseExpirationDateNil() {
+	o.LicenseExpirationDate.Set(nil)
+}
+
+// UnsetLicenseExpirationDate ensures that no value is present for LicenseExpirationDate, not even an explicit nil
+func (o *SiteDetailResponseModel) UnsetLicenseExpirationDate() {
+	o.LicenseExpirationDate.Unset()
+}
+
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteDetailResponseModel) GetMetadata() []NameValueStringPairModel {
 	if o == nil {
@@ -1014,6 +1060,48 @@ func (o *SiteDetailResponseModel) UnsetLicensingGracePeriodActive() {
 	o.LicensingGracePeriodActive.Unset()
 }
 
+// GetLicensingOutOfBoxGracePeriodActive returns the LicensingOutOfBoxGracePeriodActive field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SiteDetailResponseModel) GetLicensingOutOfBoxGracePeriodActive() bool {
+	if o == nil || IsNil(o.LicensingOutOfBoxGracePeriodActive.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.LicensingOutOfBoxGracePeriodActive.Get()
+}
+
+// GetLicensingOutOfBoxGracePeriodActiveOk returns a tuple with the LicensingOutOfBoxGracePeriodActive field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SiteDetailResponseModel) GetLicensingOutOfBoxGracePeriodActiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LicensingOutOfBoxGracePeriodActive.Get(), o.LicensingOutOfBoxGracePeriodActive.IsSet()
+}
+
+// HasLicensingOutOfBoxGracePeriodActive returns a boolean if a field has been set.
+func (o *SiteDetailResponseModel) HasLicensingOutOfBoxGracePeriodActive() bool {
+	if o != nil && o.LicensingOutOfBoxGracePeriodActive.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLicensingOutOfBoxGracePeriodActive gets a reference to the given NullableBool and assigns it to the LicensingOutOfBoxGracePeriodActive field.
+func (o *SiteDetailResponseModel) SetLicensingOutOfBoxGracePeriodActive(v bool) {
+	o.LicensingOutOfBoxGracePeriodActive.Set(&v)
+}
+// SetLicensingOutOfBoxGracePeriodActiveNil sets the value for LicensingOutOfBoxGracePeriodActive to be an explicit nil
+func (o *SiteDetailResponseModel) SetLicensingOutOfBoxGracePeriodActiveNil() {
+	o.LicensingOutOfBoxGracePeriodActive.Set(nil)
+}
+
+// UnsetLicensingOutOfBoxGracePeriodActive ensures that no value is present for LicensingOutOfBoxGracePeriodActive, not even an explicit nil
+func (o *SiteDetailResponseModel) UnsetLicensingOutOfBoxGracePeriodActive() {
+	o.LicensingOutOfBoxGracePeriodActive.Unset()
+}
+
 // GetPeakConcurrentLicenseUsers returns the PeakConcurrentLicenseUsers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteDetailResponseModel) GetPeakConcurrentLicenseUsers() int32 {
 	if o == nil || IsNil(o.PeakConcurrentLicenseUsers.Get()) {
@@ -1362,6 +1450,9 @@ func (o SiteDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize["ProductCode"] = o.ProductCode
 	toSerialize["ProductEdition"] = o.ProductEdition
 	toSerialize["ProductVersion"] = o.ProductVersion
+	if o.LicenseExpirationDate.IsSet() {
+		toSerialize["LicenseExpirationDate"] = o.LicenseExpirationDate.Get()
+	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
 	}
@@ -1392,6 +1483,9 @@ func (o SiteDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LicensingGracePeriodActive.IsSet() {
 		toSerialize["LicensingGracePeriodActive"] = o.LicensingGracePeriodActive.Get()
+	}
+	if o.LicensingOutOfBoxGracePeriodActive.IsSet() {
+		toSerialize["LicensingOutOfBoxGracePeriodActive"] = o.LicensingOutOfBoxGracePeriodActive.Get()
 	}
 	if o.PeakConcurrentLicenseUsers.IsSet() {
 		toSerialize["PeakConcurrentLicenseUsers"] = o.PeakConcurrentLicenseUsers.Get()

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Image** | Pointer to [**ImagesErrorWarningModel**](ImagesErrorWarningModel.md) |  | [optional] 
 **Zone** | Pointer to [**ZonesErrorWarningModel**](ZonesErrorWarningModel.md) |  | [optional] 
 **Site** | Pointer to [**SitesErrorWarningModel**](SitesErrorWarningModel.md) |  | [optional] 
+**Licensing** | Pointer to [**LicenseErrorWarningModel**](LicenseErrorWarningModel.md) |  | [optional] 
 
 ## Methods
 
@@ -205,6 +206,31 @@ SetSite sets Site field to given value.
 `func (o *ErrorWarningResponseModel) HasSite() bool`
 
 HasSite returns a boolean if a field has been set.
+
+### GetLicensing
+
+`func (o *ErrorWarningResponseModel) GetLicensing() LicenseErrorWarningModel`
+
+GetLicensing returns the Licensing field if non-nil, zero value otherwise.
+
+### GetLicensingOk
+
+`func (o *ErrorWarningResponseModel) GetLicensingOk() (*LicenseErrorWarningModel, bool)`
+
+GetLicensingOk returns a tuple with the Licensing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicensing
+
+`func (o *ErrorWarningResponseModel) SetLicensing(v LicenseErrorWarningModel)`
+
+SetLicensing sets Licensing field to given value.
+
+### HasLicensing
+
+`func (o *ErrorWarningResponseModel) HasLicensing() bool`
+
+HasLicensing returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

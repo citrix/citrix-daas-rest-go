@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **SessionSupport** | [**SessionSupport**](SessionSupport.md) |  | 
 **VdaUpgradeType** | Pointer to [**VdaUpgradeType**](VdaUpgradeType.md) |  | [optional] 
 **Zone** | Pointer to **NullableString** | Zone the machine catalog is associated with.  Optional.  If not specified, the machine catalog is associated with the primary zone. See PrimaryZone. | [optional] 
+**HypervisorVMTagging** | Pointer to **NullableBool** | Indicates that assigned VMs from this catalog will carry a hypervisor-level tag. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine catalog. | [optional] 
 
 ## Methods
@@ -702,6 +703,41 @@ HasZone returns a boolean if a field has been set.
 `func (o *CreateMachineCatalogRequestModel) UnsetZone()`
 
 UnsetZone ensures that no value is present for Zone, not even an explicit nil
+### GetHypervisorVMTagging
+
+`func (o *CreateMachineCatalogRequestModel) GetHypervisorVMTagging() bool`
+
+GetHypervisorVMTagging returns the HypervisorVMTagging field if non-nil, zero value otherwise.
+
+### GetHypervisorVMTaggingOk
+
+`func (o *CreateMachineCatalogRequestModel) GetHypervisorVMTaggingOk() (*bool, bool)`
+
+GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisorVMTagging
+
+`func (o *CreateMachineCatalogRequestModel) SetHypervisorVMTagging(v bool)`
+
+SetHypervisorVMTagging sets HypervisorVMTagging field to given value.
+
+### HasHypervisorVMTagging
+
+`func (o *CreateMachineCatalogRequestModel) HasHypervisorVMTagging() bool`
+
+HasHypervisorVMTagging returns a boolean if a field has been set.
+
+### SetHypervisorVMTaggingNil
+
+`func (o *CreateMachineCatalogRequestModel) SetHypervisorVMTaggingNil(b bool)`
+
+ SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+
+### UnsetHypervisorVMTagging
+`func (o *CreateMachineCatalogRequestModel) UnsetHypervisorVMTagging()`
+
+UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
 ### GetMetadata
 
 `func (o *CreateMachineCatalogRequestModel) GetMetadata() []NameValueStringPairModel`

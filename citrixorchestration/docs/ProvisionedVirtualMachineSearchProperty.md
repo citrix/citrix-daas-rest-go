@@ -13,6 +13,8 @@
 
 * `IDENTITIES` (value: `"Identities"`)
 
+* `IDENTITY_CONTENT` (value: `"IdentityContent"`)
+
 * `IMAGE_OUT_OF_DATE` (value: `"ImageOutOfDate"`)
 
 * `LAST_BOOT_TIME` (value: `"LastBootTime"`)
@@ -36,6 +38,10 @@
 * `WRITE_BACK_CACHE_DISK_SIZE` (value: `"WriteBackCacheDiskSize"`)
 
 * `WRITE_BACK_CACHE_MEMORY_SIZE` (value: `"WriteBackCacheMemorySize"`)
+
+* `RESOURCE_POOL_ID` (value: `"ResourcePoolId"`)
+
+* `NETWORK_ID` (value: `"NetworkId"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -28,6 +28,12 @@ type StatusModel struct {
 	OrchServiceStatus *ServiceStatus `json:"OrchServiceStatus,omitempty"`
 	OrchRESTFulApiStatus *RestApiStatus `json:"OrchRESTFulApiStatus,omitempty"`
 	SupportedAuthenticators *Authenticator `json:"SupportedAuthenticators,omitempty"`
+	// Indicate whether to display security banner on the login page.
+	ShowSecurityBannerOnLoginPage NullableBool `json:"ShowSecurityBannerOnLoginPage,omitempty"`
+	// The custom security banner on the login page.
+	SecurityBannerOnLoginPage NullableString `json:"SecurityBannerOnLoginPage,omitempty"`
+	// Indicate whether to display the DDC used for the current Studio session on the login page.
+	ShowConnectedControllerOnLoginPage NullableBool `json:"ShowConnectedControllerOnLoginPage,omitempty"`
 }
 
 // NewStatusModel instantiates a new StatusModel object
@@ -269,6 +275,132 @@ func (o *StatusModel) SetSupportedAuthenticators(v Authenticator) {
 	o.SupportedAuthenticators = &v
 }
 
+// GetShowSecurityBannerOnLoginPage returns the ShowSecurityBannerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StatusModel) GetShowSecurityBannerOnLoginPage() bool {
+	if o == nil || IsNil(o.ShowSecurityBannerOnLoginPage.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ShowSecurityBannerOnLoginPage.Get()
+}
+
+// GetShowSecurityBannerOnLoginPageOk returns a tuple with the ShowSecurityBannerOnLoginPage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StatusModel) GetShowSecurityBannerOnLoginPageOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShowSecurityBannerOnLoginPage.Get(), o.ShowSecurityBannerOnLoginPage.IsSet()
+}
+
+// HasShowSecurityBannerOnLoginPage returns a boolean if a field has been set.
+func (o *StatusModel) HasShowSecurityBannerOnLoginPage() bool {
+	if o != nil && o.ShowSecurityBannerOnLoginPage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShowSecurityBannerOnLoginPage gets a reference to the given NullableBool and assigns it to the ShowSecurityBannerOnLoginPage field.
+func (o *StatusModel) SetShowSecurityBannerOnLoginPage(v bool) {
+	o.ShowSecurityBannerOnLoginPage.Set(&v)
+}
+// SetShowSecurityBannerOnLoginPageNil sets the value for ShowSecurityBannerOnLoginPage to be an explicit nil
+func (o *StatusModel) SetShowSecurityBannerOnLoginPageNil() {
+	o.ShowSecurityBannerOnLoginPage.Set(nil)
+}
+
+// UnsetShowSecurityBannerOnLoginPage ensures that no value is present for ShowSecurityBannerOnLoginPage, not even an explicit nil
+func (o *StatusModel) UnsetShowSecurityBannerOnLoginPage() {
+	o.ShowSecurityBannerOnLoginPage.Unset()
+}
+
+// GetSecurityBannerOnLoginPage returns the SecurityBannerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StatusModel) GetSecurityBannerOnLoginPage() string {
+	if o == nil || IsNil(o.SecurityBannerOnLoginPage.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SecurityBannerOnLoginPage.Get()
+}
+
+// GetSecurityBannerOnLoginPageOk returns a tuple with the SecurityBannerOnLoginPage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StatusModel) GetSecurityBannerOnLoginPageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SecurityBannerOnLoginPage.Get(), o.SecurityBannerOnLoginPage.IsSet()
+}
+
+// HasSecurityBannerOnLoginPage returns a boolean if a field has been set.
+func (o *StatusModel) HasSecurityBannerOnLoginPage() bool {
+	if o != nil && o.SecurityBannerOnLoginPage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSecurityBannerOnLoginPage gets a reference to the given NullableString and assigns it to the SecurityBannerOnLoginPage field.
+func (o *StatusModel) SetSecurityBannerOnLoginPage(v string) {
+	o.SecurityBannerOnLoginPage.Set(&v)
+}
+// SetSecurityBannerOnLoginPageNil sets the value for SecurityBannerOnLoginPage to be an explicit nil
+func (o *StatusModel) SetSecurityBannerOnLoginPageNil() {
+	o.SecurityBannerOnLoginPage.Set(nil)
+}
+
+// UnsetSecurityBannerOnLoginPage ensures that no value is present for SecurityBannerOnLoginPage, not even an explicit nil
+func (o *StatusModel) UnsetSecurityBannerOnLoginPage() {
+	o.SecurityBannerOnLoginPage.Unset()
+}
+
+// GetShowConnectedControllerOnLoginPage returns the ShowConnectedControllerOnLoginPage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StatusModel) GetShowConnectedControllerOnLoginPage() bool {
+	if o == nil || IsNil(o.ShowConnectedControllerOnLoginPage.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.ShowConnectedControllerOnLoginPage.Get()
+}
+
+// GetShowConnectedControllerOnLoginPageOk returns a tuple with the ShowConnectedControllerOnLoginPage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StatusModel) GetShowConnectedControllerOnLoginPageOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShowConnectedControllerOnLoginPage.Get(), o.ShowConnectedControllerOnLoginPage.IsSet()
+}
+
+// HasShowConnectedControllerOnLoginPage returns a boolean if a field has been set.
+func (o *StatusModel) HasShowConnectedControllerOnLoginPage() bool {
+	if o != nil && o.ShowConnectedControllerOnLoginPage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShowConnectedControllerOnLoginPage gets a reference to the given NullableBool and assigns it to the ShowConnectedControllerOnLoginPage field.
+func (o *StatusModel) SetShowConnectedControllerOnLoginPage(v bool) {
+	o.ShowConnectedControllerOnLoginPage.Set(&v)
+}
+// SetShowConnectedControllerOnLoginPageNil sets the value for ShowConnectedControllerOnLoginPage to be an explicit nil
+func (o *StatusModel) SetShowConnectedControllerOnLoginPageNil() {
+	o.ShowConnectedControllerOnLoginPage.Set(nil)
+}
+
+// UnsetShowConnectedControllerOnLoginPage ensures that no value is present for ShowConnectedControllerOnLoginPage, not even an explicit nil
+func (o *StatusModel) UnsetShowConnectedControllerOnLoginPage() {
+	o.ShowConnectedControllerOnLoginPage.Unset()
+}
+
 func (o StatusModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -296,6 +428,15 @@ func (o StatusModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SupportedAuthenticators) {
 		toSerialize["SupportedAuthenticators"] = o.SupportedAuthenticators
+	}
+	if o.ShowSecurityBannerOnLoginPage.IsSet() {
+		toSerialize["ShowSecurityBannerOnLoginPage"] = o.ShowSecurityBannerOnLoginPage.Get()
+	}
+	if o.SecurityBannerOnLoginPage.IsSet() {
+		toSerialize["SecurityBannerOnLoginPage"] = o.SecurityBannerOnLoginPage.Get()
+	}
+	if o.ShowConnectedControllerOnLoginPage.IsSet() {
+		toSerialize["ShowConnectedControllerOnLoginPage"] = o.ShowConnectedControllerOnLoginPage.Get()
 	}
 	return toSerialize, nil
 }

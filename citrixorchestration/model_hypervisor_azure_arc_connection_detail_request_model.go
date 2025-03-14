@@ -47,6 +47,8 @@ type HypervisorAzureArcConnectionDetailRequestModel struct {
 	Region NullableString `json:"Region,omitempty"`
 	// Custom AWS Address.
 	Address NullableString `json:"Address,omitempty"`
+	// The properties of host connection that are specific to the target hosting infrastructure.
+	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// Application ID of the service principal used to access the Azure Arc APIs.  Required.
 	ApplicationId string `json:"ApplicationId"`
 	// The Application Secret of the service principal used to access the Azure APIs.  Required. Must be specified in the format indicated by ApplicationSecretFormat.
@@ -63,8 +65,6 @@ type HypervisorAzureArcConnectionDetailRequestModel struct {
 	AuthenticationAuthority NullableString `json:"AuthenticationAuthority,omitempty"`
 	// Azure storage suffix.  Required if Environment is Custom. Optional otherwise.
 	StorageSuffix NullableString `json:"StorageSuffix,omitempty"`
-	// The properties of host connection that are specific to the target hosting infrastructure.
-	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// The service account ID used to access the Google Cloud APIs. Required.
 	ServiceAccountId *string `json:"ServiceAccountId,omitempty"`
 	// the JSON-encoded service account credentials used to access the Google Cloud APIs.  Required. Must be specified in the format indicated by ServiceAccountCredentialsFormat.
@@ -654,6 +654,48 @@ func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetAddress() {
 	o.Address.Unset()
 }
 
+// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomProperties() string {
+	if o == nil || IsNil(o.CustomProperties.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CustomProperties.Get()
+}
+
+// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
+}
+
+// HasCustomProperties returns a boolean if a field has been set.
+func (o *HypervisorAzureArcConnectionDetailRequestModel) HasCustomProperties() bool {
+	if o != nil && o.CustomProperties.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
+func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomProperties(v string) {
+	o.CustomProperties.Set(&v)
+}
+// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomPropertiesNil() {
+	o.CustomProperties.Set(nil)
+}
+
+// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetCustomProperties() {
+	o.CustomProperties.Unset()
+}
+
 // GetApplicationId returns the ApplicationId field value
 func (o *HypervisorAzureArcConnectionDetailRequestModel) GetApplicationId() string {
 	if o == nil {
@@ -938,48 +980,6 @@ func (o *HypervisorAzureArcConnectionDetailRequestModel) SetStorageSuffixNil() {
 // UnsetStorageSuffix ensures that no value is present for StorageSuffix, not even an explicit nil
 func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetStorageSuffix() {
 	o.StorageSuffix.Unset()
-}
-
-// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomProperties() string {
-	if o == nil || IsNil(o.CustomProperties.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.CustomProperties.Get()
-}
-
-// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *HypervisorAzureArcConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
-}
-
-// HasCustomProperties returns a boolean if a field has been set.
-func (o *HypervisorAzureArcConnectionDetailRequestModel) HasCustomProperties() bool {
-	if o != nil && o.CustomProperties.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
-func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomProperties(v string) {
-	o.CustomProperties.Set(&v)
-}
-// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-func (o *HypervisorAzureArcConnectionDetailRequestModel) SetCustomPropertiesNil() {
-	o.CustomProperties.Set(nil)
-}
-
-// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
-func (o *HypervisorAzureArcConnectionDetailRequestModel) UnsetCustomProperties() {
-	o.CustomProperties.Unset()
 }
 
 // GetServiceAccountId returns the ServiceAccountId field value if set, zero value otherwise.
@@ -1566,6 +1566,9 @@ func (o HypervisorAzureArcConnectionDetailRequestModel) ToMap() (map[string]inte
 	if o.Address.IsSet() {
 		toSerialize["Address"] = o.Address.Get()
 	}
+	if o.CustomProperties.IsSet() {
+		toSerialize["CustomProperties"] = o.CustomProperties.Get()
+	}
 	toSerialize["ApplicationId"] = o.ApplicationId
 	toSerialize["ApplicationSecret"] = o.ApplicationSecret
 	if !IsNil(o.ApplicationSecretFormat) {
@@ -1584,9 +1587,6 @@ func (o HypervisorAzureArcConnectionDetailRequestModel) ToMap() (map[string]inte
 	}
 	if o.StorageSuffix.IsSet() {
 		toSerialize["StorageSuffix"] = o.StorageSuffix.Get()
-	}
-	if o.CustomProperties.IsSet() {
-		toSerialize["CustomProperties"] = o.CustomProperties.Get()
 	}
 	if !IsNil(o.ServiceAccountId) {
 		toSerialize["ServiceAccountId"] = o.ServiceAccountId

@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 	"reflect"
 )
 
@@ -3567,6 +3568,628 @@ func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogExecute
 	}
 	if r.fields != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMachineCatalogsGetMachineCatalogCostSummaryRequest struct {
+	ctx context.Context
+	ApiService *MachineCatalogsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	start *time.Time
+	end *time.Time
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	summaryType *SummaryType
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) CitrixInstanceId(citrixInstanceId string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// The start date of the cost summary, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) Start(start time.Time) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.start = &start
+	return r
+}
+
+// The end date of the cost summary, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) End(end time.Time) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.end = &end
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) UserAgent(userAgent string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) Authorization(authorization string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) CitrixTransactionId(citrixTransactionId string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) Accept(accept string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) CitrixLocale(citrixLocale string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// The summary type of the cost, Currently only &#x60;VM&#x60; and &#x60;Disk&#x60; are supported.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) SummaryType(summaryType SummaryType) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.summaryType = &summaryType
+	return r
+}
+
+// if the value is &#x60;true&#x60;, the machine catalog&#39;s cost summary will be calculated asynchronously.
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) Async(async bool) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) Execute() (*ResourceCostResponseModelCollection, *http.Response, error) {
+	return r.ApiService.MachineCatalogsGetMachineCatalogCostSummaryExecute(r)
+}
+
+/*
+MachineCatalogsGetMachineCatalogCostSummary Get the machine catalog's cost summary.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId The name or ID of the machine catalog.
+ @return ApiMachineCatalogsGetMachineCatalogCostSummaryRequest
+*/
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSummary(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogCostSummaryRequest {
+	return ApiMachineCatalogsGetMachineCatalogCostSummaryRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+	}
+}
+
+// Execute executes the request
+//  @return ResourceCostResponseModelCollection
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogCostSummaryExecute(r ApiMachineCatalogsGetMachineCatalogCostSummaryRequest) (*ResourceCostResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ResourceCostResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogCostSummary")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/MachineCatalogs/{nameOrId}/CostSummary"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.start == nil {
+		return localVarReturnValue, nil, reportError("start is required and must be specified")
+	}
+	if r.end == nil {
+		return localVarReturnValue, nil, reportError("end is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "start", r.start, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "end", r.end, "")
+	if r.summaryType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "summaryType", r.summaryType, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
+	if r.userAgent != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
+	}
+	if r.authorization != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
+	}
+	if r.citrixTransactionId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+	}
+	if r.accept != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
+	}
+	if r.citrixLocale != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["BearerAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 406 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ErrorResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiMachineCatalogsGetMachineCatalogDailyCostRequest struct {
+	ctx context.Context
+	ApiService *MachineCatalogsAPIsDAASService
+	citrixCustomerId *string
+	citrixInstanceId *string
+	nameOrId string
+	start *time.Time
+	end *time.Time
+	userAgent *string
+	authorization *string
+	citrixTransactionId *string
+	accept *string
+	citrixLocale *string
+	async *bool
+}
+
+// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) CitrixCustomerId(citrixCustomerId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.citrixCustomerId = &citrixCustomerId
+	return r
+}
+
+// Citrix Instance (Site) ID.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) CitrixInstanceId(citrixInstanceId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.citrixInstanceId = &citrixInstanceId
+	return r
+}
+
+// The start date of the daily cost, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) Start(start time.Time) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.start = &start
+	return r
+}
+
+// The end date of the daily cost, the date format is &#x60;yyyy-MM-ddT00:00:00Z&#x60;.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) End(end time.Time) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.end = &end
+	return r
+}
+
+// User Agent type of the request.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) UserAgent(userAgent string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.userAgent = &userAgent
+	return r
+}
+
+// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) Authorization(authorization string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.authorization = &authorization
+	return r
+}
+
+// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) CitrixTransactionId(citrixTransactionId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.citrixTransactionId = &citrixTransactionId
+	return r
+}
+
+// Must accept application/json.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) Accept(accept string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.accept = &accept
+	return r
+}
+
+// Locale of the request.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) CitrixLocale(citrixLocale string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If the value is &#x60;true&#x60;, the machine catalog&#39;s daily cost will be calculated asynchronously.
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) Async(async bool) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	r.async = &async
+	return r
+}
+
+func (r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) Execute() (*DailyCostResponseModelCollection, *http.Response, error) {
+	return r.ApiService.MachineCatalogsGetMachineCatalogDailyCostExecute(r)
+}
+
+/*
+MachineCatalogsGetMachineCatalogDailyCost Get the machine catalog's daily cost.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param nameOrId The name or ID of the machine catalog.
+ @return ApiMachineCatalogsGetMachineCatalogDailyCostRequest
+*/
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCost(ctx context.Context, nameOrId string) ApiMachineCatalogsGetMachineCatalogDailyCostRequest {
+	return ApiMachineCatalogsGetMachineCatalogDailyCostRequest{
+		ApiService: a,
+		ctx: ctx,
+		nameOrId: nameOrId,
+	}
+}
+
+// Execute executes the request
+//  @return DailyCostResponseModelCollection
+func (a *MachineCatalogsAPIsDAASService) MachineCatalogsGetMachineCatalogDailyCostExecute(r ApiMachineCatalogsGetMachineCatalogDailyCostRequest) (*DailyCostResponseModelCollection, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DailyCostResponseModelCollection
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachineCatalogsAPIsDAASService.MachineCatalogsGetMachineCatalogDailyCost")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/MachineCatalogs/{nameOrId}/DailyCost"
+	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.citrixCustomerId == nil {
+		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
+	}
+	if r.citrixInstanceId == nil {
+		return localVarReturnValue, nil, reportError("citrixInstanceId is required and must be specified")
+	}
+	if r.start == nil {
+		return localVarReturnValue, nil, reportError("start is required and must be specified")
+	}
+	if r.end == nil {
+		return localVarReturnValue, nil, reportError("end is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "start", r.start, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "end", r.end, "")
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

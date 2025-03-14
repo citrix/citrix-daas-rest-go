@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **NumMachinesWithTag** | Pointer to **int32** | Total number of machines across all desktop groups on which the application group is published, and which are tagged with the tag given by the RestrictToTag property. | [optional] 
 **RestrictToTag** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **DeliveryGroups** | Pointer to [**[]ApplicationGroupDeliveryGroupRefResponseModel**](ApplicationGroupDeliveryGroupRefResponseModel.md) | Delivery groups associated with the application group. | [optional] 
+**AssociatedDeliveryGroupUids** | Pointer to **[]int32** | Delivery group uids associated with the application group. | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 
 ## Methods
@@ -551,6 +552,41 @@ HasDeliveryGroups returns a boolean if a field has been set.
 `func (o *ApplicationGroupResponseModel) UnsetDeliveryGroups()`
 
 UnsetDeliveryGroups ensures that no value is present for DeliveryGroups, not even an explicit nil
+### GetAssociatedDeliveryGroupUids
+
+`func (o *ApplicationGroupResponseModel) GetAssociatedDeliveryGroupUids() []int32`
+
+GetAssociatedDeliveryGroupUids returns the AssociatedDeliveryGroupUids field if non-nil, zero value otherwise.
+
+### GetAssociatedDeliveryGroupUidsOk
+
+`func (o *ApplicationGroupResponseModel) GetAssociatedDeliveryGroupUidsOk() (*[]int32, bool)`
+
+GetAssociatedDeliveryGroupUidsOk returns a tuple with the AssociatedDeliveryGroupUids field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssociatedDeliveryGroupUids
+
+`func (o *ApplicationGroupResponseModel) SetAssociatedDeliveryGroupUids(v []int32)`
+
+SetAssociatedDeliveryGroupUids sets AssociatedDeliveryGroupUids field to given value.
+
+### HasAssociatedDeliveryGroupUids
+
+`func (o *ApplicationGroupResponseModel) HasAssociatedDeliveryGroupUids() bool`
+
+HasAssociatedDeliveryGroupUids returns a boolean if a field has been set.
+
+### SetAssociatedDeliveryGroupUidsNil
+
+`func (o *ApplicationGroupResponseModel) SetAssociatedDeliveryGroupUidsNil(b bool)`
+
+ SetAssociatedDeliveryGroupUidsNil sets the value for AssociatedDeliveryGroupUids to be an explicit nil
+
+### UnsetAssociatedDeliveryGroupUids
+`func (o *ApplicationGroupResponseModel) UnsetAssociatedDeliveryGroupUids()`
+
+UnsetAssociatedDeliveryGroupUids ensures that no value is present for AssociatedDeliveryGroupUids, not even an explicit nil
 ### GetAdminFolder
 
 `func (o *ApplicationGroupResponseModel) GetAdminFolder() RefResponseModel`

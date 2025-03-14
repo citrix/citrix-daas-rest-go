@@ -19,10 +19,10 @@ Name | Type | Description | Notes
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | Maximum number of concurrent AWS provisioning operations. Optional.  If not specified, will not be changed. | [optional] 
 **Address** | Pointer to **NullableString** | Custom AWS Address. Only when the connection without the resourcePool can be updated. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 **ApplicationId** | Pointer to **NullableString** | Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified. | [optional] 
 **ApplicationSecret** | Pointer to **NullableString** | The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
-**CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 **ServiceAccountId** | Pointer to **NullableString** | The service account ID used to access the Google Cloud APIs. Optional.  If not specified, will not be changed.  If specified, ServiceAccountCredentials must also be specified. | [optional] 
 **ServiceAccountCredentials** | Pointer to **NullableString** | the JSON-encoded service account credentials used to access the Google Cloud APIs.  Optional.  If not specified, will not be changed.  If specified, must be in the format indicated by ServiceAccountCredentialsFormat. | [optional] 
 **ServiceAccountCredentialsFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -556,6 +556,41 @@ HasAddress returns a boolean if a field has been set.
 `func (o *EditHypervisorTraditionalConnectionRequestModel) UnsetAddress()`
 
 UnsetAddress ensures that no value is present for Address, not even an explicit nil
+### GetCustomProperties
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) GetCustomProperties() string`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) GetCustomPropertiesOk() (*string, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) SetCustomProperties(v string)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *EditHypervisorTraditionalConnectionRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *EditHypervisorTraditionalConnectionRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetApplicationId
 
 `func (o *EditHypervisorTraditionalConnectionRequestModel) GetApplicationId() string`
@@ -651,41 +686,6 @@ SetApplicationSecretFormat sets ApplicationSecretFormat field to given value.
 
 HasApplicationSecretFormat returns a boolean if a field has been set.
 
-### GetCustomProperties
-
-`func (o *EditHypervisorTraditionalConnectionRequestModel) GetCustomProperties() string`
-
-GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
-
-### GetCustomPropertiesOk
-
-`func (o *EditHypervisorTraditionalConnectionRequestModel) GetCustomPropertiesOk() (*string, bool)`
-
-GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCustomProperties
-
-`func (o *EditHypervisorTraditionalConnectionRequestModel) SetCustomProperties(v string)`
-
-SetCustomProperties sets CustomProperties field to given value.
-
-### HasCustomProperties
-
-`func (o *EditHypervisorTraditionalConnectionRequestModel) HasCustomProperties() bool`
-
-HasCustomProperties returns a boolean if a field has been set.
-
-### SetCustomPropertiesNil
-
-`func (o *EditHypervisorTraditionalConnectionRequestModel) SetCustomPropertiesNil(b bool)`
-
- SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-
-### UnsetCustomProperties
-`func (o *EditHypervisorTraditionalConnectionRequestModel) UnsetCustomProperties()`
-
-UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetServiceAccountId
 
 `func (o *EditHypervisorTraditionalConnectionRequestModel) GetServiceAccountId() string`

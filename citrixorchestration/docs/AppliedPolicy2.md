@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IsApplied** | Pointer to **bool** | Is policy applied | [optional] 
-**PolicyName** | Pointer to **NullableString** | Policy name | [optional] 
-**GpoName** | Pointer to **NullableString** | GPO name | [optional] 
-**Reasons** | Pointer to **map[string][]string** | Reasons why the policy is or is not applied | [optional] 
+**IsApplied** | Pointer to **bool** | Is policy applied. | [optional] 
+**PolicyName** | Pointer to **NullableString** | Policy name. | [optional] 
+**GpoName** | Pointer to **NullableString** | GPO name. | [optional] 
+**Reasons** | Pointer to **map[string][]string** | Reasons why the policy is or is not applied. | [optional] 
 **Details** | Pointer to [**map[string][]FilterDetail**](array.md) | Reasons why the policy is or is not applied. | [optional] 
 
 ## Methods

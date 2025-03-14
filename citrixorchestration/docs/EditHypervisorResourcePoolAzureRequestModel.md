@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 **UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether local storage on the hypervisor will be used for caching purposes. Not all hypervisor types support this.  Defaults to &#x60;false&#x60;. | [optional] 
 **Networks** | Pointer to **[]string** | Path to the network resource(s) that are available for provisioning operations in this resource pool.  At least one is required. | [optional] 
+**StorageBalanceType** | Pointer to [**StorageBalanceType**](StorageBalanceType.md) |  | [optional] 
 **Subnets** | Pointer to **[]string** | Path to the subnet(s) that are available for provisioning operations in this resource pool.  At least one is required. | [optional] 
 
 ## Methods
@@ -370,6 +371,31 @@ HasNetworks returns a boolean if a field has been set.
 `func (o *EditHypervisorResourcePoolAzureRequestModel) UnsetNetworks()`
 
 UnsetNetworks ensures that no value is present for Networks, not even an explicit nil
+### GetStorageBalanceType
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) GetStorageBalanceType() StorageBalanceType`
+
+GetStorageBalanceType returns the StorageBalanceType field if non-nil, zero value otherwise.
+
+### GetStorageBalanceTypeOk
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool)`
+
+GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageBalanceType
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) SetStorageBalanceType(v StorageBalanceType)`
+
+SetStorageBalanceType sets StorageBalanceType field to given value.
+
+### HasStorageBalanceType
+
+`func (o *EditHypervisorResourcePoolAzureRequestModel) HasStorageBalanceType() bool`
+
+HasStorageBalanceType returns a boolean if a field has been set.
+
 ### GetSubnets
 
 `func (o *EditHypervisorResourcePoolAzureRequestModel) GetSubnets() []string`

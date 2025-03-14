@@ -54,6 +54,8 @@ type CreateMachineCatalogRequestModel struct {
 	VdaUpgradeType *VdaUpgradeType `json:"VdaUpgradeType,omitempty"`
 	// Zone the machine catalog is associated with.  Optional.  If not specified, the machine catalog is associated with the primary zone. See PrimaryZone.
 	Zone NullableString `json:"Zone,omitempty"`
+	// Indicates that assigned VMs from this catalog will carry a hypervisor-level tag.
+	HypervisorVMTagging NullableBool `json:"HypervisorVMTagging,omitempty"`
 	// The metadata of machine catalog.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
@@ -837,6 +839,48 @@ func (o *CreateMachineCatalogRequestModel) UnsetZone() {
 	o.Zone.Unset()
 }
 
+// GetHypervisorVMTagging returns the HypervisorVMTagging field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateMachineCatalogRequestModel) GetHypervisorVMTagging() bool {
+	if o == nil || IsNil(o.HypervisorVMTagging.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.HypervisorVMTagging.Get()
+}
+
+// GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateMachineCatalogRequestModel) GetHypervisorVMTaggingOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HypervisorVMTagging.Get(), o.HypervisorVMTagging.IsSet()
+}
+
+// HasHypervisorVMTagging returns a boolean if a field has been set.
+func (o *CreateMachineCatalogRequestModel) HasHypervisorVMTagging() bool {
+	if o != nil && o.HypervisorVMTagging.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorVMTagging gets a reference to the given NullableBool and assigns it to the HypervisorVMTagging field.
+func (o *CreateMachineCatalogRequestModel) SetHypervisorVMTagging(v bool) {
+	o.HypervisorVMTagging.Set(&v)
+}
+// SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+func (o *CreateMachineCatalogRequestModel) SetHypervisorVMTaggingNil() {
+	o.HypervisorVMTagging.Set(nil)
+}
+
+// UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
+func (o *CreateMachineCatalogRequestModel) UnsetHypervisorVMTagging() {
+	o.HypervisorVMTagging.Unset()
+}
+
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CreateMachineCatalogRequestModel) GetMetadata() []NameValueStringPairModel {
 	if o == nil {
@@ -939,6 +983,9 @@ func (o CreateMachineCatalogRequestModel) ToMap() (map[string]interface{}, error
 	}
 	if o.Zone.IsSet() {
 		toSerialize["Zone"] = o.Zone.Get()
+	}
+	if o.HypervisorVMTagging.IsSet() {
+		toSerialize["HypervisorVMTagging"] = o.HypervisorVMTagging.Get()
 	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata

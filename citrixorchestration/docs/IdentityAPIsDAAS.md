@@ -41,7 +41,7 @@ Method | HTTP request | Description
 
 ## IdentityAddAzureAdSecurityGroupMember
 
-> IdentityAddAzureAdSecurityGroupMember(ctx, azureAdTenantId, groupId, refGroupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> IdentityAddAzureAdSecurityGroupMember(ctx, azureAdTenantId, groupId, refGroupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
 
 Add a security group to an assigned security as it's member
 
@@ -69,10 +69,11 @@ func main() {
     xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    serviceAccountUid := "serviceAccountUid_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.IdentityAPIsDAAS.IdentityAddAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId, refGroupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    r, err := apiClient.IdentityAPIsDAAS.IdentityAddAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId, refGroupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityAddAzureAdSecurityGroupMember``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -108,6 +109,7 @@ Name | Type | Description  | Notes
  **xAccessToken** | **string** | Access token to use when performing the operation. If specified, must be in a format matching that of the standard &#39;Authorization&#39; request header; UTF8-encoded, then base64-encoded, then the \&quot;Bearer\&quot; scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ&#x3D;&#x3D; | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **serviceAccountUid** | **string** |  | 
 
 ### Return type
 
@@ -463,7 +465,7 @@ Name | Type | Description  | Notes
 
 ## IdentityGetAzureADSecurityGroups
 
-> AzureADSecurityGroupResponseModel IdentityGetAzureADSecurityGroups(ctx, azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> AzureADSecurityGroupResponseModel IdentityGetAzureADSecurityGroups(ctx, azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
 
 Get Azure AD security group by group id.
 
@@ -492,10 +494,11 @@ func main() {
     xAccessToken := "xAccessToken_example" // string | Access token to use when performing the operation. If specified, must be in a format matching that of the standard 'Authorization' request header; UTF8-encoded, then base64-encoded, then the \"Bearer\" scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ== (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    serviceAccountUid := "serviceAccountUid_example" // string | Service account objectId (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).ServiceAccountUid(serviceAccountUid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetAzureADSecurityGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -531,6 +534,7 @@ Name | Type | Description  | Notes
  **xAccessToken** | **string** | Access token to use when performing the operation. If specified, must be in a format matching that of the standard &#39;Authorization&#39; request header; UTF8-encoded, then base64-encoded, then the \&quot;Bearer\&quot; scheme prepended.  Example: Bearer bGljaGVuZy5saW5AY2l0cml4LmNvbQ&#x3D;&#x3D; | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **serviceAccountUid** | **string** | Service account objectId | 
 
 ### Return type
 
@@ -552,7 +556,7 @@ Name | Type | Description  | Notes
 
 ## IdentityGetAzureAdSecurityGroupMember
 
-> AzureADSecurityGroupResponseModelCollection IdentityGetAzureAdSecurityGroupMember(ctx, azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).MaxCount(maxCount).Execute()
+> AzureADSecurityGroupResponseModelCollection IdentityGetAzureAdSecurityGroupMember(ctx, azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
 
 Retrieves all the group type of members of a specific group
 
@@ -581,10 +585,11 @@ func main() {
     citrixLocale := "en-US" // string | Locale of the request. (optional)
     type_ := "type__example" // string | Only type=group is support now. (optional) (default to "group")
     maxCount := int32(56) // int32 | The max return records number. (optional)
+    serviceAccountUid := "serviceAccountUid_example" // string | The service account uid. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).MaxCount(maxCount).Execute()
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember(context.Background(), azureAdTenantId, groupId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Type_(type_).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityGetAzureAdSecurityGroupMember``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -622,6 +627,7 @@ Name | Type | Description  | Notes
  **citrixLocale** | **string** | Locale of the request. | 
  **type_** | **string** | Only type&#x3D;group is support now. | [default to &quot;group&quot;]
  **maxCount** | **int32** | The max return records number. | 
+ **serviceAccountUid** | **string** | The service account uid. | 
 
 ### Return type
 
@@ -2389,7 +2395,7 @@ Name | Type | Description  | Notes
 
 ## IdentityQueryAzureAdSecurityGroups
 
-> AzureADSecurityGroupResponseModelCollection IdentityQueryAzureAdSecurityGroups(ctx, azureAdTenantId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Name(name).Assigned(assigned).MaxCount(maxCount).Execute()
+> AzureADSecurityGroupResponseModelCollection IdentityQueryAzureAdSecurityGroups(ctx, azureAdTenantId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Name(name).Assigned(assigned).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
 
 Query AzureAD security group by user's input.
 
@@ -2420,10 +2426,11 @@ func main() {
     name := "name_example" // string | Specific the group display name. (optional)
     assigned := true // bool | When name is empty, assigned only support the value of true. (optional) (default to true)
     maxCount := int32(56) // int32 | The max return count,default is 300. (optional)
+    serviceAccountUid := "serviceAccountUid_example" // string | The service account uid. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups(context.Background(), azureAdTenantId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Name(name).Assigned(assigned).MaxCount(maxCount).Execute()
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups(context.Background(), azureAdTenantId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XAccessToken(xAccessToken).Accept(accept).CitrixLocale(citrixLocale).Name(name).Assigned(assigned).MaxCount(maxCount).ServiceAccountUid(serviceAccountUid).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityQueryAzureAdSecurityGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2460,6 +2467,7 @@ Name | Type | Description  | Notes
  **name** | **string** | Specific the group display name. | 
  **assigned** | **bool** | When name is empty, assigned only support the value of true. | [default to true]
  **maxCount** | **int32** | The max return count,default is 300. | 
+ **serviceAccountUid** | **string** | The service account uid. | 
 
 ### Return type
 
@@ -2481,7 +2489,7 @@ Name | Type | Description  | Notes
 
 ## IdentitySetServiceAccount
 
-> UpdateServiceAccountRequestModel IdentitySetServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> ServiceAccountResponseModel IdentitySetServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
 
 Set properties of an existing service account.
 
@@ -2515,7 +2523,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentitySetServiceAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `IdentitySetServiceAccount`: UpdateServiceAccountRequestModel
+    // response from `IdentitySetServiceAccount`: ServiceAccountResponseModel
     fmt.Fprintf(os.Stdout, "Response from `IdentityAPIsDAAS.IdentitySetServiceAccount`: %v\n", resp)
 }
 ```
@@ -2547,7 +2555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateServiceAccountRequestModel**](UpdateServiceAccountRequestModel.md)
+[**ServiceAccountResponseModel**](ServiceAccountResponseModel.md)
 
 ### Authorization
 

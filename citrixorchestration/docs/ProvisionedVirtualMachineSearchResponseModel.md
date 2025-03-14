@@ -14,14 +14,25 @@ Name | Type | Description | Notes
 **MemoryMB** | Pointer to **int32** | Memory(MB). | [optional] 
 **Persistency** | Pointer to **bool** | Persistency. | [optional] 
 **ProvisioningSchemeName** | Pointer to **NullableString** | Provision Scheme Name. | [optional] 
+**ProvisioningSchemeId** | Pointer to **NullableString** | Provision Scheme Id | [optional] 
 **ProvisioningSchemeVersion** | Pointer to **int32** | Provision Scheme Version. | [optional] 
 **ProvVMConfigurationUpdateVersion** | Pointer to **NullableInt32** | Provisioned Virtual Machine Update Configuration Version. | [optional] 
 **VMName** | Pointer to **NullableString** | Provisioned virtual machine name on hypervisor. | [optional] 
 **ActivationType** | Pointer to [**WindowsActivationType**](WindowsActivationType.md) |  | [optional] 
-**UseWriteBackCache** | Pointer to **bool** | Whether use write back cache.  | [optional] 
+**UseWriteBackCache** | Pointer to **bool** | Whether use write back cache. | [optional] 
 **WriteBackCacheDiskSize** | Pointer to **int32** | Write back cache disk size. | [optional] 
 **WriteBackCacheMemorySize** | Pointer to **int32** | Write back cache memory size. | [optional] 
 **OperationEvents** | Pointer to [**[]ProvisioningOperationEventSearchResponseModel**](ProvisioningOperationEventSearchResponseModel.md) | List of ProvisioningOperationEventSearchResponseModel. | [optional] 
+**ResourcePoolName** | Pointer to **NullableString** | Resource pool name. | [optional] 
+**ResourcePoolId** | Pointer to **NullableString** | Resource pool id. | [optional] 
+**NetworkMaps** | Pointer to [**[]ProvisionedVirtualMachineNetworkMapSearchResponseModel**](ProvisionedVirtualMachineNetworkMapSearchResponseModel.md) | Network maps. | [optional] 
+**CurrentProvisioningSchemeVersion** | Pointer to **int32** | Provision Scheme Version. | [optional] 
+**PowerState** | Pointer to [**PowerState**](PowerState.md) |  | [optional] 
+**HypervisorConnectionId** | Pointer to **NullableString** | Hypervisor connection id. | [optional] 
+**PropertyUpdateWindowStart** | Pointer to **NullableString** | Property Update Window Start. | [optional] 
+**PropertyUpdateWindowEnd** | Pointer to **NullableString** | Property Update Window End. | [optional] 
+**SupportedPowerActions** | Pointer to [**[]SupportedPowerAction**](SupportedPowerAction.md) | A list of power actions supported by this machine. | [optional] 
+**InMaintenanceMode** | Pointer to **bool** | Denotes if the machine is in maintenance mode. Machines in maintenance mode will not accept new sessions. | [optional] 
 
 ## Methods
 
@@ -352,6 +363,41 @@ HasProvisioningSchemeName returns a boolean if a field has been set.
 `func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetProvisioningSchemeName()`
 
 UnsetProvisioningSchemeName ensures that no value is present for ProvisioningSchemeName, not even an explicit nil
+### GetProvisioningSchemeId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetProvisioningSchemeId() string`
+
+GetProvisioningSchemeId returns the ProvisioningSchemeId field if non-nil, zero value otherwise.
+
+### GetProvisioningSchemeIdOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetProvisioningSchemeIdOk() (*string, bool)`
+
+GetProvisioningSchemeIdOk returns a tuple with the ProvisioningSchemeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProvisioningSchemeId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeId(v string)`
+
+SetProvisioningSchemeId sets ProvisioningSchemeId field to given value.
+
+### HasProvisioningSchemeId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasProvisioningSchemeId() bool`
+
+HasProvisioningSchemeId returns a boolean if a field has been set.
+
+### SetProvisioningSchemeIdNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeIdNil(b bool)`
+
+ SetProvisioningSchemeIdNil sets the value for ProvisioningSchemeId to be an explicit nil
+
+### UnsetProvisioningSchemeId
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetProvisioningSchemeId()`
+
+UnsetProvisioningSchemeId ensures that no value is present for ProvisioningSchemeId, not even an explicit nil
 ### GetProvisioningSchemeVersion
 
 `func (o *ProvisionedVirtualMachineSearchResponseModel) GetProvisioningSchemeVersion() int32`
@@ -582,6 +628,326 @@ HasOperationEvents returns a boolean if a field has been set.
 `func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetOperationEvents()`
 
 UnsetOperationEvents ensures that no value is present for OperationEvents, not even an explicit nil
+### GetResourcePoolName
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolName() string`
+
+GetResourcePoolName returns the ResourcePoolName field if non-nil, zero value otherwise.
+
+### GetResourcePoolNameOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolNameOk() (*string, bool)`
+
+GetResourcePoolNameOk returns a tuple with the ResourcePoolName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourcePoolName
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolName(v string)`
+
+SetResourcePoolName sets ResourcePoolName field to given value.
+
+### HasResourcePoolName
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasResourcePoolName() bool`
+
+HasResourcePoolName returns a boolean if a field has been set.
+
+### SetResourcePoolNameNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolNameNil(b bool)`
+
+ SetResourcePoolNameNil sets the value for ResourcePoolName to be an explicit nil
+
+### UnsetResourcePoolName
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetResourcePoolName()`
+
+UnsetResourcePoolName ensures that no value is present for ResourcePoolName, not even an explicit nil
+### GetResourcePoolId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolId() string`
+
+GetResourcePoolId returns the ResourcePoolId field if non-nil, zero value otherwise.
+
+### GetResourcePoolIdOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetResourcePoolIdOk() (*string, bool)`
+
+GetResourcePoolIdOk returns a tuple with the ResourcePoolId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourcePoolId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolId(v string)`
+
+SetResourcePoolId sets ResourcePoolId field to given value.
+
+### HasResourcePoolId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasResourcePoolId() bool`
+
+HasResourcePoolId returns a boolean if a field has been set.
+
+### SetResourcePoolIdNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolIdNil(b bool)`
+
+ SetResourcePoolIdNil sets the value for ResourcePoolId to be an explicit nil
+
+### UnsetResourcePoolId
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetResourcePoolId()`
+
+UnsetResourcePoolId ensures that no value is present for ResourcePoolId, not even an explicit nil
+### GetNetworkMaps
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetNetworkMaps() []ProvisionedVirtualMachineNetworkMapSearchResponseModel`
+
+GetNetworkMaps returns the NetworkMaps field if non-nil, zero value otherwise.
+
+### GetNetworkMapsOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetNetworkMapsOk() (*[]ProvisionedVirtualMachineNetworkMapSearchResponseModel, bool)`
+
+GetNetworkMapsOk returns a tuple with the NetworkMaps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkMaps
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetNetworkMaps(v []ProvisionedVirtualMachineNetworkMapSearchResponseModel)`
+
+SetNetworkMaps sets NetworkMaps field to given value.
+
+### HasNetworkMaps
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasNetworkMaps() bool`
+
+HasNetworkMaps returns a boolean if a field has been set.
+
+### SetNetworkMapsNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetNetworkMapsNil(b bool)`
+
+ SetNetworkMapsNil sets the value for NetworkMaps to be an explicit nil
+
+### UnsetNetworkMaps
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetNetworkMaps()`
+
+UnsetNetworkMaps ensures that no value is present for NetworkMaps, not even an explicit nil
+### GetCurrentProvisioningSchemeVersion
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetCurrentProvisioningSchemeVersion() int32`
+
+GetCurrentProvisioningSchemeVersion returns the CurrentProvisioningSchemeVersion field if non-nil, zero value otherwise.
+
+### GetCurrentProvisioningSchemeVersionOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetCurrentProvisioningSchemeVersionOk() (*int32, bool)`
+
+GetCurrentProvisioningSchemeVersionOk returns a tuple with the CurrentProvisioningSchemeVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCurrentProvisioningSchemeVersion
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetCurrentProvisioningSchemeVersion(v int32)`
+
+SetCurrentProvisioningSchemeVersion sets CurrentProvisioningSchemeVersion field to given value.
+
+### HasCurrentProvisioningSchemeVersion
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasCurrentProvisioningSchemeVersion() bool`
+
+HasCurrentProvisioningSchemeVersion returns a boolean if a field has been set.
+
+### GetPowerState
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetPowerState() PowerState`
+
+GetPowerState returns the PowerState field if non-nil, zero value otherwise.
+
+### GetPowerStateOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetPowerStateOk() (*PowerState, bool)`
+
+GetPowerStateOk returns a tuple with the PowerState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPowerState
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetPowerState(v PowerState)`
+
+SetPowerState sets PowerState field to given value.
+
+### HasPowerState
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasPowerState() bool`
+
+HasPowerState returns a boolean if a field has been set.
+
+### GetHypervisorConnectionId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetHypervisorConnectionId() string`
+
+GetHypervisorConnectionId returns the HypervisorConnectionId field if non-nil, zero value otherwise.
+
+### GetHypervisorConnectionIdOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetHypervisorConnectionIdOk() (*string, bool)`
+
+GetHypervisorConnectionIdOk returns a tuple with the HypervisorConnectionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisorConnectionId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetHypervisorConnectionId(v string)`
+
+SetHypervisorConnectionId sets HypervisorConnectionId field to given value.
+
+### HasHypervisorConnectionId
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasHypervisorConnectionId() bool`
+
+HasHypervisorConnectionId returns a boolean if a field has been set.
+
+### SetHypervisorConnectionIdNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetHypervisorConnectionIdNil(b bool)`
+
+ SetHypervisorConnectionIdNil sets the value for HypervisorConnectionId to be an explicit nil
+
+### UnsetHypervisorConnectionId
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetHypervisorConnectionId()`
+
+UnsetHypervisorConnectionId ensures that no value is present for HypervisorConnectionId, not even an explicit nil
+### GetPropertyUpdateWindowStart
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowStart() string`
+
+GetPropertyUpdateWindowStart returns the PropertyUpdateWindowStart field if non-nil, zero value otherwise.
+
+### GetPropertyUpdateWindowStartOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowStartOk() (*string, bool)`
+
+GetPropertyUpdateWindowStartOk returns a tuple with the PropertyUpdateWindowStart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPropertyUpdateWindowStart
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowStart(v string)`
+
+SetPropertyUpdateWindowStart sets PropertyUpdateWindowStart field to given value.
+
+### HasPropertyUpdateWindowStart
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasPropertyUpdateWindowStart() bool`
+
+HasPropertyUpdateWindowStart returns a boolean if a field has been set.
+
+### SetPropertyUpdateWindowStartNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowStartNil(b bool)`
+
+ SetPropertyUpdateWindowStartNil sets the value for PropertyUpdateWindowStart to be an explicit nil
+
+### UnsetPropertyUpdateWindowStart
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetPropertyUpdateWindowStart()`
+
+UnsetPropertyUpdateWindowStart ensures that no value is present for PropertyUpdateWindowStart, not even an explicit nil
+### GetPropertyUpdateWindowEnd
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowEnd() string`
+
+GetPropertyUpdateWindowEnd returns the PropertyUpdateWindowEnd field if non-nil, zero value otherwise.
+
+### GetPropertyUpdateWindowEndOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetPropertyUpdateWindowEndOk() (*string, bool)`
+
+GetPropertyUpdateWindowEndOk returns a tuple with the PropertyUpdateWindowEnd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPropertyUpdateWindowEnd
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowEnd(v string)`
+
+SetPropertyUpdateWindowEnd sets PropertyUpdateWindowEnd field to given value.
+
+### HasPropertyUpdateWindowEnd
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasPropertyUpdateWindowEnd() bool`
+
+HasPropertyUpdateWindowEnd returns a boolean if a field has been set.
+
+### SetPropertyUpdateWindowEndNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowEndNil(b bool)`
+
+ SetPropertyUpdateWindowEndNil sets the value for PropertyUpdateWindowEnd to be an explicit nil
+
+### UnsetPropertyUpdateWindowEnd
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetPropertyUpdateWindowEnd()`
+
+UnsetPropertyUpdateWindowEnd ensures that no value is present for PropertyUpdateWindowEnd, not even an explicit nil
+### GetSupportedPowerActions
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetSupportedPowerActions() []SupportedPowerAction`
+
+GetSupportedPowerActions returns the SupportedPowerActions field if non-nil, zero value otherwise.
+
+### GetSupportedPowerActionsOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetSupportedPowerActionsOk() (*[]SupportedPowerAction, bool)`
+
+GetSupportedPowerActionsOk returns a tuple with the SupportedPowerActions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSupportedPowerActions
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetSupportedPowerActions(v []SupportedPowerAction)`
+
+SetSupportedPowerActions sets SupportedPowerActions field to given value.
+
+### HasSupportedPowerActions
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasSupportedPowerActions() bool`
+
+HasSupportedPowerActions returns a boolean if a field has been set.
+
+### SetSupportedPowerActionsNil
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetSupportedPowerActionsNil(b bool)`
+
+ SetSupportedPowerActionsNil sets the value for SupportedPowerActions to be an explicit nil
+
+### UnsetSupportedPowerActions
+`func (o *ProvisionedVirtualMachineSearchResponseModel) UnsetSupportedPowerActions()`
+
+UnsetSupportedPowerActions ensures that no value is present for SupportedPowerActions, not even an explicit nil
+### GetInMaintenanceMode
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetInMaintenanceMode() bool`
+
+GetInMaintenanceMode returns the InMaintenanceMode field if non-nil, zero value otherwise.
+
+### GetInMaintenanceModeOk
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) GetInMaintenanceModeOk() (*bool, bool)`
+
+GetInMaintenanceModeOk returns a tuple with the InMaintenanceMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInMaintenanceMode
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) SetInMaintenanceMode(v bool)`
+
+SetInMaintenanceMode sets InMaintenanceMode field to given value.
+
+### HasInMaintenanceMode
+
+`func (o *ProvisionedVirtualMachineSearchResponseModel) HasInMaintenanceMode() bool`
+
+HasInMaintenanceMode returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -224,6 +224,8 @@ type DeliveryGroupDetailResponseModel struct {
 	AutoscaleLogOffReminderMessage NullableString `json:"AutoscaleLogOffReminderMessage,omitempty"`
 	// Notification message dialog title displayed when Autoscale issues a logoff reminder request.
 	AutoscaleLogOffReminderTitle NullableString `json:"AutoscaleLogOffReminderTitle,omitempty"`
+	// Autoscale group plugins.
+	AutoscaleGroupPlugins []AutoscaleGroupPluginModel `json:"AutoscaleGroupPlugins,omitempty"`
 }
 
 // NewDeliveryGroupDetailResponseModel instantiates a new DeliveryGroupDetailResponseModel object
@@ -4071,6 +4073,39 @@ func (o *DeliveryGroupDetailResponseModel) UnsetAutoscaleLogOffReminderTitle() {
 	o.AutoscaleLogOffReminderTitle.Unset()
 }
 
+// GetAutoscaleGroupPlugins returns the AutoscaleGroupPlugins field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryGroupDetailResponseModel) GetAutoscaleGroupPlugins() []AutoscaleGroupPluginModel {
+	if o == nil {
+		var ret []AutoscaleGroupPluginModel
+		return ret
+	}
+	return o.AutoscaleGroupPlugins
+}
+
+// GetAutoscaleGroupPluginsOk returns a tuple with the AutoscaleGroupPlugins field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryGroupDetailResponseModel) GetAutoscaleGroupPluginsOk() ([]AutoscaleGroupPluginModel, bool) {
+	if o == nil || IsNil(o.AutoscaleGroupPlugins) {
+		return nil, false
+	}
+	return o.AutoscaleGroupPlugins, true
+}
+
+// HasAutoscaleGroupPlugins returns a boolean if a field has been set.
+func (o *DeliveryGroupDetailResponseModel) HasAutoscaleGroupPlugins() bool {
+	if o != nil && IsNil(o.AutoscaleGroupPlugins) {
+		return true
+	}
+
+	return false
+}
+
+// SetAutoscaleGroupPlugins gets a reference to the given []AutoscaleGroupPluginModel and assigns it to the AutoscaleGroupPlugins field.
+func (o *DeliveryGroupDetailResponseModel) SetAutoscaleGroupPlugins(v []AutoscaleGroupPluginModel) {
+	o.AutoscaleGroupPlugins = v
+}
+
 func (o DeliveryGroupDetailResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -4365,6 +4400,9 @@ func (o DeliveryGroupDetailResponseModel) ToMap() (map[string]interface{}, error
 	}
 	if o.AutoscaleLogOffReminderTitle.IsSet() {
 		toSerialize["AutoscaleLogOffReminderTitle"] = o.AutoscaleLogOffReminderTitle.Get()
+	}
+	if o.AutoscaleGroupPlugins != nil {
+		toSerialize["AutoscaleGroupPlugins"] = o.AutoscaleGroupPlugins
 	}
 	return toSerialize, nil
 }

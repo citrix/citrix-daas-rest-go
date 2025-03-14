@@ -38,6 +38,7 @@ type EditHypervisorResourcePoolAWSOrGcpRequestModel struct {
 	UseLocalStorageCaching NullableBool `json:"UseLocalStorageCaching,omitempty"`
 	// Path to the network resource(s) that are available for provisioning operations in this resource pool.  At least one is required.
 	Networks []string `json:"Networks,omitempty"`
+	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 	// Path to the subnet(s) that are available for provisioning operations in this resource pool.  At least one is required.
 	Subnets []string `json:"Subnets,omitempty"`
 }
@@ -417,6 +418,38 @@ func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) SetNetworks(v []string)
 	o.Networks = v
 }
 
+// GetStorageBalanceType returns the StorageBalanceType field value if set, zero value otherwise.
+func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetStorageBalanceType() StorageBalanceType {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		var ret StorageBalanceType
+		return ret
+	}
+	return *o.StorageBalanceType
+}
+
+// GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool) {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		return nil, false
+	}
+	return o.StorageBalanceType, true
+}
+
+// HasStorageBalanceType returns a boolean if a field has been set.
+func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) HasStorageBalanceType() bool {
+	if o != nil && !IsNil(o.StorageBalanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageBalanceType gets a reference to the given StorageBalanceType and assigns it to the StorageBalanceType field.
+func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) SetStorageBalanceType(v StorageBalanceType) {
+	o.StorageBalanceType = &v
+}
+
 // GetSubnets returns the Subnets field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EditHypervisorResourcePoolAWSOrGcpRequestModel) GetSubnets() []string {
 	if o == nil {
@@ -487,6 +520,9 @@ func (o EditHypervisorResourcePoolAWSOrGcpRequestModel) ToMap() (map[string]inte
 	}
 	if o.Networks != nil {
 		toSerialize["Networks"] = o.Networks
+	}
+	if !IsNil(o.StorageBalanceType) {
+		toSerialize["StorageBalanceType"] = o.StorageBalanceType
 	}
 	if o.Subnets != nil {
 		toSerialize["Subnets"] = o.Subnets

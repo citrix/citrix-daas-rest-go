@@ -32,7 +32,6 @@ Method | HTTP request | Description
 [**MachinesRemoveMachineTags**](MachinesAPIsDAAS.md#MachinesRemoveMachineTags) | **Delete** /Machines/{nameOrId}/Tags/{tagNameOrId} | Remove a tag from a machine.
 [**MachinesRemoveMachineUpgradeSchedule**](MachinesAPIsDAAS.md#MachinesRemoveMachineUpgradeSchedule) | **Delete** /Machines/{nameOrId}/UpgradeSchedule | Remove a pending VDA upgrade schedule for a machine.
 [**MachinesRemovePowerActionSchedule**](MachinesAPIsDAAS.md#MachinesRemovePowerActionSchedule) | **Delete** /Machines/{nameOrId}/PowerActionSchedules | Remove pending power action schedules for a machine.
-[**MachinesResetProvVMDisk**](MachinesAPIsDAAS.md#MachinesResetProvVMDisk) | **Post** /Machines/{nameOrId}/$ResetProvVMDisk | Resets the OS disk of persistent VMs to the current master image.
 [**MachinesResumeMachine**](MachinesAPIsDAAS.md#MachinesResumeMachine) | **Post** /Machines/{nameOrId}/$resume | Resume a machine.
 [**MachinesSetMachineTags**](MachinesAPIsDAAS.md#MachinesSetMachineTags) | **Put** /Machines/{nameOrId}/Tags | Set tags associated with a machine.
 [**MachinesShutdownMachine**](MachinesAPIsDAAS.md#MachinesShutdownMachine) | **Post** /Machines/{nameOrId}/$shutdown | Shut down a machine.
@@ -1070,7 +1069,7 @@ Name | Type | Description  | Notes
 
 ## MachinesGetMachineStartMenuShortcutIcon
 
-> *os.File MachinesGetMachineStartMenuShortcutIcon(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ShortcutPath(shortcutPath).IconFormat(iconFormat).Async(async).Execute()
+> IconResponseModel MachinesGetMachineStartMenuShortcutIcon(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).ShortcutPath(shortcutPath).IconFormat(iconFormat).Async(async).Execute()
 
 Get a start menu shortcut icon from the machine.
 
@@ -1108,7 +1107,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesGetMachineStartMenuShortcutIcon``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MachinesGetMachineStartMenuShortcutIcon`: *os.File
+    // response from `MachinesGetMachineStartMenuShortcutIcon`: IconResponseModel
     fmt.Fprintf(os.Stdout, "Response from `MachinesAPIsDAAS.MachinesGetMachineStartMenuShortcutIcon`: %v\n", resp)
 }
 ```
@@ -1142,7 +1141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[***os.File**](*os.File.md)
+[**IconResponseModel**](IconResponseModel.md)
 
 ### Authorization
 
@@ -1151,7 +1150,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream, application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -2137,7 +2136,7 @@ func main() {
     xAdminCredential := "xAdminCredential_example" // string | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard 'Authorization' request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \"Basic \" scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
-    deleteVm := true // bool | Specifies whether to delete the virtual machines, or just the machine record in the site database. Only relevant when ProvisioningType Optional; default is `true`. (optional) (default to true)
+    deleteVm := true // bool | Specifies whether to delete the virtual machines, or just the machine record in the site database. Only relevant when ProvisioningType equals MCS. Optional; default is `true`. (optional) (default to true)
     purgeDBOnly := true // bool | Specifies whether to only delete virtual machines record that were provisioned in the machine catalog from database, not access hypervisor to delete virtual machines, this is recommended only when hypervisor cannot be accessed.  Optional; default is `false`. (optional) (default to false)
     deleteAccount := openapiclient.MachineAccountDeleteOption("Unknown") // MachineAccountDeleteOption | Specifies what to do with the machine account in AD.  Optional; default is Leave. Only relevant when `deleteVm` is `true`; otherwise, ignored. (optional) (default to "Leave")
     async := true // bool | If `true`, the machine will be deleted as a background task. The task will have JobType DeleteMachine. When the task is complete it will redirect to The job's Parameters will contain properties: * _Id_ - ID of the machine being deleted, * _Name_ - Name of the machine being deleted. (optional) (default to false)
@@ -2176,7 +2175,7 @@ Name | Type | Description  | Notes
  **xAdminCredential** | **string** | Admin credential to use when performing the operation. If not specified, the operation will be performed using the account under which the identity service is running If specified, must be in a format matching that of the standard &#39;Authorization&#39; request header; the username and password separated by a colon, UTF8-encoded, then base64-encoded, then the \&quot;Basic \&quot; scheme prepended.  Example:Basic QWxhZGRpbjpPcGVuU2VzYW1l | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
- **deleteVm** | **bool** | Specifies whether to delete the virtual machines, or just the machine record in the site database. Only relevant when ProvisioningType Optional; default is &#x60;true&#x60;. | [default to true]
+ **deleteVm** | **bool** | Specifies whether to delete the virtual machines, or just the machine record in the site database. Only relevant when ProvisioningType equals MCS. Optional; default is &#x60;true&#x60;. | [default to true]
  **purgeDBOnly** | **bool** | Specifies whether to only delete virtual machines record that were provisioned in the machine catalog from database, not access hypervisor to delete virtual machines, this is recommended only when hypervisor cannot be accessed.  Optional; default is &#x60;false&#x60;. | [default to false]
  **deleteAccount** | [**MachineAccountDeleteOption**](MachineAccountDeleteOption.md) | Specifies what to do with the machine account in AD.  Optional; default is Leave. Only relevant when &#x60;deleteVm&#x60; is &#x60;true&#x60;; otherwise, ignored. | [default to &quot;Leave&quot;]
  **async** | **bool** | If &#x60;true&#x60;, the machine will be deleted as a background task. The task will have JobType DeleteMachine. When the task is complete it will redirect to The job&#39;s Parameters will contain properties: * _Id_ - ID of the machine being deleted, * _Name_ - Name of the machine being deleted. | [default to false]
@@ -2431,88 +2430,6 @@ Name | Type | Description  | Notes
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
  **async** | **bool** | If &#x60;true&#x60;, the power action schedule will be removed as a background task. | [default to false]
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## MachinesResetProvVMDisk
-
-> MachinesResetProvVMDisk(ctx, nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-
-Resets the OS disk of persistent VMs to the current master image.
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
-)
-
-func main() {
-    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
-    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
-    nameOrId := "nameOrId_example" // string | Name or ID of the machine. May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
-    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
-    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
-    accept := "application/json" // string | Must accept application/json. (optional)
-    citrixLocale := "en-US" // string | Locale of the request. (optional)
-    async := true // bool | If `true`, the machine will be deleted as a background task. The task will have JobType ResetVMDisk. When the task is complete it will redirect to The job's Parameters will contain properties: * _Id_ - ID of the machine being deleted, * _Name_ - Name of the machine being deleted. (optional) (default to false)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.MachinesAPIsDAAS.MachinesResetProvVMDisk(context.Background(), nameOrId).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesResetProvVMDisk``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**nameOrId** | **string** | Name or ID of the machine. May be specified by name, ID, or SID. If param is Name, currently it should get rid of &#39;\\\\&#39; and replace it using &#39;|&#39;. For instance, if a MachineName is \&quot;DomainA\\\\NameB\&quot;, the param will be \&quot;DomainA|NameB\&quot;. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiMachinesResetProvVMDiskRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
- **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
-
- **userAgent** | **string** | User Agent type of the request. | 
- **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
- **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
- **accept** | **string** | Must accept application/json. | 
- **citrixLocale** | **string** | Locale of the request. | 
- **async** | **bool** | If &#x60;true&#x60;, the machine will be deleted as a background task. The task will have JobType ResetVMDisk. When the task is complete it will redirect to The job&#39;s Parameters will contain properties: * _Id_ - ID of the machine being deleted, * _Name_ - Name of the machine being deleted. | [default to false]
 
 ### Return type
 

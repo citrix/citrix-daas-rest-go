@@ -36,6 +36,8 @@ type AppLibPackageDiscoveryRequestModel struct {
 	DiscoverAppAttach NullableBool `json:"DiscoverAppAttach,omitempty"`
 	// A value indicating whether or not to discover FlexApp packages
 	DiscoverFlexApp NullableBool `json:"DiscoverFlexApp,omitempty"`
+	// A value indicating whether or not to discover ElasticApp layers packages
+	DiscoverElasticAppLayers NullableBool `json:"DiscoverElasticAppLayers,omitempty"`
 	// The url of the App-V Management Server that packages will be discovered from.
 	ManagementServer NullableString `json:"ManagementServer,omitempty"`
 	// A value indicating whether or not to discover AppAttach packages
@@ -65,6 +67,8 @@ func NewAppLibPackageDiscoveryRequestModel() *AppLibPackageDiscoveryRequestModel
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
 	var discoverFlexApp bool = false
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
+	var discoverElasticAppLayers bool = false
+	this.DiscoverElasticAppLayers = *NewNullableBool(&discoverElasticAppLayers)
 	var cleanupAbsentPackages bool = false
 	this.CleanupAbsentPackages = *NewNullableBool(&cleanupAbsentPackages)
 	return &this
@@ -85,6 +89,8 @@ func NewAppLibPackageDiscoveryRequestModelWithDefaults() *AppLibPackageDiscovery
 	this.DiscoverAppAttach = *NewNullableBool(&discoverAppAttach)
 	var discoverFlexApp bool = false
 	this.DiscoverFlexApp = *NewNullableBool(&discoverFlexApp)
+	var discoverElasticAppLayers bool = false
+	this.DiscoverElasticAppLayers = *NewNullableBool(&discoverElasticAppLayers)
 	var cleanupAbsentPackages bool = false
 	this.CleanupAbsentPackages = *NewNullableBool(&cleanupAbsentPackages)
 	return &this
@@ -458,6 +464,48 @@ func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverFlexApp() {
 	o.DiscoverFlexApp.Unset()
 }
 
+// GetDiscoverElasticAppLayers returns the DiscoverElasticAppLayers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverElasticAppLayers() bool {
+	if o == nil || IsNil(o.DiscoverElasticAppLayers.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.DiscoverElasticAppLayers.Get()
+}
+
+// GetDiscoverElasticAppLayersOk returns a tuple with the DiscoverElasticAppLayers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AppLibPackageDiscoveryRequestModel) GetDiscoverElasticAppLayersOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DiscoverElasticAppLayers.Get(), o.DiscoverElasticAppLayers.IsSet()
+}
+
+// HasDiscoverElasticAppLayers returns a boolean if a field has been set.
+func (o *AppLibPackageDiscoveryRequestModel) HasDiscoverElasticAppLayers() bool {
+	if o != nil && o.DiscoverElasticAppLayers.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscoverElasticAppLayers gets a reference to the given NullableBool and assigns it to the DiscoverElasticAppLayers field.
+func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverElasticAppLayers(v bool) {
+	o.DiscoverElasticAppLayers.Set(&v)
+}
+// SetDiscoverElasticAppLayersNil sets the value for DiscoverElasticAppLayers to be an explicit nil
+func (o *AppLibPackageDiscoveryRequestModel) SetDiscoverElasticAppLayersNil() {
+	o.DiscoverElasticAppLayers.Set(nil)
+}
+
+// UnsetDiscoverElasticAppLayers ensures that no value is present for DiscoverElasticAppLayers, not even an explicit nil
+func (o *AppLibPackageDiscoveryRequestModel) UnsetDiscoverElasticAppLayers() {
+	o.DiscoverElasticAppLayers.Unset()
+}
+
 // GetManagementServer returns the ManagementServer field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AppLibPackageDiscoveryRequestModel) GetManagementServer() string {
 	if o == nil || IsNil(o.ManagementServer.Get()) {
@@ -736,6 +784,9 @@ func (o AppLibPackageDiscoveryRequestModel) ToMap() (map[string]interface{}, err
 	}
 	if o.DiscoverFlexApp.IsSet() {
 		toSerialize["DiscoverFlexApp"] = o.DiscoverFlexApp.Get()
+	}
+	if o.DiscoverElasticAppLayers.IsSet() {
+		toSerialize["DiscoverElasticAppLayers"] = o.DiscoverElasticAppLayers.Get()
 	}
 	if o.ManagementServer.IsSet() {
 		toSerialize["ManagementServer"] = o.ManagementServer.Get()

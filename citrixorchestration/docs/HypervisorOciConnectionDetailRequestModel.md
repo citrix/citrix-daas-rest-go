@@ -19,8 +19,9 @@ Name | Type | Description | Notes
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **Region** | **string** | Oracle Cloud Infrastructure region to connect to. Required. | 
 **Address** | Pointer to **NullableString** | Custom AWS Address. | [optional] 
-**ApplicationId** | Pointer to **string** | Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret or UserAssignedManagedIdentity. | [optional] 
-**ApplicationSecret** | Pointer to **string** | The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
+**ApplicationId** | Pointer to **NullableString** | Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret or UserAssignedManagedIdentity. | [optional] 
+**ApplicationSecret** | Pointer to **NullableString** | The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **SubscriptionId** | Pointer to **string** | Azure subscription ID.  Required. | [optional] 
 **ActiveDirectoryId** | Pointer to **string** | Azure active directory ID.  Required. | [optional] 
@@ -28,7 +29,6 @@ Name | Type | Description | Notes
 **ManagementEndpoint** | Pointer to **NullableString** | Azure management endpoint.  Required if Environment is Custom. Optional otherwise. | [optional] 
 **AuthenticationAuthority** | Pointer to **NullableString** | Azure authentication authority.  Required if Environment is Custom. Optional otherwise. | [optional] 
 **StorageSuffix** | Pointer to **NullableString** | Azure storage suffix.  Required if Environment is Custom. Optional otherwise. | [optional] 
-**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
 **ServiceAccountId** | **string** | The service account ID used to access the Oracle Cloud Infrastructure APIs. Required. | 
 **ServiceAccountCredentials** | Pointer to **string** | the JSON-encoded service account credentials used to access the Google Cloud APIs.  Required. Must be specified in the format indicated by ServiceAccountCredentialsFormat. | [optional] 
 **ServiceAccountCredentialsFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -515,6 +515,41 @@ HasAddress returns a boolean if a field has been set.
 `func (o *HypervisorOciConnectionDetailRequestModel) UnsetAddress()`
 
 UnsetAddress ensures that no value is present for Address, not even an explicit nil
+### GetCustomProperties
+
+`func (o *HypervisorOciConnectionDetailRequestModel) GetCustomProperties() string`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *HypervisorOciConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *HypervisorOciConnectionDetailRequestModel) SetCustomProperties(v string)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *HypervisorOciConnectionDetailRequestModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *HypervisorOciConnectionDetailRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *HypervisorOciConnectionDetailRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetApplicationId
 
 `func (o *HypervisorOciConnectionDetailRequestModel) GetApplicationId() string`
@@ -540,6 +575,16 @@ SetApplicationId sets ApplicationId field to given value.
 
 HasApplicationId returns a boolean if a field has been set.
 
+### SetApplicationIdNil
+
+`func (o *HypervisorOciConnectionDetailRequestModel) SetApplicationIdNil(b bool)`
+
+ SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
+
+### UnsetApplicationId
+`func (o *HypervisorOciConnectionDetailRequestModel) UnsetApplicationId()`
+
+UnsetApplicationId ensures that no value is present for ApplicationId, not even an explicit nil
 ### GetApplicationSecret
 
 `func (o *HypervisorOciConnectionDetailRequestModel) GetApplicationSecret() string`
@@ -565,6 +610,16 @@ SetApplicationSecret sets ApplicationSecret field to given value.
 
 HasApplicationSecret returns a boolean if a field has been set.
 
+### SetApplicationSecretNil
+
+`func (o *HypervisorOciConnectionDetailRequestModel) SetApplicationSecretNil(b bool)`
+
+ SetApplicationSecretNil sets the value for ApplicationSecret to be an explicit nil
+
+### UnsetApplicationSecret
+`func (o *HypervisorOciConnectionDetailRequestModel) UnsetApplicationSecret()`
+
+UnsetApplicationSecret ensures that no value is present for ApplicationSecret, not even an explicit nil
 ### GetApplicationSecretFormat
 
 `func (o *HypervisorOciConnectionDetailRequestModel) GetApplicationSecretFormat() IdentityPasswordFormat`
@@ -770,41 +825,6 @@ HasStorageSuffix returns a boolean if a field has been set.
 `func (o *HypervisorOciConnectionDetailRequestModel) UnsetStorageSuffix()`
 
 UnsetStorageSuffix ensures that no value is present for StorageSuffix, not even an explicit nil
-### GetCustomProperties
-
-`func (o *HypervisorOciConnectionDetailRequestModel) GetCustomProperties() string`
-
-GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
-
-### GetCustomPropertiesOk
-
-`func (o *HypervisorOciConnectionDetailRequestModel) GetCustomPropertiesOk() (*string, bool)`
-
-GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCustomProperties
-
-`func (o *HypervisorOciConnectionDetailRequestModel) SetCustomProperties(v string)`
-
-SetCustomProperties sets CustomProperties field to given value.
-
-### HasCustomProperties
-
-`func (o *HypervisorOciConnectionDetailRequestModel) HasCustomProperties() bool`
-
-HasCustomProperties returns a boolean if a field has been set.
-
-### SetCustomPropertiesNil
-
-`func (o *HypervisorOciConnectionDetailRequestModel) SetCustomPropertiesNil(b bool)`
-
- SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-
-### UnsetCustomProperties
-`func (o *HypervisorOciConnectionDetailRequestModel) UnsetCustomProperties()`
-
-UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetServiceAccountId
 
 `func (o *HypervisorOciConnectionDetailRequestModel) GetServiceAccountId() string`

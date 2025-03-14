@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether virtual machines created within this resource pool will use local storage caching for their disk images. | [optional] 
 **CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 **PersonalvDiskStorage** | Pointer to [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines. | [optional] 
+**StorageBalanceType** | Pointer to [**StorageBalanceType**](StorageBalanceType.md) |  | [optional] 
 
 ## Methods
 
@@ -583,6 +584,31 @@ HasPersonalvDiskStorage returns a boolean if a field has been set.
 `func (o *HypervisorResourcePoolTraditionalDetailResponseModel) UnsetPersonalvDiskStorage()`
 
 UnsetPersonalvDiskStorage ensures that no value is present for PersonalvDiskStorage, not even an explicit nil
+### GetStorageBalanceType
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetStorageBalanceType() StorageBalanceType`
+
+GetStorageBalanceType returns the StorageBalanceType field if non-nil, zero value otherwise.
+
+### GetStorageBalanceTypeOk
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool)`
+
+GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageBalanceType
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) SetStorageBalanceType(v StorageBalanceType)`
+
+SetStorageBalanceType sets StorageBalanceType field to given value.
+
+### HasStorageBalanceType
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) HasStorageBalanceType() bool`
+
+HasStorageBalanceType returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

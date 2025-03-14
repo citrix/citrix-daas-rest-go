@@ -48,6 +48,7 @@ Name | Type | Description | Notes
 **UpgradeInfo** | Pointer to [**MachineCatalogUpgradeInfo**](MachineCatalogUpgradeInfo.md) |  | [optional] 
 **Zone** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **AdminFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
+**HypervisorVMTagging** | Pointer to **NullableBool** | Indicates that assigned VMs from this catalog will carry a hypervisor-level tag. | [optional] 
 **MachinesArePhysical** | Pointer to **bool** | Indicates whether or not machines in the machine catalog are Physical. | [optional] 
 **HypervisorPluginResponse** | Pointer to [**HypervisorPluginResponseModel**](HypervisorPluginResponseModel.md) |  | [optional] 
 **HypervisorConnection** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
@@ -1362,6 +1363,41 @@ SetAdminFolder sets AdminFolder field to given value.
 
 HasAdminFolder returns a boolean if a field has been set.
 
+### GetHypervisorVMTagging
+
+`func (o *CatalogSearchResponseModel) GetHypervisorVMTagging() bool`
+
+GetHypervisorVMTagging returns the HypervisorVMTagging field if non-nil, zero value otherwise.
+
+### GetHypervisorVMTaggingOk
+
+`func (o *CatalogSearchResponseModel) GetHypervisorVMTaggingOk() (*bool, bool)`
+
+GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHypervisorVMTagging
+
+`func (o *CatalogSearchResponseModel) SetHypervisorVMTagging(v bool)`
+
+SetHypervisorVMTagging sets HypervisorVMTagging field to given value.
+
+### HasHypervisorVMTagging
+
+`func (o *CatalogSearchResponseModel) HasHypervisorVMTagging() bool`
+
+HasHypervisorVMTagging returns a boolean if a field has been set.
+
+### SetHypervisorVMTaggingNil
+
+`func (o *CatalogSearchResponseModel) SetHypervisorVMTaggingNil(b bool)`
+
+ SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+
+### UnsetHypervisorVMTagging
+`func (o *CatalogSearchResponseModel) UnsetHypervisorVMTagging()`
+
+UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
 ### GetMachinesArePhysical
 
 `func (o *CatalogSearchResponseModel) GetMachinesArePhysical() bool`

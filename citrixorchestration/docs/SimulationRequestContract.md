@@ -8,10 +8,11 @@ Name | Type | Description | Notes
 **UserSid** | Pointer to **NullableString** | SID of the selected user. | [optional] 
 **GroupSids** | Pointer to **[]string** | SIDs of the groups to which the user belongs. | [optional] 
 **ClientIpAddress** | Pointer to **NullableString** | Client IP address. | [optional] 
-**ClientName** | Pointer to **NullableString** | Client name | [optional] 
+**ClientName** | Pointer to **NullableString** | Client name. | [optional] 
+**ClientPlatform** | Pointer to **NullableString** | Client platform. | [optional] 
 **DeliveryGroupGuid** | Pointer to **string** | Delivery group GUID. | [optional] 
 **DeliveryGroupType** | Pointer to **NullableString** | Delivery group type, values are members of enum DesktopKind. | [optional] 
-**OrganizationalUnit** | Pointer to **NullableString** | The OU the computer is in. | [optional] 
+**ComputerOu** | Pointer to **NullableString** | The OU the computer is in. | [optional] 
 **Tags** | Pointer to **[]string** | Tags. | [optional] 
 **IsUsingAccessGateway** | Pointer to **bool** | Using Access Gateway. | [optional] 
 **AccessGatewayFarm** | Pointer to **NullableString** | Access Gateway farm. | [optional] 
@@ -212,6 +213,41 @@ HasClientName returns a boolean if a field has been set.
 `func (o *SimulationRequestContract) UnsetClientName()`
 
 UnsetClientName ensures that no value is present for ClientName, not even an explicit nil
+### GetClientPlatform
+
+`func (o *SimulationRequestContract) GetClientPlatform() string`
+
+GetClientPlatform returns the ClientPlatform field if non-nil, zero value otherwise.
+
+### GetClientPlatformOk
+
+`func (o *SimulationRequestContract) GetClientPlatformOk() (*string, bool)`
+
+GetClientPlatformOk returns a tuple with the ClientPlatform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClientPlatform
+
+`func (o *SimulationRequestContract) SetClientPlatform(v string)`
+
+SetClientPlatform sets ClientPlatform field to given value.
+
+### HasClientPlatform
+
+`func (o *SimulationRequestContract) HasClientPlatform() bool`
+
+HasClientPlatform returns a boolean if a field has been set.
+
+### SetClientPlatformNil
+
+`func (o *SimulationRequestContract) SetClientPlatformNil(b bool)`
+
+ SetClientPlatformNil sets the value for ClientPlatform to be an explicit nil
+
+### UnsetClientPlatform
+`func (o *SimulationRequestContract) UnsetClientPlatform()`
+
+UnsetClientPlatform ensures that no value is present for ClientPlatform, not even an explicit nil
 ### GetDeliveryGroupGuid
 
 `func (o *SimulationRequestContract) GetDeliveryGroupGuid() string`
@@ -272,41 +308,41 @@ HasDeliveryGroupType returns a boolean if a field has been set.
 `func (o *SimulationRequestContract) UnsetDeliveryGroupType()`
 
 UnsetDeliveryGroupType ensures that no value is present for DeliveryGroupType, not even an explicit nil
-### GetOrganizationalUnit
+### GetComputerOu
 
-`func (o *SimulationRequestContract) GetOrganizationalUnit() string`
+`func (o *SimulationRequestContract) GetComputerOu() string`
 
-GetOrganizationalUnit returns the OrganizationalUnit field if non-nil, zero value otherwise.
+GetComputerOu returns the ComputerOu field if non-nil, zero value otherwise.
 
-### GetOrganizationalUnitOk
+### GetComputerOuOk
 
-`func (o *SimulationRequestContract) GetOrganizationalUnitOk() (*string, bool)`
+`func (o *SimulationRequestContract) GetComputerOuOk() (*string, bool)`
 
-GetOrganizationalUnitOk returns a tuple with the OrganizationalUnit field if it's non-nil, zero value otherwise
+GetComputerOuOk returns a tuple with the ComputerOu field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOrganizationalUnit
+### SetComputerOu
 
-`func (o *SimulationRequestContract) SetOrganizationalUnit(v string)`
+`func (o *SimulationRequestContract) SetComputerOu(v string)`
 
-SetOrganizationalUnit sets OrganizationalUnit field to given value.
+SetComputerOu sets ComputerOu field to given value.
 
-### HasOrganizationalUnit
+### HasComputerOu
 
-`func (o *SimulationRequestContract) HasOrganizationalUnit() bool`
+`func (o *SimulationRequestContract) HasComputerOu() bool`
 
-HasOrganizationalUnit returns a boolean if a field has been set.
+HasComputerOu returns a boolean if a field has been set.
 
-### SetOrganizationalUnitNil
+### SetComputerOuNil
 
-`func (o *SimulationRequestContract) SetOrganizationalUnitNil(b bool)`
+`func (o *SimulationRequestContract) SetComputerOuNil(b bool)`
 
- SetOrganizationalUnitNil sets the value for OrganizationalUnit to be an explicit nil
+ SetComputerOuNil sets the value for ComputerOu to be an explicit nil
 
-### UnsetOrganizationalUnit
-`func (o *SimulationRequestContract) UnsetOrganizationalUnit()`
+### UnsetComputerOu
+`func (o *SimulationRequestContract) UnsetComputerOu()`
 
-UnsetOrganizationalUnit ensures that no value is present for OrganizationalUnit, not even an explicit nil
+UnsetComputerOu ensures that no value is present for ComputerOu, not even an explicit nil
 ### GetTags
 
 `func (o *SimulationRequestContract) GetTags() []string`

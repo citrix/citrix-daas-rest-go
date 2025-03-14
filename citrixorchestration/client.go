@@ -97,11 +97,19 @@ type APIClient struct {
 
 	MachinesAPIsDAAS *MachinesAPIsDAASService
 
+	MaintenanceCyclesAPIsDAAS *MaintenanceCyclesAPIsDAASService
+
 	MeAPIsDAAS *MeAPIsDAASService
+
+	ProvisionedVirtualMachineAPIsDAAS *ProvisionedVirtualMachineAPIsDAASService
+
+	ProvisioningSchemesAPIsDAAS *ProvisioningSchemesAPIsDAASService
 
 	PvsStreamingAPIsDAAS *PvsStreamingAPIsDAASService
 
 	RebootSchedulesAPIsDAAS *RebootSchedulesAPIsDAASService
+
+	RecommendationsAPIsDAAS *RecommendationsAPIsDAASService
 
 	SessionsAPIsDAAS *SessionsAPIsDAASService
 
@@ -158,9 +166,13 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.JobsAPIsDAAS = (*JobsAPIsDAASService)(&c.common)
 	c.MachineCatalogsAPIsDAAS = (*MachineCatalogsAPIsDAASService)(&c.common)
 	c.MachinesAPIsDAAS = (*MachinesAPIsDAASService)(&c.common)
+	c.MaintenanceCyclesAPIsDAAS = (*MaintenanceCyclesAPIsDAASService)(&c.common)
 	c.MeAPIsDAAS = (*MeAPIsDAASService)(&c.common)
+	c.ProvisionedVirtualMachineAPIsDAAS = (*ProvisionedVirtualMachineAPIsDAASService)(&c.common)
+	c.ProvisioningSchemesAPIsDAAS = (*ProvisioningSchemesAPIsDAASService)(&c.common)
 	c.PvsStreamingAPIsDAAS = (*PvsStreamingAPIsDAASService)(&c.common)
 	c.RebootSchedulesAPIsDAAS = (*RebootSchedulesAPIsDAASService)(&c.common)
+	c.RecommendationsAPIsDAAS = (*RecommendationsAPIsDAASService)(&c.common)
 	c.SessionsAPIsDAAS = (*SessionsAPIsDAASService)(&c.common)
 	c.SitesAPIsDAAS = (*SitesAPIsDAASService)(&c.common)
 	c.StoreFrontServersAPIsDAAS = (*StoreFrontServersAPIsDAASService)(&c.common)

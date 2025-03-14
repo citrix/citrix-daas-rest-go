@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SettingName** | Pointer to **NullableString** | Setting name | [optional] 
-**SettingValue** | Pointer to **NullableString** | Setting value | [optional] 
-**WinningGpo** | Pointer to **NullableString** | Source GPO for the setting | [optional] 
-**WinningPolicy** | Pointer to **NullableString** | Source policy for the setting | [optional] 
+**SettingName** | Pointer to **NullableString** | Setting name. | [optional] 
+**SettingValue** | Pointer to **NullableString** | Setting value. | [optional] 
+**WinningGpo** | Pointer to **NullableString** | Source GPO for the setting. | [optional] 
+**WinningPolicy** | Pointer to **NullableString** | Source policy for the setting. | [optional] 
 
 ## Methods
 

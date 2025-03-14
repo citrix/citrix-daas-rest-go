@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **IconFromClient** | Pointer to **NullableBool** | Specifies whether the icon is gotten from user&#39;s computer at run time. If not specified, will not be changed. | [optional] 
 **IncludedUserFilterEnabled** | Pointer to **NullableBool** | Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group&#39;s access polic(ies) is implicitly granted access to the application. If not specified, will not be changed. | [optional] 
 **IncludedUsers** | Pointer to **[]string** | Specifies the included users filter of the application; that is, the users and groups who are explicitly granted access to the published application. If not specified, will not be changed. If specified, all users to be included must be specified. | [optional] 
+**PackagedApplicationVisibility** | Pointer to [**PackagedApplicationVisibility**](PackagedApplicationVisibility.md) |  | [optional] 
 **InstalledAppProperties** | Pointer to [**EditInstalledAppRequestModel**](EditInstalledAppRequestModel.md) |  | [optional] 
 **PackagedAppProperties** | Pointer to [**AppVAppRequestModel**](AppVAppRequestModel.md) |  | [optional] 
 **AppVAppProperties** | Pointer to [**AppVAppRequestModel**](AppVAppRequestModel.md) |  | [optional] 
@@ -594,6 +595,31 @@ HasIncludedUsers returns a boolean if a field has been set.
 `func (o *EditApplicationRequestModel) UnsetIncludedUsers()`
 
 UnsetIncludedUsers ensures that no value is present for IncludedUsers, not even an explicit nil
+### GetPackagedApplicationVisibility
+
+`func (o *EditApplicationRequestModel) GetPackagedApplicationVisibility() PackagedApplicationVisibility`
+
+GetPackagedApplicationVisibility returns the PackagedApplicationVisibility field if non-nil, zero value otherwise.
+
+### GetPackagedApplicationVisibilityOk
+
+`func (o *EditApplicationRequestModel) GetPackagedApplicationVisibilityOk() (*PackagedApplicationVisibility, bool)`
+
+GetPackagedApplicationVisibilityOk returns a tuple with the PackagedApplicationVisibility field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedApplicationVisibility
+
+`func (o *EditApplicationRequestModel) SetPackagedApplicationVisibility(v PackagedApplicationVisibility)`
+
+SetPackagedApplicationVisibility sets PackagedApplicationVisibility field to given value.
+
+### HasPackagedApplicationVisibility
+
+`func (o *EditApplicationRequestModel) HasPackagedApplicationVisibility() bool`
+
+HasPackagedApplicationVisibility returns a boolean if a field has been set.
+
 ### GetInstalledAppProperties
 
 `func (o *EditApplicationRequestModel) GetInstalledAppProperties() EditInstalledAppRequestModel`

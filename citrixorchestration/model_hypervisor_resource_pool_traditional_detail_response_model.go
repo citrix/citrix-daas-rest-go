@@ -53,6 +53,7 @@ type HypervisorResourcePoolTraditionalDetailResponseModel struct {
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines.
 	PersonalvDiskStorage []HypervisorStorageResourceResponseModel `json:"PersonalvDiskStorage,omitempty"`
+	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 }
 
 // NewHypervisorResourcePoolTraditionalDetailResponseModel instantiates a new HypervisorResourcePoolTraditionalDetailResponseModel object
@@ -704,6 +705,38 @@ func (o *HypervisorResourcePoolTraditionalDetailResponseModel) SetPersonalvDiskS
 	o.PersonalvDiskStorage = v
 }
 
+// GetStorageBalanceType returns the StorageBalanceType field value if set, zero value otherwise.
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetStorageBalanceType() StorageBalanceType {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		var ret StorageBalanceType
+		return ret
+	}
+	return *o.StorageBalanceType
+}
+
+// GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool) {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		return nil, false
+	}
+	return o.StorageBalanceType, true
+}
+
+// HasStorageBalanceType returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) HasStorageBalanceType() bool {
+	if o != nil && !IsNil(o.StorageBalanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageBalanceType gets a reference to the given StorageBalanceType and assigns it to the StorageBalanceType field.
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) SetStorageBalanceType(v StorageBalanceType) {
+	o.StorageBalanceType = &v
+}
+
 func (o HypervisorResourcePoolTraditionalDetailResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -756,6 +789,9 @@ func (o HypervisorResourcePoolTraditionalDetailResponseModel) ToMap() (map[strin
 	}
 	if o.PersonalvDiskStorage != nil {
 		toSerialize["PersonalvDiskStorage"] = o.PersonalvDiskStorage
+	}
+	if !IsNil(o.StorageBalanceType) {
+		toSerialize["StorageBalanceType"] = o.StorageBalanceType
 	}
 	return toSerialize, nil
 }

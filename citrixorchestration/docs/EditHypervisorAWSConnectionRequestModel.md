@@ -19,10 +19,10 @@ Name | Type | Description | Notes
 **SecretKeyFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
 **MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | Maximum number of concurrent AWS provisioning operations. Optional.  If not specified, will not be changed. | [optional] 
 **Address** | Pointer to **NullableString** | Custom AWS Address. Only when the connection without the resourcePool can be updated. | [optional] 
+**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
 **ApplicationId** | Pointer to **NullableString** | Application ID of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, then ApplicationSecret must also be specified. | [optional] 
 **ApplicationSecret** | Pointer to **NullableString** | The Application Secret of the service principal used to access the Azure APIs.  Optional.  If not specified, will not be changed.  If specified, must in the format indicated by ApplicationSecretFormat. | [optional] 
 **ApplicationSecretFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
-**CustomProperties** | Pointer to **NullableString** | The properties of host connection that are specific to the target hosting infrastructure. | [optional] 
 **ServiceAccountId** | Pointer to **NullableString** | The service account ID used to access the Google Cloud APIs. Optional.  If not specified, will not be changed.  If specified, ServiceAccountCredentials must also be specified. | [optional] 
 **ServiceAccountCredentials** | Pointer to **NullableString** | the JSON-encoded service account credentials used to access the Google Cloud APIs.  Optional.  If not specified, will not be changed.  If specified, must be in the format indicated by ServiceAccountCredentialsFormat. | [optional] 
 **ServiceAccountCredentialsFormat** | Pointer to [**IdentityPasswordFormat**](IdentityPasswordFormat.md) |  | [optional] 
@@ -556,6 +556,41 @@ HasAddress returns a boolean if a field has been set.
 `func (o *EditHypervisorAWSConnectionRequestModel) UnsetAddress()`
 
 UnsetAddress ensures that no value is present for Address, not even an explicit nil
+### GetCustomProperties
+
+`func (o *EditHypervisorAWSConnectionRequestModel) GetCustomProperties() string`
+
+GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
+
+### GetCustomPropertiesOk
+
+`func (o *EditHypervisorAWSConnectionRequestModel) GetCustomPropertiesOk() (*string, bool)`
+
+GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomProperties
+
+`func (o *EditHypervisorAWSConnectionRequestModel) SetCustomProperties(v string)`
+
+SetCustomProperties sets CustomProperties field to given value.
+
+### HasCustomProperties
+
+`func (o *EditHypervisorAWSConnectionRequestModel) HasCustomProperties() bool`
+
+HasCustomProperties returns a boolean if a field has been set.
+
+### SetCustomPropertiesNil
+
+`func (o *EditHypervisorAWSConnectionRequestModel) SetCustomPropertiesNil(b bool)`
+
+ SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+
+### UnsetCustomProperties
+`func (o *EditHypervisorAWSConnectionRequestModel) UnsetCustomProperties()`
+
+UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetApplicationId
 
 `func (o *EditHypervisorAWSConnectionRequestModel) GetApplicationId() string`
@@ -651,41 +686,6 @@ SetApplicationSecretFormat sets ApplicationSecretFormat field to given value.
 
 HasApplicationSecretFormat returns a boolean if a field has been set.
 
-### GetCustomProperties
-
-`func (o *EditHypervisorAWSConnectionRequestModel) GetCustomProperties() string`
-
-GetCustomProperties returns the CustomProperties field if non-nil, zero value otherwise.
-
-### GetCustomPropertiesOk
-
-`func (o *EditHypervisorAWSConnectionRequestModel) GetCustomPropertiesOk() (*string, bool)`
-
-GetCustomPropertiesOk returns a tuple with the CustomProperties field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCustomProperties
-
-`func (o *EditHypervisorAWSConnectionRequestModel) SetCustomProperties(v string)`
-
-SetCustomProperties sets CustomProperties field to given value.
-
-### HasCustomProperties
-
-`func (o *EditHypervisorAWSConnectionRequestModel) HasCustomProperties() bool`
-
-HasCustomProperties returns a boolean if a field has been set.
-
-### SetCustomPropertiesNil
-
-`func (o *EditHypervisorAWSConnectionRequestModel) SetCustomPropertiesNil(b bool)`
-
- SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
-
-### UnsetCustomProperties
-`func (o *EditHypervisorAWSConnectionRequestModel) UnsetCustomProperties()`
-
-UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
 ### GetServiceAccountId
 
 `func (o *EditHypervisorAWSConnectionRequestModel) GetServiceAccountId() string`

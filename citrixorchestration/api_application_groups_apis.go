@@ -1825,6 +1825,7 @@ type ApiApplicationGroupsGetApplicationGroupRequest struct {
 	accept *string
 	citrixLocale *string
 	fields *string
+	async *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1872,6 +1873,12 @@ func (r ApiApplicationGroupsGetApplicationGroupRequest) CitrixLocale(citrixLocal
 // Optional filter, removing unspecified properties that otherwise would have been sent by the server             
 func (r ApiApplicationGroupsGetApplicationGroupRequest) Fields(fields string) ApiApplicationGroupsGetApplicationGroupRequest {
 	r.fields = &fields
+	return r
+}
+
+// If &#x60;true&#x60;, the application group details will be fetched as a background task. The task will have JobType GetApplicationGroup.
+func (r ApiApplicationGroupsGetApplicationGroupRequest) Async(async bool) ApiApplicationGroupsGetApplicationGroupRequest {
+	r.async = &async
 	return r
 }
 
@@ -1924,6 +1931,9 @@ func (a *ApplicationGroupsAPIsDAASService) ApplicationGroupsGetApplicationGroupE
 
 	if r.fields != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fields", r.fields, "")
+	}
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

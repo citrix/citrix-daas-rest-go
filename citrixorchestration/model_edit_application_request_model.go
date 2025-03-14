@@ -49,6 +49,7 @@ type EditApplicationRequestModel struct {
 	IncludedUserFilterEnabled NullableBool `json:"IncludedUserFilterEnabled,omitempty"`
 	// Specifies the included users filter of the application; that is, the users and groups who are explicitly granted access to the published application. If not specified, will not be changed. If specified, all users to be included must be specified.
 	IncludedUsers []string `json:"IncludedUsers,omitempty"`
+	PackagedApplicationVisibility *PackagedApplicationVisibility `json:"PackagedApplicationVisibility,omitempty"`
 	InstalledAppProperties *EditInstalledAppRequestModel `json:"InstalledAppProperties,omitempty"`
 	PackagedAppProperties *AppVAppRequestModel `json:"PackagedAppProperties,omitempty"`
 	AppVAppProperties *AppVAppRequestModel `json:"AppVAppProperties,omitempty"`
@@ -709,6 +710,38 @@ func (o *EditApplicationRequestModel) SetIncludedUsers(v []string) {
 	o.IncludedUsers = v
 }
 
+// GetPackagedApplicationVisibility returns the PackagedApplicationVisibility field value if set, zero value otherwise.
+func (o *EditApplicationRequestModel) GetPackagedApplicationVisibility() PackagedApplicationVisibility {
+	if o == nil || IsNil(o.PackagedApplicationVisibility) {
+		var ret PackagedApplicationVisibility
+		return ret
+	}
+	return *o.PackagedApplicationVisibility
+}
+
+// GetPackagedApplicationVisibilityOk returns a tuple with the PackagedApplicationVisibility field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *EditApplicationRequestModel) GetPackagedApplicationVisibilityOk() (*PackagedApplicationVisibility, bool) {
+	if o == nil || IsNil(o.PackagedApplicationVisibility) {
+		return nil, false
+	}
+	return o.PackagedApplicationVisibility, true
+}
+
+// HasPackagedApplicationVisibility returns a boolean if a field has been set.
+func (o *EditApplicationRequestModel) HasPackagedApplicationVisibility() bool {
+	if o != nil && !IsNil(o.PackagedApplicationVisibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetPackagedApplicationVisibility gets a reference to the given PackagedApplicationVisibility and assigns it to the PackagedApplicationVisibility field.
+func (o *EditApplicationRequestModel) SetPackagedApplicationVisibility(v PackagedApplicationVisibility) {
+	o.PackagedApplicationVisibility = &v
+}
+
 // GetInstalledAppProperties returns the InstalledAppProperties field value if set, zero value otherwise.
 func (o *EditApplicationRequestModel) GetInstalledAppProperties() EditInstalledAppRequestModel {
 	if o == nil || IsNil(o.InstalledAppProperties) {
@@ -1315,6 +1348,9 @@ func (o EditApplicationRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IncludedUsers != nil {
 		toSerialize["IncludedUsers"] = o.IncludedUsers
+	}
+	if !IsNil(o.PackagedApplicationVisibility) {
+		toSerialize["PackagedApplicationVisibility"] = o.PackagedApplicationVisibility
 	}
 	if !IsNil(o.InstalledAppProperties) {
 		toSerialize["InstalledAppProperties"] = o.InstalledAppProperties

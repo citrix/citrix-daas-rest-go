@@ -80,6 +80,10 @@ type MachineResponseModel struct {
 	FormattedLastErrorTime NullableString `json:"FormattedLastErrorTime,omitempty"`
 	// Gives current effective load index. Only used when SessionSupport is equal to MultiSession.
 	LoadIndex NullableInt32 `json:"LoadIndex,omitempty"`
+	// Gives the last reported individual load indexes that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession.
+	LoadIndexes []int32 `json:"LoadIndexes,omitempty"`
+	// Gives the last reported individual load index names that were used in the calculation of the LoadIndex value. Note that the LoadIndex value may have been subsequently adjusted due to session brokering operations. This value is only set when SessionSupport is equal to MultiSession.
+	LoadIndexNames []string `json:"LoadIndexNames,omitempty"`
 	MachineUnavailableReason *MachineUnavailableReason `json:"MachineUnavailableReason,omitempty"`
 	// A string that can be used to identify the operating system that is running on the machine.
 	OSType NullableString `json:"OSType,omitempty"`
@@ -155,7 +159,7 @@ type MachineResponseModel struct {
 	// Flag indicating whether the machine's configuration is out of sync with the catalog's latest configuration
 	MachineConfigurationOutOfSync NullableBool `json:"MachineConfigurationOutOfSync,omitempty"`
 	UpgradeDetail *MachineUpgradeDetail `json:"UpgradeDetail,omitempty"`
-	// The meta data of this machine.
+	// The metadata of this machine.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
 
@@ -1487,6 +1491,72 @@ func (o *MachineResponseModel) SetLoadIndexNil() {
 // UnsetLoadIndex ensures that no value is present for LoadIndex, not even an explicit nil
 func (o *MachineResponseModel) UnsetLoadIndex() {
 	o.LoadIndex.Unset()
+}
+
+// GetLoadIndexes returns the LoadIndexes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MachineResponseModel) GetLoadIndexes() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+	return o.LoadIndexes
+}
+
+// GetLoadIndexesOk returns a tuple with the LoadIndexes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MachineResponseModel) GetLoadIndexesOk() ([]int32, bool) {
+	if o == nil || IsNil(o.LoadIndexes) {
+		return nil, false
+	}
+	return o.LoadIndexes, true
+}
+
+// HasLoadIndexes returns a boolean if a field has been set.
+func (o *MachineResponseModel) HasLoadIndexes() bool {
+	if o != nil && IsNil(o.LoadIndexes) {
+		return true
+	}
+
+	return false
+}
+
+// SetLoadIndexes gets a reference to the given []int32 and assigns it to the LoadIndexes field.
+func (o *MachineResponseModel) SetLoadIndexes(v []int32) {
+	o.LoadIndexes = v
+}
+
+// GetLoadIndexNames returns the LoadIndexNames field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MachineResponseModel) GetLoadIndexNames() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.LoadIndexNames
+}
+
+// GetLoadIndexNamesOk returns a tuple with the LoadIndexNames field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MachineResponseModel) GetLoadIndexNamesOk() ([]string, bool) {
+	if o == nil || IsNil(o.LoadIndexNames) {
+		return nil, false
+	}
+	return o.LoadIndexNames, true
+}
+
+// HasLoadIndexNames returns a boolean if a field has been set.
+func (o *MachineResponseModel) HasLoadIndexNames() bool {
+	if o != nil && IsNil(o.LoadIndexNames) {
+		return true
+	}
+
+	return false
+}
+
+// SetLoadIndexNames gets a reference to the given []string and assigns it to the LoadIndexNames field.
+func (o *MachineResponseModel) SetLoadIndexNames(v []string) {
+	o.LoadIndexNames = v
 }
 
 // GetMachineUnavailableReason returns the MachineUnavailableReason field value if set, zero value otherwise.
@@ -3363,6 +3433,12 @@ func (o MachineResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LoadIndex.IsSet() {
 		toSerialize["LoadIndex"] = o.LoadIndex.Get()
+	}
+	if o.LoadIndexes != nil {
+		toSerialize["LoadIndexes"] = o.LoadIndexes
+	}
+	if o.LoadIndexNames != nil {
+		toSerialize["LoadIndexNames"] = o.LoadIndexNames
 	}
 	if !IsNil(o.MachineUnavailableReason) {
 		toSerialize["MachineUnavailableReason"] = o.MachineUnavailableReason

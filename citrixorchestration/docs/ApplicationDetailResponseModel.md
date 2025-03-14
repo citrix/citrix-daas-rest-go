@@ -4,17 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **NullableString** | Id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
+**Id** | Pointer to **NullableString** | The id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility | [optional] 
 **Uid** | Pointer to **NullableInt32** | &#x60;DEPRECATED.  Use &lt;see cref&#x3D;&#39;Id&#39;/&gt;.&#x60; DEPRECATED. Use Id. | [optional] 
 **ApplicationFolder** | Pointer to [**RefResponseModel**](RefResponseModel.md) |  | [optional] 
 **ApplicationType** | Pointer to [**ApplicationType**](ApplicationType.md) |  | [optional] 
 **PackagedApplicationType** | Pointer to [**PackagedApplicationType**](PackagedApplicationType.md) |  | [optional] 
+**PackagedApplicationVisibility** | Pointer to [**PackagedApplicationVisibility**](PackagedApplicationVisibility.md) |  | [optional] 
 **ClientFolder** | Pointer to **NullableString** | The folder that the application belongs to as the user sees it. | [optional] 
 **ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the application reside. | [optional] 
 **Description** | Pointer to **NullableString** | The description of the application. | [optional] 
-**DoNotEnumerate** | Pointer to **bool** | Indicates whether or not this application is enumerable | [optional] 
-**Enabled** | Pointer to **bool** | Indicates whether or not this application can be launched. | [optional] 
-**IconId** | Pointer to **NullableString** | Id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid | [optional] 
+**DoNotEnumerate** | Pointer to **bool** | Indicates whether this application is enumerable | [optional] 
+**Enabled** | Pointer to **bool** | Indicates whether this application can be launched. | [optional] 
+**IconId** | Pointer to **NullableString** | The id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid | [optional] 
 **InstalledAppProperties** | Pointer to [**InstalledAppResponseModel**](InstalledAppResponseModel.md) |  | [optional] 
 **PackagedAppProperties** | Pointer to [**AppVAppResponseModel**](AppVAppResponseModel.md) |  | [optional] 
 **AppVAppProperties** | Pointer to [**AppVAppResponseModel**](AppVAppResponseModel.md) |  | [optional] 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | Name of the application.  Only seen by administrators. | [optional] 
 **PublishedName** | Pointer to **NullableString** | The name seen by end users who have access to the application. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of application. | [optional] 
-**Visible** | Pointer to **bool** | Indicates whether or not this application is visible to users. | [optional] 
+**Visible** | Pointer to **bool** | Indicates whether this application is visible to users. | [optional] 
 **SharingKind** | Pointer to [**SharingKind**](SharingKind.md) |  | [optional] 
 **Tags** | Pointer to **[]string** | Tags associated with this application. | [optional] 
 **Tenants** | Pointer to [**[]RefResponseModel**](RefResponseModel.md) | The tenant(s) that the application is assigned to.  If &#x60;null&#x60;, the application is not assigned to any tenants, and may be used by any tenant. | [optional] 
@@ -212,6 +213,31 @@ SetPackagedApplicationType sets PackagedApplicationType field to given value.
 `func (o *ApplicationDetailResponseModel) HasPackagedApplicationType() bool`
 
 HasPackagedApplicationType returns a boolean if a field has been set.
+
+### GetPackagedApplicationVisibility
+
+`func (o *ApplicationDetailResponseModel) GetPackagedApplicationVisibility() PackagedApplicationVisibility`
+
+GetPackagedApplicationVisibility returns the PackagedApplicationVisibility field if non-nil, zero value otherwise.
+
+### GetPackagedApplicationVisibilityOk
+
+`func (o *ApplicationDetailResponseModel) GetPackagedApplicationVisibilityOk() (*PackagedApplicationVisibility, bool)`
+
+GetPackagedApplicationVisibilityOk returns a tuple with the PackagedApplicationVisibility field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPackagedApplicationVisibility
+
+`func (o *ApplicationDetailResponseModel) SetPackagedApplicationVisibility(v PackagedApplicationVisibility)`
+
+SetPackagedApplicationVisibility sets PackagedApplicationVisibility field to given value.
+
+### HasPackagedApplicationVisibility
+
+`func (o *ApplicationDetailResponseModel) HasPackagedApplicationVisibility() bool`
+
+HasPackagedApplicationVisibility returns a boolean if a field has been set.
 
 ### GetClientFolder
 

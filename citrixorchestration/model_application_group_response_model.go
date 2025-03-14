@@ -51,6 +51,8 @@ type ApplicationGroupResponseModel struct {
 	RestrictToTag *RefResponseModel `json:"RestrictToTag,omitempty"`
 	// Delivery groups associated with the application group.
 	DeliveryGroups []ApplicationGroupDeliveryGroupRefResponseModel `json:"DeliveryGroups,omitempty"`
+	// Delivery group uids associated with the application group.
+	AssociatedDeliveryGroupUids []int32 `json:"AssociatedDeliveryGroupUids,omitempty"`
 	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
 }
 
@@ -642,6 +644,39 @@ func (o *ApplicationGroupResponseModel) SetDeliveryGroups(v []ApplicationGroupDe
 	o.DeliveryGroups = v
 }
 
+// GetAssociatedDeliveryGroupUids returns the AssociatedDeliveryGroupUids field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApplicationGroupResponseModel) GetAssociatedDeliveryGroupUids() []int32 {
+	if o == nil {
+		var ret []int32
+		return ret
+	}
+	return o.AssociatedDeliveryGroupUids
+}
+
+// GetAssociatedDeliveryGroupUidsOk returns a tuple with the AssociatedDeliveryGroupUids field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApplicationGroupResponseModel) GetAssociatedDeliveryGroupUidsOk() ([]int32, bool) {
+	if o == nil || IsNil(o.AssociatedDeliveryGroupUids) {
+		return nil, false
+	}
+	return o.AssociatedDeliveryGroupUids, true
+}
+
+// HasAssociatedDeliveryGroupUids returns a boolean if a field has been set.
+func (o *ApplicationGroupResponseModel) HasAssociatedDeliveryGroupUids() bool {
+	if o != nil && IsNil(o.AssociatedDeliveryGroupUids) {
+		return true
+	}
+
+	return false
+}
+
+// SetAssociatedDeliveryGroupUids gets a reference to the given []int32 and assigns it to the AssociatedDeliveryGroupUids field.
+func (o *ApplicationGroupResponseModel) SetAssociatedDeliveryGroupUids(v []int32) {
+	o.AssociatedDeliveryGroupUids = v
+}
+
 // GetAdminFolder returns the AdminFolder field value if set, zero value otherwise.
 func (o *ApplicationGroupResponseModel) GetAdminFolder() RefResponseModel {
 	if o == nil || IsNil(o.AdminFolder) {
@@ -731,6 +766,9 @@ func (o ApplicationGroupResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.DeliveryGroups != nil {
 		toSerialize["DeliveryGroups"] = o.DeliveryGroups
+	}
+	if o.AssociatedDeliveryGroupUids != nil {
+		toSerialize["AssociatedDeliveryGroupUids"] = o.AssociatedDeliveryGroupUids
 	}
 	if !IsNil(o.AdminFolder) {
 		toSerialize["AdminFolder"] = o.AdminFolder

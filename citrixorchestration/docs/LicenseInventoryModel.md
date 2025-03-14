@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **LicenseOverdraft** | Pointer to **int32** | The number of the overdraft licenses | [optional] 
 **LicenseModel** | Pointer to [**LicenseModel**](LicenseModel.md) |  | [optional] 
 **ProductEdition** | Pointer to [**ProductEdition**](ProductEdition.md) |  | [optional] 
+**LocalizedLicenseProductEdition** | Pointer to **NullableString** | Localized license name of the product edition | [optional] 
 
 ## Methods
 
@@ -324,6 +325,41 @@ SetProductEdition sets ProductEdition field to given value.
 
 HasProductEdition returns a boolean if a field has been set.
 
+### GetLocalizedLicenseProductEdition
+
+`func (o *LicenseInventoryModel) GetLocalizedLicenseProductEdition() string`
+
+GetLocalizedLicenseProductEdition returns the LocalizedLicenseProductEdition field if non-nil, zero value otherwise.
+
+### GetLocalizedLicenseProductEditionOk
+
+`func (o *LicenseInventoryModel) GetLocalizedLicenseProductEditionOk() (*string, bool)`
+
+GetLocalizedLicenseProductEditionOk returns a tuple with the LocalizedLicenseProductEdition field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocalizedLicenseProductEdition
+
+`func (o *LicenseInventoryModel) SetLocalizedLicenseProductEdition(v string)`
+
+SetLocalizedLicenseProductEdition sets LocalizedLicenseProductEdition field to given value.
+
+### HasLocalizedLicenseProductEdition
+
+`func (o *LicenseInventoryModel) HasLocalizedLicenseProductEdition() bool`
+
+HasLocalizedLicenseProductEdition returns a boolean if a field has been set.
+
+### SetLocalizedLicenseProductEditionNil
+
+`func (o *LicenseInventoryModel) SetLocalizedLicenseProductEditionNil(b bool)`
+
+ SetLocalizedLicenseProductEditionNil sets the value for LocalizedLicenseProductEdition to be an explicit nil
+
+### UnsetLocalizedLicenseProductEdition
+`func (o *LicenseInventoryModel) UnsetLocalizedLicenseProductEdition()`
+
+UnsetLocalizedLicenseProductEdition ensures that no value is present for LocalizedLicenseProductEdition, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

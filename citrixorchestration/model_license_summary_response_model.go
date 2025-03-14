@@ -22,6 +22,8 @@ type LicenseSummaryResponseModel struct {
 	LicenseInformation *LicenseInformationModel `json:"LicenseInformation,omitempty"`
 	// Get license inventory list
 	LicenseInventories []LicenseInventoryModel `json:"LicenseInventories,omitempty"`
+	// Get license Las inventory list
+	LicenseLasInventories []LicenseInventoryModel `json:"LicenseLasInventories,omitempty"`
 	// The number of the available licenses
 	NormalLicenses NullableInt32 `json:"NormalLicenses,omitempty"`
 	// The number of the overdraft licenses
@@ -112,6 +114,39 @@ func (o *LicenseSummaryResponseModel) HasLicenseInventories() bool {
 // SetLicenseInventories gets a reference to the given []LicenseInventoryModel and assigns it to the LicenseInventories field.
 func (o *LicenseSummaryResponseModel) SetLicenseInventories(v []LicenseInventoryModel) {
 	o.LicenseInventories = v
+}
+
+// GetLicenseLasInventories returns the LicenseLasInventories field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LicenseSummaryResponseModel) GetLicenseLasInventories() []LicenseInventoryModel {
+	if o == nil {
+		var ret []LicenseInventoryModel
+		return ret
+	}
+	return o.LicenseLasInventories
+}
+
+// GetLicenseLasInventoriesOk returns a tuple with the LicenseLasInventories field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LicenseSummaryResponseModel) GetLicenseLasInventoriesOk() ([]LicenseInventoryModel, bool) {
+	if o == nil || IsNil(o.LicenseLasInventories) {
+		return nil, false
+	}
+	return o.LicenseLasInventories, true
+}
+
+// HasLicenseLasInventories returns a boolean if a field has been set.
+func (o *LicenseSummaryResponseModel) HasLicenseLasInventories() bool {
+	if o != nil && IsNil(o.LicenseLasInventories) {
+		return true
+	}
+
+	return false
+}
+
+// SetLicenseLasInventories gets a reference to the given []LicenseInventoryModel and assigns it to the LicenseLasInventories field.
+func (o *LicenseSummaryResponseModel) SetLicenseLasInventories(v []LicenseInventoryModel) {
+	o.LicenseLasInventories = v
 }
 
 // GetNormalLicenses returns the NormalLicenses field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -297,6 +332,9 @@ func (o LicenseSummaryResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.LicenseInventories != nil {
 		toSerialize["LicenseInventories"] = o.LicenseInventories
+	}
+	if o.LicenseLasInventories != nil {
+		toSerialize["LicenseLasInventories"] = o.LicenseLasInventories
 	}
 	if o.NormalLicenses.IsSet() {
 		toSerialize["NormalLicenses"] = o.NormalLicenses.Get()

@@ -17,7 +17,7 @@ import (
 // checks if the CatalogSearchResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CatalogSearchResponseModel{}
 
-// CatalogSearchResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder.               Catalog Search result model              
+// CatalogSearchResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder,HypervisorVMTagging.               Catalog Search result model              
 type CatalogSearchResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name NullableString `json:"Name,omitempty"`
@@ -94,6 +94,8 @@ type CatalogSearchResponseModel struct {
 	UpgradeInfo *MachineCatalogUpgradeInfo `json:"UpgradeInfo,omitempty"`
 	Zone *RefResponseModel `json:"Zone,omitempty"`
 	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
+	// Indicates that assigned VMs from this catalog will carry a hypervisor-level tag.
+	HypervisorVMTagging NullableBool `json:"HypervisorVMTagging,omitempty"`
 	// Indicates whether or not machines in the machine catalog are Physical.
 	MachinesArePhysical *bool `json:"MachinesArePhysical,omitempty"`
 	HypervisorPluginResponse *HypervisorPluginResponseModel `json:"HypervisorPluginResponse,omitempty"`
@@ -1657,6 +1659,48 @@ func (o *CatalogSearchResponseModel) SetAdminFolder(v RefResponseModel) {
 	o.AdminFolder = &v
 }
 
+// GetHypervisorVMTagging returns the HypervisorVMTagging field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CatalogSearchResponseModel) GetHypervisorVMTagging() bool {
+	if o == nil || IsNil(o.HypervisorVMTagging.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.HypervisorVMTagging.Get()
+}
+
+// GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CatalogSearchResponseModel) GetHypervisorVMTaggingOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HypervisorVMTagging.Get(), o.HypervisorVMTagging.IsSet()
+}
+
+// HasHypervisorVMTagging returns a boolean if a field has been set.
+func (o *CatalogSearchResponseModel) HasHypervisorVMTagging() bool {
+	if o != nil && o.HypervisorVMTagging.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorVMTagging gets a reference to the given NullableBool and assigns it to the HypervisorVMTagging field.
+func (o *CatalogSearchResponseModel) SetHypervisorVMTagging(v bool) {
+	o.HypervisorVMTagging.Set(&v)
+}
+// SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+func (o *CatalogSearchResponseModel) SetHypervisorVMTaggingNil() {
+	o.HypervisorVMTagging.Set(nil)
+}
+
+// UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
+func (o *CatalogSearchResponseModel) UnsetHypervisorVMTagging() {
+	o.HypervisorVMTagging.Unset()
+}
+
 // GetMachinesArePhysical returns the MachinesArePhysical field value if set, zero value otherwise.
 func (o *CatalogSearchResponseModel) GetMachinesArePhysical() bool {
 	if o == nil || IsNil(o.MachinesArePhysical) {
@@ -1926,6 +1970,9 @@ func (o CatalogSearchResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AdminFolder) {
 		toSerialize["AdminFolder"] = o.AdminFolder
+	}
+	if o.HypervisorVMTagging.IsSet() {
+		toSerialize["HypervisorVMTagging"] = o.HypervisorVMTagging.Get()
 	}
 	if !IsNil(o.MachinesArePhysical) {
 		toSerialize["MachinesArePhysical"] = o.MachinesArePhysical

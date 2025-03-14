@@ -43,9 +43,11 @@ type AppLibPackageDiscoveryProfileResponseModel struct {
 	DiscoverAppAttach *bool `json:"DiscoverAppAttach,omitempty"`
 	// A value indicating whether or not to search should Discover FlexApp Packages.
 	DiscoverFlexApp *bool `json:"DiscoverFlexApp,omitempty"`
+	// A value indicating whether or not to search should Discover ElasticApp Layers Packages.
+	DiscoverElasticAppLayers *bool `json:"DiscoverElasticAppLayers,omitempty"`
 	// A value indicating whether or not the discovery should run automatically.
 	AutomateDiscovery *bool `json:"AutomateDiscovery,omitempty"`
-	// A value indicating what time period should used to trigger the discovery.
+	// A value indicating what time period should use to trigger the discovery.
 	AutoDiscoveryPeriod NullableString `json:"AutoDiscoveryPeriod,omitempty"`
 	// A value indicating how often to trigger the discovery.
 	AutoDiscoveryCadence *int32 `json:"AutoDiscoveryCadence,omitempty"`
@@ -512,6 +514,38 @@ func (o *AppLibPackageDiscoveryProfileResponseModel) SetDiscoverFlexApp(v bool) 
 	o.DiscoverFlexApp = &v
 }
 
+// GetDiscoverElasticAppLayers returns the DiscoverElasticAppLayers field value if set, zero value otherwise.
+func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverElasticAppLayers() bool {
+	if o == nil || IsNil(o.DiscoverElasticAppLayers) {
+		var ret bool
+		return ret
+	}
+	return *o.DiscoverElasticAppLayers
+}
+
+// GetDiscoverElasticAppLayersOk returns a tuple with the DiscoverElasticAppLayers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AppLibPackageDiscoveryProfileResponseModel) GetDiscoverElasticAppLayersOk() (*bool, bool) {
+	if o == nil || IsNil(o.DiscoverElasticAppLayers) {
+		return nil, false
+	}
+	return o.DiscoverElasticAppLayers, true
+}
+
+// HasDiscoverElasticAppLayers returns a boolean if a field has been set.
+func (o *AppLibPackageDiscoveryProfileResponseModel) HasDiscoverElasticAppLayers() bool {
+	if o != nil && !IsNil(o.DiscoverElasticAppLayers) {
+		return true
+	}
+
+	return false
+}
+
+// SetDiscoverElasticAppLayers gets a reference to the given bool and assigns it to the DiscoverElasticAppLayers field.
+func (o *AppLibPackageDiscoveryProfileResponseModel) SetDiscoverElasticAppLayers(v bool) {
+	o.DiscoverElasticAppLayers = &v
+}
+
 // GetAutomateDiscovery returns the AutomateDiscovery field value if set, zero value otherwise.
 func (o *AppLibPackageDiscoveryProfileResponseModel) GetAutomateDiscovery() bool {
 	if o == nil || IsNil(o.AutomateDiscovery) {
@@ -663,6 +697,9 @@ func (o AppLibPackageDiscoveryProfileResponseModel) ToMap() (map[string]interfac
 	}
 	if !IsNil(o.DiscoverFlexApp) {
 		toSerialize["DiscoverFlexApp"] = o.DiscoverFlexApp
+	}
+	if !IsNil(o.DiscoverElasticAppLayers) {
+		toSerialize["DiscoverElasticAppLayers"] = o.DiscoverElasticAppLayers
 	}
 	if !IsNil(o.AutomateDiscovery) {
 		toSerialize["AutomateDiscovery"] = o.AutomateDiscovery

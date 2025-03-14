@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **UseLocalStorageCaching** | Pointer to **NullableBool** | Indicates whether virtual machines created within this resource pool will use local storage caching for their disk images. | [optional] 
 **CustomProperties** | Pointer to **NullableString** | Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom. | [optional] 
 **PersonalvDiskStorage** | Pointer to [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines. | [optional] 
+**StorageBalanceType** | Pointer to [**StorageBalanceType**](StorageBalanceType.md) |  | [optional] 
 **GpuTypes** | Pointer to [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | GPU types available in the resource pool.  Only applicable to hypervisors that support GPU types. | [optional] 
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
 **UsesExplicitStorage** | Pointer to **bool** | If the hypervisor resource pool use ExplicitStorage. | [optional] 
@@ -299,6 +300,31 @@ HasPersonalvDiskStorage returns a boolean if a field has been set.
 `func (o *HypervisorResourcePoolAWSDetailResponseModel) UnsetPersonalvDiskStorage()`
 
 UnsetPersonalvDiskStorage ensures that no value is present for PersonalvDiskStorage, not even an explicit nil
+### GetStorageBalanceType
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) GetStorageBalanceType() StorageBalanceType`
+
+GetStorageBalanceType returns the StorageBalanceType field if non-nil, zero value otherwise.
+
+### GetStorageBalanceTypeOk
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool)`
+
+GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageBalanceType
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) SetStorageBalanceType(v StorageBalanceType)`
+
+SetStorageBalanceType sets StorageBalanceType field to given value.
+
+### HasStorageBalanceType
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) HasStorageBalanceType() bool`
+
+HasStorageBalanceType returns a boolean if a field has been set.
+
 ### GetGpuTypes
 
 `func (o *HypervisorResourcePoolAWSDetailResponseModel) GetGpuTypes() []HypervisorResourceRefResponseModel`

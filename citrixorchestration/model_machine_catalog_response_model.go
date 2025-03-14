@@ -17,7 +17,7 @@ import (
 // checks if the MachineCatalogResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MachineCatalogResponseModel{}
 
-// MachineCatalogResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder.               Response object for machine catalog.              
+// MachineCatalogResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder,HypervisorVMTagging.               Response object for machine catalog.              
 type MachineCatalogResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name NullableString `json:"Name,omitempty"`
@@ -94,6 +94,8 @@ type MachineCatalogResponseModel struct {
 	UpgradeInfo *MachineCatalogUpgradeInfo `json:"UpgradeInfo,omitempty"`
 	Zone *RefResponseModel `json:"Zone,omitempty"`
 	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
+	// Indicates that assigned VMs from this catalog will carry a hypervisor-level tag.
+	HypervisorVMTagging NullableBool `json:"HypervisorVMTagging,omitempty"`
 }
 
 // NewMachineCatalogResponseModel instantiates a new MachineCatalogResponseModel object
@@ -1651,6 +1653,48 @@ func (o *MachineCatalogResponseModel) SetAdminFolder(v RefResponseModel) {
 	o.AdminFolder = &v
 }
 
+// GetHypervisorVMTagging returns the HypervisorVMTagging field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MachineCatalogResponseModel) GetHypervisorVMTagging() bool {
+	if o == nil || IsNil(o.HypervisorVMTagging.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.HypervisorVMTagging.Get()
+}
+
+// GetHypervisorVMTaggingOk returns a tuple with the HypervisorVMTagging field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MachineCatalogResponseModel) GetHypervisorVMTaggingOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HypervisorVMTagging.Get(), o.HypervisorVMTagging.IsSet()
+}
+
+// HasHypervisorVMTagging returns a boolean if a field has been set.
+func (o *MachineCatalogResponseModel) HasHypervisorVMTagging() bool {
+	if o != nil && o.HypervisorVMTagging.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHypervisorVMTagging gets a reference to the given NullableBool and assigns it to the HypervisorVMTagging field.
+func (o *MachineCatalogResponseModel) SetHypervisorVMTagging(v bool) {
+	o.HypervisorVMTagging.Set(&v)
+}
+// SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
+func (o *MachineCatalogResponseModel) SetHypervisorVMTaggingNil() {
+	o.HypervisorVMTagging.Set(nil)
+}
+
+// UnsetHypervisorVMTagging ensures that no value is present for HypervisorVMTagging, not even an explicit nil
+func (o *MachineCatalogResponseModel) UnsetHypervisorVMTagging() {
+	o.HypervisorVMTagging.Unset()
+}
+
 func (o MachineCatalogResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1792,6 +1836,9 @@ func (o MachineCatalogResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.AdminFolder) {
 		toSerialize["AdminFolder"] = o.AdminFolder
+	}
+	if o.HypervisorVMTagging.IsSet() {
+		toSerialize["HypervisorVMTagging"] = o.HypervisorVMTagging.Get()
 	}
 	return toSerialize, nil
 }

@@ -34,6 +34,7 @@ type ApiImageVersionsDeleteImageVersionRequest struct {
 	citrixTransactionId *string
 	accept *string
 	citrixLocale *string
+	purgeDBOnly *bool
 	async *bool
 }
 
@@ -76,6 +77,12 @@ func (r ApiImageVersionsDeleteImageVersionRequest) Accept(accept string) ApiImag
 // Locale of the request.
 func (r ApiImageVersionsDeleteImageVersionRequest) CitrixLocale(citrixLocale string) ApiImageVersionsDeleteImageVersionRequest {
 	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If this option is specified, this command will only remove the image version data from the Citrix site database.  However, the disk images created in the image version still remain in the hypervisor.   Optional; default is &#x60;false&#x60;.
+func (r ApiImageVersionsDeleteImageVersionRequest) PurgeDBOnly(purgeDBOnly bool) ApiImageVersionsDeleteImageVersionRequest {
+	r.purgeDBOnly = &purgeDBOnly
 	return r
 }
 
@@ -130,6 +137,9 @@ func (a *ImageVersionsAPIsDAASService) ImageVersionsDeleteImageVersionExecute(r 
 		return nil, reportError("citrixInstanceId is required and must be specified")
 	}
 
+	if r.purgeDBOnly != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "purgeDBOnly", r.purgeDBOnly, "")
+	}
 	if r.async != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
 	}

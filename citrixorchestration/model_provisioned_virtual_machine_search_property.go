@@ -25,6 +25,7 @@ const (
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_CPU_COUNT ProvisionedVirtualMachineSearchProperty = "CpuCount"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITY_TYPE ProvisionedVirtualMachineSearchProperty = "IdentityType"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITIES ProvisionedVirtualMachineSearchProperty = "Identities"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IDENTITY_CONTENT ProvisionedVirtualMachineSearchProperty = "IdentityContent"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_IMAGE_OUT_OF_DATE ProvisionedVirtualMachineSearchProperty = "ImageOutOfDate"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_LAST_BOOT_TIME ProvisionedVirtualMachineSearchProperty = "LastBootTime"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_MEMORY_MB ProvisionedVirtualMachineSearchProperty = "MemoryMB"
@@ -37,6 +38,8 @@ const (
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_USE_WRITE_BACK_CACHE ProvisionedVirtualMachineSearchProperty = "UseWriteBackCache"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_WRITE_BACK_CACHE_DISK_SIZE ProvisionedVirtualMachineSearchProperty = "WriteBackCacheDiskSize"
 	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_WRITE_BACK_CACHE_MEMORY_SIZE ProvisionedVirtualMachineSearchProperty = "WriteBackCacheMemorySize"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_RESOURCE_POOL_ID ProvisionedVirtualMachineSearchProperty = "ResourcePoolId"
+	PROVISIONEDVIRTUALMACHINESEARCHPROPERTY_NETWORK_ID ProvisionedVirtualMachineSearchProperty = "NetworkId"
 )
 
 // All allowed values of ProvisionedVirtualMachineSearchProperty enum
@@ -46,6 +49,7 @@ var AllowedProvisionedVirtualMachineSearchPropertyEnumValues = []ProvisionedVirt
 	"CpuCount",
 	"IdentityType",
 	"Identities",
+	"IdentityContent",
 	"ImageOutOfDate",
 	"LastBootTime",
 	"MemoryMB",
@@ -58,6 +62,8 @@ var AllowedProvisionedVirtualMachineSearchPropertyEnumValues = []ProvisionedVirt
 	"UseWriteBackCache",
 	"WriteBackCacheDiskSize",
 	"WriteBackCacheMemorySize",
+	"ResourcePoolId",
+	"NetworkId",
 }
 
 func (v *ProvisionedVirtualMachineSearchProperty) UnmarshalJSON(src []byte) error {

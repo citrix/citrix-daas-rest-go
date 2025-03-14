@@ -52,6 +52,7 @@ type CreateHypervisorResourcePoolRequestModel struct {
 	TemporaryStorage []string `json:"TemporaryStorage,omitempty"`
 	// Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom.
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
+	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 }
 
 // NewCreateHypervisorResourcePoolRequestModel instantiates a new CreateHypervisorResourcePoolRequestModel object
@@ -654,6 +655,38 @@ func (o *CreateHypervisorResourcePoolRequestModel) UnsetCustomProperties() {
 	o.CustomProperties.Unset()
 }
 
+// GetStorageBalanceType returns the StorageBalanceType field value if set, zero value otherwise.
+func (o *CreateHypervisorResourcePoolRequestModel) GetStorageBalanceType() StorageBalanceType {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		var ret StorageBalanceType
+		return ret
+	}
+	return *o.StorageBalanceType
+}
+
+// GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateHypervisorResourcePoolRequestModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool) {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		return nil, false
+	}
+	return o.StorageBalanceType, true
+}
+
+// HasStorageBalanceType returns a boolean if a field has been set.
+func (o *CreateHypervisorResourcePoolRequestModel) HasStorageBalanceType() bool {
+	if o != nil && !IsNil(o.StorageBalanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageBalanceType gets a reference to the given StorageBalanceType and assigns it to the StorageBalanceType field.
+func (o *CreateHypervisorResourcePoolRequestModel) SetStorageBalanceType(v StorageBalanceType) {
+	o.StorageBalanceType = &v
+}
+
 func (o CreateHypervisorResourcePoolRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -710,6 +743,9 @@ func (o CreateHypervisorResourcePoolRequestModel) ToMap() (map[string]interface{
 	}
 	if o.CustomProperties.IsSet() {
 		toSerialize["CustomProperties"] = o.CustomProperties.Get()
+	}
+	if !IsNil(o.StorageBalanceType) {
+		toSerialize["StorageBalanceType"] = o.StorageBalanceType
 	}
 	return toSerialize, nil
 }

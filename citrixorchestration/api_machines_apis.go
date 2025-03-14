@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	"os"
 )
 
 
@@ -3590,7 +3589,7 @@ func (r ApiMachinesGetMachineStartMenuShortcutIconRequest) Async(async bool) Api
 	return r
 }
 
-func (r ApiMachinesGetMachineStartMenuShortcutIconRequest) Execute() (*os.File, *http.Response, error) {
+func (r ApiMachinesGetMachineStartMenuShortcutIconRequest) Execute() (*IconResponseModel, *http.Response, error) {
 	return r.ApiService.MachinesGetMachineStartMenuShortcutIconExecute(r)
 }
 
@@ -3616,13 +3615,13 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcutIcon(ctx co
 }
 
 // Execute executes the request
-//  @return *os.File
-func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcutIconExecute(r ApiMachinesGetMachineStartMenuShortcutIconRequest) (*os.File, *http.Response, error) {
+//  @return IconResponseModel
+func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcutIconExecute(r ApiMachinesGetMachineStartMenuShortcutIconRequest) (*IconResponseModel, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarReturnValue  *IconResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachinesAPIsDAASService.MachinesGetMachineStartMenuShortcutIcon")
@@ -3662,7 +3661,7 @@ func (a *MachinesAPIsDAASService) MachinesGetMachineStartMenuShortcutIconExecute
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -7167,7 +7166,7 @@ func (r ApiMachinesRemoveMachineRequest) CitrixLocale(citrixLocale string) ApiMa
 	return r
 }
 
-// Specifies whether to delete the virtual machines, or just the machine record in the site database. Only relevant when ProvisioningType Optional; default is &#x60;true&#x60;.
+// Specifies whether to delete the virtual machines, or just the machine record in the site database. Only relevant when ProvisioningType equals MCS. Optional; default is &#x60;true&#x60;.
 func (r ApiMachinesRemoveMachineRequest) DeleteVm(deleteVm bool) ApiMachinesRemoveMachineRequest {
 	r.deleteVm = &deleteVm
 	return r
@@ -8176,290 +8175,6 @@ func (a *MachinesAPIsDAASService) MachinesRemovePowerActionScheduleExecute(r Api
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 406 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 503 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-		}
-		return localVarHTTPResponse, newErr
-	}
-
-	return localVarHTTPResponse, nil
-}
-
-type ApiMachinesResetProvVMDiskRequest struct {
-	ctx context.Context
-	ApiService *MachinesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-}
-
-// Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
-func (r ApiMachinesResetProvVMDiskRequest) CitrixCustomerId(citrixCustomerId string) ApiMachinesResetProvVMDiskRequest {
-	r.citrixCustomerId = &citrixCustomerId
-	return r
-}
-
-// Citrix Instance (Site) ID.
-func (r ApiMachinesResetProvVMDiskRequest) CitrixInstanceId(citrixInstanceId string) ApiMachinesResetProvVMDiskRequest {
-	r.citrixInstanceId = &citrixInstanceId
-	return r
-}
-
-// User Agent type of the request.
-func (r ApiMachinesResetProvVMDiskRequest) UserAgent(userAgent string) ApiMachinesResetProvVMDiskRequest {
-	r.userAgent = &userAgent
-	return r
-}
-
-// Citrix authorization header: CWSAuth Bearer&#x3D;{token}
-func (r ApiMachinesResetProvVMDiskRequest) Authorization(authorization string) ApiMachinesResetProvVMDiskRequest {
-	r.authorization = &authorization
-	return r
-}
-
-// Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned.
-func (r ApiMachinesResetProvVMDiskRequest) CitrixTransactionId(citrixTransactionId string) ApiMachinesResetProvVMDiskRequest {
-	r.citrixTransactionId = &citrixTransactionId
-	return r
-}
-
-// Must accept application/json.
-func (r ApiMachinesResetProvVMDiskRequest) Accept(accept string) ApiMachinesResetProvVMDiskRequest {
-	r.accept = &accept
-	return r
-}
-
-// Locale of the request.
-func (r ApiMachinesResetProvVMDiskRequest) CitrixLocale(citrixLocale string) ApiMachinesResetProvVMDiskRequest {
-	r.citrixLocale = &citrixLocale
-	return r
-}
-
-// If &#x60;true&#x60;, the machine will be deleted as a background task. The task will have JobType ResetVMDisk. When the task is complete it will redirect to The job&#39;s Parameters will contain properties: * _Id_ - ID of the machine being deleted, * _Name_ - Name of the machine being deleted.
-func (r ApiMachinesResetProvVMDiskRequest) Async(async bool) ApiMachinesResetProvVMDiskRequest {
-	r.async = &async
-	return r
-}
-
-func (r ApiMachinesResetProvVMDiskRequest) Execute() (*http.Response, error) {
-	return r.ApiService.MachinesResetProvVMDiskExecute(r)
-}
-
-/*
-MachinesResetProvVMDisk Resets the OS disk of persistent VMs to the current master image.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the machine. May be specified by name, ID, or SID. If param is Name, currently it should get rid of '\\\\' and replace it using '|'. For instance, if a MachineName is \"DomainA\\\\NameB\", the param will be \"DomainA|NameB\".
- @return ApiMachinesResetProvVMDiskRequest
-*/
-func (a *MachinesAPIsDAASService) MachinesResetProvVMDisk(ctx context.Context, nameOrId string) ApiMachinesResetProvVMDiskRequest {
-	return ApiMachinesResetProvVMDiskRequest{
-		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-	}
-}
-
-// Execute executes the request
-func (a *MachinesAPIsDAASService) MachinesResetProvVMDiskExecute(r ApiMachinesResetProvVMDiskRequest) (*http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MachinesAPIsDAASService.MachinesResetProvVMDisk")
-	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/Machines/{nameOrId}/$ResetProvVMDisk"
-	localVarPath = strings.Replace(localVarPath, "{"+"nameOrId"+"}", url.PathEscape(parameterValueToString(r.nameOrId, "nameOrId")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.citrixCustomerId == nil {
-		return nil, reportError("citrixCustomerId is required and must be specified")
-	}
-	if r.citrixInstanceId == nil {
-		return nil, reportError("citrixInstanceId is required and must be specified")
-	}
-
-	if r.async != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-InstanceId", r.citrixInstanceId, "")
-	if r.userAgent != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "User-Agent", r.userAgent, "")
-	}
-	if r.authorization != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	}
-	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
-	}
-	if r.accept != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Accept", r.accept, "")
-	}
-	if r.citrixLocale != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-Locale", r.citrixLocale, "")
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["BearerAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ErrorResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
 			var v ErrorResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

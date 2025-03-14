@@ -43,6 +43,8 @@
 
 * `ZONES` (value: `"Zones"`)
 
+* `BACKUP_SCHEDULES` (value: `"BackupSchedules"`)
+
 * `ALL` (value: `"All"`)
 
 * `MULTIPLE` (value: `"Multiple"`)
