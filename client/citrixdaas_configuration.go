@@ -10,6 +10,7 @@ type AuthenticationConfiguration struct {
 	OnPremises   bool   `json:"on_premises"`
 	ApiGateway   bool   `json:"api_gateway"`
 	IsGov        bool   `json:"is_gov"`
+	Environment  string `json:"environment"`
 }
 
 // ClientConfiguration provides Citrix DaaS customer context
