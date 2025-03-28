@@ -211,7 +211,7 @@ func (daasClient *CitrixDaasClient) SetupCCAdminClient(ccUrl string, middlewareF
 }
 
 /* ------ Setup Authentication Configuration ------ */
-func (daasClient *CitrixDaasClient) SetupAuthConfig(authUrl, clientId, clientSecret string, onPremises, apiGateway, isGov bool) {
+func (daasClient *CitrixDaasClient) SetupAuthConfig(authUrl string, clientId string, clientSecret string, onPremises bool, apiGateway bool, isGov bool, environment string) {
 	localAuthCfg := &AuthenticationConfiguration{
 		AuthUrl:      authUrl,
 		ClientId:     clientId,
@@ -219,6 +219,7 @@ func (daasClient *CitrixDaasClient) SetupAuthConfig(authUrl, clientId, clientSec
 		OnPremises:   onPremises,
 		ApiGateway:   apiGateway,
 		IsGov:        isGov,
+		Environment:  environment,
 	}
 	daasClient.AuthConfig = localAuthCfg
 }
@@ -261,10 +262,10 @@ func (daasClient *CitrixDaasClient) SetupWemOnPremClientContext(ctx context.Cont
 	daasClient.SetupWemOnPremAuthConfig(wemAuthUrl, wemAdminUserName, wemAdminPassword)
 }
 
-func (daasClient *CitrixDaasClient) SetupCitrixClientsContext(ctx context.Context, authUrl, ccUrl, hostname, customerId, clientId, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (string, *http.Response, error) {
+func (daasClient *CitrixDaasClient) SetupCitrixClientsContext(ctx context.Context, authUrl string, ccUrl string, hostname string, customerId string, clientId string, clientSecret string, onPremises bool, apiGateway bool, isGov bool, disableSslVerification bool, userAgent *string, environment string, middlewareFunc MiddlewareAuthFunction, middlewareFuncWithCustomerIdHeader MiddlewareAuthFunction) (string, *http.Response, error) {
 
 	daasClient.SetupApiClient(hostname, middlewareFunc, onPremises, disableSslVerification, apiGateway)
-	daasClient.SetupAuthConfig(authUrl, clientId, clientSecret, onPremises, apiGateway, isGov)
+	daasClient.SetupAuthConfig(authUrl, clientId, clientSecret, onPremises, apiGateway, isGov, environment)
 
 	// Setup Client Configuration
 	daasClient.ClientConfig = &ClientConfiguration{CustomerId: customerId}
@@ -329,7 +330,7 @@ func (daasClient *CitrixDaasClient) InitializeCitrixDaasClient(ctx context.Conte
 	return httpResp, nil
 }
 
-func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int) (*citrixorchestration.JobResponseModel, error) {
+func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWaitTimeInMinutes int32) (*citrixorchestration.JobResponseModel, error) {
 	// default polling to every 10 seconds
 	pollInterval := 10
 	if maxWaitTimeInMinutes >= 30 {
@@ -343,7 +344,20 @@ func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWait
 
 	for {
 		if time.Since(startTime) > time.Minute*time.Duration(maxWaitTimeInMinutes) {
-			break
+			// Cancel the job if it timeouts
+			cancelJobReq := c.ApiClient.JobsAPIsDAAS.JobsCancelJob(ctx, jobId)
+			_, _, err := AddRequestData(cancelJobReq, c).Execute()
+			jobResponseModel := citrixorchestration.JobResponseModel{}
+			if err != nil {
+				err = fmt.Errorf("job %s timed out after %d minutes, but the job cannot be cancelled", jobId, maxWaitTimeInMinutes)
+				jobResponseModel.SetErrorString(err.Error())
+				jobResponseModel.SetId(jobId)
+				return &jobResponseModel, err
+			}
+			err = fmt.Errorf("job %s timed out after %d minutes", jobId, maxWaitTimeInMinutes)
+			jobResponseModel.SetErrorString(err.Error())
+			jobResponseModel.SetId(jobId)
+			return &jobResponseModel, err
 		}
 
 		jobResponseModel, _, err = AddRequestData(getJobIdRequest, c).Execute()
@@ -364,8 +378,6 @@ func (c *CitrixDaasClient) WaitForJob(ctx context.Context, jobId string, maxWait
 
 		return jobResponseModel, err
 	}
-
-	return jobResponseModel, err
 }
 
 func AddRequestData[T any](request T, c *CitrixDaasClient) T {
