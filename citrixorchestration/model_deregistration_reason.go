@@ -52,6 +52,8 @@ const (
 	DEREGISTRATIONREASON_UNKNOWN_ERROR DeregistrationReason = "UnknownError"
 	DEREGISTRATIONREASON_BROKER_REGISTRATION_LIMIT_REACHED DeregistrationReason = "BrokerRegistrationLimitReached"
 	DEREGISTRATIONREASON_REGISTRATION_STATE_MISMATCH DeregistrationReason = "RegistrationStateMismatch"
+	DEREGISTRATIONREASON_UNEXPECTED_AGENT_SHUTDOWN DeregistrationReason = "UnexpectedAgentShutdown"
+	DEREGISTRATIONREASON_MACHINE_IN_REGISTRATION_SIN_BIN DeregistrationReason = "MachineInRegistrationSinBin"
 )
 
 // All allowed values of DeregistrationReason enum
@@ -88,6 +90,8 @@ var AllowedDeregistrationReasonEnumValues = []DeregistrationReason{
 	"UnknownError",
 	"BrokerRegistrationLimitReached",
 	"RegistrationStateMismatch",
+	"UnexpectedAgentShutdown",
+	"MachineInRegistrationSinBin",
 }
 
 func (v *DeregistrationReason) UnmarshalJSON(src []byte) error {
