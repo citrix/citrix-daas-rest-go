@@ -67,6 +67,10 @@
 
 * `REGISTRATION_STATE_MISMATCH` (value: `"RegistrationStateMismatch"`)
 
+* `UNEXPECTED_AGENT_SHUTDOWN` (value: `"UnexpectedAgentShutdown"`)
+
+* `MACHINE_IN_REGISTRATION_SIN_BIN` (value: `"MachineInRegistrationSinBin"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
