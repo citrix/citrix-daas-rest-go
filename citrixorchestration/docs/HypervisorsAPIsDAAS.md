@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**HypervisorsDoHypervisorResourceSearch**](HypervisorsAPIsDAAS.md#HypervisorsDoHypervisorResourceSearch) | **Post** /hypervisors/{nameOrId}/resourcePools/{poolId}/resources/$search | Search the resources within a hypervisor resource pool.
 [**HypervisorsGetHypervisor**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisor) | **Get** /hypervisors/{nameOrId} | Get the details for a single hypervisor.
 [**HypervisorsGetHypervisorAdministrators**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorAdministrators) | **Get** /hypervisors/{nameOrId}/administrators | Get administrators who can administer a hypervisor.
+[**HypervisorsGetHypervisorAllResourcePools**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorAllResourcePools) | **Get** /hypervisorAllResourcePools | Get the list of hypervisor resource pools from all hypervisors.
 [**HypervisorsGetHypervisorAllResources**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorAllResources) | **Get** /hypervisors/{nameOrId}/allResources | Get all resources within a hypervisor.
 [**HypervisorsGetHypervisorAllResourcesWithoutConnection**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorAllResourcesWithoutConnection) | **Post** /hypervisors/$GetResources | Get all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
 [**HypervisorsGetHypervisorDeletePreview**](HypervisorsAPIsDAAS.md#HypervisorsGetHypervisorDeletePreview) | **Get** /hypervisors/{nameOrId}/deletePreview | Get the hypervisor delete preview.
@@ -993,6 +994,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdministratorResponseModelCollection**](AdministratorResponseModelCollection.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## HypervisorsGetHypervisorAllResourcePools
+
+> HypervisorResourcePoolResponseModelCollection HypervisorsGetHypervisorAllResourcePools(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
+
+Get the list of hypervisor resource pools from all hypervisors.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | Async request to get the resource pool.  (optional) (default to false)
+    noCache := true // bool | Disable the cache.  (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcePools(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).NoCache(noCache).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcePools``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `HypervisorsGetHypervisorAllResourcePools`: HypervisorResourcePoolResponseModelCollection
+    fmt.Fprintf(os.Stdout, "Response from `HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcePools`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiHypervisorsGetHypervisorAllResourcePoolsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | Async request to get the resource pool.  | [default to false]
+ **noCache** | **bool** | Disable the cache.  | [default to false]
+
+### Return type
+
+[**HypervisorResourcePoolResponseModelCollection**](HypervisorResourcePoolResponseModelCollection.md)
 
 ### Authorization
 
@@ -3064,7 +3147,7 @@ func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of the hypervisor.
-    editHypervisorConnectionRequestModel := *openapiclient.NewEditHypervisorConnectionRequestModel(openapiclient.HypervisorConnectionType("Unknown")) // EditHypervisorConnectionRequestModel | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * OpenShift requires a model of type EditHypervisorOpenShiftConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel.
+    editHypervisorConnectionRequestModel := *openapiclient.NewEditHypervisorConnectionRequestModel(openapiclient.HypervisorConnectionType("Unknown")) // EditHypervisorConnectionRequestModel | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * OpenShift requires a model of type EditHypervisorOpenShiftConnectionRequestModel. * AmazonWorkSpacesCore requires a model of type EditHypervisorAWCConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
@@ -3100,7 +3183,7 @@ Name | Type | Description  | Notes
  **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
  **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
 
- **editHypervisorConnectionRequestModel** | [**EditHypervisorConnectionRequestModel**](EditHypervisorConnectionRequestModel.md) | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * OpenShift requires a model of type EditHypervisorOpenShiftConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel. | 
+ **editHypervisorConnectionRequestModel** | [**EditHypervisorConnectionRequestModel**](EditHypervisorConnectionRequestModel.md) | Details of the hypervisor to update.  Note that each type of hypervisor requires a different update model: * AWS requires a model of type EditHypervisorAWSConnectionRequestModel. * AzureRM requires a model of type EditHypervisorAzureConnectionRequestModel. * GoogleCloudPlatform requires a model of type EditHypervisorGCPConnectionRequestModel. * OracleCloudInfrastructure requires a model of type EditHypervisorOciConnectionRequestModel. * AzureArc requires a model of type EditHypervisorAzureArcConnectionRequestModel. * OpenShift requires a model of type EditHypervisorOpenShiftConnectionRequestModel. * AmazonWorkSpacesCore requires a model of type EditHypervisorAWCConnectionRequestModel. * All other hypervisor types require a model of type EditHypervisorTraditionalConnectionRequestModel. | 
  **userAgent** | **string** | User Agent type of the request. | 
  **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 

@@ -161,6 +161,8 @@ type MachineDetailResponseModel struct {
 	UpgradeDetail *MachineUpgradeDetail `json:"UpgradeDetail,omitempty"`
 	// The metadata of this machine.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
+	// The machine's icon that is displayed in Receiver.
+	IconId NullableString `json:"IconId,omitempty"`
 	// The name of the endpoint client device that the machine has been assigned to.
 	AssignedClientName NullableString `json:"AssignedClientName,omitempty"`
 	// The IP address of the endpoint client device that the machine has been assigned to.
@@ -168,8 +170,6 @@ type MachineDetailResponseModel struct {
 	// Site-wide unique name identifying associated desktop to other components (for example StoreFront). This is typically non-null only for machines backing assigned private desktops.
 	BrowserName NullableString `json:"BrowserName,omitempty"`
 	ColorDepth *ColorDepth `json:"ColorDepth,omitempty"`
-	// The machine's icon that is displayed in Receiver.
-	IconId NullableString `json:"IconId,omitempty"`
 	// Indicates if machine is reserved for special use, for example for AppDisk preparation. A reserved machine cannot be a member of a delivery group.
 	IsReserved bool `json:"IsReserved"`
 	// Flag indicating whether SecureICA is required or not when starting a session on the machine.
@@ -3345,6 +3345,48 @@ func (o *MachineDetailResponseModel) SetMetadata(v []NameValueStringPairModel) {
 	o.Metadata = v
 }
 
+// GetIconId returns the IconId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MachineDetailResponseModel) GetIconId() string {
+	if o == nil || IsNil(o.IconId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IconId.Get()
+}
+
+// GetIconIdOk returns a tuple with the IconId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MachineDetailResponseModel) GetIconIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IconId.Get(), o.IconId.IsSet()
+}
+
+// HasIconId returns a boolean if a field has been set.
+func (o *MachineDetailResponseModel) HasIconId() bool {
+	if o != nil && o.IconId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIconId gets a reference to the given NullableString and assigns it to the IconId field.
+func (o *MachineDetailResponseModel) SetIconId(v string) {
+	o.IconId.Set(&v)
+}
+// SetIconIdNil sets the value for IconId to be an explicit nil
+func (o *MachineDetailResponseModel) SetIconIdNil() {
+	o.IconId.Set(nil)
+}
+
+// UnsetIconId ensures that no value is present for IconId, not even an explicit nil
+func (o *MachineDetailResponseModel) UnsetIconId() {
+	o.IconId.Unset()
+}
+
 // GetAssignedClientName returns the AssignedClientName field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MachineDetailResponseModel) GetAssignedClientName() string {
 	if o == nil || IsNil(o.AssignedClientName.Get()) {
@@ -3501,48 +3543,6 @@ func (o *MachineDetailResponseModel) HasColorDepth() bool {
 // SetColorDepth gets a reference to the given ColorDepth and assigns it to the ColorDepth field.
 func (o *MachineDetailResponseModel) SetColorDepth(v ColorDepth) {
 	o.ColorDepth = &v
-}
-
-// GetIconId returns the IconId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *MachineDetailResponseModel) GetIconId() string {
-	if o == nil || IsNil(o.IconId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.IconId.Get()
-}
-
-// GetIconIdOk returns a tuple with the IconId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MachineDetailResponseModel) GetIconIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.IconId.Get(), o.IconId.IsSet()
-}
-
-// HasIconId returns a boolean if a field has been set.
-func (o *MachineDetailResponseModel) HasIconId() bool {
-	if o != nil && o.IconId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetIconId gets a reference to the given NullableString and assigns it to the IconId field.
-func (o *MachineDetailResponseModel) SetIconId(v string) {
-	o.IconId.Set(&v)
-}
-// SetIconIdNil sets the value for IconId to be an explicit nil
-func (o *MachineDetailResponseModel) SetIconIdNil() {
-	o.IconId.Set(nil)
-}
-
-// UnsetIconId ensures that no value is present for IconId, not even an explicit nil
-func (o *MachineDetailResponseModel) UnsetIconId() {
-	o.IconId.Unset()
 }
 
 // GetIsReserved returns the IsReserved field value
@@ -4071,6 +4071,9 @@ func (o MachineDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
 	}
+	if o.IconId.IsSet() {
+		toSerialize["IconId"] = o.IconId.Get()
+	}
 	if o.AssignedClientName.IsSet() {
 		toSerialize["AssignedClientName"] = o.AssignedClientName.Get()
 	}
@@ -4082,9 +4085,6 @@ func (o MachineDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ColorDepth) {
 		toSerialize["ColorDepth"] = o.ColorDepth
-	}
-	if o.IconId.IsSet() {
-		toSerialize["IconId"] = o.IconId.Get()
 	}
 	toSerialize["IsReserved"] = o.IsReserved
 	if o.SecureIcaRequired.IsSet() {

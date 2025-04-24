@@ -33,6 +33,8 @@ type UpdateMachineRequestModel struct {
 	InMaintenanceMode NullableBool `json:"InMaintenanceMode,omitempty"`
 	// Customized name of the machine that is displayed in StoreFront, if the machine has been published. It can be set only for private desktops. If `null`, will not be changed. If empty string (`\"\"`), the machine will be unassigned from any published name.
 	PublishedName NullableString `json:"PublishedName,omitempty"`
+	// Specifies the image data of the icon used to display the published desktop to the user, and of assigned desktop(s) in the case where SharingKind is equal to Private.
+	Icon NullableString `json:"Icon,omitempty"`
 	// The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 }
@@ -339,6 +341,48 @@ func (o *UpdateMachineRequestModel) UnsetPublishedName() {
 	o.PublishedName.Unset()
 }
 
+// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *UpdateMachineRequestModel) GetIcon() string {
+	if o == nil || IsNil(o.Icon.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Icon.Get()
+}
+
+// GetIconOk returns a tuple with the Icon field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *UpdateMachineRequestModel) GetIconOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Icon.Get(), o.Icon.IsSet()
+}
+
+// HasIcon returns a boolean if a field has been set.
+func (o *UpdateMachineRequestModel) HasIcon() bool {
+	if o != nil && o.Icon.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+func (o *UpdateMachineRequestModel) SetIcon(v string) {
+	o.Icon.Set(&v)
+}
+// SetIconNil sets the value for Icon to be an explicit nil
+func (o *UpdateMachineRequestModel) SetIconNil() {
+	o.Icon.Set(nil)
+}
+
+// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
+func (o *UpdateMachineRequestModel) UnsetIcon() {
+	o.Icon.Unset()
+}
+
 // GetMetadata returns the Metadata field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpdateMachineRequestModel) GetMetadata() []NameValueStringPairModel {
 	if o == nil {
@@ -402,6 +446,9 @@ func (o UpdateMachineRequestModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.PublishedName.IsSet() {
 		toSerialize["PublishedName"] = o.PublishedName.Get()
+	}
+	if o.Icon.IsSet() {
+		toSerialize["Icon"] = o.Icon.Get()
 	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata

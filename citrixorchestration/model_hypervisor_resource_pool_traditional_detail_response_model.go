@@ -40,6 +40,8 @@ type HypervisorResourcePoolTraditionalDetailResponseModel struct {
 	UsesExplicitStorage *bool `json:"UsesExplicitStorage,omitempty"`
 	// Metadata for hypervisor resource pool. 
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
+	// Delegated admin scopes in which the containers of the resource pool reside.
+	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
 	RootPath *HypervisorResourceRefResponseModel `json:"RootPath,omitempty"`
 	// List of networks that are allowed to be used within the resource pool.
 	Networks []HypervisorResourceRefResponseModel `json:"Networks"`
@@ -484,6 +486,39 @@ func (o *HypervisorResourcePoolTraditionalDetailResponseModel) SetMetadata(v []N
 	o.Metadata = v
 }
 
+// GetContainerScopes returns the ContainerScopes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel {
+	if o == nil {
+		var ret []ContainerScopeResponseModel
+		return ret
+	}
+	return o.ContainerScopes
+}
+
+// GetContainerScopesOk returns a tuple with the ContainerScopes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetContainerScopesOk() ([]ContainerScopeResponseModel, bool) {
+	if o == nil || IsNil(o.ContainerScopes) {
+		return nil, false
+	}
+	return o.ContainerScopes, true
+}
+
+// HasContainerScopes returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) HasContainerScopes() bool {
+	if o != nil && IsNil(o.ContainerScopes) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainerScopes gets a reference to the given []ContainerScopeResponseModel and assigns it to the ContainerScopes field.
+func (o *HypervisorResourcePoolTraditionalDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel) {
+	o.ContainerScopes = v
+}
+
 // GetRootPath returns the RootPath field value if set, zero value otherwise.
 func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetRootPath() HypervisorResourceRefResponseModel {
 	if o == nil || IsNil(o.RootPath) {
@@ -774,6 +809,9 @@ func (o HypervisorResourcePoolTraditionalDetailResponseModel) ToMap() (map[strin
 	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
+	}
+	if o.ContainerScopes != nil {
+		toSerialize["ContainerScopes"] = o.ContainerScopes
 	}
 	if !IsNil(o.RootPath) {
 		toSerialize["RootPath"] = o.RootPath

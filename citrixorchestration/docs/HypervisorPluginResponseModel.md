@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConnectionType** | Pointer to [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | [optional] 
-**DisplayName** | Pointer to **NullableString** | Hypervisor display name.  | [optional] 
+**DisplayName** | Pointer to **NullableString** | Hypervisor display name. | [optional] 
 **PluginFactoryName** | Pointer to **NullableString** | Plugin factory name. | [optional] 
 **UsesCloudInfrastructure** | Pointer to **bool** | If use Cloud Infrastructure. | [optional] 
 **Environments** | Pointer to [**[]HypervisorAzureEnvironmentResponseModel**](HypervisorAzureEnvironmentResponseModel.md) | This property only used when ConnectionType is AzureRM This property provides all supported Azure environments. | [optional] 

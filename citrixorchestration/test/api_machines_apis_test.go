@@ -310,6 +310,18 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test MachinesAPIsDAASService MachinesGroupMachine", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.MachinesAPIsDAAS.MachinesGroupMachine(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MachinesAPIsDAASService MachinesImportFileTypes", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -399,19 +411,6 @@ func Test_citrixorchestration_MachinesAPIsDAASService(t *testing.T) {
 		var nameOrId string
 
 		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesRemovePowerActionSchedule(context.Background(), nameOrId).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MachinesAPIsDAASService MachinesResetProvVMDisk", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var nameOrId string
-
-		httpRes, err := apiClient.MachinesAPIsDAAS.MachinesResetProvVMDisk(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

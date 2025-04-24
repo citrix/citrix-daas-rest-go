@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **GpuTypes** | Pointer to [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | GPU types available in the resource pool.  Only applicable to hypervisors that support GPU types. | [optional] 
 **UsesExplicitStorage** | Pointer to **bool** | If the hypervisor resource pool use ExplicitStorage. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor resource pool.  | [optional] 
+**ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the resource pool reside. | [optional] 
 **RootPath** | Pointer to [**HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) |  | [optional] 
 **Networks** | [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | List of networks that are allowed to be used within the resource pool. | 
 **Storage** | [**[]HypervisorStorageResourceResponseModel**](HypervisorStorageResourceResponseModel.md) | List of hypervisor-connected storage in the resource pool that is used for OS disks of virtual machines. | 
@@ -394,6 +395,41 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *HypervisorResourcePoolTraditionalDetailResponseModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetContainerScopes
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel`
+
+GetContainerScopes returns the ContainerScopes field if non-nil, zero value otherwise.
+
+### GetContainerScopesOk
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetContainerScopesOk() (*[]ContainerScopeResponseModel, bool)`
+
+GetContainerScopesOk returns a tuple with the ContainerScopes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerScopes
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel)`
+
+SetContainerScopes sets ContainerScopes field to given value.
+
+### HasContainerScopes
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) HasContainerScopes() bool`
+
+HasContainerScopes returns a boolean if a field has been set.
+
+### SetContainerScopesNil
+
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) SetContainerScopesNil(b bool)`
+
+ SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
+
+### UnsetContainerScopes
+`func (o *HypervisorResourcePoolTraditionalDetailResponseModel) UnsetContainerScopes()`
+
+UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 ### GetRootPath
 
 `func (o *HypervisorResourcePoolTraditionalDetailResponseModel) GetRootPath() HypervisorResourceRefResponseModel`

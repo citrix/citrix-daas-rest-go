@@ -1,4 +1,5 @@
 .gitignore
+.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -13,6 +14,7 @@ api_app_v_servers_apis.go
 api_application_folders_apis.go
 api_application_groups_apis.go
 api_applications_apis.go
+api_backup_restore_apis.go
 api_batch_apis.go
 api_config_log_apis.go
 api_delivery_groups_apis.go
@@ -182,6 +184,7 @@ docs/AzureEnvironment.md
 docs/BackupDoBackupResponseModel.md
 docs/BackupMembersResponseModelCollection.md
 docs/BackupResponseModelCollection.md
+docs/BackupRestoreAPIsDAAS.md
 docs/BackupRestoreActionStartStatus.md
 docs/BackupRestoreActions.md
 docs/BackupRestoreBackupResponseModel.md
@@ -388,6 +391,7 @@ docs/CreateAutoscalePluginTemplateRequestModel.md
 docs/CreateConfigurationSlotRequestModel.md
 docs/CreateDeliveryGroupRequestModel.md
 docs/CreateHypervisorRequestModel.md
+docs/CreateHypervisorResourcePoolAWCRequestModel.md
 docs/CreateHypervisorResourcePoolAWSRequestModel.md
 docs/CreateHypervisorResourcePoolAzureRequestModel.md
 docs/CreateHypervisorResourcePoolGcpRequestModel.md
@@ -477,6 +481,7 @@ docs/EditApplicationGroupRequestModel.md
 docs/EditApplicationRequestModel.md
 docs/EditBrokerHypervisorConnectionRequestModel.md
 docs/EditDeliveryGroupRequestModel.md
+docs/EditHypervisorAWCConnectionRequestModel.md
 docs/EditHypervisorAWSConnectionRequestModel.md
 docs/EditHypervisorAzureArcConnectionRequestModel.md
 docs/EditHypervisorAzureConnectionRequestModel.md
@@ -544,6 +549,7 @@ docs/GpoTestPolicyData.md
 docs/GpoTestSettingData.md
 docs/HealthCheckAPIsDAAS.md
 docs/HomeZoneMode.md
+docs/HypervisorAWCConnectionDetailRequestModel.md
 docs/HypervisorAWSConnectionDetailRequestModel.md
 docs/HypervisorAllResourceSearchRequestModel.md
 docs/HypervisorAvailabilityZoneResourceResponseModel.md
@@ -556,6 +562,7 @@ docs/HypervisorConfigurationObjectCapability.md
 docs/HypervisorConnectionDetailRequestModel.md
 docs/HypervisorConnectionType.md
 docs/HypervisorDeletePreviewResponseModel.md
+docs/HypervisorDetailAWCResponseModel.md
 docs/HypervisorDetailAWSResponseModel.md
 docs/HypervisorDetailAzureArcResponseModel.md
 docs/HypervisorDetailAzureResponseModel.md
@@ -575,6 +582,7 @@ docs/HypervisorOpenShiftConnectionDetailRequestModel.md
 docs/HypervisorPluginResponseModel.md
 docs/HypervisorPluginResponseModelCollection.md
 docs/HypervisorRefResponseModel.md
+docs/HypervisorResourcePoolAWCDetailResponseModel.md
 docs/HypervisorResourcePoolAWSDetailResponseModel.md
 docs/HypervisorResourcePoolAzureDetailResponseModel.md
 docs/HypervisorResourcePoolDetailResponseModel.md
@@ -773,6 +781,7 @@ docs/MachineCatalogsAPIsDAAS.md
 docs/MachineConfigurationResponseModel.md
 docs/MachineConfigurationResponseModelCollection.md
 docs/MachineDetailResponseModel.md
+docs/MachineGroupRequestModel.md
 docs/MachineHostingResponseModel.md
 docs/MachineIdentityPoolResponseModel.md
 docs/MachineIdentityPoolResponseModelCollection.md
@@ -1496,6 +1505,7 @@ model_create_autoscale_plugin_template_request_model.go
 model_create_configuration_slot_request_model.go
 model_create_delivery_group_request_model.go
 model_create_hypervisor_request_model.go
+model_create_hypervisor_resource_pool_awc_request_model.go
 model_create_hypervisor_resource_pool_aws_request_model.go
 model_create_hypervisor_resource_pool_azure_request_model.go
 model_create_hypervisor_resource_pool_gcp_request_model.go
@@ -1584,6 +1594,7 @@ model_edit_application_group_request_model.go
 model_edit_application_request_model.go
 model_edit_broker_hypervisor_connection_request_model.go
 model_edit_delivery_group_request_model.go
+model_edit_hypervisor_awc_connection_request_model.go
 model_edit_hypervisor_aws_connection_request_model.go
 model_edit_hypervisor_azure_arc_connection_request_model.go
 model_edit_hypervisor_azure_connection_request_model.go
@@ -1651,6 +1662,7 @@ model_gpo_test_setting_data.go
 model_home_zone_mode.go
 model_hypervisor_all_resource_search_request_model.go
 model_hypervisor_availability_zone_resource_response_model.go
+model_hypervisor_awc_connection_detail_request_model.go
 model_hypervisor_aws_connection_detail_request_model.go
 model_hypervisor_azure_arc_connection_detail_request_model.go
 model_hypervisor_azure_connection_detail_request_model.go
@@ -1661,6 +1673,7 @@ model_hypervisor_configuration_object_capability.go
 model_hypervisor_connection_detail_request_model.go
 model_hypervisor_connection_type.go
 model_hypervisor_delete_preview_response_model.go
+model_hypervisor_detail_awc_response_model.go
 model_hypervisor_detail_aws_response_model.go
 model_hypervisor_detail_azure_arc_response_model.go
 model_hypervisor_detail_azure_response_model.go
@@ -1680,6 +1693,7 @@ model_hypervisor_open_shift_connection_detail_request_model.go
 model_hypervisor_plugin_response_model.go
 model_hypervisor_plugin_response_model_collection.go
 model_hypervisor_ref_response_model.go
+model_hypervisor_resource_pool_awc_detail_response_model.go
 model_hypervisor_resource_pool_aws_detail_response_model.go
 model_hypervisor_resource_pool_azure_detail_response_model.go
 model_hypervisor_resource_pool_detail_response_model.go
@@ -1870,6 +1884,7 @@ model_machine_catalog_warning_type.go
 model_machine_configuration_response_model.go
 model_machine_configuration_response_model_collection.go
 model_machine_detail_response_model.go
+model_machine_group_request_model.go
 model_machine_hosting_response_model.go
 model_machine_identity_pool_response_model.go
 model_machine_identity_pool_response_model_collection.go
@@ -2244,8 +2259,43 @@ model_zoned_item_search_request_model.go
 model_zoned_items_request_model.go
 model_zones_error_warning_model.go
 response.go
+test/api_about_apis_test.go
+test/api_actions_apis_test.go
+test/api_admin_apis_test.go
+test/api_admin_folders_apis_test.go
+test/api_app_lib_package_discovery_apis_test.go
+test/api_app_v_isolation_groups_apis_test.go
+test/api_app_v_packages_apis_test.go
+test/api_app_v_servers_apis_test.go
+test/api_application_folders_apis_test.go
+test/api_application_groups_apis_test.go
+test/api_applications_apis_test.go
+test/api_backup_restore_apis_test.go
+test/api_batch_apis_test.go
+test/api_config_log_apis_test.go
+test/api_delivery_groups_apis_test.go
+test/api_gpo_test.go
+test/api_health_check_apis_test.go
+test/api_hypervisors_apis_test.go
+test/api_icons_apis_test.go
+test/api_identity_apis_test.go
+test/api_image_definitions_apis_test.go
+test/api_image_versions_apis_test.go
+test/api_jobs_apis_test.go
+test/api_machine_catalogs_apis_test.go
+test/api_machines_apis_test.go
 test/api_maintenance_cycles_apis_test.go
+test/api_me_apis_test.go
 test/api_provisioned_virtual_machine_apis_test.go
 test/api_provisioning_schemes_apis_test.go
+test/api_pvs_streaming_apis_test.go
+test/api_reboot_schedules_apis_test.go
 test/api_recommendations_apis_test.go
+test/api_sessions_apis_test.go
+test/api_sites_apis_test.go
+test/api_store_front_servers_apis_test.go
+test/api_tags_apis_test.go
+test/api_time_zones_apis_test.go
+test/api_trust_apis_test.go
+test/api_zones_apis_test.go
 utils.go

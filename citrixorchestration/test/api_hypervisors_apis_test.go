@@ -116,6 +116,18 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsDoHypervisorAllResourcesSearchWithoutConnection", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearchWithoutConnection(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsDoHypervisorResourceSearch", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -152,6 +164,18 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 		var nameOrId string
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAdministrators(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAllResourcePools", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcePools(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -264,6 +288,18 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 		var poolId string
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAdministrators(context.Background(), nameOrId, poolId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolAllAvailableNetworks", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAllAvailableNetworks(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

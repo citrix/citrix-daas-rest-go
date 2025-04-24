@@ -78,6 +78,19 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateAutoscalePluginTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var type_ string
+
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateAutoscalePluginTemplate(context.Background(), type_).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -100,6 +113,19 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -132,6 +158,20 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteAutoscalePluginTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var type_ string
+		var name string
+
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteAutoscalePluginTemplate(context.Background(), type_, name).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroup", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -153,6 +193,20 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 		var policyId string
 
 		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy(context.Background(), nameOrId, policyId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+		var uid int32
+
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin(context.Background(), nameOrId, uid).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
@@ -268,6 +322,35 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetAutoscalePluginTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var type_ string
+		var name string
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplate(context.Background(), type_, name).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetAutoscalePluginTemplates", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var type_ string
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetAutoscalePluginTemplates(context.Background(), type_).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -332,6 +415,20 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 		var nameOrId string
 
 		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupApplications(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins(context.Background(), nameOrId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -705,6 +802,34 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsTestDeliveryGroupExists(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsUpdateAutoscalePluginTemplate", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var type_ string
+		var name string
+
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsUpdateAutoscalePluginTemplate(context.Background(), type_, name).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+		var uid int32
+
+		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin(context.Background(), nameOrId, uid).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)

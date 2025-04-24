@@ -32,6 +32,8 @@ type CreateUpgradeScheduleForMachinesRequestModel struct {
 	VdaServerPackageUri NullableString `json:"VdaServerPackageUri,omitempty"`
 	LogoffOption *LogoffOption `json:"LogoffOption,omitempty"`
 	VDAComponentsAndFeaturesRequestModel *VDAComponentsSelectionValidationRequestModel `json:"VDAComponentsAndFeaturesRequestModel,omitempty"`
+	// Specify VDA needs to be rebooted before upgrade.
+	Reboot NullableBool `json:"Reboot,omitempty"`
 }
 
 // NewCreateUpgradeScheduleForMachinesRequestModel instantiates a new CreateUpgradeScheduleForMachinesRequestModel object
@@ -291,6 +293,48 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVDAComponentsAndFeatur
 	o.VDAComponentsAndFeaturesRequestModel = &v
 }
 
+// GetReboot returns the Reboot field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetReboot() bool {
+	if o == nil || IsNil(o.Reboot.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.Reboot.Get()
+}
+
+// GetRebootOk returns a tuple with the Reboot field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateUpgradeScheduleForMachinesRequestModel) GetRebootOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Reboot.Get(), o.Reboot.IsSet()
+}
+
+// HasReboot returns a boolean if a field has been set.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) HasReboot() bool {
+	if o != nil && o.Reboot.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetReboot gets a reference to the given NullableBool and assigns it to the Reboot field.
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetReboot(v bool) {
+	o.Reboot.Set(&v)
+}
+// SetRebootNil sets the value for Reboot to be an explicit nil
+func (o *CreateUpgradeScheduleForMachinesRequestModel) SetRebootNil() {
+	o.Reboot.Set(nil)
+}
+
+// UnsetReboot ensures that no value is present for Reboot, not even an explicit nil
+func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetReboot() {
+	o.Reboot.Unset()
+}
+
 func (o CreateUpgradeScheduleForMachinesRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -317,6 +361,9 @@ func (o CreateUpgradeScheduleForMachinesRequestModel) ToMap() (map[string]interf
 	}
 	if !IsNil(o.VDAComponentsAndFeaturesRequestModel) {
 		toSerialize["VDAComponentsAndFeaturesRequestModel"] = o.VDAComponentsAndFeaturesRequestModel
+	}
+	if o.Reboot.IsSet() {
+		toSerialize["Reboot"] = o.Reboot.Get()
 	}
 	return toSerialize, nil
 }

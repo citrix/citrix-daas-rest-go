@@ -89,6 +89,7 @@ Name | Type | Description | Notes
 **MachineConfigurationOutOfSync** | Pointer to **NullableBool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
 **UpgradeDetail** | Pointer to [**MachineUpgradeDetail**](MachineUpgradeDetail.md) |  | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of this machine. | [optional] 
+**IconId** | Pointer to **NullableString** | The machine&#39;s icon that is displayed in Receiver. | [optional] 
 
 ## Methods
 
@@ -2759,6 +2760,41 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *MachineResponseModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetIconId
+
+`func (o *MachineResponseModel) GetIconId() string`
+
+GetIconId returns the IconId field if non-nil, zero value otherwise.
+
+### GetIconIdOk
+
+`func (o *MachineResponseModel) GetIconIdOk() (*string, bool)`
+
+GetIconIdOk returns a tuple with the IconId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIconId
+
+`func (o *MachineResponseModel) SetIconId(v string)`
+
+SetIconId sets IconId field to given value.
+
+### HasIconId
+
+`func (o *MachineResponseModel) HasIconId() bool`
+
+HasIconId returns a boolean if a field has been set.
+
+### SetIconIdNil
+
+`func (o *MachineResponseModel) SetIconIdNil(b bool)`
+
+ SetIconIdNil sets the value for IconId to be an explicit nil
+
+### UnsetIconId
+`func (o *MachineResponseModel) UnsetIconId()`
+
+UnsetIconId ensures that no value is present for IconId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

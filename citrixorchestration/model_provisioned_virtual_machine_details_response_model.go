@@ -68,6 +68,10 @@ type ProvisionedVirtualMachineDetailsResponseModel struct {
 	VMInfo NullableString `json:"VMInfo,omitempty"`
 	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
 	ConfigurationResultantSet *ProvisionedVirtualMachineConfigurationResultantSetResponseModel `json:"ConfigurationResultantSet,omitempty"`
+	// Failure reason of power action.
+	FailureReason NullableString `json:"FailureReason,omitempty"`
+	// Time when the power action failed.
+	FailedActionCompletionTime NullableString `json:"FailedActionCompletionTime,omitempty"`
 }
 
 // NewProvisionedVirtualMachineDetailsResponseModel instantiates a new ProvisionedVirtualMachineDetailsResponseModel object
@@ -1017,6 +1021,90 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) SetConfigurationResultan
 	o.ConfigurationResultantSet = &v
 }
 
+// GetFailureReason returns the FailureReason field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailureReason() string {
+	if o == nil || IsNil(o.FailureReason.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.FailureReason.Get()
+}
+
+// GetFailureReasonOk returns a tuple with the FailureReason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailureReasonOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FailureReason.Get(), o.FailureReason.IsSet()
+}
+
+// HasFailureReason returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasFailureReason() bool {
+	if o != nil && o.FailureReason.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFailureReason gets a reference to the given NullableString and assigns it to the FailureReason field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailureReason(v string) {
+	o.FailureReason.Set(&v)
+}
+// SetFailureReasonNil sets the value for FailureReason to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailureReasonNil() {
+	o.FailureReason.Set(nil)
+}
+
+// UnsetFailureReason ensures that no value is present for FailureReason, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetFailureReason() {
+	o.FailureReason.Unset()
+}
+
+// GetFailedActionCompletionTime returns the FailedActionCompletionTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailedActionCompletionTime() string {
+	if o == nil || IsNil(o.FailedActionCompletionTime.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.FailedActionCompletionTime.Get()
+}
+
+// GetFailedActionCompletionTimeOk returns a tuple with the FailedActionCompletionTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailedActionCompletionTimeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FailedActionCompletionTime.Get(), o.FailedActionCompletionTime.IsSet()
+}
+
+// HasFailedActionCompletionTime returns a boolean if a field has been set.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) HasFailedActionCompletionTime() bool {
+	if o != nil && o.FailedActionCompletionTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFailedActionCompletionTime gets a reference to the given NullableString and assigns it to the FailedActionCompletionTime field.
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailedActionCompletionTime(v string) {
+	o.FailedActionCompletionTime.Set(&v)
+}
+// SetFailedActionCompletionTimeNil sets the value for FailedActionCompletionTime to be an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailedActionCompletionTimeNil() {
+	o.FailedActionCompletionTime.Set(nil)
+}
+
+// UnsetFailedActionCompletionTime ensures that no value is present for FailedActionCompletionTime, not even an explicit nil
+func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetFailedActionCompletionTime() {
+	o.FailedActionCompletionTime.Unset()
+}
+
 func (o ProvisionedVirtualMachineDetailsResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1101,6 +1189,12 @@ func (o ProvisionedVirtualMachineDetailsResponseModel) ToMap() (map[string]inter
 	}
 	if !IsNil(o.ConfigurationResultantSet) {
 		toSerialize["ConfigurationResultantSet"] = o.ConfigurationResultantSet
+	}
+	if o.FailureReason.IsSet() {
+		toSerialize["FailureReason"] = o.FailureReason.Get()
+	}
+	if o.FailedActionCompletionTime.IsSet() {
+		toSerialize["FailedActionCompletionTime"] = o.FailedActionCompletionTime.Get()
 	}
 	return toSerialize, nil
 }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Machine** | **string** | The machine to assign. May be an Id or name. | 
 **MachinePublishedName** | Pointer to **NullableString** | The name of the machine that is displayed in Workspace App, it can be set only for static machine. | [optional] 
 **Users** | Pointer to **[]string** | The user(s) to whom the machine should be assigned. Caller can specify SamName, UPN, or SID for each user. The system should look up the entity to determine the other AD properties (such as DisplayName and IsGroup properties). Groups should be rejected. If the caller passes an empty list, the machine is de-allocated if it was previously allocated. | [optional] 
+**Icon** | Pointer to **NullableString** | Specifies the image data of the icon used to display the published desktop to the user, and of assigned desktop(s) in the case where SharingKind is equal to Private. | [optional] 
 
 ## Methods
 
@@ -117,6 +118,41 @@ HasUsers returns a boolean if a field has been set.
 `func (o *AssignMachineToUserRequestModel) UnsetUsers()`
 
 UnsetUsers ensures that no value is present for Users, not even an explicit nil
+### GetIcon
+
+`func (o *AssignMachineToUserRequestModel) GetIcon() string`
+
+GetIcon returns the Icon field if non-nil, zero value otherwise.
+
+### GetIconOk
+
+`func (o *AssignMachineToUserRequestModel) GetIconOk() (*string, bool)`
+
+GetIconOk returns a tuple with the Icon field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIcon
+
+`func (o *AssignMachineToUserRequestModel) SetIcon(v string)`
+
+SetIcon sets Icon field to given value.
+
+### HasIcon
+
+`func (o *AssignMachineToUserRequestModel) HasIcon() bool`
+
+HasIcon returns a boolean if a field has been set.
+
+### SetIconNil
+
+`func (o *AssignMachineToUserRequestModel) SetIconNil(b bool)`
+
+ SetIconNil sets the value for Icon to be an explicit nil
+
+### UnsetIcon
+`func (o *AssignMachineToUserRequestModel) UnsetIcon()`
+
+UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

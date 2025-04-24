@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **HypervisorConnection** | Pointer to **NullableString** | Hypervisor connection to use for power management of the machine. | [optional] 
 **InMaintenanceMode** | Pointer to **NullableBool** | Specifies whether the machine is initially in maintenance mode.  A machine in maintenance mode is not available for new sessions, and for managed machines all automatic power management is disabled. If &#x60;null&#x60;, will not be changed. | [optional] 
 **PublishedName** | Pointer to **NullableString** | Customized name of the machine that is displayed in StoreFront, if the machine has been published. It can be set only for private desktops. If &#x60;null&#x60;, will not be changed. If empty string (&#x60;\&quot;\&quot;&#x60;), the machine will be unassigned from any published name. | [optional] 
+**Icon** | Pointer to **NullableString** | Specifies the image data of the icon used to display the published desktop to the user, and of assigned desktop(s) in the case where SharingKind is equal to Private. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of machine. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated. | [optional] 
 
 ## Methods
@@ -277,6 +278,41 @@ HasPublishedName returns a boolean if a field has been set.
 `func (o *UpdateMachineRequestModel) UnsetPublishedName()`
 
 UnsetPublishedName ensures that no value is present for PublishedName, not even an explicit nil
+### GetIcon
+
+`func (o *UpdateMachineRequestModel) GetIcon() string`
+
+GetIcon returns the Icon field if non-nil, zero value otherwise.
+
+### GetIconOk
+
+`func (o *UpdateMachineRequestModel) GetIconOk() (*string, bool)`
+
+GetIconOk returns a tuple with the Icon field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIcon
+
+`func (o *UpdateMachineRequestModel) SetIcon(v string)`
+
+SetIcon sets Icon field to given value.
+
+### HasIcon
+
+`func (o *UpdateMachineRequestModel) HasIcon() bool`
+
+HasIcon returns a boolean if a field has been set.
+
+### SetIconNil
+
+`func (o *UpdateMachineRequestModel) SetIconNil(b bool)`
+
+ SetIconNil sets the value for Icon to be an explicit nil
+
+### UnsetIcon
+`func (o *UpdateMachineRequestModel) UnsetIcon()`
+
+UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetMetadata
 
 `func (o *UpdateMachineRequestModel) GetMetadata() []NameValueStringPairModel`

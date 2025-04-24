@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ConcurrencyLevel** | Pointer to **NullableInt32** | Limits the Concurrent upgrades that can happen at any time in Upgrade Window. | [optional] 
 **FailureThreshold** | Pointer to **NullableInt32** | Limits the number of failures that can take place during a scheduled upgrade. | [optional] 
 **LogoffOption** | Pointer to [**LogoffOption**](LogoffOption.md) |  | [optional] 
+**Reboot** | Pointer to **NullableBool** | Specify VDA needs to be rebooted before upgrade. | [optional] 
 
 ## Methods
 
@@ -277,6 +278,41 @@ SetLogoffOption sets LogoffOption field to given value.
 
 HasLogoffOption returns a boolean if a field has been set.
 
+### GetReboot
+
+`func (o *CreateUpgradeScheduleRequestModel) GetReboot() bool`
+
+GetReboot returns the Reboot field if non-nil, zero value otherwise.
+
+### GetRebootOk
+
+`func (o *CreateUpgradeScheduleRequestModel) GetRebootOk() (*bool, bool)`
+
+GetRebootOk returns a tuple with the Reboot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReboot
+
+`func (o *CreateUpgradeScheduleRequestModel) SetReboot(v bool)`
+
+SetReboot sets Reboot field to given value.
+
+### HasReboot
+
+`func (o *CreateUpgradeScheduleRequestModel) HasReboot() bool`
+
+HasReboot returns a boolean if a field has been set.
+
+### SetRebootNil
+
+`func (o *CreateUpgradeScheduleRequestModel) SetRebootNil(b bool)`
+
+ SetRebootNil sets the value for Reboot to be an explicit nil
+
+### UnsetReboot
+`func (o *CreateUpgradeScheduleRequestModel) UnsetReboot()`
+
+UnsetReboot ensures that no value is present for Reboot, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

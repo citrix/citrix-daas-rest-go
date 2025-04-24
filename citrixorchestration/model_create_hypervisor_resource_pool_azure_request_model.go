@@ -26,7 +26,7 @@ type CreateHypervisorResourcePoolAzureRequestModel struct {
 	// Path to the GPU type resource(s) that are available for provisioning operations in this resource pool.  Optional.  Not supported by all hypervisor types.
 	GpuTypes []string `json:"GpuTypes,omitempty"`
 	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
-	// Metadata of the resource pool. Optional. 
+	// Metadata of the resource pool. Optional.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// AWS Virtual Private Cloud (VPC) resource which the resource pool is connected to.  Required.
 	VirtualPrivateCloud *string `json:"VirtualPrivateCloud,omitempty"`

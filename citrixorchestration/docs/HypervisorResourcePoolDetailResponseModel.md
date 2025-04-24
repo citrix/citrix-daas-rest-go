@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **GpuTypes** | Pointer to [**[]HypervisorResourceRefResponseModel**](HypervisorResourceRefResponseModel.md) | GPU types available in the resource pool.  Only applicable to hypervisors that support GPU types. | [optional] 
 **UsesExplicitStorage** | Pointer to **bool** | If the hypervisor resource pool use ExplicitStorage. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor resource pool.  | [optional] 
+**ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the resource pool reside. | [optional] 
 
 ## Methods
 
@@ -735,6 +736,41 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *HypervisorResourcePoolDetailResponseModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetContainerScopes
+
+`func (o *HypervisorResourcePoolDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel`
+
+GetContainerScopes returns the ContainerScopes field if non-nil, zero value otherwise.
+
+### GetContainerScopesOk
+
+`func (o *HypervisorResourcePoolDetailResponseModel) GetContainerScopesOk() (*[]ContainerScopeResponseModel, bool)`
+
+GetContainerScopesOk returns a tuple with the ContainerScopes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerScopes
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel)`
+
+SetContainerScopes sets ContainerScopes field to given value.
+
+### HasContainerScopes
+
+`func (o *HypervisorResourcePoolDetailResponseModel) HasContainerScopes() bool`
+
+HasContainerScopes returns a boolean if a field has been set.
+
+### SetContainerScopesNil
+
+`func (o *HypervisorResourcePoolDetailResponseModel) SetContainerScopesNil(b bool)`
+
+ SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
+
+### UnsetContainerScopes
+`func (o *HypervisorResourcePoolDetailResponseModel) UnsetContainerScopes()`
+
+UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

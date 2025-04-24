@@ -20,7 +20,7 @@ var _ MappedNullable = &HypervisorPluginResponseModel{}
 // HypervisorPluginResponseModel Hypervisor plugin response model.
 type HypervisorPluginResponseModel struct {
 	ConnectionType *HypervisorConnectionType `json:"ConnectionType,omitempty"`
-	// Hypervisor display name. 
+	// Hypervisor display name.
 	DisplayName NullableString `json:"DisplayName,omitempty"`
 	// Plugin factory name.
 	PluginFactoryName NullableString `json:"PluginFactoryName,omitempty"`

@@ -640,6 +640,7 @@ type ApiIdentityCreateServiceAccountRequest struct {
 	citrixTransactionId *string
 	accept *string
 	citrixLocale *string
+	async *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -690,12 +691,18 @@ func (r ApiIdentityCreateServiceAccountRequest) CitrixLocale(citrixLocale string
 	return r
 }
 
+// If &#x60;true&#x60;, this will be queried as a background task. The task will have JobType CreateServiceAccount. When the task is complete it will redirect to GetJobResults.
+func (r ApiIdentityCreateServiceAccountRequest) Async(async bool) ApiIdentityCreateServiceAccountRequest {
+	r.async = &async
+	return r
+}
+
 func (r ApiIdentityCreateServiceAccountRequest) Execute() (*ServiceAccountResponseModel, *http.Response, error) {
 	return r.ApiService.IdentityCreateServiceAccountExecute(r)
 }
 
 /*
-IdentityCreateServiceAccount Create a service account.
+IdentityCreateServiceAccount Create a service account async.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIdentityCreateServiceAccountRequest
@@ -737,6 +744,9 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 		return localVarReturnValue, nil, reportError("createServiceAccountRequestModel is required and must be specified")
 	}
 
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -8691,6 +8701,7 @@ type ApiIdentitySetServiceAccountRequest struct {
 	citrixTransactionId *string
 	accept *string
 	citrixLocale *string
+	async *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8738,6 +8749,12 @@ func (r ApiIdentitySetServiceAccountRequest) Accept(accept string) ApiIdentitySe
 // Locale of the request.
 func (r ApiIdentitySetServiceAccountRequest) CitrixLocale(citrixLocale string) ApiIdentitySetServiceAccountRequest {
 	r.citrixLocale = &citrixLocale
+	return r
+}
+
+// If &#x60;true&#x60;, this will be queried as a background task.             The task will have JobType SetServiceAccount.             When the task is complete it will redirect to GetJobResults.             
+func (r ApiIdentitySetServiceAccountRequest) Async(async bool) ApiIdentitySetServiceAccountRequest {
+	r.async = &async
 	return r
 }
 
@@ -8791,6 +8808,9 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 		return localVarReturnValue, nil, reportError("updateServiceAccountRequestModel is required and must be specified")
 	}
 
+	if r.async != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "async", r.async, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 

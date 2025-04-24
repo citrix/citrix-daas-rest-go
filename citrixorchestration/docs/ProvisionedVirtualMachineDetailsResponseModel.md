@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **VMInfo** | Pointer to **NullableString** | Provisioned VM Information. | [optional] 
 **ResourcePool** | Pointer to [**HypervisorResourcePoolRefResponseModel**](HypervisorResourcePoolRefResponseModel.md) |  | [optional] 
 **ConfigurationResultantSet** | Pointer to [**ProvisionedVirtualMachineConfigurationResultantSetResponseModel**](ProvisionedVirtualMachineConfigurationResultantSetResponseModel.md) |  | [optional] 
+**FailureReason** | Pointer to **NullableString** | Failure reason of power action. | [optional] 
+**FailedActionCompletionTime** | Pointer to **NullableString** | Time when the power action failed. | [optional] 
 
 ## Methods
 
@@ -804,6 +806,76 @@ SetConfigurationResultantSet sets ConfigurationResultantSet field to given value
 
 HasConfigurationResultantSet returns a boolean if a field has been set.
 
+### GetFailureReason
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailureReason() string`
+
+GetFailureReason returns the FailureReason field if non-nil, zero value otherwise.
+
+### GetFailureReasonOk
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailureReasonOk() (*string, bool)`
+
+GetFailureReasonOk returns a tuple with the FailureReason field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailureReason
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailureReason(v string)`
+
+SetFailureReason sets FailureReason field to given value.
+
+### HasFailureReason
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) HasFailureReason() bool`
+
+HasFailureReason returns a boolean if a field has been set.
+
+### SetFailureReasonNil
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailureReasonNil(b bool)`
+
+ SetFailureReasonNil sets the value for FailureReason to be an explicit nil
+
+### UnsetFailureReason
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetFailureReason()`
+
+UnsetFailureReason ensures that no value is present for FailureReason, not even an explicit nil
+### GetFailedActionCompletionTime
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailedActionCompletionTime() string`
+
+GetFailedActionCompletionTime returns the FailedActionCompletionTime field if non-nil, zero value otherwise.
+
+### GetFailedActionCompletionTimeOk
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) GetFailedActionCompletionTimeOk() (*string, bool)`
+
+GetFailedActionCompletionTimeOk returns a tuple with the FailedActionCompletionTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFailedActionCompletionTime
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailedActionCompletionTime(v string)`
+
+SetFailedActionCompletionTime sets FailedActionCompletionTime field to given value.
+
+### HasFailedActionCompletionTime
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) HasFailedActionCompletionTime() bool`
+
+HasFailedActionCompletionTime returns a boolean if a field has been set.
+
+### SetFailedActionCompletionTimeNil
+
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailedActionCompletionTimeNil(b bool)`
+
+ SetFailedActionCompletionTimeNil sets the value for FailedActionCompletionTime to be an explicit nil
+
+### UnsetFailedActionCompletionTime
+`func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetFailedActionCompletionTime()`
+
+UnsetFailedActionCompletionTime ensures that no value is present for FailedActionCompletionTime, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

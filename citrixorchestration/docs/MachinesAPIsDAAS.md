@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**MachinesGetMachinesV2**](MachinesAPIsDAAS.md#MachinesGetMachinesV2) | **Get** /MachinesV2 | The V2 version of get all machines in the site.
 [**MachinesGetTestMachineReport**](MachinesAPIsDAAS.md#MachinesGetTestMachineReport) | **Get** /Machines/{nameOrId}/TestReports/{reportId} | Get Cloud Health Check Report on a VDA machine.
 [**MachinesGetVDAComponentsAndFeatures**](MachinesAPIsDAAS.md#MachinesGetVDAComponentsAndFeatures) | **Get** /Machines/{nameOrId}/VDAComponentsAndFeatures | Get the components and features of VDAs associated with a machine.
+[**MachinesGroupMachine**](MachinesAPIsDAAS.md#MachinesGroupMachine) | **Post** /Machines/$group | Groups and counts machines based advanced search filter.
 [**MachinesImportFileTypes**](MachinesAPIsDAAS.md#MachinesImportFileTypes) | **Post** /Machines/{nameOrId}/FileTypes/$import | Import file type associations from the machine.
 [**MachinesLogoffMachineSessions**](MachinesAPIsDAAS.md#MachinesLogoffMachineSessions) | **Post** /Machines/{nameOrId}/$logoff | Logoff all sessions on a machine.
 [**MachinesRebootMachine**](MachinesAPIsDAAS.md#MachinesRebootMachine) | **Post** /Machines/{nameOrId}/$reboot | Reboot a machine.
@@ -1839,6 +1840,90 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## MachinesGroupMachine
+
+> map[string]int32 MachinesGroupMachine(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineGroupRequestModel(machineGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+
+Groups and counts machines based advanced search filter.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
+)
+
+func main() {
+    citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
+    citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
+    machineGroupRequestModel := *openapiclient.NewMachineGroupRequestModel() // MachineGroupRequestModel | Specifies the advanced search parameters and grouping property.
+    userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
+    authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
+    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
+    xTimeZone := "xTimeZone_example" // string | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 (optional)
+    accept := "application/json" // string | Must accept application/json. (optional)
+    citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, the search machines will be executed as a background task. The task will have JobType GroupMachine. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MachinesAPIsDAAS.MachinesGroupMachine(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).MachineGroupRequestModel(machineGroupRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).XTimeZone(xTimeZone).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MachinesAPIsDAAS.MachinesGroupMachine``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MachinesGroupMachine`: map[string]int32
+    fmt.Fprintf(os.Stdout, "Response from `MachinesAPIsDAAS.MachinesGroupMachine`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMachinesGroupMachineRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **citrixCustomerId** | **string** | Citrix Customer ID. Default is &#39;CitrixOnPremises&#39; | 
+ **citrixInstanceId** | **string** | Citrix Instance (Site) ID. | 
+ **machineGroupRequestModel** | [**MachineGroupRequestModel**](MachineGroupRequestModel.md) | Specifies the advanced search parameters and grouping property. | 
+ **userAgent** | **string** | User Agent type of the request. | 
+ **authorization** | **string** | Citrix authorization header: CWSAuth Bearer&#x3D;{token} | 
+ **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
+ **xTimeZone** | **string** | Time zone of the client. If specified, must be a valid Windows Id or Utc Offset from IANA (https://www.iana.org/time-zones) time zones.  Example: UTC or +00:00 | 
+ **accept** | **string** | Must accept application/json. | 
+ **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, the search machines will be executed as a background task. The task will have JobType GroupMachine. When the task is complete it will redirect to GetJobResults. | [default to false]
+
+### Return type
+
+**map[string]int32**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

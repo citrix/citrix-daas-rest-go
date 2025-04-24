@@ -380,7 +380,7 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
-    purgeDBOnly := true // bool | If this option is specified, this command will only remove the image version data from the Citrix site database.  However, the disk images created in the image version still remain in the hypervisor.   Optional; default is `false`. (optional) (default to false)
+    purgeDBOnly := true // bool | If this option is specified, this command will only remove the image version data from the Citrix site database. However, the disk images created in the image version still remain in the hypervisor.  Optional; default is `false`. (optional) (default to false)
     async := true // bool | If `true`, the image version (and associated objects) will be deleted as a background task. The task will have JobType DeleteImageVersion. When the task is complete it will redirect to GetImageDefinitionImageVersion. The job's Parameters will contain properties: * _Id_ - ID of the image version being deleted, * _Number_ - Number of the image version being deleted. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
- **purgeDBOnly** | **bool** | If this option is specified, this command will only remove the image version data from the Citrix site database.  However, the disk images created in the image version still remain in the hypervisor.   Optional; default is &#x60;false&#x60;. | [default to false]
+ **purgeDBOnly** | **bool** | If this option is specified, this command will only remove the image version data from the Citrix site database. However, the disk images created in the image version still remain in the hypervisor.  Optional; default is &#x60;false&#x60;. | [default to false]
  **async** | **bool** | If &#x60;true&#x60;, the image version (and associated objects) will be deleted as a background task. The task will have JobType DeleteImageVersion. When the task is complete it will redirect to GetImageDefinitionImageVersion. The job&#39;s Parameters will contain properties: * _Id_ - ID of the image version being deleted, * _Number_ - Number of the image version being deleted. | [default to false]
 
 ### Return type
@@ -1221,7 +1221,7 @@ func main() {
     citrixCustomerId := "CitrixOnPremises" // string | Citrix Customer ID. Default is 'CitrixOnPremises'
     citrixInstanceId := "citrixInstanceId_example" // string | Citrix Instance (Site) ID.
     nameOrId := "nameOrId_example" // string | Name or ID of image definition.
-    versionNumberOrId := "versionNumberOrId_example" // string | 
+    versionNumberOrId := "versionNumberOrId_example" // string | Number or ID of image version.
     updateImageVersionResourcePoolsRequestModel := *openapiclient.NewUpdateImageVersionResourcePoolsRequestModel() // UpdateImageVersionResourcePoolsRequestModel | Details of the resource pools to add to the image version.
     userAgent := "Mozilla/5.0" // string | User Agent type of the request. (optional)
     authorization := "authorization_example" // string | Citrix authorization header: CWSAuth Bearer={token} (optional)
@@ -1247,7 +1247,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **nameOrId** | **string** | Name or ID of image definition. | 
-**versionNumberOrId** | **string** |  | 
+**versionNumberOrId** | **string** | Number or ID of image version. | 
 
 ### Other Parameters
 

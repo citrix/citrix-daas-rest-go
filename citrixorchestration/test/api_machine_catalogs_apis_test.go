@@ -184,6 +184,34 @@ func Test_citrixorchestration_MachineCatalogsAPIsDAASService(t *testing.T) {
 
 	})
 
+	t.Run("Test MachineCatalogsAPIsDAASService MachineCatalogsGetMachineCatalogCostSummary", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogCostSummary(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MachineCatalogsAPIsDAASService MachineCatalogsGetMachineCatalogDailyCost", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var nameOrId string
+
+		resp, httpRes, err := apiClient.MachineCatalogsAPIsDAAS.MachineCatalogsGetMachineCatalogDailyCost(context.Background(), nameOrId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test MachineCatalogsAPIsDAASService MachineCatalogsGetMachineCatalogDeliveryGroupAssociations", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

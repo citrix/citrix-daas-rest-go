@@ -24,6 +24,7 @@ const (
 	CONTAINERSCOPETYPE_DELIVERY_GROUP ContainerScopeType = "DeliveryGroup"
 	CONTAINERSCOPETYPE_APPLICATION_GROUP ContainerScopeType = "ApplicationGroup"
 	CONTAINERSCOPETYPE_MACHINE_CATALOG ContainerScopeType = "MachineCatalog"
+	CONTAINERSCOPETYPE_HYPERVISOR_CONNECTION ContainerScopeType = "HypervisorConnection"
 )
 
 // All allowed values of ContainerScopeType enum
@@ -32,6 +33,7 @@ var AllowedContainerScopeTypeEnumValues = []ContainerScopeType{
 	"DeliveryGroup",
 	"ApplicationGroup",
 	"MachineCatalog",
+	"HypervisorConnection",
 }
 
 func (v *ContainerScopeType) UnmarshalJSON(src []byte) error {
