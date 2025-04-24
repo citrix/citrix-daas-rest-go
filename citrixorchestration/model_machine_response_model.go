@@ -161,6 +161,8 @@ type MachineResponseModel struct {
 	UpgradeDetail *MachineUpgradeDetail `json:"UpgradeDetail,omitempty"`
 	// The metadata of this machine.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
+	// The machine's icon that is displayed in Receiver.
+	IconId NullableString `json:"IconId,omitempty"`
 }
 
 // NewMachineResponseModel instantiates a new MachineResponseModel object
@@ -3318,6 +3320,48 @@ func (o *MachineResponseModel) SetMetadata(v []NameValueStringPairModel) {
 	o.Metadata = v
 }
 
+// GetIconId returns the IconId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MachineResponseModel) GetIconId() string {
+	if o == nil || IsNil(o.IconId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.IconId.Get()
+}
+
+// GetIconIdOk returns a tuple with the IconId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MachineResponseModel) GetIconIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IconId.Get(), o.IconId.IsSet()
+}
+
+// HasIconId returns a boolean if a field has been set.
+func (o *MachineResponseModel) HasIconId() bool {
+	if o != nil && o.IconId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIconId gets a reference to the given NullableString and assigns it to the IconId field.
+func (o *MachineResponseModel) SetIconId(v string) {
+	o.IconId.Set(&v)
+}
+// SetIconIdNil sets the value for IconId to be an explicit nil
+func (o *MachineResponseModel) SetIconIdNil() {
+	o.IconId.Set(nil)
+}
+
+// UnsetIconId ensures that no value is present for IconId, not even an explicit nil
+func (o *MachineResponseModel) UnsetIconId() {
+	o.IconId.Unset()
+}
+
 func (o MachineResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -3580,6 +3624,9 @@ func (o MachineResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
+	}
+	if o.IconId.IsSet() {
+		toSerialize["IconId"] = o.IconId.Get()
 	}
 	return toSerialize, nil
 }

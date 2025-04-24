@@ -89,11 +89,11 @@ Name | Type | Description | Notes
 **MachineConfigurationOutOfSync** | Pointer to **NullableBool** | Flag indicating whether the machine&#39;s configuration is out of sync with the catalog&#39;s latest configuration | [optional] 
 **UpgradeDetail** | Pointer to [**MachineUpgradeDetail**](MachineUpgradeDetail.md) |  | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | The metadata of this machine. | [optional] 
+**IconId** | Pointer to **NullableString** | The machine&#39;s icon that is displayed in Receiver. | [optional] 
 **AssignedClientName** | Pointer to **NullableString** | The name of the endpoint client device that the machine has been assigned to. | [optional] 
 **AssignedIPAddress** | Pointer to **NullableString** | The IP address of the endpoint client device that the machine has been assigned to. | [optional] 
 **BrowserName** | Pointer to **NullableString** | Site-wide unique name identifying associated desktop to other components (for example StoreFront). This is typically non-null only for machines backing assigned private desktops. | [optional] 
 **ColorDepth** | Pointer to [**ColorDepth**](ColorDepth.md) |  | [optional] 
-**IconId** | Pointer to **NullableString** | The machine&#39;s icon that is displayed in Receiver. | [optional] 
 **IsReserved** | **bool** | Indicates if machine is reserved for special use, for example for AppDisk preparation. A reserved machine cannot be a member of a delivery group. | 
 **SecureIcaRequired** | Pointer to **NullableBool** | Flag indicating whether SecureICA is required or not when starting a session on the machine. | [optional] 
 **SessionsEstablished** | **int32** | Number of established sessions on this machine.  When SessionSupport is equal to MultiSession, this excludes established sessions which have not yet completed their logon processing. | 
@@ -2772,6 +2772,41 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *MachineDetailResponseModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetIconId
+
+`func (o *MachineDetailResponseModel) GetIconId() string`
+
+GetIconId returns the IconId field if non-nil, zero value otherwise.
+
+### GetIconIdOk
+
+`func (o *MachineDetailResponseModel) GetIconIdOk() (*string, bool)`
+
+GetIconIdOk returns a tuple with the IconId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIconId
+
+`func (o *MachineDetailResponseModel) SetIconId(v string)`
+
+SetIconId sets IconId field to given value.
+
+### HasIconId
+
+`func (o *MachineDetailResponseModel) HasIconId() bool`
+
+HasIconId returns a boolean if a field has been set.
+
+### SetIconIdNil
+
+`func (o *MachineDetailResponseModel) SetIconIdNil(b bool)`
+
+ SetIconIdNil sets the value for IconId to be an explicit nil
+
+### UnsetIconId
+`func (o *MachineDetailResponseModel) UnsetIconId()`
+
+UnsetIconId ensures that no value is present for IconId, not even an explicit nil
 ### GetAssignedClientName
 
 `func (o *MachineDetailResponseModel) GetAssignedClientName() string`
@@ -2902,41 +2937,6 @@ SetColorDepth sets ColorDepth field to given value.
 
 HasColorDepth returns a boolean if a field has been set.
 
-### GetIconId
-
-`func (o *MachineDetailResponseModel) GetIconId() string`
-
-GetIconId returns the IconId field if non-nil, zero value otherwise.
-
-### GetIconIdOk
-
-`func (o *MachineDetailResponseModel) GetIconIdOk() (*string, bool)`
-
-GetIconIdOk returns a tuple with the IconId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIconId
-
-`func (o *MachineDetailResponseModel) SetIconId(v string)`
-
-SetIconId sets IconId field to given value.
-
-### HasIconId
-
-`func (o *MachineDetailResponseModel) HasIconId() bool`
-
-HasIconId returns a boolean if a field has been set.
-
-### SetIconIdNil
-
-`func (o *MachineDetailResponseModel) SetIconIdNil(b bool)`
-
- SetIconIdNil sets the value for IconId to be an explicit nil
-
-### UnsetIconId
-`func (o *MachineDetailResponseModel) UnsetIconId()`
-
-UnsetIconId ensures that no value is present for IconId, not even an explicit nil
 ### GetIsReserved
 
 `func (o *MachineDetailResponseModel) GetIsReserved() bool`

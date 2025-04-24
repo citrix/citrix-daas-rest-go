@@ -17,7 +17,7 @@ import (
 // checks if the DeliveryGroupDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DeliveryGroupDetailResponseModel{}
 
-// DeliveryGroupDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind.               Response object for details of a delivery group.              
+// DeliveryGroupDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind,DefaultDesktopIconId.               Response object for details of a delivery group.              
 type DeliveryGroupDetailResponseModel struct {
 	// Globally unique identifier of the delivery group.
 	Id string `json:"Id"`
@@ -92,6 +92,8 @@ type DeliveryGroupDetailResponseModel struct {
 	ReuseMachinesWithoutShutdownInOutage *bool `json:"ReuseMachinesWithoutShutdownInOutage,omitempty"`
 	// Total number of suspend-capable desktops in the delivery group.
 	TotalDesktopsOfSuspend NullableInt32 `json:"TotalDesktopsOfSuspend,omitempty"`
+	// Default icon to use for desktops published from the delivery group. was IconUid
+	DefaultDesktopIconId NullableString `json:"DefaultDesktopIconId,omitempty"`
 	AppAccessPolicy *AppAccessPolicyResponseModel `json:"AppAccessPolicy,omitempty"`
 	// Specifies whether key logging app protection is required.
 	AppProtectionKeyLoggingRequired NullableBool `json:"AppProtectionKeyLoggingRequired,omitempty"`
@@ -105,8 +107,6 @@ type DeliveryGroupDetailResponseModel struct {
 	AutoScaleEnabled NullableBool `json:"AutoScaleEnabled,omitempty"`
 	RestrictAutoscaleTag *RefResponseModel `json:"RestrictAutoscaleTag,omitempty"`
 	ColorDepth *ColorDepth `json:"ColorDepth,omitempty"`
-	// Default icon to use for desktops published from the delivery group. was IconUid
-	DefaultDesktopIconId NullableString `json:"DefaultDesktopIconId,omitempty"`
 	// Default published name to use for desktops published from the delivery group. Change: Add
 	DefaultDesktopPublishedName NullableString `json:"DefaultDesktopPublishedName,omitempty"`
 	// Number of machines in the delivery group which are currently in-use.
@@ -1534,6 +1534,48 @@ func (o *DeliveryGroupDetailResponseModel) UnsetTotalDesktopsOfSuspend() {
 	o.TotalDesktopsOfSuspend.Unset()
 }
 
+// GetDefaultDesktopIconId returns the DefaultDesktopIconId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryGroupDetailResponseModel) GetDefaultDesktopIconId() string {
+	if o == nil || IsNil(o.DefaultDesktopIconId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DefaultDesktopIconId.Get()
+}
+
+// GetDefaultDesktopIconIdOk returns a tuple with the DefaultDesktopIconId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryGroupDetailResponseModel) GetDefaultDesktopIconIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DefaultDesktopIconId.Get(), o.DefaultDesktopIconId.IsSet()
+}
+
+// HasDefaultDesktopIconId returns a boolean if a field has been set.
+func (o *DeliveryGroupDetailResponseModel) HasDefaultDesktopIconId() bool {
+	if o != nil && o.DefaultDesktopIconId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDefaultDesktopIconId gets a reference to the given NullableString and assigns it to the DefaultDesktopIconId field.
+func (o *DeliveryGroupDetailResponseModel) SetDefaultDesktopIconId(v string) {
+	o.DefaultDesktopIconId.Set(&v)
+}
+// SetDefaultDesktopIconIdNil sets the value for DefaultDesktopIconId to be an explicit nil
+func (o *DeliveryGroupDetailResponseModel) SetDefaultDesktopIconIdNil() {
+	o.DefaultDesktopIconId.Set(nil)
+}
+
+// UnsetDefaultDesktopIconId ensures that no value is present for DefaultDesktopIconId, not even an explicit nil
+func (o *DeliveryGroupDetailResponseModel) UnsetDefaultDesktopIconId() {
+	o.DefaultDesktopIconId.Unset()
+}
+
 // GetAppAccessPolicy returns the AppAccessPolicy field value if set, zero value otherwise.
 func (o *DeliveryGroupDetailResponseModel) GetAppAccessPolicy() AppAccessPolicyResponseModel {
 	if o == nil || IsNil(o.AppAccessPolicy) {
@@ -1818,48 +1860,6 @@ func (o *DeliveryGroupDetailResponseModel) HasColorDepth() bool {
 // SetColorDepth gets a reference to the given ColorDepth and assigns it to the ColorDepth field.
 func (o *DeliveryGroupDetailResponseModel) SetColorDepth(v ColorDepth) {
 	o.ColorDepth = &v
-}
-
-// GetDefaultDesktopIconId returns the DefaultDesktopIconId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *DeliveryGroupDetailResponseModel) GetDefaultDesktopIconId() string {
-	if o == nil || IsNil(o.DefaultDesktopIconId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.DefaultDesktopIconId.Get()
-}
-
-// GetDefaultDesktopIconIdOk returns a tuple with the DefaultDesktopIconId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *DeliveryGroupDetailResponseModel) GetDefaultDesktopIconIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.DefaultDesktopIconId.Get(), o.DefaultDesktopIconId.IsSet()
-}
-
-// HasDefaultDesktopIconId returns a boolean if a field has been set.
-func (o *DeliveryGroupDetailResponseModel) HasDefaultDesktopIconId() bool {
-	if o != nil && o.DefaultDesktopIconId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetDefaultDesktopIconId gets a reference to the given NullableString and assigns it to the DefaultDesktopIconId field.
-func (o *DeliveryGroupDetailResponseModel) SetDefaultDesktopIconId(v string) {
-	o.DefaultDesktopIconId.Set(&v)
-}
-// SetDefaultDesktopIconIdNil sets the value for DefaultDesktopIconId to be an explicit nil
-func (o *DeliveryGroupDetailResponseModel) SetDefaultDesktopIconIdNil() {
-	o.DefaultDesktopIconId.Set(nil)
-}
-
-// UnsetDefaultDesktopIconId ensures that no value is present for DefaultDesktopIconId, not even an explicit nil
-func (o *DeliveryGroupDetailResponseModel) UnsetDefaultDesktopIconId() {
-	o.DefaultDesktopIconId.Unset()
 }
 
 // GetDefaultDesktopPublishedName returns the DefaultDesktopPublishedName field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -4201,6 +4201,9 @@ func (o DeliveryGroupDetailResponseModel) ToMap() (map[string]interface{}, error
 	if o.TotalDesktopsOfSuspend.IsSet() {
 		toSerialize["TotalDesktopsOfSuspend"] = o.TotalDesktopsOfSuspend.Get()
 	}
+	if o.DefaultDesktopIconId.IsSet() {
+		toSerialize["DefaultDesktopIconId"] = o.DefaultDesktopIconId.Get()
+	}
 	if !IsNil(o.AppAccessPolicy) {
 		toSerialize["AppAccessPolicy"] = o.AppAccessPolicy
 	}
@@ -4224,9 +4227,6 @@ func (o DeliveryGroupDetailResponseModel) ToMap() (map[string]interface{}, error
 	}
 	if !IsNil(o.ColorDepth) {
 		toSerialize["ColorDepth"] = o.ColorDepth
-	}
-	if o.DefaultDesktopIconId.IsSet() {
-		toSerialize["DefaultDesktopIconId"] = o.DefaultDesktopIconId.Get()
 	}
 	if o.DefaultDesktopPublishedName.IsSet() {
 		toSerialize["DefaultDesktopPublishedName"] = o.DefaultDesktopPublishedName.Get()

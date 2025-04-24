@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ConnectionType** | [**HypervisorConnectionType**](HypervisorConnectionType.md) |  | 
 **UsesExplicitStorage** | Pointer to **bool** | If the hypervisor resource pool use ExplicitStorage. | [optional] 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor resource pool.  | [optional] 
+**ContainerScopes** | Pointer to [**[]ContainerScopeResponseModel**](ContainerScopeResponseModel.md) | Delegated admin scopes in which the containers of the resource pool reside. | [optional] 
 **Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
 **Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
 **XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
@@ -440,6 +441,41 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *HypervisorResourcePoolAWSDetailResponseModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetContainerScopes
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel`
+
+GetContainerScopes returns the ContainerScopes field if non-nil, zero value otherwise.
+
+### GetContainerScopesOk
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) GetContainerScopesOk() (*[]ContainerScopeResponseModel, bool)`
+
+GetContainerScopesOk returns a tuple with the ContainerScopes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContainerScopes
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel)`
+
+SetContainerScopes sets ContainerScopes field to given value.
+
+### HasContainerScopes
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) HasContainerScopes() bool`
+
+HasContainerScopes returns a boolean if a field has been set.
+
+### SetContainerScopesNil
+
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) SetContainerScopesNil(b bool)`
+
+ SetContainerScopesNil sets the value for ContainerScopes to be an explicit nil
+
+### UnsetContainerScopes
+`func (o *HypervisorResourcePoolAWSDetailResponseModel) UnsetContainerScopes()`
+
+UnsetContainerScopes ensures that no value is present for ContainerScopes, not even an explicit nil
 ### GetId
 
 `func (o *HypervisorResourcePoolAWSDetailResponseModel) GetId() string`

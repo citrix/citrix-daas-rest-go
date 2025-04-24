@@ -198,6 +198,34 @@ Class | Method | HTTP request | Description
 *ApplicationsAPIsDAAS* | [**ApplicationsRemoveApplicationTags**](docs/ApplicationsAPIsDAAS.md#applicationsremoveapplicationtags) | **Delete** /Applications/{nameOrId}/Tags/{tagNameOrId} | Remove a tag from an application.
 *ApplicationsAPIsDAAS* | [**ApplicationsSearchStartMenuApplications**](docs/ApplicationsAPIsDAAS.md#applicationssearchstartmenuapplications) | **Post** /Applications/StartMenuApplications | Search Start Menu Applications.
 *ApplicationsAPIsDAAS* | [**ApplicationsSetApplicationTags**](docs/ApplicationsAPIsDAAS.md#applicationssetapplicationtags) | **Put** /Applications/{nameOrId}/Tags | Set tags associated with an application.
+*BackupRestoreAPIsDAAS* | [**BackupRestoreCreateBackupSchedule**](docs/BackupRestoreAPIsDAAS.md#backuprestorecreatebackupschedule) | **Post** /BackupRestore/Schedules | Create backup schedule
+*BackupRestoreAPIsDAAS* | [**BackupRestoreDeleteBackup**](docs/BackupRestoreAPIsDAAS.md#backuprestoredeletebackup) | **Delete** /BackupRestore/{backupName} | Delete a backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreDeleteBackupSchedule**](docs/BackupRestoreAPIsDAAS.md#backuprestoredeletebackupschedule) | **Delete** /BackupRestore/Schedule/{uid} | Delete backup schedule
+*BackupRestoreAPIsDAAS* | [**BackupRestoreDisableSingleBackupSchedule**](docs/BackupRestoreAPIsDAAS.md#backuprestoredisablesinglebackupschedule) | **Post** /BackupRestore/Schedules/{uid}/Disable | Disable single backup schedule
+*BackupRestoreAPIsDAAS* | [**BackupRestoreDoBackup**](docs/BackupRestoreAPIsDAAS.md#backuprestoredobackup) | **Post** /BackupRestore/DoBackup | Do backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreDownloadSingleBackup**](docs/BackupRestoreAPIsDAAS.md#backuprestoredownloadsinglebackup) | **Get** /BackupRestore/{backupName}/Download | Download single backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreEnableSingleBackupSchedule**](docs/BackupRestoreAPIsDAAS.md#backuprestoreenablesinglebackupschedule) | **Post** /BackupRestore/Schedules/{uid}/Enable | Enable single backup schedule
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetAllBackupHistory**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetallbackuphistory) | **Get** /BackupRestore/History | Get all backup history
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetBackupHistoryForSpecificHistory**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetbackuphistoryforspecifichistory) | **Get** /BackupRestore/History/{uid} | Get backup history for a single specific backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetBackupRestoreOptions**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetbackuprestoreoptions) | **Get** /BackupRestore/Options | Get backup / restore options
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetBackupSchedule**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetbackupschedule) | **Get** /BackupRestore/Schedules/{Uid} | Get single backup schedule
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetBackupSchedules**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetbackupschedules) | **Get** /BackupRestore/Schedules | Get backup schedules
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetBackups**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetbackups) | **Get** /BackupRestore | Get backups
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetBlobStorage**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetblobstorage) | **Get** /BackupRestore/Storage | Get Blob Storage Information
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetComponentMembers**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetcomponentmembers) | **Post** /BackupRestore/{backupName}/Members | Get backup Members
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetCurrentActionStatus**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetcurrentactionstatus) | **Get** /BackupRestore/Status | Get backup / restore status
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetHistoryForSpecificBackup**](docs/BackupRestoreAPIsDAAS.md#backuprestoregethistoryforspecificbackup) | **Get** /BackupRestore/{backupName}/History/All | Get all backup history for specific backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetInformation**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetinformation) | **Get** /BackupRestore/Information | Get backup / restore information
+*BackupRestoreAPIsDAAS* | [**BackupRestoreGetResultLog**](docs/BackupRestoreAPIsDAAS.md#backuprestoregetresultlog) | **Post** /BackupRestore/{backupName}/ResultLog | Get result log
+*BackupRestoreAPIsDAAS* | [**BackupRestoreModifyBackupSchedule**](docs/BackupRestoreAPIsDAAS.md#backuprestoremodifybackupschedule) | **Patch** /BackupRestore/Schedules/{uid} | Modify backup schedules
+*BackupRestoreAPIsDAAS* | [**BackupRestorePinSingleBackup**](docs/BackupRestoreAPIsDAAS.md#backuprestorepinsinglebackup) | **Post** /BackupRestore/{backupName}/PinBackup | Pin a backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreRestoreBackupToSite**](docs/BackupRestoreAPIsDAAS.md#backuprestorerestorebackuptosite) | **Post** /BackupRestore/{backupName}/Restore | Restore a backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreSetBackupRestoreOptions**](docs/BackupRestoreAPIsDAAS.md#backuprestoresetbackuprestoreoptions) | **Post** /BackupRestore/Options | Set backup / restore options
+*BackupRestoreAPIsDAAS* | [**BackupRestoreSetBlobStorage**](docs/BackupRestoreAPIsDAAS.md#backuprestoresetblobstorage) | **Post** /BackupRestore/Storage | Set Blob Storage Information
+*BackupRestoreAPIsDAAS* | [**BackupRestoreSetCurrentActionStatus**](docs/BackupRestoreAPIsDAAS.md#backuprestoresetcurrentactionstatus) | **Post** /BackupRestore/Status | Set backup / restore status
+*BackupRestoreAPIsDAAS* | [**BackupRestoreUnpinSingleBackup**](docs/BackupRestoreAPIsDAAS.md#backuprestoreunpinsinglebackup) | **Post** /BackupRestore/{backupName}/UnpinBackup | Unpin a backup
+*BackupRestoreAPIsDAAS* | [**BackupRestoreUpdateBckRstrHistoryNotes**](docs/BackupRestoreAPIsDAAS.md#backuprestoreupdatebckrstrhistorynotes) | **Post** /BackupRestore/History/{uid} | Update notes in history entry
+*BackupRestoreAPIsDAAS* | [**BackupRestoreValidateStorage**](docs/BackupRestoreAPIsDAAS.md#backuprestorevalidatestorage) | **Get** /BackupRestore/Storage/Validate | Validate Storage
 *BatchAPIsDAAS* | [**BatchDoBatchRequest**](docs/BatchAPIsDAAS.md#batchdobatchrequest) | **Post** /$batch | Perform a batch request.
 *ConfigLogAPIsDAAS* | [**ConfigLogDeleteLogs**](docs/ConfigLogAPIsDAAS.md#configlogdeletelogs) | **Delete** /ConfigLog/Logs | Delete logging event logs.
 *ConfigLogAPIsDAAS* | [**ConfigLogDoConfigLogSearch**](docs/ConfigLogAPIsDAAS.md#configlogdoconfiglogsearch) | **Post** /ConfigLog/Operations/$search | Perform an advanced search for configuration log entries.
@@ -319,6 +347,7 @@ Class | Method | HTTP request | Description
 *HypervisorsAPIsDAAS* | [**HypervisorsDoHypervisorResourceSearch**](docs/HypervisorsAPIsDAAS.md#hypervisorsdohypervisorresourcesearch) | **Post** /hypervisors/{nameOrId}/resourcePools/{poolId}/resources/$search | Search the resources within a hypervisor resource pool.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisor**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisor) | **Get** /hypervisors/{nameOrId} | Get the details for a single hypervisor.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorAdministrators**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisoradministrators) | **Get** /hypervisors/{nameOrId}/administrators | Get administrators who can administer a hypervisor.
+*HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorAllResourcePools**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorallresourcepools) | **Get** /hypervisorAllResourcePools | Get the list of hypervisor resource pools from all hypervisors.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorAllResources**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorallresources) | **Get** /hypervisors/{nameOrId}/allResources | Get all resources within a hypervisor.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorAllResourcesWithoutConnection**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisorallresourceswithoutconnection) | **Post** /hypervisors/$GetResources | Get all resources within a hypervisor, _without_ creating a persistent connection to the hypervisor.
 *HypervisorsAPIsDAAS* | [**HypervisorsGetHypervisorDeletePreview**](docs/HypervisorsAPIsDAAS.md#hypervisorsgethypervisordeletepreview) | **Get** /hypervisors/{nameOrId}/deletePreview | Get the hypervisor delete preview.
@@ -357,7 +386,7 @@ Class | Method | HTTP request | Description
 *IconsAPIsDAAS* | [**IconsRemoveIcon**](docs/IconsAPIsDAAS.md#iconsremoveicon) | **Delete** /Icons/{id} | Remove a customized icon.
 *IdentityAPIsDAAS* | [**IdentityAddAzureAdSecurityGroupMember**](docs/IdentityAPIsDAAS.md#identityaddazureadsecuritygroupmember) | **Put** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId}/members/{refGroupId} | Add a security group to an assigned security as it&#39;s member
 *IdentityAPIsDAAS* | [**IdentityCreateMachine**](docs/IdentityAPIsDAAS.md#identitycreatemachine) | **Post** /Identity/Machines | Create machine identity
-*IdentityAPIsDAAS* | [**IdentityCreateServiceAccount**](docs/IdentityAPIsDAAS.md#identitycreateserviceaccount) | **Post** /Identity/ServiceAccount | Create a service account.
+*IdentityAPIsDAAS* | [**IdentityCreateServiceAccount**](docs/IdentityAPIsDAAS.md#identitycreateserviceaccount) | **Post** /Identity/ServiceAccount | Create a service account async.
 *IdentityAPIsDAAS* | [**IdentityDeleteMachine**](docs/IdentityAPIsDAAS.md#identitydeletemachine) | **Delete** /Identity/Machines/{machine} | Delete a machine identity
 *IdentityAPIsDAAS* | [**IdentityDeleteServiceAccount**](docs/IdentityAPIsDAAS.md#identitydeleteserviceaccount) | **Delete** /Identity/ServiceAccount/{serviceAccountUid} | Delete an existing service account.
 *IdentityAPIsDAAS* | [**IdentityGetAzureADSecurityGroups**](docs/IdentityAPIsDAAS.md#identitygetazureadsecuritygroups) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId} | Get Azure AD security group by group id.
@@ -480,6 +509,7 @@ Class | Method | HTTP request | Description
 *MachinesAPIsDAAS* | [**MachinesGetMachinesV2**](docs/MachinesAPIsDAAS.md#machinesgetmachinesv2) | **Get** /MachinesV2 | The V2 version of get all machines in the site.
 *MachinesAPIsDAAS* | [**MachinesGetTestMachineReport**](docs/MachinesAPIsDAAS.md#machinesgettestmachinereport) | **Get** /Machines/{nameOrId}/TestReports/{reportId} | Get Cloud Health Check Report on a VDA machine.
 *MachinesAPIsDAAS* | [**MachinesGetVDAComponentsAndFeatures**](docs/MachinesAPIsDAAS.md#machinesgetvdacomponentsandfeatures) | **Get** /Machines/{nameOrId}/VDAComponentsAndFeatures | Get the components and features of VDAs associated with a machine.
+*MachinesAPIsDAAS* | [**MachinesGroupMachine**](docs/MachinesAPIsDAAS.md#machinesgroupmachine) | **Post** /Machines/$group | Groups and counts machines based advanced search filter.
 *MachinesAPIsDAAS* | [**MachinesImportFileTypes**](docs/MachinesAPIsDAAS.md#machinesimportfiletypes) | **Post** /Machines/{nameOrId}/FileTypes/$import | Import file type associations from the machine.
 *MachinesAPIsDAAS* | [**MachinesLogoffMachineSessions**](docs/MachinesAPIsDAAS.md#machineslogoffmachinesessions) | **Post** /Machines/{nameOrId}/$logoff | Logoff all sessions on a machine.
 *MachinesAPIsDAAS* | [**MachinesRebootMachine**](docs/MachinesAPIsDAAS.md#machinesrebootmachine) | **Post** /Machines/{nameOrId}/$reboot | Reboot a machine.
@@ -921,6 +951,7 @@ Class | Method | HTTP request | Description
  - [CreateConfigurationSlotRequestModel](docs/CreateConfigurationSlotRequestModel.md)
  - [CreateDeliveryGroupRequestModel](docs/CreateDeliveryGroupRequestModel.md)
  - [CreateHypervisorRequestModel](docs/CreateHypervisorRequestModel.md)
+ - [CreateHypervisorResourcePoolAWCRequestModel](docs/CreateHypervisorResourcePoolAWCRequestModel.md)
  - [CreateHypervisorResourcePoolAWSRequestModel](docs/CreateHypervisorResourcePoolAWSRequestModel.md)
  - [CreateHypervisorResourcePoolAzureRequestModel](docs/CreateHypervisorResourcePoolAzureRequestModel.md)
  - [CreateHypervisorResourcePoolGcpRequestModel](docs/CreateHypervisorResourcePoolGcpRequestModel.md)
@@ -1009,6 +1040,7 @@ Class | Method | HTTP request | Description
  - [EditApplicationRequestModel](docs/EditApplicationRequestModel.md)
  - [EditBrokerHypervisorConnectionRequestModel](docs/EditBrokerHypervisorConnectionRequestModel.md)
  - [EditDeliveryGroupRequestModel](docs/EditDeliveryGroupRequestModel.md)
+ - [EditHypervisorAWCConnectionRequestModel](docs/EditHypervisorAWCConnectionRequestModel.md)
  - [EditHypervisorAWSConnectionRequestModel](docs/EditHypervisorAWSConnectionRequestModel.md)
  - [EditHypervisorAzureArcConnectionRequestModel](docs/EditHypervisorAzureArcConnectionRequestModel.md)
  - [EditHypervisorAzureConnectionRequestModel](docs/EditHypervisorAzureConnectionRequestModel.md)
@@ -1074,6 +1106,7 @@ Class | Method | HTTP request | Description
  - [GpoTestPolicyData](docs/GpoTestPolicyData.md)
  - [GpoTestSettingData](docs/GpoTestSettingData.md)
  - [HomeZoneMode](docs/HomeZoneMode.md)
+ - [HypervisorAWCConnectionDetailRequestModel](docs/HypervisorAWCConnectionDetailRequestModel.md)
  - [HypervisorAWSConnectionDetailRequestModel](docs/HypervisorAWSConnectionDetailRequestModel.md)
  - [HypervisorAllResourceSearchRequestModel](docs/HypervisorAllResourceSearchRequestModel.md)
  - [HypervisorAvailabilityZoneResourceResponseModel](docs/HypervisorAvailabilityZoneResourceResponseModel.md)
@@ -1086,6 +1119,7 @@ Class | Method | HTTP request | Description
  - [HypervisorConnectionDetailRequestModel](docs/HypervisorConnectionDetailRequestModel.md)
  - [HypervisorConnectionType](docs/HypervisorConnectionType.md)
  - [HypervisorDeletePreviewResponseModel](docs/HypervisorDeletePreviewResponseModel.md)
+ - [HypervisorDetailAWCResponseModel](docs/HypervisorDetailAWCResponseModel.md)
  - [HypervisorDetailAWSResponseModel](docs/HypervisorDetailAWSResponseModel.md)
  - [HypervisorDetailAzureArcResponseModel](docs/HypervisorDetailAzureArcResponseModel.md)
  - [HypervisorDetailAzureResponseModel](docs/HypervisorDetailAzureResponseModel.md)
@@ -1105,6 +1139,7 @@ Class | Method | HTTP request | Description
  - [HypervisorPluginResponseModel](docs/HypervisorPluginResponseModel.md)
  - [HypervisorPluginResponseModelCollection](docs/HypervisorPluginResponseModelCollection.md)
  - [HypervisorRefResponseModel](docs/HypervisorRefResponseModel.md)
+ - [HypervisorResourcePoolAWCDetailResponseModel](docs/HypervisorResourcePoolAWCDetailResponseModel.md)
  - [HypervisorResourcePoolAWSDetailResponseModel](docs/HypervisorResourcePoolAWSDetailResponseModel.md)
  - [HypervisorResourcePoolAzureDetailResponseModel](docs/HypervisorResourcePoolAzureDetailResponseModel.md)
  - [HypervisorResourcePoolDetailResponseModel](docs/HypervisorResourcePoolDetailResponseModel.md)
@@ -1296,6 +1331,7 @@ Class | Method | HTTP request | Description
  - [MachineConfigurationResponseModel](docs/MachineConfigurationResponseModel.md)
  - [MachineConfigurationResponseModelCollection](docs/MachineConfigurationResponseModelCollection.md)
  - [MachineDetailResponseModel](docs/MachineDetailResponseModel.md)
+ - [MachineGroupRequestModel](docs/MachineGroupRequestModel.md)
  - [MachineHostingResponseModel](docs/MachineHostingResponseModel.md)
  - [MachineIdentityPoolResponseModel](docs/MachineIdentityPoolResponseModel.md)
  - [MachineIdentityPoolResponseModelCollection](docs/MachineIdentityPoolResponseModelCollection.md)

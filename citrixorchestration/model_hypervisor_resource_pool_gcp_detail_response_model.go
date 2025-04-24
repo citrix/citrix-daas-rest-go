@@ -40,6 +40,8 @@ type HypervisorResourcePoolGcpDetailResponseModel struct {
 	UsesExplicitStorage *bool `json:"UsesExplicitStorage,omitempty"`
 	// Metadata for hypervisor resource pool. 
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
+	// Delegated admin scopes in which the containers of the resource pool reside.
+	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
 	Project HypervisorResourceRefResponseModel `json:"Project"`
 	Region HypervisorResourceRefResponseModel `json:"Region"`
 	VirtualPrivateCloud HypervisorResourceRefResponseModel `json:"VirtualPrivateCloud"`
@@ -476,6 +478,39 @@ func (o *HypervisorResourcePoolGcpDetailResponseModel) SetMetadata(v []NameValue
 	o.Metadata = v
 }
 
+// GetContainerScopes returns the ContainerScopes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourcePoolGcpDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel {
+	if o == nil {
+		var ret []ContainerScopeResponseModel
+		return ret
+	}
+	return o.ContainerScopes
+}
+
+// GetContainerScopesOk returns a tuple with the ContainerScopes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourcePoolGcpDetailResponseModel) GetContainerScopesOk() ([]ContainerScopeResponseModel, bool) {
+	if o == nil || IsNil(o.ContainerScopes) {
+		return nil, false
+	}
+	return o.ContainerScopes, true
+}
+
+// HasContainerScopes returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolGcpDetailResponseModel) HasContainerScopes() bool {
+	if o != nil && IsNil(o.ContainerScopes) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainerScopes gets a reference to the given []ContainerScopeResponseModel and assigns it to the ContainerScopes field.
+func (o *HypervisorResourcePoolGcpDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel) {
+	o.ContainerScopes = v
+}
+
 // GetProject returns the Project field value
 func (o *HypervisorResourcePoolGcpDetailResponseModel) GetProject() HypervisorResourceRefResponseModel {
 	if o == nil {
@@ -609,6 +644,9 @@ func (o HypervisorResourcePoolGcpDetailResponseModel) ToMap() (map[string]interf
 	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
+	}
+	if o.ContainerScopes != nil {
+		toSerialize["ContainerScopes"] = o.ContainerScopes
 	}
 	toSerialize["Project"] = o.Project
 	toSerialize["Region"] = o.Region

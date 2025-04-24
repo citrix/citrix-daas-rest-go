@@ -597,6 +597,14 @@
 
 * `SEARCH_PROVISIONING_SCHEME` (value: `"SearchProvisioningScheme"`)
 
+* `GROUP_MACHINE` (value: `"GroupMachine"`)
+
+* `GET_HYPERVISOR_ALL_RESOURCE_POOLS` (value: `"GetHypervisorAllResourcePools"`)
+
+* `CREATE_SERVICE_ACCOUNT` (value: `"CreateServiceAccount"`)
+
+* `SET_SERVICE_ACCOUNT` (value: `"SetServiceAccount"`)
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

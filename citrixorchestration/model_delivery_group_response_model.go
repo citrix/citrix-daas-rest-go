@@ -17,7 +17,7 @@ import (
 // checks if the DeliveryGroupResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DeliveryGroupResponseModel{}
 
-// DeliveryGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind.               Response object for a delivery group.              
+// DeliveryGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind,DefaultDesktopIconId.               Response object for a delivery group.              
 type DeliveryGroupResponseModel struct {
 	// Globally unique identifier of the delivery group.
 	Id string `json:"Id"`
@@ -92,6 +92,8 @@ type DeliveryGroupResponseModel struct {
 	ReuseMachinesWithoutShutdownInOutage *bool `json:"ReuseMachinesWithoutShutdownInOutage,omitempty"`
 	// Total number of suspend-capable desktops in the delivery group.
 	TotalDesktopsOfSuspend NullableInt32 `json:"TotalDesktopsOfSuspend,omitempty"`
+	// Default icon to use for desktops published from the delivery group. was IconUid
+	DefaultDesktopIconId NullableString `json:"DefaultDesktopIconId,omitempty"`
 }
 
 // NewDeliveryGroupResponseModel instantiates a new DeliveryGroupResponseModel object
@@ -1389,6 +1391,48 @@ func (o *DeliveryGroupResponseModel) UnsetTotalDesktopsOfSuspend() {
 	o.TotalDesktopsOfSuspend.Unset()
 }
 
+// GetDefaultDesktopIconId returns the DefaultDesktopIconId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DeliveryGroupResponseModel) GetDefaultDesktopIconId() string {
+	if o == nil || IsNil(o.DefaultDesktopIconId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DefaultDesktopIconId.Get()
+}
+
+// GetDefaultDesktopIconIdOk returns a tuple with the DefaultDesktopIconId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DeliveryGroupResponseModel) GetDefaultDesktopIconIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DefaultDesktopIconId.Get(), o.DefaultDesktopIconId.IsSet()
+}
+
+// HasDefaultDesktopIconId returns a boolean if a field has been set.
+func (o *DeliveryGroupResponseModel) HasDefaultDesktopIconId() bool {
+	if o != nil && o.DefaultDesktopIconId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDefaultDesktopIconId gets a reference to the given NullableString and assigns it to the DefaultDesktopIconId field.
+func (o *DeliveryGroupResponseModel) SetDefaultDesktopIconId(v string) {
+	o.DefaultDesktopIconId.Set(&v)
+}
+// SetDefaultDesktopIconIdNil sets the value for DefaultDesktopIconId to be an explicit nil
+func (o *DeliveryGroupResponseModel) SetDefaultDesktopIconIdNil() {
+	o.DefaultDesktopIconId.Set(nil)
+}
+
+// UnsetDefaultDesktopIconId ensures that no value is present for DefaultDesktopIconId, not even an explicit nil
+func (o *DeliveryGroupResponseModel) UnsetDefaultDesktopIconId() {
+	o.DefaultDesktopIconId.Unset()
+}
+
 func (o DeliveryGroupResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1483,6 +1527,9 @@ func (o DeliveryGroupResponseModel) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TotalDesktopsOfSuspend.IsSet() {
 		toSerialize["TotalDesktopsOfSuspend"] = o.TotalDesktopsOfSuspend.Get()
+	}
+	if o.DefaultDesktopIconId.IsSet() {
+		toSerialize["DefaultDesktopIconId"] = o.DefaultDesktopIconId.Get()
 	}
 	return toSerialize, nil
 }

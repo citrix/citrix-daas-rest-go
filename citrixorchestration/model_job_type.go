@@ -317,6 +317,10 @@ const (
 	JOBTYPE_GET_MACHINE_CATALOG_COST_SUMMARY JobType = "GetMachineCatalogCostSummary"
 	JOBTYPE_GENERATE_ADVISOR_RECOMMENDATION JobType = "GenerateAdvisorRecommendation"
 	JOBTYPE_SEARCH_PROVISIONING_SCHEME JobType = "SearchProvisioningScheme"
+	JOBTYPE_GROUP_MACHINE JobType = "GroupMachine"
+	JOBTYPE_GET_HYPERVISOR_ALL_RESOURCE_POOLS JobType = "GetHypervisorAllResourcePools"
+	JOBTYPE_CREATE_SERVICE_ACCOUNT JobType = "CreateServiceAccount"
+	JOBTYPE_SET_SERVICE_ACCOUNT JobType = "SetServiceAccount"
 )
 
 // All allowed values of JobType enum
@@ -618,6 +622,10 @@ var AllowedJobTypeEnumValues = []JobType{
 	"GetMachineCatalogCostSummary",
 	"GenerateAdvisorRecommendation",
 	"SearchProvisioningScheme",
+	"GroupMachine",
+	"GetHypervisorAllResourcePools",
+	"CreateServiceAccount",
+	"SetServiceAccount",
 }
 
 func (v *JobType) UnmarshalJSON(src []byte) error {

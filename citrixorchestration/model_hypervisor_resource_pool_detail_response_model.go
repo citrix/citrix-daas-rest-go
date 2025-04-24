@@ -61,6 +61,8 @@ type HypervisorResourcePoolDetailResponseModel struct {
 	UsesExplicitStorage *bool `json:"UsesExplicitStorage,omitempty"`
 	// Metadata for hypervisor resource pool. 
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
+	// Delegated admin scopes in which the containers of the resource pool reside.
+	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
 }
 
 // NewHypervisorResourcePoolDetailResponseModel instantiates a new HypervisorResourcePoolDetailResponseModel object
@@ -885,6 +887,39 @@ func (o *HypervisorResourcePoolDetailResponseModel) SetMetadata(v []NameValueStr
 	o.Metadata = v
 }
 
+// GetContainerScopes returns the ContainerScopes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourcePoolDetailResponseModel) GetContainerScopes() []ContainerScopeResponseModel {
+	if o == nil {
+		var ret []ContainerScopeResponseModel
+		return ret
+	}
+	return o.ContainerScopes
+}
+
+// GetContainerScopesOk returns a tuple with the ContainerScopes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourcePoolDetailResponseModel) GetContainerScopesOk() ([]ContainerScopeResponseModel, bool) {
+	if o == nil || IsNil(o.ContainerScopes) {
+		return nil, false
+	}
+	return o.ContainerScopes, true
+}
+
+// HasContainerScopes returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolDetailResponseModel) HasContainerScopes() bool {
+	if o != nil && IsNil(o.ContainerScopes) {
+		return true
+	}
+
+	return false
+}
+
+// SetContainerScopes gets a reference to the given []ContainerScopeResponseModel and assigns it to the ContainerScopes field.
+func (o *HypervisorResourcePoolDetailResponseModel) SetContainerScopes(v []ContainerScopeResponseModel) {
+	o.ContainerScopes = v
+}
+
 func (o HypervisorResourcePoolDetailResponseModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -946,6 +981,9 @@ func (o HypervisorResourcePoolDetailResponseModel) ToMap() (map[string]interface
 	}
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
+	}
+	if o.ContainerScopes != nil {
+		toSerialize["ContainerScopes"] = o.ContainerScopes
 	}
 	return toSerialize, nil
 }

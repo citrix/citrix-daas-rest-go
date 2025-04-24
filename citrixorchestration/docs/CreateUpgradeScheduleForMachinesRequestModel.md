@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **VdaServerPackageUri** | Pointer to **NullableString** | Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported. | [optional] 
 **LogoffOption** | Pointer to [**LogoffOption**](LogoffOption.md) |  | [optional] 
 **VDAComponentsAndFeaturesRequestModel** | Pointer to [**VDAComponentsSelectionValidationRequestModel**](VDAComponentsSelectionValidationRequestModel.md) |  | [optional] 
+**Reboot** | Pointer to **NullableBool** | Specify VDA needs to be rebooted before upgrade. | [optional] 
 
 ## Methods
 
@@ -226,6 +227,41 @@ SetVDAComponentsAndFeaturesRequestModel sets VDAComponentsAndFeaturesRequestMode
 
 HasVDAComponentsAndFeaturesRequestModel returns a boolean if a field has been set.
 
+### GetReboot
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) GetReboot() bool`
+
+GetReboot returns the Reboot field if non-nil, zero value otherwise.
+
+### GetRebootOk
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) GetRebootOk() (*bool, bool)`
+
+GetRebootOk returns a tuple with the Reboot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReboot
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) SetReboot(v bool)`
+
+SetReboot sets Reboot field to given value.
+
+### HasReboot
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) HasReboot() bool`
+
+HasReboot returns a boolean if a field has been set.
+
+### SetRebootNil
+
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) SetRebootNil(b bool)`
+
+ SetRebootNil sets the value for Reboot to be an explicit nil
+
+### UnsetReboot
+`func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetReboot()`
+
+UnsetReboot ensures that no value is present for Reboot, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

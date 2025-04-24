@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **AutoscalingEnabled** | Pointer to **bool** | Specifies whether machines in this desktop group can be Autoscaled. | [optional] 
 **ReuseMachinesWithoutShutdownInOutage** | Pointer to **bool** | Whether machines will be reused without a shutdown in case of an outage. | [optional] 
 **TotalDesktopsOfSuspend** | Pointer to **NullableInt32** | Total number of suspend-capable desktops in the delivery group. | [optional] 
+**DefaultDesktopIconId** | Pointer to **NullableString** | Default icon to use for desktops published from the delivery group. was IconUid | [optional] 
 **Priority** | **int32** | Specifies the priority of the mapping between application and delivery group where lower numbers imply higher priority with zero being highest. | 
 
 ## Methods
@@ -1113,6 +1114,41 @@ HasTotalDesktopsOfSuspend returns a boolean if a field has been set.
 `func (o *ApplicationDeliveryGroupResponseModel) UnsetTotalDesktopsOfSuspend()`
 
 UnsetTotalDesktopsOfSuspend ensures that no value is present for TotalDesktopsOfSuspend, not even an explicit nil
+### GetDefaultDesktopIconId
+
+`func (o *ApplicationDeliveryGroupResponseModel) GetDefaultDesktopIconId() string`
+
+GetDefaultDesktopIconId returns the DefaultDesktopIconId field if non-nil, zero value otherwise.
+
+### GetDefaultDesktopIconIdOk
+
+`func (o *ApplicationDeliveryGroupResponseModel) GetDefaultDesktopIconIdOk() (*string, bool)`
+
+GetDefaultDesktopIconIdOk returns a tuple with the DefaultDesktopIconId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefaultDesktopIconId
+
+`func (o *ApplicationDeliveryGroupResponseModel) SetDefaultDesktopIconId(v string)`
+
+SetDefaultDesktopIconId sets DefaultDesktopIconId field to given value.
+
+### HasDefaultDesktopIconId
+
+`func (o *ApplicationDeliveryGroupResponseModel) HasDefaultDesktopIconId() bool`
+
+HasDefaultDesktopIconId returns a boolean if a field has been set.
+
+### SetDefaultDesktopIconIdNil
+
+`func (o *ApplicationDeliveryGroupResponseModel) SetDefaultDesktopIconIdNil(b bool)`
+
+ SetDefaultDesktopIconIdNil sets the value for DefaultDesktopIconId to be an explicit nil
+
+### UnsetDefaultDesktopIconId
+`func (o *ApplicationDeliveryGroupResponseModel) UnsetDefaultDesktopIconId()`
+
+UnsetDefaultDesktopIconId ensures that no value is present for DefaultDesktopIconId, not even an explicit nil
 ### GetPriority
 
 `func (o *ApplicationDeliveryGroupResponseModel) GetPriority() int32`

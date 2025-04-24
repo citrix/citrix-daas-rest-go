@@ -17,7 +17,7 @@ import (
 // checks if the ApplicationGroupDeliveryGroupResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationGroupDeliveryGroupResponseModel{}
 
-// ApplicationGroupDeliveryGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind.               Prioritized delivery group model.              
+// ApplicationGroupDeliveryGroupResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Delivering,DeliveryType,Description,DesktopsDisconnected,DesktopsUnregistered,Enabled,InMaintenanceMode,IsRemotePC,MachineLogOnType,MinimumFunctionalLevel,Name,FullName,PublishedName,SessionSupport,SharingKind,DefaultDesktopIconId.               Prioritized delivery group model.              
 type ApplicationGroupDeliveryGroupResponseModel struct {
 	// Globally unique identifier of the delivery group.
 	Id string `json:"Id"`
@@ -92,6 +92,8 @@ type ApplicationGroupDeliveryGroupResponseModel struct {
 	ReuseMachinesWithoutShutdownInOutage *bool `json:"ReuseMachinesWithoutShutdownInOutage,omitempty"`
 	// Total number of suspend-capable desktops in the delivery group.
 	TotalDesktopsOfSuspend NullableInt32 `json:"TotalDesktopsOfSuspend,omitempty"`
+	// Default icon to use for desktops published from the delivery group. was IconUid
+	DefaultDesktopIconId NullableString `json:"DefaultDesktopIconId,omitempty"`
 	// Specifies the priority of the mapping between application and delivery group where lower numbers imply higher priority with zero being highest.
 	Priority int32 `json:"Priority"`
 	// Number of machines within the delivery group that are capable of hosting the applications in the application group.
@@ -1395,6 +1397,48 @@ func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetTotalDesktopsOfSuspend
 	o.TotalDesktopsOfSuspend.Unset()
 }
 
+// GetDefaultDesktopIconId returns the DefaultDesktopIconId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ApplicationGroupDeliveryGroupResponseModel) GetDefaultDesktopIconId() string {
+	if o == nil || IsNil(o.DefaultDesktopIconId.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DefaultDesktopIconId.Get()
+}
+
+// GetDefaultDesktopIconIdOk returns a tuple with the DefaultDesktopIconId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ApplicationGroupDeliveryGroupResponseModel) GetDefaultDesktopIconIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DefaultDesktopIconId.Get(), o.DefaultDesktopIconId.IsSet()
+}
+
+// HasDefaultDesktopIconId returns a boolean if a field has been set.
+func (o *ApplicationGroupDeliveryGroupResponseModel) HasDefaultDesktopIconId() bool {
+	if o != nil && o.DefaultDesktopIconId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDefaultDesktopIconId gets a reference to the given NullableString and assigns it to the DefaultDesktopIconId field.
+func (o *ApplicationGroupDeliveryGroupResponseModel) SetDefaultDesktopIconId(v string) {
+	o.DefaultDesktopIconId.Set(&v)
+}
+// SetDefaultDesktopIconIdNil sets the value for DefaultDesktopIconId to be an explicit nil
+func (o *ApplicationGroupDeliveryGroupResponseModel) SetDefaultDesktopIconIdNil() {
+	o.DefaultDesktopIconId.Set(nil)
+}
+
+// UnsetDefaultDesktopIconId ensures that no value is present for DefaultDesktopIconId, not even an explicit nil
+func (o *ApplicationGroupDeliveryGroupResponseModel) UnsetDefaultDesktopIconId() {
+	o.DefaultDesktopIconId.Unset()
+}
+
 // GetPriority returns the Priority field value
 func (o *ApplicationGroupDeliveryGroupResponseModel) GetPriority() int32 {
 	if o == nil {
@@ -1537,6 +1581,9 @@ func (o ApplicationGroupDeliveryGroupResponseModel) ToMap() (map[string]interfac
 	}
 	if o.TotalDesktopsOfSuspend.IsSet() {
 		toSerialize["TotalDesktopsOfSuspend"] = o.TotalDesktopsOfSuspend.Get()
+	}
+	if o.DefaultDesktopIconId.IsSet() {
+		toSerialize["DefaultDesktopIconId"] = o.DefaultDesktopIconId.Get()
 	}
 	toSerialize["Priority"] = o.Priority
 	toSerialize["NumMachines"] = o.NumMachines

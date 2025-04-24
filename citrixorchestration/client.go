@@ -71,6 +71,8 @@ type APIClient struct {
 
 	ApplicationsAPIsDAAS *ApplicationsAPIsDAASService
 
+	BackupRestoreAPIsDAAS *BackupRestoreAPIsDAASService
+
 	BatchAPIsDAAS *BatchAPIsDAASService
 
 	ConfigLogAPIsDAAS *ConfigLogAPIsDAASService
@@ -153,6 +155,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ApplicationFoldersAPIsDAAS = (*ApplicationFoldersAPIsDAASService)(&c.common)
 	c.ApplicationGroupsAPIsDAAS = (*ApplicationGroupsAPIsDAASService)(&c.common)
 	c.ApplicationsAPIsDAAS = (*ApplicationsAPIsDAASService)(&c.common)
+	c.BackupRestoreAPIsDAAS = (*BackupRestoreAPIsDAASService)(&c.common)
 	c.BatchAPIsDAAS = (*BatchAPIsDAASService)(&c.common)
 	c.ConfigLogAPIsDAAS = (*ConfigLogAPIsDAASService)(&c.common)
 	c.DeliveryGroupsAPIsDAAS = (*DeliveryGroupsAPIsDAASService)(&c.common)

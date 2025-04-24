@@ -25,6 +25,8 @@ type AssignMachineToUserRequestModel struct {
 	MachinePublishedName NullableString `json:"MachinePublishedName,omitempty"`
 	// The user(s) to whom the machine should be assigned. Caller can specify SamName, UPN, or SID for each user. The system should look up the entity to determine the other AD properties (such as DisplayName and IsGroup properties). Groups should be rejected. If the caller passes an empty list, the machine is de-allocated if it was previously allocated.
 	Users []string `json:"Users,omitempty"`
+	// Specifies the image data of the icon used to display the published desktop to the user, and of assigned desktop(s) in the case where SharingKind is equal to Private.
+	Icon NullableString `json:"Icon,omitempty"`
 }
 
 // NewAssignMachineToUserRequestModel instantiates a new AssignMachineToUserRequestModel object
@@ -144,6 +146,48 @@ func (o *AssignMachineToUserRequestModel) SetUsers(v []string) {
 	o.Users = v
 }
 
+// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AssignMachineToUserRequestModel) GetIcon() string {
+	if o == nil || IsNil(o.Icon.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Icon.Get()
+}
+
+// GetIconOk returns a tuple with the Icon field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AssignMachineToUserRequestModel) GetIconOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Icon.Get(), o.Icon.IsSet()
+}
+
+// HasIcon returns a boolean if a field has been set.
+func (o *AssignMachineToUserRequestModel) HasIcon() bool {
+	if o != nil && o.Icon.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
+func (o *AssignMachineToUserRequestModel) SetIcon(v string) {
+	o.Icon.Set(&v)
+}
+// SetIconNil sets the value for Icon to be an explicit nil
+func (o *AssignMachineToUserRequestModel) SetIconNil() {
+	o.Icon.Set(nil)
+}
+
+// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
+func (o *AssignMachineToUserRequestModel) UnsetIcon() {
+	o.Icon.Unset()
+}
+
 func (o AssignMachineToUserRequestModel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -160,6 +204,9 @@ func (o AssignMachineToUserRequestModel) ToMap() (map[string]interface{}, error)
 	}
 	if o.Users != nil {
 		toSerialize["Users"] = o.Users
+	}
+	if o.Icon.IsSet() {
+		toSerialize["Icon"] = o.Icon.Get()
 	}
 	return toSerialize, nil
 }

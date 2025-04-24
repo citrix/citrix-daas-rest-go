@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**IdentityAddAzureAdSecurityGroupMember**](IdentityAPIsDAAS.md#IdentityAddAzureAdSecurityGroupMember) | **Put** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId}/members/{refGroupId} | Add a security group to an assigned security as it&#39;s member
 [**IdentityCreateMachine**](IdentityAPIsDAAS.md#IdentityCreateMachine) | **Post** /Identity/Machines | Create machine identity
-[**IdentityCreateServiceAccount**](IdentityAPIsDAAS.md#IdentityCreateServiceAccount) | **Post** /Identity/ServiceAccount | Create a service account.
+[**IdentityCreateServiceAccount**](IdentityAPIsDAAS.md#IdentityCreateServiceAccount) | **Post** /Identity/ServiceAccount | Create a service account async.
 [**IdentityDeleteMachine**](IdentityAPIsDAAS.md#IdentityDeleteMachine) | **Delete** /Identity/Machines/{machine} | Delete a machine identity
 [**IdentityDeleteServiceAccount**](IdentityAPIsDAAS.md#IdentityDeleteServiceAccount) | **Delete** /Identity/ServiceAccount/{serviceAccountUid} | Delete an existing service account.
 [**IdentityGetAzureADSecurityGroups**](IdentityAPIsDAAS.md#IdentityGetAzureADSecurityGroups) | **Get** /Identity/AzureADTenants/{azureAdTenantId}/AzureADSecurityGroups/{groupId} | Get Azure AD security group by group id.
@@ -215,9 +215,9 @@ Name | Type | Description  | Notes
 
 ## IdentityCreateServiceAccount
 
-> ServiceAccountResponseModel IdentityCreateServiceAccount(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> ServiceAccountResponseModel IdentityCreateServiceAccount(ctx).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
-Create a service account.
+Create a service account async.
 
 ### Example
 
@@ -240,10 +240,11 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, this will be queried as a background task. The task will have JobType CreateServiceAccount. When the task is complete it will redirect to GetJobResults. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityCreateServiceAccount(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentityCreateServiceAccount(context.Background()).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).CreateServiceAccountRequestModel(createServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentityCreateServiceAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -272,6 +273,7 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, this will be queried as a background task. The task will have JobType CreateServiceAccount. When the task is complete it will redirect to GetJobResults. | [default to false]
 
 ### Return type
 
@@ -2489,7 +2491,7 @@ Name | Type | Description  | Notes
 
 ## IdentitySetServiceAccount
 
-> ServiceAccountResponseModel IdentitySetServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+> ServiceAccountResponseModel IdentitySetServiceAccount(ctx, serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
 
 Set properties of an existing service account.
 
@@ -2515,10 +2517,11 @@ func main() {
     citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. (optional)
     accept := "application/json" // string | Must accept application/json. (optional)
     citrixLocale := "en-US" // string | Locale of the request. (optional)
+    async := true // bool | If `true`, this will be queried as a background task.             The task will have JobType SetServiceAccount.             When the task is complete it will redirect to GetJobResults.              (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityAPIsDAAS.IdentitySetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Execute()
+    resp, r, err := apiClient.IdentityAPIsDAAS.IdentitySetServiceAccount(context.Background(), serviceAccountUid).CitrixCustomerId(citrixCustomerId).CitrixInstanceId(citrixInstanceId).UpdateServiceAccountRequestModel(updateServiceAccountRequestModel).UserAgent(userAgent).Authorization(authorization).CitrixTransactionId(citrixTransactionId).Accept(accept).CitrixLocale(citrixLocale).Async(async).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPIsDAAS.IdentitySetServiceAccount``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2552,6 +2555,7 @@ Name | Type | Description  | Notes
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. If not provided, a new GUID will be generated and returned. | 
  **accept** | **string** | Must accept application/json. | 
  **citrixLocale** | **string** | Locale of the request. | 
+ **async** | **bool** | If &#x60;true&#x60;, this will be queried as a background task.             The task will have JobType SetServiceAccount.             When the task is complete it will redirect to GetJobResults.              | [default to false]
 
 ### Return type
 

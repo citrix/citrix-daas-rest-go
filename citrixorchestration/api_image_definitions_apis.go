@@ -1242,7 +1242,7 @@ func (r ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest) CitrixLocal
 	return r
 }
 
-// If this option is specified, this command will only remove the image version data from the Citrix site database.  However, the disk images created in the image version still remain in the hypervisor.   Optional; default is &#x60;false&#x60;.
+// If this option is specified, this command will only remove the image version data from the Citrix site database. However, the disk images created in the image version still remain in the hypervisor.  Optional; default is &#x60;false&#x60;.
 func (r ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest) PurgeDBOnly(purgeDBOnly bool) ApiImageDefinitionsDeleteImageDefinitionImageVersionRequest {
 	r.purgeDBOnly = &purgeDBOnly
 	return r
@@ -4158,7 +4158,7 @@ Update resource pools associated with an image version.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param nameOrId Name or ID of image definition.
- @param versionNumberOrId
+ @param versionNumberOrId Number or ID of image version.
  @return ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest
 */
 func (a *ImageDefinitionsAPIsDAASService) ImageDefinitionsUpdateImageVersionResourcePools(ctx context.Context, nameOrId string, versionNumberOrId string) ApiImageDefinitionsUpdateImageVersionResourcePoolsRequest {
