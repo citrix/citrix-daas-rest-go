@@ -42,15 +42,9 @@ func (v *MaintenanceCycleOperation) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MaintenanceCycleOperation(value)
-	for _, existing := range AllowedMaintenanceCycleOperationEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MaintenanceCycleOperation", value)
+	
+	*v = MaintenanceCycleOperation(value)
+	return nil
 }
 
 // NewMaintenanceCycleOperationFromValue returns a pointer to a valid MaintenanceCycleOperation

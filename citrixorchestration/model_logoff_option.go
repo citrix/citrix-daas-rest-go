@@ -40,15 +40,9 @@ func (v *LogoffOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LogoffOption(value)
-	for _, existing := range AllowedLogoffOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LogoffOption", value)
+	
+	*v = LogoffOption(value)
+	return nil
 }
 
 // NewLogoffOptionFromValue returns a pointer to a valid LogoffOption

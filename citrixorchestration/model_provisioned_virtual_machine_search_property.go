@@ -72,15 +72,9 @@ func (v *ProvisionedVirtualMachineSearchProperty) UnmarshalJSON(src []byte) erro
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisionedVirtualMachineSearchProperty(value)
-	for _, existing := range AllowedProvisionedVirtualMachineSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisionedVirtualMachineSearchProperty", value)
+	
+	*v = ProvisionedVirtualMachineSearchProperty(value)
+	return nil
 }
 
 // NewProvisionedVirtualMachineSearchPropertyFromValue returns a pointer to a valid ProvisionedVirtualMachineSearchProperty

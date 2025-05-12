@@ -44,15 +44,9 @@ func (v *AllowedUser) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AllowedUser(value)
-	for _, existing := range AllowedAllowedUserEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AllowedUser", value)
+	
+	*v = AllowedUser(value)
+	return nil
 }
 
 // NewAllowedUserFromValue returns a pointer to a valid AllowedUser

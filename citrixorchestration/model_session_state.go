@@ -40,15 +40,9 @@ func (v *SessionState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SessionState(value)
-	for _, existing := range AllowedSessionStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SessionState", value)
+	
+	*v = SessionState(value)
+	return nil
 }
 
 // NewSessionStateFromValue returns a pointer to a valid SessionState

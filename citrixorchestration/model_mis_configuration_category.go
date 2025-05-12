@@ -40,15 +40,9 @@ func (v *MisConfigurationCategory) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MisConfigurationCategory(value)
-	for _, existing := range AllowedMisConfigurationCategoryEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MisConfigurationCategory", value)
+	
+	*v = MisConfigurationCategory(value)
+	return nil
 }
 
 // NewMisConfigurationCategoryFromValue returns a pointer to a valid MisConfigurationCategory

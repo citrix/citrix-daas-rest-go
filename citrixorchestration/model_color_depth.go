@@ -42,15 +42,9 @@ func (v *ColorDepth) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ColorDepth(value)
-	for _, existing := range AllowedColorDepthEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ColorDepth", value)
+	
+	*v = ColorDepth(value)
+	return nil
 }
 
 // NewColorDepthFromValue returns a pointer to a valid ColorDepth

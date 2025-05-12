@@ -38,15 +38,9 @@ func (v *PersistChanges) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PersistChanges(value)
-	for _, existing := range AllowedPersistChangesEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PersistChanges", value)
+	
+	*v = PersistChanges(value)
+	return nil
 }
 
 // NewPersistChangesFromValue returns a pointer to a valid PersistChanges

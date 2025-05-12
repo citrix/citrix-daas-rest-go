@@ -42,15 +42,9 @@ func (v *SearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SearchProperty(value)
-	for _, existing := range AllowedSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SearchProperty", value)
+	
+	*v = SearchProperty(value)
+	return nil
 }
 
 // NewSearchPropertyFromValue returns a pointer to a valid SearchProperty

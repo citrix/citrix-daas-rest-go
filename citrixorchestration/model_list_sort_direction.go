@@ -36,15 +36,9 @@ func (v *ListSortDirection) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ListSortDirection(value)
-	for _, existing := range AllowedListSortDirectionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ListSortDirection", value)
+	
+	*v = ListSortDirection(value)
+	return nil
 }
 
 // NewListSortDirectionFromValue returns a pointer to a valid ListSortDirection

@@ -38,15 +38,9 @@ func (v *RequiredSleepCapability) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := RequiredSleepCapability(value)
-	for _, existing := range AllowedRequiredSleepCapabilityEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid RequiredSleepCapability", value)
+	
+	*v = RequiredSleepCapability(value)
+	return nil
 }
 
 // NewRequiredSleepCapabilityFromValue returns a pointer to a valid RequiredSleepCapability

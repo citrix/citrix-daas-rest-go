@@ -46,15 +46,9 @@ func (v *SupportedPowerAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SupportedPowerAction(value)
-	for _, existing := range AllowedSupportedPowerActionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SupportedPowerAction", value)
+	
+	*v = SupportedPowerAction(value)
+	return nil
 }
 
 // NewSupportedPowerActionFromValue returns a pointer to a valid SupportedPowerAction

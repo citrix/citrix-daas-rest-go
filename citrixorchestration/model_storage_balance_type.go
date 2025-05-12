@@ -38,15 +38,9 @@ func (v *StorageBalanceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := StorageBalanceType(value)
-	for _, existing := range AllowedStorageBalanceTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid StorageBalanceType", value)
+	
+	*v = StorageBalanceType(value)
+	return nil
 }
 
 // NewStorageBalanceTypeFromValue returns a pointer to a valid StorageBalanceType

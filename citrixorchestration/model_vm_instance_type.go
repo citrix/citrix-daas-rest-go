@@ -36,15 +36,9 @@ func (v *VMInstanceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := VMInstanceType(value)
-	for _, existing := range AllowedVMInstanceTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid VMInstanceType", value)
+	
+	*v = VMInstanceType(value)
+	return nil
 }
 
 // NewVMInstanceTypeFromValue returns a pointer to a valid VMInstanceType

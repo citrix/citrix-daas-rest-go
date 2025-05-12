@@ -46,15 +46,9 @@ func (v *ZonableItemType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ZonableItemType(value)
-	for _, existing := range AllowedZonableItemTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ZonableItemType", value)
+	
+	*v = ZonableItemType(value)
+	return nil
 }
 
 // NewZonableItemTypeFromValue returns a pointer to a valid ZonableItemType

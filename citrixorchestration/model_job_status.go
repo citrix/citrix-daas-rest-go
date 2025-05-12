@@ -48,15 +48,9 @@ func (v *JobStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := JobStatus(value)
-	for _, existing := range AllowedJobStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid JobStatus", value)
+	
+	*v = JobStatus(value)
+	return nil
 }
 
 // NewJobStatusFromValue returns a pointer to a valid JobStatus

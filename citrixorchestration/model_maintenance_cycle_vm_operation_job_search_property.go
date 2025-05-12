@@ -42,15 +42,9 @@ func (v *MaintenanceCycleVMOperationJobSearchProperty) UnmarshalJSON(src []byte)
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MaintenanceCycleVMOperationJobSearchProperty(value)
-	for _, existing := range AllowedMaintenanceCycleVMOperationJobSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MaintenanceCycleVMOperationJobSearchProperty", value)
+	
+	*v = MaintenanceCycleVMOperationJobSearchProperty(value)
+	return nil
 }
 
 // NewMaintenanceCycleVMOperationJobSearchPropertyFromValue returns a pointer to a valid MaintenanceCycleVMOperationJobSearchProperty

@@ -48,15 +48,9 @@ func (v *ImageVersionSpecWarningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ImageVersionSpecWarningType(value)
-	for _, existing := range AllowedImageVersionSpecWarningTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ImageVersionSpecWarningType", value)
+	
+	*v = ImageVersionSpecWarningType(value)
+	return nil
 }
 
 // NewImageVersionSpecWarningTypeFromValue returns a pointer to a valid ImageVersionSpecWarningType

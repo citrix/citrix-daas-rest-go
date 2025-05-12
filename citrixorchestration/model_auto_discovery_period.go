@@ -40,15 +40,9 @@ func (v *AutoDiscoveryPeriod) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AutoDiscoveryPeriod(value)
-	for _, existing := range AllowedAutoDiscoveryPeriodEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AutoDiscoveryPeriod", value)
+	
+	*v = AutoDiscoveryPeriod(value)
+	return nil
 }
 
 // NewAutoDiscoveryPeriodFromValue returns a pointer to a valid AutoDiscoveryPeriod

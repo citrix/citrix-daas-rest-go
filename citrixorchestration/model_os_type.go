@@ -38,15 +38,9 @@ func (v *OsType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := OsType(value)
-	for _, existing := range AllowedOsTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid OsType", value)
+	
+	*v = OsType(value)
+	return nil
 }
 
 // NewOsTypeFromValue returns a pointer to a valid OsType

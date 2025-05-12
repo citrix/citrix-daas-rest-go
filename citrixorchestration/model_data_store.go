@@ -40,15 +40,9 @@ func (v *DataStore) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DataStore(value)
-	for _, existing := range AllowedDataStoreEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DataStore", value)
+	
+	*v = DataStore(value)
+	return nil
 }
 
 // NewDataStoreFromValue returns a pointer to a valid DataStore

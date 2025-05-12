@@ -56,15 +56,9 @@ func (v *ApplicationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ApplicationType(value)
-	for _, existing := range AllowedApplicationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ApplicationType", value)
+	
+	*v = ApplicationType(value)
+	return nil
 }
 
 // NewApplicationTypeFromValue returns a pointer to a valid ApplicationType

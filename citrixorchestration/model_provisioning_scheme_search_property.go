@@ -64,15 +64,9 @@ func (v *ProvisioningSchemeSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisioningSchemeSearchProperty(value)
-	for _, existing := range AllowedProvisioningSchemeSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisioningSchemeSearchProperty", value)
+	
+	*v = ProvisioningSchemeSearchProperty(value)
+	return nil
 }
 
 // NewProvisioningSchemeSearchPropertyFromValue returns a pointer to a valid ProvisioningSchemeSearchProperty

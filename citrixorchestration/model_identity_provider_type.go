@@ -44,15 +44,9 @@ func (v *IdentityProviderType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := IdentityProviderType(value)
-	for _, existing := range AllowedIdentityProviderTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid IdentityProviderType", value)
+	
+	*v = IdentityProviderType(value)
+	return nil
 }
 
 // NewIdentityProviderTypeFromValue returns a pointer to a valid IdentityProviderType

@@ -50,15 +50,9 @@ func (v *MachineUnavailableReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineUnavailableReason(value)
-	for _, existing := range AllowedMachineUnavailableReasonEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineUnavailableReason", value)
+	
+	*v = MachineUnavailableReason(value)
+	return nil
 }
 
 // NewMachineUnavailableReasonFromValue returns a pointer to a valid MachineUnavailableReason

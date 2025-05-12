@@ -72,15 +72,9 @@ func (v *ControllerServiceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ControllerServiceType(value)
-	for _, existing := range AllowedControllerServiceTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ControllerServiceType", value)
+	
+	*v = ControllerServiceType(value)
+	return nil
 }
 
 // NewControllerServiceTypeFromValue returns a pointer to a valid ControllerServiceType

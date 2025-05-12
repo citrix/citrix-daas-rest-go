@@ -42,15 +42,9 @@ func (v *DeviceManagementType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeviceManagementType(value)
-	for _, existing := range AllowedDeviceManagementTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeviceManagementType", value)
+	
+	*v = DeviceManagementType(value)
+	return nil
 }
 
 // NewDeviceManagementTypeFromValue returns a pointer to a valid DeviceManagementType

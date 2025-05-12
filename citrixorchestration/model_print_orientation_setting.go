@@ -36,15 +36,9 @@ func (v *PrintOrientationSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PrintOrientationSetting(value)
-	for _, existing := range AllowedPrintOrientationSettingEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PrintOrientationSetting", value)
+	
+	*v = PrintOrientationSetting(value)
+	return nil
 }
 
 // NewPrintOrientationSettingFromValue returns a pointer to a valid PrintOrientationSetting

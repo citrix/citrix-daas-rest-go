@@ -36,15 +36,9 @@ func (v *ProvisioningOperationEventSearchFilterGroupType) UnmarshalJSON(src []by
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisioningOperationEventSearchFilterGroupType(value)
-	for _, existing := range AllowedProvisioningOperationEventSearchFilterGroupTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisioningOperationEventSearchFilterGroupType", value)
+	
+	*v = ProvisioningOperationEventSearchFilterGroupType(value)
+	return nil
 }
 
 // NewProvisioningOperationEventSearchFilterGroupTypeFromValue returns a pointer to a valid ProvisioningOperationEventSearchFilterGroupType

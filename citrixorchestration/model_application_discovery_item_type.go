@@ -40,15 +40,9 @@ func (v *ApplicationDiscoveryItemType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ApplicationDiscoveryItemType(value)
-	for _, existing := range AllowedApplicationDiscoveryItemTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ApplicationDiscoveryItemType", value)
+	
+	*v = ApplicationDiscoveryItemType(value)
+	return nil
 }
 
 // NewApplicationDiscoveryItemTypeFromValue returns a pointer to a valid ApplicationDiscoveryItemType

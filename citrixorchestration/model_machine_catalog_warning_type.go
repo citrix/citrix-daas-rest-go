@@ -50,15 +50,9 @@ func (v *MachineCatalogWarningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineCatalogWarningType(value)
-	for _, existing := range AllowedMachineCatalogWarningTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineCatalogWarningType", value)
+	
+	*v = MachineCatalogWarningType(value)
+	return nil
 }
 
 // NewMachineCatalogWarningTypeFromValue returns a pointer to a valid MachineCatalogWarningType

@@ -38,15 +38,9 @@ func (v *ResourceValidationResult) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ResourceValidationResult(value)
-	for _, existing := range AllowedResourceValidationResultEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ResourceValidationResult", value)
+	
+	*v = ResourceValidationResult(value)
+	return nil
 }
 
 // NewResourceValidationResultFromValue returns a pointer to a valid ResourceValidationResult

@@ -40,15 +40,9 @@ func (v *PrintTrueTypeOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PrintTrueTypeOption(value)
-	for _, existing := range AllowedPrintTrueTypeOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PrintTrueTypeOption", value)
+	
+	*v = PrintTrueTypeOption(value)
+	return nil
 }
 
 // NewPrintTrueTypeOptionFromValue returns a pointer to a valid PrintTrueTypeOption

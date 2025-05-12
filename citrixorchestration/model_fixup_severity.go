@@ -42,15 +42,9 @@ func (v *FixupSeverity) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FixupSeverity(value)
-	for _, existing := range AllowedFixupSeverityEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FixupSeverity", value)
+	
+	*v = FixupSeverity(value)
+	return nil
 }
 
 // NewFixupSeverityFromValue returns a pointer to a valid FixupSeverity

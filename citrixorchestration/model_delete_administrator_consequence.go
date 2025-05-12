@@ -42,15 +42,9 @@ func (v *DeleteAdministratorConsequence) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeleteAdministratorConsequence(value)
-	for _, existing := range AllowedDeleteAdministratorConsequenceEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeleteAdministratorConsequence", value)
+	
+	*v = DeleteAdministratorConsequence(value)
+	return nil
 }
 
 // NewDeleteAdministratorConsequenceFromValue returns a pointer to a valid DeleteAdministratorConsequence

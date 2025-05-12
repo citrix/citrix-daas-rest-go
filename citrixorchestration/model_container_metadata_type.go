@@ -38,15 +38,9 @@ func (v *ContainerMetadataType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ContainerMetadataType(value)
-	for _, existing := range AllowedContainerMetadataTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ContainerMetadataType", value)
+	
+	*v = ContainerMetadataType(value)
+	return nil
 }
 
 // NewContainerMetadataTypeFromValue returns a pointer to a valid ContainerMetadataType

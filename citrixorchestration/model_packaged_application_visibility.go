@@ -40,15 +40,9 @@ func (v *PackagedApplicationVisibility) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PackagedApplicationVisibility(value)
-	for _, existing := range AllowedPackagedApplicationVisibilityEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PackagedApplicationVisibility", value)
+	
+	*v = PackagedApplicationVisibility(value)
+	return nil
 }
 
 // NewPackagedApplicationVisibilityFromValue returns a pointer to a valid PackagedApplicationVisibility

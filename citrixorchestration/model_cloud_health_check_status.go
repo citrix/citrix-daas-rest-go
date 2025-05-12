@@ -40,15 +40,9 @@ func (v *CloudHealthCheckStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CloudHealthCheckStatus(value)
-	for _, existing := range AllowedCloudHealthCheckStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CloudHealthCheckStatus", value)
+	
+	*v = CloudHealthCheckStatus(value)
+	return nil
 }
 
 // NewCloudHealthCheckStatusFromValue returns a pointer to a valid CloudHealthCheckStatus

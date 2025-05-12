@@ -70,15 +70,9 @@ func (v *ControllerServiceStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ControllerServiceStatus(value)
-	for _, existing := range AllowedControllerServiceStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ControllerServiceStatus", value)
+	
+	*v = ControllerServiceStatus(value)
+	return nil
 }
 
 // NewControllerServiceStatusFromValue returns a pointer to a valid ControllerServiceStatus

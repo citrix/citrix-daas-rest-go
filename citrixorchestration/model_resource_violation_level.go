@@ -36,15 +36,9 @@ func (v *ResourceViolationLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ResourceViolationLevel(value)
-	for _, existing := range AllowedResourceViolationLevelEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ResourceViolationLevel", value)
+	
+	*v = ResourceViolationLevel(value)
+	return nil
 }
 
 // NewResourceViolationLevelFromValue returns a pointer to a valid ResourceViolationLevel

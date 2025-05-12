@@ -38,15 +38,9 @@ func (v *UserManagementModel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := UserManagementModel(value)
-	for _, existing := range AllowedUserManagementModelEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid UserManagementModel", value)
+	
+	*v = UserManagementModel(value)
+	return nil
 }
 
 // NewUserManagementModelFromValue returns a pointer to a valid UserManagementModel

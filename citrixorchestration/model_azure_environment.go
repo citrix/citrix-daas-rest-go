@@ -42,15 +42,9 @@ func (v *AzureEnvironment) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AzureEnvironment(value)
-	for _, existing := range AllowedAzureEnvironmentEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AzureEnvironment", value)
+	
+	*v = AzureEnvironment(value)
+	return nil
 }
 
 // NewAzureEnvironmentFromValue returns a pointer to a valid AzureEnvironment

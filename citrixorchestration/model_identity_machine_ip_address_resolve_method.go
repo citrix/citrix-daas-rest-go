@@ -40,15 +40,9 @@ func (v *IdentityMachineIPAddressResolveMethod) UnmarshalJSON(src []byte) error 
 	if err != nil {
 		return err
 	}
-	enumTypeValue := IdentityMachineIPAddressResolveMethod(value)
-	for _, existing := range AllowedIdentityMachineIPAddressResolveMethodEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid IdentityMachineIPAddressResolveMethod", value)
+	
+	*v = IdentityMachineIPAddressResolveMethod(value)
+	return nil
 }
 
 // NewIdentityMachineIPAddressResolveMethodFromValue returns a pointer to a valid IdentityMachineIPAddressResolveMethod

@@ -40,15 +40,9 @@ func (v *LicensingAlertLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LicensingAlertLevel(value)
-	for _, existing := range AllowedLicensingAlertLevelEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LicensingAlertLevel", value)
+	
+	*v = LicensingAlertLevel(value)
+	return nil
 }
 
 // NewLicensingAlertLevelFromValue returns a pointer to a valid LicensingAlertLevel

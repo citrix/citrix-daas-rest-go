@@ -40,15 +40,9 @@ func (v *WakeOnLanTransmission) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := WakeOnLanTransmission(value)
-	for _, existing := range AllowedWakeOnLanTransmissionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid WakeOnLanTransmission", value)
+	
+	*v = WakeOnLanTransmission(value)
+	return nil
 }
 
 // NewWakeOnLanTransmissionFromValue returns a pointer to a valid WakeOnLanTransmission

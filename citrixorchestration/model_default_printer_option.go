@@ -44,15 +44,9 @@ func (v *DefaultPrinterOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DefaultPrinterOption(value)
-	for _, existing := range AllowedDefaultPrinterOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DefaultPrinterOption", value)
+	
+	*v = DefaultPrinterOption(value)
+	return nil
 }
 
 // NewDefaultPrinterOptionFromValue returns a pointer to a valid DefaultPrinterOption

@@ -40,15 +40,9 @@ func (v *AppGroupCompatibility) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AppGroupCompatibility(value)
-	for _, existing := range AllowedAppGroupCompatibilityEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AppGroupCompatibility", value)
+	
+	*v = AppGroupCompatibility(value)
+	return nil
 }
 
 // NewAppGroupCompatibilityFromValue returns a pointer to a valid AppGroupCompatibility

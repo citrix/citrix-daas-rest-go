@@ -40,15 +40,9 @@ func (v *MachineLogOnType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineLogOnType(value)
-	for _, existing := range AllowedMachineLogOnTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineLogOnType", value)
+	
+	*v = MachineLogOnType(value)
+	return nil
 }
 
 // NewMachineLogOnTypeFromValue returns a pointer to a valid MachineLogOnType

@@ -38,15 +38,9 @@ func (v *ProvSchemeWarningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvSchemeWarningType(value)
-	for _, existing := range AllowedProvSchemeWarningTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvSchemeWarningType", value)
+	
+	*v = ProvSchemeWarningType(value)
+	return nil
 }
 
 // NewProvSchemeWarningTypeFromValue returns a pointer to a valid ProvSchemeWarningType

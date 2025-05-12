@@ -62,15 +62,9 @@ func (v *ProvisioningOperationEventSearchProperty) UnmarshalJSON(src []byte) err
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisioningOperationEventSearchProperty(value)
-	for _, existing := range AllowedProvisioningOperationEventSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisioningOperationEventSearchProperty", value)
+	
+	*v = ProvisioningOperationEventSearchProperty(value)
+	return nil
 }
 
 // NewProvisioningOperationEventSearchPropertyFromValue returns a pointer to a valid ProvisioningOperationEventSearchProperty

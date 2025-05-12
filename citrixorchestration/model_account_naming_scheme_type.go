@@ -40,15 +40,9 @@ func (v *AccountNamingSchemeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AccountNamingSchemeType(value)
-	for _, existing := range AllowedAccountNamingSchemeTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AccountNamingSchemeType", value)
+	
+	*v = AccountNamingSchemeType(value)
+	return nil
 }
 
 // NewAccountNamingSchemeTypeFromValue returns a pointer to a valid AccountNamingSchemeType

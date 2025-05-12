@@ -38,15 +38,9 @@ func (v *AppLibPackageDiscoveryType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AppLibPackageDiscoveryType(value)
-	for _, existing := range AllowedAppLibPackageDiscoveryTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AppLibPackageDiscoveryType", value)
+	
+	*v = AppLibPackageDiscoveryType(value)
+	return nil
 }
 
 // NewAppLibPackageDiscoveryTypeFromValue returns a pointer to a valid AppLibPackageDiscoveryType

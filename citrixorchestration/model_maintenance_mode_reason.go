@@ -40,15 +40,9 @@ func (v *MaintenanceModeReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MaintenanceModeReason(value)
-	for _, existing := range AllowedMaintenanceModeReasonEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MaintenanceModeReason", value)
+	
+	*v = MaintenanceModeReason(value)
+	return nil
 }
 
 // NewMaintenanceModeReasonFromValue returns a pointer to a valid MaintenanceModeReason

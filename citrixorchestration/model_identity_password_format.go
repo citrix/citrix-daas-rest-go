@@ -38,15 +38,9 @@ func (v *IdentityPasswordFormat) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := IdentityPasswordFormat(value)
-	for _, existing := range AllowedIdentityPasswordFormatEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid IdentityPasswordFormat", value)
+	
+	*v = IdentityPasswordFormat(value)
+	return nil
 }
 
 // NewIdentityPasswordFormatFromValue returns a pointer to a valid IdentityPasswordFormat

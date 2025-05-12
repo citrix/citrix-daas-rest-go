@@ -58,15 +58,9 @@ func (v *DeliveryGroupSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeliveryGroupSearchProperty(value)
-	for _, existing := range AllowedDeliveryGroupSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeliveryGroupSearchProperty", value)
+	
+	*v = DeliveryGroupSearchProperty(value)
+	return nil
 }
 
 // NewDeliveryGroupSearchPropertyFromValue returns a pointer to a valid DeliveryGroupSearchProperty

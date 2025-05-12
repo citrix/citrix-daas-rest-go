@@ -38,15 +38,9 @@ func (v *MaintenanceCycleSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MaintenanceCycleSearchProperty(value)
-	for _, existing := range AllowedMaintenanceCycleSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MaintenanceCycleSearchProperty", value)
+	
+	*v = MaintenanceCycleSearchProperty(value)
+	return nil
 }
 
 // NewMaintenanceCycleSearchPropertyFromValue returns a pointer to a valid MaintenanceCycleSearchProperty

@@ -46,15 +46,9 @@ func (v *FaultState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FaultState(value)
-	for _, existing := range AllowedFaultStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FaultState", value)
+	
+	*v = FaultState(value)
+	return nil
 }
 
 // NewFaultStateFromValue returns a pointer to a valid FaultState

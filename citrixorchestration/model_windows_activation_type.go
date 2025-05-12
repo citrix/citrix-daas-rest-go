@@ -42,15 +42,9 @@ func (v *WindowsActivationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := WindowsActivationType(value)
-	for _, existing := range AllowedWindowsActivationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid WindowsActivationType", value)
+	
+	*v = WindowsActivationType(value)
+	return nil
 }
 
 // NewWindowsActivationTypeFromValue returns a pointer to a valid WindowsActivationType

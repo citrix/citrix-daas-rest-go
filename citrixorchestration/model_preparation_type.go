@@ -38,15 +38,9 @@ func (v *PreparationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PreparationType(value)
-	for _, existing := range AllowedPreparationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PreparationType", value)
+	
+	*v = PreparationType(value)
+	return nil
 }
 
 // NewPreparationTypeFromValue returns a pointer to a valid PreparationType

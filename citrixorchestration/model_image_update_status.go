@@ -42,15 +42,9 @@ func (v *ImageUpdateStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ImageUpdateStatus(value)
-	for _, existing := range AllowedImageUpdateStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ImageUpdateStatus", value)
+	
+	*v = ImageUpdateStatus(value)
+	return nil
 }
 
 // NewImageUpdateStatusFromValue returns a pointer to a valid ImageUpdateStatus

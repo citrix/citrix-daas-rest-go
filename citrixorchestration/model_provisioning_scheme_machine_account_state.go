@@ -44,15 +44,9 @@ func (v *ProvisioningSchemeMachineAccountState) UnmarshalJSON(src []byte) error 
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisioningSchemeMachineAccountState(value)
-	for _, existing := range AllowedProvisioningSchemeMachineAccountStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisioningSchemeMachineAccountState", value)
+	
+	*v = ProvisioningSchemeMachineAccountState(value)
+	return nil
 }
 
 // NewProvisioningSchemeMachineAccountStateFromValue returns a pointer to a valid ProvisioningSchemeMachineAccountState

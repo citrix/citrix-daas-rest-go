@@ -48,15 +48,9 @@ func (v *ScopedObjectType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ScopedObjectType(value)
-	for _, existing := range AllowedScopedObjectTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ScopedObjectType", value)
+	
+	*v = ScopedObjectType(value)
+	return nil
 }
 
 // NewScopedObjectTypeFromValue returns a pointer to a valid ScopedObjectType

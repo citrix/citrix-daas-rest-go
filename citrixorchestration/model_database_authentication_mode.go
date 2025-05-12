@@ -36,15 +36,9 @@ func (v *DatabaseAuthenticationMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DatabaseAuthenticationMode(value)
-	for _, existing := range AllowedDatabaseAuthenticationModeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DatabaseAuthenticationMode", value)
+	
+	*v = DatabaseAuthenticationMode(value)
+	return nil
 }
 
 // NewDatabaseAuthenticationModeFromValue returns a pointer to a valid DatabaseAuthenticationMode

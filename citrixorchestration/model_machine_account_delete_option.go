@@ -42,15 +42,9 @@ func (v *MachineAccountDeleteOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineAccountDeleteOption(value)
-	for _, existing := range AllowedMachineAccountDeleteOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineAccountDeleteOption", value)
+	
+	*v = MachineAccountDeleteOption(value)
+	return nil
 }
 
 // NewMachineAccountDeleteOptionFromValue returns a pointer to a valid MachineAccountDeleteOption

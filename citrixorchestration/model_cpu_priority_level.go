@@ -44,15 +44,9 @@ func (v *CpuPriorityLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CpuPriorityLevel(value)
-	for _, existing := range AllowedCpuPriorityLevelEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CpuPriorityLevel", value)
+	
+	*v = CpuPriorityLevel(value)
+	return nil
 }
 
 // NewCpuPriorityLevelFromValue returns a pointer to a valid CpuPriorityLevel

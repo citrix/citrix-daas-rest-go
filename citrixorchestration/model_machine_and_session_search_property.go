@@ -152,15 +152,9 @@ func (v *MachineAndSessionSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineAndSessionSearchProperty(value)
-	for _, existing := range AllowedMachineAndSessionSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineAndSessionSearchProperty", value)
+	
+	*v = MachineAndSessionSearchProperty(value)
+	return nil
 }
 
 // NewMachineAndSessionSearchPropertyFromValue returns a pointer to a valid MachineAndSessionSearchProperty

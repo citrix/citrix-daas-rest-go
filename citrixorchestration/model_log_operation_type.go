@@ -38,15 +38,9 @@ func (v *LogOperationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LogOperationType(value)
-	for _, existing := range AllowedLogOperationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LogOperationType", value)
+	
+	*v = LogOperationType(value)
+	return nil
 }
 
 // NewLogOperationTypeFromValue returns a pointer to a valid LogOperationType

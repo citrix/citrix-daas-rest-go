@@ -40,15 +40,9 @@ func (v *DesktopCondition) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DesktopCondition(value)
-	for _, existing := range AllowedDesktopConditionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DesktopCondition", value)
+	
+	*v = DesktopCondition(value)
+	return nil
 }
 
 // NewDesktopConditionFromValue returns a pointer to a valid DesktopCondition

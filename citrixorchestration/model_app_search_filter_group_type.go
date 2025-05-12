@@ -36,15 +36,9 @@ func (v *AppSearchFilterGroupType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AppSearchFilterGroupType(value)
-	for _, existing := range AllowedAppSearchFilterGroupTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AppSearchFilterGroupType", value)
+	
+	*v = AppSearchFilterGroupType(value)
+	return nil
 }
 
 // NewAppSearchFilterGroupTypeFromValue returns a pointer to a valid AppSearchFilterGroupType

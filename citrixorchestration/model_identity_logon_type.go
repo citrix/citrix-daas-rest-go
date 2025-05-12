@@ -38,15 +38,9 @@ func (v *IdentityLogonType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := IdentityLogonType(value)
-	for _, existing := range AllowedIdentityLogonTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid IdentityLogonType", value)
+	
+	*v = IdentityLogonType(value)
+	return nil
 }
 
 // NewIdentityLogonTypeFromValue returns a pointer to a valid IdentityLogonType

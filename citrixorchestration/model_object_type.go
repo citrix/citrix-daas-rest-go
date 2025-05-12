@@ -68,15 +68,9 @@ func (v *ObjectType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ObjectType(value)
-	for _, existing := range AllowedObjectTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ObjectType", value)
+	
+	*v = ObjectType(value)
+	return nil
 }
 
 // NewObjectTypeFromValue returns a pointer to a valid ObjectType

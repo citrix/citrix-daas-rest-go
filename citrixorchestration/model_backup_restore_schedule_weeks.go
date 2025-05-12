@@ -44,15 +44,9 @@ func (v *BackupRestoreScheduleWeeks) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := BackupRestoreScheduleWeeks(value)
-	for _, existing := range AllowedBackupRestoreScheduleWeeksEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid BackupRestoreScheduleWeeks", value)
+	
+	*v = BackupRestoreScheduleWeeks(value)
+	return nil
 }
 
 // NewBackupRestoreScheduleWeeksFromValue returns a pointer to a valid BackupRestoreScheduleWeeks

@@ -36,15 +36,9 @@ func (v *DetectScope) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DetectScope(value)
-	for _, existing := range AllowedDetectScopeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DetectScope", value)
+	
+	*v = DetectScope(value)
+	return nil
 }
 
 // NewDetectScopeFromValue returns a pointer to a valid DetectScope

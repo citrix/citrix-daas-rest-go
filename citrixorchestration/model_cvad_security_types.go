@@ -54,15 +54,9 @@ func (v *CvadSecurityTypes) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CvadSecurityTypes(value)
-	for _, existing := range AllowedCvadSecurityTypesEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CvadSecurityTypes", value)
+	
+	*v = CvadSecurityTypes(value)
+	return nil
 }
 
 // NewCvadSecurityTypesFromValue returns a pointer to a valid CvadSecurityTypes

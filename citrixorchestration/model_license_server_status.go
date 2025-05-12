@@ -54,15 +54,9 @@ func (v *LicenseServerStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LicenseServerStatus(value)
-	for _, existing := range AllowedLicenseServerStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LicenseServerStatus", value)
+	
+	*v = LicenseServerStatus(value)
+	return nil
 }
 
 // NewLicenseServerStatusFromValue returns a pointer to a valid LicenseServerStatus

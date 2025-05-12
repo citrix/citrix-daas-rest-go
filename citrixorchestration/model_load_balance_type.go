@@ -40,15 +40,9 @@ func (v *LoadBalanceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LoadBalanceType(value)
-	for _, existing := range AllowedLoadBalanceTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LoadBalanceType", value)
+	
+	*v = LoadBalanceType(value)
+	return nil
 }
 
 // NewLoadBalanceTypeFromValue returns a pointer to a valid LoadBalanceType

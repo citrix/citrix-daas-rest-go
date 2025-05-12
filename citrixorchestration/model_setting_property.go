@@ -38,15 +38,9 @@ func (v *SettingProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SettingProperty(value)
-	for _, existing := range AllowedSettingPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SettingProperty", value)
+	
+	*v = SettingProperty(value)
+	return nil
 }
 
 // NewSettingPropertyFromValue returns a pointer to a valid SettingProperty

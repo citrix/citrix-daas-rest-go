@@ -36,15 +36,9 @@ func (v *AutoscaleScaleDownAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AutoscaleScaleDownAction(value)
-	for _, existing := range AllowedAutoscaleScaleDownActionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AutoscaleScaleDownAction", value)
+	
+	*v = AutoscaleScaleDownAction(value)
+	return nil
 }
 
 // NewAutoscaleScaleDownActionFromValue returns a pointer to a valid AutoscaleScaleDownAction

@@ -38,15 +38,9 @@ func (v *OciEnvironment) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := OciEnvironment(value)
-	for _, existing := range AllowedOciEnvironmentEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid OciEnvironment", value)
+	
+	*v = OciEnvironment(value)
+	return nil
 }
 
 // NewOciEnvironmentFromValue returns a pointer to a valid OciEnvironment

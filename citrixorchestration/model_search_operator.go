@@ -84,15 +84,9 @@ func (v *SearchOperator) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SearchOperator(value)
-	for _, existing := range AllowedSearchOperatorEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SearchOperator", value)
+	
+	*v = SearchOperator(value)
+	return nil
 }
 
 // NewSearchOperatorFromValue returns a pointer to a valid SearchOperator

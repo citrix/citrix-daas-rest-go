@@ -100,15 +100,9 @@ func (v *DeregistrationReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeregistrationReason(value)
-	for _, existing := range AllowedDeregistrationReasonEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeregistrationReason", value)
+	
+	*v = DeregistrationReason(value)
+	return nil
 }
 
 // NewDeregistrationReasonFromValue returns a pointer to a valid DeregistrationReason

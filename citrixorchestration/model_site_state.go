@@ -42,15 +42,9 @@ func (v *SiteState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SiteState(value)
-	for _, existing := range AllowedSiteStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SiteState", value)
+	
+	*v = SiteState(value)
+	return nil
 }
 
 // NewSiteStateFromValue returns a pointer to a valid SiteState
