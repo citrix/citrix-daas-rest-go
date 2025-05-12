@@ -46,15 +46,9 @@ func (v *ConnectionMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ConnectionMode(value)
-	for _, existing := range AllowedConnectionModeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ConnectionMode", value)
+	
+	*v = ConnectionMode(value)
+	return nil
 }
 
 // NewConnectionModeFromValue returns a pointer to a valid ConnectionMode

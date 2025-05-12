@@ -42,15 +42,9 @@ func (v *ContainerScopeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ContainerScopeType(value)
-	for _, existing := range AllowedContainerScopeTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ContainerScopeType", value)
+	
+	*v = ContainerScopeType(value)
+	return nil
 }
 
 // NewContainerScopeTypeFromValue returns a pointer to a valid ContainerScopeType

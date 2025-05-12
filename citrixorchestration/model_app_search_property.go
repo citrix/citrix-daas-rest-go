@@ -78,15 +78,9 @@ func (v *AppSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AppSearchProperty(value)
-	for _, existing := range AllowedAppSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AppSearchProperty", value)
+	
+	*v = AppSearchProperty(value)
+	return nil
 }
 
 // NewAppSearchPropertyFromValue returns a pointer to a valid AppSearchProperty

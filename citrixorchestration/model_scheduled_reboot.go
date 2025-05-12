@@ -44,15 +44,9 @@ func (v *ScheduledReboot) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ScheduledReboot(value)
-	for _, existing := range AllowedScheduledRebootEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ScheduledReboot", value)
+	
+	*v = ScheduledReboot(value)
+	return nil
 }
 
 // NewScheduledRebootFromValue returns a pointer to a valid ScheduledReboot

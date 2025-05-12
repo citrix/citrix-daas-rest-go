@@ -42,15 +42,9 @@ func (v *RegistrationState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := RegistrationState(value)
-	for _, existing := range AllowedRegistrationStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid RegistrationState", value)
+	
+	*v = RegistrationState(value)
+	return nil
 }
 
 // NewRegistrationStateFromValue returns a pointer to a valid RegistrationState

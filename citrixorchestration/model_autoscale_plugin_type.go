@@ -38,15 +38,9 @@ func (v *AutoscalePluginType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AutoscalePluginType(value)
-	for _, existing := range AllowedAutoscalePluginTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AutoscalePluginType", value)
+	
+	*v = AutoscalePluginType(value)
+	return nil
 }
 
 // NewAutoscalePluginTypeFromValue returns a pointer to a valid AutoscalePluginType

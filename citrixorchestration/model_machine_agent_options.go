@@ -38,15 +38,9 @@ func (v *MachineAgentOptions) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineAgentOptions(value)
-	for _, existing := range AllowedMachineAgentOptionsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineAgentOptions", value)
+	
+	*v = MachineAgentOptions(value)
+	return nil
 }
 
 // NewMachineAgentOptionsFromValue returns a pointer to a valid MachineAgentOptions

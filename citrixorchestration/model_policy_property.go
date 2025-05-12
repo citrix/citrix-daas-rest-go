@@ -40,15 +40,9 @@ func (v *PolicyProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PolicyProperty(value)
-	for _, existing := range AllowedPolicyPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PolicyProperty", value)
+	
+	*v = PolicyProperty(value)
+	return nil
 }
 
 // NewPolicyPropertyFromValue returns a pointer to a valid PolicyProperty

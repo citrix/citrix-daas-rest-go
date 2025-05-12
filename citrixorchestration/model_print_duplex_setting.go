@@ -38,15 +38,9 @@ func (v *PrintDuplexSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PrintDuplexSetting(value)
-	for _, existing := range AllowedPrintDuplexSettingEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PrintDuplexSetting", value)
+	
+	*v = PrintDuplexSetting(value)
+	return nil
 }
 
 // NewPrintDuplexSettingFromValue returns a pointer to a valid PrintDuplexSetting

@@ -42,15 +42,9 @@ func (v *ZonePreference) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ZonePreference(value)
-	for _, existing := range AllowedZonePreferenceEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ZonePreference", value)
+	
+	*v = ZonePreference(value)
+	return nil
 }
 
 // NewZonePreferenceFromValue returns a pointer to a valid ZonePreference

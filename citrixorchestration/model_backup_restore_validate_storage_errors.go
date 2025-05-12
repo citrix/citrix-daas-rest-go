@@ -46,15 +46,9 @@ func (v *BackupRestoreValidateStorageErrors) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := BackupRestoreValidateStorageErrors(value)
-	for _, existing := range AllowedBackupRestoreValidateStorageErrorsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid BackupRestoreValidateStorageErrors", value)
+	
+	*v = BackupRestoreValidateStorageErrors(value)
+	return nil
 }
 
 // NewBackupRestoreValidateStorageErrorsFromValue returns a pointer to a valid BackupRestoreValidateStorageErrors

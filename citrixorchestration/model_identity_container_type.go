@@ -42,15 +42,9 @@ func (v *IdentityContainerType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := IdentityContainerType(value)
-	for _, existing := range AllowedIdentityContainerTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid IdentityContainerType", value)
+	
+	*v = IdentityContainerType(value)
+	return nil
 }
 
 // NewIdentityContainerTypeFromValue returns a pointer to a valid IdentityContainerType

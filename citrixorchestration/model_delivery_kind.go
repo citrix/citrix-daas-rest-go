@@ -40,15 +40,9 @@ func (v *DeliveryKind) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeliveryKind(value)
-	for _, existing := range AllowedDeliveryKindEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeliveryKind", value)
+	
+	*v = DeliveryKind(value)
+	return nil
 }
 
 // NewDeliveryKindFromValue returns a pointer to a valid DeliveryKind

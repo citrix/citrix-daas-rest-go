@@ -36,15 +36,9 @@ func (v *SummaryType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SummaryType(value)
-	for _, existing := range AllowedSummaryTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SummaryType", value)
+	
+	*v = SummaryType(value)
+	return nil
 }
 
 // NewSummaryTypeFromValue returns a pointer to a valid SummaryType

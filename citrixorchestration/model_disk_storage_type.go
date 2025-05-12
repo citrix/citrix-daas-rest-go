@@ -48,15 +48,9 @@ func (v *DiskStorageType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DiskStorageType(value)
-	for _, existing := range AllowedDiskStorageTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DiskStorageType", value)
+	
+	*v = DiskStorageType(value)
+	return nil
 }
 
 // NewDiskStorageTypeFromValue returns a pointer to a valid DiskStorageType

@@ -48,15 +48,9 @@ func (v *RebootScheduleDays) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := RebootScheduleDays(value)
-	for _, existing := range AllowedRebootScheduleDaysEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid RebootScheduleDays", value)
+	
+	*v = RebootScheduleDays(value)
+	return nil
 }
 
 // NewRebootScheduleDaysFromValue returns a pointer to a valid RebootScheduleDays

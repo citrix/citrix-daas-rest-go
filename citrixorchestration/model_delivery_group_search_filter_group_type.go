@@ -36,15 +36,9 @@ func (v *DeliveryGroupSearchFilterGroupType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeliveryGroupSearchFilterGroupType(value)
-	for _, existing := range AllowedDeliveryGroupSearchFilterGroupTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeliveryGroupSearchFilterGroupType", value)
+	
+	*v = DeliveryGroupSearchFilterGroupType(value)
+	return nil
 }
 
 // NewDeliveryGroupSearchFilterGroupTypeFromValue returns a pointer to a valid DeliveryGroupSearchFilterGroupType

@@ -42,15 +42,9 @@ func (v *HomeZoneMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := HomeZoneMode(value)
-	for _, existing := range AllowedHomeZoneModeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid HomeZoneMode", value)
+	
+	*v = HomeZoneMode(value)
+	return nil
 }
 
 // NewHomeZoneModeFromValue returns a pointer to a valid HomeZoneMode

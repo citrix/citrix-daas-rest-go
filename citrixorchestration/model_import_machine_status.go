@@ -40,15 +40,9 @@ func (v *ImportMachineStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ImportMachineStatus(value)
-	for _, existing := range AllowedImportMachineStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ImportMachineStatus", value)
+	
+	*v = ImportMachineStatus(value)
+	return nil
 }
 
 // NewImportMachineStatusFromValue returns a pointer to a valid ImportMachineStatus

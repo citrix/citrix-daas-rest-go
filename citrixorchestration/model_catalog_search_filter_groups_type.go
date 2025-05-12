@@ -36,15 +36,9 @@ func (v *CatalogSearchFilterGroupsType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CatalogSearchFilterGroupsType(value)
-	for _, existing := range AllowedCatalogSearchFilterGroupsTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CatalogSearchFilterGroupsType", value)
+	
+	*v = CatalogSearchFilterGroupsType(value)
+	return nil
 }
 
 // NewCatalogSearchFilterGroupsTypeFromValue returns a pointer to a valid CatalogSearchFilterGroupsType

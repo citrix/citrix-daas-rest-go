@@ -40,15 +40,9 @@ func (v *ActionErrorStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ActionErrorStatus(value)
-	for _, existing := range AllowedActionErrorStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ActionErrorStatus", value)
+	
+	*v = ActionErrorStatus(value)
+	return nil
 }
 
 // NewActionErrorStatusFromValue returns a pointer to a valid ActionErrorStatus

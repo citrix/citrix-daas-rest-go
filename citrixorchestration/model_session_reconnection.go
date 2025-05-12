@@ -40,15 +40,9 @@ func (v *SessionReconnection) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SessionReconnection(value)
-	for _, existing := range AllowedSessionReconnectionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SessionReconnection", value)
+	
+	*v = SessionReconnection(value)
+	return nil
 }
 
 // NewSessionReconnectionFromValue returns a pointer to a valid SessionReconnection

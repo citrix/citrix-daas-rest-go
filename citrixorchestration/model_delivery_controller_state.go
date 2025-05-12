@@ -42,15 +42,9 @@ func (v *DeliveryControllerState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeliveryControllerState(value)
-	for _, existing := range AllowedDeliveryControllerStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeliveryControllerState", value)
+	
+	*v = DeliveryControllerState(value)
+	return nil
 }
 
 // NewDeliveryControllerStateFromValue returns a pointer to a valid DeliveryControllerState

@@ -40,15 +40,9 @@ func (v *LicenseModel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LicenseModel(value)
-	for _, existing := range AllowedLicenseModelEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LicenseModel", value)
+	
+	*v = LicenseModel(value)
+	return nil
 }
 
 // NewLicenseModelFromValue returns a pointer to a valid LicenseModel

@@ -38,15 +38,9 @@ func (v *FilterMatchType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FilterMatchType(value)
-	for _, existing := range AllowedFilterMatchTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FilterMatchType", value)
+	
+	*v = FilterMatchType(value)
+	return nil
 }
 
 // NewFilterMatchTypeFromValue returns a pointer to a valid FilterMatchType

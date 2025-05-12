@@ -58,15 +58,9 @@ func (v *FunctionalLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FunctionalLevel(value)
-	for _, existing := range AllowedFunctionalLevelEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FunctionalLevel", value)
+	
+	*v = FunctionalLevel(value)
+	return nil
 }
 
 // NewFunctionalLevelFromValue returns a pointer to a valid FunctionalLevel

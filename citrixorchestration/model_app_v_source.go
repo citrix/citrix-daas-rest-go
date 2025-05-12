@@ -38,15 +38,9 @@ func (v *AppVSource) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AppVSource(value)
-	for _, existing := range AllowedAppVSourceEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AppVSource", value)
+	
+	*v = AppVSource(value)
+	return nil
 }
 
 // NewAppVSourceFromValue returns a pointer to a valid AppVSource

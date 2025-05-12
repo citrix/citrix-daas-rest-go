@@ -42,15 +42,9 @@ func (v *RestApiStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := RestApiStatus(value)
-	for _, existing := range AllowedRestApiStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid RestApiStatus", value)
+	
+	*v = RestApiStatus(value)
+	return nil
 }
 
 // NewRestApiStatusFromValue returns a pointer to a valid RestApiStatus

@@ -42,15 +42,9 @@ func (v *MessageStyle) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MessageStyle(value)
-	for _, existing := range AllowedMessageStyleEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MessageStyle", value)
+	
+	*v = MessageStyle(value)
+	return nil
 }
 
 // NewMessageStyleFromValue returns a pointer to a valid MessageStyle

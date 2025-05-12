@@ -46,15 +46,9 @@ func (v *SummaryState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SummaryState(value)
-	for _, existing := range AllowedSummaryStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SummaryState", value)
+	
+	*v = SummaryState(value)
+	return nil
 }
 
 // NewSummaryStateFromValue returns a pointer to a valid SummaryState

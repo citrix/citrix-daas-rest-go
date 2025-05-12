@@ -46,15 +46,9 @@ func (v *AppState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AppState(value)
-	for _, existing := range AllowedAppStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AppState", value)
+	
+	*v = AppState(value)
+	return nil
 }
 
 // NewAppStateFromValue returns a pointer to a valid AppState

@@ -44,15 +44,9 @@ func (v *LicenseProduct) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LicenseProduct(value)
-	for _, existing := range AllowedLicenseProductEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LicenseProduct", value)
+	
+	*v = LicenseProduct(value)
+	return nil
 }
 
 // NewLicenseProductFromValue returns a pointer to a valid LicenseProduct

@@ -42,15 +42,9 @@ func (v *CustomReportDateRangeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CustomReportDateRangeType(value)
-	for _, existing := range AllowedCustomReportDateRangeTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CustomReportDateRangeType", value)
+	
+	*v = CustomReportDateRangeType(value)
+	return nil
 }
 
 // NewCustomReportDateRangeTypeFromValue returns a pointer to a valid CustomReportDateRangeType

@@ -74,15 +74,9 @@ func (v *BackupRestorePlaybookActionState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := BackupRestorePlaybookActionState(value)
-	for _, existing := range AllowedBackupRestorePlaybookActionStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid BackupRestorePlaybookActionState", value)
+	
+	*v = BackupRestorePlaybookActionState(value)
+	return nil
 }
 
 // NewBackupRestorePlaybookActionStateFromValue returns a pointer to a valid BackupRestorePlaybookActionState

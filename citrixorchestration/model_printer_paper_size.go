@@ -264,15 +264,9 @@ func (v *PrinterPaperSize) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PrinterPaperSize(value)
-	for _, existing := range AllowedPrinterPaperSizeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PrinterPaperSize", value)
+	
+	*v = PrinterPaperSize(value)
+	return nil
 }
 
 // NewPrinterPaperSizeFromValue returns a pointer to a valid PrinterPaperSize

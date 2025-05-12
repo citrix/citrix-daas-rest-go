@@ -38,15 +38,9 @@ func (v *MachineType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineType(value)
-	for _, existing := range AllowedMachineTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineType", value)
+	
+	*v = MachineType(value)
+	return nil
 }
 
 // NewMachineTypeFromValue returns a pointer to a valid MachineType

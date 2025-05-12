@@ -46,15 +46,9 @@ func (v *Authenticator) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := Authenticator(value)
-	for _, existing := range AllowedAuthenticatorEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid Authenticator", value)
+	
+	*v = Authenticator(value)
+	return nil
 }
 
 // NewAuthenticatorFromValue returns a pointer to a valid Authenticator

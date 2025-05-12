@@ -38,15 +38,9 @@ func (v *LeasingBehavior) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LeasingBehavior(value)
-	for _, existing := range AllowedLeasingBehaviorEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LeasingBehavior", value)
+	
+	*v = LeasingBehavior(value)
+	return nil
 }
 
 // NewLeasingBehaviorFromValue returns a pointer to a valid LeasingBehavior

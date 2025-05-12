@@ -42,15 +42,9 @@ func (v *AdminFolderObjects) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AdminFolderObjects(value)
-	for _, existing := range AllowedAdminFolderObjectsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AdminFolderObjects", value)
+	
+	*v = AdminFolderObjects(value)
+	return nil
 }
 
 // NewAdminFolderObjectsFromValue returns a pointer to a valid AdminFolderObjects

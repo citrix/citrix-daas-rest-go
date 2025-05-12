@@ -54,15 +54,9 @@ func (v *FilterType2) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FilterType2(value)
-	for _, existing := range AllowedFilterType2EnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FilterType2", value)
+	
+	*v = FilterType2(value)
+	return nil
 }
 
 // NewFilterType2FromValue returns a pointer to a valid FilterType2

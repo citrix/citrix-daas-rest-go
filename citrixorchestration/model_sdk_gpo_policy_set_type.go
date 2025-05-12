@@ -40,15 +40,9 @@ func (v *SdkGpoPolicySetType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SdkGpoPolicySetType(value)
-	for _, existing := range AllowedSdkGpoPolicySetTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SdkGpoPolicySetType", value)
+	
+	*v = SdkGpoPolicySetType(value)
+	return nil
 }
 
 // NewSdkGpoPolicySetTypeFromValue returns a pointer to a valid SdkGpoPolicySetType

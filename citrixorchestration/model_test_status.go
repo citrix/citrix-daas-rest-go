@@ -44,15 +44,9 @@ func (v *TestStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := TestStatus(value)
-	for _, existing := range AllowedTestStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TestStatus", value)
+	
+	*v = TestStatus(value)
+	return nil
 }
 
 // NewTestStatusFromValue returns a pointer to a valid TestStatus

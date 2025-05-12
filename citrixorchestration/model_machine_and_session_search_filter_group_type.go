@@ -36,15 +36,9 @@ func (v *MachineAndSessionSearchFilterGroupType) UnmarshalJSON(src []byte) error
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineAndSessionSearchFilterGroupType(value)
-	for _, existing := range AllowedMachineAndSessionSearchFilterGroupTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineAndSessionSearchFilterGroupType", value)
+	
+	*v = MachineAndSessionSearchFilterGroupType(value)
+	return nil
 }
 
 // NewMachineAndSessionSearchFilterGroupTypeFromValue returns a pointer to a valid MachineAndSessionSearchFilterGroupType

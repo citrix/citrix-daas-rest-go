@@ -50,15 +50,9 @@ func (v *ActionType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ActionType(value)
-	for _, existing := range AllowedActionTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ActionType", value)
+	
+	*v = ActionType(value)
+	return nil
 }
 
 // NewActionTypeFromValue returns a pointer to a valid ActionType

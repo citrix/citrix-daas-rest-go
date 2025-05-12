@@ -36,15 +36,9 @@ func (v *ResourceValidationCategory) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ResourceValidationCategory(value)
-	for _, existing := range AllowedResourceValidationCategoryEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ResourceValidationCategory", value)
+	
+	*v = ResourceValidationCategory(value)
+	return nil
 }
 
 // NewResourceValidationCategoryFromValue returns a pointer to a valid ResourceValidationCategory

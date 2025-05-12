@@ -56,15 +56,9 @@ func (v *LogOperationSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LogOperationSearchProperty(value)
-	for _, existing := range AllowedLogOperationSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LogOperationSearchProperty", value)
+	
+	*v = LogOperationSearchProperty(value)
+	return nil
 }
 
 // NewLogOperationSearchPropertyFromValue returns a pointer to a valid LogOperationSearchProperty

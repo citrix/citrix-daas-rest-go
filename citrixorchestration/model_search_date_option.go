@@ -58,15 +58,9 @@ func (v *SearchDateOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SearchDateOption(value)
-	for _, existing := range AllowedSearchDateOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SearchDateOption", value)
+	
+	*v = SearchDateOption(value)
+	return nil
 }
 
 // NewSearchDateOptionFromValue returns a pointer to a valid SearchDateOption

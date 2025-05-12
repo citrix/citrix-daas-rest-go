@@ -40,15 +40,9 @@ func (v *ProtocolType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProtocolType(value)
-	for _, existing := range AllowedProtocolTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProtocolType", value)
+	
+	*v = ProtocolType(value)
+	return nil
 }
 
 // NewProtocolTypeFromValue returns a pointer to a valid ProtocolType

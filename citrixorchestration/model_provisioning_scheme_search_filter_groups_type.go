@@ -36,15 +36,9 @@ func (v *ProvisioningSchemeSearchFilterGroupsType) UnmarshalJSON(src []byte) err
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisioningSchemeSearchFilterGroupsType(value)
-	for _, existing := range AllowedProvisioningSchemeSearchFilterGroupsTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisioningSchemeSearchFilterGroupsType", value)
+	
+	*v = ProvisioningSchemeSearchFilterGroupsType(value)
+	return nil
 }
 
 // NewProvisioningSchemeSearchFilterGroupsTypeFromValue returns a pointer to a valid ProvisioningSchemeSearchFilterGroupsType

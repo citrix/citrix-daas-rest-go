@@ -40,15 +40,9 @@ func (v *LasActivationStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LasActivationStatus(value)
-	for _, existing := range AllowedLasActivationStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LasActivationStatus", value)
+	
+	*v = LasActivationStatus(value)
+	return nil
 }
 
 // NewLasActivationStatusFromValue returns a pointer to a valid LasActivationStatus

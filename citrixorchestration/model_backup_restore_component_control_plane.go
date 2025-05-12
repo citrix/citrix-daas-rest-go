@@ -40,15 +40,9 @@ func (v *BackupRestoreComponentControlPlane) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := BackupRestoreComponentControlPlane(value)
-	for _, existing := range AllowedBackupRestoreComponentControlPlaneEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid BackupRestoreComponentControlPlane", value)
+	
+	*v = BackupRestoreComponentControlPlane(value)
+	return nil
 }
 
 // NewBackupRestoreComponentControlPlaneFromValue returns a pointer to a valid BackupRestoreComponentControlPlane

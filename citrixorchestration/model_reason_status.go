@@ -50,15 +50,9 @@ func (v *ReasonStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ReasonStatus(value)
-	for _, existing := range AllowedReasonStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ReasonStatus", value)
+	
+	*v = ReasonStatus(value)
+	return nil
 }
 
 // NewReasonStatusFromValue returns a pointer to a valid ReasonStatus

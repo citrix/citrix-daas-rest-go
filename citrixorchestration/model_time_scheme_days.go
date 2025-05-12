@@ -52,15 +52,9 @@ func (v *TimeSchemeDays) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := TimeSchemeDays(value)
-	for _, existing := range AllowedTimeSchemeDaysEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TimeSchemeDays", value)
+	
+	*v = TimeSchemeDays(value)
+	return nil
 }
 
 // NewTimeSchemeDaysFromValue returns a pointer to a valid TimeSchemeDays

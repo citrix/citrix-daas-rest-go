@@ -40,15 +40,9 @@ func (v *TenancyType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := TenancyType(value)
-	for _, existing := range AllowedTenancyTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TenancyType", value)
+	
+	*v = TenancyType(value)
+	return nil
 }
 
 // NewTenancyTypeFromValue returns a pointer to a valid TenancyType

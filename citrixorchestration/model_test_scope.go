@@ -38,15 +38,9 @@ func (v *TestScope) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := TestScope(value)
-	for _, existing := range AllowedTestScopeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TestScope", value)
+	
+	*v = TestScope(value)
+	return nil
 }
 
 // NewTestScopeFromValue returns a pointer to a valid TestScope

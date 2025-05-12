@@ -38,15 +38,9 @@ func (v *AllocationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AllocationType(value)
-	for _, existing := range AllowedAllocationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AllocationType", value)
+	
+	*v = AllocationType(value)
+	return nil
 }
 
 // NewAllocationTypeFromValue returns a pointer to a valid AllocationType

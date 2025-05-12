@@ -420,15 +420,9 @@ func (v *JobErrorCode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := JobErrorCode(value)
-	for _, existing := range AllowedJobErrorCodeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid JobErrorCode", value)
+	
+	*v = JobErrorCode(value)
+	return nil
 }
 
 // NewJobErrorCodeFromValue returns a pointer to a valid JobErrorCode

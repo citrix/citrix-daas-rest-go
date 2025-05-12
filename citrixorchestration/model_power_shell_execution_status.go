@@ -40,15 +40,9 @@ func (v *PowerShellExecutionStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PowerShellExecutionStatus(value)
-	for _, existing := range AllowedPowerShellExecutionStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PowerShellExecutionStatus", value)
+	
+	*v = PowerShellExecutionStatus(value)
+	return nil
 }
 
 // NewPowerShellExecutionStatusFromValue returns a pointer to a valid PowerShellExecutionStatus

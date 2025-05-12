@@ -50,15 +50,9 @@ func (v *BackupRestoreBlobStorage) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := BackupRestoreBlobStorage(value)
-	for _, existing := range AllowedBackupRestoreBlobStorageEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid BackupRestoreBlobStorage", value)
+	
+	*v = BackupRestoreBlobStorage(value)
+	return nil
 }
 
 // NewBackupRestoreBlobStorageFromValue returns a pointer to a valid BackupRestoreBlobStorage

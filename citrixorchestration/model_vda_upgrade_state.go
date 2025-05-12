@@ -42,15 +42,9 @@ func (v *VdaUpgradeState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := VdaUpgradeState(value)
-	for _, existing := range AllowedVdaUpgradeStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid VdaUpgradeState", value)
+	
+	*v = VdaUpgradeState(value)
+	return nil
 }
 
 // NewVdaUpgradeStateFromValue returns a pointer to a valid VdaUpgradeState

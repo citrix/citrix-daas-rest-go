@@ -40,15 +40,9 @@ func (v *AzureAdJoinedMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AzureAdJoinedMode(value)
-	for _, existing := range AllowedAzureAdJoinedModeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AzureAdJoinedMode", value)
+	
+	*v = AzureAdJoinedMode(value)
+	return nil
 }
 
 // NewAzureAdJoinedModeFromValue returns a pointer to a valid AzureAdJoinedMode

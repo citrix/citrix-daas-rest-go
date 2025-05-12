@@ -36,15 +36,9 @@ func (v *PrinterColorSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PrinterColorSetting(value)
-	for _, existing := range AllowedPrinterColorSettingEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PrinterColorSetting", value)
+	
+	*v = PrinterColorSetting(value)
+	return nil
 }
 
 // NewPrinterColorSettingFromValue returns a pointer to a valid PrinterColorSetting

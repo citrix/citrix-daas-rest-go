@@ -42,15 +42,9 @@ func (v *AllowedConnection) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AllowedConnection(value)
-	for _, existing := range AllowedAllowedConnectionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AllowedConnection", value)
+	
+	*v = AllowedConnection(value)
+	return nil
 }
 
 // NewAllowedConnectionFromValue returns a pointer to a valid AllowedConnection

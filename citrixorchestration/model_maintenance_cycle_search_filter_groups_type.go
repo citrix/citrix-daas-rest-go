@@ -36,15 +36,9 @@ func (v *MaintenanceCycleSearchFilterGroupsType) UnmarshalJSON(src []byte) error
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MaintenanceCycleSearchFilterGroupsType(value)
-	for _, existing := range AllowedMaintenanceCycleSearchFilterGroupsTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MaintenanceCycleSearchFilterGroupsType", value)
+	
+	*v = MaintenanceCycleSearchFilterGroupsType(value)
+	return nil
 }
 
 // NewMaintenanceCycleSearchFilterGroupsTypeFromValue returns a pointer to a valid MaintenanceCycleSearchFilterGroupsType

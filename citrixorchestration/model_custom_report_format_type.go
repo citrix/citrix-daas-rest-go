@@ -38,15 +38,9 @@ func (v *CustomReportFormatType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CustomReportFormatType(value)
-	for _, existing := range AllowedCustomReportFormatTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CustomReportFormatType", value)
+	
+	*v = CustomReportFormatType(value)
+	return nil
 }
 
 // NewCustomReportFormatTypeFromValue returns a pointer to a valid CustomReportFormatType

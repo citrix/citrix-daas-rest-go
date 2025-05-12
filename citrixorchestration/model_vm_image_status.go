@@ -40,15 +40,9 @@ func (v *VMImageStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := VMImageStatus(value)
-	for _, existing := range AllowedVMImageStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid VMImageStatus", value)
+	
+	*v = VMImageStatus(value)
+	return nil
 }
 
 // NewVMImageStatusFromValue returns a pointer to a valid VMImageStatus

@@ -36,15 +36,9 @@ func (v *ProvisionedVirtualMachineSearchFilterGroupType) UnmarshalJSON(src []byt
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisionedVirtualMachineSearchFilterGroupType(value)
-	for _, existing := range AllowedProvisionedVirtualMachineSearchFilterGroupTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisionedVirtualMachineSearchFilterGroupType", value)
+	
+	*v = ProvisionedVirtualMachineSearchFilterGroupType(value)
+	return nil
 }
 
 // NewProvisionedVirtualMachineSearchFilterGroupTypeFromValue returns a pointer to a valid ProvisionedVirtualMachineSearchFilterGroupType

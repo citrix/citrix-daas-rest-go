@@ -38,15 +38,9 @@ func (v *SharingKind) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SharingKind(value)
-	for _, existing := range AllowedSharingKindEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SharingKind", value)
+	
+	*v = SharingKind(value)
+	return nil
 }
 
 // NewSharingKindFromValue returns a pointer to a valid SharingKind

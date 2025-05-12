@@ -42,15 +42,9 @@ func (v *WindowsConnectionSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := WindowsConnectionSetting(value)
-	for _, existing := range AllowedWindowsConnectionSettingEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid WindowsConnectionSetting", value)
+	
+	*v = WindowsConnectionSetting(value)
+	return nil
 }
 
 // NewWindowsConnectionSettingFromValue returns a pointer to a valid WindowsConnectionSetting

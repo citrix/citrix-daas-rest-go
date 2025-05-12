@@ -38,15 +38,9 @@ func (v *FlashUrlRenderAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FlashUrlRenderAction(value)
-	for _, existing := range AllowedFlashUrlRenderActionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FlashUrlRenderAction", value)
+	
+	*v = FlashUrlRenderAction(value)
+	return nil
 }
 
 // NewFlashUrlRenderActionFromValue returns a pointer to a valid FlashUrlRenderAction

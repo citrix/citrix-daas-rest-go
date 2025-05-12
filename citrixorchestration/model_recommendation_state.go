@@ -38,15 +38,9 @@ func (v *RecommendationState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := RecommendationState(value)
-	for _, existing := range AllowedRecommendationStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid RecommendationState", value)
+	
+	*v = RecommendationState(value)
+	return nil
 }
 
 // NewRecommendationStateFromValue returns a pointer to a valid RecommendationState

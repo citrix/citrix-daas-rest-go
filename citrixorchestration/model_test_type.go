@@ -48,15 +48,9 @@ func (v *TestType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := TestType(value)
-	for _, existing := range AllowedTestTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TestType", value)
+	
+	*v = TestType(value)
+	return nil
 }
 
 // NewTestTypeFromValue returns a pointer to a valid TestType

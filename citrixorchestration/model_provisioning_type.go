@@ -44,15 +44,9 @@ func (v *ProvisioningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProvisioningType(value)
-	for _, existing := range AllowedProvisioningTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProvisioningType", value)
+	
+	*v = ProvisioningType(value)
+	return nil
 }
 
 // NewProvisioningTypeFromValue returns a pointer to a valid ProvisioningType

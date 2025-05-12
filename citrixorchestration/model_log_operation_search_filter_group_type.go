@@ -36,15 +36,9 @@ func (v *LogOperationSearchFilterGroupType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LogOperationSearchFilterGroupType(value)
-	for _, existing := range AllowedLogOperationSearchFilterGroupTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LogOperationSearchFilterGroupType", value)
+	
+	*v = LogOperationSearchFilterGroupType(value)
+	return nil
 }
 
 // NewLogOperationSearchFilterGroupTypeFromValue returns a pointer to a valid LogOperationSearchFilterGroupType

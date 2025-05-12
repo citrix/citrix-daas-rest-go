@@ -66,15 +66,9 @@ func (v *CatalogSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CatalogSearchProperty(value)
-	for _, existing := range AllowedCatalogSearchPropertyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CatalogSearchProperty", value)
+	
+	*v = CatalogSearchProperty(value)
+	return nil
 }
 
 // NewCatalogSearchPropertyFromValue returns a pointer to a valid CatalogSearchProperty

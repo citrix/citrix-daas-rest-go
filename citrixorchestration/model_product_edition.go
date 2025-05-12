@@ -46,15 +46,9 @@ func (v *ProductEdition) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProductEdition(value)
-	for _, existing := range AllowedProductEditionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProductEdition", value)
+	
+	*v = ProductEdition(value)
+	return nil
 }
 
 // NewProductEditionFromValue returns a pointer to a valid ProductEdition

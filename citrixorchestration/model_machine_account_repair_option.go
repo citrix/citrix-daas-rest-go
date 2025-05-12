@@ -38,15 +38,9 @@ func (v *MachineAccountRepairOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MachineAccountRepairOption(value)
-	for _, existing := range AllowedMachineAccountRepairOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MachineAccountRepairOption", value)
+	
+	*v = MachineAccountRepairOption(value)
+	return nil
 }
 
 // NewMachineAccountRepairOptionFromValue returns a pointer to a valid MachineAccountRepairOption

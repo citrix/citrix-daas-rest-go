@@ -60,15 +60,9 @@ func (v *HypervisorConnectionType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := HypervisorConnectionType(value)
-	for _, existing := range AllowedHypervisorConnectionTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid HypervisorConnectionType", value)
+	
+	*v = HypervisorConnectionType(value)
+	return nil
 }
 
 // NewHypervisorConnectionTypeFromValue returns a pointer to a valid HypervisorConnectionType

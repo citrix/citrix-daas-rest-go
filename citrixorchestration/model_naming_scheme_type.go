@@ -42,15 +42,9 @@ func (v *NamingSchemeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := NamingSchemeType(value)
-	for _, existing := range AllowedNamingSchemeTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid NamingSchemeType", value)
+	
+	*v = NamingSchemeType(value)
+	return nil
 }
 
 // NewNamingSchemeTypeFromValue returns a pointer to a valid NamingSchemeType

@@ -46,15 +46,9 @@ func (v *PackagedApplicationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PackagedApplicationType(value)
-	for _, existing := range AllowedPackagedApplicationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PackagedApplicationType", value)
+	
+	*v = PackagedApplicationType(value)
+	return nil
 }
 
 // NewPackagedApplicationTypeFromValue returns a pointer to a valid PackagedApplicationType

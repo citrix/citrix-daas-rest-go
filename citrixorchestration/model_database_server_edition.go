@@ -36,15 +36,9 @@ func (v *DatabaseServerEdition) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DatabaseServerEdition(value)
-	for _, existing := range AllowedDatabaseServerEditionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DatabaseServerEdition", value)
+	
+	*v = DatabaseServerEdition(value)
+	return nil
 }
 
 // NewDatabaseServerEditionFromValue returns a pointer to a valid DatabaseServerEdition

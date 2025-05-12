@@ -42,15 +42,9 @@ func (v *RebootScheduleFrequency) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := RebootScheduleFrequency(value)
-	for _, existing := range AllowedRebootScheduleFrequencyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid RebootScheduleFrequency", value)
+	
+	*v = RebootScheduleFrequency(value)
+	return nil
 }
 
 // NewRebootScheduleFrequencyFromValue returns a pointer to a valid RebootScheduleFrequency

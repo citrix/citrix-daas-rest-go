@@ -40,15 +40,9 @@ func (v *SessionChangeHostingAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SessionChangeHostingAction(value)
-	for _, existing := range AllowedSessionChangeHostingActionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SessionChangeHostingAction", value)
+	
+	*v = SessionChangeHostingAction(value)
+	return nil
 }
 
 // NewSessionChangeHostingActionFromValue returns a pointer to a valid SessionChangeHostingAction

@@ -80,15 +80,9 @@ func (v *BckRstrAutoConfigComponents) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := BckRstrAutoConfigComponents(value)
-	for _, existing := range AllowedBckRstrAutoConfigComponentsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid BckRstrAutoConfigComponents", value)
+	
+	*v = BckRstrAutoConfigComponents(value)
+	return nil
 }
 
 // NewBckRstrAutoConfigComponentsFromValue returns a pointer to a valid BckRstrAutoConfigComponents

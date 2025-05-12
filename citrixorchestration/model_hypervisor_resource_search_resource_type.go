@@ -60,15 +60,9 @@ func (v *HypervisorResourceSearchResourceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := HypervisorResourceSearchResourceType(value)
-	for _, existing := range AllowedHypervisorResourceSearchResourceTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid HypervisorResourceSearchResourceType", value)
+	
+	*v = HypervisorResourceSearchResourceType(value)
+	return nil
 }
 
 // NewHypervisorResourceSearchResourceTypeFromValue returns a pointer to a valid HypervisorResourceSearchResourceType

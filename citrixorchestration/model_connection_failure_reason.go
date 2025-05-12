@@ -48,15 +48,9 @@ func (v *ConnectionFailureReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ConnectionFailureReason(value)
-	for _, existing := range AllowedConnectionFailureReasonEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ConnectionFailureReason", value)
+	
+	*v = ConnectionFailureReason(value)
+	return nil
 }
 
 // NewConnectionFailureReasonFromValue returns a pointer to a valid ConnectionFailureReason

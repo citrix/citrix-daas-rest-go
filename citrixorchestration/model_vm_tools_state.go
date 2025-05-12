@@ -40,15 +40,9 @@ func (v *VMToolsState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := VMToolsState(value)
-	for _, existing := range AllowedVMToolsStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid VMToolsState", value)
+	
+	*v = VMToolsState(value)
+	return nil
 }
 
 // NewVMToolsStateFromValue returns a pointer to a valid VMToolsState

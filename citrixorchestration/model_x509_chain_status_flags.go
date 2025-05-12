@@ -84,15 +84,9 @@ func (v *X509ChainStatusFlags) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := X509ChainStatusFlags(value)
-	for _, existing := range AllowedX509ChainStatusFlagsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid X509ChainStatusFlags", value)
+	
+	*v = X509ChainStatusFlags(value)
+	return nil
 }
 
 // NewX509ChainStatusFlagsFromValue returns a pointer to a valid X509ChainStatusFlags

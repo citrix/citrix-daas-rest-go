@@ -40,15 +40,9 @@ func (v *AzureAdJoinType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AzureAdJoinType(value)
-	for _, existing := range AllowedAzureAdJoinTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AzureAdJoinType", value)
+	
+	*v = AzureAdJoinType(value)
+	return nil
 }
 
 // NewAzureAdJoinTypeFromValue returns a pointer to a valid AzureAdJoinType

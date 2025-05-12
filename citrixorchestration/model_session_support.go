@@ -38,15 +38,9 @@ func (v *SessionSupport) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SessionSupport(value)
-	for _, existing := range AllowedSessionSupportEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SessionSupport", value)
+	
+	*v = SessionSupport(value)
+	return nil
 }
 
 // NewSessionSupportFromValue returns a pointer to a valid SessionSupport

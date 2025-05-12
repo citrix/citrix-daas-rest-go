@@ -60,15 +60,9 @@ func (v *BackupRestoreActions) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := BackupRestoreActions(value)
-	for _, existing := range AllowedBackupRestoreActionsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid BackupRestoreActions", value)
+	
+	*v = BackupRestoreActions(value)
+	return nil
 }
 
 // NewBackupRestoreActionsFromValue returns a pointer to a valid BackupRestoreActions
