@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** | Pointer to [**NullableCommissionTaskOperationType**](CommissionTaskOperationType.md) |  | [optional] 
+**Operation** | Pointer to [**NullableCommissionTaskOperationType**](CommissionTaskOperationType.md) | Task Type | [optional] 
 
 ## Methods
 

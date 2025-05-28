@@ -68,7 +68,6 @@ docs/AwsEdcDirectoryTenancy.md
 docs/AwsEdcDirectoryType.md
 docs/AwsEdcImage.md
 docs/AwsEdcMissingRolePermissions.md
-docs/AwsEdcMissingRolePermissionsCondition.md
 docs/AwsEdcRegisterAccount.md
 docs/AwsEdcSubnetStatus.md
 docs/AwsEdcVpcState.md
@@ -90,7 +89,6 @@ docs/ConnectionState.md
 docs/ConsentMetadata.md
 docs/CoreUser.md
 docs/DeleteMachines.md
-docs/DeleteMachinesCredentials.md
 docs/Deployment.md
 docs/DeploymentCredentials.md
 docs/DeploymentIdInitiateDeleteBody.md
@@ -98,7 +96,6 @@ docs/DeploymentIdMachinesBody.md
 docs/DeploymentMachine.md
 docs/DeploymentMachines.md
 docs/DeploymentQCS.md
-docs/DeploymentScaleSettings.md
 docs/DeploymentState.md
 docs/DeploymentTask.md
 docs/DeploymentTaskOperationType.md
@@ -246,7 +243,6 @@ model_aws_edc_directory_tenancy.go
 model_aws_edc_directory_type.go
 model_aws_edc_image.go
 model_aws_edc_missing_role_permissions.go
-model_aws_edc_missing_role_permissions_condition.go
 model_aws_edc_register_account.go
 model_aws_edc_subnet_status.go
 model_aws_edc_vpc_state.go
@@ -267,14 +263,12 @@ model_connection_state.go
 model_consent_metadata.go
 model_core_user.go
 model_delete_machines.go
-model_delete_machines_credentials.go
 model_deployment.go
 model_deployment_credentials.go
 model_deployment_id_initiate_delete_body.go
 model_deployment_id_machines_body.go
 model_deployment_machine.go
 model_deployment_machines.go
-model_deployment_scale_settings.go
 model_deployment_state.go
 model_deployment_task.go
 model_deployment_task_operation_type.go

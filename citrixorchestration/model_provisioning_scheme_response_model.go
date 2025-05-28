@@ -30,12 +30,12 @@ type ProvisioningSchemeResponseModel struct {
 	// The number of processors that VMs will be created with when using this scheme.
 	CpuCount *int32 `json:"CpuCount,omitempty"`
 	// The number of cores per processor that VMs will be created with when using this scheme. This property only applies when hypervisor connection is Nutanix.
-	CoresPerCpuCount *int32 `json:"CoresPerCpuCount,omitempty"`
+	CoresPerCpuCount *int32                `json:"CoresPerCpuCount,omitempty"`
 	CurrentDiskImage *VMImageResponseModel `json:"CurrentDiskImage,omitempty"`
 	// The historical disk images including current image used to provision new machines in the machine catalog.
 	HistoricalDiskImages []VMImageResponseModel `json:"HistoricalDiskImages,omitempty"`
 	// The properties of the provisioning scheme that are specific to the target hosting infrastructure.
-	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
+	CustomProperties        []NameValueStringPairModel            `json:"CustomProperties,omitempty"`
 	ImageRuntimeEnvironment *ImageRuntimeEnvironmentResponseModel `json:"ImageRuntimeEnvironment,omitempty"`
 	// The warning message if parsing CustomProperties with error.
 	Warning NullableString `json:"Warning,omitempty"`
@@ -54,20 +54,20 @@ type ProvisioningSchemeResponseModel struct {
 	// Service account Uids associated with IdentityPool of this catalog
 	ServiceAccountUid []string `json:"ServiceAccountUid,omitempty"`
 	// AzureAd dynamic security group associates with this catalog
-	AzureAdSecurityGroupName NullableString `json:"AzureAdSecurityGroupName,omitempty"`
-	IdentityType *IdentityType `json:"IdentityType,omitempty"`
-	DeviceManagementType *DeviceManagementType `json:"DeviceManagementType,omitempty"`
+	AzureAdSecurityGroupName NullableString        `json:"AzureAdSecurityGroupName,omitempty"`
+	IdentityType             *IdentityType         `json:"IdentityType,omitempty"`
+	DeviceManagementType     *DeviceManagementType `json:"DeviceManagementType,omitempty"`
 	// The identity content of identity pool.
 	IdentityContent NullableString `json:"IdentityContent,omitempty"`
 	// Size of the VM's OS disk, in GB.
 	DiskSizeGB *int32 `json:"DiskSizeGB,omitempty"`
 	// Type of GPU used for VMs, if any.
-	GpuTypeId NullableString `json:"GpuTypeId,omitempty"`
+	GpuTypeId    NullableString                          `json:"GpuTypeId,omitempty"`
 	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
-	IdentityPool *RefResponseModel `json:"IdentityPool,omitempty"`
+	IdentityPool *RefResponseModel                       `json:"IdentityPool,omitempty"`
 	// Number of machines provisioned from this provisioning scheme.
-	MachineCount *int32 `json:"MachineCount,omitempty"`
-	MasterImage *HypervisorResourceRefResponseModel `json:"MasterImage,omitempty"`
+	MachineCount   *int32                              `json:"MachineCount,omitempty"`
+	MasterImage    *HypervisorResourceRefResponseModel `json:"MasterImage,omitempty"`
 	MachineProfile *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
 	// The maximum amount of memory that VMs will be created with when using this scheme.
 	MemoryMB *int32 `json:"MemoryMB,omitempty"`
@@ -86,8 +86,8 @@ type ProvisioningSchemeResponseModel struct {
 	// Indicates whether the machines are provisioned using the dedicated full disk clone feature.
 	UseFullDiskCloneProvisioning *bool `json:"UseFullDiskCloneProvisioning,omitempty"`
 	// True if the scheme will use the write back cache feature.
-	UseWriteBackCache *bool `json:"UseWriteBackCache,omitempty"`
-	VMMetadata *ProvisioningSchemeVmMetadataResponseModel `json:"VMMetadata,omitempty"`
+	UseWriteBackCache *bool                                      `json:"UseWriteBackCache,omitempty"`
+	VMMetadata        *ProvisioningSchemeVmMetadataResponseModel `json:"VMMetadata,omitempty"`
 	// Windows Activation Type set on the master image, maybe MultipleActivationKey.
 	WindowsActivationType NullableString `json:"WindowsActivationType,omitempty"`
 	// True if the provisioned machines are non-domain joined
@@ -101,7 +101,7 @@ type ProvisioningSchemeResponseModel struct {
 	// Gets or sets the write back cache disk drive letter.
 	WriteBackCacheDriveLetter *string `json:"WriteBackCacheDriveLetter,omitempty"`
 	// True if the previous image is installed with a legacy VDA.
-	IsPreviousImageLegacyVda *bool `json:"IsPreviousImageLegacyVda,omitempty"`
+	IsPreviousImageLegacyVda    *bool                                     `json:"IsPreviousImageLegacyVda,omitempty"`
 	MachineAccountCreationRules *MachineAccountCreationRulesResponseModel `json:"MachineAccountCreationRules,omitempty"`
 	// Number of machine accounts available to be used by machines that will be provisioned in the machine catalog.  This will be the identities associated with the machine catalog where State is Available.
 	NumAvailableMachineAccounts *int32 `json:"NumAvailableMachineAccounts,omitempty"`
@@ -110,8 +110,8 @@ type ProvisioningSchemeResponseModel struct {
 	// PVS vDisk.
 	PVSVDisk NullableString `json:"PVSVDisk,omitempty"`
 	// Provisioning scheme type.
-	ProvisioningSchemeType NullableString `json:"ProvisioningSchemeType,omitempty"`
-	CurrentImageVersion *ProvisioningSchemeImageVersionHistoryResponseModel `json:"CurrentImageVersion,omitempty"`
+	ProvisioningSchemeType NullableString                                      `json:"ProvisioningSchemeType,omitempty"`
+	CurrentImageVersion    *ProvisioningSchemeImageVersionHistoryResponseModel `json:"CurrentImageVersion,omitempty"`
 	// The image version of a provision scheme.
 	HistoricalImageVersions []ProvisioningSchemeImageVersionHistoryResponseModel `json:"HistoricalImageVersions,omitempty"`
 }
@@ -197,6 +197,7 @@ func (o *ProvisioningSchemeResponseModel) HasName() bool {
 func (o *ProvisioningSchemeResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -498,6 +499,7 @@ func (o *ProvisioningSchemeResponseModel) HasWarning() bool {
 func (o *ProvisioningSchemeResponseModel) SetWarning(v string) {
 	o.Warning.Set(&v)
 }
+
 // SetWarningNil sets the value for Warning to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetWarningNil() {
 	o.Warning.Set(nil)
@@ -573,6 +575,7 @@ func (o *ProvisioningSchemeResponseModel) HasCustomPropertiesInString() bool {
 func (o *ProvisioningSchemeResponseModel) SetCustomPropertiesInString(v string) {
 	o.CustomPropertiesInString.Set(&v)
 }
+
 // SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetCustomPropertiesInStringNil() {
 	o.CustomPropertiesInString.Set(nil)
@@ -647,6 +650,7 @@ func (o *ProvisioningSchemeResponseModel) HasTenancyType() bool {
 func (o *ProvisioningSchemeResponseModel) SetTenancyType(v string) {
 	o.TenancyType.Set(&v)
 }
+
 // SetTenancyTypeNil sets the value for TenancyType to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetTenancyTypeNil() {
 	o.TenancyType.Set(nil)
@@ -689,6 +693,7 @@ func (o *ProvisioningSchemeResponseModel) HasAzureAdJoinType() bool {
 func (o *ProvisioningSchemeResponseModel) SetAzureAdJoinType(v string) {
 	o.AzureAdJoinType.Set(&v)
 }
+
 // SetAzureAdJoinTypeNil sets the value for AzureAdJoinType to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetAzureAdJoinTypeNil() {
 	o.AzureAdJoinType.Set(nil)
@@ -731,6 +736,7 @@ func (o *ProvisioningSchemeResponseModel) HasAzureADTenantId() bool {
 func (o *ProvisioningSchemeResponseModel) SetAzureADTenantId(v string) {
 	o.AzureADTenantId.Set(&v)
 }
+
 // SetAzureADTenantIdNil sets the value for AzureADTenantId to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetAzureADTenantIdNil() {
 	o.AzureADTenantId.Set(nil)
@@ -806,6 +812,7 @@ func (o *ProvisioningSchemeResponseModel) HasAzureAdSecurityGroupName() bool {
 func (o *ProvisioningSchemeResponseModel) SetAzureAdSecurityGroupName(v string) {
 	o.AzureAdSecurityGroupName.Set(&v)
 }
+
 // SetAzureAdSecurityGroupNameNil sets the value for AzureAdSecurityGroupName to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetAzureAdSecurityGroupNameNil() {
 	o.AzureAdSecurityGroupName.Set(nil)
@@ -912,6 +919,7 @@ func (o *ProvisioningSchemeResponseModel) HasIdentityContent() bool {
 func (o *ProvisioningSchemeResponseModel) SetIdentityContent(v string) {
 	o.IdentityContent.Set(&v)
 }
+
 // SetIdentityContentNil sets the value for IdentityContent to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetIdentityContentNil() {
 	o.IdentityContent.Set(nil)
@@ -986,6 +994,7 @@ func (o *ProvisioningSchemeResponseModel) HasGpuTypeId() bool {
 func (o *ProvisioningSchemeResponseModel) SetGpuTypeId(v string) {
 	o.GpuTypeId.Set(&v)
 }
+
 // SetGpuTypeIdNil sets the value for GpuTypeId to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetGpuTypeIdNil() {
 	o.GpuTypeId.Set(nil)
@@ -1286,6 +1295,7 @@ func (o *ProvisioningSchemeResponseModel) HasNutanixContainer() bool {
 func (o *ProvisioningSchemeResponseModel) SetNutanixContainer(v string) {
 	o.NutanixContainer.Set(&v)
 }
+
 // SetNutanixContainerNil sets the value for NutanixContainer to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetNutanixContainerNil() {
 	o.NutanixContainer.Set(nil)
@@ -1393,6 +1403,7 @@ func (o *ProvisioningSchemeResponseModel) HasServiceOffering() bool {
 func (o *ProvisioningSchemeResponseModel) SetServiceOffering(v string) {
 	o.ServiceOffering.Set(&v)
 }
+
 // SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetServiceOfferingNil() {
 	o.ServiceOffering.Set(nil)
@@ -1531,6 +1542,7 @@ func (o *ProvisioningSchemeResponseModel) HasWindowsActivationType() bool {
 func (o *ProvisioningSchemeResponseModel) SetWindowsActivationType(v string) {
 	o.WindowsActivationType.Set(&v)
 }
+
 // SetWindowsActivationTypeNil sets the value for WindowsActivationType to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetWindowsActivationTypeNil() {
 	o.WindowsActivationType.Set(nil)
@@ -1605,6 +1617,7 @@ func (o *ProvisioningSchemeResponseModel) HasWriteBackCacheDiskIndex() bool {
 func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDiskIndex(v int32) {
 	o.WriteBackCacheDiskIndex.Set(&v)
 }
+
 // SetWriteBackCacheDiskIndexNil sets the value for WriteBackCacheDiskIndex to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDiskIndexNil() {
 	o.WriteBackCacheDiskIndex.Set(nil)
@@ -1647,6 +1660,7 @@ func (o *ProvisioningSchemeResponseModel) HasWriteBackCacheDiskSizeGB() bool {
 func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDiskSizeGB(v int32) {
 	o.WriteBackCacheDiskSizeGB.Set(&v)
 }
+
 // SetWriteBackCacheDiskSizeGBNil sets the value for WriteBackCacheDiskSizeGB to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheDiskSizeGBNil() {
 	o.WriteBackCacheDiskSizeGB.Set(nil)
@@ -1689,6 +1703,7 @@ func (o *ProvisioningSchemeResponseModel) HasWriteBackCacheMemorySizeMB() bool {
 func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheMemorySizeMB(v int32) {
 	o.WriteBackCacheMemorySizeMB.Set(&v)
 }
+
 // SetWriteBackCacheMemorySizeMBNil sets the value for WriteBackCacheMemorySizeMB to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetWriteBackCacheMemorySizeMBNil() {
 	o.WriteBackCacheMemorySizeMB.Set(nil)
@@ -1859,6 +1874,7 @@ func (o *ProvisioningSchemeResponseModel) HasPVSSite() bool {
 func (o *ProvisioningSchemeResponseModel) SetPVSSite(v string) {
 	o.PVSSite.Set(&v)
 }
+
 // SetPVSSiteNil sets the value for PVSSite to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetPVSSiteNil() {
 	o.PVSSite.Set(nil)
@@ -1901,6 +1917,7 @@ func (o *ProvisioningSchemeResponseModel) HasPVSVDisk() bool {
 func (o *ProvisioningSchemeResponseModel) SetPVSVDisk(v string) {
 	o.PVSVDisk.Set(&v)
 }
+
 // SetPVSVDiskNil sets the value for PVSVDisk to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetPVSVDiskNil() {
 	o.PVSVDisk.Set(nil)
@@ -1943,6 +1960,7 @@ func (o *ProvisioningSchemeResponseModel) HasProvisioningSchemeType() bool {
 func (o *ProvisioningSchemeResponseModel) SetProvisioningSchemeType(v string) {
 	o.ProvisioningSchemeType.Set(&v)
 }
+
 // SetProvisioningSchemeTypeNil sets the value for ProvisioningSchemeType to be an explicit nil
 func (o *ProvisioningSchemeResponseModel) SetProvisioningSchemeTypeNil() {
 	o.ProvisioningSchemeType.Set(nil)
@@ -2019,7 +2037,7 @@ func (o *ProvisioningSchemeResponseModel) SetHistoricalImageVersions(v []Provisi
 }
 
 func (o ProvisioningSchemeResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -2225,5 +2243,3 @@ func (v *NullableProvisioningSchemeResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

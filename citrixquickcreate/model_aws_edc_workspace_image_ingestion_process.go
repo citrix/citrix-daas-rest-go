@@ -20,8 +20,8 @@ type AwsEdcWorkspaceImageIngestionProcess string
 
 // List of AwsEdcWorkspaceImageIngestionProcess
 const (
-	AWSEDCWORKSPACEIMAGEINGESTIONPROCESS_REGULAR_BYOP AwsEdcWorkspaceImageIngestionProcess = "BYOL_REGULAR_BYOP"
-	AWSEDCWORKSPACEIMAGEINGESTIONPROCESS_GRAPHICS_G4_DN_BYOP AwsEdcWorkspaceImageIngestionProcess = "BYOL_GRAPHICS_G4DN_BYOP"
+	AWSEDCWORKSPACEIMAGEINGESTIONPROCESS_BYOL_REGULAR_BYOP        AwsEdcWorkspaceImageIngestionProcess = "BYOL_REGULAR_BYOP"
+	AWSEDCWORKSPACEIMAGEINGESTIONPROCESS_BYOL_GRAPHICS_G4_DN_BYOP AwsEdcWorkspaceImageIngestionProcess = "BYOL_GRAPHICS_G4DN_BYOP"
 )
 
 // All allowed values of AwsEdcWorkspaceImageIngestionProcess enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcWorkspaceImageIngestionProcess) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

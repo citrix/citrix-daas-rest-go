@@ -78,6 +78,7 @@ func (o *TemplateResponseContract) HasTemplateName() bool {
 func (o *TemplateResponseContract) SetTemplateName(v string) {
 	o.TemplateName.Set(&v)
 }
+
 // SetTemplateNameNil sets the value for TemplateName to be an explicit nil
 func (o *TemplateResponseContract) SetTemplateNameNil() {
 	o.TemplateName.Set(nil)
@@ -152,6 +153,7 @@ func (o *TemplateResponseContract) HasDescription() bool {
 func (o *TemplateResponseContract) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *TemplateResponseContract) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -196,7 +198,7 @@ func (o *TemplateResponseContract) SetSettings(v []SettingResponseContract) {
 }
 
 func (o TemplateResponseContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -255,5 +257,3 @@ func (v *NullableTemplateResponseContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

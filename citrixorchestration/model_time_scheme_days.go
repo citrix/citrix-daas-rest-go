@@ -20,16 +20,16 @@ type TimeSchemeDays string
 
 // List of TimeSchemeDays
 const (
-	TIMESCHEMEDAYS_UNKNOWN TimeSchemeDays = "Unknown"
-	TIMESCHEMEDAYS_SUNDAY TimeSchemeDays = "Sunday"
-	TIMESCHEMEDAYS_MONDAY TimeSchemeDays = "Monday"
-	TIMESCHEMEDAYS_TUESDAY TimeSchemeDays = "Tuesday"
+	TIMESCHEMEDAYS_UNKNOWN   TimeSchemeDays = "Unknown"
+	TIMESCHEMEDAYS_SUNDAY    TimeSchemeDays = "Sunday"
+	TIMESCHEMEDAYS_MONDAY    TimeSchemeDays = "Monday"
+	TIMESCHEMEDAYS_TUESDAY   TimeSchemeDays = "Tuesday"
 	TIMESCHEMEDAYS_WEDNESDAY TimeSchemeDays = "Wednesday"
-	TIMESCHEMEDAYS_THURSDAY TimeSchemeDays = "Thursday"
-	TIMESCHEMEDAYS_FRIDAY TimeSchemeDays = "Friday"
-	TIMESCHEMEDAYS_SATURDAY TimeSchemeDays = "Saturday"
-	TIMESCHEMEDAYS_WEEKDAYS TimeSchemeDays = "Weekdays"
-	TIMESCHEMEDAYS_WEEKEND TimeSchemeDays = "Weekend"
+	TIMESCHEMEDAYS_THURSDAY  TimeSchemeDays = "Thursday"
+	TIMESCHEMEDAYS_FRIDAY    TimeSchemeDays = "Friday"
+	TIMESCHEMEDAYS_SATURDAY  TimeSchemeDays = "Saturday"
+	TIMESCHEMEDAYS_WEEKDAYS  TimeSchemeDays = "Weekdays"
+	TIMESCHEMEDAYS_WEEKEND   TimeSchemeDays = "Weekend"
 )
 
 // All allowed values of TimeSchemeDays enum
@@ -52,7 +52,7 @@ func (v *TimeSchemeDays) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = TimeSchemeDays(value)
 	return nil
 }
@@ -118,4 +118,3 @@ func (v *NullableTimeSchemeDays) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

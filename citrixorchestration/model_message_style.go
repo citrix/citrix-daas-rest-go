@@ -20,9 +20,9 @@ type MessageStyle string
 
 // List of MessageStyle
 const (
-	MESSAGESTYLE_UNKNOWN MessageStyle = "Unknown"
-	MESSAGESTYLE_CRITICAL MessageStyle = "Critical"
-	MESSAGESTYLE_QUESTION MessageStyle = "Question"
+	MESSAGESTYLE_UNKNOWN     MessageStyle = "Unknown"
+	MESSAGESTYLE_CRITICAL    MessageStyle = "Critical"
+	MESSAGESTYLE_QUESTION    MessageStyle = "Question"
 	MESSAGESTYLE_EXCLAMATION MessageStyle = "Exclamation"
 	MESSAGESTYLE_INFORMATION MessageStyle = "Information"
 )
@@ -42,7 +42,7 @@ func (v *MessageStyle) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MessageStyle(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableMessageStyle) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

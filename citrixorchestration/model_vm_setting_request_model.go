@@ -21,11 +21,11 @@ var _ MappedNullable = &VmSettingRequestModel{}
 type VmSettingRequestModel struct {
 	// The size of the virtual machine.
 	MachineSize NullableString `json:"MachineSize,omitempty"`
-	OsType *OsType `json:"OsType,omitempty"`
+	OsType      *OsType        `json:"OsType,omitempty"`
 	// Whether bring your own license is enabled.
 	ByoLicense *bool `json:"ByoLicense,omitempty"`
 	// Specifies the location of the virtual machine.
-	Location NullableString `json:"Location,omitempty"`
+	Location     NullableString  `json:"Location,omitempty"`
 	InstanceType *VMInstanceType `json:"InstanceType,omitempty"`
 }
 
@@ -78,6 +78,7 @@ func (o *VmSettingRequestModel) HasMachineSize() bool {
 func (o *VmSettingRequestModel) SetMachineSize(v string) {
 	o.MachineSize.Set(&v)
 }
+
 // SetMachineSizeNil sets the value for MachineSize to be an explicit nil
 func (o *VmSettingRequestModel) SetMachineSizeNil() {
 	o.MachineSize.Set(nil)
@@ -184,6 +185,7 @@ func (o *VmSettingRequestModel) HasLocation() bool {
 func (o *VmSettingRequestModel) SetLocation(v string) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *VmSettingRequestModel) SetLocationNil() {
 	o.Location.Set(nil)
@@ -227,7 +229,7 @@ func (o *VmSettingRequestModel) SetInstanceType(v VMInstanceType) {
 }
 
 func (o VmSettingRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -289,5 +291,3 @@ func (v *NullableVmSettingRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

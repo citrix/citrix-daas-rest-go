@@ -90,6 +90,7 @@ func (o *AddMachineToMachineCatalogRequestModel) HasMachineName() bool {
 func (o *AddMachineToMachineCatalogRequestModel) SetMachineName(v string) {
 	o.MachineName.Set(&v)
 }
+
 // SetMachineNameNil sets the value for MachineName to be an explicit nil
 func (o *AddMachineToMachineCatalogRequestModel) SetMachineNameNil() {
 	o.MachineName.Set(nil)
@@ -132,6 +133,7 @@ func (o *AddMachineToMachineCatalogRequestModel) HasAssignedClientName() bool {
 func (o *AddMachineToMachineCatalogRequestModel) SetAssignedClientName(v string) {
 	o.AssignedClientName.Set(&v)
 }
+
 // SetAssignedClientNameNil sets the value for AssignedClientName to be an explicit nil
 func (o *AddMachineToMachineCatalogRequestModel) SetAssignedClientNameNil() {
 	o.AssignedClientName.Set(nil)
@@ -174,6 +176,7 @@ func (o *AddMachineToMachineCatalogRequestModel) HasAssignedIPAddress() bool {
 func (o *AddMachineToMachineCatalogRequestModel) SetAssignedIPAddress(v string) {
 	o.AssignedIPAddress.Set(&v)
 }
+
 // SetAssignedIPAddressNil sets the value for AssignedIPAddress to be an explicit nil
 func (o *AddMachineToMachineCatalogRequestModel) SetAssignedIPAddressNil() {
 	o.AssignedIPAddress.Set(nil)
@@ -249,6 +252,7 @@ func (o *AddMachineToMachineCatalogRequestModel) HasHostedMachineId() bool {
 func (o *AddMachineToMachineCatalogRequestModel) SetHostedMachineId(v string) {
 	o.HostedMachineId.Set(&v)
 }
+
 // SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
 func (o *AddMachineToMachineCatalogRequestModel) SetHostedMachineIdNil() {
 	o.HostedMachineId.Set(nil)
@@ -291,6 +295,7 @@ func (o *AddMachineToMachineCatalogRequestModel) HasHypervisorConnection() bool 
 func (o *AddMachineToMachineCatalogRequestModel) SetHypervisorConnection(v string) {
 	o.HypervisorConnection.Set(&v)
 }
+
 // SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
 func (o *AddMachineToMachineCatalogRequestModel) SetHypervisorConnectionNil() {
 	o.HypervisorConnection.Set(nil)
@@ -333,6 +338,7 @@ func (o *AddMachineToMachineCatalogRequestModel) HasInMaintenanceMode() bool {
 func (o *AddMachineToMachineCatalogRequestModel) SetInMaintenanceMode(v bool) {
 	o.InMaintenanceMode.Set(&v)
 }
+
 // SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
 func (o *AddMachineToMachineCatalogRequestModel) SetInMaintenanceModeNil() {
 	o.InMaintenanceMode.Set(nil)
@@ -377,7 +383,7 @@ func (o *AddMachineToMachineCatalogRequestModel) SetMetadata(v []NameValueString
 }
 
 func (o AddMachineToMachineCatalogRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -448,5 +454,3 @@ func (v *NullableAddMachineToMachineCatalogRequestModel) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

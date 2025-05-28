@@ -20,11 +20,11 @@ type PowerResponseCode string
 
 // List of PowerResponseCode
 const (
-	POWERRESPONSECODE_SUCCESS PowerResponseCode = "Success"
-	POWERRESPONSECODE_UNASSIGNED PowerResponseCode = "Unassigned"
+	POWERRESPONSECODE_SUCCESS               PowerResponseCode = "Success"
+	POWERRESPONSECODE_UNASSIGNED            PowerResponseCode = "Unassigned"
 	POWERRESPONSECODE_NO_LICENSES_AVAILABLE PowerResponseCode = "NoLicensesAvailable"
-	POWERRESPONSECODE_ACTIVATION_FAILED PowerResponseCode = "ActivationFailed"
-	POWERRESPONSECODE_UNKNOWN PowerResponseCode = "Unknown"
+	POWERRESPONSECODE_ACTIVATION_FAILED     PowerResponseCode = "ActivationFailed"
+	POWERRESPONSECODE_UNKNOWN               PowerResponseCode = "Unknown"
 )
 
 // All allowed values of PowerResponseCode enum
@@ -114,4 +114,3 @@ func (v *NullablePowerResponseCode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

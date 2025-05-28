@@ -19,21 +19,20 @@ import (
 	"strings"
 )
 
-
 // AdminAPIsDAASService AdminAPIsDAAS service
 type AdminAPIsDAASService service
 
 type ApiAdminCheckRoleNameExistsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -89,24 +88,24 @@ If the name is found to be available, this returns 404 Not Found. If the name
 is not available (i.e. an application group with the name was found), this
 returns 204 No Content.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the role.
- @return ApiAdminCheckRoleNameExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the role.
+	@return ApiAdminCheckRoleNameExistsRequest
 */
 func (a *AdminAPIsDAASService) AdminCheckRoleNameExists(ctx context.Context, name string) ApiAdminCheckRoleNameExistsRequest {
 	return ApiAdminCheckRoleNameExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRoleNameExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminCheckRoleNameExists")
@@ -204,8 +203,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -215,8 +214,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -226,8 +225,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -237,8 +236,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -248,8 +247,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -259,8 +258,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -270,8 +269,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -281,8 +280,8 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -291,16 +290,16 @@ func (a *AdminAPIsDAASService) AdminCheckRoleNameExistsExecute(r ApiAdminCheckRo
 }
 
 type ApiAdminCheckScopeNameExistsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -356,24 +355,24 @@ If the name is found to be available, this returns 404 Not Found. If the name
 is not available (i.e. an application group with the name was found), this
 returns 204 No Content.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Name of the scope.
- @return ApiAdminCheckScopeNameExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Name of the scope.
+	@return ApiAdminCheckScopeNameExistsRequest
 */
 func (a *AdminAPIsDAASService) AdminCheckScopeNameExists(ctx context.Context, name string) ApiAdminCheckScopeNameExistsRequest {
 	return ApiAdminCheckScopeNameExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckScopeNameExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminCheckScopeNameExists")
@@ -471,8 +470,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -482,8 +481,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -493,8 +492,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -504,8 +503,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -515,8 +514,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -526,8 +525,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -537,8 +536,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -548,8 +547,8 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -558,17 +557,17 @@ func (a *AdminAPIsDAASService) AdminCheckScopeNameExistsExecute(r ApiAdminCheckS
 }
 
 type ApiAdminCreateAdminAdministratorRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                  context.Context
+	ApiService                           *AdminAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
 	createAdminAdministratorRequestModel *CreateAdminAdministratorRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -633,31 +632,31 @@ func (r ApiAdminCreateAdminAdministratorRequest) Execute() (*http.Response, erro
 AdminCreateAdminAdministrator Create a new administrator.
 
 Create a new administrator.
-            
+
 Administrator objects are used to determine what rights, and
 therefore what permissions a particular user has through the various
 SDKs and consoles of the site.
-            
+
 When the Enabled flag of an administrator is set to `false`, any
 rights of the administrator are ignored by the system when
 performing permission checks.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminCreateAdminAdministratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminCreateAdminAdministratorRequest
 */
 func (a *AdminAPIsDAASService) AdminCreateAdminAdministrator(ctx context.Context) ApiAdminCreateAdminAdministratorRequest {
 	return ApiAdminCreateAdminAdministratorRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCreateAdminAdministratorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminCreateAdminAdministrator")
@@ -762,8 +761,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -773,8 +772,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -784,8 +783,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -795,8 +794,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -806,8 +805,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -817,8 +816,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -828,8 +827,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -839,8 +838,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -850,8 +849,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -860,17 +859,17 @@ func (a *AdminAPIsDAASService) AdminCreateAdminAdministratorExecute(r ApiAdminCr
 }
 
 type ApiAdminCreateAdminRoleRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                         context.Context
+	ApiService                  *AdminAPIsDAASService
+	citrixCustomerId            *string
+	citrixInstanceId            *string
 	createAdminRoleRequestModel *CreateAdminRoleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                   *string
+	authorization               *string
+	citrixTransactionId         *string
+	accept                      *string
+	citrixLocale                *string
+	async                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -937,26 +936,26 @@ AdminCreateAdminRole Create a new admin role.
 Create a new custom admin role.  Roles represent a job function,
 such as 'help desk administrator', and contain a list of permissions
 that are required to perform that job function.
-            
+
 Roles and Scopes combine when assigned to admin, defining the Rights
 that the admin has within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminCreateAdminRoleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminCreateAdminRoleRequest
 */
 func (a *AdminAPIsDAASService) AdminCreateAdminRole(ctx context.Context) ApiAdminCreateAdminRoleRequest {
 	return ApiAdminCreateAdminRoleRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdminRoleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminCreateAdminRole")
@@ -1061,8 +1060,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1072,8 +1071,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1083,8 +1082,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1094,8 +1093,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1105,8 +1104,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1116,8 +1115,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1127,8 +1126,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1138,8 +1137,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1149,8 +1148,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1159,17 +1158,17 @@ func (a *AdminAPIsDAASService) AdminCreateAdminRoleExecute(r ApiAdminCreateAdmin
 }
 
 type ApiAdminCreateAdminScopeRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                          context.Context
+	ApiService                   *AdminAPIsDAASService
+	citrixCustomerId             *string
+	citrixInstanceId             *string
 	createAdminScopeRequestModel *CreateAdminScopeRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                    *string
+	authorization                *string
+	citrixTransactionId          *string
+	accept                       *string
+	citrixLocale                 *string
+	async                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1234,28 +1233,29 @@ func (r ApiAdminCreateAdminScopeRequest) Execute() (*http.Response, error) {
 AdminCreateAdminScope Create a new admin scope.
 
 A scope represents a collection of objects.  Scopes are used to
-             group objects in a way that is relevant to the organization; for
-             example, the set of delivery groups used by the Sales team.
-            
-             To assign a scope to an administrator, combine it with a role and
-             then assign this pair (also known as a 'right') to an administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminCreateAdminScopeRequest
+	            group objects in a way that is relevant to the organization; for
+	            example, the set of delivery groups used by the Sales team.
+
+	            To assign a scope to an administrator, combine it with a role and
+	            then assign this pair (also known as a 'right') to an administrator.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminCreateAdminScopeRequest
 */
 func (a *AdminAPIsDAASService) AdminCreateAdminScope(ctx context.Context) ApiAdminCreateAdminScopeRequest {
 	return ApiAdminCreateAdminScopeRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdminScopeRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminCreateAdminScope")
@@ -1360,8 +1360,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1371,8 +1371,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1382,8 +1382,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1393,8 +1393,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1404,8 +1404,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1415,8 +1415,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1426,8 +1426,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1437,8 +1437,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1448,8 +1448,8 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1458,17 +1458,17 @@ func (a *AdminAPIsDAASService) AdminCreateAdminScopeExecute(r ApiAdminCreateAdmi
 }
 
 type ApiAdminDeleteAdminAdministratorRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1526,24 +1526,24 @@ func (r ApiAdminDeleteAdminAdministratorRequest) Execute() (*http.Response, erro
 /*
 AdminDeleteAdminAdministrator Delete an administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or Id of the admin to delete.
- @return ApiAdminDeleteAdminAdministratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or Id of the admin to delete.
+	@return ApiAdminDeleteAdminAdministratorRequest
 */
 func (a *AdminAPIsDAASService) AdminDeleteAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminDeleteAdminAdministratorRequest {
 	return ApiAdminDeleteAdminAdministratorRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDeleteAdminAdministratorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminDeleteAdminAdministrator")
@@ -1644,8 +1644,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1655,8 +1655,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1666,8 +1666,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1677,8 +1677,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1688,8 +1688,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1699,8 +1699,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1710,8 +1710,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1721,8 +1721,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1731,18 +1731,18 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminAdministratorExecute(r ApiAdminDe
 }
 
 type ApiAdminDeleteAdminRoleRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	force *bool
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	force               *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1807,32 +1807,32 @@ func (r ApiAdminDeleteAdminRoleRequest) Execute() (*http.Response, error) {
 AdminDeleteAdminRole Delete an admin role.
 
 Delete an admin role.
-            
+
 You cannot remove built-in roles.
-            
+
 An error will be produced if the role being removed is currently
 assigned to an administrator unless you specify the `force` query
 parameter.  When `force` is specified, any rights that reference the
 role are also removed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the admin role to delete.
- @return ApiAdminDeleteAdminRoleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the admin role to delete.
+	@return ApiAdminDeleteAdminRoleRequest
 */
 func (a *AdminAPIsDAASService) AdminDeleteAdminRole(ctx context.Context, nameOrId string) ApiAdminDeleteAdminRoleRequest {
 	return ApiAdminDeleteAdminRoleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdminRoleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminDeleteAdminRole")
@@ -1936,8 +1936,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1947,8 +1947,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1958,8 +1958,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1969,8 +1969,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1980,8 +1980,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1991,8 +1991,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2002,8 +2002,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2013,8 +2013,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2023,18 +2023,18 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminRoleExecute(r ApiAdminDeleteAdmin
 }
 
 type ApiAdminDeleteAdminScopeRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	force *bool
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	force               *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2099,30 +2099,30 @@ func (r ApiAdminDeleteAdminScopeRequest) Execute() (*http.Response, error) {
 AdminDeleteAdminScope Delete an admin scope.
 
 You cannot remove the built-in `All` scope.
-            
+
 An error will be produced if the scope being removed is currently
 assigned to an administrator unless you specify the `force` query
 parameter.  When `force` is specified, any rights that reference the
 scope are also removed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the admin scope to delete.
- @return ApiAdminDeleteAdminScopeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the admin scope to delete.
+	@return ApiAdminDeleteAdminScopeRequest
 */
 func (a *AdminAPIsDAASService) AdminDeleteAdminScope(ctx context.Context, nameOrId string) ApiAdminDeleteAdminScopeRequest {
 	return ApiAdminDeleteAdminScopeRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdminScopeRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminDeleteAdminScope")
@@ -2226,8 +2226,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2237,8 +2237,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2248,8 +2248,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2259,8 +2259,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2270,8 +2270,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2281,8 +2281,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2292,8 +2292,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2303,8 +2303,8 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2313,16 +2313,16 @@ func (a *AdminAPIsDAASService) AdminDeleteAdminScopeExecute(r ApiAdminDeleteAdmi
 }
 
 type ApiAdminGetAdminAdministratorRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2374,26 +2374,27 @@ func (r ApiAdminGetAdminAdministratorRequest) Execute() (*AdministratorResponseM
 /*
 AdminGetAdminAdministrator Get a single administrator
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or id of the administrator.              May be specified as:                           * The SID of the admin user or group.  Note: in directory types              other than Active Directory, the SID is a              computed property, and is not related to any representation of that              user within Active Directory.  However it can still be useful if the              user already has a generated SID; for example, if copying users from              one object to another.                           * `Domain\\User` format.  This implies the directory type              Active Directory. If the Domain\\User is not              unique across AD Forests, the call will fail with an ambiguous name              error, status code 400.                           * `Forest\\Domain\\User` format.  This implies the directory type              Active Directory. This is the preferred form              of specifying an Active Directory user by name, as the name is              guaranteed to be unambiguous.              
- @return ApiAdminGetAdminAdministratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or id of the administrator.              May be specified as:                           * The SID of the admin user or group.  Note: in directory types              other than Active Directory, the SID is a              computed property, and is not related to any representation of that              user within Active Directory.  However it can still be useful if the              user already has a generated SID; for example, if copying users from              one object to another.                           * `Domain\\User` format.  This implies the directory type              Active Directory. If the Domain\\User is not              unique across AD Forests, the call will fail with an ambiguous name              error, status code 400.                           * `Forest\\Domain\\User` format.  This implies the directory type              Active Directory. This is the preferred form              of specifying an Active Directory user by name, as the name is              guaranteed to be unambiguous.
+	@return ApiAdminGetAdminAdministratorRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminGetAdminAdministratorRequest {
 	return ApiAdminGetAdminAdministratorRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorResponseModel
+//
+//	@return AdministratorResponseModel
 func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAdminAdministratorRequest) (*AdministratorResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminAdministrator")
@@ -2491,8 +2492,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2502,8 +2503,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2513,8 +2514,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2524,8 +2525,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2535,8 +2536,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2546,8 +2547,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2557,8 +2558,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2568,8 +2569,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2587,18 +2588,18 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorExecute(r ApiAdminGetAd
 }
 
 type ApiAdminGetAdminAdministratorsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2670,24 +2671,25 @@ AdminGetAdminAdministrators Get administrators.
 
 Get administrators in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminGetAdminAdministratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminGetAdminAdministratorsRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminAdministrators(ctx context.Context) ApiAdminGetAdminAdministratorsRequest {
 	return ApiAdminGetAdminAdministratorsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorResponseModelCollection
+//
+//	@return AdministratorResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetAdminAdministratorsRequest) (*AdministratorResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminAdministrators")
@@ -2793,8 +2795,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2804,8 +2806,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2815,8 +2817,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2826,8 +2828,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2837,8 +2839,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2848,8 +2850,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2859,8 +2861,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2878,18 +2880,18 @@ func (a *AdminAPIsDAASService) AdminGetAdminAdministratorsExecute(r ApiAdminGetA
 }
 
 type ApiAdminGetAdminEffectiveRightsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	ifNoneMatch *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	ifNoneMatch         *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2959,24 +2961,25 @@ func (r ApiAdminGetAdminEffectiveRightsRequest) Execute() (*AdministratorRightRe
 /*
 AdminGetAdminEffectiveRights Get the effective rights of the current user.  This is the union of all rights of the enabled administrators that the current user matches, taking into account group membership.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminGetAdminEffectiveRightsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminGetAdminEffectiveRightsRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRights(ctx context.Context) ApiAdminGetAdminEffectiveRightsRequest {
 	return ApiAdminGetAdminEffectiveRightsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorRightResponseModelCollection
+//
+//	@return AdministratorRightResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGetAdminEffectiveRightsRequest) (*AdministratorRightResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorRightResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorRightResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminEffectiveRights")
@@ -3082,8 +3085,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3093,8 +3096,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3104,8 +3107,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3115,8 +3118,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3126,8 +3129,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3137,8 +3140,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3148,8 +3151,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3167,16 +3170,16 @@ func (a *AdminAPIsDAASService) AdminGetAdminEffectiveRightsExecute(r ApiAdminGet
 }
 
 type ApiAdminGetAdminRoleRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3230,26 +3233,27 @@ AdminGetAdminRole Get details about a single admin role.
 
 Gets the details for a single admin role within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the admin role.
- @return ApiAdminGetAdminRoleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the admin role.
+	@return ApiAdminGetAdminRoleRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminRole(ctx context.Context, nameOrId string) ApiAdminGetAdminRoleRequest {
 	return ApiAdminGetAdminRoleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return RoleResponseModel
+//
+//	@return RoleResponseModel
 func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRequest) (*RoleResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RoleResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RoleResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminRole")
@@ -3347,8 +3351,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3358,8 +3362,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3369,8 +3373,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3380,8 +3384,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3391,8 +3395,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3402,8 +3406,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3413,8 +3417,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3424,8 +3428,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3443,17 +3447,17 @@ func (a *AdminAPIsDAASService) AdminGetAdminRoleExecute(r ApiAdminGetAdminRoleRe
 }
 
 type ApiAdminGetAdminRolesRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3519,24 +3523,25 @@ AdminGetAdminRoles Get admin roles.
 
 Gets all the admin roles defined in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminGetAdminRolesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminGetAdminRolesRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminRoles(ctx context.Context) ApiAdminGetAdminRolesRequest {
 	return ApiAdminGetAdminRolesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RoleResponseModelCollection
+//
+//	@return RoleResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRolesRequest) (*RoleResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RoleResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RoleResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminRoles")
@@ -3639,8 +3644,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3650,8 +3655,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3661,8 +3666,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3672,8 +3677,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3683,8 +3688,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3694,8 +3699,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3705,8 +3710,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3724,16 +3729,16 @@ func (a *AdminAPIsDAASService) AdminGetAdminRolesExecute(r ApiAdminGetAdminRoles
 }
 
 type ApiAdminGetAdminScopeRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3787,26 +3792,27 @@ AdminGetAdminScope Get details about a single admin scope.
 
 Gets the details for a single admin scope within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the admin scope.
- @return ApiAdminGetAdminScopeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the admin scope.
+	@return ApiAdminGetAdminScopeRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminScope(ctx context.Context, nameOrId string) ApiAdminGetAdminScopeRequest {
 	return ApiAdminGetAdminScopeRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ScopeResponseModel
+//
+//	@return ScopeResponseModel
 func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScopeRequest) (*ScopeResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ScopeResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ScopeResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminScope")
@@ -3904,8 +3910,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3915,8 +3921,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3926,8 +3932,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3937,8 +3943,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3948,8 +3954,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3959,8 +3965,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3970,8 +3976,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3981,8 +3987,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4000,18 +4006,18 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopeExecute(r ApiAdminGetAdminScope
 }
 
 type ApiAdminGetAdminScopedObjectsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4077,26 +4083,27 @@ AdminGetAdminScopedObjects Get the objects in an admin scope.
 
 Gets all objects in an admin scope.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the admin scope.
- @return ApiAdminGetAdminScopedObjectsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the admin scope.
+	@return ApiAdminGetAdminScopedObjectsRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminScopedObjects(ctx context.Context, nameOrId string) ApiAdminGetAdminScopedObjectsRequest {
 	return ApiAdminGetAdminScopedObjectsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ScopedObjectResponseModelCollection
+//
+//	@return ScopedObjectResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAdminScopedObjectsRequest) (*ScopedObjectResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ScopedObjectResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ScopedObjectResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminScopedObjects")
@@ -4200,8 +4207,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4211,8 +4218,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4222,8 +4229,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4233,8 +4240,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4244,8 +4251,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4255,8 +4262,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4266,8 +4273,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4277,8 +4284,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4296,17 +4303,17 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopedObjectsExecute(r ApiAdminGetAd
 }
 
 type ApiAdminGetAdminScopesRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4372,24 +4379,25 @@ AdminGetAdminScopes Get admin scopes.
 
 Gets all the admin scopes defined in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminGetAdminScopesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminGetAdminScopesRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdminScopes(ctx context.Context) ApiAdminGetAdminScopesRequest {
 	return ApiAdminGetAdminScopesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ScopeResponseModelCollection
+//
+//	@return ScopeResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScopesRequest) (*ScopeResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ScopeResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ScopeResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdminScopes")
@@ -4492,8 +4500,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4503,8 +4511,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4514,8 +4522,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4525,8 +4533,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4536,8 +4544,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4547,8 +4555,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4558,8 +4566,8 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4577,17 +4585,17 @@ func (a *AdminAPIsDAASService) AdminGetAdminScopesExecute(r ApiAdminGetAdminScop
 }
 
 type ApiAdminGetAdministratorNamePreviewRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	name string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	name                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	ignoreFormatCheck *bool
+	accept              *string
+	citrixLocale        *string
+	ignoreFormatCheck   *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4645,26 +4653,27 @@ func (r ApiAdminGetAdministratorNamePreviewRequest) Execute() (*AdministratorNam
 /*
 AdminGetAdministratorNamePreview Get preview report of the administrator user name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param name Example: domain\\username or domain\\group
- @return ApiAdminGetAdministratorNamePreviewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param name Example: domain\\username or domain\\group
+	@return ApiAdminGetAdministratorNamePreviewRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreview(ctx context.Context, name string) ApiAdminGetAdministratorNamePreviewRequest {
 	return ApiAdminGetAdministratorNamePreviewRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorNamePreviewResponseModel
+//
+//	@return AdministratorNamePreviewResponseModel
 func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdminGetAdministratorNamePreviewRequest) (*AdministratorNamePreviewResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorNamePreviewResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorNamePreviewResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdministratorNamePreview")
@@ -4765,8 +4774,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4776,8 +4785,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4787,8 +4796,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4798,8 +4807,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4809,8 +4818,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4820,8 +4829,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4831,8 +4840,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4842,8 +4851,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4861,16 +4870,16 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorNamePreviewExecute(r ApiAdmi
 }
 
 type ApiAdminGetAdministratorReportRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4922,26 +4931,27 @@ func (r ApiAdminGetAdministratorReportRequest) Execute() (*AdministratorReportRe
 /*
 AdminGetAdministratorReport Get report of the administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or Id of the admin to report.
- @return ApiAdminGetAdministratorReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or Id of the admin to report.
+	@return ApiAdminGetAdministratorReportRequest
 */
 func (a *AdminAPIsDAASService) AdminGetAdministratorReport(ctx context.Context, nameOrId string) ApiAdminGetAdministratorReportRequest {
 	return ApiAdminGetAdministratorReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorReportResponseModel
+//
+//	@return AdministratorReportResponseModel
 func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetAdministratorReportRequest) (*AdministratorReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorReportResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetAdministratorReport")
@@ -5039,8 +5049,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5050,8 +5060,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5061,8 +5071,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5072,8 +5082,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5083,8 +5093,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5094,8 +5104,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5105,8 +5115,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5116,8 +5126,8 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5135,16 +5145,16 @@ func (a *AdminAPIsDAASService) AdminGetAdministratorReportExecute(r ApiAdminGetA
 }
 
 type ApiAdminGetDeleteAdministratorConsequenceRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5196,26 +5206,27 @@ func (r ApiAdminGetDeleteAdministratorConsequenceRequest) Execute() (*Administra
 /*
 AdminGetDeleteAdministratorConsequence Preview the consequence of deleting an administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or Id of the admin to delete.
- @return ApiAdminGetDeleteAdministratorConsequenceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or Id of the admin to delete.
+	@return ApiAdminGetDeleteAdministratorConsequenceRequest
 */
 func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequence(ctx context.Context, nameOrId string) ApiAdminGetDeleteAdministratorConsequenceRequest {
 	return ApiAdminGetDeleteAdministratorConsequenceRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorDeleteConcequenceResponseModel
+//
+//	@return AdministratorDeleteConcequenceResponseModel
 func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r ApiAdminGetDeleteAdministratorConsequenceRequest) (*AdministratorDeleteConcequenceResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorDeleteConcequenceResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorDeleteConcequenceResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetDeleteAdministratorConsequence")
@@ -5313,8 +5324,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5324,8 +5335,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5335,8 +5346,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5346,8 +5357,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5357,8 +5368,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5368,8 +5379,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5379,8 +5390,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5390,8 +5401,8 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5409,17 +5420,17 @@ func (a *AdminAPIsDAASService) AdminGetDeleteAdministratorConsequenceExecute(r A
 }
 
 type ApiAdminGetPredefinedPermissionGroupsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5484,28 +5495,29 @@ func (r ApiAdminGetPredefinedPermissionGroupsRequest) Execute() (*PredefinedPerm
 AdminGetPredefinedPermissionGroups Get all permission groups.
 
 Get all permission groups.
-            
+
 Permission groups are primarily used to store the localized name for
 a group of permissions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminGetPredefinedPermissionGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminGetPredefinedPermissionGroupsRequest
 */
 func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroups(ctx context.Context) ApiAdminGetPredefinedPermissionGroupsRequest {
 	return ApiAdminGetPredefinedPermissionGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PredefinedPermissionGroupResponseModelCollection
+//
+//	@return PredefinedPermissionGroupResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAdminGetPredefinedPermissionGroupsRequest) (*PredefinedPermissionGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PredefinedPermissionGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PredefinedPermissionGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetPredefinedPermissionGroups")
@@ -5608,8 +5620,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5619,8 +5631,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5630,8 +5642,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5641,8 +5653,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5652,8 +5664,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5663,8 +5675,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5674,8 +5686,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5693,17 +5705,17 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionGroupsExecute(r ApiAd
 }
 
 type ApiAdminGetPredefinedPermissionsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5767,24 +5779,25 @@ func (r ApiAdminGetPredefinedPermissionsRequest) Execute() (*PredefinedPermissio
 /*
 AdminGetPredefinedPermissions Get all predefined permissions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminGetPredefinedPermissionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminGetPredefinedPermissionsRequest
 */
 func (a *AdminAPIsDAASService) AdminGetPredefinedPermissions(ctx context.Context) ApiAdminGetPredefinedPermissionsRequest {
 	return ApiAdminGetPredefinedPermissionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PredefinedPermissionResponseModelCollection
+//
+//	@return PredefinedPermissionResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGetPredefinedPermissionsRequest) (*PredefinedPermissionResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PredefinedPermissionResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PredefinedPermissionResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetPredefinedPermissions")
@@ -5887,8 +5900,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5898,8 +5911,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5909,8 +5922,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5920,8 +5933,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5931,8 +5944,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5942,8 +5955,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5953,8 +5966,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5972,18 +5985,18 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsExecute(r ApiAdminGe
 }
 
 type ApiAdminGetPredefinedPermissionsForGroupsRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6048,30 +6061,31 @@ func (r ApiAdminGetPredefinedPermissionsForGroupsRequest) Execute() (*Predefined
 AdminGetPredefinedPermissionsForGroups Get all permissions for a permission group.
 
 Get all permissions for a permission group.
-            
+
 Permission groups are primarily used to store the localized name for
 a group of permissions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the admin permission group to query.
- @return ApiAdminGetPredefinedPermissionsForGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the admin permission group to query.
+	@return ApiAdminGetPredefinedPermissionsForGroupsRequest
 */
 func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroups(ctx context.Context, id string) ApiAdminGetPredefinedPermissionsForGroupsRequest {
 	return ApiAdminGetPredefinedPermissionsForGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return PredefinedPermissionResponseModelCollection
+//
+//	@return PredefinedPermissionResponseModelCollection
 func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r ApiAdminGetPredefinedPermissionsForGroupsRequest) (*PredefinedPermissionResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PredefinedPermissionResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PredefinedPermissionResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminGetPredefinedPermissionsForGroups")
@@ -6175,8 +6189,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6186,8 +6200,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6197,8 +6211,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6208,8 +6222,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6219,8 +6233,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6230,8 +6244,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6241,8 +6255,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6252,8 +6266,8 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6271,16 +6285,16 @@ func (a *AdminAPIsDAASService) AdminGetPredefinedPermissionsForGroupsExecute(r A
 }
 
 type ApiAdminPreviewAdministratorReportRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                  context.Context
+	ApiService                           *AdminAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
 	createAdminAdministratorRequestModel *CreateAdminAdministratorRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6338,24 +6352,25 @@ func (r ApiAdminPreviewAdministratorReportRequest) Execute() (*AdministratorRepo
 /*
 AdminPreviewAdministratorReport Get preview report of the administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminPreviewAdministratorReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminPreviewAdministratorReportRequest
 */
 func (a *AdminAPIsDAASService) AdminPreviewAdministratorReport(ctx context.Context) ApiAdminPreviewAdministratorReportRequest {
 	return ApiAdminPreviewAdministratorReportRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorReportResponseModel
+//
+//	@return AdministratorReportResponseModel
 func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdminPreviewAdministratorReportRequest) (*AdministratorReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorReportResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminPreviewAdministratorReport")
@@ -6457,8 +6472,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6468,8 +6483,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6479,8 +6494,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6490,8 +6505,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6501,8 +6516,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -6512,8 +6527,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6523,8 +6538,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6534,8 +6549,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6545,8 +6560,8 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6564,18 +6579,18 @@ func (a *AdminAPIsDAASService) AdminPreviewAdministratorReportExecute(r ApiAdmin
 }
 
 type ApiAdminUpdateAdminAdministratorRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                  context.Context
+	ApiService                           *AdminAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
+	nameOrId                             string
 	updateAdminAdministratorRequestModel *UpdateAdminAdministratorRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6641,24 +6656,24 @@ AdminUpdateAdminAdministrator Update an administrator.
 
 Update an administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name of the admin to update.
- @return ApiAdminUpdateAdminAdministratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name of the admin to update.
+	@return ApiAdminUpdateAdminAdministratorRequest
 */
 func (a *AdminAPIsDAASService) AdminUpdateAdminAdministrator(ctx context.Context, nameOrId string) ApiAdminUpdateAdminAdministratorRequest {
 	return ApiAdminUpdateAdminAdministratorRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUpdateAdminAdministratorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminUpdateAdminAdministrator")
@@ -6764,8 +6779,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6775,8 +6790,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6786,8 +6801,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6797,8 +6812,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6808,8 +6823,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -6819,8 +6834,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6830,8 +6845,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6841,8 +6856,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6852,8 +6867,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -6862,18 +6877,18 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminAdministratorExecute(r ApiAdminUp
 }
 
 type ApiAdminUpdateAdminRoleRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                       context.Context
+	ApiService                *AdminAPIsDAASService
+	citrixCustomerId          *string
+	citrixInstanceId          *string
+	nameOrId                  string
 	editAdminRoleRequestModel *EditAdminRoleRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                 *string
+	authorization             *string
+	citrixTransactionId       *string
+	accept                    *string
+	citrixLocale              *string
+	async                     *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6946,24 +6961,24 @@ that the admin has within the site.
 
 You cannot modify built-in roles.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the admin role to update.
- @return ApiAdminUpdateAdminRoleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the admin role to update.
+	@return ApiAdminUpdateAdminRoleRequest
 */
 func (a *AdminAPIsDAASService) AdminUpdateAdminRole(ctx context.Context, nameOrId string) ApiAdminUpdateAdminRoleRequest {
 	return ApiAdminUpdateAdminRoleRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdminRoleRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminUpdateAdminRole")
@@ -7069,8 +7084,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7080,8 +7095,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7091,8 +7106,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7102,8 +7117,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7113,8 +7128,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -7124,8 +7139,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7135,8 +7150,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7146,8 +7161,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7157,8 +7172,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -7167,18 +7182,18 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminRoleExecute(r ApiAdminUpdateAdmin
 }
 
 type ApiAdminUpdateAdminScopeRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                        context.Context
+	ApiService                 *AdminAPIsDAASService
+	citrixCustomerId           *string
+	citrixInstanceId           *string
+	nameOrId                   string
 	editAdminScopeRequestModel *EditAdminScopeRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                  *string
+	authorization              *string
+	citrixTransactionId        *string
+	accept                     *string
+	citrixLocale               *string
+	async                      *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7243,28 +7258,28 @@ func (r ApiAdminUpdateAdminScopeRequest) Execute() (*http.Response, error) {
 AdminUpdateAdminScope Update an admin scope.
 
 Update an admin scope.  You cannot modify the built-in `All` scope.
-            
+
 Changes to an admin scope apply to all admins to whom the scope is
 assigned.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the admin scope to update.
- @return ApiAdminUpdateAdminScopeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the admin scope to update.
+	@return ApiAdminUpdateAdminScopeRequest
 */
 func (a *AdminAPIsDAASService) AdminUpdateAdminScope(ctx context.Context, nameOrId string) ApiAdminUpdateAdminScopeRequest {
 	return ApiAdminUpdateAdminScopeRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdminScopeRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIsDAASService.AdminUpdateAdminScope")
@@ -7370,8 +7385,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7381,8 +7396,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7392,8 +7407,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7403,8 +7418,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7414,8 +7429,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -7425,8 +7440,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7436,8 +7451,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7447,8 +7462,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7458,8 +7473,8 @@ func (a *AdminAPIsDAASService) AdminUpdateAdminScopeExecute(r ApiAdminUpdateAdmi
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

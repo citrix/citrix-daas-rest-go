@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// AutoDiscoveryPeriod 
+// AutoDiscoveryPeriod
 type AutoDiscoveryPeriod string
 
 // List of AutoDiscoveryPeriod
 const (
 	AUTODISCOVERYPERIOD_NONE AutoDiscoveryPeriod = "None"
 	AUTODISCOVERYPERIOD_HOUR AutoDiscoveryPeriod = "Hour"
-	AUTODISCOVERYPERIOD_DAY AutoDiscoveryPeriod = "Day"
+	AUTODISCOVERYPERIOD_DAY  AutoDiscoveryPeriod = "Day"
 	AUTODISCOVERYPERIOD_WEEK AutoDiscoveryPeriod = "Week"
 )
 
@@ -40,7 +40,7 @@ func (v *AutoDiscoveryPeriod) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AutoDiscoveryPeriod(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableAutoDiscoveryPeriod) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

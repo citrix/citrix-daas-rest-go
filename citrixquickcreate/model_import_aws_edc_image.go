@@ -22,10 +22,13 @@ type ImportAwsEdcImage struct {
 	ImportImage
 	// Source Image Id
 	Ec2ImageId string `json:"ec2ImageId"`
+	// Ingestion Process used during image import
 	IngestionProcess *AwsEdcWorkspaceImageIngestionProcess `json:"ingestionProcess,omitempty"`
 	// The list of installed applications
 	ApplicationList []AwsEdcAmiImportApplications `json:"applicationList,omitempty"`
 }
+
+type _ImportAwsEdcImage ImportAwsEdcImage
 
 // NewImportAwsEdcImage instantiates a new ImportAwsEdcImage object
 // This constructor will assign default values to properties that have it defined,
@@ -123,7 +126,7 @@ func (o *ImportAwsEdcImage) GetApplicationListOk() ([]AwsEdcAmiImportApplication
 
 // HasApplicationList returns a boolean if a field has been set.
 func (o *ImportAwsEdcImage) HasApplicationList() bool {
-	if o != nil && IsNil(o.ApplicationList) {
+	if o != nil && !IsNil(o.ApplicationList) {
 		return true
 	}
 
@@ -136,7 +139,7 @@ func (o *ImportAwsEdcImage) SetApplicationList(v []AwsEdcAmiImportApplications) 
 }
 
 func (o ImportAwsEdcImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +201,3 @@ func (v *NullableImportAwsEdcImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

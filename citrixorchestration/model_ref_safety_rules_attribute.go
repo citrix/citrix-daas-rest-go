@@ -19,8 +19,8 @@ var _ MappedNullable = &RefSafetyRulesAttribute{}
 
 // RefSafetyRulesAttribute struct for RefSafetyRulesAttribute
 type RefSafetyRulesAttribute struct {
-	TypeId map[string]interface{} `json:"TypeId,omitempty"`
-	Version *int32 `json:"Version,omitempty"`
+	TypeId  map[string]interface{} `json:"TypeId,omitempty"`
+	Version *int32                 `json:"Version,omitempty"`
 }
 
 // NewRefSafetyRulesAttribute instantiates a new RefSafetyRulesAttribute object
@@ -106,7 +106,7 @@ func (o *RefSafetyRulesAttribute) SetVersion(v int32) {
 }
 
 func (o RefSafetyRulesAttribute) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableRefSafetyRulesAttribute) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,7 +20,7 @@ var _ MappedNullable = &AdaptiveAuthenticationConnectionModel{}
 // AdaptiveAuthenticationConnectionModel struct for AdaptiveAuthenticationConnectionModel
 type AdaptiveAuthenticationConnectionModel struct {
 	IssuerFqdn NullableString `json:"issuerFqdn,omitempty"`
-	ClientId NullableString `json:"clientId,omitempty"`
+	ClientId   NullableString `json:"clientId,omitempty"`
 }
 
 // NewAdaptiveAuthenticationConnectionModel instantiates a new AdaptiveAuthenticationConnectionModel object
@@ -72,6 +72,7 @@ func (o *AdaptiveAuthenticationConnectionModel) HasIssuerFqdn() bool {
 func (o *AdaptiveAuthenticationConnectionModel) SetIssuerFqdn(v string) {
 	o.IssuerFqdn.Set(&v)
 }
+
 // SetIssuerFqdnNil sets the value for IssuerFqdn to be an explicit nil
 func (o *AdaptiveAuthenticationConnectionModel) SetIssuerFqdnNil() {
 	o.IssuerFqdn.Set(nil)
@@ -114,6 +115,7 @@ func (o *AdaptiveAuthenticationConnectionModel) HasClientId() bool {
 func (o *AdaptiveAuthenticationConnectionModel) SetClientId(v string) {
 	o.ClientId.Set(&v)
 }
+
 // SetClientIdNil sets the value for ClientId to be an explicit nil
 func (o *AdaptiveAuthenticationConnectionModel) SetClientIdNil() {
 	o.ClientId.Set(nil)
@@ -125,7 +127,7 @@ func (o *AdaptiveAuthenticationConnectionModel) UnsetClientId() {
 }
 
 func (o AdaptiveAuthenticationConnectionModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableAdaptiveAuthenticationConnectionModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

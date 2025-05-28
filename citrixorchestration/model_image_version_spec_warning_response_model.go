@@ -98,6 +98,7 @@ func (o *ImageVersionSpecWarningResponseModel) HasMessage() bool {
 func (o *ImageVersionSpecWarningResponseModel) SetMessage(v string) {
 	o.Message.Set(&v)
 }
+
 // SetMessageNil sets the value for Message to be an explicit nil
 func (o *ImageVersionSpecWarningResponseModel) SetMessageNil() {
 	o.Message.Set(nil)
@@ -109,7 +110,7 @@ func (o *ImageVersionSpecWarningResponseModel) UnsetMessage() {
 }
 
 func (o ImageVersionSpecWarningResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +161,3 @@ func (v *NullableImageVersionSpecWarningResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

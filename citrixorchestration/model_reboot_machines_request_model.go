@@ -92,6 +92,7 @@ func (o *RebootMachinesRequestModel) HasRebootDuration() bool {
 func (o *RebootMachinesRequestModel) SetRebootDuration(v int32) {
 	o.RebootDuration.Set(&v)
 }
+
 // SetRebootDurationNil sets the value for RebootDuration to be an explicit nil
 func (o *RebootMachinesRequestModel) SetRebootDurationNil() {
 	o.RebootDuration.Set(nil)
@@ -134,6 +135,7 @@ func (o *RebootMachinesRequestModel) HasWarningDuration() bool {
 func (o *RebootMachinesRequestModel) SetWarningDuration(v int32) {
 	o.WarningDuration.Set(&v)
 }
+
 // SetWarningDurationNil sets the value for WarningDuration to be an explicit nil
 func (o *RebootMachinesRequestModel) SetWarningDurationNil() {
 	o.WarningDuration.Set(nil)
@@ -176,6 +178,7 @@ func (o *RebootMachinesRequestModel) HasWarningTitle() bool {
 func (o *RebootMachinesRequestModel) SetWarningTitle(v string) {
 	o.WarningTitle.Set(&v)
 }
+
 // SetWarningTitleNil sets the value for WarningTitle to be an explicit nil
 func (o *RebootMachinesRequestModel) SetWarningTitleNil() {
 	o.WarningTitle.Set(nil)
@@ -218,6 +221,7 @@ func (o *RebootMachinesRequestModel) HasWarningMessage() bool {
 func (o *RebootMachinesRequestModel) SetWarningMessage(v string) {
 	o.WarningMessage.Set(&v)
 }
+
 // SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
 func (o *RebootMachinesRequestModel) SetWarningMessageNil() {
 	o.WarningMessage.Set(nil)
@@ -260,6 +264,7 @@ func (o *RebootMachinesRequestModel) HasWarningRepeatInterval() bool {
 func (o *RebootMachinesRequestModel) SetWarningRepeatInterval(v int32) {
 	o.WarningRepeatInterval.Set(&v)
 }
+
 // SetWarningRepeatIntervalNil sets the value for WarningRepeatInterval to be an explicit nil
 func (o *RebootMachinesRequestModel) SetWarningRepeatIntervalNil() {
 	o.WarningRepeatInterval.Set(nil)
@@ -271,7 +276,7 @@ func (o *RebootMachinesRequestModel) UnsetWarningRepeatInterval() {
 }
 
 func (o RebootMachinesRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -333,5 +338,3 @@ func (v *NullableRebootMachinesRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

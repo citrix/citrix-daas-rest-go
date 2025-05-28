@@ -65,9 +65,9 @@ type ServerVariable struct {
 
 // ServerConfiguration stores the information about a server
 type ServerConfiguration struct {
-	URL string
+	URL         string
 	Description string
-	Variables map[string]ServerVariable
+	Variables   map[string]ServerVariable
 }
 
 // ServerConfigurations stores multiple ServerConfiguration items
@@ -84,14 +84,14 @@ type ResponseMiddlewareFunction func(*http.Response, []byte) error
 
 // Configuration stores the configuration of the API client
 type Configuration struct {
-	Host             string            `json:"host,omitempty"`
-	Scheme           string            `json:"scheme,omitempty"`
-	DefaultHeader    map[string]string `json:"defaultHeader,omitempty"`
-	UserAgent        string            `json:"userAgent,omitempty"`
-	Debug            bool              `json:"debug,omitempty"`
-	Servers          ServerConfigurations
-	OperationServers map[string]ServerConfigurations
-	HTTPClient       *http.Client
+	Host                string            `json:"host,omitempty"`
+	Scheme              string            `json:"scheme,omitempty"`
+	DefaultHeader       map[string]string `json:"defaultHeader,omitempty"`
+	UserAgent           string            `json:"userAgent,omitempty"`
+	Debug               bool              `json:"debug,omitempty"`
+	Servers             ServerConfigurations
+	OperationServers    map[string]ServerConfigurations
+	HTTPClient          *http.Client
 	Middleware          MiddlewareFunction
 	MiddlewareWithError MiddlewareFunctionWithError
 	ResponseMiddleware  ResponseMiddlewareFunction
@@ -100,17 +100,16 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/1.0.0/go",
-		Debug:            false,
-		Servers:          ServerConfigurations{
+		DefaultHeader: make(map[string]string),
+		UserAgent:     "OpenAPI-Generator/1.0.0/go",
+		Debug:         false,
+		Servers: ServerConfigurations{
 			{
-				URL: "https://wsaca.cloud.com",
+				URL:         "https://wsaca.cloud.com",
 				Description: "No description provided",
 			},
 		},
-		OperationServers: map[string]ServerConfigurations{
-		},
+		OperationServers: map[string]ServerConfigurations{},
 	}
 	return cfg
 }

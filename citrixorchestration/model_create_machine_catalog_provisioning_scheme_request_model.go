@@ -22,10 +22,10 @@ type CreateMachineCatalogProvisioningSchemeRequestModel struct {
 	// The HostingUnit name or Id in which machine catalog locates
 	ResourcePool NullableString `json:"ResourcePool,omitempty"`
 	// The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated.
-	MasterImagePath NullableString `json:"MasterImagePath,omitempty"`
+	MasterImagePath                        NullableString                                      "json:\"MasterImagePath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	AssignImageVersionToProvisioningScheme *AssignImageVersionToProvisioningSchemeRequestModel `json:"AssignImageVersionToProvisioningScheme,omitempty"`
 	// The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated.
-	MachineProfilePath NullableString `json:"MachineProfilePath,omitempty"`
+	MachineProfilePath NullableString "json:\"MachineProfilePath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// The note for the master image.
 	MasterImageNote NullableString `json:"MasterImageNote,omitempty"`
 	// The number of processors that virtual machines created from the provisioning scheme should use.
@@ -49,14 +49,14 @@ type CreateMachineCatalogProvisioningSchemeRequestModel struct {
 	// Metadata for provisioning scheme
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// The hypervisor resource path of the Cloud service offering to use when creating machines.
-	ServiceOfferingPath NullableString `json:"ServiceOfferingPath,omitempty"`
+	ServiceOfferingPath NullableString "json:\"ServiceOfferingPath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// The hypervisor resource path(s) of the Cloud security group(s) to use when creating machines.
 	SecurityGroups []string `json:"SecurityGroups,omitempty"`
 	// Indicates whether to use dedicated tenancy when creating machines in Cloud Hypervisors. Optional; default is `false`.
-	DedicatedTenancy NullableBool `json:"DedicatedTenancy,omitempty"`
-	TenancyType *TenancyType `json:"TenancyType,omitempty"`
-	AzureAdJoinType *AzureAdJoinType `json:"AzureAdJoinType,omitempty"`
-	IdentityType *IdentityType `json:"IdentityType,omitempty"`
+	DedicatedTenancy     NullableBool          `json:"DedicatedTenancy,omitempty"`
+	TenancyType          *TenancyType          `json:"TenancyType,omitempty"`
+	AzureAdJoinType      *AzureAdJoinType      `json:"AzureAdJoinType,omitempty"`
+	IdentityType         *IdentityType         `json:"IdentityType,omitempty"`
 	DeviceManagementType *DeviceManagementType `json:"DeviceManagementType,omitempty"`
 	// Name of Azure AD security group to be created.
 	AzureADSecurityGroupName NullableString `json:"AzureADSecurityGroupName,omitempty"`
@@ -77,7 +77,7 @@ type CreateMachineCatalogProvisioningSchemeRequestModel struct {
 	// Indicates whether to provision workgroup virtual machines e.g. non-domain joined. Optional; default is `false`.
 	WorkGroupMachines NullableBool `json:"WorkGroupMachines,omitempty"`
 	// Number of machines to provision initially.  Optional; default is 1.  It is valid to request 0 machines initially.
-	NumTotalMachines NullableInt32 `json:"NumTotalMachines,omitempty"`
+	NumTotalMachines            NullableInt32                            `json:"NumTotalMachines,omitempty"`
 	MachineAccountCreationRules *MachineAccountCreationRulesRequestModel `json:"MachineAccountCreationRules,omitempty"`
 	// List of Active Directory machine accounts that are to be used when machines are provisioned.
 	AvailableMachineAccounts []MachineAccountRequestModel `json:"AvailableMachineAccounts,omitempty"`
@@ -166,6 +166,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasResourcePool() b
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetResourcePool(v string) {
 	o.ResourcePool.Set(&v)
 }
+
 // SetResourcePoolNil sets the value for ResourcePool to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetResourcePoolNil() {
 	o.ResourcePool.Set(nil)
@@ -208,6 +209,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasMasterImagePath(
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMasterImagePath(v string) {
 	o.MasterImagePath.Set(&v)
 }
+
 // SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMasterImagePathNil() {
 	o.MasterImagePath.Set(nil)
@@ -282,6 +284,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasMachineProfilePa
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMachineProfilePath(v string) {
 	o.MachineProfilePath.Set(&v)
 }
+
 // SetMachineProfilePathNil sets the value for MachineProfilePath to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMachineProfilePathNil() {
 	o.MachineProfilePath.Set(nil)
@@ -324,6 +327,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasMasterImageNote(
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMasterImageNote(v string) {
 	o.MasterImageNote.Set(&v)
 }
+
 // SetMasterImageNoteNil sets the value for MasterImageNote to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMasterImageNoteNil() {
 	o.MasterImageNote.Set(nil)
@@ -366,6 +370,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasCpuCount() bool 
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -408,6 +413,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasCoresPerCpuCount
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCoresPerCpuCount(v int32) {
 	o.CoresPerCpuCount.Set(&v)
 }
+
 // SetCoresPerCpuCountNil sets the value for CoresPerCpuCount to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCoresPerCpuCountNil() {
 	o.CoresPerCpuCount.Set(nil)
@@ -450,6 +456,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasMemoryMB() bool 
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -492,6 +499,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasUseWriteBackCach
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetUseWriteBackCache(v bool) {
 	o.UseWriteBackCache.Set(&v)
 }
+
 // SetUseWriteBackCacheNil sets the value for UseWriteBackCache to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetUseWriteBackCacheNil() {
 	o.UseWriteBackCache.Set(nil)
@@ -534,6 +542,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasWriteBackCacheDi
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWriteBackCacheDiskSizeGB(v int32) {
 	o.WriteBackCacheDiskSizeGB.Set(&v)
 }
+
 // SetWriteBackCacheDiskSizeGBNil sets the value for WriteBackCacheDiskSizeGB to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWriteBackCacheDiskSizeGBNil() {
 	o.WriteBackCacheDiskSizeGB.Set(nil)
@@ -576,6 +585,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasWriteBackCacheMe
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWriteBackCacheMemorySizeMB(v int32) {
 	o.WriteBackCacheMemorySizeMB.Set(&v)
 }
+
 // SetWriteBackCacheMemorySizeMBNil sets the value for WriteBackCacheMemorySizeMB to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWriteBackCacheMemorySizeMBNil() {
 	o.WriteBackCacheMemorySizeMB.Set(nil)
@@ -650,6 +660,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasPrepareImage() b
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPrepareImage(v bool) {
 	o.PrepareImage.Set(&v)
 }
+
 // SetPrepareImageNil sets the value for PrepareImage to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPrepareImageNil() {
 	o.PrepareImage.Set(nil)
@@ -758,6 +769,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasServiceOfferingP
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetServiceOfferingPath(v string) {
 	o.ServiceOfferingPath.Set(&v)
 }
+
 // SetServiceOfferingPathNil sets the value for ServiceOfferingPath to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetServiceOfferingPathNil() {
 	o.ServiceOfferingPath.Set(nil)
@@ -833,6 +845,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasDedicatedTenancy
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetDedicatedTenancy(v bool) {
 	o.DedicatedTenancy.Set(&v)
 }
+
 // SetDedicatedTenancyNil sets the value for DedicatedTenancy to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetDedicatedTenancyNil() {
 	o.DedicatedTenancy.Set(nil)
@@ -1003,6 +1016,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAzureADSecurityG
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupName(v string) {
 	o.AzureADSecurityGroupName.Set(&v)
 }
+
 // SetAzureADSecurityGroupNameNil sets the value for AzureADSecurityGroupName to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNameNil() {
 	o.AzureADSecurityGroupName.Set(nil)
@@ -1045,6 +1059,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAzureADSecurityG
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNestId(v string) {
 	o.AzureADSecurityGroupNestId.Set(&v)
 }
+
 // SetAzureADSecurityGroupNestIdNil sets the value for AzureADSecurityGroupNestId to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNestIdNil() {
 	o.AzureADSecurityGroupNestId.Set(nil)
@@ -1087,6 +1102,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAzureADSecurityG
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNestName(v string) {
 	o.AzureADSecurityGroupNestName.Set(&v)
 }
+
 // SetAzureADSecurityGroupNestNameNil sets the value for AzureADSecurityGroupNestName to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADSecurityGroupNestNameNil() {
 	o.AzureADSecurityGroupNestName.Set(nil)
@@ -1129,6 +1145,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasAzureADTenantId(
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADTenantId(v string) {
 	o.AzureADTenantId.Set(&v)
 }
+
 // SetAzureADTenantIdNil sets the value for AzureADTenantId to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetAzureADTenantIdNil() {
 	o.AzureADTenantId.Set(nil)
@@ -1204,6 +1221,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasCustomProperties
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInString(v string) {
 	o.CustomPropertiesInString.Set(&v)
 }
+
 // SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInStringNil() {
 	o.CustomPropertiesInString.Set(nil)
@@ -1246,6 +1264,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasResetAdministrat
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetResetAdministratorPasswords(v bool) {
 	o.ResetAdministratorPasswords.Set(&v)
 }
+
 // SetResetAdministratorPasswordsNil sets the value for ResetAdministratorPasswords to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetResetAdministratorPasswordsNil() {
 	o.ResetAdministratorPasswords.Set(nil)
@@ -1288,6 +1307,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasUseFullDiskClone
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetUseFullDiskCloneProvisioning(v bool) {
 	o.UseFullDiskCloneProvisioning.Set(&v)
 }
+
 // SetUseFullDiskCloneProvisioningNil sets the value for UseFullDiskCloneProvisioning to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetUseFullDiskCloneProvisioningNil() {
 	o.UseFullDiskCloneProvisioning.Set(nil)
@@ -1330,6 +1350,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasWorkGroupMachine
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWorkGroupMachines(v bool) {
 	o.WorkGroupMachines.Set(&v)
 }
+
 // SetWorkGroupMachinesNil sets the value for WorkGroupMachines to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetWorkGroupMachinesNil() {
 	o.WorkGroupMachines.Set(nil)
@@ -1372,6 +1393,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasNumTotalMachines
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetNumTotalMachines(v int32) {
 	o.NumTotalMachines.Set(&v)
 }
+
 // SetNumTotalMachinesNil sets the value for NumTotalMachines to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetNumTotalMachinesNil() {
 	o.NumTotalMachines.Set(nil)
@@ -1479,6 +1501,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasPVSSite() bool {
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPVSSite(v string) {
 	o.PVSSite.Set(&v)
 }
+
 // SetPVSSiteNil sets the value for PVSSite to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPVSSiteNil() {
 	o.PVSSite.Set(nil)
@@ -1521,6 +1544,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) HasPVSVDisk() bool 
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPVSVDisk(v string) {
 	o.PVSVDisk.Set(&v)
 }
+
 // SetPVSVDiskNil sets the value for PVSVDisk to be an explicit nil
 func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetPVSVDiskNil() {
 	o.PVSVDisk.Set(nil)
@@ -1565,7 +1589,7 @@ func (o *CreateMachineCatalogProvisioningSchemeRequestModel) SetServiceAccountUi
 }
 
 func (o CreateMachineCatalogProvisioningSchemeRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1723,5 +1747,3 @@ func (v *NullableCreateMachineCatalogProvisioningSchemeRequestModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

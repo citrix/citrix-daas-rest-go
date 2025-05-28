@@ -80,6 +80,7 @@ func (o *LosingPolicy) HasPolicyName() bool {
 func (o *LosingPolicy) SetPolicyName(v string) {
 	o.PolicyName.Set(&v)
 }
+
 // SetPolicyNameNil sets the value for PolicyName to be an explicit nil
 func (o *LosingPolicy) SetPolicyNameNil() {
 	o.PolicyName.Set(nil)
@@ -122,6 +123,7 @@ func (o *LosingPolicy) HasGpoName() bool {
 func (o *LosingPolicy) SetGpoName(v string) {
 	o.GpoName.Set(&v)
 }
+
 // SetGpoNameNil sets the value for GpoName to be an explicit nil
 func (o *LosingPolicy) SetGpoNameNil() {
 	o.GpoName.Set(nil)
@@ -231,7 +233,7 @@ func (o *LosingPolicy) SetWinningSettings(v []WonOverBy) {
 }
 
 func (o LosingPolicy) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -293,5 +295,3 @@ func (v *NullableLosingPolicy) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

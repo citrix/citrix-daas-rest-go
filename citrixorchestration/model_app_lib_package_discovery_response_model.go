@@ -34,8 +34,8 @@ type AppLibPackageDiscoveryResponseModel struct {
 	// The url of the App-V Management server that packages will be discovered from.
 	ManagementServer NullableString `json:"ManagementServer,omitempty"`
 	// The url of the App-V server that packages wil be discovered from.
-	PublishingServer NullableString `json:"PublishingServer,omitempty"`
-	Status *AppLibPackageDiscoveryStatus `json:"Status,omitempty"`
+	PublishingServer NullableString                `json:"PublishingServer,omitempty"`
+	Status           *AppLibPackageDiscoveryStatus `json:"Status,omitempty"`
 	// The status message of PackageDiscoverySession
 	StatusMessage NullableString `json:"StatusMessage,omitempty"`
 	// the number of the imported packages
@@ -50,7 +50,7 @@ type AppLibPackageDiscoveryResponseModel struct {
 	ExpectedPackages *int32 `json:"ExpectedPackages,omitempty"`
 	// Gets the percentage value of the reporting progress.
 	ReportingProgress *int32 `json:"ReportingProgress,omitempty"`
-	// Gets or sets the number of packages that have reported so far.             
+	// Gets or sets the number of packages that have reported so far.
 	ReportedPackages *int32 `json:"ReportedPackages,omitempty"`
 	// Get the discovery session time
 	DiscoverySessionTime NullableString `json:"DiscoverySessionTime,omitempty"`
@@ -105,6 +105,7 @@ func (o *AppLibPackageDiscoveryResponseModel) HasId() bool {
 func (o *AppLibPackageDiscoveryResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *AppLibPackageDiscoveryResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -243,6 +244,7 @@ func (o *AppLibPackageDiscoveryResponseModel) HasBrokerMachineSID() bool {
 func (o *AppLibPackageDiscoveryResponseModel) SetBrokerMachineSID(v string) {
 	o.BrokerMachineSID.Set(&v)
 }
+
 // SetBrokerMachineSIDNil sets the value for BrokerMachineSID to be an explicit nil
 func (o *AppLibPackageDiscoveryResponseModel) SetBrokerMachineSIDNil() {
 	o.BrokerMachineSID.Set(nil)
@@ -285,6 +287,7 @@ func (o *AppLibPackageDiscoveryResponseModel) HasPath() bool {
 func (o *AppLibPackageDiscoveryResponseModel) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *AppLibPackageDiscoveryResponseModel) SetPathNil() {
 	o.Path.Set(nil)
@@ -327,6 +330,7 @@ func (o *AppLibPackageDiscoveryResponseModel) HasManagementServer() bool {
 func (o *AppLibPackageDiscoveryResponseModel) SetManagementServer(v string) {
 	o.ManagementServer.Set(&v)
 }
+
 // SetManagementServerNil sets the value for ManagementServer to be an explicit nil
 func (o *AppLibPackageDiscoveryResponseModel) SetManagementServerNil() {
 	o.ManagementServer.Set(nil)
@@ -369,6 +373,7 @@ func (o *AppLibPackageDiscoveryResponseModel) HasPublishingServer() bool {
 func (o *AppLibPackageDiscoveryResponseModel) SetPublishingServer(v string) {
 	o.PublishingServer.Set(&v)
 }
+
 // SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
 func (o *AppLibPackageDiscoveryResponseModel) SetPublishingServerNil() {
 	o.PublishingServer.Set(nil)
@@ -443,6 +448,7 @@ func (o *AppLibPackageDiscoveryResponseModel) HasStatusMessage() bool {
 func (o *AppLibPackageDiscoveryResponseModel) SetStatusMessage(v string) {
 	o.StatusMessage.Set(&v)
 }
+
 // SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
 func (o *AppLibPackageDiscoveryResponseModel) SetStatusMessageNil() {
 	o.StatusMessage.Set(nil)
@@ -709,6 +715,7 @@ func (o *AppLibPackageDiscoveryResponseModel) HasDiscoverySessionTime() bool {
 func (o *AppLibPackageDiscoveryResponseModel) SetDiscoverySessionTime(v string) {
 	o.DiscoverySessionTime.Set(&v)
 }
+
 // SetDiscoverySessionTimeNil sets the value for DiscoverySessionTime to be an explicit nil
 func (o *AppLibPackageDiscoveryResponseModel) SetDiscoverySessionTimeNil() {
 	o.DiscoverySessionTime.Set(nil)
@@ -720,7 +727,7 @@ func (o *AppLibPackageDiscoveryResponseModel) UnsetDiscoverySessionTime() {
 }
 
 func (o AppLibPackageDiscoveryResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -821,5 +828,3 @@ func (v *NullableAppLibPackageDiscoveryResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

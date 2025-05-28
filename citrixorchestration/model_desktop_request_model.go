@@ -20,8 +20,8 @@ var _ MappedNullable = &DesktopRequestModel{}
 // DesktopRequestModel Request object for creation of a published desktop. When the delivery group type=DesktopsOnly and SharingKind=Private, this turns into New-BrokerAssignmentPolicyRule. When type=(DesktopsOnly or DesktopsAndApps) and SharingKind=Shared, this turns into New-BrokerEntitlementPolicyRule. When type=AppsOnly and SharingKind=Private, it is not allowed to add desktops to a delivery group. The combination of type=AppsAndDesktops and SharingKind=Private is also not allowed.
 type DesktopRequestModel struct {
 	// Identifier of an existing desktop associated with the delivery group.
-	Id NullableString `json:"Id,omitempty"`
-	ColorDepth *ColorDepth `json:"ColorDepth,omitempty"`
+	Id         NullableString `json:"Id,omitempty"`
+	ColorDepth *ColorDepth    `json:"ColorDepth,omitempty"`
 	// Specifies an optional description of the new desktop. The text may be visible to the end user, for example, as a tooltip associated with the desktop within receiver.
 	Description NullableString `json:"Description,omitempty"`
 	// Specifies whether the published desktop is enabled. A disabled desktop is ignored when determining which desktops are available for a user.
@@ -35,7 +35,7 @@ type DesktopRequestModel struct {
 	// Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group's access policy is implicitly granted an entitlement to the published desktop.
 	IncludedUserFilterEnabled NullableBool `json:"IncludedUserFilterEnabled,omitempty"`
 	// Specifies the included users filter of the desktop; that is, the users and groups who are explicitly granted access to the published desktop.
-	IncludedUsers []string `json:"IncludedUsers,omitempty"`
+	IncludedUsers   []string         `json:"IncludedUsers,omitempty"`
 	LeasingBehavior *LeasingBehavior `json:"LeasingBehavior,omitempty"`
 	// The number of machines from the delivery group which a user may privately allocate.
 	MaxDesktops NullableInt32 `json:"MaxDesktops,omitempty"`
@@ -46,7 +46,7 @@ type DesktopRequestModel struct {
 	// Optional tag that may be used further to restrict which desktops may be made accessible to a user.
 	RestrictToTag NullableString `json:"RestrictToTag,omitempty"`
 	// Specifies whether the desktop requires the SecureICA protocol for desktop sessions.
-	SecureIcaRequired NullableBool `json:"SecureIcaRequired,omitempty"`
+	SecureIcaRequired   NullableBool         `json:"SecureIcaRequired,omitempty"`
 	SessionReconnection *SessionReconnection `json:"SessionReconnection,omitempty"`
 }
 
@@ -99,6 +99,7 @@ func (o *DesktopRequestModel) HasId() bool {
 func (o *DesktopRequestModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *DesktopRequestModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -173,6 +174,7 @@ func (o *DesktopRequestModel) HasDescription() bool {
 func (o *DesktopRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *DesktopRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -215,6 +217,7 @@ func (o *DesktopRequestModel) HasEnabled() bool {
 func (o *DesktopRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *DesktopRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -257,6 +260,7 @@ func (o *DesktopRequestModel) HasExcludedUserFilterEnabled() bool {
 func (o *DesktopRequestModel) SetExcludedUserFilterEnabled(v bool) {
 	o.ExcludedUserFilterEnabled.Set(&v)
 }
+
 // SetExcludedUserFilterEnabledNil sets the value for ExcludedUserFilterEnabled to be an explicit nil
 func (o *DesktopRequestModel) SetExcludedUserFilterEnabledNil() {
 	o.ExcludedUserFilterEnabled.Set(nil)
@@ -332,6 +336,7 @@ func (o *DesktopRequestModel) HasIcon() bool {
 func (o *DesktopRequestModel) SetIcon(v string) {
 	o.Icon.Set(&v)
 }
+
 // SetIconNil sets the value for Icon to be an explicit nil
 func (o *DesktopRequestModel) SetIconNil() {
 	o.Icon.Set(nil)
@@ -374,6 +379,7 @@ func (o *DesktopRequestModel) HasIncludedUserFilterEnabled() bool {
 func (o *DesktopRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *DesktopRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -481,6 +487,7 @@ func (o *DesktopRequestModel) HasMaxDesktops() bool {
 func (o *DesktopRequestModel) SetMaxDesktops(v int32) {
 	o.MaxDesktops.Set(&v)
 }
+
 // SetMaxDesktopsNil sets the value for MaxDesktops to be an explicit nil
 func (o *DesktopRequestModel) SetMaxDesktopsNil() {
 	o.MaxDesktops.Set(nil)
@@ -523,6 +530,7 @@ func (o *DesktopRequestModel) HasName() bool {
 func (o *DesktopRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *DesktopRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -565,6 +573,7 @@ func (o *DesktopRequestModel) HasPublishedName() bool {
 func (o *DesktopRequestModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *DesktopRequestModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -607,6 +616,7 @@ func (o *DesktopRequestModel) HasRestrictToTag() bool {
 func (o *DesktopRequestModel) SetRestrictToTag(v string) {
 	o.RestrictToTag.Set(&v)
 }
+
 // SetRestrictToTagNil sets the value for RestrictToTag to be an explicit nil
 func (o *DesktopRequestModel) SetRestrictToTagNil() {
 	o.RestrictToTag.Set(nil)
@@ -649,6 +659,7 @@ func (o *DesktopRequestModel) HasSecureIcaRequired() bool {
 func (o *DesktopRequestModel) SetSecureIcaRequired(v bool) {
 	o.SecureIcaRequired.Set(&v)
 }
+
 // SetSecureIcaRequiredNil sets the value for SecureIcaRequired to be an explicit nil
 func (o *DesktopRequestModel) SetSecureIcaRequiredNil() {
 	o.SecureIcaRequired.Set(nil)
@@ -692,7 +703,7 @@ func (o *DesktopRequestModel) SetSessionReconnection(v SessionReconnection) {
 }
 
 func (o DesktopRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -787,5 +798,3 @@ func (v *NullableDesktopRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

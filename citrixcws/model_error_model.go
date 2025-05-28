@@ -19,8 +19,8 @@ var _ MappedNullable = &ErrorModel{}
 
 // ErrorModel struct for ErrorModel
 type ErrorModel struct {
-	Type NullableString `json:"type,omitempty"`
-	Detail NullableString `json:"detail,omitempty"`
+	Type       NullableString      `json:"type,omitempty"`
+	Detail     NullableString      `json:"detail,omitempty"`
 	Parameters []map[string]string `json:"parameters,omitempty"`
 }
 
@@ -73,6 +73,7 @@ func (o *ErrorModel) HasType() bool {
 func (o *ErrorModel) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *ErrorModel) SetTypeNil() {
 	o.Type.Set(nil)
@@ -115,6 +116,7 @@ func (o *ErrorModel) HasDetail() bool {
 func (o *ErrorModel) SetDetail(v string) {
 	o.Detail.Set(&v)
 }
+
 // SetDetailNil sets the value for Detail to be an explicit nil
 func (o *ErrorModel) SetDetailNil() {
 	o.Detail.Set(nil)
@@ -146,7 +148,7 @@ func (o *ErrorModel) GetParametersOk() ([]map[string]string, bool) {
 
 // HasParameters returns a boolean if a field has been set.
 func (o *ErrorModel) HasParameters() bool {
-	if o != nil && IsNil(o.Parameters) {
+	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
 
@@ -159,7 +161,7 @@ func (o *ErrorModel) SetParameters(v []map[string]string) {
 }
 
 func (o ErrorModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -215,5 +217,3 @@ func (v *NullableErrorModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

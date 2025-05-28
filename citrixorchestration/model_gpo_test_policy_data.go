@@ -78,6 +78,7 @@ func (o *GpoTestPolicyData) HasErrorCode() bool {
 func (o *GpoTestPolicyData) SetErrorCode(v string) {
 	o.ErrorCode.Set(&v)
 }
+
 // SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
 func (o *GpoTestPolicyData) SetErrorCodeNil() {
 	o.ErrorCode.Set(nil)
@@ -120,6 +121,7 @@ func (o *GpoTestPolicyData) HasPolicyName() bool {
 func (o *GpoTestPolicyData) SetPolicyName(v string) {
 	o.PolicyName.Set(&v)
 }
+
 // SetPolicyNameNil sets the value for PolicyName to be an explicit nil
 func (o *GpoTestPolicyData) SetPolicyNameNil() {
 	o.PolicyName.Set(nil)
@@ -197,7 +199,7 @@ func (o *GpoTestPolicyData) SetFilters(v []GpoTestFilterData) {
 }
 
 func (o GpoTestPolicyData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -256,5 +258,3 @@ func (v *NullableGpoTestPolicyData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -76,6 +76,7 @@ func (o *AwsWorkspaceRegion) HasRegionCode() bool {
 func (o *AwsWorkspaceRegion) SetRegionCode(v string) {
 	o.RegionCode.Set(&v)
 }
+
 // SetRegionCodeNil sets the value for RegionCode to be an explicit nil
 func (o *AwsWorkspaceRegion) SetRegionCodeNil() {
 	o.RegionCode.Set(nil)
@@ -118,6 +119,7 @@ func (o *AwsWorkspaceRegion) HasRegionName() bool {
 func (o *AwsWorkspaceRegion) SetRegionName(v string) {
 	o.RegionName.Set(&v)
 }
+
 // SetRegionNameNil sets the value for RegionName to be an explicit nil
 func (o *AwsWorkspaceRegion) SetRegionNameNil() {
 	o.RegionName.Set(nil)
@@ -160,6 +162,7 @@ func (o *AwsWorkspaceRegion) HasSupportedAzIds() bool {
 func (o *AwsWorkspaceRegion) SetSupportedAzIds(v string) {
 	o.SupportedAzIds.Set(&v)
 }
+
 // SetSupportedAzIdsNil sets the value for SupportedAzIds to be an explicit nil
 func (o *AwsWorkspaceRegion) SetSupportedAzIdsNil() {
 	o.SupportedAzIds.Set(nil)
@@ -171,7 +174,7 @@ func (o *AwsWorkspaceRegion) UnsetSupportedAzIds() {
 }
 
 func (o AwsWorkspaceRegion) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableAwsWorkspaceRegion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

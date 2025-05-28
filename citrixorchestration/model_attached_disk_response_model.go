@@ -78,6 +78,7 @@ func (o *AttachedDiskResponseModel) HasName() bool {
 func (o *AttachedDiskResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AttachedDiskResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -184,6 +185,7 @@ func (o *AttachedDiskResponseModel) HasInfrastructureUid() bool {
 func (o *AttachedDiskResponseModel) SetInfrastructureUid(v string) {
 	o.InfrastructureUid.Set(&v)
 }
+
 // SetInfrastructureUidNil sets the value for InfrastructureUid to be an explicit nil
 func (o *AttachedDiskResponseModel) SetInfrastructureUidNil() {
 	o.InfrastructureUid.Set(nil)
@@ -195,7 +197,7 @@ func (o *AttachedDiskResponseModel) UnsetInfrastructureUid() {
 }
 
 func (o AttachedDiskResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -254,5 +256,3 @@ func (v *NullableAttachedDiskResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

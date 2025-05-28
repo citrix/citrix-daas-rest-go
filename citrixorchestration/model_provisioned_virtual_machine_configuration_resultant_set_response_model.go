@@ -22,7 +22,7 @@ type ProvisionedVirtualMachineConfigurationResultantSetResponseModel struct {
 	// The number of processors that VMs will be created with when using this configuration.
 	CpuCount NullableInt32 `json:"CpuCount,omitempty"`
 	// The maximum amount of memory that VMs will be created with when using this configuration.
-	MemoryMB NullableInt32 `json:"MemoryMB,omitempty"`
+	MemoryMB       NullableInt32                       `json:"MemoryMB,omitempty"`
 	MachineProfile *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
 	// Service offering used by Cloud provisioned VMs.
 	ServiceOffering NullableString `json:"ServiceOffering,omitempty"`
@@ -87,6 +87,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) HasCpu
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -129,6 +130,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) HasMem
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -203,6 +205,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) HasSer
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetServiceOffering(v string) {
 	o.ServiceOffering.Set(&v)
 }
+
 // SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetServiceOfferingNil() {
 	o.ServiceOffering.Set(nil)
@@ -278,6 +281,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) HasPro
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetProvisioningSchemeName(v string) {
 	o.ProvisioningSchemeName.Set(&v)
 }
+
 // SetProvisioningSchemeNameNil sets the value for ProvisioningSchemeName to be an explicit nil
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetProvisioningSchemeNameNil() {
 	o.ProvisioningSchemeName.Set(nil)
@@ -352,6 +356,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) HasVMI
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetVMId(v string) {
 	o.VMId.Set(&v)
 }
+
 // SetVMIdNil sets the value for VMId to be an explicit nil
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetVMIdNil() {
 	o.VMId.Set(nil)
@@ -394,6 +399,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) HasVMN
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetVMName(v string) {
 	o.VMName.Set(&v)
 }
+
 // SetVMNameNil sets the value for VMName to be an explicit nil
 func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) SetVMNameNil() {
 	o.VMName.Set(nil)
@@ -405,7 +411,7 @@ func (o *ProvisionedVirtualMachineConfigurationResultantSetResponseModel) UnsetV
 }
 
 func (o ProvisionedVirtualMachineConfigurationResultantSetResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -479,5 +485,3 @@ func (v *NullableProvisionedVirtualMachineConfigurationResultantSetResponseModel
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

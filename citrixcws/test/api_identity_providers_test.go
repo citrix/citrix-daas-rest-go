@@ -11,10 +11,11 @@ package citrixcws
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixcws"
 )
 
 func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersAllStatusGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -38,7 +39,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersClientGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -52,7 +53,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersConfigurationSamlIdGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 		var customer string
@@ -67,7 +68,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersConfigureGooglePost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -81,7 +82,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersConfigureOktaPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -95,7 +96,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -109,7 +110,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersIdPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 		var customer string
@@ -124,7 +125,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersIdentityProviderIdPut", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var identityProvider string
 		var id string
@@ -140,7 +141,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersIdpTypeGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var idpType string
 		var customer string
@@ -155,7 +156,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersMultiIdentityProvidersPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -169,7 +170,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -183,7 +184,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersTypeIdDelete", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var type_ string
 		var id string
@@ -199,7 +200,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersValidateClientsClientIdGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var clientId string
 		var customer string
@@ -214,7 +215,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersValidateFqdnGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -228,7 +229,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityProvidersValidateSamlPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customer string
 
@@ -242,7 +243,7 @@ func Test_citrixcws_IdentityProvidersDAASService(t *testing.T) {
 
 	t.Run("Test IdentityProvidersDAASService CustomerIdentityprovidersIdentityProviderCreateconnectPost", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var identityProvider string
 		var customer string

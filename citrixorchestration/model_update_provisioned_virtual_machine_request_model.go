@@ -26,7 +26,7 @@ type UpdateProvisionedVirtualMachineRequestModel struct {
 	// The hypervisor resource path of the Cloud service offering to use when creating machines.
 	ServiceOfferingPath NullableString `json:"ServiceOfferingPath,omitempty"`
 	// The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated.
-	MachineProfilePath NullableString `json:"MachineProfilePath,omitempty"`
+	MachineProfilePath NullableString "json:\"MachineProfilePath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// The properties of the provisioning scheme that are specific to the target hosting infrastructure.
 	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
 	// If supplied, all existing configuration is cleared for the given machine. It is mutually exclusive with parameters that apply configuration settings
@@ -82,6 +82,7 @@ func (o *UpdateProvisionedVirtualMachineRequestModel) HasCpuCount() bool {
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -124,6 +125,7 @@ func (o *UpdateProvisionedVirtualMachineRequestModel) HasMemoryMB() bool {
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -166,6 +168,7 @@ func (o *UpdateProvisionedVirtualMachineRequestModel) HasServiceOfferingPath() b
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetServiceOfferingPath(v string) {
 	o.ServiceOfferingPath.Set(&v)
 }
+
 // SetServiceOfferingPathNil sets the value for ServiceOfferingPath to be an explicit nil
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetServiceOfferingPathNil() {
 	o.ServiceOfferingPath.Set(nil)
@@ -208,6 +211,7 @@ func (o *UpdateProvisionedVirtualMachineRequestModel) HasMachineProfilePath() bo
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetMachineProfilePath(v string) {
 	o.MachineProfilePath.Set(&v)
 }
+
 // SetMachineProfilePathNil sets the value for MachineProfilePath to be an explicit nil
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetMachineProfilePathNil() {
 	o.MachineProfilePath.Set(nil)
@@ -283,6 +287,7 @@ func (o *UpdateProvisionedVirtualMachineRequestModel) HasRevertToProvSchemeConfi
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetRevertToProvSchemeConfiguration(v bool) {
 	o.RevertToProvSchemeConfiguration.Set(&v)
 }
+
 // SetRevertToProvSchemeConfigurationNil sets the value for RevertToProvSchemeConfiguration to be an explicit nil
 func (o *UpdateProvisionedVirtualMachineRequestModel) SetRevertToProvSchemeConfigurationNil() {
 	o.RevertToProvSchemeConfiguration.Set(nil)
@@ -294,7 +299,7 @@ func (o *UpdateProvisionedVirtualMachineRequestModel) UnsetRevertToProvSchemeCon
 }
 
 func (o UpdateProvisionedVirtualMachineRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -359,5 +364,3 @@ func (v *NullableUpdateProvisionedVirtualMachineRequestModel) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

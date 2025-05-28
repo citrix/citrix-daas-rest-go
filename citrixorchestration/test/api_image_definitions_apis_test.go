@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsCheckImageDefinitionExist", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -37,7 +38,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsCreateImageDefinition", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ImageDefinitionsAPIsDAAS.ImageDefinitionsCreateImageDefinition(context.Background()).Execute()
 
@@ -49,7 +50,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsCreateImageVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -63,7 +64,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsDeleteImageDefinition", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -76,7 +77,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsDeleteImageDefinitionImageVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var versionNumberOrId string
@@ -90,7 +91,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsDoImageDefinitionAndImageVersionSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ImageDefinitionsAPIsDAAS.ImageDefinitionsDoImageDefinitionAndImageVersionSearch(context.Background()).Execute()
 
@@ -102,7 +103,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsGetImageDefinition", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -116,7 +117,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsGetImageDefinitionImageVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var versionNumberOrId string
@@ -131,7 +132,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsGetImageDefinitionImageVersions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -145,7 +146,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsGetImageDefinitions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ImageDefinitionsAPIsDAAS.ImageDefinitionsGetImageDefinitions(context.Background()).Execute()
 
@@ -157,7 +158,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsGetImageVersionProvisioningSchemes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var versionNumberOrId string
@@ -172,7 +173,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsSetImageDefinitionImageVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var versionNumberOrId string
@@ -186,7 +187,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsUpdateImageDefinition", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -200,7 +201,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsUpdateImageDefinitionImageVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var versionNumberOrId string
@@ -215,7 +216,7 @@ func Test_citrixorchestration_ImageDefinitionsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ImageDefinitionsAPIsDAASService ImageDefinitionsUpdateImageVersionResourcePools", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var versionNumberOrId string

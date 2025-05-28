@@ -20,7 +20,7 @@ var _ MappedNullable = &JobResponseModel{}
 // JobResponseModel Response object indicating status of an asynchronous job.
 type JobResponseModel struct {
 	// Id of the job in progress.
-	Id string `json:"Id"`
+	Id   string  `json:"Id"`
 	Type JobType `json:"Type"`
 	// Overall progress percent; 0..100. May be null if the job does not support progress reporting.
 	OverallProgressPercent NullableInt32 `json:"OverallProgressPercent,omitempty"`
@@ -30,12 +30,12 @@ type JobResponseModel struct {
 	Parameters []NameValueStringPairModel `json:"Parameters"`
 	// List of sub-jobs contained within the job.
 	SubJobs []JobResponseModel `json:"SubJobs,omitempty"`
-	Status JobStatus `json:"Status"`
+	Status  JobStatus          `json:"Status"`
 	// URL where the job results can be obtained.
 	ResultLocation NullableString `json:"ResultLocation,omitempty"`
 	// If a job or subjob failed, this will be the reason why the failure occurred, presented in a human-readable format.
 	ErrorString NullableString `json:"ErrorString,omitempty"`
-	ErrorCode *JobErrorCode `json:"ErrorCode,omitempty"`
+	ErrorCode   *JobErrorCode  `json:"ErrorCode,omitempty"`
 	// If a job or subjob failed, this will be information about related objects that were involved in the failure.
 	ErrorParameters []NameValueStringPairModel `json:"ErrorParameters,omitempty"`
 	// Time when the job was created.
@@ -155,6 +155,7 @@ func (o *JobResponseModel) HasOverallProgressPercent() bool {
 func (o *JobResponseModel) SetOverallProgressPercent(v int32) {
 	o.OverallProgressPercent.Set(&v)
 }
+
 // SetOverallProgressPercentNil sets the value for OverallProgressPercent to be an explicit nil
 func (o *JobResponseModel) SetOverallProgressPercentNil() {
 	o.OverallProgressPercent.Set(nil)
@@ -197,6 +198,7 @@ func (o *JobResponseModel) HasIsCancellable() bool {
 func (o *JobResponseModel) SetIsCancellable(v bool) {
 	o.IsCancellable.Set(&v)
 }
+
 // SetIsCancellableNil sets the value for IsCancellable to be an explicit nil
 func (o *JobResponseModel) SetIsCancellableNil() {
 	o.IsCancellable.Set(nil)
@@ -320,6 +322,7 @@ func (o *JobResponseModel) HasResultLocation() bool {
 func (o *JobResponseModel) SetResultLocation(v string) {
 	o.ResultLocation.Set(&v)
 }
+
 // SetResultLocationNil sets the value for ResultLocation to be an explicit nil
 func (o *JobResponseModel) SetResultLocationNil() {
 	o.ResultLocation.Set(nil)
@@ -362,6 +365,7 @@ func (o *JobResponseModel) HasErrorString() bool {
 func (o *JobResponseModel) SetErrorString(v string) {
 	o.ErrorString.Set(&v)
 }
+
 // SetErrorStringNil sets the value for ErrorString to be an explicit nil
 func (o *JobResponseModel) SetErrorStringNil() {
 	o.ErrorString.Set(nil)
@@ -517,6 +521,7 @@ func (o *JobResponseModel) HasStartTime() bool {
 func (o *JobResponseModel) SetStartTime(v string) {
 	o.StartTime.Set(&v)
 }
+
 // SetStartTimeNil sets the value for StartTime to be an explicit nil
 func (o *JobResponseModel) SetStartTimeNil() {
 	o.StartTime.Set(nil)
@@ -559,6 +564,7 @@ func (o *JobResponseModel) HasFormattedStartTime() bool {
 func (o *JobResponseModel) SetFormattedStartTime(v string) {
 	o.FormattedStartTime.Set(&v)
 }
+
 // SetFormattedStartTimeNil sets the value for FormattedStartTime to be an explicit nil
 func (o *JobResponseModel) SetFormattedStartTimeNil() {
 	o.FormattedStartTime.Set(nil)
@@ -601,6 +607,7 @@ func (o *JobResponseModel) HasEndTime() bool {
 func (o *JobResponseModel) SetEndTime(v string) {
 	o.EndTime.Set(&v)
 }
+
 // SetEndTimeNil sets the value for EndTime to be an explicit nil
 func (o *JobResponseModel) SetEndTimeNil() {
 	o.EndTime.Set(nil)
@@ -643,6 +650,7 @@ func (o *JobResponseModel) HasFormattedEndTime() bool {
 func (o *JobResponseModel) SetFormattedEndTime(v string) {
 	o.FormattedEndTime.Set(&v)
 }
+
 // SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
 func (o *JobResponseModel) SetFormattedEndTimeNil() {
 	o.FormattedEndTime.Set(nil)
@@ -654,7 +662,7 @@ func (o *JobResponseModel) UnsetFormattedEndTime() {
 }
 
 func (o JobResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -740,5 +748,3 @@ func (v *NullableJobResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

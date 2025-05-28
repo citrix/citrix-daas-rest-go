@@ -72,6 +72,7 @@ func (o *ExportMachineProfileResponseModel) HasContent() bool {
 func (o *ExportMachineProfileResponseModel) SetContent(v string) {
 	o.Content.Set(&v)
 }
+
 // SetContentNil sets the value for Content to be an explicit nil
 func (o *ExportMachineProfileResponseModel) SetContentNil() {
 	o.Content.Set(nil)
@@ -83,7 +84,7 @@ func (o *ExportMachineProfileResponseModel) UnsetContent() {
 }
 
 func (o ExportMachineProfileResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,5 +134,3 @@ func (v *NullableExportMachineProfileResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

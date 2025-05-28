@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// CustomReportFormatType 
+// CustomReportFormatType
 type CustomReportFormatType string
 
 // List of CustomReportFormatType
 const (
 	CUSTOMREPORTFORMATTYPE_HTML CustomReportFormatType = "Html"
-	CUSTOMREPORTFORMATTYPE_CSV CustomReportFormatType = "Csv"
+	CUSTOMREPORTFORMATTYPE_CSV  CustomReportFormatType = "Csv"
 	CUSTOMREPORTFORMATTYPE_BOTH CustomReportFormatType = "Both"
 )
 
@@ -38,7 +38,7 @@ func (v *CustomReportFormatType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = CustomReportFormatType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableCustomReportFormatType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -108,6 +108,7 @@ func (o *FastApplicationSettingsRequestModel) HasEnabled() bool {
 func (o *FastApplicationSettingsRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *FastApplicationSettingsRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -150,6 +151,7 @@ func (o *FastApplicationSettingsRequestModel) HasMaxAverageLoadThreshold() bool 
 func (o *FastApplicationSettingsRequestModel) SetMaxAverageLoadThreshold(v int32) {
 	o.MaxAverageLoadThreshold.Set(&v)
 }
+
 // SetMaxAverageLoadThresholdNil sets the value for MaxAverageLoadThreshold to be an explicit nil
 func (o *FastApplicationSettingsRequestModel) SetMaxAverageLoadThresholdNil() {
 	o.MaxAverageLoadThreshold.Set(nil)
@@ -192,6 +194,7 @@ func (o *FastApplicationSettingsRequestModel) HasMaxLoadPerMachineThreshold() bo
 func (o *FastApplicationSettingsRequestModel) SetMaxLoadPerMachineThreshold(v int32) {
 	o.MaxLoadPerMachineThreshold.Set(&v)
 }
+
 // SetMaxLoadPerMachineThresholdNil sets the value for MaxLoadPerMachineThreshold to be an explicit nil
 func (o *FastApplicationSettingsRequestModel) SetMaxLoadPerMachineThresholdNil() {
 	o.MaxLoadPerMachineThreshold.Set(nil)
@@ -234,6 +237,7 @@ func (o *FastApplicationSettingsRequestModel) HasMaxTimeBeforeDisconnectMinutes(
 func (o *FastApplicationSettingsRequestModel) SetMaxTimeBeforeDisconnectMinutes(v int32) {
 	o.MaxTimeBeforeDisconnectMinutes.Set(&v)
 }
+
 // SetMaxTimeBeforeDisconnectMinutesNil sets the value for MaxTimeBeforeDisconnectMinutes to be an explicit nil
 func (o *FastApplicationSettingsRequestModel) SetMaxTimeBeforeDisconnectMinutesNil() {
 	o.MaxTimeBeforeDisconnectMinutes.Set(nil)
@@ -276,6 +280,7 @@ func (o *FastApplicationSettingsRequestModel) HasMaxTimeBeforeTerminateMinutes()
 func (o *FastApplicationSettingsRequestModel) SetMaxTimeBeforeTerminateMinutes(v int32) {
 	o.MaxTimeBeforeTerminateMinutes.Set(&v)
 }
+
 // SetMaxTimeBeforeTerminateMinutesNil sets the value for MaxTimeBeforeTerminateMinutes to be an explicit nil
 func (o *FastApplicationSettingsRequestModel) SetMaxTimeBeforeTerminateMinutesNil() {
 	o.MaxTimeBeforeTerminateMinutes.Set(nil)
@@ -318,6 +323,7 @@ func (o *FastApplicationSettingsRequestModel) HasIncludedUserFilterEnabled() boo
 func (o *FastApplicationSettingsRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *FastApplicationSettingsRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -362,7 +368,7 @@ func (o *FastApplicationSettingsRequestModel) SetIncludedUsers(v []string) {
 }
 
 func (o FastApplicationSettingsRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -430,5 +436,3 @@ func (v *NullableFastApplicationSettingsRequestModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

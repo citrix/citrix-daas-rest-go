@@ -71,6 +71,7 @@ func (o *ConditionalExpression) HasStringEquals() bool {
 func (o *ConditionalExpression) SetStringEquals(v Expression) {
 	o.StringEquals.Set(&v)
 }
+
 // SetStringEqualsNil sets the value for StringEquals to be an explicit nil
 func (o *ConditionalExpression) SetStringEqualsNil() {
 	o.StringEquals.Set(nil)
@@ -82,7 +83,7 @@ func (o *ConditionalExpression) UnsetStringEquals() {
 }
 
 func (o ConditionalExpression) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,5 +133,3 @@ func (v *NullableConditionalExpression) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

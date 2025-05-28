@@ -17,10 +17,10 @@ import (
 // checks if the CreateAutoscaleGroupPluginRequestModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateAutoscaleGroupPluginRequestModel{}
 
-// CreateAutoscaleGroupPluginRequestModel New autoscale plugin group request model.             
+// CreateAutoscaleGroupPluginRequestModel New autoscale plugin group request model.
 type CreateAutoscaleGroupPluginRequestModel struct {
 	// The name of the group plugin.
-	Name string `json:"Name"`
+	Name string              `json:"Name"`
 	Type AutoscalePluginType `json:"Type"`
 	// The priority of this group plugin with respect to other group plugins associated with the same desktop group. Priority 1 is the highest priority.
 	Priority NullableInt32 `json:"Priority,omitempty"`
@@ -133,6 +133,7 @@ func (o *CreateAutoscaleGroupPluginRequestModel) HasPriority() bool {
 func (o *CreateAutoscaleGroupPluginRequestModel) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *CreateAutoscaleGroupPluginRequestModel) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -175,6 +176,7 @@ func (o *CreateAutoscaleGroupPluginRequestModel) HasEnabled() bool {
 func (o *CreateAutoscaleGroupPluginRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *CreateAutoscaleGroupPluginRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -217,6 +219,7 @@ func (o *CreateAutoscaleGroupPluginRequestModel) HasDescription() bool {
 func (o *CreateAutoscaleGroupPluginRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateAutoscaleGroupPluginRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -259,6 +262,7 @@ func (o *CreateAutoscaleGroupPluginRequestModel) HasAutoApprove() bool {
 func (o *CreateAutoscaleGroupPluginRequestModel) SetAutoApprove(v bool) {
 	o.AutoApprove.Set(&v)
 }
+
 // SetAutoApproveNil sets the value for AutoApprove to be an explicit nil
 func (o *CreateAutoscaleGroupPluginRequestModel) SetAutoApproveNil() {
 	o.AutoApprove.Set(nil)
@@ -303,7 +307,7 @@ func (o *CreateAutoscaleGroupPluginRequestModel) SetDates(v []string) {
 }
 
 func (o CreateAutoscaleGroupPluginRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -367,5 +371,3 @@ func (v *NullableCreateAutoscaleGroupPluginRequestModel) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

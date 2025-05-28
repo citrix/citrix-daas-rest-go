@@ -22,7 +22,7 @@ type ProjectedAutoscaleMachinesResponseModel struct {
 	// The Id of the desired desktop group.
 	DesktopGroupId string `json:"DesktopGroupId"`
 	// The number of machines in the desktop group that would be managed by Autoscale. This number shall include all the power managed machines in the desktop group, except for machines in maintenance mode or, not tagged for Autoscale if tag restriction is being used.
-	ManagedMachineCount int32 `json:"ManagedMachineCount"`
+	ManagedMachineCount        int32                         `json:"ManagedMachineCount"`
 	ProjectedAutoscaleMachines ProjectedMachineResponseModel `json:"ProjectedAutoscaleMachines"`
 	// The time zone in which this delivery group's machines reside.
 	TimeZone string `json:"TimeZone"`
@@ -146,7 +146,7 @@ func (o *ProjectedAutoscaleMachinesResponseModel) SetTimeZone(v string) {
 }
 
 func (o ProjectedAutoscaleMachinesResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableProjectedAutoscaleMachinesResponseModel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

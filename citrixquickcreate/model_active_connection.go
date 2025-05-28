@@ -72,6 +72,7 @@ func (o *ActiveConnection) HasTenantId() bool {
 func (o *ActiveConnection) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *ActiveConnection) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -83,7 +84,7 @@ func (o *ActiveConnection) UnsetTenantId() {
 }
 
 func (o ActiveConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,5 +134,3 @@ func (v *NullableActiveConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

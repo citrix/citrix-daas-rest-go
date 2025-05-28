@@ -22,7 +22,7 @@ type OsType string
 const (
 	OSTYPE_UNKNOWN OsType = "Unknown"
 	OSTYPE_WINDOWS OsType = "Windows"
-	OSTYPE_LINUX OsType = "Linux"
+	OSTYPE_LINUX   OsType = "Linux"
 )
 
 // All allowed values of OsType enum
@@ -38,7 +38,7 @@ func (v *OsType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = OsType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableOsType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

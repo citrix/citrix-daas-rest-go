@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsAddDeliveryGroupMachineCatalog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -38,7 +39,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsAddDeliveryGroupTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
@@ -53,7 +54,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCheckDeliveryGroupExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -66,7 +67,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCheckRebootScheduleNameExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var name string
@@ -80,7 +81,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateAutoscalePluginTemplate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var type_ string
 
@@ -93,7 +94,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsCreateDeliveryGroup(context.Background()).Execute()
 
@@ -105,7 +106,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -119,7 +120,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupAutoscaleGroupPlugin", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -132,7 +133,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -146,7 +147,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsCreateDeliveryGroupRebootSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -160,7 +161,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteAutoscalePluginTemplate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var type_ string
 		var name string
@@ -174,7 +175,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -187,7 +188,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var policyId string
@@ -201,7 +202,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupAutoscaleGroupPlugin", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var uid int32
@@ -215,7 +216,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var schemeNameOrId string
@@ -229,7 +230,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDeleteDeliveryGroupRebootSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var scheduleNameOrId string
@@ -243,7 +244,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoAddApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -256,7 +257,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoAddMachines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -270,7 +271,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoDeliveryGroupSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsDoDeliveryGroupSearch(context.Background()).Execute()
 
@@ -282,7 +283,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoRemoveApplicationGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var appGroupNameOrId string
@@ -296,7 +297,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoRemoveApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var appNameOrId string
@@ -310,7 +311,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsDoRemoveMachines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var machineNameOrId string
@@ -324,7 +325,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetAutoscalePluginTemplate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var type_ string
 		var name string
@@ -339,7 +340,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetAutoscalePluginTemplates", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var type_ string
 
@@ -353,7 +354,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeiliveryGroupProjectedAutoscaleMachines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -367,7 +368,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -381,7 +382,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicies", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -395,7 +396,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var policyId string
@@ -410,7 +411,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -424,7 +425,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupAutoscaleGroupPlugins", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -438,7 +439,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupFtas", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupFtas(context.Background()).Execute()
 
@@ -450,7 +451,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupMachines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -464,7 +465,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var schemeNameOrId string
@@ -479,7 +480,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupPowerTimeSchemes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -493,7 +494,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupRebootSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var scheduleNameOrId string
@@ -508,7 +509,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupRebootSchedules", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -522,7 +523,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupStartMenuApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -536,7 +537,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -550,7 +551,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupTestReport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -564,7 +565,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroups(context.Background()).Execute()
 
@@ -576,7 +577,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsAdministrators", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -590,7 +591,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsApplicationGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -604,7 +605,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsDesktops", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -618,7 +619,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsMachineCatalogDetails", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var id string
@@ -633,7 +634,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsMachineCatalogs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -647,7 +648,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsUsage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -661,7 +662,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsGetDeliveryGroupsV2", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsGetDeliveryGroupsV2(context.Background()).Execute()
 
@@ -673,7 +674,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -686,7 +687,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroupAdvancedAccessPolicy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var policyId string
@@ -701,7 +702,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroupPowerTimeScheme", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var schemeNameOrId string
@@ -716,7 +717,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsPatchDeliveryGroupRebootSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var scheduleNameOrId string
@@ -731,7 +732,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsRemoveDeliveryGroupMachineCatalog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var catalogNameOrId string
@@ -745,7 +746,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsRemoveDeliveryGroupTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
@@ -759,7 +760,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsSetDeliveryGroupTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -772,7 +773,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsStartDeliveryGroupRebootCycle", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -785,7 +786,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsTestDeliveryGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -799,7 +800,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsTestDeliveryGroupExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.DeliveryGroupsAPIsDAAS.DeliveryGroupsTestDeliveryGroupExists(context.Background()).Execute()
 
@@ -810,7 +811,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsUpdateAutoscalePluginTemplate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var type_ string
 		var name string
@@ -824,7 +825,7 @@ func Test_citrixorchestration_DeliveryGroupsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test DeliveryGroupsAPIsDAASService DeliveryGroupsUpdateDeliveryGroupAutoscaleGroupPlugin", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var uid int32

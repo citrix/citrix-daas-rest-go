@@ -26,8 +26,8 @@ type ImportProvisionedVirtualMachineResponseModel struct {
 	// The virtual machine name.
 	VMName NullableString `json:"VMName,omitempty"`
 	// Failure reason.
-	FailureReason NullableString `json:"FailureReason,omitempty"`
-	Status *ImportMachineStatus `json:"Status,omitempty"`
+	FailureReason NullableString       `json:"FailureReason,omitempty"`
+	Status        *ImportMachineStatus `json:"Status,omitempty"`
 }
 
 // NewImportProvisionedVirtualMachineResponseModel instantiates a new ImportProvisionedVirtualMachineResponseModel object
@@ -79,6 +79,7 @@ func (o *ImportProvisionedVirtualMachineResponseModel) HasADAccountSid() bool {
 func (o *ImportProvisionedVirtualMachineResponseModel) SetADAccountSid(v string) {
 	o.ADAccountSid.Set(&v)
 }
+
 // SetADAccountSidNil sets the value for ADAccountSid to be an explicit nil
 func (o *ImportProvisionedVirtualMachineResponseModel) SetADAccountSidNil() {
 	o.ADAccountSid.Set(nil)
@@ -121,6 +122,7 @@ func (o *ImportProvisionedVirtualMachineResponseModel) HasVMId() bool {
 func (o *ImportProvisionedVirtualMachineResponseModel) SetVMId(v string) {
 	o.VMId.Set(&v)
 }
+
 // SetVMIdNil sets the value for VMId to be an explicit nil
 func (o *ImportProvisionedVirtualMachineResponseModel) SetVMIdNil() {
 	o.VMId.Set(nil)
@@ -163,6 +165,7 @@ func (o *ImportProvisionedVirtualMachineResponseModel) HasVMName() bool {
 func (o *ImportProvisionedVirtualMachineResponseModel) SetVMName(v string) {
 	o.VMName.Set(&v)
 }
+
 // SetVMNameNil sets the value for VMName to be an explicit nil
 func (o *ImportProvisionedVirtualMachineResponseModel) SetVMNameNil() {
 	o.VMName.Set(nil)
@@ -205,6 +208,7 @@ func (o *ImportProvisionedVirtualMachineResponseModel) HasFailureReason() bool {
 func (o *ImportProvisionedVirtualMachineResponseModel) SetFailureReason(v string) {
 	o.FailureReason.Set(&v)
 }
+
 // SetFailureReasonNil sets the value for FailureReason to be an explicit nil
 func (o *ImportProvisionedVirtualMachineResponseModel) SetFailureReasonNil() {
 	o.FailureReason.Set(nil)
@@ -248,7 +252,7 @@ func (o *ImportProvisionedVirtualMachineResponseModel) SetStatus(v ImportMachine
 }
 
 func (o ImportProvisionedVirtualMachineResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,5 +314,3 @@ func (v *NullableImportProvisionedVirtualMachineResponseModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

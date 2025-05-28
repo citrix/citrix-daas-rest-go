@@ -26,8 +26,8 @@ type HypervisorResourcePoolRefResponseModel struct {
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
 	XDPath NullableString `json:"XDPath,omitempty"`
 	// Full path to the resources within the resource pool, including the hypervisor, relative to the root of the API. Example: `Hypervisors/{{hypervisor id}}/ResourcePools/{{resource pool id}}/Resources`
-	FullRelativePath string `json:"FullRelativePath"`
-	Hypervisor HypervisorRefResponseModel `json:"Hypervisor"`
+	FullRelativePath string                     `json:"FullRelativePath"`
+	Hypervisor       HypervisorRefResponseModel `json:"Hypervisor"`
 }
 
 // NewHypervisorResourcePoolRefResponseModel instantiates a new HypervisorResourcePoolRefResponseModel object
@@ -81,6 +81,7 @@ func (o *HypervisorResourcePoolRefResponseModel) HasId() bool {
 func (o *HypervisorResourcePoolRefResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourcePoolRefResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -123,6 +124,7 @@ func (o *HypervisorResourcePoolRefResponseModel) HasName() bool {
 func (o *HypervisorResourcePoolRefResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorResourcePoolRefResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -165,6 +167,7 @@ func (o *HypervisorResourcePoolRefResponseModel) HasXDPath() bool {
 func (o *HypervisorResourcePoolRefResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorResourcePoolRefResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -224,7 +227,7 @@ func (o *HypervisorResourcePoolRefResponseModel) SetHypervisor(v HypervisorRefRe
 }
 
 func (o HypervisorResourcePoolRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -282,5 +285,3 @@ func (v *NullableHypervisorResourcePoolRefResponseModel) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

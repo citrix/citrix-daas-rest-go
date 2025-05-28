@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// BackupRestoreRestoreTypes Restore Types 
+// BackupRestoreRestoreTypes Restore Types
 type BackupRestoreRestoreTypes string
 
 // List of BackupRestoreRestoreTypes
 const (
-	BACKUPRESTORERESTORETYPES_UNDEFINED BackupRestoreRestoreTypes = "Undefined"
-	BACKUPRESTORERESTORETYPES_MISSING_ONLY BackupRestoreRestoreTypes = "MissingOnly"
-	BACKUPRESTORERESTORETYPES_MISSING_UPDATE_EXISTING BackupRestoreRestoreTypes = "MissingUpdateExisting"
+	BACKUPRESTORERESTORETYPES_UNDEFINED                          BackupRestoreRestoreTypes = "Undefined"
+	BACKUPRESTORERESTORETYPES_MISSING_ONLY                       BackupRestoreRestoreTypes = "MissingOnly"
+	BACKUPRESTORERESTORETYPES_MISSING_UPDATE_EXISTING            BackupRestoreRestoreTypes = "MissingUpdateExisting"
 	BACKUPRESTORERESTORETYPES_MISSING_UPDATE_EXISTING_REMOVE_NEW BackupRestoreRestoreTypes = "MissingUpdateExistingRemoveNew"
 )
 
@@ -40,7 +40,7 @@ func (v *BackupRestoreRestoreTypes) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreRestoreTypes(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableBackupRestoreRestoreTypes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

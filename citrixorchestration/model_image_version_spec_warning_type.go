@@ -20,14 +20,14 @@ type ImageVersionSpecWarningType string
 
 // List of ImageVersionSpecWarningType
 const (
-	IMAGEVERSIONSPECWARNINGTYPE_UNKNOWN ImageVersionSpecWarningType = "Unknown"
+	IMAGEVERSIONSPECWARNINGTYPE_UNKNOWN                                       ImageVersionSpecWarningType = "Unknown"
 	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_PREPARATION_OFFICE_REARM_COUNT_EXCEEDED ImageVersionSpecWarningType = "ImagePreparationOfficeRearmCountExceeded"
-	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_PREPARATION_OFFICE_REARM_FAILED ImageVersionSpecWarningType = "ImagePreparationOfficeRearmFailed"
-	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_COUNT_EXCEEDED ImageVersionSpecWarningType = "ImagePreparationOSRearmCountExceeded"
-	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_FAILED ImageVersionSpecWarningType = "ImagePreparationOSRearmFailed"
-	IMAGEVERSIONSPECWARNINGTYPE_GET_MACHINE_PROFILE_METADATA_FAILED ImageVersionSpecWarningType = "GetMachineProfileMetadataFailed"
-	IMAGEVERSIONSPECWARNINGTYPE_GET_CUSTOM_PROPERTIES_FAILED ImageVersionSpecWarningType = "GetCustomPropertiesFailed"
-	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_ACTION ImageVersionSpecWarningType = "ImageAction"
+	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_PREPARATION_OFFICE_REARM_FAILED         ImageVersionSpecWarningType = "ImagePreparationOfficeRearmFailed"
+	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_COUNT_EXCEEDED     ImageVersionSpecWarningType = "ImagePreparationOSRearmCountExceeded"
+	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_PREPARATION_OS_REARM_FAILED             ImageVersionSpecWarningType = "ImagePreparationOSRearmFailed"
+	IMAGEVERSIONSPECWARNINGTYPE_GET_MACHINE_PROFILE_METADATA_FAILED           ImageVersionSpecWarningType = "GetMachineProfileMetadataFailed"
+	IMAGEVERSIONSPECWARNINGTYPE_GET_CUSTOM_PROPERTIES_FAILED                  ImageVersionSpecWarningType = "GetCustomPropertiesFailed"
+	IMAGEVERSIONSPECWARNINGTYPE_IMAGE_ACTION                                  ImageVersionSpecWarningType = "ImageAction"
 )
 
 // All allowed values of ImageVersionSpecWarningType enum
@@ -48,7 +48,7 @@ func (v *ImageVersionSpecWarningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ImageVersionSpecWarningType(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableImageVersionSpecWarningType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -102,6 +102,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasMachineSize() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetMachineSize(v string) {
 	o.MachineSize.Set(&v)
 }
+
 // SetMachineSizeNil sets the value for MachineSize to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetMachineSizeNil() {
 	o.MachineSize.Set(nil)
@@ -144,6 +145,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasOsDiskCaching() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetOsDiskCaching(v string) {
 	o.OsDiskCaching.Set(&v)
 }
+
 // SetOsDiskCachingNil sets the value for OsDiskCaching to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetOsDiskCachingNil() {
 	o.OsDiskCaching.Set(nil)
@@ -186,6 +188,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasTags() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetTags(v string) {
 	o.Tags.Set(&v)
 }
+
 // SetTagsNil sets the value for Tags to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetTagsNil() {
 	o.Tags.Set(nil)
@@ -228,6 +231,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasBootDiagnostics() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetBootDiagnostics(v bool) {
 	o.BootDiagnostics.Set(&v)
 }
+
 // SetBootDiagnosticsNil sets the value for BootDiagnostics to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetBootDiagnosticsNil() {
 	o.BootDiagnostics.Set(nil)
@@ -270,6 +274,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasAcceleratedNetwork() bool
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetAcceleratedNetwork(v bool) {
 	o.AcceleratedNetwork.Set(&v)
 }
+
 // SetAcceleratedNetworkNil sets the value for AcceleratedNetwork to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetAcceleratedNetworkNil() {
 	o.AcceleratedNetwork.Set(nil)
@@ -312,6 +317,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasSupportsHibernation() boo
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetSupportsHibernation(v bool) {
 	o.SupportsHibernation.Set(&v)
 }
+
 // SetSupportsHibernationNil sets the value for SupportsHibernation to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetSupportsHibernationNil() {
 	o.SupportsHibernation.Set(nil)
@@ -354,6 +360,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasSecurityType() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetSecurityType(v string) {
 	o.SecurityType.Set(&v)
 }
+
 // SetSecurityTypeNil sets the value for SecurityType to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetSecurityTypeNil() {
 	o.SecurityType.Set(nil)
@@ -396,6 +403,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasDiskSecurityType() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetDiskSecurityType(v string) {
 	o.DiskSecurityType.Set(&v)
 }
+
 // SetDiskSecurityTypeNil sets the value for DiskSecurityType to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetDiskSecurityTypeNil() {
 	o.DiskSecurityType.Set(nil)
@@ -438,6 +446,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasConfidentialVmDiskEncrypt
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetConfidentialVmDiskEncryptionSetId(v string) {
 	o.ConfidentialVmDiskEncryptionSetId.Set(&v)
 }
+
 // SetConfidentialVmDiskEncryptionSetIdNil sets the value for ConfidentialVmDiskEncryptionSetId to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetConfidentialVmDiskEncryptionSetIdNil() {
 	o.ConfidentialVmDiskEncryptionSetId.Set(nil)
@@ -480,6 +489,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasEnableSecureBoot() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableSecureBoot(v bool) {
 	o.EnableSecureBoot.Set(&v)
 }
+
 // SetEnableSecureBootNil sets the value for EnableSecureBoot to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableSecureBootNil() {
 	o.EnableSecureBoot.Set(nil)
@@ -522,6 +532,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasEnableVTPM() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableVTPM(v bool) {
 	o.EnableVTPM.Set(&v)
 }
+
 // SetEnableVTPMNil sets the value for EnableVTPM to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEnableVTPMNil() {
 	o.EnableVTPM.Set(nil)
@@ -564,6 +575,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasEncryptionAtHost() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionAtHost(v bool) {
 	o.EncryptionAtHost.Set(&v)
 }
+
 // SetEncryptionAtHostNil sets the value for EncryptionAtHost to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionAtHostNil() {
 	o.EncryptionAtHost.Set(nil)
@@ -606,6 +618,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasLabels() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetLabels(v string) {
 	o.Labels.Set(&v)
 }
+
 // SetLabelsNil sets the value for Labels to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetLabelsNil() {
 	o.Labels.Set(nil)
@@ -648,6 +661,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasZoneName() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetZoneName(v string) {
 	o.ZoneName.Set(&v)
 }
+
 // SetZoneNameNil sets the value for ZoneName to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetZoneNameNil() {
 	o.ZoneName.Set(nil)
@@ -690,6 +704,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasStorageType() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetStorageType(v string) {
 	o.StorageType.Set(&v)
 }
+
 // SetStorageTypeNil sets the value for StorageType to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetStorageTypeNil() {
 	o.StorageType.Set(nil)
@@ -732,6 +747,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) HasEncryptionKeyId() bool {
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionKeyId(v string) {
 	o.EncryptionKeyId.Set(&v)
 }
+
 // SetEncryptionKeyIdNil sets the value for EncryptionKeyId to be an explicit nil
 func (o *ProvisioningSchemeVmMetadataResponseModel) SetEncryptionKeyIdNil() {
 	o.EncryptionKeyId.Set(nil)
@@ -743,7 +759,7 @@ func (o *ProvisioningSchemeVmMetadataResponseModel) UnsetEncryptionKeyId() {
 }
 
 func (o ProvisioningSchemeVmMetadataResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -838,5 +854,3 @@ func (v *NullableProvisioningSchemeVmMetadataResponseModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

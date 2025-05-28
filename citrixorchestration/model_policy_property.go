@@ -21,9 +21,9 @@ type PolicyProperty string
 // List of PolicyProperty
 const (
 	POLICYPROPERTY_DESCRIPTION PolicyProperty = "Description"
-	POLICYPROPERTY_IS_ENABLED PolicyProperty = "IsEnabled"
-	POLICYPROPERTY_NAME PolicyProperty = "Name"
-	POLICYPROPERTY_PRIORITY PolicyProperty = "Priority"
+	POLICYPROPERTY_IS_ENABLED  PolicyProperty = "IsEnabled"
+	POLICYPROPERTY_NAME        PolicyProperty = "Name"
+	POLICYPROPERTY_PRIORITY    PolicyProperty = "Priority"
 )
 
 // All allowed values of PolicyProperty enum
@@ -40,7 +40,7 @@ func (v *PolicyProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PolicyProperty(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullablePolicyProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

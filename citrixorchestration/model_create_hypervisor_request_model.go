@@ -19,8 +19,8 @@ var _ MappedNullable = &CreateHypervisorRequestModel{}
 
 // CreateHypervisorRequestModel Create hypervisor request model.  Note that in previous versions of the API, a \"hypervisor\" was known as a \"connection\".
 type CreateHypervisorRequestModel struct {
-	ConnectionDetails HypervisorConnectionDetailRequestModel `json:"ConnectionDetails"`
-	PoolDetails *CreateHypervisorResourcePoolRequestModel `json:"PoolDetails,omitempty"`
+	ConnectionDetails HypervisorConnectionDetailRequestModel    `json:"ConnectionDetails"`
+	PoolDetails       *CreateHypervisorResourcePoolRequestModel `json:"PoolDetails,omitempty"`
 }
 
 // NewCreateHypervisorRequestModel instantiates a new CreateHypervisorRequestModel object
@@ -98,7 +98,7 @@ func (o *CreateHypervisorRequestModel) SetPoolDetails(v CreateHypervisorResource
 }
 
 func (o CreateHypervisorRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -149,5 +149,3 @@ func (v *NullableCreateHypervisorRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

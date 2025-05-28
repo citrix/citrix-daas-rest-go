@@ -29,10 +29,10 @@ type LicenseInformationModel struct {
 	// The port of license server
 	LicensePort *int32 `json:"LicensePort,omitempty"`
 	// The subscription advantage date of the license
-	LicensingBurnInDate NullableString `json:"LicensingBurnInDate,omitempty"`
-	LicenseProduct *LicenseProduct `json:"LicenseProduct,omitempty"`
-	ProductEdition *ProductEdition `json:"ProductEdition,omitempty"`
-	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
+	LicensingBurnInDate NullableString  `json:"LicensingBurnInDate,omitempty"`
+	LicenseProduct      *LicenseProduct `json:"LicenseProduct,omitempty"`
+	ProductEdition      *ProductEdition `json:"ProductEdition,omitempty"`
+	LicenseModel        *LicenseModel   `json:"LicenseModel,omitempty"`
 	// Indicate if trial license is used
 	OutOfBoxGracePeriodActive *bool `json:"OutOfBoxGracePeriodActive,omitempty"`
 	// Indicate remaining hours for the trial period
@@ -122,6 +122,7 @@ func (o *LicenseInformationModel) HasLicenseServerWslAddress() bool {
 func (o *LicenseInformationModel) SetLicenseServerWslAddress(v string) {
 	o.LicenseServerWslAddress.Set(&v)
 }
+
 // SetLicenseServerWslAddressNil sets the value for LicenseServerWslAddress to be an explicit nil
 func (o *LicenseInformationModel) SetLicenseServerWslAddressNil() {
 	o.LicenseServerWslAddress.Set(nil)
@@ -164,6 +165,7 @@ func (o *LicenseInformationModel) HasLicenseServerLicensingAddress() bool {
 func (o *LicenseInformationModel) SetLicenseServerLicensingAddress(v string) {
 	o.LicenseServerLicensingAddress.Set(&v)
 }
+
 // SetLicenseServerLicensingAddressNil sets the value for LicenseServerLicensingAddress to be an explicit nil
 func (o *LicenseInformationModel) SetLicenseServerLicensingAddressNil() {
 	o.LicenseServerLicensingAddress.Set(nil)
@@ -206,6 +208,7 @@ func (o *LicenseInformationModel) HasLicenseServer() bool {
 func (o *LicenseInformationModel) SetLicenseServer(v string) {
 	o.LicenseServer.Set(&v)
 }
+
 // SetLicenseServerNil sets the value for LicenseServer to be an explicit nil
 func (o *LicenseInformationModel) SetLicenseServerNil() {
 	o.LicenseServer.Set(nil)
@@ -280,6 +283,7 @@ func (o *LicenseInformationModel) HasLicensingBurnInDate() bool {
 func (o *LicenseInformationModel) SetLicensingBurnInDate(v string) {
 	o.LicensingBurnInDate.Set(&v)
 }
+
 // SetLicensingBurnInDateNil sets the value for LicensingBurnInDate to be an explicit nil
 func (o *LicenseInformationModel) SetLicensingBurnInDateNil() {
 	o.LicensingBurnInDate.Set(nil)
@@ -450,6 +454,7 @@ func (o *LicenseInformationModel) HasOutOfBoxGracePeriodHoursLeft() bool {
 func (o *LicenseInformationModel) SetOutOfBoxGracePeriodHoursLeft(v int32) {
 	o.OutOfBoxGracePeriodHoursLeft.Set(&v)
 }
+
 // SetOutOfBoxGracePeriodHoursLeftNil sets the value for OutOfBoxGracePeriodHoursLeft to be an explicit nil
 func (o *LicenseInformationModel) SetOutOfBoxGracePeriodHoursLeftNil() {
 	o.OutOfBoxGracePeriodHoursLeft.Set(nil)
@@ -492,6 +497,7 @@ func (o *LicenseInformationModel) HasUseLicenseActivationService() bool {
 func (o *LicenseInformationModel) SetUseLicenseActivationService(v bool) {
 	o.UseLicenseActivationService.Set(&v)
 }
+
 // SetUseLicenseActivationServiceNil sets the value for UseLicenseActivationService to be an explicit nil
 func (o *LicenseInformationModel) SetUseLicenseActivationServiceNil() {
 	o.UseLicenseActivationService.Set(nil)
@@ -503,7 +509,7 @@ func (o *LicenseInformationModel) UnsetUseLicenseActivationService() {
 }
 
 func (o LicenseInformationModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -586,5 +592,3 @@ func (v *NullableLicenseInformationModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

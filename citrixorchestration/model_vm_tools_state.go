@@ -20,10 +20,10 @@ type VMToolsState string
 
 // List of VMToolsState
 const (
-	VMTOOLSSTATE_UNKNOWN VMToolsState = "Unknown"
+	VMTOOLSSTATE_UNKNOWN     VMToolsState = "Unknown"
 	VMTOOLSSTATE_NOT_PRESENT VMToolsState = "NotPresent"
 	VMTOOLSSTATE_NOT_STARTED VMToolsState = "NotStarted"
-	VMTOOLSSTATE_RUNNING VMToolsState = "Running"
+	VMTOOLSSTATE_RUNNING     VMToolsState = "Running"
 )
 
 // All allowed values of VMToolsState enum
@@ -40,7 +40,7 @@ func (v *VMToolsState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = VMToolsState(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableVMToolsState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

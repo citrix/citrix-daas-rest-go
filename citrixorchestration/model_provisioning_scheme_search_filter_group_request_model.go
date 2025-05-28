@@ -21,8 +21,8 @@ var _ MappedNullable = &ProvisioningSchemeSearchFilterGroupRequestModel{}
 type ProvisioningSchemeSearchFilterGroupRequestModel struct {
 	SearchFilterGroupType *ProvisioningSchemeSearchFilterGroupType `json:"SearchFilterGroupType,omitempty"`
 	// The search filters in search filter group
-	SearchFilters []ProvisioningSchemeSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SearchFilterGroupsType *ProvisioningSchemeSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilters          []ProvisioningSchemeSearchFilterRequestModel `json:"SearchFilters,omitempty"`
+	SearchFilterGroupsType *ProvisioningSchemeSearchFilterGroupsType    `json:"SearchFilterGroupsType,omitempty"`
 	// The search filter group in search filter groups
 	SearchFilterGroups []ProvisioningSchemeSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
 }
@@ -175,7 +175,7 @@ func (o *ProvisioningSchemeSearchFilterGroupRequestModel) SetSearchFilterGroups(
 }
 
 func (o ProvisioningSchemeSearchFilterGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableProvisioningSchemeSearchFilterGroupRequestModel) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

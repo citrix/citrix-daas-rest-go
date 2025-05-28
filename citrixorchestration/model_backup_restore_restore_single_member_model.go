@@ -25,7 +25,7 @@ type BackupRestoreRestoreSingleMemberModel struct {
 	// Member Name
 	MemberName NullableString `json:"MemberName,omitempty"`
 	// Member Type (Host Connections Only)
-	MemberType NullableString `json:"MemberType,omitempty"`
+	MemberType          NullableString                    `json:"MemberType,omitempty"`
 	PlaybookActionState *BackupRestorePlaybookActionState `json:"PlaybookActionState,omitempty"`
 	// Result
 	Result *bool `json:"Result,omitempty"`
@@ -36,7 +36,7 @@ type BackupRestoreRestoreSingleMemberModel struct {
 	// Date Time stamps
 	DateTime *time.Time `json:"DateTime,omitempty"`
 	// Member Count
-	MemberCount *int32 `json:"MemberCount,omitempty"`
+	MemberCount        *int32 `json:"MemberCount,omitempty"`
 	CurrentMemberIndex *int32 `json:"CurrentMemberIndex,omitempty"`
 	// Json string containing ACT internal Fixups data. Must be exchanged with ACT to obtain human readable fixups.
 	Fixups NullableString `json:"Fixups,omitempty"`
@@ -93,6 +93,7 @@ func (o *BackupRestoreRestoreSingleMemberModel) HasComponentName() bool {
 func (o *BackupRestoreRestoreSingleMemberModel) SetComponentName(v string) {
 	o.ComponentName.Set(&v)
 }
+
 // SetComponentNameNil sets the value for ComponentName to be an explicit nil
 func (o *BackupRestoreRestoreSingleMemberModel) SetComponentNameNil() {
 	o.ComponentName.Set(nil)
@@ -135,6 +136,7 @@ func (o *BackupRestoreRestoreSingleMemberModel) HasMemberName() bool {
 func (o *BackupRestoreRestoreSingleMemberModel) SetMemberName(v string) {
 	o.MemberName.Set(&v)
 }
+
 // SetMemberNameNil sets the value for MemberName to be an explicit nil
 func (o *BackupRestoreRestoreSingleMemberModel) SetMemberNameNil() {
 	o.MemberName.Set(nil)
@@ -177,6 +179,7 @@ func (o *BackupRestoreRestoreSingleMemberModel) HasMemberType() bool {
 func (o *BackupRestoreRestoreSingleMemberModel) SetMemberType(v string) {
 	o.MemberType.Set(&v)
 }
+
 // SetMemberTypeNil sets the value for MemberType to be an explicit nil
 func (o *BackupRestoreRestoreSingleMemberModel) SetMemberTypeNil() {
 	o.MemberType.Set(nil)
@@ -283,6 +286,7 @@ func (o *BackupRestoreRestoreSingleMemberModel) HasDetails() bool {
 func (o *BackupRestoreRestoreSingleMemberModel) SetDetails(v string) {
 	o.Details.Set(&v)
 }
+
 // SetDetailsNil sets the value for Details to be an explicit nil
 func (o *BackupRestoreRestoreSingleMemberModel) SetDetailsNil() {
 	o.Details.Set(nil)
@@ -325,6 +329,7 @@ func (o *BackupRestoreRestoreSingleMemberModel) HasTransactionId() bool {
 func (o *BackupRestoreRestoreSingleMemberModel) SetTransactionId(v string) {
 	o.TransactionId.Set(&v)
 }
+
 // SetTransactionIdNil sets the value for TransactionId to be an explicit nil
 func (o *BackupRestoreRestoreSingleMemberModel) SetTransactionIdNil() {
 	o.TransactionId.Set(nil)
@@ -463,6 +468,7 @@ func (o *BackupRestoreRestoreSingleMemberModel) HasFixups() bool {
 func (o *BackupRestoreRestoreSingleMemberModel) SetFixups(v string) {
 	o.Fixups.Set(&v)
 }
+
 // SetFixupsNil sets the value for Fixups to be an explicit nil
 func (o *BackupRestoreRestoreSingleMemberModel) SetFixupsNil() {
 	o.Fixups.Set(nil)
@@ -506,7 +512,7 @@ func (o *BackupRestoreRestoreSingleMemberModel) SetCheckMode(v bool) {
 }
 
 func (o BackupRestoreRestoreSingleMemberModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -589,5 +595,3 @@ func (v *NullableBackupRestoreRestoreSingleMemberModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

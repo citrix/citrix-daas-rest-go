@@ -20,9 +20,9 @@ type SessionChangeHostingAction string
 
 // List of SessionChangeHostingAction
 const (
-	SESSIONCHANGEHOSTINGACTION_UNKNOWN SessionChangeHostingAction = "Unknown"
-	SESSIONCHANGEHOSTINGACTION_NOTHING SessionChangeHostingAction = "Nothing"
-	SESSIONCHANGEHOSTINGACTION_SUSPEND SessionChangeHostingAction = "Suspend"
+	SESSIONCHANGEHOSTINGACTION_UNKNOWN  SessionChangeHostingAction = "Unknown"
+	SESSIONCHANGEHOSTINGACTION_NOTHING  SessionChangeHostingAction = "Nothing"
+	SESSIONCHANGEHOSTINGACTION_SUSPEND  SessionChangeHostingAction = "Suspend"
 	SESSIONCHANGEHOSTINGACTION_SHUTDOWN SessionChangeHostingAction = "Shutdown"
 )
 
@@ -40,7 +40,7 @@ func (v *SessionChangeHostingAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SessionChangeHostingAction(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableSessionChangeHostingAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

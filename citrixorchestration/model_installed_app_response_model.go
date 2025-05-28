@@ -23,7 +23,7 @@ type InstalledAppResponseModel struct {
 	CommandLineArguments string `json:"CommandLineArguments"`
 	// The name of the executable file to launch. The full path need not be provided if it's already in the path. Environment variables can also be used.
 	CommandLineExecutable string `json:"CommandLineExecutable"`
-	// The working directory which the executable is launched from. Environment variables can be used. 
+	// The working directory which the executable is launched from. Environment variables can be used.
 	WorkingDirectory string `json:"WorkingDirectory"`
 }
 
@@ -120,7 +120,7 @@ func (o *InstalledAppResponseModel) SetWorkingDirectory(v string) {
 }
 
 func (o InstalledAppResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,5 +170,3 @@ func (v *NullableInstalledAppResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

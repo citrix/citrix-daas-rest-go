@@ -19,9 +19,9 @@ var _ MappedNullable = &CitrixErrorModel{}
 
 // CitrixErrorModel struct for CitrixErrorModel
 type CitrixErrorModel struct {
-	Detail *string `json:"detail,omitempty"`
+	Detail     *string     `json:"detail,omitempty"`
 	Parameters []Parameter `json:"parameters,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Type       *string     `json:"type,omitempty"`
 }
 
 // NewCitrixErrorModel instantiates a new CitrixErrorModel object
@@ -138,7 +138,7 @@ func (o *CitrixErrorModel) SetType(v string) {
 }
 
 func (o CitrixErrorModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableCitrixErrorModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

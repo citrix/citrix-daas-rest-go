@@ -74,6 +74,7 @@ func (o *DeploymentCredentials) HasDomainAdminUsername() bool {
 func (o *DeploymentCredentials) SetDomainAdminUsername(v string) {
 	o.DomainAdminUsername.Set(&v)
 }
+
 // SetDomainAdminUsernameNil sets the value for DomainAdminUsername to be an explicit nil
 func (o *DeploymentCredentials) SetDomainAdminUsernameNil() {
 	o.DomainAdminUsername.Set(nil)
@@ -116,6 +117,7 @@ func (o *DeploymentCredentials) HasDomainAdminPassword() bool {
 func (o *DeploymentCredentials) SetDomainAdminPassword(v string) {
 	o.DomainAdminPassword.Set(&v)
 }
+
 // SetDomainAdminPasswordNil sets the value for DomainAdminPassword to be an explicit nil
 func (o *DeploymentCredentials) SetDomainAdminPasswordNil() {
 	o.DomainAdminPassword.Set(nil)
@@ -127,7 +129,7 @@ func (o *DeploymentCredentials) UnsetDomainAdminPassword() {
 }
 
 func (o DeploymentCredentials) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableDeploymentCredentials) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

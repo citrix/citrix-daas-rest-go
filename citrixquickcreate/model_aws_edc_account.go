@@ -32,8 +32,11 @@ type AwsEdcAccount struct {
 	AwsEdcMissingRolePermissions []AwsEdcMissingRolePermissions `json:"awsEdcMissingRolePermissions,omitempty"`
 	// Indicates if the associated AWS EDC account has BYOL feature is enabled
 	AwsByolFeatureEnabled NullableBool `json:"awsByolFeatureEnabled,omitempty"`
+	// Discribes what method of authentication is used for the account
 	AwsAuthType *AwsEdcAccountAuthType `json:"awsAuthType,omitempty"`
 }
+
+type _AwsEdcAccount AwsEdcAccount
 
 // NewAwsEdcAccount instantiates a new AwsEdcAccount object
 // This constructor will assign default values to properties that have it defined,
@@ -117,6 +120,7 @@ func (o *AwsEdcAccount) HasByolCidrRange() bool {
 func (o *AwsEdcAccount) SetByolCidrRange(v string) {
 	o.ByolCidrRange.Set(&v)
 }
+
 // SetByolCidrRangeNil sets the value for ByolCidrRange to be an explicit nil
 func (o *AwsEdcAccount) SetByolCidrRangeNil() {
 	o.ByolCidrRange.Set(nil)
@@ -159,6 +163,7 @@ func (o *AwsEdcAccount) HasAwsAccount() bool {
 func (o *AwsEdcAccount) SetAwsAccount(v string) {
 	o.AwsAccount.Set(&v)
 }
+
 // SetAwsAccountNil sets the value for AwsAccount to be an explicit nil
 func (o *AwsEdcAccount) SetAwsAccountNil() {
 	o.AwsAccount.Set(nil)
@@ -201,6 +206,7 @@ func (o *AwsEdcAccount) HasAwsRegion() bool {
 func (o *AwsEdcAccount) SetAwsRegion(v string) {
 	o.AwsRegion.Set(&v)
 }
+
 // SetAwsRegionNil sets the value for AwsRegion to be an explicit nil
 func (o *AwsEdcAccount) SetAwsRegionNil() {
 	o.AwsRegion.Set(nil)
@@ -232,7 +238,7 @@ func (o *AwsEdcAccount) GetAwsEdcMissingRolePermissionsOk() ([]AwsEdcMissingRole
 
 // HasAwsEdcMissingRolePermissions returns a boolean if a field has been set.
 func (o *AwsEdcAccount) HasAwsEdcMissingRolePermissions() bool {
-	if o != nil && IsNil(o.AwsEdcMissingRolePermissions) {
+	if o != nil && !IsNil(o.AwsEdcMissingRolePermissions) {
 		return true
 	}
 
@@ -276,6 +282,7 @@ func (o *AwsEdcAccount) HasAwsByolFeatureEnabled() bool {
 func (o *AwsEdcAccount) SetAwsByolFeatureEnabled(v bool) {
 	o.AwsByolFeatureEnabled.Set(&v)
 }
+
 // SetAwsByolFeatureEnabledNil sets the value for AwsByolFeatureEnabled to be an explicit nil
 func (o *AwsEdcAccount) SetAwsByolFeatureEnabledNil() {
 	o.AwsByolFeatureEnabled.Set(nil)
@@ -319,7 +326,7 @@ func (o *AwsEdcAccount) SetAwsAuthType(v AwsEdcAccountAuthType) {
 }
 
 func (o AwsEdcAccount) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -395,5 +402,3 @@ func (v *NullableAwsEdcAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

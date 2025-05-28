@@ -84,9 +84,9 @@ type IdentityUserResponseModel struct {
 	// Indicates whether the User object is locked.
 	Locked NullableBool `json:"Locked,omitempty"`
 	// Properties fetched and populated in the User or Group object.  This is a bitfield indicating the fetched properties.
-	PropertiesFetched int32 `json:"PropertiesFetched"`
-	Claims *IdentityClaimsResponseModel `json:"Claims,omitempty"`
-	Directory *IdentityDirectoryResponseModel `json:"Directory,omitempty"`
+	PropertiesFetched int32                           `json:"PropertiesFetched"`
+	Claims            *IdentityClaimsResponseModel    `json:"Claims,omitempty"`
+	Directory         *IdentityDirectoryResponseModel `json:"Directory,omitempty"`
 }
 
 // NewIdentityUserResponseModel instantiates a new IdentityUserResponseModel object
@@ -140,6 +140,7 @@ func (o *IdentityUserResponseModel) HasDomain() bool {
 func (o *IdentityUserResponseModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *IdentityUserResponseModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -182,6 +183,7 @@ func (o *IdentityUserResponseModel) HasForest() bool {
 func (o *IdentityUserResponseModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *IdentityUserResponseModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -224,6 +226,7 @@ func (o *IdentityUserResponseModel) HasGuid() bool {
 func (o *IdentityUserResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *IdentityUserResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -266,6 +269,7 @@ func (o *IdentityUserResponseModel) HasDistinguishedName() bool {
 func (o *IdentityUserResponseModel) SetDistinguishedName(v string) {
 	o.DistinguishedName.Set(&v)
 }
+
 // SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
 func (o *IdentityUserResponseModel) SetDistinguishedNameNil() {
 	o.DistinguishedName.Set(nil)
@@ -308,6 +312,7 @@ func (o *IdentityUserResponseModel) HasCanonicalName() bool {
 func (o *IdentityUserResponseModel) SetCanonicalName(v string) {
 	o.CanonicalName.Set(&v)
 }
+
 // SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
 func (o *IdentityUserResponseModel) SetCanonicalNameNil() {
 	o.CanonicalName.Set(nil)
@@ -382,6 +387,7 @@ func (o *IdentityUserResponseModel) HasDirectoryServer() bool {
 func (o *IdentityUserResponseModel) SetDirectoryServer(v string) {
 	o.DirectoryServer.Set(&v)
 }
+
 // SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
 func (o *IdentityUserResponseModel) SetDirectoryServerNil() {
 	o.DirectoryServer.Set(nil)
@@ -448,6 +454,7 @@ func (o *IdentityUserResponseModel) HasSamName() bool {
 func (o *IdentityUserResponseModel) SetSamName(v string) {
 	o.SamName.Set(&v)
 }
+
 // SetSamNameNil sets the value for SamName to be an explicit nil
 func (o *IdentityUserResponseModel) SetSamNameNil() {
 	o.SamName.Set(nil)
@@ -490,6 +497,7 @@ func (o *IdentityUserResponseModel) HasSamAccountName() bool {
 func (o *IdentityUserResponseModel) SetSamAccountName(v string) {
 	o.SamAccountName.Set(&v)
 }
+
 // SetSamAccountNameNil sets the value for SamAccountName to be an explicit nil
 func (o *IdentityUserResponseModel) SetSamAccountNameNil() {
 	o.SamAccountName.Set(nil)
@@ -532,6 +540,7 @@ func (o *IdentityUserResponseModel) HasCommonName() bool {
 func (o *IdentityUserResponseModel) SetCommonName(v string) {
 	o.CommonName.Set(&v)
 }
+
 // SetCommonNameNil sets the value for CommonName to be an explicit nil
 func (o *IdentityUserResponseModel) SetCommonNameNil() {
 	o.CommonName.Set(nil)
@@ -574,6 +583,7 @@ func (o *IdentityUserResponseModel) HasPrincipalName() bool {
 func (o *IdentityUserResponseModel) SetPrincipalName(v string) {
 	o.PrincipalName.Set(&v)
 }
+
 // SetPrincipalNameNil sets the value for PrincipalName to be an explicit nil
 func (o *IdentityUserResponseModel) SetPrincipalNameNil() {
 	o.PrincipalName.Set(nil)
@@ -616,6 +626,7 @@ func (o *IdentityUserResponseModel) HasOid() bool {
 func (o *IdentityUserResponseModel) SetOid(v string) {
 	o.Oid.Set(&v)
 }
+
 // SetOidNil sets the value for Oid to be an explicit nil
 func (o *IdentityUserResponseModel) SetOidNil() {
 	o.Oid.Set(nil)
@@ -658,6 +669,7 @@ func (o *IdentityUserResponseModel) HasSid() bool {
 func (o *IdentityUserResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *IdentityUserResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -700,6 +712,7 @@ func (o *IdentityUserResponseModel) HasUserIdentity() bool {
 func (o *IdentityUserResponseModel) SetUserIdentity(v string) {
 	o.UserIdentity.Set(&v)
 }
+
 // SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
 func (o *IdentityUserResponseModel) SetUserIdentityNil() {
 	o.UserIdentity.Set(nil)
@@ -808,6 +821,7 @@ func (o *IdentityUserResponseModel) HasPasswordCanExpire() bool {
 func (o *IdentityUserResponseModel) SetPasswordCanExpire(v bool) {
 	o.PasswordCanExpire.Set(&v)
 }
+
 // SetPasswordCanExpireNil sets the value for PasswordCanExpire to be an explicit nil
 func (o *IdentityUserResponseModel) SetPasswordCanExpireNil() {
 	o.PasswordCanExpire.Set(nil)
@@ -850,6 +864,7 @@ func (o *IdentityUserResponseModel) HasDaysUntilPasswordExpiry() bool {
 func (o *IdentityUserResponseModel) SetDaysUntilPasswordExpiry(v int64) {
 	o.DaysUntilPasswordExpiry.Set(&v)
 }
+
 // SetDaysUntilPasswordExpiryNil sets the value for DaysUntilPasswordExpiry to be an explicit nil
 func (o *IdentityUserResponseModel) SetDaysUntilPasswordExpiryNil() {
 	o.DaysUntilPasswordExpiry.Set(nil)
@@ -892,6 +907,7 @@ func (o *IdentityUserResponseModel) HasIsBuiltIn() bool {
 func (o *IdentityUserResponseModel) SetIsBuiltIn(v bool) {
 	o.IsBuiltIn.Set(&v)
 }
+
 // SetIsBuiltInNil sets the value for IsBuiltIn to be an explicit nil
 func (o *IdentityUserResponseModel) SetIsBuiltInNil() {
 	o.IsBuiltIn.Set(nil)
@@ -934,6 +950,7 @@ func (o *IdentityUserResponseModel) HasIsGroup() bool {
 func (o *IdentityUserResponseModel) SetIsGroup(v bool) {
 	o.IsGroup.Set(&v)
 }
+
 // SetIsGroupNil sets the value for IsGroup to be an explicit nil
 func (o *IdentityUserResponseModel) SetIsGroupNil() {
 	o.IsGroup.Set(nil)
@@ -976,6 +993,7 @@ func (o *IdentityUserResponseModel) HasName() bool {
 func (o *IdentityUserResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *IdentityUserResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -1018,6 +1036,7 @@ func (o *IdentityUserResponseModel) HasStreetAddress() bool {
 func (o *IdentityUserResponseModel) SetStreetAddress(v string) {
 	o.StreetAddress.Set(&v)
 }
+
 // SetStreetAddressNil sets the value for StreetAddress to be an explicit nil
 func (o *IdentityUserResponseModel) SetStreetAddressNil() {
 	o.StreetAddress.Set(nil)
@@ -1060,6 +1079,7 @@ func (o *IdentityUserResponseModel) HasCity() bool {
 func (o *IdentityUserResponseModel) SetCity(v string) {
 	o.City.Set(&v)
 }
+
 // SetCityNil sets the value for City to be an explicit nil
 func (o *IdentityUserResponseModel) SetCityNil() {
 	o.City.Set(nil)
@@ -1102,6 +1122,7 @@ func (o *IdentityUserResponseModel) HasState() bool {
 func (o *IdentityUserResponseModel) SetState(v string) {
 	o.State.Set(&v)
 }
+
 // SetStateNil sets the value for State to be an explicit nil
 func (o *IdentityUserResponseModel) SetStateNil() {
 	o.State.Set(nil)
@@ -1144,6 +1165,7 @@ func (o *IdentityUserResponseModel) HasCountry() bool {
 func (o *IdentityUserResponseModel) SetCountry(v string) {
 	o.Country.Set(&v)
 }
+
 // SetCountryNil sets the value for Country to be an explicit nil
 func (o *IdentityUserResponseModel) SetCountryNil() {
 	o.Country.Set(nil)
@@ -1186,6 +1208,7 @@ func (o *IdentityUserResponseModel) HasMail() bool {
 func (o *IdentityUserResponseModel) SetMail(v string) {
 	o.Mail.Set(&v)
 }
+
 // SetMailNil sets the value for Mail to be an explicit nil
 func (o *IdentityUserResponseModel) SetMailNil() {
 	o.Mail.Set(nil)
@@ -1228,6 +1251,7 @@ func (o *IdentityUserResponseModel) HasTelephoneNumber() bool {
 func (o *IdentityUserResponseModel) SetTelephoneNumber(v string) {
 	o.TelephoneNumber.Set(&v)
 }
+
 // SetTelephoneNumberNil sets the value for TelephoneNumber to be an explicit nil
 func (o *IdentityUserResponseModel) SetTelephoneNumberNil() {
 	o.TelephoneNumber.Set(nil)
@@ -1270,6 +1294,7 @@ func (o *IdentityUserResponseModel) HasHomePhone() bool {
 func (o *IdentityUserResponseModel) SetHomePhone(v string) {
 	o.HomePhone.Set(&v)
 }
+
 // SetHomePhoneNil sets the value for HomePhone to be an explicit nil
 func (o *IdentityUserResponseModel) SetHomePhoneNil() {
 	o.HomePhone.Set(nil)
@@ -1312,6 +1337,7 @@ func (o *IdentityUserResponseModel) HasMobile() bool {
 func (o *IdentityUserResponseModel) SetMobile(v string) {
 	o.Mobile.Set(&v)
 }
+
 // SetMobileNil sets the value for Mobile to be an explicit nil
 func (o *IdentityUserResponseModel) SetMobileNil() {
 	o.Mobile.Set(nil)
@@ -1354,6 +1380,7 @@ func (o *IdentityUserResponseModel) HasEnabled() bool {
 func (o *IdentityUserResponseModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *IdentityUserResponseModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -1396,6 +1423,7 @@ func (o *IdentityUserResponseModel) HasLocked() bool {
 func (o *IdentityUserResponseModel) SetLocked(v bool) {
 	o.Locked.Set(&v)
 }
+
 // SetLockedNil sets the value for Locked to be an explicit nil
 func (o *IdentityUserResponseModel) SetLockedNil() {
 	o.Locked.Set(nil)
@@ -1495,7 +1523,7 @@ func (o *IdentityUserResponseModel) SetDirectory(v IdentityDirectoryResponseMode
 }
 
 func (o IdentityUserResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1643,5 +1671,3 @@ func (v *NullableIdentityUserResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,22 +18,21 @@ import (
 	"net/url"
 )
 
-
 // BatchAPIsDAASService BatchAPIsDAAS service
 type BatchAPIsDAASService service
 
 type ApiBatchDoBatchRequestRequest struct {
-	ctx context.Context
-	ApiService *BatchAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	batchRequestModel *BatchRequestModel
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *BatchAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	batchRequestModel   *BatchRequestModel
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -84,7 +83,7 @@ func (r ApiBatchDoBatchRequestRequest) CitrixLocale(citrixLocale string) ApiBatc
 	return r
 }
 
-// If &#x60;true&#x60;, the batch request will be processed as a background task. This is recommended, since a batch request that takes more than 90 seconds to execute may time out, and results may be lost. The task will have JobType Batch. The SubJobs will correspond to the items in the batch request. When the task is complete it will redirect to GetJobResults. The job&#39;s Parameters will contain no properties.             
+// If &#x60;true&#x60;, the batch request will be processed as a background task. This is recommended, since a batch request that takes more than 90 seconds to execute may time out, and results may be lost. The task will have JobType Batch. The SubJobs will correspond to the items in the batch request. When the task is complete it will redirect to GetJobResults. The job&#39;s Parameters will contain no properties.
 func (r ApiBatchDoBatchRequestRequest) Async(async bool) ApiBatchDoBatchRequestRequest {
 	r.async = &async
 	return r
@@ -102,24 +101,25 @@ at a time.  The requests may be performed in parallel and may not have any
 dependencies between them.  The result will be returned once all requests have
 completed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiBatchDoBatchRequestRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiBatchDoBatchRequestRequest
 */
 func (a *BatchAPIsDAASService) BatchDoBatchRequest(ctx context.Context) ApiBatchDoBatchRequestRequest {
 	return ApiBatchDoBatchRequestRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return BatchResponseModel
+//
+//	@return BatchResponseModel
 func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchRequestRequest) (*BatchResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *BatchResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *BatchResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BatchAPIsDAASService.BatchDoBatchRequest")
@@ -224,8 +224,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -235,8 +235,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -246,8 +246,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -257,8 +257,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -268,8 +268,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -279,8 +279,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -290,8 +290,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -301,8 +301,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -312,8 +312,8 @@ func (a *BatchAPIsDAASService) BatchDoBatchRequestExecute(r ApiBatchDoBatchReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

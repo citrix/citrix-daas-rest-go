@@ -74,6 +74,7 @@ func (o *AssociatedImage) HasImageId() bool {
 func (o *AssociatedImage) SetImageId(v string) {
 	o.ImageId.Set(&v)
 }
+
 // SetImageIdNil sets the value for ImageId to be an explicit nil
 func (o *AssociatedImage) SetImageIdNil() {
 	o.ImageId.Set(nil)
@@ -116,6 +117,7 @@ func (o *AssociatedImage) HasImageName() bool {
 func (o *AssociatedImage) SetImageName(v string) {
 	o.ImageName.Set(&v)
 }
+
 // SetImageNameNil sets the value for ImageName to be an explicit nil
 func (o *AssociatedImage) SetImageNameNil() {
 	o.ImageName.Set(nil)
@@ -127,7 +129,7 @@ func (o *AssociatedImage) UnsetImageName() {
 }
 
 func (o AssociatedImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableAssociatedImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

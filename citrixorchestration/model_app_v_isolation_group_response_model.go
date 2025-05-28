@@ -114,6 +114,7 @@ func (o *AppVIsolationGroupResponseModel) HasName() bool {
 func (o *AppVIsolationGroupResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AppVIsolationGroupResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -156,6 +157,7 @@ func (o *AppVIsolationGroupResponseModel) HasDescription() bool {
 func (o *AppVIsolationGroupResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AppVIsolationGroupResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -198,6 +200,7 @@ func (o *AppVIsolationGroupResponseModel) HasVersion() bool {
 func (o *AppVIsolationGroupResponseModel) SetVersion(v string) {
 	o.Version.Set(&v)
 }
+
 // SetVersionNil sets the value for Version to be an explicit nil
 func (o *AppVIsolationGroupResponseModel) SetVersionNil() {
 	o.Version.Set(nil)
@@ -274,7 +277,7 @@ func (o *AppVIsolationGroupResponseModel) SetAppVPackages(v []AppVPackageRespons
 }
 
 func (o AppVIsolationGroupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -339,5 +342,3 @@ func (v *NullableAppVIsolationGroupResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

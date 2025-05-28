@@ -93,7 +93,7 @@ func (o *ProjectedMachinesPerDayResponseModel) SetTimeSlots(v []ProjectedMachine
 }
 
 func (o ProjectedMachinesPerDayResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,5 +142,3 @@ func (v *NullableProjectedMachinesPerDayResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

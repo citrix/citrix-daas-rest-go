@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_ProvisionedVirtualMachineAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_ProvisionedVirtualMachineAPIsDAASService(t *testin
 
 	t.Run("Test ProvisionedVirtualMachineAPIsDAASService ProvisionedVirtualMachineApplyProvisionedVirtualMachineConfigurationUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var vmSid string
 
@@ -37,7 +38,7 @@ func Test_citrixorchestration_ProvisionedVirtualMachineAPIsDAASService(t *testin
 
 	t.Run("Test ProvisionedVirtualMachineAPIsDAASService ProvisionedVirtualMachineGetMaintenanceCycleVMOperationJobs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var vmSid string
 
@@ -51,7 +52,7 @@ func Test_citrixorchestration_ProvisionedVirtualMachineAPIsDAASService(t *testin
 
 	t.Run("Test ProvisionedVirtualMachineAPIsDAASService ProvisionedVirtualMachineResetProvisionedVirtualMachineOSDisk", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var vmSid string
 
@@ -64,7 +65,7 @@ func Test_citrixorchestration_ProvisionedVirtualMachineAPIsDAASService(t *testin
 
 	t.Run("Test ProvisionedVirtualMachineAPIsDAASService ProvisionedVirtualMachineUpdateProvisionedVirtualMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var vmSid string
 

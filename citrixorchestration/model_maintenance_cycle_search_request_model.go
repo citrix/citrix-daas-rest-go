@@ -23,10 +23,10 @@ type MaintenanceCycleSearchRequestModel struct {
 	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
 	// List of advanced search filters.
 	SearchFilters []MaintenanceCycleSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SortCriteria *MaintenanceCycleSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
+	SortCriteria  *MaintenanceCycleSortCriteriaRequestModel  `json:"SortCriteria,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []MaintenanceCycleSearchFilterGroupsRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *MaintenanceCycleSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []MaintenanceCycleSearchFilterGroupsRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *MaintenanceCycleSearchFilterGroupsType          `json:"SearchFilterGroupsType,omitempty"`
 	// Sort criteria for the results, multiple sorting criteria can be specified here.
 	SortCriteriaItems []MaintenanceCycleSortCriteriaRequestModel `json:"SortCriteriaItems,omitempty"`
 }
@@ -80,6 +80,7 @@ func (o *MaintenanceCycleSearchRequestModel) HasBasicSearchString() bool {
 func (o *MaintenanceCycleSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *MaintenanceCycleSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -254,7 +255,7 @@ func (o *MaintenanceCycleSearchRequestModel) SetSortCriteriaItems(v []Maintenanc
 }
 
 func (o MaintenanceCycleSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -319,5 +320,3 @@ func (v *NullableMaintenanceCycleSearchRequestModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

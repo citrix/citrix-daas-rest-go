@@ -71,6 +71,7 @@ func (o *UpdateDeploymentImage) HasImageId() bool {
 func (o *UpdateDeploymentImage) SetImageId(v string) {
 	o.ImageId.Set(&v)
 }
+
 // SetImageIdNil sets the value for ImageId to be an explicit nil
 func (o *UpdateDeploymentImage) SetImageIdNil() {
 	o.ImageId.Set(nil)
@@ -82,7 +83,7 @@ func (o *UpdateDeploymentImage) UnsetImageId() {
 }
 
 func (o UpdateDeploymentImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,5 +133,3 @@ func (v *NullableUpdateDeploymentImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

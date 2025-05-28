@@ -17,10 +17,10 @@ import (
 // checks if the MachineBaseResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MachineBaseResponseModel{}
 
-// MachineBaseResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,MachineCatalog,Name. 
+// MachineBaseResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,MachineCatalog,Name.
 type MachineBaseResponseModel struct {
 	// Id of machine. Used to be: DesktopUid (and wasn't globally unique) OR UUID, depending on context Needs to be globally unique Might be constructed from site ID + internal Uid?  or use uuid
-	Id string `json:"Id"`
+	Id             string            `json:"Id"`
 	MachineCatalog *RefResponseModel `json:"MachineCatalog,omitempty"`
 	// DNS host name of the machine. Used to be: MachineName
 	Name NullableString `json:"Name,omitempty"`
@@ -132,6 +132,7 @@ func (o *MachineBaseResponseModel) HasName() bool {
 func (o *MachineBaseResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MachineBaseResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -143,7 +144,7 @@ func (o *MachineBaseResponseModel) UnsetName() {
 }
 
 func (o MachineBaseResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +198,3 @@ func (v *NullableMachineBaseResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

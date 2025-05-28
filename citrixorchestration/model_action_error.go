@@ -24,8 +24,8 @@ type ActionError struct {
 	// The stack trace.
 	StackTrace NullableString `json:"StackTrace,omitempty"`
 	// The error data.
-	ErrorData []NameValueStringPairModel `json:"ErrorData,omitempty"`
-	InnerError *ActionError `json:"InnerError,omitempty"`
+	ErrorData  []NameValueStringPairModel `json:"ErrorData,omitempty"`
+	InnerError *ActionError               `json:"InnerError,omitempty"`
 }
 
 // NewActionError instantiates a new ActionError object
@@ -77,6 +77,7 @@ func (o *ActionError) HasMessage() bool {
 func (o *ActionError) SetMessage(v string) {
 	o.Message.Set(&v)
 }
+
 // SetMessageNil sets the value for Message to be an explicit nil
 func (o *ActionError) SetMessageNil() {
 	o.Message.Set(nil)
@@ -119,6 +120,7 @@ func (o *ActionError) HasStackTrace() bool {
 func (o *ActionError) SetStackTrace(v string) {
 	o.StackTrace.Set(&v)
 }
+
 // SetStackTraceNil sets the value for StackTrace to be an explicit nil
 func (o *ActionError) SetStackTraceNil() {
 	o.StackTrace.Set(nil)
@@ -195,7 +197,7 @@ func (o *ActionError) SetInnerError(v ActionError) {
 }
 
 func (o ActionError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -254,5 +256,3 @@ func (v *NullableActionError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

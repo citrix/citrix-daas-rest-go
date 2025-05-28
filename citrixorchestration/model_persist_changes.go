@@ -20,8 +20,8 @@ type PersistChanges string
 
 // List of PersistChanges
 const (
-	PERSISTCHANGES_UNKNOWN PersistChanges = "Unknown"
-	PERSISTCHANGES_DISCARD PersistChanges = "Discard"
+	PERSISTCHANGES_UNKNOWN  PersistChanges = "Unknown"
+	PERSISTCHANGES_DISCARD  PersistChanges = "Discard"
 	PERSISTCHANGES_ON_LOCAL PersistChanges = "OnLocal"
 )
 
@@ -38,7 +38,7 @@ func (v *PersistChanges) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PersistChanges(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullablePersistChanges) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

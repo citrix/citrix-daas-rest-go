@@ -20,7 +20,7 @@ type GroupLicenseOperationType string
 
 // List of GroupLicenseOperationType
 const (
-	GROUPLICENSEOPERATIONTYPE_ASSIGNMENT GroupLicenseOperationType = "Assignment"
+	GROUPLICENSEOPERATIONTYPE_ASSIGNMENT   GroupLicenseOperationType = "Assignment"
 	GROUPLICENSEOPERATIONTYPE_UNASSIGNMENT GroupLicenseOperationType = "Unassignment"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableGroupLicenseOperationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

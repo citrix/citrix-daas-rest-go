@@ -19,7 +19,7 @@ var _ MappedNullable = &BackupRestoreDoBackupRequestModel{}
 
 // BackupRestoreDoBackupRequestModel Do Backup Request
 type BackupRestoreDoBackupRequestModel struct {
-	// Notes             
+	// Notes
 	Notes NullableString `json:"Notes,omitempty"`
 	// Schedule Name; for logging purposes only
 	ScheduleName NullableString `json:"ScheduleName,omitempty"`
@@ -74,6 +74,7 @@ func (o *BackupRestoreDoBackupRequestModel) HasNotes() bool {
 func (o *BackupRestoreDoBackupRequestModel) SetNotes(v string) {
 	o.Notes.Set(&v)
 }
+
 // SetNotesNil sets the value for Notes to be an explicit nil
 func (o *BackupRestoreDoBackupRequestModel) SetNotesNil() {
 	o.Notes.Set(nil)
@@ -116,6 +117,7 @@ func (o *BackupRestoreDoBackupRequestModel) HasScheduleName() bool {
 func (o *BackupRestoreDoBackupRequestModel) SetScheduleName(v string) {
 	o.ScheduleName.Set(&v)
 }
+
 // SetScheduleNameNil sets the value for ScheduleName to be an explicit nil
 func (o *BackupRestoreDoBackupRequestModel) SetScheduleNameNil() {
 	o.ScheduleName.Set(nil)
@@ -127,7 +129,7 @@ func (o *BackupRestoreDoBackupRequestModel) UnsetScheduleName() {
 }
 
 func (o BackupRestoreDoBackupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableBackupRestoreDoBackupRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

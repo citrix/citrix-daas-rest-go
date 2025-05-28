@@ -19,7 +19,7 @@ var _ MappedNullable = &AliasModel{}
 
 // AliasModel struct for AliasModel
 type AliasModel struct {
-	Type NullableString `json:"type,omitempty"`
+	Type  NullableString `json:"type,omitempty"`
 	Alias NullableString `json:"alias,omitempty"`
 }
 
@@ -72,6 +72,7 @@ func (o *AliasModel) HasType() bool {
 func (o *AliasModel) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *AliasModel) SetTypeNil() {
 	o.Type.Set(nil)
@@ -114,6 +115,7 @@ func (o *AliasModel) HasAlias() bool {
 func (o *AliasModel) SetAlias(v string) {
 	o.Alias.Set(&v)
 }
+
 // SetAliasNil sets the value for Alias to be an explicit nil
 func (o *AliasModel) SetAliasNil() {
 	o.Alias.Set(nil)
@@ -125,7 +127,7 @@ func (o *AliasModel) UnsetAlias() {
 }
 
 func (o AliasModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableAliasModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

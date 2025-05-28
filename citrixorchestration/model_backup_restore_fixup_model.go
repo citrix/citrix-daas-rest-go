@@ -20,7 +20,7 @@ var _ MappedNullable = &BackupRestoreFixupModel{}
 // BackupRestoreFixupModel struct for BackupRestoreFixupModel
 type BackupRestoreFixupModel struct {
 	// Fixup Identifier
-	Id NullableString `json:"Id,omitempty"`
+	Id       NullableString `json:"Id,omitempty"`
 	Severity *FixupSeverity `json:"Severity,omitempty"`
 	// List of parameters used in fixup string formatting
 	LocalizedFixup NullableString `json:"LocalizedFixup,omitempty"`
@@ -75,6 +75,7 @@ func (o *BackupRestoreFixupModel) HasId() bool {
 func (o *BackupRestoreFixupModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *BackupRestoreFixupModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -149,6 +150,7 @@ func (o *BackupRestoreFixupModel) HasLocalizedFixup() bool {
 func (o *BackupRestoreFixupModel) SetLocalizedFixup(v string) {
 	o.LocalizedFixup.Set(&v)
 }
+
 // SetLocalizedFixupNil sets the value for LocalizedFixup to be an explicit nil
 func (o *BackupRestoreFixupModel) SetLocalizedFixupNil() {
 	o.LocalizedFixup.Set(nil)
@@ -160,7 +162,7 @@ func (o *BackupRestoreFixupModel) UnsetLocalizedFixup() {
 }
 
 func (o BackupRestoreFixupModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,5 +218,3 @@ func (v *NullableBackupRestoreFixupModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

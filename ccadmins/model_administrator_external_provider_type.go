@@ -21,9 +21,9 @@ type AdministratorExternalProviderType string
 // List of AdministratorExternalProviderType
 const (
 	ADMINISTRATOREXTERNALPROVIDERTYPE_AZURE_AD AdministratorExternalProviderType = "AzureAd"
-	ADMINISTRATOREXTERNALPROVIDERTYPE_AD AdministratorExternalProviderType = "Ad"
-	ADMINISTRATOREXTERNALPROVIDERTYPE_OKTA AdministratorExternalProviderType = "Okta"
-	ADMINISTRATOREXTERNALPROVIDERTYPE_GOOGLE AdministratorExternalProviderType = "Google"
+	ADMINISTRATOREXTERNALPROVIDERTYPE_AD       AdministratorExternalProviderType = "Ad"
+	ADMINISTRATOREXTERNALPROVIDERTYPE_OKTA     AdministratorExternalProviderType = "Okta"
+	ADMINISTRATOREXTERNALPROVIDERTYPE_GOOGLE   AdministratorExternalProviderType = "Google"
 )
 
 // All allowed values of AdministratorExternalProviderType enum
@@ -112,4 +112,3 @@ func (v *NullableAdministratorExternalProviderType) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -68,8 +68,8 @@ type SettingDefinition struct {
 	// Custom text for the allowed explanation for some boolean settings.
 	AllowedText NullableString `json:"allowedText,omitempty"`
 	// Custom text for the denied explanation for some boolean settings.
-	DeniedText NullableString `json:"deniedText,omitempty"`
-	EnumType *EnumerationType `json:"enumType,omitempty"`
+	DeniedText NullableString   `json:"deniedText,omitempty"`
+	EnumType   *EnumerationType `json:"enumType,omitempty"`
 	// VDA versions honoring this setting.
 	VersionDetails []VersionDetail `json:"versionDetails,omitempty"`
 	// The version string in GPFX file, e.g., XD=7.8,*,B.
@@ -131,6 +131,7 @@ func (o *SettingDefinition) HasSettingName() bool {
 func (o *SettingDefinition) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *SettingDefinition) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -173,6 +174,7 @@ func (o *SettingDefinition) HasEditorName() bool {
 func (o *SettingDefinition) SetEditorName(v string) {
 	o.EditorName.Set(&v)
 }
+
 // SetEditorNameNil sets the value for EditorName to be an explicit nil
 func (o *SettingDefinition) SetEditorNameNil() {
 	o.EditorName.Set(nil)
@@ -215,6 +217,7 @@ func (o *SettingDefinition) HasDisplayName() bool {
 func (o *SettingDefinition) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *SettingDefinition) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -257,6 +260,7 @@ func (o *SettingDefinition) HasCategory() bool {
 func (o *SettingDefinition) SetCategory(v string) {
 	o.Category.Set(&v)
 }
+
 // SetCategoryNil sets the value for Category to be an explicit nil
 func (o *SettingDefinition) SetCategoryNil() {
 	o.Category.Set(nil)
@@ -299,6 +303,7 @@ func (o *SettingDefinition) HasExplanation() bool {
 func (o *SettingDefinition) SetExplanation(v string) {
 	o.Explanation.Set(&v)
 }
+
 // SetExplanationNil sets the value for Explanation to be an explicit nil
 func (o *SettingDefinition) SetExplanationNil() {
 	o.Explanation.Set(nil)
@@ -373,6 +378,7 @@ func (o *SettingDefinition) HasValueType() bool {
 func (o *SettingDefinition) SetValueType(v string) {
 	o.ValueType.Set(&v)
 }
+
 // SetValueTypeNil sets the value for ValueType to be an explicit nil
 func (o *SettingDefinition) SetValueTypeNil() {
 	o.ValueType.Set(nil)
@@ -543,6 +549,7 @@ func (o *SettingDefinition) HasDefaultValue() bool {
 func (o *SettingDefinition) SetDefaultValue(v string) {
 	o.DefaultValue.Set(&v)
 }
+
 // SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
 func (o *SettingDefinition) SetDefaultValueNil() {
 	o.DefaultValue.Set(nil)
@@ -585,6 +592,7 @@ func (o *SettingDefinition) HasSecureDefaultValue() bool {
 func (o *SettingDefinition) SetSecureDefaultValue(v string) {
 	o.SecureDefaultValue.Set(&v)
 }
+
 // SetSecureDefaultValueNil sets the value for SecureDefaultValue to be an explicit nil
 func (o *SettingDefinition) SetSecureDefaultValueNil() {
 	o.SecureDefaultValue.Set(nil)
@@ -627,6 +635,7 @@ func (o *SettingDefinition) HasDefaultSnip() bool {
 func (o *SettingDefinition) SetDefaultSnip(v string) {
 	o.DefaultSnip.Set(&v)
 }
+
 // SetDefaultSnipNil sets the value for DefaultSnip to be an explicit nil
 func (o *SettingDefinition) SetDefaultSnipNil() {
 	o.DefaultSnip.Set(nil)
@@ -669,6 +678,7 @@ func (o *SettingDefinition) HasDisabledValue() bool {
 func (o *SettingDefinition) SetDisabledValue(v string) {
 	o.DisabledValue.Set(&v)
 }
+
 // SetDisabledValueNil sets the value for DisabledValue to be an explicit nil
 func (o *SettingDefinition) SetDisabledValueNil() {
 	o.DisabledValue.Set(nil)
@@ -711,6 +721,7 @@ func (o *SettingDefinition) HasInitialValue() bool {
 func (o *SettingDefinition) SetInitialValue(v string) {
 	o.InitialValue.Set(&v)
 }
+
 // SetInitialValueNil sets the value for InitialValue to be an explicit nil
 func (o *SettingDefinition) SetInitialValueNil() {
 	o.InitialValue.Set(nil)
@@ -753,6 +764,7 @@ func (o *SettingDefinition) HasValueMinimum() bool {
 func (o *SettingDefinition) SetValueMinimum(v string) {
 	o.ValueMinimum.Set(&v)
 }
+
 // SetValueMinimumNil sets the value for ValueMinimum to be an explicit nil
 func (o *SettingDefinition) SetValueMinimumNil() {
 	o.ValueMinimum.Set(nil)
@@ -795,6 +807,7 @@ func (o *SettingDefinition) HasValueMaximum() bool {
 func (o *SettingDefinition) SetValueMaximum(v string) {
 	o.ValueMaximum.Set(&v)
 }
+
 // SetValueMaximumNil sets the value for ValueMaximum to be an explicit nil
 func (o *SettingDefinition) SetValueMaximumNil() {
 	o.ValueMaximum.Set(nil)
@@ -837,6 +850,7 @@ func (o *SettingDefinition) HasValueValidator() bool {
 func (o *SettingDefinition) SetValueValidator(v string) {
 	o.ValueValidator.Set(&v)
 }
+
 // SetValueValidatorNil sets the value for ValueValidator to be an explicit nil
 func (o *SettingDefinition) SetValueValidatorNil() {
 	o.ValueValidator.Set(nil)
@@ -879,6 +893,7 @@ func (o *SettingDefinition) HasValidatorError() bool {
 func (o *SettingDefinition) SetValidatorError(v string) {
 	o.ValidatorError.Set(&v)
 }
+
 // SetValidatorErrorNil sets the value for ValidatorError to be an explicit nil
 func (o *SettingDefinition) SetValidatorErrorNil() {
 	o.ValidatorError.Set(nil)
@@ -954,6 +969,7 @@ func (o *SettingDefinition) HasDependsOn() bool {
 func (o *SettingDefinition) SetDependsOn(v string) {
 	o.DependsOn.Set(&v)
 }
+
 // SetDependsOnNil sets the value for DependsOn to be an explicit nil
 func (o *SettingDefinition) SetDependsOnNil() {
 	o.DependsOn.Set(nil)
@@ -996,6 +1012,7 @@ func (o *SettingDefinition) HasValueUnit() bool {
 func (o *SettingDefinition) SetValueUnit(v string) {
 	o.ValueUnit.Set(&v)
 }
+
 // SetValueUnitNil sets the value for ValueUnit to be an explicit nil
 func (o *SettingDefinition) SetValueUnitNil() {
 	o.ValueUnit.Set(nil)
@@ -1038,6 +1055,7 @@ func (o *SettingDefinition) HasAllowedText() bool {
 func (o *SettingDefinition) SetAllowedText(v string) {
 	o.AllowedText.Set(&v)
 }
+
 // SetAllowedTextNil sets the value for AllowedText to be an explicit nil
 func (o *SettingDefinition) SetAllowedTextNil() {
 	o.AllowedText.Set(nil)
@@ -1080,6 +1098,7 @@ func (o *SettingDefinition) HasDeniedText() bool {
 func (o *SettingDefinition) SetDeniedText(v string) {
 	o.DeniedText.Set(&v)
 }
+
 // SetDeniedTextNil sets the value for DeniedText to be an explicit nil
 func (o *SettingDefinition) SetDeniedTextNil() {
 	o.DeniedText.Set(nil)
@@ -1187,6 +1206,7 @@ func (o *SettingDefinition) HasVersionCode() bool {
 func (o *SettingDefinition) SetVersionCode(v string) {
 	o.VersionCode.Set(&v)
 }
+
 // SetVersionCodeNil sets the value for VersionCode to be an explicit nil
 func (o *SettingDefinition) SetVersionCodeNil() {
 	o.VersionCode.Set(nil)
@@ -1262,6 +1282,7 @@ func (o *SettingDefinition) HasGpoScope() bool {
 func (o *SettingDefinition) SetGpoScope(v string) {
 	o.GpoScope.Set(&v)
 }
+
 // SetGpoScopeNil sets the value for GpoScope to be an explicit nil
 func (o *SettingDefinition) SetGpoScopeNil() {
 	o.GpoScope.Set(nil)
@@ -1304,6 +1325,7 @@ func (o *SettingDefinition) HasProductGroup() bool {
 func (o *SettingDefinition) SetProductGroup(v string) {
 	o.ProductGroup.Set(&v)
 }
+
 // SetProductGroupNil sets the value for ProductGroup to be an explicit nil
 func (o *SettingDefinition) SetProductGroupNil() {
 	o.ProductGroup.Set(nil)
@@ -1315,7 +1337,7 @@ func (o *SettingDefinition) UnsetProductGroup() {
 }
 
 func (o SettingDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1455,5 +1477,3 @@ func (v *NullableSettingDefinition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

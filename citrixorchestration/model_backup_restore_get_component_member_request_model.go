@@ -98,6 +98,7 @@ func (o *BackupRestoreGetComponentMemberRequestModel) HasFilters() bool {
 func (o *BackupRestoreGetComponentMemberRequestModel) SetFilters(v string) {
 	o.Filters.Set(&v)
 }
+
 // SetFiltersNil sets the value for Filters to be an explicit nil
 func (o *BackupRestoreGetComponentMemberRequestModel) SetFiltersNil() {
 	o.Filters.Set(nil)
@@ -109,7 +110,7 @@ func (o *BackupRestoreGetComponentMemberRequestModel) UnsetFilters() {
 }
 
 func (o BackupRestoreGetComponentMemberRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +161,3 @@ func (v *NullableBackupRestoreGetComponentMemberRequestModel) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

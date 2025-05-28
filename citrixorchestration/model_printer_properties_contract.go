@@ -24,7 +24,7 @@ type PrinterPropertiesContract struct {
 	// Printer model name.
 	Model NullableString `json:"Model,omitempty"`
 	// The location.
-	Location NullableString `json:"Location,omitempty"`
+	Location NullableString           `json:"Location,omitempty"`
 	Settings *PrinterSettingsContract `json:"Settings,omitempty"`
 	// The serialized data. This is here so that JSON serialization can work. This should not be used.
 	Serialized NullableString `json:"Serialized,omitempty"`
@@ -79,6 +79,7 @@ func (o *PrinterPropertiesContract) HasPath() bool {
 func (o *PrinterPropertiesContract) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *PrinterPropertiesContract) SetPathNil() {
 	o.Path.Set(nil)
@@ -121,6 +122,7 @@ func (o *PrinterPropertiesContract) HasModel() bool {
 func (o *PrinterPropertiesContract) SetModel(v string) {
 	o.Model.Set(&v)
 }
+
 // SetModelNil sets the value for Model to be an explicit nil
 func (o *PrinterPropertiesContract) SetModelNil() {
 	o.Model.Set(nil)
@@ -163,6 +165,7 @@ func (o *PrinterPropertiesContract) HasLocation() bool {
 func (o *PrinterPropertiesContract) SetLocation(v string) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *PrinterPropertiesContract) SetLocationNil() {
 	o.Location.Set(nil)
@@ -237,6 +240,7 @@ func (o *PrinterPropertiesContract) HasSerialized() bool {
 func (o *PrinterPropertiesContract) SetSerialized(v string) {
 	o.Serialized.Set(&v)
 }
+
 // SetSerializedNil sets the value for Serialized to be an explicit nil
 func (o *PrinterPropertiesContract) SetSerializedNil() {
 	o.Serialized.Set(nil)
@@ -248,7 +252,7 @@ func (o *PrinterPropertiesContract) UnsetSerialized() {
 }
 
 func (o PrinterPropertiesContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,5 +314,3 @@ func (v *NullablePrinterPropertiesContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

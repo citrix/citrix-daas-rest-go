@@ -19,23 +19,22 @@ import (
 	"strings"
 )
 
-
 // RecommendationsAPIsDAASService RecommendationsAPIsDAAS service
 type RecommendationsAPIsDAASService service
 
 type ApiRecommendationsGetRecommendationsRequest struct {
-	ctx context.Context
-	ApiService *RecommendationsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *RecommendationsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -105,24 +104,25 @@ func (r ApiRecommendationsGetRecommendationsRequest) Execute() (*RecommendationR
 /*
 RecommendationsGetRecommendations Get all the recommendations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRecommendationsGetRecommendationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiRecommendationsGetRecommendationsRequest
 */
 func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendations(ctx context.Context) ApiRecommendationsGetRecommendationsRequest {
 	return ApiRecommendationsGetRecommendationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RecommendationResponseModelCollection
+//
+//	@return RecommendationResponseModelCollection
 func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecute(r ApiRecommendationsGetRecommendationsRequest) (*RecommendationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RecommendationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RecommendationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecommendationsAPIsDAASService.RecommendationsGetRecommendations")
@@ -228,8 +228,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -239,8 +239,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -250,8 +250,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -261,8 +261,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -272,8 +272,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -283,8 +283,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -294,8 +294,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -313,17 +313,17 @@ func (a *RecommendationsAPIsDAASService) RecommendationsGetRecommendationsExecut
 }
 
 type ApiRecommendationsSetRecommendationRequest struct {
-	ctx context.Context
-	ApiService *RecommendationsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
+	ctx                           context.Context
+	ApiService                    *RecommendationsAPIsDAASService
+	citrixCustomerId              *string
+	citrixInstanceId              *string
+	id                            string
 	setRecommendationRequestModel *SetRecommendationRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                     *string
+	authorization                 *string
+	citrixTransactionId           *string
+	accept                        *string
+	citrixLocale                  *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -381,24 +381,24 @@ func (r ApiRecommendationsSetRecommendationRequest) Execute() (*http.Response, e
 /*
 RecommendationsSetRecommendation Set the state of the specified recommendation.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id The recommendation id
- @return ApiRecommendationsSetRecommendationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id The recommendation id
+	@return ApiRecommendationsSetRecommendationRequest
 */
 func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendation(ctx context.Context, id string) ApiRecommendationsSetRecommendationRequest {
 	return ApiRecommendationsSetRecommendationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute(r ApiRecommendationsSetRecommendationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecommendationsAPIsDAASService.RecommendationsSetRecommendation")
@@ -501,8 +501,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -512,8 +512,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -523,8 +523,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -534,8 +534,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -545,8 +545,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -556,8 +556,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -567,8 +567,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -578,8 +578,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -589,8 +589,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -599,16 +599,16 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationExecute
 }
 
 type ApiRecommendationsSetRecommendationsRequest struct {
-	ctx context.Context
-	ApiService *RecommendationsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                            context.Context
+	ApiService                     *RecommendationsAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
 	setRecommendationsRequestModel *SetRecommendationsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	accept                         *string
+	citrixLocale                   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -666,22 +666,22 @@ func (r ApiRecommendationsSetRecommendationsRequest) Execute() (*http.Response, 
 /*
 RecommendationsSetRecommendations Set the state of a list of recommendations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRecommendationsSetRecommendationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiRecommendationsSetRecommendationsRequest
 */
 func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendations(ctx context.Context) ApiRecommendationsSetRecommendationsRequest {
 	return ApiRecommendationsSetRecommendationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecute(r ApiRecommendationsSetRecommendationsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecommendationsAPIsDAASService.RecommendationsSetRecommendations")
@@ -783,8 +783,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -794,8 +794,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -805,8 +805,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -816,8 +816,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -827,8 +827,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -838,8 +838,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -849,8 +849,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -860,8 +860,8 @@ func (a *RecommendationsAPIsDAASService) RecommendationsSetRecommendationsExecut
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

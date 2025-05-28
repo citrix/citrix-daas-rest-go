@@ -19,10 +19,10 @@ var _ MappedNullable = &Settings{}
 
 // Settings struct for Settings
 type Settings struct {
-	AppSettings *AppSettings `json:"appSettings,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Name *string `json:"name,omitempty"`
-	UseForAppConfig *bool `json:"useForAppConfig,omitempty"`
+	AppSettings     *AppSettings `json:"appSettings,omitempty"`
+	Description     *string      `json:"description,omitempty"`
+	Name            *string      `json:"name,omitempty"`
+	UseForAppConfig *bool        `json:"useForAppConfig,omitempty"`
 }
 
 // NewSettings instantiates a new Settings object
@@ -171,7 +171,7 @@ func (o *Settings) SetUseForAppConfig(v bool) {
 }
 
 func (o Settings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -230,5 +230,3 @@ func (v *NullableSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

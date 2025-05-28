@@ -20,11 +20,11 @@ type TaskState string
 
 // List of TaskState
 const (
-	TASKSTATE_PENDING TaskState = "PENDING"
-	TASKSTATE_ACTIVE TaskState = "ACTIVE"
+	TASKSTATE_PENDING    TaskState = "PENDING"
+	TASKSTATE_ACTIVE     TaskState = "ACTIVE"
 	TASKSTATE_PROCESSING TaskState = "PROCESSING"
-	TASKSTATE_ERROR TaskState = "ERROR"
-	TASKSTATE_COMPLETED TaskState = "COMPLETED"
+	TASKSTATE_ERROR      TaskState = "ERROR"
+	TASKSTATE_COMPLETED  TaskState = "COMPLETED"
 )
 
 // All allowed values of TaskState enum
@@ -114,4 +114,3 @@ func (v *NullableTaskState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,9 +19,9 @@ var _ MappedNullable = &GetAllDiscoveryResponse{}
 
 // GetAllDiscoveryResponse struct for GetAllDiscoveryResponse
 type GetAllDiscoveryResponse struct {
-	Count *int32 `json:"count,omitempty"`
-	Items []DiscoveryRecordModel `json:"items,omitempty"`
-	NextToken *string `json:"nextToken,omitempty"`
+	Count     *int32                 `json:"count,omitempty"`
+	Items     []DiscoveryRecordModel `json:"items,omitempty"`
+	NextToken *string                `json:"nextToken,omitempty"`
 }
 
 // NewGetAllDiscoveryResponse instantiates a new GetAllDiscoveryResponse object
@@ -138,7 +138,7 @@ func (o *GetAllDiscoveryResponse) SetNextToken(v string) {
 }
 
 func (o GetAllDiscoveryResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableGetAllDiscoveryResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

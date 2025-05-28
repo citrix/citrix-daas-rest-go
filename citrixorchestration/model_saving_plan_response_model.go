@@ -76,6 +76,7 @@ func (o *SavingPlanResponseModel) HasTerm() bool {
 func (o *SavingPlanResponseModel) SetTerm(v string) {
 	o.Term.Set(&v)
 }
+
 // SetTermNil sets the value for Term to be an explicit nil
 func (o *SavingPlanResponseModel) SetTermNil() {
 	o.Term.Set(nil)
@@ -118,6 +119,7 @@ func (o *SavingPlanResponseModel) HasEffectivePrice() bool {
 func (o *SavingPlanResponseModel) SetEffectivePrice(v float32) {
 	o.EffectivePrice.Set(&v)
 }
+
 // SetEffectivePriceNil sets the value for EffectivePrice to be an explicit nil
 func (o *SavingPlanResponseModel) SetEffectivePriceNil() {
 	o.EffectivePrice.Set(nil)
@@ -160,6 +162,7 @@ func (o *SavingPlanResponseModel) HasRetailPrice() bool {
 func (o *SavingPlanResponseModel) SetRetailPrice(v float32) {
 	o.RetailPrice.Set(&v)
 }
+
 // SetRetailPriceNil sets the value for RetailPrice to be an explicit nil
 func (o *SavingPlanResponseModel) SetRetailPriceNil() {
 	o.RetailPrice.Set(nil)
@@ -171,7 +174,7 @@ func (o *SavingPlanResponseModel) UnsetRetailPrice() {
 }
 
 func (o SavingPlanResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableSavingPlanResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

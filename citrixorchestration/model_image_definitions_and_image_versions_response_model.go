@@ -27,9 +27,9 @@ type ImageDefinitionsAndImageVersionsResponseModel struct {
 	CreationTime NullableString `json:"CreationTime,omitempty"`
 	// Description.
 	Description NullableString `json:"Description,omitempty"`
-	OsType OsType `json:"OsType"`
+	OsType      OsType         `json:"OsType"`
 	// The latest version for the image definition.
-	LatestVersion int32 `json:"LatestVersion"`
+	LatestVersion     int32          `json:"LatestVersion"`
 	VDASessionSupport SessionSupport `json:"VDASessionSupport"`
 	// The hypervisor connections on which image definition is associated.
 	HypervisorConnections []ImageDefinitionHypervisorConnectionResponseModel `json:"HypervisorConnections,omitempty"`
@@ -89,6 +89,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModel) HasId() bool {
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -131,6 +132,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModel) HasName() bool {
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -173,6 +175,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModel) HasCreationTime() bool {
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetCreationTime(v string) {
 	o.CreationTime.Set(&v)
 }
+
 // SetCreationTimeNil sets the value for CreationTime to be an explicit nil
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetCreationTimeNil() {
 	o.CreationTime.Set(nil)
@@ -215,6 +218,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModel) HasDescription() bool {
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ImageDefinitionsAndImageVersionsResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -364,7 +368,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModel) SetImageVersions(v []Ima
 }
 
 func (o ImageDefinitionsAndImageVersionsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -432,5 +436,3 @@ func (v *NullableImageDefinitionsAndImageVersionsResponseModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

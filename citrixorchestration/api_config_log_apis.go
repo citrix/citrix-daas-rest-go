@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // ConfigLogAPIsDAASService ConfigLogAPIsDAAS service
 type ConfigLogAPIsDAASService service
 
 type ApiConfigLogDeleteLogsRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	xAdminCredential    *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -98,22 +97,22 @@ func (r ApiConfigLogDeleteLogsRequest) Execute() (*http.Response, error) {
 /*
 ConfigLogDeleteLogs Delete logging event logs.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogDeleteLogsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogDeleteLogsRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogs(ctx context.Context) ApiConfigLogDeleteLogsRequest {
 	return ApiConfigLogDeleteLogsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDeleteLogsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogDeleteLogs")
@@ -216,8 +215,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -227,8 +226,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -238,8 +237,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -249,8 +248,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -260,8 +259,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -271,8 +270,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -282,8 +281,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -293,8 +292,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -303,20 +302,20 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDeleteLogsExecute(r ApiConfigLogDele
 }
 
 type ApiConfigLogDoConfigLogSearchRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                            context.Context
+	ApiService                     *ConfigLogAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
 	logOperationSearchRequestModel *LogOperationSearchRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xTimeZone *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	xTimeZone                      *string
+	accept                         *string
+	citrixLocale                   *string
+	limit                          *int32
+	continuationToken              *string
+	async                          *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -400,24 +399,25 @@ ConfigLogDoConfigLogSearch Perform an advanced search for configuration log entr
 
 Perform an advanced search for configuration log entries.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogDoConfigLogSearchRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogDoConfigLogSearchRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearch(ctx context.Context) ApiConfigLogDoConfigLogSearchRequest {
 	return ApiConfigLogDoConfigLogSearchRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return LogOperationResponseModelCollection
+//
+//	@return LogOperationResponseModelCollection
 func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfigLogDoConfigLogSearchRequest) (*LogOperationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *LogOperationResponseModelCollection
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *LogOperationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogDoConfigLogSearch")
@@ -531,8 +531,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -542,8 +542,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -553,8 +553,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -564,8 +564,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -575,8 +575,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -586,8 +586,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -597,8 +597,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -608,8 +608,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -619,8 +619,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -638,17 +638,17 @@ func (a *ConfigLogAPIsDAASService) ConfigLogDoConfigLogSearchExecute(r ApiConfig
 }
 
 type ApiConfigLogExportReportDataRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                          context.Context
+	ApiService                   *ConfigLogAPIsDAASService
+	citrixCustomerId             *string
+	citrixInstanceId             *string
 	customReportInfoRequestModel *CustomReportInfoRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                    *string
+	authorization                *string
+	citrixTransactionId          *string
+	accept                       *string
+	citrixLocale                 *string
+	async                        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -712,24 +712,25 @@ func (r ApiConfigLogExportReportDataRequest) Execute() (*CustomReportDataRespons
 /*
 ConfigLogExportReportData Export logging report data in the format of csv/html/both.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogExportReportDataRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogExportReportDataRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogExportReportData(ctx context.Context) ApiConfigLogExportReportDataRequest {
 	return ApiConfigLogExportReportDataRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CustomReportDataResponseModel
+//
+//	@return CustomReportDataResponseModel
 func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigLogExportReportDataRequest) (*CustomReportDataResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CustomReportDataResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CustomReportDataResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogExportReportData")
@@ -834,8 +835,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -845,8 +846,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -856,8 +857,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -867,8 +868,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -878,8 +879,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -889,8 +890,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -900,8 +901,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -911,8 +912,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -922,8 +923,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -941,17 +942,17 @@ func (a *ConfigLogAPIsDAASService) ConfigLogExportReportDataExecute(r ApiConfigL
 }
 
 type ApiConfigLogFetchExistingOperationLabelsRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	refresh *bool
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	refresh             *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1015,24 +1016,25 @@ func (r ApiConfigLogFetchExistingOperationLabelsRequest) Execute() ([]string, *h
 /*
 ConfigLogFetchExistingOperationLabels Fetch existing high level log operation labels.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogFetchExistingOperationLabelsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogFetchExistingOperationLabelsRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabels(ctx context.Context) ApiConfigLogFetchExistingOperationLabelsRequest {
 	return ApiConfigLogFetchExistingOperationLabelsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []string
+//
+//	@return []string
 func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(r ApiConfigLogFetchExistingOperationLabelsRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogFetchExistingOperationLabels")
@@ -1135,8 +1137,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1146,8 +1148,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1157,8 +1159,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1168,8 +1170,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1179,8 +1181,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1190,8 +1192,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1201,8 +1203,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1212,8 +1214,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1231,15 +1233,15 @@ func (a *ConfigLogAPIsDAASService) ConfigLogFetchExistingOperationLabelsExecute(
 }
 
 type ApiConfigLogGetFirstLogDateRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1291,24 +1293,25 @@ func (r ApiConfigLogGetFirstLogDateRequest) Execute() (string, *http.Response, e
 /*
 ConfigLogGetFirstLogDate Get first log date
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogGetFirstLogDateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogGetFirstLogDateRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDate(ctx context.Context) ApiConfigLogGetFirstLogDateRequest {
 	return ApiConfigLogGetFirstLogDateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return string
+//
+//	@return string
 func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLogGetFirstLogDateRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogGetFirstLogDate")
@@ -1405,8 +1408,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1416,8 +1419,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1427,8 +1430,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1438,8 +1441,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1449,8 +1452,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1460,8 +1463,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1471,8 +1474,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1490,15 +1493,15 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetFirstLogDateExecute(r ApiConfigLo
 }
 
 type ApiConfigLogGetLogSiteRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1550,24 +1553,25 @@ func (r ApiConfigLogGetLogSiteRequest) Execute() (*LogSiteResponseModel, *http.R
 /*
 ConfigLogGetLogSite Get logging site details.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogGetLogSiteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogGetLogSiteRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSite(ctx context.Context) ApiConfigLogGetLogSiteRequest {
 	return ApiConfigLogGetLogSiteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return LogSiteResponseModel
+//
+//	@return LogSiteResponseModel
 func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetLogSiteRequest) (*LogSiteResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *LogSiteResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *LogSiteResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogGetLogSite")
@@ -1664,8 +1668,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1675,8 +1679,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1686,8 +1690,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1697,8 +1701,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1708,8 +1712,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1719,8 +1723,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1730,8 +1734,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1749,18 +1753,18 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLogSiteExecute(r ApiConfigLogGetL
 }
 
 type ApiConfigLogGetLowLevelOperationsRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1824,26 +1828,27 @@ func (r ApiConfigLogGetLowLevelOperationsRequest) Execute() (*LowLevelOperationR
 /*
 ConfigLogGetLowLevelOperations Get the detailed low level operations of a high level operation.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id id of specified high level operation
- @return ApiConfigLogGetLowLevelOperationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id id of specified high level operation
+	@return ApiConfigLogGetLowLevelOperationsRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperations(ctx context.Context, id string) ApiConfigLogGetLowLevelOperationsRequest {
 	return ApiConfigLogGetLowLevelOperationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return LowLevelOperationResponseModelCollection
+//
+//	@return LowLevelOperationResponseModelCollection
 func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiConfigLogGetLowLevelOperationsRequest) (*LowLevelOperationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *LowLevelOperationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *LowLevelOperationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogGetLowLevelOperations")
@@ -1947,8 +1952,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1958,8 +1963,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1969,8 +1974,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1980,8 +1985,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1991,8 +1996,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2002,8 +2007,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2013,8 +2018,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2024,8 +2029,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2043,16 +2048,16 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetLowLevelOperationsExecute(r ApiCo
 }
 
 type ApiConfigLogGetOperationRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2104,26 +2109,27 @@ func (r ApiConfigLogGetOperationRequest) Execute() (*LogOperationResponseModel, 
 /*
 ConfigLogGetOperation Get a high level log operation.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the operation.
- @return ApiConfigLogGetOperationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the operation.
+	@return ApiConfigLogGetOperationRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogGetOperation(ctx context.Context, id string) ApiConfigLogGetOperationRequest {
 	return ApiConfigLogGetOperationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return LogOperationResponseModel
+//
+//	@return LogOperationResponseModel
 func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGetOperationRequest) (*LogOperationResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *LogOperationResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *LogOperationResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogGetOperation")
@@ -2221,8 +2227,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2232,8 +2238,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2243,8 +2249,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2254,8 +2260,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2265,8 +2271,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2276,8 +2282,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2287,8 +2293,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2298,8 +2304,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2317,23 +2323,23 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationExecute(r ApiConfigLogGe
 }
 
 type ApiConfigLogGetOperationsRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xTimeZone *string
-	accept *string
-	citrixLocale *string
-	text *string
-	days *int32
-	searchDateOption *SearchDateOption
-	timeDiff *int32
-	limit *int32
-	continuationToken *string
-	async *bool
+	xTimeZone           *string
+	accept              *string
+	citrixLocale        *string
+	text                *string
+	days                *int32
+	searchDateOption    *SearchDateOption
+	timeDiff            *int32
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2437,24 +2443,25 @@ This requires the configuration logging database to be configured and enabled.
 Results are returned in the order of most-recent to least-recent.
 To specify more complicated search criteria, use DoConfigLogSearch.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogGetOperationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogGetOperationsRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogGetOperations(ctx context.Context) ApiConfigLogGetOperationsRequest {
 	return ApiConfigLogGetOperationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return LogOperationResponseModelCollection
+//
+//	@return LogOperationResponseModelCollection
 func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogGetOperationsRequest) (*LogOperationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *LogOperationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *LogOperationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogGetOperations")
@@ -2575,8 +2582,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2586,8 +2593,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2597,8 +2604,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2608,8 +2615,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2619,8 +2626,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2630,8 +2637,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2641,8 +2648,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2660,18 +2667,18 @@ func (a *ConfigLogAPIsDAASService) ConfigLogGetOperationsExecute(r ApiConfigLogG
 }
 
 type ApiConfigLogPatchOperationRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
+	ctx                       context.Context
+	ApiService                *ConfigLogAPIsDAASService
+	citrixCustomerId          *string
+	citrixInstanceId          *string
+	id                        string
 	editOperationRequestModel *EditOperationRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                 *string
+	authorization             *string
+	citrixTransactionId       *string
+	accept                    *string
+	citrixLocale              *string
+	async                     *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2735,24 +2742,24 @@ func (r ApiConfigLogPatchOperationRequest) Execute() (*http.Response, error) {
 /*
 ConfigLogPatchOperation Update a high level log operation.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the operation.
- @return ApiConfigLogPatchOperationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the operation.
+	@return ApiConfigLogPatchOperationRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperation(ctx context.Context, id string) ApiConfigLogPatchOperationRequest {
 	return ApiConfigLogPatchOperationRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLogPatchOperationRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogPatchOperation")
@@ -2858,8 +2865,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2869,8 +2876,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2880,8 +2887,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2891,8 +2898,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2902,8 +2909,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2913,8 +2920,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2924,8 +2931,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2935,8 +2942,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2946,8 +2953,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2956,16 +2963,16 @@ func (a *ConfigLogAPIsDAASService) ConfigLogPatchOperationExecute(r ApiConfigLog
 }
 
 type ApiConfigLogSetLogSiteRequest struct {
-	ctx context.Context
-	ApiService *ConfigLogAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                 context.Context
+	ApiService          *ConfigLogAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
 	logSiteRequestModel *LogSiteRequestModel
-	userAgent *string
-	authorization *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3022,24 +3029,25 @@ func (r ApiConfigLogSetLogSiteRequest) Execute() (*LogSiteResponseModel, *http.R
 /*
 ConfigLogSetLogSite Update logging site info.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfigLogSetLogSiteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfigLogSetLogSiteRequest
 */
 func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSite(ctx context.Context) ApiConfigLogSetLogSiteRequest {
 	return ApiConfigLogSetLogSiteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return LogSiteResponseModel
+//
+//	@return LogSiteResponseModel
 func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetLogSiteRequest) (*LogSiteResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *LogSiteResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *LogSiteResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConfigLogAPIsDAASService.ConfigLogSetLogSite")
@@ -3141,8 +3149,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3152,8 +3160,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3163,8 +3171,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3174,8 +3182,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3185,8 +3193,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3196,8 +3204,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3207,8 +3215,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3218,8 +3226,8 @@ func (a *ConfigLogAPIsDAASService) ConfigLogSetLogSiteExecute(r ApiConfigLogSetL
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

@@ -19,6 +19,7 @@ var _ MappedNullable = &ResourceConnection{}
 
 // ResourceConnection Resource connection
 type ResourceConnection struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// The ID of the account
 	AccountId NullableString `json:"accountId,omitempty"`
@@ -26,6 +27,7 @@ type ResourceConnection struct {
 	ConnectionId string `json:"connectionId"`
 	// The name of the connection
 	Name string `json:"name"`
+	// The state of connection
 	ConnectionState NullableConnectionState `json:"connectionState,omitempty"`
 	// Zone id
 	ZoneId NullableString `json:"zoneId,omitempty"`
@@ -34,10 +36,12 @@ type ResourceConnection struct {
 	// Tasks currently being performed on the connection
 	ActiveTasks []GetTaskAsync200Response `json:"activeTasks,omitempty"`
 	// Indicates whether the resource connection is Citrix managed
-	CitrixManaged bool `json:"citrixManaged"`
-	AssociatedDeployments []AssociatedDeployment `json:"associatedDeployments,omitempty"`
-	Warnings []ResourceConnectionWarning `json:"warnings,omitempty"`
+	CitrixManaged         bool                        `json:"citrixManaged"`
+	AssociatedDeployments []AssociatedDeployment      `json:"associatedDeployments,omitempty"`
+	Warnings              []ResourceConnectionWarning `json:"warnings,omitempty"`
 }
+
+type _ResourceConnection ResourceConnection
 
 // NewResourceConnection instantiates a new ResourceConnection object
 // This constructor will assign default values to properties that have it defined,
@@ -116,6 +120,7 @@ func (o *ResourceConnection) HasAccountId() bool {
 func (o *ResourceConnection) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *ResourceConnection) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -206,6 +211,7 @@ func (o *ResourceConnection) HasConnectionState() bool {
 func (o *ResourceConnection) SetConnectionState(v ConnectionState) {
 	o.ConnectionState.Set(&v)
 }
+
 // SetConnectionStateNil sets the value for ConnectionState to be an explicit nil
 func (o *ResourceConnection) SetConnectionStateNil() {
 	o.ConnectionState.Set(nil)
@@ -248,6 +254,7 @@ func (o *ResourceConnection) HasZoneId() bool {
 func (o *ResourceConnection) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *ResourceConnection) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -290,6 +297,7 @@ func (o *ResourceConnection) HasResourceLocationId() bool {
 func (o *ResourceConnection) SetResourceLocationId(v string) {
 	o.ResourceLocationId.Set(&v)
 }
+
 // SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
 func (o *ResourceConnection) SetResourceLocationIdNil() {
 	o.ResourceLocationId.Set(nil)
@@ -321,7 +329,7 @@ func (o *ResourceConnection) GetActiveTasksOk() ([]GetTaskAsync200Response, bool
 
 // HasActiveTasks returns a boolean if a field has been set.
 func (o *ResourceConnection) HasActiveTasks() bool {
-	if o != nil && IsNil(o.ActiveTasks) {
+	if o != nil && !IsNil(o.ActiveTasks) {
 		return true
 	}
 
@@ -378,7 +386,7 @@ func (o *ResourceConnection) GetAssociatedDeploymentsOk() ([]AssociatedDeploymen
 
 // HasAssociatedDeployments returns a boolean if a field has been set.
 func (o *ResourceConnection) HasAssociatedDeployments() bool {
-	if o != nil && IsNil(o.AssociatedDeployments) {
+	if o != nil && !IsNil(o.AssociatedDeployments) {
 		return true
 	}
 
@@ -411,7 +419,7 @@ func (o *ResourceConnection) GetWarningsOk() ([]ResourceConnectionWarning, bool)
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *ResourceConnection) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 
@@ -424,7 +432,7 @@ func (o *ResourceConnection) SetWarnings(v []ResourceConnectionWarning) {
 }
 
 func (o ResourceConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -496,5 +504,3 @@ func (v *NullableResourceConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

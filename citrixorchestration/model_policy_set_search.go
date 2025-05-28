@@ -21,7 +21,7 @@ var _ MappedNullable = &PolicySetSearch{}
 type PolicySetSearch struct {
 	// List of advanced search filters.
 	SearchFilters []SearchFilter `json:"SearchFilters,omitempty"`
-	SortCriteria *SortingMethod `json:"SortCriteria,omitempty"`
+	SortCriteria  *SortingMethod `json:"SortCriteria,omitempty"`
 }
 
 // NewPolicySetSearch instantiates a new PolicySetSearch object
@@ -107,7 +107,7 @@ func (o *PolicySetSearch) SetSortCriteria(v SortingMethod) {
 }
 
 func (o PolicySetSearch) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullablePolicySetSearch) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

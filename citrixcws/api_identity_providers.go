@@ -16,18 +16,17 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
+	"strings"
 )
-
 
 // IdentityProvidersDAASService IdentityProvidersDAAS service
 type IdentityProvidersDAASService service
 
 type IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	customer string
+	customer   string
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest) Execute() (*IdentityProvidersStatus, *http.Response, error) {
@@ -37,26 +36,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest) Execu
 /*
 CustomerIdentityProvidersAllStatusGet Method for CustomerIdentityProvidersAllStatusGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersAllStatusGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityProvidersStatus
+//
+//	@return IdentityProvidersStatus
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersAllStatusGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersAllStatusGetRequest) (*IdentityProvidersStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityProvidersStatus
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityProvidersStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersAllStatusGet")
@@ -105,6 +105,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersAllStatusGetExec
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -126,10 +133,10 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersAllStatusGetExec
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	customer string
-	fqdn *string
+	customer   string
+	fqdn       *string
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest) Fqdn(fqdn string) IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest {
@@ -144,26 +151,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest) Execute(
 /*
 CustomerIdentityProvidersClientGet Method for CustomerIdentityProvidersClientGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersClientGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return CipClientResultModel
+//
+//	@return CipClientResultModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersClientGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersClientGetRequest) (*CipClientResultModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CipClientResultModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CipClientResultModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersClientGet")
@@ -179,7 +187,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersClientGetExecute
 	localVarFormParams := url.Values{}
 
 	if r.fqdn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fqdn", r.fqdn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fqdn", r.fqdn, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -215,6 +223,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersClientGetExecute
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -236,10 +251,10 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersClientGetExecute
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	id string
-	customer string
+	id         string
+	customer   string
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest) Execute() (*SamlConfigModel, *http.Response, error) {
@@ -249,28 +264,29 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequ
 /*
 CustomerIdentityProvidersConfigurationSamlIdGet Method for CustomerIdentityProvidersConfigurationSamlIdGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigurationSamlIdGet(ctx context.Context, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		customer: customer,
+		ctx:        ctx,
+		id:         id,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return SamlConfigModel
+//
+//	@return SamlConfigModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigurationSamlIdGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersConfigurationSamlIdGetRequest) (*SamlConfigModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SamlConfigModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SamlConfigModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersConfigurationSamlIdGet")
@@ -326,6 +342,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigurationSam
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -347,9 +370,9 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigurationSam
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
-	customer string
+	ctx                   context.Context
+	ApiService            *IdentityProvidersDAASService
+	customer              string
 	googleConnectionModel *GoogleConnectionModel
 }
 
@@ -365,26 +388,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest
 /*
 CustomerIdentityProvidersConfigureGooglePost Method for CustomerIdentityProvidersConfigureGooglePost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureGooglePost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return GoogleResultModel
+//
+//	@return GoogleResultModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureGooglePostExecute(r IdentityProvidersDAASCustomerIdentityProvidersConfigureGooglePostRequest) (*GoogleResultModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GoogleResultModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GoogleResultModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersConfigureGooglePost")
@@ -435,6 +459,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureGoogleP
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -456,9 +487,9 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureGoogleP
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
-	customer string
+	ctx                 context.Context
+	ApiService          *IdentityProvidersDAASService
+	customer            string
 	oktaConnectionModel *OktaConnectionModel
 }
 
@@ -474,26 +505,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest) 
 /*
 CustomerIdentityProvidersConfigureOktaPost Method for CustomerIdentityProvidersConfigureOktaPost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureOktaPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return OktaResultModel
+//
+//	@return OktaResultModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureOktaPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersConfigureOktaPostRequest) (*OktaResultModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OktaResultModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OktaResultModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersConfigureOktaPost")
@@ -544,6 +576,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureOktaPos
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -565,9 +604,9 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersConfigureOktaPos
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	customer string
+	customer   string
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersGetRequest) Execute() ([]string, *http.Response, error) {
@@ -577,26 +616,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersGetRequest) Execute() ([]s
 /*
 CustomerIdentityProvidersGet Method for CustomerIdentityProvidersGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersGetRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersGetRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return []string
+//
+//	@return []string
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersGetRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersGet")
@@ -645,6 +685,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersGetExecute(r Ide
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -666,10 +713,10 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersGetExecute(r Ide
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
-	id string
-	customer string
+	ctx                     context.Context
+	ApiService              *IdentityProvidersDAASService
+	id                      string
+	customer                string
 	idpInstanceConnectModel *IdpInstanceConnectModel
 }
 
@@ -685,28 +732,29 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest) Execute() (
 /*
 CustomerIdentityProvidersIdPost Method for CustomerIdentityProvidersIdPost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdPost(ctx context.Context, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		customer: customer,
+		ctx:        ctx,
+		id:         id,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdpStatusModel
+//
+//	@return IdpStatusModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersIdPostRequest) (*IdpStatusModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdpStatusModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdpStatusModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersIdPost")
@@ -764,6 +812,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdPostExecute(r 
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -785,12 +840,12 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdPostExecute(r 
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
+	ctx              context.Context
+	ApiService       *IdentityProvidersDAASService
 	identityProvider string
-	id string
-	customer string
-	idpUpdateModel *IdpUpdateModel
+	id               string
+	customer         string
+	idpUpdateModel   *IdpUpdateModel
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest) IdpUpdateModel(idpUpdateModel IdpUpdateModel) IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest {
@@ -805,30 +860,31 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutReque
 /*
 CustomerIdentityProvidersIdentityProviderIdPut Method for CustomerIdentityProvidersIdentityProviderIdPut
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param identityProvider
- @param id
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param identityProvider
+	@param id
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdentityProviderIdPut(ctx context.Context, identityProvider string, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:       a,
+		ctx:              ctx,
 		identityProvider: identityProvider,
-		id: id,
-		customer: customer,
+		id:               id,
+		customer:         customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdpUpdateModel
+//
+//	@return IdpUpdateModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdentityProviderIdPutExecute(r IdentityProvidersDAASCustomerIdentityProvidersIdentityProviderIdPutRequest) (*IdpUpdateModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdpUpdateModel
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdpUpdateModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersIdentityProviderIdPut")
@@ -887,6 +943,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdentityProvider
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -899,8 +962,8 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdentityProvider
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -918,11 +981,11 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdentityProvider
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
-	idpType string
-	customer string
-	limit *int32
+	ctx               context.Context
+	ApiService        *IdentityProvidersDAASService
+	idpType           string
+	customer          string
+	limit             *int32
 	continuationToken *string
 }
 
@@ -943,28 +1006,29 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest) Execute
 /*
 CustomerIdentityProvidersIdpTypeGet Method for CustomerIdentityProvidersIdpTypeGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param idpType
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param idpType
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdpTypeGet(ctx context.Context, idpType string, customer string) IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		idpType: idpType,
-		customer: customer,
+		ctx:        ctx,
+		idpType:    idpType,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdpStatusesModel
+//
+//	@return IdpStatusesModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdpTypeGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersIdpTypeGetRequest) (*IdpStatusesModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdpStatusesModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdpStatusesModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersIdpTypeGet")
@@ -987,10 +1051,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdpTypeGetExecut
 	}
 
 	if r.limit != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+		var defaultValue int32 = 30
+		r.limit = &defaultValue
 	}
 	if r.continuationToken != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "continuationToken", r.continuationToken, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1026,6 +1093,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdpTypeGetExecut
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1047,9 +1121,9 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersIdpTypeGetExecut
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
-	customer string
+	ctx            context.Context
+	ApiService     *IdentityProvidersDAASService
+	customer       string
 	idpCreateModel *IdpCreateModel
 }
 
@@ -1065,26 +1139,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPost
 /*
 CustomerIdentityProvidersMultiIdentityProvidersPost Method for CustomerIdentityProvidersMultiIdentityProvidersPost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersMultiIdentityProvidersPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdpStatusModel
+//
+//	@return IdpStatusModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersMultiIdentityProvidersPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersMultiIdentityProvidersPostRequest) (*IdpStatusModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdpStatusModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdpStatusModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersMultiIdentityProvidersPost")
@@ -1135,6 +1210,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersMultiIdentityPro
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1156,9 +1238,9 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersMultiIdentityPro
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersPostRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
-	customer string
+	ctx             context.Context
+	ApiService      *IdentityProvidersDAASService
+	customer        string
 	idpConnectModel *IdpConnectModel
 }
 
@@ -1174,26 +1256,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersPostRequest) Execute() (*I
 /*
 CustomerIdentityProvidersPost Method for CustomerIdentityProvidersPost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersPostRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersPostRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersPostRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdpStatusModel
+//
+//	@return IdpStatusModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersPostRequest) (*IdpStatusModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdpStatusModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdpStatusModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersPost")
@@ -1244,6 +1327,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersPostExecute(r Id
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1265,11 +1355,11 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersPostExecute(r Id
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	type_ string
-	id string
-	customer string
+	type_      string
+	id         string
+	customer   string
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest) Execute() (*IdpStatusModel, *http.Response, error) {
@@ -1279,30 +1369,31 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest) Execu
 /*
 CustomerIdentityProvidersTypeIdDelete Method for CustomerIdentityProvidersTypeIdDelete
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param type_
- @param id
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param type_
+	@param id
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersTypeIdDelete(ctx context.Context, type_ string, id string, customer string) IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
-		type_: type_,
-		id: id,
-		customer: customer,
+		ctx:        ctx,
+		type_:      type_,
+		id:         id,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdpStatusModel
+//
+//	@return IdpStatusModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersTypeIdDeleteExecute(r IdentityProvidersDAASCustomerIdentityProvidersTypeIdDeleteRequest) (*IdpStatusModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdpStatusModel
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdpStatusModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersTypeIdDelete")
@@ -1359,6 +1450,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersTypeIdDeleteExec
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1380,10 +1478,10 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersTypeIdDeleteExec
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	clientId string
-	customer string
+	clientId   string
+	customer   string
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest) Execute() (bool, *http.Response, error) {
@@ -1393,28 +1491,29 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGet
 /*
 CustomerIdentityProvidersValidateClientsClientIdGet Method for CustomerIdentityProvidersValidateClientsClientIdGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param clientId
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param clientId
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateClientsClientIdGet(ctx context.Context, clientId string, customer string) IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		clientId: clientId,
-		customer: customer,
+		ctx:        ctx,
+		clientId:   clientId,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateClientsClientIdGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersValidateClientsClientIdGetRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersValidateClientsClientIdGet")
@@ -1470,6 +1569,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateClientsC
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1491,10 +1597,10 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateClientsC
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	customer string
-	fqdn *string
+	customer   string
+	fqdn       *string
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest) Fqdn(fqdn string) IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest {
@@ -1509,26 +1615,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest) Ex
 /*
 CustomerIdentityProvidersValidateFqdnGet Method for CustomerIdentityProvidersValidateFqdnGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateFqdnGet(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateFqdnGetExecute(r IdentityProvidersDAASCustomerIdentityProvidersValidateFqdnGetRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersValidateFqdnGet")
@@ -1544,7 +1651,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateFqdnGetE
 	localVarFormParams := url.Values{}
 
 	if r.fqdn != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fqdn", r.fqdn, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fqdn", r.fqdn, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1580,6 +1687,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateFqdnGetE
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1601,11 +1715,11 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateFqdnGetE
 }
 
 type IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *IdentityProvidersDAASService
-	customer string
-	fileName *string
-	certFile *os.File
+	customer   string
+	fileName   *string
+	certFile   *os.File
 }
 
 func (r IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest) FileName(fileName string) IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest {
@@ -1625,26 +1739,27 @@ func (r IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest) E
 /*
 CustomerIdentityProvidersValidateSamlPost Method for CustomerIdentityProvidersValidateSamlPost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateSamlPost(ctx context.Context, customer string) IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest {
 	return IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return SamlCertInfoModel
+//
+//	@return SamlCertInfoModel
 func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateSamlPostExecute(r IdentityProvidersDAASCustomerIdentityProvidersValidateSamlPostRequest) (*SamlCertInfoModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SamlCertInfoModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SamlCertInfoModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityProvidersValidateSamlPost")
@@ -1660,7 +1775,7 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateSamlPost
 	localVarFormParams := url.Values{}
 
 	if r.fileName != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fileName", r.fileName, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fileName", r.fileName, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"multipart/form-data"}
@@ -1680,12 +1795,10 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateSamlPost
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	var certFileLocalVarFormFileName string
-	var certFileLocalVarFileName     string
-	var certFileLocalVarFileBytes    []byte
+	var certFileLocalVarFileName string
+	var certFileLocalVarFileBytes []byte
 
 	certFileLocalVarFormFileName = "certFile"
-
-
 	certFileLocalVarFile := r.certFile
 
 	if certFileLocalVarFile != nil {
@@ -1713,6 +1826,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateSamlPost
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1734,10 +1854,10 @@ func (a *IdentityProvidersDAASService) CustomerIdentityProvidersValidateSamlPost
 }
 
 type IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest struct {
-	ctx context.Context
-	ApiService *IdentityProvidersDAASService
-	identityProvider string
-	customer string
+	ctx                           context.Context
+	ApiService                    *IdentityProvidersDAASService
+	identityProvider              string
+	customer                      string
 	idpInstanceCreateConnectModel *IdpInstanceCreateConnectModel
 }
 
@@ -1753,28 +1873,29 @@ func (r IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconn
 /*
 CustomerIdentityprovidersIdentityProviderCreateconnectPost Method for CustomerIdentityprovidersIdentityProviderCreateconnectPost
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param identityProvider
- @param customer
- @return IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param identityProvider
+	@param customer
+	@return IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest
 */
 func (a *IdentityProvidersDAASService) CustomerIdentityprovidersIdentityProviderCreateconnectPost(ctx context.Context, identityProvider string, customer string) IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest {
 	return IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:       a,
+		ctx:              ctx,
 		identityProvider: identityProvider,
-		customer: customer,
+		customer:         customer,
 	}
 }
 
 // Execute executes the request
-//  @return IdpStatusModel
+//
+//	@return IdpStatusModel
 func (a *IdentityProvidersDAASService) CustomerIdentityprovidersIdentityProviderCreateconnectPostExecute(r IdentityProvidersDAASCustomerIdentityprovidersIdentityProviderCreateconnectPostRequest) (*IdpStatusModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdpStatusModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdpStatusModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityProvidersDAASService.CustomerIdentityprovidersIdentityProviderCreateconnectPost")
@@ -1824,6 +1945,13 @@ func (a *IdentityProvidersDAASService) CustomerIdentityprovidersIdentityProvider
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

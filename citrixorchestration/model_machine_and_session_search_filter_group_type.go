@@ -20,7 +20,7 @@ type MachineAndSessionSearchFilterGroupType string
 
 // List of MachineAndSessionSearchFilterGroupType
 const (
-	MACHINEANDSESSIONSEARCHFILTERGROUPTYPE_OR MachineAndSessionSearchFilterGroupType = "Or"
+	MACHINEANDSESSIONSEARCHFILTERGROUPTYPE_OR  MachineAndSessionSearchFilterGroupType = "Or"
 	MACHINEANDSESSIONSEARCHFILTERGROUPTYPE_AND MachineAndSessionSearchFilterGroupType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *MachineAndSessionSearchFilterGroupType) UnmarshalJSON(src []byte) error
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineAndSessionSearchFilterGroupType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableMachineAndSessionSearchFilterGroupType) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

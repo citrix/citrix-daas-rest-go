@@ -20,7 +20,7 @@ type OciEnvironment string
 
 // List of OciEnvironment
 const (
-	OCIENVIRONMENT_COMMERCIAL OciEnvironment = "Commercial"
+	OCIENVIRONMENT_COMMERCIAL    OciEnvironment = "Commercial"
 	OCIENVIRONMENT_US_GOVERNMENT OciEnvironment = "USGovernment"
 	OCIENVIRONMENT_UK_GOVERNMENT OciEnvironment = "UKGovernment"
 )
@@ -38,7 +38,7 @@ func (v *OciEnvironment) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = OciEnvironment(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableOciEnvironment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

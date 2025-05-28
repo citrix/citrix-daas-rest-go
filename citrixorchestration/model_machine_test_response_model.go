@@ -19,8 +19,8 @@ var _ MappedNullable = &MachineTestResponseModel{}
 
 // MachineTestResponseModel struct for MachineTestResponseModel
 type MachineTestResponseModel struct {
-	Machine *RefResponseModel `json:"Machine,omitempty"`
-	Status *CloudHealthCheckStatus `json:"Status,omitempty"`
+	Machine *RefResponseModel       `json:"Machine,omitempty"`
+	Status  *CloudHealthCheckStatus `json:"Status,omitempty"`
 	// CommandResponse.
 	CommandResponse NullableString `json:"CommandResponse,omitempty"`
 	// ErrorMessage.
@@ -146,6 +146,7 @@ func (o *MachineTestResponseModel) HasCommandResponse() bool {
 func (o *MachineTestResponseModel) SetCommandResponse(v string) {
 	o.CommandResponse.Set(&v)
 }
+
 // SetCommandResponseNil sets the value for CommandResponse to be an explicit nil
 func (o *MachineTestResponseModel) SetCommandResponseNil() {
 	o.CommandResponse.Set(nil)
@@ -188,6 +189,7 @@ func (o *MachineTestResponseModel) HasErrorMessage() bool {
 func (o *MachineTestResponseModel) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *MachineTestResponseModel) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -230,6 +232,7 @@ func (o *MachineTestResponseModel) HasCommandName() bool {
 func (o *MachineTestResponseModel) SetCommandName(v string) {
 	o.CommandName.Set(&v)
 }
+
 // SetCommandNameNil sets the value for CommandName to be an explicit nil
 func (o *MachineTestResponseModel) SetCommandNameNil() {
 	o.CommandName.Set(nil)
@@ -272,6 +275,7 @@ func (o *MachineTestResponseModel) HasCategoryName() bool {
 func (o *MachineTestResponseModel) SetCategoryName(v string) {
 	o.CategoryName.Set(&v)
 }
+
 // SetCategoryNameNil sets the value for CategoryName to be an explicit nil
 func (o *MachineTestResponseModel) SetCategoryNameNil() {
 	o.CategoryName.Set(nil)
@@ -314,6 +318,7 @@ func (o *MachineTestResponseModel) HasCreatedBy() bool {
 func (o *MachineTestResponseModel) SetCreatedBy(v string) {
 	o.CreatedBy.Set(&v)
 }
+
 // SetCreatedByNil sets the value for CreatedBy to be an explicit nil
 func (o *MachineTestResponseModel) SetCreatedByNil() {
 	o.CreatedBy.Set(nil)
@@ -325,7 +330,7 @@ func (o *MachineTestResponseModel) UnsetCreatedBy() {
 }
 
 func (o MachineTestResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -393,5 +398,3 @@ func (v *NullableMachineTestResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

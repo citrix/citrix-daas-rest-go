@@ -21,11 +21,11 @@ var _ MappedNullable = &VmPriceResponseModel{}
 type VmPriceResponseModel struct {
 	// The size of the virtual machine.
 	MachineSize NullableString `json:"MachineSize,omitempty"`
-	OsType *OsType `json:"OsType,omitempty"`
+	OsType      *OsType        `json:"OsType,omitempty"`
 	// Whether bring your own license is enabled.
 	ByoLicense *bool `json:"ByoLicense,omitempty"`
 	// Specifies the location of the virtual machine.
-	Location NullableString `json:"Location,omitempty"`
+	Location     NullableString  `json:"Location,omitempty"`
 	InstanceType *VMInstanceType `json:"InstanceType,omitempty"`
 	// Gets or sets pricing information of resources.
 	ResourcePrices []ResourcePriceResponseModel `json:"ResourcePrices,omitempty"`
@@ -80,6 +80,7 @@ func (o *VmPriceResponseModel) HasMachineSize() bool {
 func (o *VmPriceResponseModel) SetMachineSize(v string) {
 	o.MachineSize.Set(&v)
 }
+
 // SetMachineSizeNil sets the value for MachineSize to be an explicit nil
 func (o *VmPriceResponseModel) SetMachineSizeNil() {
 	o.MachineSize.Set(nil)
@@ -186,6 +187,7 @@ func (o *VmPriceResponseModel) HasLocation() bool {
 func (o *VmPriceResponseModel) SetLocation(v string) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *VmPriceResponseModel) SetLocationNil() {
 	o.Location.Set(nil)
@@ -262,7 +264,7 @@ func (o *VmPriceResponseModel) SetResourcePrices(v []ResourcePriceResponseModel)
 }
 
 func (o VmPriceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -327,5 +329,3 @@ func (v *NullableVmPriceResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

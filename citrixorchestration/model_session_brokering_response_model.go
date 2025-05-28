@@ -107,6 +107,7 @@ func (o *SessionBrokeringResponseModel) HasDurationMilliseconds() bool {
 func (o *SessionBrokeringResponseModel) SetDurationMilliseconds(v int32) {
 	o.DurationMilliseconds.Set(&v)
 }
+
 // SetDurationMillisecondsNil sets the value for DurationMilliseconds to be an explicit nil
 func (o *SessionBrokeringResponseModel) SetDurationMillisecondsNil() {
 	o.DurationMilliseconds.Set(nil)
@@ -149,6 +150,7 @@ func (o *SessionBrokeringResponseModel) HasTime() bool {
 func (o *SessionBrokeringResponseModel) SetTime(v string) {
 	o.Time.Set(&v)
 }
+
 // SetTimeNil sets the value for Time to be an explicit nil
 func (o *SessionBrokeringResponseModel) SetTimeNil() {
 	o.Time.Set(nil)
@@ -191,6 +193,7 @@ func (o *SessionBrokeringResponseModel) HasFormattedTime() bool {
 func (o *SessionBrokeringResponseModel) SetFormattedTime(v string) {
 	o.FormattedTime.Set(&v)
 }
+
 // SetFormattedTimeNil sets the value for FormattedTime to be an explicit nil
 func (o *SessionBrokeringResponseModel) SetFormattedTimeNil() {
 	o.FormattedTime.Set(nil)
@@ -233,6 +236,7 @@ func (o *SessionBrokeringResponseModel) HasUserName() bool {
 func (o *SessionBrokeringResponseModel) SetUserName(v string) {
 	o.UserName.Set(&v)
 }
+
 // SetUserNameNil sets the value for UserName to be an explicit nil
 func (o *SessionBrokeringResponseModel) SetUserNameNil() {
 	o.UserName.Set(nil)
@@ -275,6 +279,7 @@ func (o *SessionBrokeringResponseModel) HasUserSid() bool {
 func (o *SessionBrokeringResponseModel) SetUserSid(v string) {
 	o.UserSid.Set(&v)
 }
+
 // SetUserSidNil sets the value for UserSid to be an explicit nil
 func (o *SessionBrokeringResponseModel) SetUserSidNil() {
 	o.UserSid.Set(nil)
@@ -286,7 +291,7 @@ func (o *SessionBrokeringResponseModel) UnsetUserSid() {
 }
 
 func (o SessionBrokeringResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -349,5 +354,3 @@ func (v *NullableSessionBrokeringResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

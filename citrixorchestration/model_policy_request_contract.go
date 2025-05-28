@@ -86,6 +86,7 @@ func (o *PolicyRequestContract) HasPolicyName() bool {
 func (o *PolicyRequestContract) SetPolicyName(v string) {
 	o.PolicyName.Set(&v)
 }
+
 // SetPolicyNameNil sets the value for PolicyName to be an explicit nil
 func (o *PolicyRequestContract) SetPolicyNameNil() {
 	o.PolicyName.Set(nil)
@@ -128,6 +129,7 @@ func (o *PolicyRequestContract) HasIsEnabled() bool {
 func (o *PolicyRequestContract) SetIsEnabled(v bool) {
 	o.IsEnabled.Set(&v)
 }
+
 // SetIsEnabledNil sets the value for IsEnabled to be an explicit nil
 func (o *PolicyRequestContract) SetIsEnabledNil() {
 	o.IsEnabled.Set(nil)
@@ -170,6 +172,7 @@ func (o *PolicyRequestContract) HasDescription() bool {
 func (o *PolicyRequestContract) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *PolicyRequestContract) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -212,6 +215,7 @@ func (o *PolicyRequestContract) HasPriority() bool {
 func (o *PolicyRequestContract) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *PolicyRequestContract) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -289,7 +293,7 @@ func (o *PolicyRequestContract) SetFilters(v []FilterRequestContract) {
 }
 
 func (o PolicyRequestContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -354,5 +358,3 @@ func (v *NullablePolicyRequestContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

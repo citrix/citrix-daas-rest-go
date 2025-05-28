@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_MeAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_MeAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MeAPIsDAASService MeDeleteMyPreference", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -37,7 +38,7 @@ func Test_citrixorchestration_MeAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MeAPIsDAASService MeGetMe", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MeAPIsDAAS.MeGetMe(context.Background()).Execute()
 
@@ -49,7 +50,7 @@ func Test_citrixorchestration_MeAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MeAPIsDAASService MeGetMyPreference", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -63,7 +64,7 @@ func Test_citrixorchestration_MeAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MeAPIsDAASService MeGetMyPreferences", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MeAPIsDAAS.MeGetMyPreferences(context.Background()).Execute()
 
@@ -75,7 +76,7 @@ func Test_citrixorchestration_MeAPIsDAASService(t *testing.T) {
 
 	t.Run("Test MeAPIsDAASService MeSetMyPreference", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.MeAPIsDAAS.MeSetMyPreference(context.Background()).Execute()
 

@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_PvsStreamingAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_PvsStreamingAPIsDAASService(t *testing.T) {
 
 	t.Run("Test PvsStreamingAPIsDAASService PvsStreamingGetPvsStreamingSites", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PvsStreamingAPIsDAAS.PvsStreamingGetPvsStreamingSites(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_citrixorchestration_PvsStreamingAPIsDAASService(t *testing.T) {
 
 	t.Run("Test PvsStreamingAPIsDAASService PvsStreamingGetPvsStreamingStores", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var farmId string
 
@@ -50,7 +51,7 @@ func Test_citrixorchestration_PvsStreamingAPIsDAASService(t *testing.T) {
 
 	t.Run("Test PvsStreamingAPIsDAASService PvsStreamingGetPvsStreamingVDisks", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PvsStreamingAPIsDAAS.PvsStreamingGetPvsStreamingVDisks(context.Background()).Execute()
 
@@ -62,7 +63,7 @@ func Test_citrixorchestration_PvsStreamingAPIsDAASService(t *testing.T) {
 
 	t.Run("Test PvsStreamingAPIsDAASService PvsStreamingTestDeviceCollectionExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.PvsStreamingAPIsDAAS.PvsStreamingTestDeviceCollectionExists(context.Background()).Execute()
 

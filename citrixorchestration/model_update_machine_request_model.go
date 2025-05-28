@@ -88,6 +88,7 @@ func (o *UpdateMachineRequestModel) HasAssignedClientName() bool {
 func (o *UpdateMachineRequestModel) SetAssignedClientName(v string) {
 	o.AssignedClientName.Set(&v)
 }
+
 // SetAssignedClientNameNil sets the value for AssignedClientName to be an explicit nil
 func (o *UpdateMachineRequestModel) SetAssignedClientNameNil() {
 	o.AssignedClientName.Set(nil)
@@ -130,6 +131,7 @@ func (o *UpdateMachineRequestModel) HasAssignedIPAddress() bool {
 func (o *UpdateMachineRequestModel) SetAssignedIPAddress(v string) {
 	o.AssignedIPAddress.Set(&v)
 }
+
 // SetAssignedIPAddressNil sets the value for AssignedIPAddress to be an explicit nil
 func (o *UpdateMachineRequestModel) SetAssignedIPAddressNil() {
 	o.AssignedIPAddress.Set(nil)
@@ -205,6 +207,7 @@ func (o *UpdateMachineRequestModel) HasHostedMachineId() bool {
 func (o *UpdateMachineRequestModel) SetHostedMachineId(v string) {
 	o.HostedMachineId.Set(&v)
 }
+
 // SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
 func (o *UpdateMachineRequestModel) SetHostedMachineIdNil() {
 	o.HostedMachineId.Set(nil)
@@ -247,6 +250,7 @@ func (o *UpdateMachineRequestModel) HasHypervisorConnection() bool {
 func (o *UpdateMachineRequestModel) SetHypervisorConnection(v string) {
 	o.HypervisorConnection.Set(&v)
 }
+
 // SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
 func (o *UpdateMachineRequestModel) SetHypervisorConnectionNil() {
 	o.HypervisorConnection.Set(nil)
@@ -289,6 +293,7 @@ func (o *UpdateMachineRequestModel) HasInMaintenanceMode() bool {
 func (o *UpdateMachineRequestModel) SetInMaintenanceMode(v bool) {
 	o.InMaintenanceMode.Set(&v)
 }
+
 // SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
 func (o *UpdateMachineRequestModel) SetInMaintenanceModeNil() {
 	o.InMaintenanceMode.Set(nil)
@@ -331,6 +336,7 @@ func (o *UpdateMachineRequestModel) HasPublishedName() bool {
 func (o *UpdateMachineRequestModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *UpdateMachineRequestModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -373,6 +379,7 @@ func (o *UpdateMachineRequestModel) HasIcon() bool {
 func (o *UpdateMachineRequestModel) SetIcon(v string) {
 	o.Icon.Set(&v)
 }
+
 // SetIconNil sets the value for Icon to be an explicit nil
 func (o *UpdateMachineRequestModel) SetIconNil() {
 	o.Icon.Set(nil)
@@ -417,7 +424,7 @@ func (o *UpdateMachineRequestModel) SetMetadata(v []NameValueStringPairModel) {
 }
 
 func (o UpdateMachineRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -491,5 +498,3 @@ func (v *NullableUpdateMachineRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

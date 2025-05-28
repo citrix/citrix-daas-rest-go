@@ -23,7 +23,7 @@ type EnrollMachineResponseModel struct {
 	SiteAddress NullableString `json:"SiteAddress,omitempty"`
 	// The virtual site id
 	VirtualSiteId NullableString `json:"VirtualSiteId,omitempty"`
-	ListOfDDCs []string `json:"ListOfDDCs,omitempty"`
+	ListOfDDCs    []string       `json:"ListOfDDCs,omitempty"`
 }
 
 // NewEnrollMachineResponseModel instantiates a new EnrollMachineResponseModel object
@@ -75,6 +75,7 @@ func (o *EnrollMachineResponseModel) HasSiteAddress() bool {
 func (o *EnrollMachineResponseModel) SetSiteAddress(v string) {
 	o.SiteAddress.Set(&v)
 }
+
 // SetSiteAddressNil sets the value for SiteAddress to be an explicit nil
 func (o *EnrollMachineResponseModel) SetSiteAddressNil() {
 	o.SiteAddress.Set(nil)
@@ -117,6 +118,7 @@ func (o *EnrollMachineResponseModel) HasVirtualSiteId() bool {
 func (o *EnrollMachineResponseModel) SetVirtualSiteId(v string) {
 	o.VirtualSiteId.Set(&v)
 }
+
 // SetVirtualSiteIdNil sets the value for VirtualSiteId to be an explicit nil
 func (o *EnrollMachineResponseModel) SetVirtualSiteIdNil() {
 	o.VirtualSiteId.Set(nil)
@@ -161,7 +163,7 @@ func (o *EnrollMachineResponseModel) SetListOfDDCs(v []string) {
 }
 
 func (o EnrollMachineResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -217,5 +219,3 @@ func (v *NullableEnrollMachineResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

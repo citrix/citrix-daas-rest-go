@@ -20,9 +20,9 @@ type CloudHealthCheckStatus string
 
 // List of CloudHealthCheckStatus
 const (
-	CLOUDHEALTHCHECKSTATUS_UNKNOWN CloudHealthCheckStatus = "Unknown"
-	CLOUDHEALTHCHECKSTATUS_OK CloudHealthCheckStatus = "Ok"
-	CLOUDHEALTHCHECKSTATUS_FAIL CloudHealthCheckStatus = "Fail"
+	CLOUDHEALTHCHECKSTATUS_UNKNOWN         CloudHealthCheckStatus = "Unknown"
+	CLOUDHEALTHCHECKSTATUS_OK              CloudHealthCheckStatus = "Ok"
+	CLOUDHEALTHCHECKSTATUS_FAIL            CloudHealthCheckStatus = "Fail"
 	CLOUDHEALTHCHECKSTATUS_INVALID_COMMAND CloudHealthCheckStatus = "InvalidCommand"
 )
 
@@ -40,7 +40,7 @@ func (v *CloudHealthCheckStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = CloudHealthCheckStatus(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableCloudHealthCheckStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

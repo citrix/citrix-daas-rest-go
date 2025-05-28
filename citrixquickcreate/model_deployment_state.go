@@ -20,14 +20,14 @@ type DeploymentState string
 
 // List of DeploymentState
 const (
-	DEPLOYMENTSTATE_PENDING DeploymentState = "PENDING"
-	DEPLOYMENTSTATE_ACTIVE DeploymentState = "ACTIVE"
-	DEPLOYMENTSTATE_UPDATING DeploymentState = "UPDATING"
-	DEPLOYMENTSTATE_DELETING DeploymentState = "DELETING"
-	DEPLOYMENTSTATE_ERROR DeploymentState = "ERROR"
-	DEPLOYMENTSTATE_DELETED DeploymentState = "DELETED"
+	DEPLOYMENTSTATE_PENDING               DeploymentState = "PENDING"
+	DEPLOYMENTSTATE_ACTIVE                DeploymentState = "ACTIVE"
+	DEPLOYMENTSTATE_UPDATING              DeploymentState = "UPDATING"
+	DEPLOYMENTSTATE_DELETING              DeploymentState = "DELETING"
+	DEPLOYMENTSTATE_ERROR                 DeploymentState = "ERROR"
+	DEPLOYMENTSTATE_DELETED               DeploymentState = "DELETED"
 	DEPLOYMENTSTATE_ERROR_INVALID_ACCOUNT DeploymentState = "ERROR_INVALID_ACCOUNT"
-	DEPLOYMENTSTATE_SYNCING_MACHINES DeploymentState = "SYNCING_MACHINES"
+	DEPLOYMENTSTATE_SYNCING_MACHINES      DeploymentState = "SYNCING_MACHINES"
 )
 
 // All allowed values of DeploymentState enum
@@ -120,4 +120,3 @@ func (v *NullableDeploymentState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,12 +19,48 @@ var _ MappedNullable = &HypervisorDetailAzureResponseModel{}
 
 // HypervisorDetailAzureResponseModel struct for HypervisorDetailAzureResponseModel
 type HypervisorDetailAzureResponseModel struct {
+	// The API key used to authenticate with the AWS APIs.
+	ApiKey string `json:"ApiKey"`
+	// The AWS region which the hypervisor represents.
+	Region string `json:"Region"`
+	// AWS maximum concurrent provisioning operations.
+	MaximumConcurrentProvisioningOperations NullableInt32 `json:"MaximumConcurrentProvisioningOperations,omitempty"`
+	// Application ID of the service principal used to access the Azure APIs.
+	ApplicationId string `json:"ApplicationId"`
+	// Azure subscription ID.
+	SubscriptionId string `json:"SubscriptionId"`
+	// Azure active directory ID.
+	ActiveDirectoryId string           `json:"ActiveDirectoryId"`
+	Environment       AzureEnvironment `json:"Environment"`
+	// Azure management endpoint.
+	ManagementEndpoint string `json:"ManagementEndpoint"`
+	// Azure authentication authority.
+	AuthenticationAuthority string `json:"AuthenticationAuthority"`
+	// Azure storage suffix.
+	StorageSuffix string `json:"StorageSuffix"`
+	// The service account ID used to access the Google Cloud APIs.
+	ServiceAccountId string `json:"ServiceAccountId"`
+	// Indicates whether Microsoft System Center Configuration Manager 2012 SP1 Wake-up Proxy is used for power management.
+	SccmWakeUpProxy  bool                  `json:"SccmWakeUpProxy"`
+	WakeOnLanPackets WakeOnLanTransmission `json:"WakeOnLanPackets"`
+	// SSL thumbprints considered acceptable for the SSL certificate presented by the hypervisor.
+	SslThumbprints []string `json:"SslThumbprints,omitempty"`
+	// The user name for the credentials used to communicate with the hypervisor.
+	UserName string `json:"UserName"`
+	// Oracle Cloud Infrastructure tenancy to connect to. Required.
+	TenancyOcid string `json:"TenancyOcid"`
+	// The region of Oracle Cloud Infrastructure.
+	OciRegion string `json:"OciRegion"`
+	// The environment of Oracle Cloud Infrastructure, Commercial or Government.
+	OciEnvironment string `json:"OciEnvironment"`
+	// The fingerprint of Oracle Cloud Infrastructure API key.
+	Fingerprint string `json:"Fingerprint"`
 	// Id of the resource.
 	Id NullableString `json:"Id,omitempty"`
 	// Name of the resource.
 	Name NullableString `json:"Name,omitempty"`
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
-	XDPath NullableString `json:"XDPath,omitempty"`
+	XDPath         NullableString           `json:"XDPath,omitempty"`
 	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
 	// Addresses that can be used to contact the required hypervisor. All the addresses are considered equivalent, that is, all of the addresses provide access to the same virtual machines, snapshots, network, and storage.
 	Addresses []string `json:"Addresses"`
@@ -39,9 +75,9 @@ type HypervisorDetailAzureResponseModel struct {
 	// The tenant(s) that the hypervisor is assigned to.  If `null`, the hypervisor is not assigned to tenants, and may be used by any tenant, including future added tenants.
 	Tenants []RefResponseModel `json:"Tenants,omitempty"`
 	// Indicates whether the hypervisor uses cloud infrastructure.
-	UsesCloudInfrastructure bool `json:"UsesCloudInfrastructure"`
-	Zone RefResponseModel `json:"Zone"`
-	Fault *HypervisorFaultResponseModel `json:"Fault,omitempty"`
+	UsesCloudInfrastructure bool                          `json:"UsesCloudInfrastructure"`
+	Zone                    RefResponseModel              `json:"Zone"`
+	Fault                   *HypervisorFaultResponseModel `json:"Fault,omitempty"`
 	// CustomProperties of hypervisor connection
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// The broker id.
@@ -68,27 +104,31 @@ type HypervisorDetailAzureResponseModel struct {
 	SupportsPvsVms bool `json:"SupportsPvsVms"`
 	// Metadata for hypervisor connections.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
-	// Application ID of the service principal used to access the Azure APIs.
-	ApplicationId string `json:"ApplicationId"`
-	// Azure subscription ID.
-	SubscriptionId string `json:"SubscriptionId"`
-	// Azure active directory ID.
-	ActiveDirectoryId string `json:"ActiveDirectoryId"`
-	Environment AzureEnvironment `json:"Environment"`
-	// Azure management endpoint.
-	ManagementEndpoint string `json:"ManagementEndpoint"`
-	// Azure authentication authority.
-	AuthenticationAuthority string `json:"AuthenticationAuthority"`
-	// Azure storage suffix.
-	StorageSuffix string `json:"StorageSuffix"`
 }
 
 // NewHypervisorDetailAzureResponseModel instantiates a new HypervisorDetailAzureResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHypervisorDetailAzureResponseModel(connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, applicationId string, subscriptionId string, activeDirectoryId string, environment AzureEnvironment, managementEndpoint string, authenticationAuthority string, storageSuffix string) *HypervisorDetailAzureResponseModel {
+func NewHypervisorDetailAzureResponseModel(apiKey string, region string, applicationId string, subscriptionId string, activeDirectoryId string, environment AzureEnvironment, managementEndpoint string, authenticationAuthority string, storageSuffix string, serviceAccountId string, sccmWakeUpProxy bool, wakeOnLanPackets WakeOnLanTransmission, userName string, tenancyOcid string, ociRegion string, ociEnvironment string, fingerprint string, connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool) *HypervisorDetailAzureResponseModel {
 	this := HypervisorDetailAzureResponseModel{}
+	this.ApiKey = apiKey
+	this.Region = region
+	this.ApplicationId = applicationId
+	this.SubscriptionId = subscriptionId
+	this.ActiveDirectoryId = activeDirectoryId
+	this.Environment = environment
+	this.ManagementEndpoint = managementEndpoint
+	this.AuthenticationAuthority = authenticationAuthority
+	this.StorageSuffix = storageSuffix
+	this.ServiceAccountId = serviceAccountId
+	this.SccmWakeUpProxy = sccmWakeUpProxy
+	this.WakeOnLanPackets = wakeOnLanPackets
+	this.UserName = userName
+	this.TenancyOcid = tenancyOcid
+	this.OciRegion = ociRegion
+	this.OciEnvironment = ociEnvironment
+	this.Fingerprint = fingerprint
 	this.ConnectionType = connectionType
 	this.Addresses = addresses
 	this.InMaintenanceMode = inMaintenanceMode
@@ -105,13 +145,6 @@ func NewHypervisorDetailAzureResponseModel(connectionType HypervisorConnectionTy
 	this.ConnectionOptions = connectionOptions
 	this.SupportsLocalStorageCaching = supportsLocalStorageCaching
 	this.SupportsPvsVms = supportsPvsVms
-	this.ApplicationId = applicationId
-	this.SubscriptionId = subscriptionId
-	this.ActiveDirectoryId = activeDirectoryId
-	this.Environment = environment
-	this.ManagementEndpoint = managementEndpoint
-	this.AuthenticationAuthority = authenticationAuthority
-	this.StorageSuffix = storageSuffix
 	return &this
 }
 
@@ -121,6 +154,490 @@ func NewHypervisorDetailAzureResponseModel(connectionType HypervisorConnectionTy
 func NewHypervisorDetailAzureResponseModelWithDefaults() *HypervisorDetailAzureResponseModel {
 	this := HypervisorDetailAzureResponseModel{}
 	return &this
+}
+
+// GetApiKey returns the ApiKey field value
+func (o *HypervisorDetailAzureResponseModel) GetApiKey() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ApiKey
+}
+
+// GetApiKeyOk returns a tuple with the ApiKey field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetApiKeyOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ApiKey, true
+}
+
+// SetApiKey sets field value
+func (o *HypervisorDetailAzureResponseModel) SetApiKey(v string) {
+	o.ApiKey = v
+}
+
+// GetRegion returns the Region field value
+func (o *HypervisorDetailAzureResponseModel) GetRegion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Region, true
+}
+
+// SetRegion sets field value
+func (o *HypervisorDetailAzureResponseModel) SetRegion(v string) {
+	o.Region = v
+}
+
+// GetMaximumConcurrentProvisioningOperations returns the MaximumConcurrentProvisioningOperations field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorDetailAzureResponseModel) GetMaximumConcurrentProvisioningOperations() int32 {
+	if o == nil || IsNil(o.MaximumConcurrentProvisioningOperations.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.MaximumConcurrentProvisioningOperations.Get()
+}
+
+// GetMaximumConcurrentProvisioningOperationsOk returns a tuple with the MaximumConcurrentProvisioningOperations field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorDetailAzureResponseModel) GetMaximumConcurrentProvisioningOperationsOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MaximumConcurrentProvisioningOperations.Get(), o.MaximumConcurrentProvisioningOperations.IsSet()
+}
+
+// HasMaximumConcurrentProvisioningOperations returns a boolean if a field has been set.
+func (o *HypervisorDetailAzureResponseModel) HasMaximumConcurrentProvisioningOperations() bool {
+	if o != nil && o.MaximumConcurrentProvisioningOperations.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMaximumConcurrentProvisioningOperations gets a reference to the given NullableInt32 and assigns it to the MaximumConcurrentProvisioningOperations field.
+func (o *HypervisorDetailAzureResponseModel) SetMaximumConcurrentProvisioningOperations(v int32) {
+	o.MaximumConcurrentProvisioningOperations.Set(&v)
+}
+
+// SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
+func (o *HypervisorDetailAzureResponseModel) SetMaximumConcurrentProvisioningOperationsNil() {
+	o.MaximumConcurrentProvisioningOperations.Set(nil)
+}
+
+// UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
+func (o *HypervisorDetailAzureResponseModel) UnsetMaximumConcurrentProvisioningOperations() {
+	o.MaximumConcurrentProvisioningOperations.Unset()
+}
+
+// GetApplicationId returns the ApplicationId field value
+func (o *HypervisorDetailAzureResponseModel) GetApplicationId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ApplicationId
+}
+
+// GetApplicationIdOk returns a tuple with the ApplicationId field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetApplicationIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ApplicationId, true
+}
+
+// SetApplicationId sets field value
+func (o *HypervisorDetailAzureResponseModel) SetApplicationId(v string) {
+	o.ApplicationId = v
+}
+
+// GetSubscriptionId returns the SubscriptionId field value
+func (o *HypervisorDetailAzureResponseModel) GetSubscriptionId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.SubscriptionId
+}
+
+// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetSubscriptionIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SubscriptionId, true
+}
+
+// SetSubscriptionId sets field value
+func (o *HypervisorDetailAzureResponseModel) SetSubscriptionId(v string) {
+	o.SubscriptionId = v
+}
+
+// GetActiveDirectoryId returns the ActiveDirectoryId field value
+func (o *HypervisorDetailAzureResponseModel) GetActiveDirectoryId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ActiveDirectoryId
+}
+
+// GetActiveDirectoryIdOk returns a tuple with the ActiveDirectoryId field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetActiveDirectoryIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ActiveDirectoryId, true
+}
+
+// SetActiveDirectoryId sets field value
+func (o *HypervisorDetailAzureResponseModel) SetActiveDirectoryId(v string) {
+	o.ActiveDirectoryId = v
+}
+
+// GetEnvironment returns the Environment field value
+func (o *HypervisorDetailAzureResponseModel) GetEnvironment() AzureEnvironment {
+	if o == nil {
+		var ret AzureEnvironment
+		return ret
+	}
+
+	return o.Environment
+}
+
+// GetEnvironmentOk returns a tuple with the Environment field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetEnvironmentOk() (*AzureEnvironment, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Environment, true
+}
+
+// SetEnvironment sets field value
+func (o *HypervisorDetailAzureResponseModel) SetEnvironment(v AzureEnvironment) {
+	o.Environment = v
+}
+
+// GetManagementEndpoint returns the ManagementEndpoint field value
+func (o *HypervisorDetailAzureResponseModel) GetManagementEndpoint() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ManagementEndpoint
+}
+
+// GetManagementEndpointOk returns a tuple with the ManagementEndpoint field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetManagementEndpointOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ManagementEndpoint, true
+}
+
+// SetManagementEndpoint sets field value
+func (o *HypervisorDetailAzureResponseModel) SetManagementEndpoint(v string) {
+	o.ManagementEndpoint = v
+}
+
+// GetAuthenticationAuthority returns the AuthenticationAuthority field value
+func (o *HypervisorDetailAzureResponseModel) GetAuthenticationAuthority() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.AuthenticationAuthority
+}
+
+// GetAuthenticationAuthorityOk returns a tuple with the AuthenticationAuthority field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetAuthenticationAuthorityOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AuthenticationAuthority, true
+}
+
+// SetAuthenticationAuthority sets field value
+func (o *HypervisorDetailAzureResponseModel) SetAuthenticationAuthority(v string) {
+	o.AuthenticationAuthority = v
+}
+
+// GetStorageSuffix returns the StorageSuffix field value
+func (o *HypervisorDetailAzureResponseModel) GetStorageSuffix() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.StorageSuffix
+}
+
+// GetStorageSuffixOk returns a tuple with the StorageSuffix field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetStorageSuffixOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.StorageSuffix, true
+}
+
+// SetStorageSuffix sets field value
+func (o *HypervisorDetailAzureResponseModel) SetStorageSuffix(v string) {
+	o.StorageSuffix = v
+}
+
+// GetServiceAccountId returns the ServiceAccountId field value
+func (o *HypervisorDetailAzureResponseModel) GetServiceAccountId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.ServiceAccountId
+}
+
+// GetServiceAccountIdOk returns a tuple with the ServiceAccountId field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetServiceAccountIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ServiceAccountId, true
+}
+
+// SetServiceAccountId sets field value
+func (o *HypervisorDetailAzureResponseModel) SetServiceAccountId(v string) {
+	o.ServiceAccountId = v
+}
+
+// GetSccmWakeUpProxy returns the SccmWakeUpProxy field value
+func (o *HypervisorDetailAzureResponseModel) GetSccmWakeUpProxy() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.SccmWakeUpProxy
+}
+
+// GetSccmWakeUpProxyOk returns a tuple with the SccmWakeUpProxy field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetSccmWakeUpProxyOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.SccmWakeUpProxy, true
+}
+
+// SetSccmWakeUpProxy sets field value
+func (o *HypervisorDetailAzureResponseModel) SetSccmWakeUpProxy(v bool) {
+	o.SccmWakeUpProxy = v
+}
+
+// GetWakeOnLanPackets returns the WakeOnLanPackets field value
+func (o *HypervisorDetailAzureResponseModel) GetWakeOnLanPackets() WakeOnLanTransmission {
+	if o == nil {
+		var ret WakeOnLanTransmission
+		return ret
+	}
+
+	return o.WakeOnLanPackets
+}
+
+// GetWakeOnLanPacketsOk returns a tuple with the WakeOnLanPackets field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetWakeOnLanPacketsOk() (*WakeOnLanTransmission, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.WakeOnLanPackets, true
+}
+
+// SetWakeOnLanPackets sets field value
+func (o *HypervisorDetailAzureResponseModel) SetWakeOnLanPackets(v WakeOnLanTransmission) {
+	o.WakeOnLanPackets = v
+}
+
+// GetSslThumbprints returns the SslThumbprints field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorDetailAzureResponseModel) GetSslThumbprints() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.SslThumbprints
+}
+
+// GetSslThumbprintsOk returns a tuple with the SslThumbprints field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorDetailAzureResponseModel) GetSslThumbprintsOk() ([]string, bool) {
+	if o == nil || IsNil(o.SslThumbprints) {
+		return nil, false
+	}
+	return o.SslThumbprints, true
+}
+
+// HasSslThumbprints returns a boolean if a field has been set.
+func (o *HypervisorDetailAzureResponseModel) HasSslThumbprints() bool {
+	if o != nil && IsNil(o.SslThumbprints) {
+		return true
+	}
+
+	return false
+}
+
+// SetSslThumbprints gets a reference to the given []string and assigns it to the SslThumbprints field.
+func (o *HypervisorDetailAzureResponseModel) SetSslThumbprints(v []string) {
+	o.SslThumbprints = v
+}
+
+// GetUserName returns the UserName field value
+func (o *HypervisorDetailAzureResponseModel) GetUserName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.UserName
+}
+
+// GetUserNameOk returns a tuple with the UserName field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetUserNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.UserName, true
+}
+
+// SetUserName sets field value
+func (o *HypervisorDetailAzureResponseModel) SetUserName(v string) {
+	o.UserName = v
+}
+
+// GetTenancyOcid returns the TenancyOcid field value
+func (o *HypervisorDetailAzureResponseModel) GetTenancyOcid() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TenancyOcid
+}
+
+// GetTenancyOcidOk returns a tuple with the TenancyOcid field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetTenancyOcidOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TenancyOcid, true
+}
+
+// SetTenancyOcid sets field value
+func (o *HypervisorDetailAzureResponseModel) SetTenancyOcid(v string) {
+	o.TenancyOcid = v
+}
+
+// GetOciRegion returns the OciRegion field value
+func (o *HypervisorDetailAzureResponseModel) GetOciRegion() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OciRegion
+}
+
+// GetOciRegionOk returns a tuple with the OciRegion field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetOciRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OciRegion, true
+}
+
+// SetOciRegion sets field value
+func (o *HypervisorDetailAzureResponseModel) SetOciRegion(v string) {
+	o.OciRegion = v
+}
+
+// GetOciEnvironment returns the OciEnvironment field value
+func (o *HypervisorDetailAzureResponseModel) GetOciEnvironment() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.OciEnvironment
+}
+
+// GetOciEnvironmentOk returns a tuple with the OciEnvironment field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetOciEnvironmentOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OciEnvironment, true
+}
+
+// SetOciEnvironment sets field value
+func (o *HypervisorDetailAzureResponseModel) SetOciEnvironment(v string) {
+	o.OciEnvironment = v
+}
+
+// GetFingerprint returns the Fingerprint field value
+func (o *HypervisorDetailAzureResponseModel) GetFingerprint() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Fingerprint
+}
+
+// GetFingerprintOk returns a tuple with the Fingerprint field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorDetailAzureResponseModel) GetFingerprintOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Fingerprint, true
+}
+
+// SetFingerprint sets field value
+func (o *HypervisorDetailAzureResponseModel) SetFingerprint(v string) {
+	o.Fingerprint = v
 }
 
 // GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -155,6 +672,7 @@ func (o *HypervisorDetailAzureResponseModel) HasId() bool {
 func (o *HypervisorDetailAzureResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorDetailAzureResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -197,6 +715,7 @@ func (o *HypervisorDetailAzureResponseModel) HasName() bool {
 func (o *HypervisorDetailAzureResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorDetailAzureResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -239,6 +758,7 @@ func (o *HypervisorDetailAzureResponseModel) HasXDPath() bool {
 func (o *HypervisorDetailAzureResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorDetailAzureResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -546,6 +1066,7 @@ func (o *HypervisorDetailAzureResponseModel) HasCustomProperties() bool {
 func (o *HypervisorDetailAzureResponseModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *HypervisorDetailAzureResponseModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -588,6 +1109,7 @@ func (o *HypervisorDetailAzureResponseModel) HasUid() bool {
 func (o *HypervisorDetailAzureResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *HypervisorDetailAzureResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -879,176 +1401,8 @@ func (o *HypervisorDetailAzureResponseModel) SetMetadata(v []NameValueStringPair
 	o.Metadata = v
 }
 
-// GetApplicationId returns the ApplicationId field value
-func (o *HypervisorDetailAzureResponseModel) GetApplicationId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ApplicationId
-}
-
-// GetApplicationIdOk returns a tuple with the ApplicationId field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorDetailAzureResponseModel) GetApplicationIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ApplicationId, true
-}
-
-// SetApplicationId sets field value
-func (o *HypervisorDetailAzureResponseModel) SetApplicationId(v string) {
-	o.ApplicationId = v
-}
-
-// GetSubscriptionId returns the SubscriptionId field value
-func (o *HypervisorDetailAzureResponseModel) GetSubscriptionId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.SubscriptionId
-}
-
-// GetSubscriptionIdOk returns a tuple with the SubscriptionId field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorDetailAzureResponseModel) GetSubscriptionIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.SubscriptionId, true
-}
-
-// SetSubscriptionId sets field value
-func (o *HypervisorDetailAzureResponseModel) SetSubscriptionId(v string) {
-	o.SubscriptionId = v
-}
-
-// GetActiveDirectoryId returns the ActiveDirectoryId field value
-func (o *HypervisorDetailAzureResponseModel) GetActiveDirectoryId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ActiveDirectoryId
-}
-
-// GetActiveDirectoryIdOk returns a tuple with the ActiveDirectoryId field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorDetailAzureResponseModel) GetActiveDirectoryIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ActiveDirectoryId, true
-}
-
-// SetActiveDirectoryId sets field value
-func (o *HypervisorDetailAzureResponseModel) SetActiveDirectoryId(v string) {
-	o.ActiveDirectoryId = v
-}
-
-// GetEnvironment returns the Environment field value
-func (o *HypervisorDetailAzureResponseModel) GetEnvironment() AzureEnvironment {
-	if o == nil {
-		var ret AzureEnvironment
-		return ret
-	}
-
-	return o.Environment
-}
-
-// GetEnvironmentOk returns a tuple with the Environment field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorDetailAzureResponseModel) GetEnvironmentOk() (*AzureEnvironment, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Environment, true
-}
-
-// SetEnvironment sets field value
-func (o *HypervisorDetailAzureResponseModel) SetEnvironment(v AzureEnvironment) {
-	o.Environment = v
-}
-
-// GetManagementEndpoint returns the ManagementEndpoint field value
-func (o *HypervisorDetailAzureResponseModel) GetManagementEndpoint() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ManagementEndpoint
-}
-
-// GetManagementEndpointOk returns a tuple with the ManagementEndpoint field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorDetailAzureResponseModel) GetManagementEndpointOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.ManagementEndpoint, true
-}
-
-// SetManagementEndpoint sets field value
-func (o *HypervisorDetailAzureResponseModel) SetManagementEndpoint(v string) {
-	o.ManagementEndpoint = v
-}
-
-// GetAuthenticationAuthority returns the AuthenticationAuthority field value
-func (o *HypervisorDetailAzureResponseModel) GetAuthenticationAuthority() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AuthenticationAuthority
-}
-
-// GetAuthenticationAuthorityOk returns a tuple with the AuthenticationAuthority field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorDetailAzureResponseModel) GetAuthenticationAuthorityOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AuthenticationAuthority, true
-}
-
-// SetAuthenticationAuthority sets field value
-func (o *HypervisorDetailAzureResponseModel) SetAuthenticationAuthority(v string) {
-	o.AuthenticationAuthority = v
-}
-
-// GetStorageSuffix returns the StorageSuffix field value
-func (o *HypervisorDetailAzureResponseModel) GetStorageSuffix() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.StorageSuffix
-}
-
-// GetStorageSuffixOk returns a tuple with the StorageSuffix field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorDetailAzureResponseModel) GetStorageSuffixOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.StorageSuffix, true
-}
-
-// SetStorageSuffix sets field value
-func (o *HypervisorDetailAzureResponseModel) SetStorageSuffix(v string) {
-	o.StorageSuffix = v
-}
-
 func (o HypervisorDetailAzureResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1057,6 +1411,29 @@ func (o HypervisorDetailAzureResponseModel) MarshalJSON() ([]byte, error) {
 
 func (o HypervisorDetailAzureResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["ApiKey"] = o.ApiKey
+	toSerialize["Region"] = o.Region
+	if o.MaximumConcurrentProvisioningOperations.IsSet() {
+		toSerialize["MaximumConcurrentProvisioningOperations"] = o.MaximumConcurrentProvisioningOperations.Get()
+	}
+	toSerialize["ApplicationId"] = o.ApplicationId
+	toSerialize["SubscriptionId"] = o.SubscriptionId
+	toSerialize["ActiveDirectoryId"] = o.ActiveDirectoryId
+	toSerialize["Environment"] = o.Environment
+	toSerialize["ManagementEndpoint"] = o.ManagementEndpoint
+	toSerialize["AuthenticationAuthority"] = o.AuthenticationAuthority
+	toSerialize["StorageSuffix"] = o.StorageSuffix
+	toSerialize["ServiceAccountId"] = o.ServiceAccountId
+	toSerialize["SccmWakeUpProxy"] = o.SccmWakeUpProxy
+	toSerialize["WakeOnLanPackets"] = o.WakeOnLanPackets
+	if o.SslThumbprints != nil {
+		toSerialize["SslThumbprints"] = o.SslThumbprints
+	}
+	toSerialize["UserName"] = o.UserName
+	toSerialize["TenancyOcid"] = o.TenancyOcid
+	toSerialize["OciRegion"] = o.OciRegion
+	toSerialize["OciEnvironment"] = o.OciEnvironment
+	toSerialize["Fingerprint"] = o.Fingerprint
 	if o.Id.IsSet() {
 		toSerialize["Id"] = o.Id.Get()
 	}
@@ -1103,13 +1480,6 @@ func (o HypervisorDetailAzureResponseModel) ToMap() (map[string]interface{}, err
 	if o.Metadata != nil {
 		toSerialize["Metadata"] = o.Metadata
 	}
-	toSerialize["ApplicationId"] = o.ApplicationId
-	toSerialize["SubscriptionId"] = o.SubscriptionId
-	toSerialize["ActiveDirectoryId"] = o.ActiveDirectoryId
-	toSerialize["Environment"] = o.Environment
-	toSerialize["ManagementEndpoint"] = o.ManagementEndpoint
-	toSerialize["AuthenticationAuthority"] = o.AuthenticationAuthority
-	toSerialize["StorageSuffix"] = o.StorageSuffix
 	return toSerialize, nil
 }
 
@@ -1148,5 +1518,3 @@ func (v *NullableHypervisorDetailAzureResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

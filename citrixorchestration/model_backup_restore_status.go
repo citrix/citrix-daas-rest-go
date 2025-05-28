@@ -20,19 +20,19 @@ type BackupRestoreStatus string
 
 // List of BackupRestoreStatus
 const (
-	BACKUPRESTORESTATUS_UNKNOWN BackupRestoreStatus = "Unknown"
-	BACKUPRESTORESTATUS_PENDING BackupRestoreStatus = "Pending"
-	BACKUPRESTORESTATUS_IN_PROGRESS BackupRestoreStatus = "InProgress"
-	BACKUPRESTORESTATUS_PRE_COMPLETE BackupRestoreStatus = "PreComplete"
-	BACKUPRESTORESTATUS_COMPLETE BackupRestoreStatus = "Complete"
+	BACKUPRESTORESTATUS_UNKNOWN               BackupRestoreStatus = "Unknown"
+	BACKUPRESTORESTATUS_PENDING               BackupRestoreStatus = "Pending"
+	BACKUPRESTORESTATUS_IN_PROGRESS           BackupRestoreStatus = "InProgress"
+	BACKUPRESTORESTATUS_PRE_COMPLETE          BackupRestoreStatus = "PreComplete"
+	BACKUPRESTORESTATUS_COMPLETE              BackupRestoreStatus = "Complete"
 	BACKUPRESTORESTATUS_COMPLETE_WITH_WARNING BackupRestoreStatus = "CompleteWithWarning"
-	BACKUPRESTORESTATUS_FAILED BackupRestoreStatus = "Failed"
-	BACKUPRESTORESTATUS_CANCELED BackupRestoreStatus = "Canceled"
+	BACKUPRESTORESTATUS_FAILED                BackupRestoreStatus = "Failed"
+	BACKUPRESTORESTATUS_CANCELED              BackupRestoreStatus = "Canceled"
 	BACKUPRESTORESTATUS_NON_TERMINATING_ERROR BackupRestoreStatus = "NonTerminatingError"
-	BACKUPRESTORESTATUS_STALLED BackupRestoreStatus = "Stalled"
-	BACKUPRESTORESTATUS_RETRY_BACKUP BackupRestoreStatus = "RetryBackup"
-	BACKUPRESTORESTATUS_RETRY_RESTORE BackupRestoreStatus = "RetryRestore"
-	BACKUPRESTORESTATUS_AUDIT_COMPLETE BackupRestoreStatus = "AuditComplete"
+	BACKUPRESTORESTATUS_STALLED               BackupRestoreStatus = "Stalled"
+	BACKUPRESTORESTATUS_RETRY_BACKUP          BackupRestoreStatus = "RetryBackup"
+	BACKUPRESTORESTATUS_RETRY_RESTORE         BackupRestoreStatus = "RetryRestore"
+	BACKUPRESTORESTATUS_AUDIT_COMPLETE        BackupRestoreStatus = "AuditComplete"
 )
 
 // All allowed values of BackupRestoreStatus enum
@@ -58,7 +58,7 @@ func (v *BackupRestoreStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreStatus(value)
 	return nil
 }
@@ -124,4 +124,3 @@ func (v *NullableBackupRestoreStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

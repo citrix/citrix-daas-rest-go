@@ -111,6 +111,7 @@ func (o *DatabaseResponseModel) HasDatabaseName() bool {
 func (o *DatabaseResponseModel) SetDatabaseName(v string) {
 	o.DatabaseName.Set(&v)
 }
+
 // SetDatabaseNameNil sets the value for DatabaseName to be an explicit nil
 func (o *DatabaseResponseModel) SetDatabaseNameNil() {
 	o.DatabaseName.Set(nil)
@@ -153,6 +154,7 @@ func (o *DatabaseResponseModel) HasDatabaseServerAddress() bool {
 func (o *DatabaseResponseModel) SetDatabaseServerAddress(v string) {
 	o.DatabaseServerAddress.Set(&v)
 }
+
 // SetDatabaseServerAddressNil sets the value for DatabaseServerAddress to be an explicit nil
 func (o *DatabaseResponseModel) SetDatabaseServerAddressNil() {
 	o.DatabaseServerAddress.Set(nil)
@@ -195,6 +197,7 @@ func (o *DatabaseResponseModel) HasMirrorDatabaseServerAddress() bool {
 func (o *DatabaseResponseModel) SetMirrorDatabaseServerAddress(v string) {
 	o.MirrorDatabaseServerAddress.Set(&v)
 }
+
 // SetMirrorDatabaseServerAddressNil sets the value for MirrorDatabaseServerAddress to be an explicit nil
 func (o *DatabaseResponseModel) SetMirrorDatabaseServerAddressNil() {
 	o.MirrorDatabaseServerAddress.Set(nil)
@@ -238,7 +241,7 @@ func (o *DatabaseResponseModel) SetCanChangeDatabase(v bool) {
 }
 
 func (o DatabaseResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -300,5 +303,3 @@ func (v *NullableDatabaseResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

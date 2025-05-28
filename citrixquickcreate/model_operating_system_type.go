@@ -21,7 +21,7 @@ type OperatingSystemType string
 // List of OperatingSystemType
 const (
 	OPERATINGSYSTEMTYPE_WINDOWS OperatingSystemType = "WINDOWS"
-	OPERATINGSYSTEMTYPE_LINUX OperatingSystemType = "LINUX"
+	OPERATINGSYSTEMTYPE_LINUX   OperatingSystemType = "LINUX"
 )
 
 // All allowed values of OperatingSystemType enum
@@ -108,4 +108,3 @@ func (v *NullableOperatingSystemType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

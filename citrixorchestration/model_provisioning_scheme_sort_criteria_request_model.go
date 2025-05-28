@@ -19,8 +19,8 @@ var _ MappedNullable = &ProvisioningSchemeSortCriteriaRequestModel{}
 
 // ProvisioningSchemeSortCriteriaRequestModel Provisioning scheme sort criteria.
 type ProvisioningSchemeSortCriteriaRequestModel struct {
-	Property ProvisioningSchemeSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      ProvisioningSchemeSearchProperty `json:"Property"`
+	SortDirection ListSortDirection                `json:"SortDirection"`
 }
 
 // NewProvisioningSchemeSortCriteriaRequestModel instantiates a new ProvisioningSchemeSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *ProvisioningSchemeSortCriteriaRequestModel) SetSortDirection(v ListSort
 }
 
 func (o ProvisioningSchemeSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableProvisioningSchemeSortCriteriaRequestModel) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

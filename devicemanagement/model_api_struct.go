@@ -19,11 +19,11 @@ var _ MappedNullable = &ApiStruct{}
 
 // ApiStruct struct for ApiStruct
 type ApiStruct struct {
-	Path *string `json:"path,omitempty"`
-	Method *string `json:"method,omitempty"`
-	Function *string `json:"function,omitempty"`
+	Path           *string `json:"path,omitempty"`
+	Method         *string `json:"method,omitempty"`
+	Function       *string `json:"function,omitempty"`
 	ControllerName *string `json:"controllerName,omitempty"`
-	AuthLevel *string `json:"authLevel,omitempty"`
+	AuthLevel      *string `json:"authLevel,omitempty"`
 }
 
 // NewApiStruct instantiates a new ApiStruct object
@@ -204,7 +204,7 @@ func (o *ApiStruct) SetAuthLevel(v string) {
 }
 
 func (o ApiStruct) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,5 +266,3 @@ func (v *NullableApiStruct) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

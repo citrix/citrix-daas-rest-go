@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of cloud provider the account is associated with. | 
 **FilterProperty** | Pointer to **NullableString** | The filter property key. | [optional] 
 **FilterValue** | Pointer to **NullableString** | The filter property value. | [optional] 
 

@@ -128,6 +128,7 @@ func (o *AppVApplicationResponseModel) HasTarget() bool {
 func (o *AppVApplicationResponseModel) SetTarget(v string) {
 	o.Target.Set(&v)
 }
+
 // SetTargetNil sets the value for Target to be an explicit nil
 func (o *AppVApplicationResponseModel) SetTargetNil() {
 	o.Target.Set(nil)
@@ -170,6 +171,7 @@ func (o *AppVApplicationResponseModel) HasIdentifier() bool {
 func (o *AppVApplicationResponseModel) SetIdentifier(v string) {
 	o.Identifier.Set(&v)
 }
+
 // SetIdentifierNil sets the value for Identifier to be an explicit nil
 func (o *AppVApplicationResponseModel) SetIdentifierNil() {
 	o.Identifier.Set(nil)
@@ -212,6 +214,7 @@ func (o *AppVApplicationResponseModel) HasServerMachineConfigurationUid() bool {
 func (o *AppVApplicationResponseModel) SetServerMachineConfigurationUid(v string) {
 	o.ServerMachineConfigurationUid.Set(&v)
 }
+
 // SetServerMachineConfigurationUidNil sets the value for ServerMachineConfigurationUid to be an explicit nil
 func (o *AppVApplicationResponseModel) SetServerMachineConfigurationUidNil() {
 	o.ServerMachineConfigurationUid.Set(nil)
@@ -468,7 +471,7 @@ func (o *AppVApplicationResponseModel) SetBrokerApplicationNames(v []string) {
 }
 
 func (o AppVApplicationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -540,5 +543,3 @@ func (v *NullableAppVApplicationResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

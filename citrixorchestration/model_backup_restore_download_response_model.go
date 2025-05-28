@@ -113,6 +113,7 @@ func (o *BackupRestoreDownloadResponseModel) HasBackupBinaryData() bool {
 func (o *BackupRestoreDownloadResponseModel) SetBackupBinaryData(v string) {
 	o.BackupBinaryData.Set(&v)
 }
+
 // SetBackupBinaryDataNil sets the value for BackupBinaryData to be an explicit nil
 func (o *BackupRestoreDownloadResponseModel) SetBackupBinaryDataNil() {
 	o.BackupBinaryData.Set(nil)
@@ -251,6 +252,7 @@ func (o *BackupRestoreDownloadResponseModel) HasContinuationToken() bool {
 func (o *BackupRestoreDownloadResponseModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *BackupRestoreDownloadResponseModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -262,7 +264,7 @@ func (o *BackupRestoreDownloadResponseModel) UnsetContinuationToken() {
 }
 
 func (o BackupRestoreDownloadResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -327,5 +329,3 @@ func (v *NullableBackupRestoreDownloadResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

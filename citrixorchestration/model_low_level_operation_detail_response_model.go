@@ -17,35 +17,35 @@ import (
 // checks if the LowLevelOperationDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LowLevelOperationDetailResponseModel{}
 
-// LowLevelOperationDetailResponseModel low level operation detail model             
+// LowLevelOperationDetailResponseModel low level operation detail model
 type LowLevelOperationDetailResponseModel struct {
-	// The date and time that the operation completed. This will be null if the operation is still in progress, or if the operation never completed.             
+	// The date and time that the operation completed. This will be null if the operation is still in progress, or if the operation never completed.
 	EndTime NullableString `json:"EndTime,omitempty"`
-	// The formatted date and time that the operation completed. RFC 3339 compatible format. This will be null if the operation is still in progress, or if the operation never completed.             
+	// The formatted date and time that the operation completed. RFC 3339 compatible format. This will be null if the operation is still in progress, or if the operation never completed.
 	FormattedEndTime NullableString `json:"FormattedEndTime,omitempty"`
-	// Indicates whether the operation completed successfully or not. This will be null if the operation is still in progress, or if the operation didn't complete.             
+	// Indicates whether the operation completed successfully or not. This will be null if the operation is still in progress, or if the operation didn't complete.
 	IsSuccessful NullableBool `json:"IsSuccessful,omitempty"`
-	// The new property value.             
+	// The new property value.
 	NewValue NullableString `json:"NewValue,omitempty"`
-	// The previous property value.             
+	// The previous property value.
 	PreviousValue NullableString `json:"PreviousValue,omitempty"`
-	// The name of the changed property.             
+	// The name of the changed property.
 	PropertyName NullableString `json:"PropertyName,omitempty"`
-	// If the object property contains a set of values, this specifies the new value which was added to the set.             
+	// If the object property contains a set of values, this specifies the new value which was added to the set.
 	AddValue NullableString `json:"AddValue,omitempty"`
-	// If the object property contains a set of values, this specifies the value which was removed from the set.             
+	// If the object property contains a set of values, this specifies the value which was removed from the set.
 	RemoveValue NullableString `json:"RemoveValue,omitempty"`
-	// The date and time that the operation started.             
+	// The date and time that the operation started.
 	StartTime string `json:"StartTime"`
-	// The formatted date and time that the operation started. RFC 3339 compatible format.             
+	// The formatted date and time that the operation started. RFC 3339 compatible format.
 	FormattedStartTime string `json:"FormattedStartTime"`
-	// The name of the target object affected by the operation.             
+	// The name of the target object affected by the operation.
 	TargetName string `json:"TargetName"`
-	// The unique identifier of the target object affected by the operation.             
+	// The unique identifier of the target object affected by the operation.
 	TargetUid string `json:"TargetUid"`
-	// The type of the target object.             
+	// The type of the target object.
 	TargetType NullableString `json:"TargetType,omitempty"`
-	// The description of operation performed on the target object.             
+	// The description of operation performed on the target object.
 	Text string `json:"Text"`
 }
 
@@ -103,6 +103,7 @@ func (o *LowLevelOperationDetailResponseModel) HasEndTime() bool {
 func (o *LowLevelOperationDetailResponseModel) SetEndTime(v string) {
 	o.EndTime.Set(&v)
 }
+
 // SetEndTimeNil sets the value for EndTime to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetEndTimeNil() {
 	o.EndTime.Set(nil)
@@ -145,6 +146,7 @@ func (o *LowLevelOperationDetailResponseModel) HasFormattedEndTime() bool {
 func (o *LowLevelOperationDetailResponseModel) SetFormattedEndTime(v string) {
 	o.FormattedEndTime.Set(&v)
 }
+
 // SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetFormattedEndTimeNil() {
 	o.FormattedEndTime.Set(nil)
@@ -187,6 +189,7 @@ func (o *LowLevelOperationDetailResponseModel) HasIsSuccessful() bool {
 func (o *LowLevelOperationDetailResponseModel) SetIsSuccessful(v bool) {
 	o.IsSuccessful.Set(&v)
 }
+
 // SetIsSuccessfulNil sets the value for IsSuccessful to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetIsSuccessfulNil() {
 	o.IsSuccessful.Set(nil)
@@ -229,6 +232,7 @@ func (o *LowLevelOperationDetailResponseModel) HasNewValue() bool {
 func (o *LowLevelOperationDetailResponseModel) SetNewValue(v string) {
 	o.NewValue.Set(&v)
 }
+
 // SetNewValueNil sets the value for NewValue to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetNewValueNil() {
 	o.NewValue.Set(nil)
@@ -271,6 +275,7 @@ func (o *LowLevelOperationDetailResponseModel) HasPreviousValue() bool {
 func (o *LowLevelOperationDetailResponseModel) SetPreviousValue(v string) {
 	o.PreviousValue.Set(&v)
 }
+
 // SetPreviousValueNil sets the value for PreviousValue to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetPreviousValueNil() {
 	o.PreviousValue.Set(nil)
@@ -313,6 +318,7 @@ func (o *LowLevelOperationDetailResponseModel) HasPropertyName() bool {
 func (o *LowLevelOperationDetailResponseModel) SetPropertyName(v string) {
 	o.PropertyName.Set(&v)
 }
+
 // SetPropertyNameNil sets the value for PropertyName to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetPropertyNameNil() {
 	o.PropertyName.Set(nil)
@@ -355,6 +361,7 @@ func (o *LowLevelOperationDetailResponseModel) HasAddValue() bool {
 func (o *LowLevelOperationDetailResponseModel) SetAddValue(v string) {
 	o.AddValue.Set(&v)
 }
+
 // SetAddValueNil sets the value for AddValue to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetAddValueNil() {
 	o.AddValue.Set(nil)
@@ -397,6 +404,7 @@ func (o *LowLevelOperationDetailResponseModel) HasRemoveValue() bool {
 func (o *LowLevelOperationDetailResponseModel) SetRemoveValue(v string) {
 	o.RemoveValue.Set(&v)
 }
+
 // SetRemoveValueNil sets the value for RemoveValue to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetRemoveValueNil() {
 	o.RemoveValue.Set(nil)
@@ -535,6 +543,7 @@ func (o *LowLevelOperationDetailResponseModel) HasTargetType() bool {
 func (o *LowLevelOperationDetailResponseModel) SetTargetType(v string) {
 	o.TargetType.Set(&v)
 }
+
 // SetTargetTypeNil sets the value for TargetType to be an explicit nil
 func (o *LowLevelOperationDetailResponseModel) SetTargetTypeNil() {
 	o.TargetType.Set(nil)
@@ -570,7 +579,7 @@ func (o *LowLevelOperationDetailResponseModel) SetText(v string) {
 }
 
 func (o LowLevelOperationDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -649,5 +658,3 @@ func (v *NullableLowLevelOperationDetailResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,9 +20,9 @@ type VMImageStatus string
 
 // List of VMImageStatus
 const (
-	VMIMAGESTATUS_UNKNOWN VMImageStatus = "Unknown"
-	VMIMAGESTATUS_DELETED VMImageStatus = "Deleted"
-	VMIMAGESTATUS_CURRENT VMImageStatus = "Current"
+	VMIMAGESTATUS_UNKNOWN  VMImageStatus = "Unknown"
+	VMIMAGESTATUS_DELETED  VMImageStatus = "Deleted"
+	VMIMAGESTATUS_CURRENT  VMImageStatus = "Current"
 	VMIMAGESTATUS_PREPARED VMImageStatus = "Prepared"
 )
 
@@ -40,7 +40,7 @@ func (v *VMImageStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = VMImageStatus(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableVMImageStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

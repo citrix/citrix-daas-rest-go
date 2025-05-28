@@ -20,8 +20,11 @@ var _ MappedNullable = &AwsEdcAccountResource{}
 // AwsEdcAccountResource struct for AwsEdcAccountResource
 type AwsEdcAccountResource struct {
 	AccountResource
+	// AWS Resource type
 	ResourceType AwsAccountResourceType `json:"resourceType"`
 }
+
+type _AwsEdcAccountResource AwsEdcAccountResource
 
 // NewAwsEdcAccountResource instantiates a new AwsEdcAccountResource object
 // This constructor will assign default values to properties that have it defined,
@@ -66,7 +69,7 @@ func (o *AwsEdcAccountResource) SetResourceType(v AwsAccountResourceType) {
 }
 
 func (o AwsEdcAccountResource) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -122,5 +125,3 @@ func (v *NullableAwsEdcAccountResource) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

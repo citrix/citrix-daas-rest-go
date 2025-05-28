@@ -20,9 +20,9 @@ var _ MappedNullable = &ImageDefinitionAndImageVersionSearchRequestModel{}
 // ImageDefinitionAndImageVersionSearchRequestModel Request model for defining advanced image definition and image version search criteria.
 type ImageDefinitionAndImageVersionSearchRequestModel struct {
 	// Resource pool in which to search for the image definition and image version.
-	ResourcePool NullableString `json:"ResourcePool,omitempty"`
+	ResourcePool      NullableString  `json:"ResourcePool,omitempty"`
 	VDASessionSupport *SessionSupport `json:"VDASessionSupport,omitempty"`
-	OsType *OsType `json:"OsType,omitempty"`
+	OsType            *OsType         `json:"OsType,omitempty"`
 }
 
 // NewImageDefinitionAndImageVersionSearchRequestModel instantiates a new ImageDefinitionAndImageVersionSearchRequestModel object
@@ -74,6 +74,7 @@ func (o *ImageDefinitionAndImageVersionSearchRequestModel) HasResourcePool() boo
 func (o *ImageDefinitionAndImageVersionSearchRequestModel) SetResourcePool(v string) {
 	o.ResourcePool.Set(&v)
 }
+
 // SetResourcePoolNil sets the value for ResourcePool to be an explicit nil
 func (o *ImageDefinitionAndImageVersionSearchRequestModel) SetResourcePoolNil() {
 	o.ResourcePool.Set(nil)
@@ -149,7 +150,7 @@ func (o *ImageDefinitionAndImageVersionSearchRequestModel) SetOsType(v OsType) {
 }
 
 func (o ImageDefinitionAndImageVersionSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -205,5 +206,3 @@ func (v *NullableImageDefinitionAndImageVersionSearchRequestModel) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

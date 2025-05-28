@@ -23,7 +23,7 @@ type EditDeliveryGroupRequestModel struct {
 	AdminFolder NullableString `json:"AdminFolder,omitempty"`
 	// Machine assignments to users.
 	AssignMachinesToUsers []AssignMachineToUserRequestModel `json:"AssignMachinesToUsers,omitempty"`
-	DeliveryType *DeliveryKind `json:"DeliveryType,omitempty"`
+	DeliveryType          *DeliveryKind                     `json:"DeliveryType,omitempty"`
 	// A description for this delivery group useful for administrators of the site.
 	Description NullableString `json:"Description,omitempty"`
 	// List of desktop resources to publish on the delivery group.
@@ -31,7 +31,7 @@ type EditDeliveryGroupRequestModel struct {
 	// Whether the delivery group should be in the enabled state; all resources published on disabled delivery groups do not appear to users.
 	Enabled NullableBool `json:"Enabled,omitempty"`
 	// Whether the delivery group should be created in maintenance mode; a delivery group in maintenance mode will not allow users to connect or reconnect to machines in the delivery group.
-	InMaintenanceMode NullableBool `json:"InMaintenanceMode,omitempty"`
+	InMaintenanceMode      NullableBool     `json:"InMaintenanceMode,omitempty"`
 	MinimumFunctionalLevel *FunctionalLevel `json:"MinimumFunctionalLevel,omitempty"`
 	// The name of the new delivery group.
 	Name NullableString `json:"Name,omitempty"`
@@ -44,13 +44,13 @@ type EditDeliveryGroupRequestModel struct {
 	// Administrative scopes which the delivery group should be a part of. If not specified, don't change. If specified, *all* desired scopes must be listed.  Any scope that the delivery group was part of previously, but which is not passed, will be removed.
 	Scopes []string `json:"Scopes,omitempty"`
 	// Tenants to associate with the delivery group.
-	Tenants []string `json:"Tenants,omitempty"`
+	Tenants         []string         `json:"Tenants,omitempty"`
 	LoadBalanceType *LoadBalanceType `json:"LoadBalanceType,omitempty"`
 	// Specifies whether key logging app protection is required.
 	AppProtectionKeyLoggingRequired NullableBool `json:"AppProtectionKeyLoggingRequired,omitempty"`
 	// Specifies whether screen capture app protection is required.
-	AppProtectionScreenCaptureRequired NullableBool `json:"AppProtectionScreenCaptureRequired,omitempty"`
-	AppAccessPolicy *AppAccessPolicyRequestModel `json:"AppAccessPolicy,omitempty"`
+	AppProtectionScreenCaptureRequired NullableBool                 `json:"AppProtectionScreenCaptureRequired,omitempty"`
+	AppAccessPolicy                    *AppAccessPolicyRequestModel `json:"AppAccessPolicy,omitempty"`
 	// Whether assigned (Private) machines in the delivery group should be automatically powered-on at the start of peak time periods.
 	AutomaticPowerOnForAssigned NullableBool `json:"AutomaticPowerOnForAssigned,omitempty"`
 	// Whether assigned (Private) machines in the delivery group should be automatically powered-on throughout peak time periods.
@@ -59,40 +59,40 @@ type EditDeliveryGroupRequestModel struct {
 	AutoScaleEnabled NullableBool `json:"AutoScaleEnabled,omitempty"`
 	// Specifies the tag used to restrict autoscale.
 	RestrictAutoscaleTag NullableString `json:"RestrictAutoscaleTag,omitempty"`
-	ColorDepth *ColorDepth `json:"ColorDepth,omitempty"`
+	ColorDepth           *ColorDepth    `json:"ColorDepth,omitempty"`
 	// Specifies the product code of the delivery group.
-	ProductCode NullableString `json:"ProductCode,omitempty"`
-	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
+	ProductCode  NullableString `json:"ProductCode,omitempty"`
+	LicenseModel *LicenseModel  `json:"LicenseModel,omitempty"`
 	// Whether connections to machines in the delivery group will use SecureIca to encrypt the ICA protocol.
 	SecureIcaEnabled NullableBool `json:"SecureIcaEnabled,omitempty"`
 	// Default icon to use for desktops published from the delivery group.
 	DefaultDesktopIcon NullableString `json:"DefaultDesktopIcon,omitempty"`
 	// Whether connections to machines in the delivery group will use SSL.
-	HdxSslEnabled NullableBool `json:"HdxSslEnabled,omitempty"`
+	HdxSslEnabled  NullableBool                         `json:"HdxSslEnabled,omitempty"`
 	LingerSettings *FastApplicationSettingsRequestModel `json:"LingerSettings,omitempty"`
 	// The percentage that the number of untagged single-session machines in an idle state, or for multi-session machines, the untagged available load capacity must fall below before Autoscale powers on and manages 'tagged' machines, as per policy, in peak time. If the number of untagged machines in an idle state, or the untagged available load capacity goes above this threshold value, Autoscale will attempt to shut down 'tagged' machines.
 	RestrictAutoscaleMinIdleUntaggedPercentDuringPeak NullableInt32 `json:"RestrictAutoscaleMinIdleUntaggedPercentDuringPeak,omitempty"`
 	// The percentage that the number of untagged single-session machines in an idle state, or for multi-session machines, the untagged available load capacity must fall below before Autoscale powers on and manages 'tagged' machines, as per policy, in off-peak. If the number of untagged machines in an idle state, or the untagged available load capacity goes above this threshold value, Autoscale will attempt to shut down 'tagged' machines.
 	RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak NullableInt32 `json:"RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak,omitempty"`
 	// The percentage of machines in the delivery group that should be kept available in an idle state outside peak hours.
-	OffPeakBufferSizePercent NullableInt32 `json:"OffPeakBufferSizePercent,omitempty"`
-	OffPeakDisconnectAction *SessionChangeHostingAction `json:"OffPeakDisconnectAction,omitempty"`
+	OffPeakBufferSizePercent NullableInt32               `json:"OffPeakBufferSizePercent,omitempty"`
+	OffPeakDisconnectAction  *SessionChangeHostingAction `json:"OffPeakDisconnectAction,omitempty"`
 	// The number of minutes before the configured action should be performed after a user session disconnects outside peak hours.
-	OffPeakDisconnectTimeoutMinutes NullableInt32 `json:"OffPeakDisconnectTimeoutMinutes,omitempty"`
+	OffPeakDisconnectTimeoutMinutes NullableInt32               `json:"OffPeakDisconnectTimeoutMinutes,omitempty"`
 	OffPeakExtendedDisconnectAction *SessionChangeHostingAction `json:"OffPeakExtendedDisconnectAction,omitempty"`
 	// The number of minutes before the second configured action should be performed after a user session disconnects outside peak hours.
-	OffPeakExtendedDisconnectTimeoutMinutes NullableInt32 `json:"OffPeakExtendedDisconnectTimeoutMinutes,omitempty"`
-	OffPeakLogOffAction *SessionChangeHostingAction `json:"OffPeakLogOffAction,omitempty"`
+	OffPeakExtendedDisconnectTimeoutMinutes NullableInt32               `json:"OffPeakExtendedDisconnectTimeoutMinutes,omitempty"`
+	OffPeakLogOffAction                     *SessionChangeHostingAction `json:"OffPeakLogOffAction,omitempty"`
 	// The number of minutes before the configured action should be performed after a user session ends outside peak hours.
 	OffPeakLogOffTimeoutMinutes NullableInt32 `json:"OffPeakLogOffTimeoutMinutes,omitempty"`
 	// The number of minutes before the configured action is performed on an assigned machine previously started by autoscale that subsequently remains unused.
-	PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes NullableInt32 `json:"PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes,omitempty"`
-	PeakAutoscaleAssignedPowerOnIdleAction *SessionChangeHostingAction `json:"PeakAutoscaleAssignedPowerOnIdleAction,omitempty"`
+	PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes NullableInt32               `json:"PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes,omitempty"`
+	PeakAutoscaleAssignedPowerOnIdleAction         *SessionChangeHostingAction `json:"PeakAutoscaleAssignedPowerOnIdleAction,omitempty"`
 	// The percentage of machines in the delivery group that should be kept available in an idle state in peak hours.
-	PeakBufferSizePercent NullableInt32 `json:"PeakBufferSizePercent,omitempty"`
-	PeakDisconnectAction *SessionChangeHostingAction `json:"PeakDisconnectAction,omitempty"`
+	PeakBufferSizePercent NullableInt32               `json:"PeakBufferSizePercent,omitempty"`
+	PeakDisconnectAction  *SessionChangeHostingAction `json:"PeakDisconnectAction,omitempty"`
 	// The number of minutes before the configured action should be performed after a user session disconnects in peak hours.
-	PeakDisconnectTimeoutMinutes NullableInt32 `json:"PeakDisconnectTimeoutMinutes,omitempty"`
+	PeakDisconnectTimeoutMinutes NullableInt32               `json:"PeakDisconnectTimeoutMinutes,omitempty"`
 	PeakExtendedDisconnectAction *SessionChangeHostingAction `json:"PeakExtendedDisconnectAction,omitempty"`
 	// The number of minutes before the second configured action should be performed after a user session disconnects in peak hours.
 	PeakExtendedDisconnectTimeoutMinutes NullableInt32 `json:"PeakExtendedDisconnectTimeoutMinutes,omitempty"`
@@ -103,8 +103,8 @@ type EditDeliveryGroupRequestModel struct {
 	// The warning message to display to users in active sessions prior to logging off users, whether in peak time or off-peak.
 	LogOffWarningMessage NullableString `json:"LogOffWarningMessage,omitempty"`
 	// The title of the warning message dialog.
-	LogOffWarningTitle NullableString `json:"LogOffWarningTitle,omitempty"`
-	PeakLogOffAction *SessionChangeHostingAction `json:"PeakLogOffAction,omitempty"`
+	LogOffWarningTitle NullableString              `json:"LogOffWarningTitle,omitempty"`
+	PeakLogOffAction   *SessionChangeHostingAction `json:"PeakLogOffAction,omitempty"`
 	// The number of minutes before the configured action should be performed after a user session ends in peak hours.
 	PeakLogOffTimeoutMinutes NullableInt32 `json:"PeakLogOffTimeoutMinutes,omitempty"`
 	// Specifies the time in seconds after which an idle session belonging to the delivery group is disconnected during peak time.
@@ -128,12 +128,12 @@ type EditDeliveryGroupRequestModel struct {
 	// Notification message to display to users in active sessions belonging to machines needed by Autoscale for shutdown.
 	AutoscaleLogOffReminderMessage NullableString `json:"AutoscaleLogOffReminderMessage,omitempty"`
 	// Notification message dialog title displayed when Autoscale issues a logoff reminder request.
-	AutoscaleLogOffReminderTitle NullableString `json:"AutoscaleLogOffReminderTitle,omitempty"`
-	AutoscaleScaleDownActionDuringPeak *AutoscaleScaleDownAction `json:"AutoscaleScaleDownActionDuringPeak,omitempty"`
+	AutoscaleLogOffReminderTitle          NullableString            `json:"AutoscaleLogOffReminderTitle,omitempty"`
+	AutoscaleScaleDownActionDuringPeak    *AutoscaleScaleDownAction `json:"AutoscaleScaleDownActionDuringPeak,omitempty"`
 	AutoscaleScaleDownActionDuringOffPeak *AutoscaleScaleDownAction `json:"AutoscaleScaleDownActionDuringOffPeak,omitempty"`
 	// Indicates the estimated per-hour cost for machines in the delivery group, as set by the administrator.
-	MachineCost NullableFloat64 `json:"MachineCost,omitempty"`
-	MachineLogOnType *MachineLogOnType `json:"MachineLogOnType,omitempty"`
+	MachineCost       NullableFloat64                      `json:"MachineCost,omitempty"`
+	MachineLogOnType  *MachineLogOnType                    `json:"MachineLogOnType,omitempty"`
 	PrelaunchSettings *FastApplicationSettingsRequestModel `json:"PrelaunchSettings,omitempty"`
 	// A list of protocols in the order in which they should be attempted for use during connection.
 	ProtocolPriority []ProtocolType `json:"ProtocolPriority,omitempty"`
@@ -144,8 +144,8 @@ type EditDeliveryGroupRequestModel struct {
 	// Idle period before a machine can be selected to host a new session after registration or the end of a previous session. This is typically used to allow a machine to become idle following processing associated with start-up or logoff actions. A machine may still be selected during the idle period if no other machine is available for immediate use.
 	SettlementPeriodBeforeUseSeconds NullableInt32 `json:"SettlementPeriodBeforeUseSeconds,omitempty"`
 	// Whether machines in this delivery group should be automatically shut down when each user session completes.
-	ShutdownDesktopsAfterUse NullableBool `json:"ShutdownDesktopsAfterUse,omitempty"`
-	SimpleAccessPolicy *SimplifiedAccessPolicyRequestModel `json:"SimpleAccessPolicy,omitempty"`
+	ShutdownDesktopsAfterUse NullableBool                        `json:"ShutdownDesktopsAfterUse,omitempty"`
+	SimpleAccessPolicy       *SimplifiedAccessPolicyRequestModel `json:"SimpleAccessPolicy,omitempty"`
 	// Advanced access policy for connections to the delivery group. If you want to edit access policies through AdvancedAccessPolicy, then SimpleAccessPolicy in the request should be null.
 	AdvancedAccessPolicy []AdvancedAccessPolicyRequestModel `json:"AdvancedAccessPolicy,omitempty"`
 	// List of StoreFront server addresses to configure within hosted receivers that are delivered from the delivery group.
@@ -159,7 +159,7 @@ type EditDeliveryGroupRequestModel struct {
 	// The metadata of the delivery group.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// The GUID of the policy set assigned to this desktop group. Change if not null. Use Guid.Empty to clear the value stored in the database. A non-null and non-empty GUID assigns the policy set to this desktop group.
-	PolicySetGuid NullableString `json:"PolicySetGuid,omitempty"`
+	PolicySetGuid           NullableString           `json:"PolicySetGuid,omitempty"`
 	RequiredSleepCapability *RequiredSleepCapability `json:"RequiredSleepCapability,omitempty"`
 }
 
@@ -212,6 +212,7 @@ func (o *EditDeliveryGroupRequestModel) HasAdminFolder() bool {
 func (o *EditDeliveryGroupRequestModel) SetAdminFolder(v string) {
 	o.AdminFolder.Set(&v)
 }
+
 // SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAdminFolderNil() {
 	o.AdminFolder.Set(nil)
@@ -319,6 +320,7 @@ func (o *EditDeliveryGroupRequestModel) HasDescription() bool {
 func (o *EditDeliveryGroupRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -394,6 +396,7 @@ func (o *EditDeliveryGroupRequestModel) HasEnabled() bool {
 func (o *EditDeliveryGroupRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -436,6 +439,7 @@ func (o *EditDeliveryGroupRequestModel) HasInMaintenanceMode() bool {
 func (o *EditDeliveryGroupRequestModel) SetInMaintenanceMode(v bool) {
 	o.InMaintenanceMode.Set(&v)
 }
+
 // SetInMaintenanceModeNil sets the value for InMaintenanceMode to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetInMaintenanceModeNil() {
 	o.InMaintenanceMode.Set(nil)
@@ -510,6 +514,7 @@ func (o *EditDeliveryGroupRequestModel) HasName() bool {
 func (o *EditDeliveryGroupRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -552,6 +557,7 @@ func (o *EditDeliveryGroupRequestModel) HasPublishedName() bool {
 func (o *EditDeliveryGroupRequestModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -594,6 +600,7 @@ func (o *EditDeliveryGroupRequestModel) HasRequireUserHomeZone() bool {
 func (o *EditDeliveryGroupRequestModel) SetRequireUserHomeZone(v bool) {
 	o.RequireUserHomeZone.Set(&v)
 }
+
 // SetRequireUserHomeZoneNil sets the value for RequireUserHomeZone to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetRequireUserHomeZoneNil() {
 	o.RequireUserHomeZone.Set(nil)
@@ -636,6 +643,7 @@ func (o *EditDeliveryGroupRequestModel) HasReuseMachinesWithoutShutdownInOutage(
 func (o *EditDeliveryGroupRequestModel) SetReuseMachinesWithoutShutdownInOutage(v bool) {
 	o.ReuseMachinesWithoutShutdownInOutage.Set(&v)
 }
+
 // SetReuseMachinesWithoutShutdownInOutageNil sets the value for ReuseMachinesWithoutShutdownInOutage to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetReuseMachinesWithoutShutdownInOutageNil() {
 	o.ReuseMachinesWithoutShutdownInOutage.Set(nil)
@@ -776,6 +784,7 @@ func (o *EditDeliveryGroupRequestModel) HasAppProtectionKeyLoggingRequired() boo
 func (o *EditDeliveryGroupRequestModel) SetAppProtectionKeyLoggingRequired(v bool) {
 	o.AppProtectionKeyLoggingRequired.Set(&v)
 }
+
 // SetAppProtectionKeyLoggingRequiredNil sets the value for AppProtectionKeyLoggingRequired to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAppProtectionKeyLoggingRequiredNil() {
 	o.AppProtectionKeyLoggingRequired.Set(nil)
@@ -818,6 +827,7 @@ func (o *EditDeliveryGroupRequestModel) HasAppProtectionScreenCaptureRequired() 
 func (o *EditDeliveryGroupRequestModel) SetAppProtectionScreenCaptureRequired(v bool) {
 	o.AppProtectionScreenCaptureRequired.Set(&v)
 }
+
 // SetAppProtectionScreenCaptureRequiredNil sets the value for AppProtectionScreenCaptureRequired to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAppProtectionScreenCaptureRequiredNil() {
 	o.AppProtectionScreenCaptureRequired.Set(nil)
@@ -892,6 +902,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutomaticPowerOnForAssigned() bool {
 func (o *EditDeliveryGroupRequestModel) SetAutomaticPowerOnForAssigned(v bool) {
 	o.AutomaticPowerOnForAssigned.Set(&v)
 }
+
 // SetAutomaticPowerOnForAssignedNil sets the value for AutomaticPowerOnForAssigned to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutomaticPowerOnForAssignedNil() {
 	o.AutomaticPowerOnForAssigned.Set(nil)
@@ -934,6 +945,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutomaticPowerOnForAssignedDuringPeak
 func (o *EditDeliveryGroupRequestModel) SetAutomaticPowerOnForAssignedDuringPeak(v bool) {
 	o.AutomaticPowerOnForAssignedDuringPeak.Set(&v)
 }
+
 // SetAutomaticPowerOnForAssignedDuringPeakNil sets the value for AutomaticPowerOnForAssignedDuringPeak to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutomaticPowerOnForAssignedDuringPeakNil() {
 	o.AutomaticPowerOnForAssignedDuringPeak.Set(nil)
@@ -976,6 +988,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutoScaleEnabled() bool {
 func (o *EditDeliveryGroupRequestModel) SetAutoScaleEnabled(v bool) {
 	o.AutoScaleEnabled.Set(&v)
 }
+
 // SetAutoScaleEnabledNil sets the value for AutoScaleEnabled to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutoScaleEnabledNil() {
 	o.AutoScaleEnabled.Set(nil)
@@ -1018,6 +1031,7 @@ func (o *EditDeliveryGroupRequestModel) HasRestrictAutoscaleTag() bool {
 func (o *EditDeliveryGroupRequestModel) SetRestrictAutoscaleTag(v string) {
 	o.RestrictAutoscaleTag.Set(&v)
 }
+
 // SetRestrictAutoscaleTagNil sets the value for RestrictAutoscaleTag to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetRestrictAutoscaleTagNil() {
 	o.RestrictAutoscaleTag.Set(nil)
@@ -1092,6 +1106,7 @@ func (o *EditDeliveryGroupRequestModel) HasProductCode() bool {
 func (o *EditDeliveryGroupRequestModel) SetProductCode(v string) {
 	o.ProductCode.Set(&v)
 }
+
 // SetProductCodeNil sets the value for ProductCode to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetProductCodeNil() {
 	o.ProductCode.Set(nil)
@@ -1166,6 +1181,7 @@ func (o *EditDeliveryGroupRequestModel) HasSecureIcaEnabled() bool {
 func (o *EditDeliveryGroupRequestModel) SetSecureIcaEnabled(v bool) {
 	o.SecureIcaEnabled.Set(&v)
 }
+
 // SetSecureIcaEnabledNil sets the value for SecureIcaEnabled to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetSecureIcaEnabledNil() {
 	o.SecureIcaEnabled.Set(nil)
@@ -1208,6 +1224,7 @@ func (o *EditDeliveryGroupRequestModel) HasDefaultDesktopIcon() bool {
 func (o *EditDeliveryGroupRequestModel) SetDefaultDesktopIcon(v string) {
 	o.DefaultDesktopIcon.Set(&v)
 }
+
 // SetDefaultDesktopIconNil sets the value for DefaultDesktopIcon to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetDefaultDesktopIconNil() {
 	o.DefaultDesktopIcon.Set(nil)
@@ -1250,6 +1267,7 @@ func (o *EditDeliveryGroupRequestModel) HasHdxSslEnabled() bool {
 func (o *EditDeliveryGroupRequestModel) SetHdxSslEnabled(v bool) {
 	o.HdxSslEnabled.Set(&v)
 }
+
 // SetHdxSslEnabledNil sets the value for HdxSslEnabled to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetHdxSslEnabledNil() {
 	o.HdxSslEnabled.Set(nil)
@@ -1324,6 +1342,7 @@ func (o *EditDeliveryGroupRequestModel) HasRestrictAutoscaleMinIdleUntaggedPerce
 func (o *EditDeliveryGroupRequestModel) SetRestrictAutoscaleMinIdleUntaggedPercentDuringPeak(v int32) {
 	o.RestrictAutoscaleMinIdleUntaggedPercentDuringPeak.Set(&v)
 }
+
 // SetRestrictAutoscaleMinIdleUntaggedPercentDuringPeakNil sets the value for RestrictAutoscaleMinIdleUntaggedPercentDuringPeak to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetRestrictAutoscaleMinIdleUntaggedPercentDuringPeakNil() {
 	o.RestrictAutoscaleMinIdleUntaggedPercentDuringPeak.Set(nil)
@@ -1366,6 +1385,7 @@ func (o *EditDeliveryGroupRequestModel) HasRestrictAutoscaleMinIdleUntaggedPerce
 func (o *EditDeliveryGroupRequestModel) SetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak(v int32) {
 	o.RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak.Set(&v)
 }
+
 // SetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeakNil sets the value for RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetRestrictAutoscaleMinIdleUntaggedPercentDuringOffPeakNil() {
 	o.RestrictAutoscaleMinIdleUntaggedPercentDuringOffPeak.Set(nil)
@@ -1408,6 +1428,7 @@ func (o *EditDeliveryGroupRequestModel) HasOffPeakBufferSizePercent() bool {
 func (o *EditDeliveryGroupRequestModel) SetOffPeakBufferSizePercent(v int32) {
 	o.OffPeakBufferSizePercent.Set(&v)
 }
+
 // SetOffPeakBufferSizePercentNil sets the value for OffPeakBufferSizePercent to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetOffPeakBufferSizePercentNil() {
 	o.OffPeakBufferSizePercent.Set(nil)
@@ -1482,6 +1503,7 @@ func (o *EditDeliveryGroupRequestModel) HasOffPeakDisconnectTimeoutMinutes() boo
 func (o *EditDeliveryGroupRequestModel) SetOffPeakDisconnectTimeoutMinutes(v int32) {
 	o.OffPeakDisconnectTimeoutMinutes.Set(&v)
 }
+
 // SetOffPeakDisconnectTimeoutMinutesNil sets the value for OffPeakDisconnectTimeoutMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetOffPeakDisconnectTimeoutMinutesNil() {
 	o.OffPeakDisconnectTimeoutMinutes.Set(nil)
@@ -1556,6 +1578,7 @@ func (o *EditDeliveryGroupRequestModel) HasOffPeakExtendedDisconnectTimeoutMinut
 func (o *EditDeliveryGroupRequestModel) SetOffPeakExtendedDisconnectTimeoutMinutes(v int32) {
 	o.OffPeakExtendedDisconnectTimeoutMinutes.Set(&v)
 }
+
 // SetOffPeakExtendedDisconnectTimeoutMinutesNil sets the value for OffPeakExtendedDisconnectTimeoutMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetOffPeakExtendedDisconnectTimeoutMinutesNil() {
 	o.OffPeakExtendedDisconnectTimeoutMinutes.Set(nil)
@@ -1630,6 +1653,7 @@ func (o *EditDeliveryGroupRequestModel) HasOffPeakLogOffTimeoutMinutes() bool {
 func (o *EditDeliveryGroupRequestModel) SetOffPeakLogOffTimeoutMinutes(v int32) {
 	o.OffPeakLogOffTimeoutMinutes.Set(&v)
 }
+
 // SetOffPeakLogOffTimeoutMinutesNil sets the value for OffPeakLogOffTimeoutMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetOffPeakLogOffTimeoutMinutesNil() {
 	o.OffPeakLogOffTimeoutMinutes.Set(nil)
@@ -1672,6 +1696,7 @@ func (o *EditDeliveryGroupRequestModel) HasPeakAutoscaleAssignedPowerOnIdleTimeo
 func (o *EditDeliveryGroupRequestModel) SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutes(v int32) {
 	o.PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes.Set(&v)
 }
+
 // SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil sets the value for PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPeakAutoscaleAssignedPowerOnIdleTimeoutMinutesNil() {
 	o.PeakAutoscaleAssignedPowerOnIdleTimeoutMinutes.Set(nil)
@@ -1746,6 +1771,7 @@ func (o *EditDeliveryGroupRequestModel) HasPeakBufferSizePercent() bool {
 func (o *EditDeliveryGroupRequestModel) SetPeakBufferSizePercent(v int32) {
 	o.PeakBufferSizePercent.Set(&v)
 }
+
 // SetPeakBufferSizePercentNil sets the value for PeakBufferSizePercent to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPeakBufferSizePercentNil() {
 	o.PeakBufferSizePercent.Set(nil)
@@ -1820,6 +1846,7 @@ func (o *EditDeliveryGroupRequestModel) HasPeakDisconnectTimeoutMinutes() bool {
 func (o *EditDeliveryGroupRequestModel) SetPeakDisconnectTimeoutMinutes(v int32) {
 	o.PeakDisconnectTimeoutMinutes.Set(&v)
 }
+
 // SetPeakDisconnectTimeoutMinutesNil sets the value for PeakDisconnectTimeoutMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPeakDisconnectTimeoutMinutesNil() {
 	o.PeakDisconnectTimeoutMinutes.Set(nil)
@@ -1894,6 +1921,7 @@ func (o *EditDeliveryGroupRequestModel) HasPeakExtendedDisconnectTimeoutMinutes(
 func (o *EditDeliveryGroupRequestModel) SetPeakExtendedDisconnectTimeoutMinutes(v int32) {
 	o.PeakExtendedDisconnectTimeoutMinutes.Set(&v)
 }
+
 // SetPeakExtendedDisconnectTimeoutMinutesNil sets the value for PeakExtendedDisconnectTimeoutMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPeakExtendedDisconnectTimeoutMinutesNil() {
 	o.PeakExtendedDisconnectTimeoutMinutes.Set(nil)
@@ -1936,6 +1964,7 @@ func (o *EditDeliveryGroupRequestModel) HasLimitSecondsToForceLogOffUserDuringPe
 func (o *EditDeliveryGroupRequestModel) SetLimitSecondsToForceLogOffUserDuringPeak(v int32) {
 	o.LimitSecondsToForceLogOffUserDuringPeak.Set(&v)
 }
+
 // SetLimitSecondsToForceLogOffUserDuringPeakNil sets the value for LimitSecondsToForceLogOffUserDuringPeak to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetLimitSecondsToForceLogOffUserDuringPeakNil() {
 	o.LimitSecondsToForceLogOffUserDuringPeak.Set(nil)
@@ -1978,6 +2007,7 @@ func (o *EditDeliveryGroupRequestModel) HasLimitSecondsToForceLogOffUserDuringOf
 func (o *EditDeliveryGroupRequestModel) SetLimitSecondsToForceLogOffUserDuringOffPeak(v int32) {
 	o.LimitSecondsToForceLogOffUserDuringOffPeak.Set(&v)
 }
+
 // SetLimitSecondsToForceLogOffUserDuringOffPeakNil sets the value for LimitSecondsToForceLogOffUserDuringOffPeak to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetLimitSecondsToForceLogOffUserDuringOffPeakNil() {
 	o.LimitSecondsToForceLogOffUserDuringOffPeak.Set(nil)
@@ -2020,6 +2050,7 @@ func (o *EditDeliveryGroupRequestModel) HasLogOffWarningMessage() bool {
 func (o *EditDeliveryGroupRequestModel) SetLogOffWarningMessage(v string) {
 	o.LogOffWarningMessage.Set(&v)
 }
+
 // SetLogOffWarningMessageNil sets the value for LogOffWarningMessage to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetLogOffWarningMessageNil() {
 	o.LogOffWarningMessage.Set(nil)
@@ -2062,6 +2093,7 @@ func (o *EditDeliveryGroupRequestModel) HasLogOffWarningTitle() bool {
 func (o *EditDeliveryGroupRequestModel) SetLogOffWarningTitle(v string) {
 	o.LogOffWarningTitle.Set(&v)
 }
+
 // SetLogOffWarningTitleNil sets the value for LogOffWarningTitle to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetLogOffWarningTitleNil() {
 	o.LogOffWarningTitle.Set(nil)
@@ -2136,6 +2168,7 @@ func (o *EditDeliveryGroupRequestModel) HasPeakLogOffTimeoutMinutes() bool {
 func (o *EditDeliveryGroupRequestModel) SetPeakLogOffTimeoutMinutes(v int32) {
 	o.PeakLogOffTimeoutMinutes.Set(&v)
 }
+
 // SetPeakLogOffTimeoutMinutesNil sets the value for PeakLogOffTimeoutMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPeakLogOffTimeoutMinutesNil() {
 	o.PeakLogOffTimeoutMinutes.Set(nil)
@@ -2178,6 +2211,7 @@ func (o *EditDeliveryGroupRequestModel) HasDisconnectPeakIdleSessionAfterSeconds
 func (o *EditDeliveryGroupRequestModel) SetDisconnectPeakIdleSessionAfterSeconds(v int32) {
 	o.DisconnectPeakIdleSessionAfterSeconds.Set(&v)
 }
+
 // SetDisconnectPeakIdleSessionAfterSecondsNil sets the value for DisconnectPeakIdleSessionAfterSeconds to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetDisconnectPeakIdleSessionAfterSecondsNil() {
 	o.DisconnectPeakIdleSessionAfterSeconds.Set(nil)
@@ -2220,6 +2254,7 @@ func (o *EditDeliveryGroupRequestModel) HasDisconnectOffPeakIdleSessionAfterSeco
 func (o *EditDeliveryGroupRequestModel) SetDisconnectOffPeakIdleSessionAfterSeconds(v int32) {
 	o.DisconnectOffPeakIdleSessionAfterSeconds.Set(&v)
 }
+
 // SetDisconnectOffPeakIdleSessionAfterSecondsNil sets the value for DisconnectOffPeakIdleSessionAfterSeconds to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetDisconnectOffPeakIdleSessionAfterSecondsNil() {
 	o.DisconnectOffPeakIdleSessionAfterSeconds.Set(nil)
@@ -2262,6 +2297,7 @@ func (o *EditDeliveryGroupRequestModel) HasLogoffPeakDisconnectedSessionAfterSec
 func (o *EditDeliveryGroupRequestModel) SetLogoffPeakDisconnectedSessionAfterSeconds(v int32) {
 	o.LogoffPeakDisconnectedSessionAfterSeconds.Set(&v)
 }
+
 // SetLogoffPeakDisconnectedSessionAfterSecondsNil sets the value for LogoffPeakDisconnectedSessionAfterSeconds to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetLogoffPeakDisconnectedSessionAfterSecondsNil() {
 	o.LogoffPeakDisconnectedSessionAfterSeconds.Set(nil)
@@ -2304,6 +2340,7 @@ func (o *EditDeliveryGroupRequestModel) HasLogoffOffPeakDisconnectedSessionAfter
 func (o *EditDeliveryGroupRequestModel) SetLogoffOffPeakDisconnectedSessionAfterSeconds(v int32) {
 	o.LogoffOffPeakDisconnectedSessionAfterSeconds.Set(&v)
 }
+
 // SetLogoffOffPeakDisconnectedSessionAfterSecondsNil sets the value for LogoffOffPeakDisconnectedSessionAfterSeconds to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetLogoffOffPeakDisconnectedSessionAfterSecondsNil() {
 	o.LogoffOffPeakDisconnectedSessionAfterSeconds.Set(nil)
@@ -2379,6 +2416,7 @@ func (o *EditDeliveryGroupRequestModel) HasPowerOffDelayMinutes() bool {
 func (o *EditDeliveryGroupRequestModel) SetPowerOffDelayMinutes(v int32) {
 	o.PowerOffDelayMinutes.Set(&v)
 }
+
 // SetPowerOffDelayMinutesNil sets the value for PowerOffDelayMinutes to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPowerOffDelayMinutesNil() {
 	o.PowerOffDelayMinutes.Set(nil)
@@ -2421,6 +2459,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutoscaleLogOffReminderEnabled() bool
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderEnabled(v bool) {
 	o.AutoscaleLogOffReminderEnabled.Set(&v)
 }
+
 // SetAutoscaleLogOffReminderEnabledNil sets the value for AutoscaleLogOffReminderEnabled to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderEnabledNil() {
 	o.AutoscaleLogOffReminderEnabled.Set(nil)
@@ -2463,6 +2502,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutoscaleLogOffReminderIntervalSecond
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderIntervalSecondsOffPeak(v int32) {
 	o.AutoscaleLogOffReminderIntervalSecondsOffPeak.Set(&v)
 }
+
 // SetAutoscaleLogOffReminderIntervalSecondsOffPeakNil sets the value for AutoscaleLogOffReminderIntervalSecondsOffPeak to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderIntervalSecondsOffPeakNil() {
 	o.AutoscaleLogOffReminderIntervalSecondsOffPeak.Set(nil)
@@ -2505,6 +2545,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutoscaleLogOffReminderIntervalSecond
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderIntervalSecondsPeak(v int32) {
 	o.AutoscaleLogOffReminderIntervalSecondsPeak.Set(&v)
 }
+
 // SetAutoscaleLogOffReminderIntervalSecondsPeakNil sets the value for AutoscaleLogOffReminderIntervalSecondsPeak to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderIntervalSecondsPeakNil() {
 	o.AutoscaleLogOffReminderIntervalSecondsPeak.Set(nil)
@@ -2547,6 +2588,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutoscaleLogOffReminderMessage() bool
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderMessage(v string) {
 	o.AutoscaleLogOffReminderMessage.Set(&v)
 }
+
 // SetAutoscaleLogOffReminderMessageNil sets the value for AutoscaleLogOffReminderMessage to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderMessageNil() {
 	o.AutoscaleLogOffReminderMessage.Set(nil)
@@ -2589,6 +2631,7 @@ func (o *EditDeliveryGroupRequestModel) HasAutoscaleLogOffReminderTitle() bool {
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderTitle(v string) {
 	o.AutoscaleLogOffReminderTitle.Set(&v)
 }
+
 // SetAutoscaleLogOffReminderTitleNil sets the value for AutoscaleLogOffReminderTitle to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetAutoscaleLogOffReminderTitleNil() {
 	o.AutoscaleLogOffReminderTitle.Set(nil)
@@ -2695,6 +2738,7 @@ func (o *EditDeliveryGroupRequestModel) HasMachineCost() bool {
 func (o *EditDeliveryGroupRequestModel) SetMachineCost(v float64) {
 	o.MachineCost.Set(&v)
 }
+
 // SetMachineCostNil sets the value for MachineCost to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetMachineCostNil() {
 	o.MachineCost.Set(nil)
@@ -2867,6 +2911,7 @@ func (o *EditDeliveryGroupRequestModel) HasSettlementPeriodBeforeAutoShutdownSec
 func (o *EditDeliveryGroupRequestModel) SetSettlementPeriodBeforeAutoShutdownSeconds(v int32) {
 	o.SettlementPeriodBeforeAutoShutdownSeconds.Set(&v)
 }
+
 // SetSettlementPeriodBeforeAutoShutdownSecondsNil sets the value for SettlementPeriodBeforeAutoShutdownSeconds to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetSettlementPeriodBeforeAutoShutdownSecondsNil() {
 	o.SettlementPeriodBeforeAutoShutdownSeconds.Set(nil)
@@ -2909,6 +2954,7 @@ func (o *EditDeliveryGroupRequestModel) HasSettlementPeriodBeforeUseSeconds() bo
 func (o *EditDeliveryGroupRequestModel) SetSettlementPeriodBeforeUseSeconds(v int32) {
 	o.SettlementPeriodBeforeUseSeconds.Set(&v)
 }
+
 // SetSettlementPeriodBeforeUseSecondsNil sets the value for SettlementPeriodBeforeUseSeconds to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetSettlementPeriodBeforeUseSecondsNil() {
 	o.SettlementPeriodBeforeUseSeconds.Set(nil)
@@ -2951,6 +2997,7 @@ func (o *EditDeliveryGroupRequestModel) HasShutdownDesktopsAfterUse() bool {
 func (o *EditDeliveryGroupRequestModel) SetShutdownDesktopsAfterUse(v bool) {
 	o.ShutdownDesktopsAfterUse.Set(&v)
 }
+
 // SetShutdownDesktopsAfterUseNil sets the value for ShutdownDesktopsAfterUse to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetShutdownDesktopsAfterUseNil() {
 	o.ShutdownDesktopsAfterUse.Set(nil)
@@ -3091,6 +3138,7 @@ func (o *EditDeliveryGroupRequestModel) HasTimeZone() bool {
 func (o *EditDeliveryGroupRequestModel) SetTimeZone(v string) {
 	o.TimeZone.Set(&v)
 }
+
 // SetTimeZoneNil sets the value for TimeZone to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetTimeZoneNil() {
 	o.TimeZone.Set(nil)
@@ -3133,6 +3181,7 @@ func (o *EditDeliveryGroupRequestModel) HasTurnOnAddedMachines() bool {
 func (o *EditDeliveryGroupRequestModel) SetTurnOnAddedMachines(v bool) {
 	o.TurnOnAddedMachines.Set(&v)
 }
+
 // SetTurnOnAddedMachinesNil sets the value for TurnOnAddedMachines to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetTurnOnAddedMachinesNil() {
 	o.TurnOnAddedMachines.Set(nil)
@@ -3241,6 +3290,7 @@ func (o *EditDeliveryGroupRequestModel) HasPolicySetGuid() bool {
 func (o *EditDeliveryGroupRequestModel) SetPolicySetGuid(v string) {
 	o.PolicySetGuid.Set(&v)
 }
+
 // SetPolicySetGuidNil sets the value for PolicySetGuid to be an explicit nil
 func (o *EditDeliveryGroupRequestModel) SetPolicySetGuidNil() {
 	o.PolicySetGuid.Set(nil)
@@ -3284,7 +3334,7 @@ func (o *EditDeliveryGroupRequestModel) SetRequiredSleepCapability(v RequiredSle
 }
 
 func (o EditDeliveryGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -3574,5 +3624,3 @@ func (v *NullableEditDeliveryGroupRequestModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

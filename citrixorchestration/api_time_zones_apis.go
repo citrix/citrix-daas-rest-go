@@ -18,20 +18,19 @@ import (
 	"net/url"
 )
 
-
 // TimeZonesAPIsDAASService TimeZonesAPIsDAAS service
 type TimeZonesAPIsDAASService service
 
 type ApiTimeZonesGetTimeZonesRequest struct {
-	ctx context.Context
-	ApiService *TimeZonesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *TimeZonesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -86,7 +85,6 @@ TimeZonesGetTimeZones Get a list of time zones supported by the site.
 Get a (non-exhaustive) list of time zones supported by the site,
 with time zone names represented in the caller's locale.
 
-
 Note that all IANA (https://www.iana.org/time-zones) time zones are
 supported as inputs to time zone APIs.  However sometimes callers
 need a suitable list of time zones to display as options within a
@@ -94,28 +92,28 @@ UI. This API provides that capability. The options returned
 represent a reasonable palette of options for a caller to choose
 from when selecting a time zone.
 
-
 The localized time zone names come from the Unicode CLDR
 (http://cldr.unicode.org/) project.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiTimeZonesGetTimeZonesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTimeZonesGetTimeZonesRequest
 */
 func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZones(ctx context.Context) ApiTimeZonesGetTimeZonesRequest {
 	return ApiTimeZonesGetTimeZonesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return TimeZoneResponseModelCollection
+//
+//	@return TimeZoneResponseModelCollection
 func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGetTimeZonesRequest) (*TimeZoneResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TimeZoneResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TimeZoneResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TimeZonesAPIsDAASService.TimeZonesGetTimeZones")
@@ -212,8 +210,8 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -223,8 +221,8 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -234,8 +232,8 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -245,8 +243,8 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -256,8 +254,8 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -267,8 +265,8 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -278,8 +276,8 @@ func (a *TimeZonesAPIsDAASService) TimeZonesGetTimeZonesExecute(r ApiTimeZonesGe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

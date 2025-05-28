@@ -19,10 +19,12 @@ var _ MappedNullable = &SamlCertInfoModel{}
 
 // SamlCertInfoModel struct for SamlCertInfoModel
 type SamlCertInfoModel struct {
-	NotAfter string `json:"notAfter"`
-	PublicKey string `json:"publicKey"`
+	NotAfter   string         `json:"notAfter"`
+	PublicKey  string         `json:"publicKey"`
 	CommonName NullableString `json:"commonName,omitempty"`
 }
+
+type _SamlCertInfoModel SamlCertInfoModel
 
 // NewSamlCertInfoModel instantiates a new SamlCertInfoModel object
 // This constructor will assign default values to properties that have it defined,
@@ -123,6 +125,7 @@ func (o *SamlCertInfoModel) HasCommonName() bool {
 func (o *SamlCertInfoModel) SetCommonName(v string) {
 	o.CommonName.Set(&v)
 }
+
 // SetCommonNameNil sets the value for CommonName to be an explicit nil
 func (o *SamlCertInfoModel) SetCommonNameNil() {
 	o.CommonName.Set(nil)
@@ -134,7 +137,7 @@ func (o *SamlCertInfoModel) UnsetCommonName() {
 }
 
 func (o SamlCertInfoModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -186,5 +189,3 @@ func (v *NullableSamlCertInfoModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

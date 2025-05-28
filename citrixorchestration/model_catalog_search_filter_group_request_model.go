@@ -21,8 +21,8 @@ var _ MappedNullable = &CatalogSearchFilterGroupRequestModel{}
 type CatalogSearchFilterGroupRequestModel struct {
 	SearchFilterGroupType *CatalogSearchFilterGroupType `json:"SearchFilterGroupType,omitempty"`
 	// The search filters in search filter group
-	SearchFilters []CatalogSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SearchFilterGroupsType *CatalogSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilters          []CatalogSearchFilterRequestModel `json:"SearchFilters,omitempty"`
+	SearchFilterGroupsType *CatalogSearchFilterGroupsType    `json:"SearchFilterGroupsType,omitempty"`
 	// The search filter group in search filter groups
 	SearchFilterGroups []CatalogSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
 }
@@ -175,7 +175,7 @@ func (o *CatalogSearchFilterGroupRequestModel) SetSearchFilterGroups(v []Catalog
 }
 
 func (o CatalogSearchFilterGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableCatalogSearchFilterGroupRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -96,9 +96,9 @@ type HypervisorResourceResponseModel struct {
 	// Type of resource.
 	ResourceType string `json:"ResourceType"`
 	// The type name of the hypervisor resource object.
-	ObjectTypeName NullableString `json:"ObjectTypeName,omitempty"`
+	ObjectTypeName    NullableString                      `json:"ObjectTypeName,omitempty"`
 	ResourceContainer *HypervisorResourceRefResponseModel `json:"ResourceContainer,omitempty"`
-	// Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}` This value 
+	// Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}` This value
 	ResourcePoolXDPath NullableString `json:"ResourcePoolXDPath,omitempty"`
 	// Name of the resource, with the type concatenated. i.e. \"name.type\".
 	FullName string `json:"FullName"`
@@ -111,8 +111,8 @@ type HypervisorResourceResponseModel struct {
 	// Indicates whether the resource can have a snapshot taken.
 	IsSnapshotable bool `json:"IsSnapshotable"`
 	// Path to the resource, relative to the special \"AllResources\" resource pool associated with the hypervisor.
-	AllResourcesRelativePath string `json:"AllResourcesRelativePath"`
-	ResourcePool HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
+	AllResourcesRelativePath string                                 `json:"AllResourcesRelativePath"`
+	ResourcePool             HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
 	// Indicates whether the object is a valid symbolic link.
 	IsSymLink bool `json:"IsSymLink"`
 	// Additional data about the object in the form of key-value pairs.
@@ -272,6 +272,7 @@ func (o *HypervisorResourceResponseModel) HasDescription() bool {
 func (o *HypervisorResourceResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -362,6 +363,7 @@ func (o *HypervisorResourceResponseModel) HasVirtualPrivateCloudId() bool {
 func (o *HypervisorResourceResponseModel) SetVirtualPrivateCloudId(v string) {
 	o.VirtualPrivateCloudId.Set(&v)
 }
+
 // SetVirtualPrivateCloudIdNil sets the value for VirtualPrivateCloudId to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetVirtualPrivateCloudIdNil() {
 	o.VirtualPrivateCloudId.Set(nil)
@@ -404,6 +406,7 @@ func (o *HypervisorResourceResponseModel) HasDedicatedTenancy() bool {
 func (o *HypervisorResourceResponseModel) SetDedicatedTenancy(v string) {
 	o.DedicatedTenancy.Set(&v)
 }
+
 // SetDedicatedTenancyNil sets the value for DedicatedTenancy to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetDedicatedTenancyNil() {
 	o.DedicatedTenancy.Set(nil)
@@ -494,6 +497,7 @@ func (o *HypervisorResourceResponseModel) HasAmazonComputeUnits() bool {
 func (o *HypervisorResourceResponseModel) SetAmazonComputeUnits(v float32) {
 	o.AmazonComputeUnits.Set(&v)
 }
+
 // SetAmazonComputeUnitsNil sets the value for AmazonComputeUnits to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetAmazonComputeUnitsNil() {
 	o.AmazonComputeUnits.Set(nil)
@@ -560,6 +564,7 @@ func (o *HypervisorResourceResponseModel) HasNetworkPerformance() bool {
 func (o *HypervisorResourceResponseModel) SetNetworkPerformance(v string) {
 	o.NetworkPerformance.Set(&v)
 }
+
 // SetNetworkPerformanceNil sets the value for NetworkPerformance to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetNetworkPerformanceNil() {
 	o.NetworkPerformance.Set(nil)
@@ -674,6 +679,7 @@ func (o *HypervisorResourceResponseModel) HasSupportsAzurePremiumStorage() bool 
 func (o *HypervisorResourceResponseModel) SetSupportsAzurePremiumStorage(v bool) {
 	o.SupportsAzurePremiumStorage.Set(&v)
 }
+
 // SetSupportsAzurePremiumStorageNil sets the value for SupportsAzurePremiumStorage to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetSupportsAzurePremiumStorageNil() {
 	o.SupportsAzurePremiumStorage.Set(nil)
@@ -740,6 +746,7 @@ func (o *HypervisorResourceResponseModel) HasOwner() bool {
 func (o *HypervisorResourceResponseModel) SetOwner(v string) {
 	o.Owner.Set(&v)
 }
+
 // SetOwnerNil sets the value for Owner to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetOwnerNil() {
 	o.Owner.Set(nil)
@@ -782,6 +789,7 @@ func (o *HypervisorResourceResponseModel) HasIsWindowsTemplate() bool {
 func (o *HypervisorResourceResponseModel) SetIsWindowsTemplate(v bool) {
 	o.IsWindowsTemplate.Set(&v)
 }
+
 // SetIsWindowsTemplateNil sets the value for IsWindowsTemplate to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetIsWindowsTemplateNil() {
 	o.IsWindowsTemplate.Set(nil)
@@ -872,6 +880,7 @@ func (o *HypervisorResourceResponseModel) HasMacAddress() bool {
 func (o *HypervisorResourceResponseModel) SetMacAddress(v string) {
 	o.MacAddress.Set(&v)
 }
+
 // SetMacAddressNil sets the value for MacAddress to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetMacAddressNil() {
 	o.MacAddress.Set(nil)
@@ -914,6 +923,7 @@ func (o *HypervisorResourceResponseModel) HasCpuCount() bool {
 func (o *HypervisorResourceResponseModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -956,6 +966,7 @@ func (o *HypervisorResourceResponseModel) HasMemoryMB() bool {
 func (o *HypervisorResourceResponseModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -998,6 +1009,7 @@ func (o *HypervisorResourceResponseModel) HasHardDiskSizeGB() bool {
 func (o *HypervisorResourceResponseModel) SetHardDiskSizeGB(v int32) {
 	o.HardDiskSizeGB.Set(&v)
 }
+
 // SetHardDiskSizeGBNil sets the value for HardDiskSizeGB to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetHardDiskSizeGBNil() {
 	o.HardDiskSizeGB.Set(nil)
@@ -1040,6 +1052,7 @@ func (o *HypervisorResourceResponseModel) HasMinMemoryMB() bool {
 func (o *HypervisorResourceResponseModel) SetMinMemoryMB(v int32) {
 	o.MinMemoryMB.Set(&v)
 }
+
 // SetMinMemoryMBNil sets the value for MinMemoryMB to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetMinMemoryMBNil() {
 	o.MinMemoryMB.Set(nil)
@@ -1172,6 +1185,7 @@ func (o *HypervisorResourceResponseModel) HasEndpoint() bool {
 func (o *HypervisorResourceResponseModel) SetEndpoint(v string) {
 	o.Endpoint.Set(&v)
 }
+
 // SetEndpointNil sets the value for Endpoint to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetEndpointNil() {
 	o.Endpoint.Set(nil)
@@ -1214,6 +1228,7 @@ func (o *HypervisorResourceResponseModel) HasId() bool {
 func (o *HypervisorResourceResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -1256,6 +1271,7 @@ func (o *HypervisorResourceResponseModel) HasName() bool {
 func (o *HypervisorResourceResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -1298,6 +1314,7 @@ func (o *HypervisorResourceResponseModel) HasXDPath() bool {
 func (o *HypervisorResourceResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -1340,6 +1357,7 @@ func (o *HypervisorResourceResponseModel) HasRelativePath() bool {
 func (o *HypervisorResourceResponseModel) SetRelativePath(v string) {
 	o.RelativePath.Set(&v)
 }
+
 // SetRelativePathNil sets the value for RelativePath to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetRelativePathNil() {
 	o.RelativePath.Set(nil)
@@ -1382,6 +1400,7 @@ func (o *HypervisorResourceResponseModel) HasFullRelativePath() bool {
 func (o *HypervisorResourceResponseModel) SetFullRelativePath(v string) {
 	o.FullRelativePath.Set(&v)
 }
+
 // SetFullRelativePathNil sets the value for FullRelativePath to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetFullRelativePathNil() {
 	o.FullRelativePath.Set(nil)
@@ -1448,6 +1467,7 @@ func (o *HypervisorResourceResponseModel) HasObjectTypeName() bool {
 func (o *HypervisorResourceResponseModel) SetObjectTypeName(v string) {
 	o.ObjectTypeName.Set(&v)
 }
+
 // SetObjectTypeNameNil sets the value for ObjectTypeName to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetObjectTypeNameNil() {
 	o.ObjectTypeName.Set(nil)
@@ -1522,6 +1542,7 @@ func (o *HypervisorResourceResponseModel) HasResourcePoolXDPath() bool {
 func (o *HypervisorResourceResponseModel) SetResourcePoolXDPath(v string) {
 	o.ResourcePoolXDPath.Set(&v)
 }
+
 // SetResourcePoolXDPathNil sets the value for ResourcePoolXDPath to be an explicit nil
 func (o *HypervisorResourceResponseModel) SetResourcePoolXDPathNil() {
 	o.ResourcePoolXDPath.Set(nil)
@@ -1767,7 +1788,7 @@ func (o *HypervisorResourceResponseModel) SetAdditionalData(v []NameValueStringP
 }
 
 func (o HypervisorResourceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1916,5 +1937,3 @@ func (v *NullableHypervisorResourceResponseModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

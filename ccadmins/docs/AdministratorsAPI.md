@@ -25,26 +25,26 @@ Create a new CC administrator.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 )
 
 func main() {
-    authorization := "authorization_example" // string | Access token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
-    createAdministratorInputModel := *openapiclient.NewCreateAdministratorInputModel(openapiclient.AdministratorAccessType("Full"), openapiclient.AdministratorProviderType("Ad"), "Type_example") // CreateAdministratorInputModel | Administrator to be added. (optional)
+	authorization := "authorization_example" // string | Access token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
+	createAdministratorInputModel := *openapiclient.NewCreateAdministratorInputModel(openapiclient.AdministratorAccessType("Full"), openapiclient.AdministratorProviderType("Ad"), "Type_example") // CreateAdministratorInputModel | Administrator to be added. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdministratorsAPI.CreateAdministrator(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CreateAdministratorInputModel(createAdministratorInputModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.CreateAdministrator``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `CreateAdministrator`: AdministratorResult
-    fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.CreateAdministrator`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdministratorsAPI.CreateAdministrator(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CreateAdministratorInputModel(createAdministratorInputModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.CreateAdministrator``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CreateAdministrator`: AdministratorResult
+	fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.CreateAdministrator`: %v\n", resp)
 }
 ```
 
@@ -93,24 +93,24 @@ Remove a CC administrator.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 )
 
 func main() {
-    id := "id_example" // string | CC administrator ID.
-    authorization := "authorization_example" // string | Access token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
+	id := "id_example" // string | CC administrator ID.
+	authorization := "authorization_example" // string | Access token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AdministratorsAPI.DeleteAdministrator(context.Background(), id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.DeleteAdministrator``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AdministratorsAPI.DeleteAdministrator(context.Background(), id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.DeleteAdministrator``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -163,26 +163,26 @@ Remove a CC pending user administrator invitation.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 )
 
 func main() {
-    email := "email_example" // string | Pending user administrator invitation email.
-    authorization := "authorization_example" // string | Access token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
+	email := "email_example" // string | Pending user administrator invitation email.
+	authorization := "authorization_example" // string | Access token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdministratorsAPI.DeleteInvitation(context.Background()).Email(email).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.DeleteInvitation``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DeleteInvitation`: bool
-    fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.DeleteInvitation`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdministratorsAPI.DeleteInvitation(context.Background()).Email(email).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.DeleteInvitation``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteInvitation`: bool
+	fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.DeleteInvitation`: %v\n", resp)
 }
 ```
 
@@ -231,30 +231,30 @@ Fetch all CC administrators.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 )
 
 func main() {
-    authorization := "authorization_example" // string | Access token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
-    type_ := "type__example" // string | Optional administrator type filter. (optional)
-    providerType := openapiclient.AdministratorProviderType("Ad") // AdministratorProviderType | Optional provider type. (optional)
-    maxItemCount := "maxItemCount_example" // string | Optional item count. (optional)
-    requestContinuation := "requestContinuation_example" // string | Optional continuation token. (optional)
-    id := "id_example" // string | User ID corresponding to a user administrator. (Note: Exclusive with other parameters on this endpoint.) (optional)
+	authorization := "authorization_example" // string | Access token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
+	type_ := "type__example" // string | Optional administrator type filter. (optional)
+	providerType := openapiclient.AdministratorProviderType("Ad") // AdministratorProviderType | Optional provider type. (optional)
+	maxItemCount := "maxItemCount_example" // string | Optional item count. (optional)
+	requestContinuation := "requestContinuation_example" // string | Optional continuation token. (optional)
+	id := "id_example" // string | User ID corresponding to a user administrator. (Note: Exclusive with other parameters on this endpoint.) (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdministratorsAPI.FetchAdministrators(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Type_(type_).ProviderType(providerType).MaxItemCount(maxItemCount).RequestContinuation(requestContinuation).Id(id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.FetchAdministrators``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `FetchAdministrators`: AdministratorsResult
-    fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.FetchAdministrators`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdministratorsAPI.FetchAdministrators(context.Background()).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Type_(type_).ProviderType(providerType).MaxItemCount(maxItemCount).RequestContinuation(requestContinuation).Id(id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.FetchAdministrators``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `FetchAdministrators`: AdministratorsResult
+	fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.FetchAdministrators`: %v\n", resp)
 }
 ```
 
@@ -307,24 +307,24 @@ Fetch the access of an administrator.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 )
 
 func main() {
-    id := "id_example" // string | UserId for AzureAd and Citrix User Administrators. UcOid for all others.
+	id := "id_example" // string | UserId for AzureAd and Citrix User Administrators. UcOid for all others.
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AdministratorsAPI.GetAdministratorAccess(context.Background(), id).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.GetAdministratorAccess``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAdministratorAccess`: AdministratorAccessModel
-    fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.GetAdministratorAccess`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AdministratorsAPI.GetAdministratorAccess(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.GetAdministratorAccess``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAdministratorAccess`: AdministratorAccessModel
+	fmt.Fprintf(os.Stdout, "Response from `AdministratorsAPI.GetAdministratorAccess`: %v\n", resp)
 }
 ```
 
@@ -375,25 +375,25 @@ Update roles and permissions of an existing CC administrator.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 )
 
 func main() {
-    id := "id_example" // string | CC administrator ID.
-    authorization := "authorization_example" // string | Access token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
-    administratorAccessModel := *openapiclient.NewAdministratorAccessModel(openapiclient.AdministratorAccessType("Full")) // AdministratorAccessModel |  (optional)
+	id := "id_example" // string | CC administrator ID.
+	authorization := "authorization_example" // string | Access token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Customer ID.
+	administratorAccessModel := *openapiclient.NewAdministratorAccessModel(openapiclient.AdministratorAccessType("Full")) // AdministratorAccessModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AdministratorsAPI.UpdateAdministratorAccess(context.Background()).Id(id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).AdministratorAccessModel(administratorAccessModel).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.UpdateAdministratorAccess``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AdministratorsAPI.UpdateAdministratorAccess(context.Background()).Id(id).Authorization(authorization).CitrixCustomerId(citrixCustomerId).AdministratorAccessModel(administratorAccessModel).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AdministratorsAPI.UpdateAdministratorAccess``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

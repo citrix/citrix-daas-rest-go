@@ -20,10 +20,10 @@ type GroupLicenseOperationStatus string
 
 // List of GroupLicenseOperationStatus
 const (
-	GROUPLICENSEOPERATIONSTATUS_PENDING GroupLicenseOperationStatus = "Pending"
-	GROUPLICENSEOPERATIONSTATUS_RUNNING GroupLicenseOperationStatus = "Running"
+	GROUPLICENSEOPERATIONSTATUS_PENDING   GroupLicenseOperationStatus = "Pending"
+	GROUPLICENSEOPERATIONSTATUS_RUNNING   GroupLicenseOperationStatus = "Running"
 	GROUPLICENSEOPERATIONSTATUS_COMPLETED GroupLicenseOperationStatus = "Completed"
-	GROUPLICENSEOPERATIONSTATUS_FAILED GroupLicenseOperationStatus = "Failed"
+	GROUPLICENSEOPERATIONSTATUS_FAILED    GroupLicenseOperationStatus = "Failed"
 )
 
 // All allowed values of GroupLicenseOperationStatus enum
@@ -112,4 +112,3 @@ func (v *NullableGroupLicenseOperationStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

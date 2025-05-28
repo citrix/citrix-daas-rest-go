@@ -150,6 +150,7 @@ func (o *PolicyResponse) HasPolicyName() bool {
 func (o *PolicyResponse) SetPolicyName(v string) {
 	o.PolicyName.Set(&v)
 }
+
 // SetPolicyNameNil sets the value for PolicyName to be an explicit nil
 func (o *PolicyResponse) SetPolicyNameNil() {
 	o.PolicyName.Set(nil)
@@ -256,6 +257,7 @@ func (o *PolicyResponse) HasDescription() bool {
 func (o *PolicyResponse) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *PolicyResponse) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -333,7 +335,7 @@ func (o *PolicyResponse) SetFilters(v []FilterResponse) {
 }
 
 func (o PolicyResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -404,5 +406,3 @@ func (v *NullablePolicyResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

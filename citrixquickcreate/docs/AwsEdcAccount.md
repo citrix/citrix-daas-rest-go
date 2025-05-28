@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **AwsRegion** | Pointer to **NullableString** | The AWS region the account is associated with | [optional] 
 **AwsEdcMissingRolePermissions** | Pointer to [**[]AwsEdcMissingRolePermissions**](AwsEdcMissingRolePermissions.md) | Indicates the list of missing permissions in the role associated with the account | [optional] 
 **AwsByolFeatureEnabled** | Pointer to **NullableBool** | Indicates if the associated AWS EDC account has BYOL feature is enabled | [optional] 
-**AwsAuthType** | Pointer to [**AwsEdcAccountAuthType**](AwsEdcAccountAuthType.md) |  | [optional] 
+**AwsAuthType** | Pointer to [**AwsEdcAccountAuthType**](AwsEdcAccountAuthType.md) | Discribes what method of authentication is used for the account | [optional] 
 
 ## Methods
 

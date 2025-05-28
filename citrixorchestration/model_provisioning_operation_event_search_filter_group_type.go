@@ -20,7 +20,7 @@ type ProvisioningOperationEventSearchFilterGroupType string
 
 // List of ProvisioningOperationEventSearchFilterGroupType
 const (
-	PROVISIONINGOPERATIONEVENTSEARCHFILTERGROUPTYPE_OR ProvisioningOperationEventSearchFilterGroupType = "Or"
+	PROVISIONINGOPERATIONEVENTSEARCHFILTERGROUPTYPE_OR  ProvisioningOperationEventSearchFilterGroupType = "Or"
 	PROVISIONINGOPERATIONEVENTSEARCHFILTERGROUPTYPE_AND ProvisioningOperationEventSearchFilterGroupType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *ProvisioningOperationEventSearchFilterGroupType) UnmarshalJSON(src []by
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisioningOperationEventSearchFilterGroupType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableProvisioningOperationEventSearchFilterGroupType) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

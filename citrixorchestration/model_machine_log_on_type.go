@@ -20,10 +20,10 @@ type MachineLogOnType string
 
 // List of MachineLogOnType
 const (
-	MACHINELOGONTYPE_ACTIVE_DIRECTORY MachineLogOnType = "ActiveDirectory"
+	MACHINELOGONTYPE_ACTIVE_DIRECTORY     MachineLogOnType = "ActiveDirectory"
 	MACHINELOGONTYPE_LOCAL_MAPPED_ACCOUNT MachineLogOnType = "LocalMappedAccount"
-	MACHINELOGONTYPE_AZURE_AD MachineLogOnType = "AzureAD"
-	MACHINELOGONTYPE_UNKNOWN MachineLogOnType = "Unknown"
+	MACHINELOGONTYPE_AZURE_AD             MachineLogOnType = "AzureAD"
+	MACHINELOGONTYPE_UNKNOWN              MachineLogOnType = "Unknown"
 )
 
 // All allowed values of MachineLogOnType enum
@@ -40,7 +40,7 @@ func (v *MachineLogOnType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineLogOnType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableMachineLogOnType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

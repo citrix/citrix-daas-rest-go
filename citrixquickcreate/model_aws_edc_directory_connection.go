@@ -22,6 +22,7 @@ type AwsEdcDirectoryConnection struct {
 	ResourceConnection
 	// Directory Id
 	DirectoryId NullableString `json:"directoryId,omitempty"`
+	// Registration status of the directory
 	RegistrationStatus *AwsEdcDirectoryRegistrationStatus `json:"registrationStatus,omitempty"`
 	// Directory Name
 	DirectoryName NullableString `json:"directoryName,omitempty"`
@@ -31,6 +32,7 @@ type AwsEdcDirectoryConnection struct {
 	Subnet1Id NullableString `json:"subnet1Id,omitempty"`
 	// Second Subnet Id
 	Subnet2Id NullableString `json:"subnet2Id,omitempty"`
+	// Tenancy of directory  Enum values SHARED, DEDICATED
 	Tenancy NullableAwsEdcDirectoryTenancy `json:"tenancy,omitempty"`
 	// Enable Work Docs
 	EnableWorkDocs NullableBool `json:"enableWorkDocs,omitempty"`
@@ -47,6 +49,8 @@ type AwsEdcDirectoryConnection struct {
 	// Any error message
 	ErrorMessage NullableString `json:"errorMessage,omitempty"`
 }
+
+type _AwsEdcDirectoryConnection AwsEdcDirectoryConnection
 
 // NewAwsEdcDirectoryConnection instantiates a new AwsEdcDirectoryConnection object
 // This constructor will assign default values to properties that have it defined,
@@ -101,6 +105,7 @@ func (o *AwsEdcDirectoryConnection) HasDirectoryId() bool {
 func (o *AwsEdcDirectoryConnection) SetDirectoryId(v string) {
 	o.DirectoryId.Set(&v)
 }
+
 // SetDirectoryIdNil sets the value for DirectoryId to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetDirectoryIdNil() {
 	o.DirectoryId.Set(nil)
@@ -175,6 +180,7 @@ func (o *AwsEdcDirectoryConnection) HasDirectoryName() bool {
 func (o *AwsEdcDirectoryConnection) SetDirectoryName(v string) {
 	o.DirectoryName.Set(&v)
 }
+
 // SetDirectoryNameNil sets the value for DirectoryName to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetDirectoryNameNil() {
 	o.DirectoryName.Set(nil)
@@ -217,6 +223,7 @@ func (o *AwsEdcDirectoryConnection) HasVpcId() bool {
 func (o *AwsEdcDirectoryConnection) SetVpcId(v string) {
 	o.VpcId.Set(&v)
 }
+
 // SetVpcIdNil sets the value for VpcId to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetVpcIdNil() {
 	o.VpcId.Set(nil)
@@ -259,6 +266,7 @@ func (o *AwsEdcDirectoryConnection) HasSubnet1Id() bool {
 func (o *AwsEdcDirectoryConnection) SetSubnet1Id(v string) {
 	o.Subnet1Id.Set(&v)
 }
+
 // SetSubnet1IdNil sets the value for Subnet1Id to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetSubnet1IdNil() {
 	o.Subnet1Id.Set(nil)
@@ -301,6 +309,7 @@ func (o *AwsEdcDirectoryConnection) HasSubnet2Id() bool {
 func (o *AwsEdcDirectoryConnection) SetSubnet2Id(v string) {
 	o.Subnet2Id.Set(&v)
 }
+
 // SetSubnet2IdNil sets the value for Subnet2Id to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetSubnet2IdNil() {
 	o.Subnet2Id.Set(nil)
@@ -343,6 +352,7 @@ func (o *AwsEdcDirectoryConnection) HasTenancy() bool {
 func (o *AwsEdcDirectoryConnection) SetTenancy(v AwsEdcDirectoryTenancy) {
 	o.Tenancy.Set(&v)
 }
+
 // SetTenancyNil sets the value for Tenancy to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetTenancyNil() {
 	o.Tenancy.Set(nil)
@@ -385,6 +395,7 @@ func (o *AwsEdcDirectoryConnection) HasEnableWorkDocs() bool {
 func (o *AwsEdcDirectoryConnection) SetEnableWorkDocs(v bool) {
 	o.EnableWorkDocs.Set(&v)
 }
+
 // SetEnableWorkDocsNil sets the value for EnableWorkDocs to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetEnableWorkDocsNil() {
 	o.EnableWorkDocs.Set(nil)
@@ -427,6 +438,7 @@ func (o *AwsEdcDirectoryConnection) HasUserEnabledAsLocalAdministrator() bool {
 func (o *AwsEdcDirectoryConnection) SetUserEnabledAsLocalAdministrator(v bool) {
 	o.UserEnabledAsLocalAdministrator.Set(&v)
 }
+
 // SetUserEnabledAsLocalAdministratorNil sets the value for UserEnabledAsLocalAdministrator to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetUserEnabledAsLocalAdministratorNil() {
 	o.UserEnabledAsLocalAdministrator.Set(nil)
@@ -469,6 +481,7 @@ func (o *AwsEdcDirectoryConnection) HasEnableInternetAccess() bool {
 func (o *AwsEdcDirectoryConnection) SetEnableInternetAccess(v bool) {
 	o.EnableInternetAccess.Set(&v)
 }
+
 // SetEnableInternetAccessNil sets the value for EnableInternetAccess to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetEnableInternetAccessNil() {
 	o.EnableInternetAccess.Set(nil)
@@ -511,6 +524,7 @@ func (o *AwsEdcDirectoryConnection) HasEnableMaintananceMode() bool {
 func (o *AwsEdcDirectoryConnection) SetEnableMaintananceMode(v bool) {
 	o.EnableMaintananceMode.Set(&v)
 }
+
 // SetEnableMaintananceModeNil sets the value for EnableMaintananceMode to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetEnableMaintananceModeNil() {
 	o.EnableMaintananceMode.Set(nil)
@@ -553,6 +567,7 @@ func (o *AwsEdcDirectoryConnection) HasSecurityGroupId() bool {
 func (o *AwsEdcDirectoryConnection) SetSecurityGroupId(v string) {
 	o.SecurityGroupId.Set(&v)
 }
+
 // SetSecurityGroupIdNil sets the value for SecurityGroupId to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetSecurityGroupIdNil() {
 	o.SecurityGroupId.Set(nil)
@@ -595,6 +610,7 @@ func (o *AwsEdcDirectoryConnection) HasDefaultOU() bool {
 func (o *AwsEdcDirectoryConnection) SetDefaultOU(v string) {
 	o.DefaultOU.Set(&v)
 }
+
 // SetDefaultOUNil sets the value for DefaultOU to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetDefaultOUNil() {
 	o.DefaultOU.Set(nil)
@@ -637,6 +653,7 @@ func (o *AwsEdcDirectoryConnection) HasErrorMessage() bool {
 func (o *AwsEdcDirectoryConnection) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *AwsEdcDirectoryConnection) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -648,7 +665,7 @@ func (o *AwsEdcDirectoryConnection) UnsetErrorMessage() {
 }
 
 func (o AwsEdcDirectoryConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -745,5 +762,3 @@ func (v *NullableAwsEdcDirectoryConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

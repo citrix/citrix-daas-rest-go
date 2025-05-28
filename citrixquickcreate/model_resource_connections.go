@@ -61,7 +61,7 @@ func (o *ResourceConnections) GetItemsOk() ([]AwsEdcDirectoryConnection, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *ResourceConnections) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -74,7 +74,7 @@ func (o *ResourceConnections) SetItems(v []AwsEdcDirectoryConnection) {
 }
 
 func (o ResourceConnections) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,5 +124,3 @@ func (v *NullableResourceConnections) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

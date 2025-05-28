@@ -20,7 +20,7 @@ var _ MappedNullable = &EditAppLibPackageDiscoveryProfileRequestModel{}
 // EditAppLibPackageDiscoveryProfileRequestModel Request object for editing applib package discovery profile.
 type EditAppLibPackageDiscoveryProfileRequestModel struct {
 	// The name of the package discovery profile
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString `json:"Name,omitempty" validate:"regexp=(.*)*"`
 	// The UID of the DesktopGroup from which the broker will select a VDA to run the discovery.
 	DesktopGroupUid NullableInt32 `json:"DesktopGroupUid,omitempty"`
 	// The root directory where the discovery will run
@@ -34,7 +34,7 @@ type EditAppLibPackageDiscoveryProfileRequestModel struct {
 	// The user name of the App-V Server Administrator.
 	Username NullableString `json:"Username,omitempty"`
 	// The password of the App-V Server Administrator.
-	Password NullableString `json:"Password,omitempty"`
+	Password       NullableString          `json:"Password,omitempty"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
 	// A value indicating whether or not to search should Discover App-V Packages.
 	DiscoverAppV NullableBool `json:"DiscoverAppV,omitempty"`
@@ -47,7 +47,7 @@ type EditAppLibPackageDiscoveryProfileRequestModel struct {
 	// A value indicating whether or not to search should discover ElasticApp Layers packages.
 	DiscoverElasticAppLayers NullableBool `json:"DiscoverElasticAppLayers,omitempty"`
 	// A value indicating whether or not the discovery should run automatically.
-	AutomateDiscovery NullableBool `json:"AutomateDiscovery,omitempty"`
+	AutomateDiscovery   NullableBool         `json:"AutomateDiscovery,omitempty"`
 	AutoDiscoveryPeriod *AutoDiscoveryPeriod `json:"AutoDiscoveryPeriod,omitempty"`
 	// A value indicating how often to trigger the discovery.
 	AutoDiscoveryCadence NullableInt32 `json:"AutoDiscoveryCadence,omitempty"`
@@ -104,6 +104,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasName() bool {
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -146,6 +147,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDesktopGroupUid() boo
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDesktopGroupUid(v int32) {
 	o.DesktopGroupUid.Set(&v)
 }
+
 // SetDesktopGroupUidNil sets the value for DesktopGroupUid to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDesktopGroupUidNil() {
 	o.DesktopGroupUid.Set(nil)
@@ -188,6 +190,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasPath() bool {
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetPathNil() {
 	o.Path.Set(nil)
@@ -230,6 +233,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasRecurse() bool {
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetRecurse(v bool) {
 	o.Recurse.Set(&v)
 }
+
 // SetRecurseNil sets the value for Recurse to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetRecurseNil() {
 	o.Recurse.Set(nil)
@@ -272,6 +276,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasManagementServer() bo
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetManagementServer(v string) {
 	o.ManagementServer.Set(&v)
 }
+
 // SetManagementServerNil sets the value for ManagementServer to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetManagementServerNil() {
 	o.ManagementServer.Set(nil)
@@ -314,6 +319,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasPublishingServer() bo
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetPublishingServer(v string) {
 	o.PublishingServer.Set(&v)
 }
+
 // SetPublishingServerNil sets the value for PublishingServer to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetPublishingServerNil() {
 	o.PublishingServer.Set(nil)
@@ -356,6 +362,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasUsername() bool {
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetUsername(v string) {
 	o.Username.Set(&v)
 }
+
 // SetUsernameNil sets the value for Username to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetUsernameNil() {
 	o.Username.Set(nil)
@@ -398,6 +405,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasPassword() bool {
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetPassword(v string) {
 	o.Password.Set(&v)
 }
+
 // SetPasswordNil sets the value for Password to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetPasswordNil() {
 	o.Password.Set(nil)
@@ -472,6 +480,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDiscoverAppV() bool {
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppV(v bool) {
 	o.DiscoverAppV.Set(&v)
 }
+
 // SetDiscoverAppVNil sets the value for DiscoverAppV to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppVNil() {
 	o.DiscoverAppV.Set(nil)
@@ -514,6 +523,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDiscoverMsix() bool {
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverMsix(v bool) {
 	o.DiscoverMsix.Set(&v)
 }
+
 // SetDiscoverMsixNil sets the value for DiscoverMsix to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverMsixNil() {
 	o.DiscoverMsix.Set(nil)
@@ -556,6 +566,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDiscoverAppAttach() b
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppAttach(v bool) {
 	o.DiscoverAppAttach.Set(&v)
 }
+
 // SetDiscoverAppAttachNil sets the value for DiscoverAppAttach to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverAppAttachNil() {
 	o.DiscoverAppAttach.Set(nil)
@@ -598,6 +609,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDiscoverFlexApp() boo
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexApp(v bool) {
 	o.DiscoverFlexApp.Set(&v)
 }
+
 // SetDiscoverFlexAppNil sets the value for DiscoverFlexApp to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverFlexAppNil() {
 	o.DiscoverFlexApp.Set(nil)
@@ -640,6 +652,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasDiscoverElasticAppLay
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayers(v bool) {
 	o.DiscoverElasticAppLayers.Set(&v)
 }
+
 // SetDiscoverElasticAppLayersNil sets the value for DiscoverElasticAppLayers to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetDiscoverElasticAppLayersNil() {
 	o.DiscoverElasticAppLayers.Set(nil)
@@ -682,6 +695,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasAutomateDiscovery() b
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetAutomateDiscovery(v bool) {
 	o.AutomateDiscovery.Set(&v)
 }
+
 // SetAutomateDiscoveryNil sets the value for AutomateDiscovery to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetAutomateDiscoveryNil() {
 	o.AutomateDiscovery.Set(nil)
@@ -756,6 +770,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasAutoDiscoveryCadence(
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetAutoDiscoveryCadence(v int32) {
 	o.AutoDiscoveryCadence.Set(&v)
 }
+
 // SetAutoDiscoveryCadenceNil sets the value for AutoDiscoveryCadence to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetAutoDiscoveryCadenceNil() {
 	o.AutoDiscoveryCadence.Set(nil)
@@ -798,6 +813,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) HasCleanupAbsentPackages
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackages(v bool) {
 	o.CleanupAbsentPackages.Set(&v)
 }
+
 // SetCleanupAbsentPackagesNil sets the value for CleanupAbsentPackages to be an explicit nil
 func (o *EditAppLibPackageDiscoveryProfileRequestModel) SetCleanupAbsentPackagesNil() {
 	o.CleanupAbsentPackages.Set(nil)
@@ -809,7 +825,7 @@ func (o *EditAppLibPackageDiscoveryProfileRequestModel) UnsetCleanupAbsentPackag
 }
 
 func (o EditAppLibPackageDiscoveryProfileRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -910,5 +926,3 @@ func (v *NullableEditAppLibPackageDiscoveryProfileRequestModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

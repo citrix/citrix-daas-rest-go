@@ -20,13 +20,13 @@ var _ MappedNullable = &IpPermission{}
 // IpPermission struct for IpPermission
 type IpPermission struct {
 	// Deprecated
-	IpRanges []string `json:"ipRanges,omitempty"`
-	FromPort *int32 `json:"fromPort,omitempty"`
-	IpProtocol NullableString `json:"ipProtocol,omitempty"`
-	Ipv4Ranges []IpRange `json:"ipv4Ranges,omitempty"`
-	Ipv6Ranges []Ipv6Range `json:"ipv6Ranges,omitempty"`
-	PrefixListIds []PrefixListId `json:"prefixListIds,omitempty"`
-	ToPort *int32 `json:"toPort,omitempty"`
+	IpRanges         []string          `json:"ipRanges,omitempty"`
+	FromPort         *int32            `json:"fromPort,omitempty"`
+	IpProtocol       NullableString    `json:"ipProtocol,omitempty"`
+	Ipv4Ranges       []IpRange         `json:"ipv4Ranges,omitempty"`
+	Ipv6Ranges       []Ipv6Range       `json:"ipv6Ranges,omitempty"`
+	PrefixListIds    []PrefixListId    `json:"prefixListIds,omitempty"`
+	ToPort           *int32            `json:"toPort,omitempty"`
 	UserIdGroupPairs []UserIdGroupPair `json:"userIdGroupPairs,omitempty"`
 }
 
@@ -70,7 +70,7 @@ func (o *IpPermission) GetIpRangesOk() ([]string, bool) {
 
 // HasIpRanges returns a boolean if a field has been set.
 func (o *IpPermission) HasIpRanges() bool {
-	if o != nil && IsNil(o.IpRanges) {
+	if o != nil && !IsNil(o.IpRanges) {
 		return true
 	}
 
@@ -147,6 +147,7 @@ func (o *IpPermission) HasIpProtocol() bool {
 func (o *IpPermission) SetIpProtocol(v string) {
 	o.IpProtocol.Set(&v)
 }
+
 // SetIpProtocolNil sets the value for IpProtocol to be an explicit nil
 func (o *IpPermission) SetIpProtocolNil() {
 	o.IpProtocol.Set(nil)
@@ -178,7 +179,7 @@ func (o *IpPermission) GetIpv4RangesOk() ([]IpRange, bool) {
 
 // HasIpv4Ranges returns a boolean if a field has been set.
 func (o *IpPermission) HasIpv4Ranges() bool {
-	if o != nil && IsNil(o.Ipv4Ranges) {
+	if o != nil && !IsNil(o.Ipv4Ranges) {
 		return true
 	}
 
@@ -211,7 +212,7 @@ func (o *IpPermission) GetIpv6RangesOk() ([]Ipv6Range, bool) {
 
 // HasIpv6Ranges returns a boolean if a field has been set.
 func (o *IpPermission) HasIpv6Ranges() bool {
-	if o != nil && IsNil(o.Ipv6Ranges) {
+	if o != nil && !IsNil(o.Ipv6Ranges) {
 		return true
 	}
 
@@ -244,7 +245,7 @@ func (o *IpPermission) GetPrefixListIdsOk() ([]PrefixListId, bool) {
 
 // HasPrefixListIds returns a boolean if a field has been set.
 func (o *IpPermission) HasPrefixListIds() bool {
-	if o != nil && IsNil(o.PrefixListIds) {
+	if o != nil && !IsNil(o.PrefixListIds) {
 		return true
 	}
 
@@ -309,7 +310,7 @@ func (o *IpPermission) GetUserIdGroupPairsOk() ([]UserIdGroupPair, bool) {
 
 // HasUserIdGroupPairs returns a boolean if a field has been set.
 func (o *IpPermission) HasUserIdGroupPairs() bool {
-	if o != nil && IsNil(o.UserIdGroupPairs) {
+	if o != nil && !IsNil(o.UserIdGroupPairs) {
 		return true
 	}
 
@@ -322,7 +323,7 @@ func (o *IpPermission) SetUserIdGroupPairs(v []UserIdGroupPair) {
 }
 
 func (o IpPermission) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -393,5 +394,3 @@ func (v *NullableIpPermission) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

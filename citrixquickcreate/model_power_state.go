@@ -20,9 +20,9 @@ type PowerState string
 
 // List of PowerState
 const (
-	POWERSTATE_RUNNING PowerState = "Running"
+	POWERSTATE_RUNNING     PowerState = "Running"
 	POWERSTATE_POWERED_OFF PowerState = "PoweredOff"
-	POWERSTATE_UNKNOWN PowerState = "Unknown"
+	POWERSTATE_UNKNOWN     PowerState = "Unknown"
 )
 
 // All allowed values of PowerState enum
@@ -110,4 +110,3 @@ func (v *NullablePowerState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

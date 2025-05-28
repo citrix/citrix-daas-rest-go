@@ -19,11 +19,11 @@ var _ MappedNullable = &PlatformSettings{}
 
 // PlatformSettings struct for PlatformSettings
 type PlatformSettings struct {
-	AssignedTo []string `json:"assignedTo,omitempty"`
-	AssignmentPriority *int32 `json:"assignmentPriority,omitempty"`
-	Category *string `json:"category,omitempty"`
-	Settings []CategorySettings `json:"settings,omitempty"`
-	UserOverride *bool `json:"userOverride,omitempty"`
+	AssignedTo         []string           `json:"assignedTo,omitempty"`
+	AssignmentPriority *int32             `json:"assignmentPriority,omitempty"`
+	Category           *string            `json:"category,omitempty"`
+	Settings           []CategorySettings `json:"settings,omitempty"`
+	UserOverride       *bool              `json:"userOverride,omitempty"`
 }
 
 // NewPlatformSettings instantiates a new PlatformSettings object
@@ -204,7 +204,7 @@ func (o *PlatformSettings) SetUserOverride(v bool) {
 }
 
 func (o PlatformSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -266,5 +266,3 @@ func (v *NullablePlatformSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

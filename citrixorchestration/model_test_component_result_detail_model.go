@@ -80,6 +80,7 @@ func (o *TestComponentResultDetailModel) HasServiceSource() bool {
 func (o *TestComponentResultDetailModel) SetServiceSource(v string) {
 	o.ServiceSource.Set(&v)
 }
+
 // SetServiceSourceNil sets the value for ServiceSource to be an explicit nil
 func (o *TestComponentResultDetailModel) SetServiceSourceNil() {
 	o.ServiceSource.Set(nil)
@@ -122,6 +123,7 @@ func (o *TestComponentResultDetailModel) HasServerity() bool {
 func (o *TestComponentResultDetailModel) SetServerity(v string) {
 	o.Serverity.Set(&v)
 }
+
 // SetServerityNil sets the value for Serverity to be an explicit nil
 func (o *TestComponentResultDetailModel) SetServerityNil() {
 	o.Serverity.Set(nil)
@@ -164,6 +166,7 @@ func (o *TestComponentResultDetailModel) HasExplanation() bool {
 func (o *TestComponentResultDetailModel) SetExplanation(v string) {
 	o.Explanation.Set(&v)
 }
+
 // SetExplanationNil sets the value for Explanation to be an explicit nil
 func (o *TestComponentResultDetailModel) SetExplanationNil() {
 	o.Explanation.Set(nil)
@@ -206,6 +209,7 @@ func (o *TestComponentResultDetailModel) HasExplanationParametersStr() bool {
 func (o *TestComponentResultDetailModel) SetExplanationParametersStr(v string) {
 	o.ExplanationParametersStr.Set(&v)
 }
+
 // SetExplanationParametersStrNil sets the value for ExplanationParametersStr to be an explicit nil
 func (o *TestComponentResultDetailModel) SetExplanationParametersStrNil() {
 	o.ExplanationParametersStr.Set(nil)
@@ -248,6 +252,7 @@ func (o *TestComponentResultDetailModel) HasAction() bool {
 func (o *TestComponentResultDetailModel) SetAction(v string) {
 	o.Action.Set(&v)
 }
+
 // SetActionNil sets the value for Action to be an explicit nil
 func (o *TestComponentResultDetailModel) SetActionNil() {
 	o.Action.Set(nil)
@@ -259,7 +264,7 @@ func (o *TestComponentResultDetailModel) UnsetAction() {
 }
 
 func (o TestComponentResultDetailModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -321,5 +326,3 @@ func (v *NullableTestComponentResultDetailModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

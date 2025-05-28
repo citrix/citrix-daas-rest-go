@@ -21,7 +21,7 @@ var _ MappedNullable = &CatalogSearchFilterRequestModel{}
 type CatalogSearchFilterRequestModel struct {
 	Property CatalogSearchProperty `json:"Property"`
 	// Value to match.
-	Value NullableString `json:"Value,omitempty"`
+	Value    NullableString `json:"Value,omitempty"`
 	Operator SearchOperator `json:"Operator"`
 }
 
@@ -100,6 +100,7 @@ func (o *CatalogSearchFilterRequestModel) HasValue() bool {
 func (o *CatalogSearchFilterRequestModel) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *CatalogSearchFilterRequestModel) SetValueNil() {
 	o.Value.Set(nil)
@@ -135,7 +136,7 @@ func (o *CatalogSearchFilterRequestModel) SetOperator(v SearchOperator) {
 }
 
 func (o CatalogSearchFilterRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,5 +188,3 @@ func (v *NullableCatalogSearchFilterRequestModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

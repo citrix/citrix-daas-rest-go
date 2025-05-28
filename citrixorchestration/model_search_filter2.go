@@ -21,7 +21,7 @@ var _ MappedNullable = &SearchFilter2{}
 type SearchFilter2 struct {
 	Property PolicyProperty `json:"Property"`
 	// Value to match. For boolean properties this must be `\"true\"` or `\"false\"`. For string properties and enum values, this is case insensitive.
-	Value string `json:"Value"`
+	Value    string         `json:"Value"`
 	Operator SearchOperator `json:"Operator"`
 }
 
@@ -118,7 +118,7 @@ func (o *SearchFilter2) SetOperator(v SearchOperator) {
 }
 
 func (o SearchFilter2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -168,5 +168,3 @@ func (v *NullableSearchFilter2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

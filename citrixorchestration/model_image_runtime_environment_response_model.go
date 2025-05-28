@@ -115,6 +115,7 @@ func (o *ImageRuntimeEnvironmentResponseModel) HasVDASessionSupport() bool {
 func (o *ImageRuntimeEnvironmentResponseModel) SetVDASessionSupport(v string) {
 	o.VDASessionSupport.Set(&v)
 }
+
 // SetVDASessionSupportNil sets the value for VDASessionSupport to be an explicit nil
 func (o *ImageRuntimeEnvironmentResponseModel) SetVDASessionSupportNil() {
 	o.VDASessionSupport.Set(nil)
@@ -157,6 +158,7 @@ func (o *ImageRuntimeEnvironmentResponseModel) HasIdentityJoinStatus() bool {
 func (o *ImageRuntimeEnvironmentResponseModel) SetIdentityJoinStatus(v string) {
 	o.IdentityJoinStatus.Set(&v)
 }
+
 // SetIdentityJoinStatusNil sets the value for IdentityJoinStatus to be an explicit nil
 func (o *ImageRuntimeEnvironmentResponseModel) SetIdentityJoinStatusNil() {
 	o.IdentityJoinStatus.Set(nil)
@@ -199,6 +201,7 @@ func (o *ImageRuntimeEnvironmentResponseModel) HasDeviceEnrollmentStatus() bool 
 func (o *ImageRuntimeEnvironmentResponseModel) SetDeviceEnrollmentStatus(v string) {
 	o.DeviceEnrollmentStatus.Set(&v)
 }
+
 // SetDeviceEnrollmentStatusNil sets the value for DeviceEnrollmentStatus to be an explicit nil
 func (o *ImageRuntimeEnvironmentResponseModel) SetDeviceEnrollmentStatusNil() {
 	o.DeviceEnrollmentStatus.Set(nil)
@@ -309,7 +312,7 @@ func (o *ImageRuntimeEnvironmentResponseModel) SetVDAComponents(v map[string]str
 }
 
 func (o ImageRuntimeEnvironmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -377,5 +380,3 @@ func (v *NullableImageRuntimeEnvironmentResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

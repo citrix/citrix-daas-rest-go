@@ -26,8 +26,8 @@ type BackupRestoreStatusRequestModel struct {
 	// Current/Total duration in seconds
 	Duration int32 `json:"Duration"`
 	// Current/Total Rest API duration in seconds
-	RestApiDuration *int32 `json:"RestApiDuration,omitempty"`
-	Status BackupRestoreStatus `json:"Status"`
+	RestApiDuration *int32              `json:"RestApiDuration,omitempty"`
+	Status          BackupRestoreStatus `json:"Status"`
 	// Backup Name
 	BackupName NullableString `json:"BackupName,omitempty"`
 	// Backup Size
@@ -36,17 +36,17 @@ type BackupRestoreStatusRequestModel struct {
 	ScheduleName NullableString `json:"ScheduleName,omitempty"`
 	// Member Count
 	MemberCount *int32 `json:"MemberCount,omitempty"`
-	// Action Start UTC Time             
+	// Action Start UTC Time
 	StartTime time.Time `json:"StartTime"`
 	// Action Current UTC Time
-	CurrentTime time.Time `json:"CurrentTime"`
+	CurrentTime     time.Time                              `json:"CurrentTime"`
 	RestoreProgress *BackupRestoreRestoreSingleMemberModel `json:"RestoreProgress,omitempty"`
 	// Activity count for stall testing
 	ActivityCount *int32 `json:"ActivityCount,omitempty"`
 	// Current component being restored
 	CurrentComponent NullableString `json:"CurrentComponent,omitempty"`
 	// Current component member being restored
-	CurrentMemberName NullableString `json:"CurrentMemberName,omitempty"`
+	CurrentMemberName NullableString                    `json:"CurrentMemberName,omitempty"`
 	ComponentProgress *BackupRestorePlaybookActionState `json:"ComponentProgress,omitempty"`
 	// Check Mode
 	CheckMode *bool `json:"CheckMode,omitempty"`
@@ -63,7 +63,7 @@ type BackupRestoreStatusRequestModel struct {
 	// Simple Results (such as Get backed up member names)
 	SimpleResults []string `json:"SimpleResults,omitempty"`
 	// Fixups from backups or restores
-	Fixups NullableString `json:"Fixups,omitempty"`
+	Fixups      NullableString             `json:"Fixups,omitempty"`
 	RestoreType *BackupRestoreRestoreTypes `json:"RestoreType,omitempty"`
 }
 
@@ -250,6 +250,7 @@ func (o *BackupRestoreStatusRequestModel) HasBackupName() bool {
 func (o *BackupRestoreStatusRequestModel) SetBackupName(v string) {
 	o.BackupName.Set(&v)
 }
+
 // SetBackupNameNil sets the value for BackupName to be an explicit nil
 func (o *BackupRestoreStatusRequestModel) SetBackupNameNil() {
 	o.BackupName.Set(nil)
@@ -324,6 +325,7 @@ func (o *BackupRestoreStatusRequestModel) HasScheduleName() bool {
 func (o *BackupRestoreStatusRequestModel) SetScheduleName(v string) {
 	o.ScheduleName.Set(&v)
 }
+
 // SetScheduleNameNil sets the value for ScheduleName to be an explicit nil
 func (o *BackupRestoreStatusRequestModel) SetScheduleNameNil() {
 	o.ScheduleName.Set(nil)
@@ -510,6 +512,7 @@ func (o *BackupRestoreStatusRequestModel) HasCurrentComponent() bool {
 func (o *BackupRestoreStatusRequestModel) SetCurrentComponent(v string) {
 	o.CurrentComponent.Set(&v)
 }
+
 // SetCurrentComponentNil sets the value for CurrentComponent to be an explicit nil
 func (o *BackupRestoreStatusRequestModel) SetCurrentComponentNil() {
 	o.CurrentComponent.Set(nil)
@@ -552,6 +555,7 @@ func (o *BackupRestoreStatusRequestModel) HasCurrentMemberName() bool {
 func (o *BackupRestoreStatusRequestModel) SetCurrentMemberName(v string) {
 	o.CurrentMemberName.Set(&v)
 }
+
 // SetCurrentMemberNameNil sets the value for CurrentMemberName to be an explicit nil
 func (o *BackupRestoreStatusRequestModel) SetCurrentMemberNameNil() {
 	o.CurrentMemberName.Set(nil)
@@ -690,6 +694,7 @@ func (o *BackupRestoreStatusRequestModel) HasAdministratrName() bool {
 func (o *BackupRestoreStatusRequestModel) SetAdministratrName(v string) {
 	o.AdministratrName.Set(&v)
 }
+
 // SetAdministratrNameNil sets the value for AdministratrName to be an explicit nil
 func (o *BackupRestoreStatusRequestModel) SetAdministratrNameNil() {
 	o.AdministratrName.Set(nil)
@@ -863,6 +868,7 @@ func (o *BackupRestoreStatusRequestModel) HasFixups() bool {
 func (o *BackupRestoreStatusRequestModel) SetFixups(v string) {
 	o.Fixups.Set(&v)
 }
+
 // SetFixupsNil sets the value for Fixups to be an explicit nil
 func (o *BackupRestoreStatusRequestModel) SetFixupsNil() {
 	o.Fixups.Set(nil)
@@ -906,7 +912,7 @@ func (o *BackupRestoreStatusRequestModel) SetRestoreType(v BackupRestoreRestoreT
 }
 
 func (o BackupRestoreStatusRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1016,5 +1022,3 @@ func (v *NullableBackupRestoreStatusRequestModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

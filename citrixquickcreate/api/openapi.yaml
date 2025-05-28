@@ -7610,8 +7610,14 @@ components:
       description: Enumerable of account resource
       example:
         items:
-        - null
-        - null
+        - baseCidrRange: baseCidrRange
+          derivedCidrRanges:
+          - derivedCidrRanges
+          - derivedCidrRanges
+        - baseCidrRange: baseCidrRange
+          derivedCidrRanges:
+          - derivedCidrRanges
+          - derivedCidrRanges
       properties:
         items:
           description: Enumerable of account resource
@@ -7638,6 +7644,9 @@ components:
           ACCOUNT: '#/components/schemas/AccountTask'
           AWS_BYOL_REGISTRATION: '#/components/schemas/AwsEdcAccountByolRegistrationTask'
         propertyName: operation
+      example:
+        accountId: accountId
+        operation: ""
       properties:
         operation:
           allOf:
@@ -7999,13 +8008,13 @@ components:
         awsAccount: awsAccount
         byolCidrRange: byolCidrRange
         awsEdcMissingRolePermissions:
-        - condition: null
+        - condition: ""
           resource: resource
           effect: effect
           action:
           - action
           - action
-        - condition: null
+        - condition: ""
           resource: resource
           effect: effect
           action:
@@ -8186,6 +8195,11 @@ components:
       additionalProperties: false
       allOf:
       - $ref: '#/components/schemas/AwsEdcAccountResource'
+      example:
+        baseCidrRange: baseCidrRange
+        derivedCidrRanges:
+        - derivedCidrRanges
+        - derivedCidrRanges
       properties:
         baseCidrRange:
           description: Base Cidr Range
@@ -8793,8 +8807,8 @@ components:
       example:
         ingestionProcess: ""
         applicationList:
-        - null
-        - null
+        - Microsoft_Office_2019
+        - Microsoft_Office_2019
         workspaceImageState: ""
         amazonImageId: amazonImageId
         workspaceImageTenancy: ""
@@ -8833,7 +8847,7 @@ components:
     AwsEdcMissingRolePermissions:
       additionalProperties: false
       example:
-        condition: null
+        condition: ""
         resource: resource
         effect: effect
         action:
@@ -8855,7 +8869,10 @@ components:
           nullable: true
           type: string
         condition:
-          $ref: '#/components/schemas/AwsEdcMissingRolePermissions_condition'
+          allOf:
+          - $ref: '#/components/schemas/ConditionalExpression'
+          description: Condition statements
+          nullable: true
       type: object
     AwsEdcRegisterAccount:
       additionalProperties: false
@@ -9047,7 +9064,10 @@ components:
             type: string
           type: array
         credentials:
-          $ref: '#/components/schemas/DeleteMachines_credentials'
+          allOf:
+          - $ref: '#/components/schemas/DeploymentCredentials'
+          description: Optional domain credentials details
+          nullable: true
       required:
       - accountType
       - machineIds
@@ -9126,7 +9146,10 @@ components:
           nullable: true
           type: boolean
         scaleSettings:
-          $ref: '#/components/schemas/Deployment_scaleSettings'
+          allOf:
+          - $ref: '#/components/schemas/ScaleSettings'
+          description: Power management scale settings
+          nullable: true
       required:
       - accountType
       type: object
@@ -9540,8 +9563,8 @@ components:
         ingestionProcess: ""
         ec2ImageId: ec2ImageId
         applicationList:
-        - null
-        - null
+        - Microsoft_Office_2019
+        - Microsoft_Office_2019
       properties:
         ec2ImageId:
           description: Source Image Id
@@ -10775,21 +10798,6 @@ components:
       - $ref: '#/components/schemas/AwsEdcAccountResourceFile'
       - $ref: '#/components/schemas/AwsEdcAccountResourceEc2InstanceType'
       - $ref: '#/components/schemas/AwsEdcAccountResourceKeyPair'
-    AwsEdcMissingRolePermissions_condition:
-      allOf:
-      - $ref: '#/components/schemas/ConditionalExpression'
-      description: Condition statements
-      nullable: true
-    DeleteMachines_credentials:
-      allOf:
-      - $ref: '#/components/schemas/DeploymentCredentials'
-      description: Optional domain credentials details
-      nullable: true
-    Deployment_scaleSettings:
-      allOf:
-      - $ref: '#/components/schemas/ScaleSettings'
-      description: Power management scale settings
-      nullable: true
   securitySchemes:
     CWSAuth:
       description: "Authorization header. Should be in the form: CWSAuth service=&lt;ServiceKey&gt;\

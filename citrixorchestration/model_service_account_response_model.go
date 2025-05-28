@@ -127,6 +127,7 @@ func (o *ServiceAccountResponseModel) HasIdentityProviderType() bool {
 func (o *ServiceAccountResponseModel) SetIdentityProviderType(v string) {
 	o.IdentityProviderType.Set(&v)
 }
+
 // SetIdentityProviderTypeNil sets the value for IdentityProviderType to be an explicit nil
 func (o *ServiceAccountResponseModel) SetIdentityProviderTypeNil() {
 	o.IdentityProviderType.Set(nil)
@@ -169,6 +170,7 @@ func (o *ServiceAccountResponseModel) HasIdentityProviderIdentifier() bool {
 func (o *ServiceAccountResponseModel) SetIdentityProviderIdentifier(v string) {
 	o.IdentityProviderIdentifier.Set(&v)
 }
+
 // SetIdentityProviderIdentifierNil sets the value for IdentityProviderIdentifier to be an explicit nil
 func (o *ServiceAccountResponseModel) SetIdentityProviderIdentifierNil() {
 	o.IdentityProviderIdentifier.Set(nil)
@@ -211,6 +213,7 @@ func (o *ServiceAccountResponseModel) HasAccountId() bool {
 func (o *ServiceAccountResponseModel) SetAccountId(v string) {
 	o.AccountId.Set(&v)
 }
+
 // SetAccountIdNil sets the value for AccountId to be an explicit nil
 func (o *ServiceAccountResponseModel) SetAccountIdNil() {
 	o.AccountId.Set(nil)
@@ -253,6 +256,7 @@ func (o *ServiceAccountResponseModel) HasSecretExpiryTime() bool {
 func (o *ServiceAccountResponseModel) SetSecretExpiryTime(v string) {
 	o.SecretExpiryTime.Set(&v)
 }
+
 // SetSecretExpiryTimeNil sets the value for SecretExpiryTime to be an explicit nil
 func (o *ServiceAccountResponseModel) SetSecretExpiryTimeNil() {
 	o.SecretExpiryTime.Set(nil)
@@ -360,6 +364,7 @@ func (o *ServiceAccountResponseModel) HasFailureReason() bool {
 func (o *ServiceAccountResponseModel) SetFailureReason(v string) {
 	o.FailureReason.Set(&v)
 }
+
 // SetFailureReasonNil sets the value for FailureReason to be an explicit nil
 func (o *ServiceAccountResponseModel) SetFailureReasonNil() {
 	o.FailureReason.Set(nil)
@@ -435,6 +440,7 @@ func (o *ServiceAccountResponseModel) HasTenantId() bool {
 func (o *ServiceAccountResponseModel) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *ServiceAccountResponseModel) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -477,6 +483,7 @@ func (o *ServiceAccountResponseModel) HasDisplayName() bool {
 func (o *ServiceAccountResponseModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *ServiceAccountResponseModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -519,6 +526,7 @@ func (o *ServiceAccountResponseModel) HasDescription() bool {
 func (o *ServiceAccountResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ServiceAccountResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -561,6 +569,7 @@ func (o *ServiceAccountResponseModel) HasCustomProperties() bool {
 func (o *ServiceAccountResponseModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *ServiceAccountResponseModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -572,7 +581,7 @@ func (o *ServiceAccountResponseModel) UnsetCustomProperties() {
 }
 
 func (o ServiceAccountResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -658,5 +667,3 @@ func (v *NullableServiceAccountResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

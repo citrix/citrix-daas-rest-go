@@ -17,9 +17,9 @@ import (
 
 // GetTaskAsync200Response - Base class for Tasks
 type GetTaskAsync200Response struct {
-	AccountTask *AccountTask
-	CommissionTask *CommissionTask
-	DeploymentTask *DeploymentTask
+	AccountTask            *AccountTask
+	CommissionTask         *CommissionTask
+	DeploymentTask         *DeploymentTask
 	ResourceConnectionTask *ResourceConnectionTask
 }
 
@@ -50,7 +50,6 @@ func ResourceConnectionTaskAsGetTaskAsync200Response(v *ResourceConnectionTask) 
 		ResourceConnectionTask: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *GetTaskAsync200Response) UnmarshalJSON(data []byte) error {
@@ -145,7 +144,7 @@ func (src GetTaskAsync200Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *GetTaskAsync200Response) GetActualInstance() (interface{}) {
+func (obj *GetTaskAsync200Response) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -163,6 +162,28 @@ func (obj *GetTaskAsync200Response) GetActualInstance() (interface{}) {
 
 	if obj.ResourceConnectionTask != nil {
 		return obj.ResourceConnectionTask
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj GetTaskAsync200Response) GetActualInstanceValue() interface{} {
+	if obj.AccountTask != nil {
+		return *obj.AccountTask
+	}
+
+	if obj.CommissionTask != nil {
+		return *obj.CommissionTask
+	}
+
+	if obj.DeploymentTask != nil {
+		return *obj.DeploymentTask
+	}
+
+	if obj.ResourceConnectionTask != nil {
+		return *obj.ResourceConnectionTask
 	}
 
 	// all schemas are nil
@@ -204,5 +225,3 @@ func (v *NullableGetTaskAsync200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

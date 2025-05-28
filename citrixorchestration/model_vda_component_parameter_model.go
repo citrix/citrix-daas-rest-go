@@ -78,6 +78,7 @@ func (o *VDAComponentParameterModel) HasParameterName() bool {
 func (o *VDAComponentParameterModel) SetParameterName(v string) {
 	o.ParameterName.Set(&v)
 }
+
 // SetParameterNameNil sets the value for ParameterName to be an explicit nil
 func (o *VDAComponentParameterModel) SetParameterNameNil() {
 	o.ParameterName.Set(nil)
@@ -120,6 +121,7 @@ func (o *VDAComponentParameterModel) HasParameterId() bool {
 func (o *VDAComponentParameterModel) SetParameterId(v string) {
 	o.ParameterId.Set(&v)
 }
+
 // SetParameterIdNil sets the value for ParameterId to be an explicit nil
 func (o *VDAComponentParameterModel) SetParameterIdNil() {
 	o.ParameterId.Set(nil)
@@ -162,6 +164,7 @@ func (o *VDAComponentParameterModel) HasParameterDescription() bool {
 func (o *VDAComponentParameterModel) SetParameterDescription(v string) {
 	o.ParameterDescription.Set(&v)
 }
+
 // SetParameterDescriptionNil sets the value for ParameterDescription to be an explicit nil
 func (o *VDAComponentParameterModel) SetParameterDescriptionNil() {
 	o.ParameterDescription.Set(nil)
@@ -204,6 +207,7 @@ func (o *VDAComponentParameterModel) HasParameterType() bool {
 func (o *VDAComponentParameterModel) SetParameterType(v string) {
 	o.ParameterType.Set(&v)
 }
+
 // SetParameterTypeNil sets the value for ParameterType to be an explicit nil
 func (o *VDAComponentParameterModel) SetParameterTypeNil() {
 	o.ParameterType.Set(nil)
@@ -215,7 +219,7 @@ func (o *VDAComponentParameterModel) UnsetParameterType() {
 }
 
 func (o VDAComponentParameterModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableVDAComponentParameterModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

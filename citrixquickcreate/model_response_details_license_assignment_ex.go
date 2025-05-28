@@ -65,7 +65,7 @@ func (o *ResponseDetailsLicenseAssignmentEx) GetUsersOk() ([]CoreUser, bool) {
 
 // HasUsers returns a boolean if a field has been set.
 func (o *ResponseDetailsLicenseAssignmentEx) HasUsers() bool {
-	if o != nil && IsNil(o.Users) {
+	if o != nil && !IsNil(o.Users) {
 		return true
 	}
 
@@ -141,6 +141,7 @@ func (o *ResponseDetailsLicenseAssignmentEx) HasErrorDescription() bool {
 func (o *ResponseDetailsLicenseAssignmentEx) SetErrorDescription(v string) {
 	o.ErrorDescription.Set(&v)
 }
+
 // SetErrorDescriptionNil sets the value for ErrorDescription to be an explicit nil
 func (o *ResponseDetailsLicenseAssignmentEx) SetErrorDescriptionNil() {
 	o.ErrorDescription.Set(nil)
@@ -152,7 +153,7 @@ func (o *ResponseDetailsLicenseAssignmentEx) UnsetErrorDescription() {
 }
 
 func (o ResponseDetailsLicenseAssignmentEx) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +209,3 @@ func (v *NullableResponseDetailsLicenseAssignmentEx) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

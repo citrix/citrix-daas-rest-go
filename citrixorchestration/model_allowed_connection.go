@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// AllowedConnection 
+// AllowedConnection
 type AllowedConnection string
 
 // List of AllowedConnection
 const (
-	ALLOWEDCONNECTION_UNKNOWN AllowedConnection = "Unknown"
-	ALLOWEDCONNECTION_FILTERED AllowedConnection = "Filtered"
+	ALLOWEDCONNECTION_UNKNOWN    AllowedConnection = "Unknown"
+	ALLOWEDCONNECTION_FILTERED   AllowedConnection = "Filtered"
 	ALLOWEDCONNECTION_NOT_VIA_AG AllowedConnection = "NotViaAG"
-	ALLOWEDCONNECTION_VIA_AG AllowedConnection = "ViaAG"
+	ALLOWEDCONNECTION_VIA_AG     AllowedConnection = "ViaAG"
 	ALLOWEDCONNECTION_ANY_VIA_AG AllowedConnection = "AnyViaAG"
 )
 
@@ -42,7 +42,7 @@ func (v *AllowedConnection) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AllowedConnection(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableAllowedConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,6 +19,7 @@ var _ MappedNullable = &DeploymentWarning{}
 
 // DeploymentWarning A warning or error that is associated with the deployment
 type DeploymentWarning struct {
+	// Type of deployment warning
 	WarningType *DeploymentWarningType `json:"warningType,omitempty"`
 	// Id of the warning
 	Id NullableString `json:"id,omitempty"`
@@ -115,6 +116,7 @@ func (o *DeploymentWarning) HasId() bool {
 func (o *DeploymentWarning) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *DeploymentWarning) SetIdNil() {
 	o.Id.Set(nil)
@@ -157,6 +159,7 @@ func (o *DeploymentWarning) HasWarning() bool {
 func (o *DeploymentWarning) SetWarning(v string) {
 	o.Warning.Set(&v)
 }
+
 // SetWarningNil sets the value for Warning to be an explicit nil
 func (o *DeploymentWarning) SetWarningNil() {
 	o.Warning.Set(nil)
@@ -199,6 +202,7 @@ func (o *DeploymentWarning) HasTaskId() bool {
 func (o *DeploymentWarning) SetTaskId(v string) {
 	o.TaskId.Set(&v)
 }
+
 // SetTaskIdNil sets the value for TaskId to be an explicit nil
 func (o *DeploymentWarning) SetTaskIdNil() {
 	o.TaskId.Set(nil)
@@ -305,6 +309,7 @@ func (o *DeploymentWarning) HasTransactionId() bool {
 func (o *DeploymentWarning) SetTransactionId(v string) {
 	o.TransactionId.Set(&v)
 }
+
 // SetTransactionIdNil sets the value for TransactionId to be an explicit nil
 func (o *DeploymentWarning) SetTransactionIdNil() {
 	o.TransactionId.Set(nil)
@@ -316,7 +321,7 @@ func (o *DeploymentWarning) UnsetTransactionId() {
 }
 
 func (o DeploymentWarning) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -384,5 +389,3 @@ func (v *NullableDeploymentWarning) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

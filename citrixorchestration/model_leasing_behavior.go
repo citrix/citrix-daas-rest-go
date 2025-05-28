@@ -20,8 +20,8 @@ type LeasingBehavior string
 
 // List of LeasingBehavior
 const (
-	LEASINGBEHAVIOR_UNKNOWN LeasingBehavior = "Unknown"
-	LEASINGBEHAVIOR_ALLOWED LeasingBehavior = "Allowed"
+	LEASINGBEHAVIOR_UNKNOWN    LeasingBehavior = "Unknown"
+	LEASINGBEHAVIOR_ALLOWED    LeasingBehavior = "Allowed"
 	LEASINGBEHAVIOR_DISALLOWED LeasingBehavior = "Disallowed"
 )
 
@@ -38,7 +38,7 @@ func (v *LeasingBehavior) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LeasingBehavior(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableLeasingBehavior) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

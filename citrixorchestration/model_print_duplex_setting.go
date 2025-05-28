@@ -20,8 +20,8 @@ type PrintDuplexSetting string
 
 // List of PrintDuplexSetting
 const (
-	PRINTDUPLEXSETTING_SIMPLEX PrintDuplexSetting = "Simplex"
-	PRINTDUPLEXSETTING_VERTICAL PrintDuplexSetting = "Vertical"
+	PRINTDUPLEXSETTING_SIMPLEX    PrintDuplexSetting = "Simplex"
+	PRINTDUPLEXSETTING_VERTICAL   PrintDuplexSetting = "Vertical"
 	PRINTDUPLEXSETTING_HORIZONTAL PrintDuplexSetting = "Horizontal"
 )
 
@@ -38,7 +38,7 @@ func (v *PrintDuplexSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PrintDuplexSetting(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullablePrintDuplexSetting) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

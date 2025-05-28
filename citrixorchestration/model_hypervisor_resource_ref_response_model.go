@@ -32,9 +32,9 @@ type HypervisorResourceRefResponseModel struct {
 	// Type of resource.
 	ResourceType NullableString `json:"ResourceType,omitempty"`
 	// The type name of the hypervisor resource object.
-	ObjectTypeName NullableString `json:"ObjectTypeName,omitempty"`
+	ObjectTypeName    NullableString                      `json:"ObjectTypeName,omitempty"`
 	ResourceContainer *HypervisorResourceRefResponseModel `json:"ResourceContainer,omitempty"`
-	// Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}` This value 
+	// Citrix Apps and Desktops path to the resource on the ResourcePool.  An example value is: `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}` This value
 	ResourcePoolXDPath NullableString `json:"ResourcePoolXDPath,omitempty"`
 }
 
@@ -87,6 +87,7 @@ func (o *HypervisorResourceRefResponseModel) HasId() bool {
 func (o *HypervisorResourceRefResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -129,6 +130,7 @@ func (o *HypervisorResourceRefResponseModel) HasName() bool {
 func (o *HypervisorResourceRefResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -171,6 +173,7 @@ func (o *HypervisorResourceRefResponseModel) HasXDPath() bool {
 func (o *HypervisorResourceRefResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -213,6 +216,7 @@ func (o *HypervisorResourceRefResponseModel) HasRelativePath() bool {
 func (o *HypervisorResourceRefResponseModel) SetRelativePath(v string) {
 	o.RelativePath.Set(&v)
 }
+
 // SetRelativePathNil sets the value for RelativePath to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetRelativePathNil() {
 	o.RelativePath.Set(nil)
@@ -255,6 +259,7 @@ func (o *HypervisorResourceRefResponseModel) HasFullRelativePath() bool {
 func (o *HypervisorResourceRefResponseModel) SetFullRelativePath(v string) {
 	o.FullRelativePath.Set(&v)
 }
+
 // SetFullRelativePathNil sets the value for FullRelativePath to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetFullRelativePathNil() {
 	o.FullRelativePath.Set(nil)
@@ -297,6 +302,7 @@ func (o *HypervisorResourceRefResponseModel) HasResourceType() bool {
 func (o *HypervisorResourceRefResponseModel) SetResourceType(v string) {
 	o.ResourceType.Set(&v)
 }
+
 // SetResourceTypeNil sets the value for ResourceType to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetResourceTypeNil() {
 	o.ResourceType.Set(nil)
@@ -339,6 +345,7 @@ func (o *HypervisorResourceRefResponseModel) HasObjectTypeName() bool {
 func (o *HypervisorResourceRefResponseModel) SetObjectTypeName(v string) {
 	o.ObjectTypeName.Set(&v)
 }
+
 // SetObjectTypeNameNil sets the value for ObjectTypeName to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetObjectTypeNameNil() {
 	o.ObjectTypeName.Set(nil)
@@ -413,6 +420,7 @@ func (o *HypervisorResourceRefResponseModel) HasResourcePoolXDPath() bool {
 func (o *HypervisorResourceRefResponseModel) SetResourcePoolXDPath(v string) {
 	o.ResourcePoolXDPath.Set(&v)
 }
+
 // SetResourcePoolXDPathNil sets the value for ResourcePoolXDPath to be an explicit nil
 func (o *HypervisorResourceRefResponseModel) SetResourcePoolXDPathNil() {
 	o.ResourcePoolXDPath.Set(nil)
@@ -424,7 +432,7 @@ func (o *HypervisorResourceRefResponseModel) UnsetResourcePoolXDPath() {
 }
 
 func (o HypervisorResourceRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -498,5 +506,3 @@ func (v *NullableHypervisorResourceRefResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

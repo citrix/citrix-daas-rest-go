@@ -19,15 +19,14 @@ import (
 	"strings"
 )
 
-
 // AuthDomainsDAASService AuthDomainsDAAS service
 type AuthDomainsDAASService service
 
 type AuthDomainsDAASCustomerAuthDomainsCheckGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthDomainsDAASService
-	name *string
-	customer string
+	name       *string
+	customer   string
 }
 
 func (r AuthDomainsDAASCustomerAuthDomainsCheckGetRequest) Name(name string) AuthDomainsDAASCustomerAuthDomainsCheckGetRequest {
@@ -42,26 +41,27 @@ func (r AuthDomainsDAASCustomerAuthDomainsCheckGetRequest) Execute() (bool, *htt
 /*
 CustomerAuthDomainsCheckGet Method for CustomerAuthDomainsCheckGet
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return AuthDomainsDAASCustomerAuthDomainsCheckGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return AuthDomainsDAASCustomerAuthDomainsCheckGetRequest
 */
 func (a *AuthDomainsDAASService) CustomerAuthDomainsCheckGet(ctx context.Context, customer string) AuthDomainsDAASCustomerAuthDomainsCheckGetRequest {
 	return AuthDomainsDAASCustomerAuthDomainsCheckGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *AuthDomainsDAASService) CustomerAuthDomainsCheckGetExecute(r AuthDomainsDAASCustomerAuthDomainsCheckGetRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthDomainsDAASService.CustomerAuthDomainsCheckGet")
@@ -85,7 +85,7 @@ func (a *AuthDomainsDAASService) CustomerAuthDomainsCheckGetExecute(r AuthDomain
 		return localVarReturnValue, nil, reportError("name must have less than 100 elements")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -120,6 +120,13 @@ func (a *AuthDomainsDAASService) CustomerAuthDomainsCheckGetExecute(r AuthDomain
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -141,11 +148,11 @@ func (a *AuthDomainsDAASService) CustomerAuthDomainsCheckGetExecute(r AuthDomain
 }
 
 type AuthDomainsDAASCustomerAuthDomainsPutRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthDomainsDAASService
-	oldName *string
-	newName *string
-	customer string
+	oldName    *string
+	newName    *string
+	customer   string
 }
 
 func (r AuthDomainsDAASCustomerAuthDomainsPutRequest) OldName(oldName string) AuthDomainsDAASCustomerAuthDomainsPutRequest {
@@ -165,26 +172,27 @@ func (r AuthDomainsDAASCustomerAuthDomainsPutRequest) Execute() (*UpdatedCustome
 /*
 CustomerAuthDomainsPut Method for CustomerAuthDomainsPut
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customer
- @return AuthDomainsDAASCustomerAuthDomainsPutRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customer
+	@return AuthDomainsDAASCustomerAuthDomainsPutRequest
 */
 func (a *AuthDomainsDAASService) CustomerAuthDomainsPut(ctx context.Context, customer string) AuthDomainsDAASCustomerAuthDomainsPutRequest {
 	return AuthDomainsDAASCustomerAuthDomainsPutRequest{
 		ApiService: a,
-		ctx: ctx,
-		customer: customer,
+		ctx:        ctx,
+		customer:   customer,
 	}
 }
 
 // Execute executes the request
-//  @return UpdatedCustomerModel
+//
+//	@return UpdatedCustomerModel
 func (a *AuthDomainsDAASService) CustomerAuthDomainsPutExecute(r AuthDomainsDAASCustomerAuthDomainsPutRequest) (*UpdatedCustomerModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdatedCustomerModel
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdatedCustomerModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthDomainsDAASService.CustomerAuthDomainsPut")
@@ -217,8 +225,8 @@ func (a *AuthDomainsDAASService) CustomerAuthDomainsPutExecute(r AuthDomainsDAAS
 		return localVarReturnValue, nil, reportError("newName must have less than 100 elements")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "oldName", r.oldName, "")
-	parameterAddToHeaderOrQuery(localVarQueryParams, "newName", r.newName, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "oldName", r.oldName, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "newName", r.newName, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -251,6 +259,13 @@ func (a *AuthDomainsDAASService) CustomerAuthDomainsPutExecute(r AuthDomainsDAAS
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

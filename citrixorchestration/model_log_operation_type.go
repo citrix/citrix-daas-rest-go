@@ -20,9 +20,9 @@ type LogOperationType string
 
 // List of LogOperationType
 const (
-	LOGOPERATIONTYPE_UNKNOWN LogOperationType = "Unknown"
+	LOGOPERATIONTYPE_UNKNOWN              LogOperationType = "Unknown"
 	LOGOPERATIONTYPE_CONFIGURATION_CHANGE LogOperationType = "ConfigurationChange"
-	LOGOPERATIONTYPE_ADMIN_ACTIVITY LogOperationType = "AdminActivity"
+	LOGOPERATIONTYPE_ADMIN_ACTIVITY       LogOperationType = "AdminActivity"
 )
 
 // All allowed values of LogOperationType enum
@@ -38,7 +38,7 @@ func (v *LogOperationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LogOperationType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableLogOperationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

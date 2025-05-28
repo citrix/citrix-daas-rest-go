@@ -22,8 +22,8 @@ type LicenseResponseModel struct {
 	// The product code.
 	ProductCode string `json:"ProductCode"`
 	// The product edition.
-	ProductEdition string `json:"ProductEdition"`
-	LicenseModel LicenseModel `json:"LicenseModel"`
+	ProductEdition string       `json:"ProductEdition"`
+	LicenseModel   LicenseModel `json:"LicenseModel"`
 }
 
 // NewLicenseResponseModel instantiates a new LicenseResponseModel object
@@ -119,7 +119,7 @@ func (o *LicenseResponseModel) SetLicenseModel(v LicenseModel) {
 }
 
 func (o LicenseResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +169,3 @@ func (v *NullableLicenseResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

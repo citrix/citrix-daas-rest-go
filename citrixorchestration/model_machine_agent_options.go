@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// MachineAgentOptions 
+// MachineAgentOptions
 type MachineAgentOptions string
 
 // List of MachineAgentOptions
 const (
-	MACHINEAGENTOPTIONS_NONE MachineAgentOptions = "None"
+	MACHINEAGENTOPTIONS_NONE                                       MachineAgentOptions = "None"
 	MACHINEAGENTOPTIONS_ENABLE_AZURE_AD_JOIN_AND_DEVICE_ENROLLMENT MachineAgentOptions = "EnableAzureAdJoinAndDeviceEnrollment"
-	MACHINEAGENTOPTIONS_ENABLE_PAGE_FILE_SETTINGS_CUSTOMIZATION MachineAgentOptions = "EnablePageFileSettingsCustomization"
+	MACHINEAGENTOPTIONS_ENABLE_PAGE_FILE_SETTINGS_CUSTOMIZATION    MachineAgentOptions = "EnablePageFileSettingsCustomization"
 )
 
 // All allowed values of MachineAgentOptions enum
@@ -38,7 +38,7 @@ func (v *MachineAgentOptions) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineAgentOptions(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableMachineAgentOptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

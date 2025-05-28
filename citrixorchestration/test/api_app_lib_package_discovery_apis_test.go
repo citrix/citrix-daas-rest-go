@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryCreateAppLibPackageDiscovery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscovery(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryCreateAppLibPackageDiscoveryProfile(context.Background()).Execute()
 
@@ -48,7 +49,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscovery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -62,7 +63,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoveryLatestSessionByProfileId", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -76,7 +77,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -90,7 +91,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoveryProfiles(context.Background()).Execute()
 
@@ -102,7 +103,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppLibPackageDiscoveryAPIsDAAS.AppLibPackageDiscoveryGetAppLibPackageDiscoverySessions(context.Background()).Execute()
 
@@ -114,7 +115,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryRemoveAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -127,7 +128,7 @@ func Test_citrixorchestration_AppLibPackageDiscoveryAPIsDAASService(t *testing.T
 
 	t.Run("Test AppLibPackageDiscoveryAPIsDAASService AppLibPackageDiscoveryUpdateAppLibPackageDiscoveryProfile", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 

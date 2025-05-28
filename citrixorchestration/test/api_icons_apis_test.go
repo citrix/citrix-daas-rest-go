@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_IconsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_IconsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IconsAPIsDAASService IconsAddIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IconsAPIsDAAS.IconsAddIcon(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_citrixorchestration_IconsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IconsAPIsDAASService IconsGetAppVServerPackageApplicationIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IconsAPIsDAAS.IconsGetAppVServerPackageApplicationIcon(context.Background()).Execute()
 
@@ -48,7 +49,7 @@ func Test_citrixorchestration_IconsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IconsAPIsDAASService IconsGetIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -62,7 +63,7 @@ func Test_citrixorchestration_IconsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IconsAPIsDAASService IconsGetIcons", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IconsAPIsDAAS.IconsGetIcons(context.Background()).Execute()
 
@@ -74,7 +75,7 @@ func Test_citrixorchestration_IconsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IconsAPIsDAASService IconsRemoveIcon", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 

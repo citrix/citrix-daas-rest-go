@@ -24,6 +24,8 @@ type AddAwsEdcDeploymentMachines struct {
 	Workspaces []AddAwsEdcWorkspace `json:"workspaces,omitempty"`
 }
 
+type _AddAwsEdcDeploymentMachines AddAwsEdcDeploymentMachines
+
 // NewAddAwsEdcDeploymentMachines instantiates a new AddAwsEdcDeploymentMachines object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -63,7 +65,7 @@ func (o *AddAwsEdcDeploymentMachines) GetWorkspacesOk() ([]AddAwsEdcWorkspace, b
 
 // HasWorkspaces returns a boolean if a field has been set.
 func (o *AddAwsEdcDeploymentMachines) HasWorkspaces() bool {
-	if o != nil && IsNil(o.Workspaces) {
+	if o != nil && !IsNil(o.Workspaces) {
 		return true
 	}
 
@@ -76,7 +78,7 @@ func (o *AddAwsEdcDeploymentMachines) SetWorkspaces(v []AddAwsEdcWorkspace) {
 }
 
 func (o AddAwsEdcDeploymentMachines) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -134,5 +136,3 @@ func (v *NullableAddAwsEdcDeploymentMachines) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

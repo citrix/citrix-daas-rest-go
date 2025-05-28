@@ -76,6 +76,7 @@ func (o *TaskError) HasErrorId() bool {
 func (o *TaskError) SetErrorId(v string) {
 	o.ErrorId.Set(&v)
 }
+
 // SetErrorIdNil sets the value for ErrorId to be an explicit nil
 func (o *TaskError) SetErrorIdNil() {
 	o.ErrorId.Set(nil)
@@ -118,6 +119,7 @@ func (o *TaskError) HasMessage() bool {
 func (o *TaskError) SetMessage(v string) {
 	o.Message.Set(&v)
 }
+
 // SetMessageNil sets the value for Message to be an explicit nil
 func (o *TaskError) SetMessageNil() {
 	o.Message.Set(nil)
@@ -149,7 +151,7 @@ func (o *TaskError) GetExceptionOk() (*interface{}, bool) {
 
 // HasException returns a boolean if a field has been set.
 func (o *TaskError) HasException() bool {
-	if o != nil && IsNil(o.Exception) {
+	if o != nil && !IsNil(o.Exception) {
 		return true
 	}
 
@@ -162,7 +164,7 @@ func (o *TaskError) SetException(v interface{}) {
 }
 
 func (o TaskError) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,5 +220,3 @@ func (v *NullableTaskError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,16 +19,15 @@ import (
 	"strings"
 )
 
-
 // AccountQCSService AccountQCS service
 type AccountQCSService service
 
 type AccountQCSAddAccountAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
 	citrixTransactionId *string
-	body *AddAwsEdcAccount
+	body                *AddAwsEdcAccount
 }
 
 // The Transaction Id.
@@ -50,26 +49,27 @@ func (r AccountQCSAddAccountAsyncRequest) Execute() (*AwsEdcAccount, *http.Respo
 /*
 AddAccountAsync Add a account
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @return AccountQCSAddAccountAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@return AccountQCSAddAccountAsyncRequest
 */
 func (a *AccountQCSService) AddAccountAsync(ctx context.Context, customerId string) AccountQCSAddAccountAsyncRequest {
 	return AccountQCSAddAccountAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcAccount
+//
+//	@return AwsEdcAccount
 func (a *AccountQCSService) AddAccountAsyncExecute(r AccountQCSAddAccountAsyncRequest) (*AwsEdcAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcAccount
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.AddAccountAsync")
@@ -102,7 +102,7 @@ func (a *AccountQCSService) AddAccountAsyncExecute(r AccountQCSAddAccountAsyncRe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -137,6 +137,13 @@ func (a *AccountQCSService) AddAccountAsyncExecute(r AccountQCSAddAccountAsyncRe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -158,10 +165,10 @@ func (a *AccountQCSService) AddAccountAsyncExecute(r AccountQCSAddAccountAsyncRe
 }
 
 type AccountQCSDeleteCustomerAccountAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
-	accountId string
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
+	accountId           string
 	citrixTransactionId *string
 }
 
@@ -178,26 +185,26 @@ func (r AccountQCSDeleteCustomerAccountAsyncRequest) Execute() (*http.Response, 
 /*
 DeleteCustomerAccountAsync Deletes the account configured for the specified customer
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of the account
- @return AccountQCSDeleteCustomerAccountAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of the account
+	@return AccountQCSDeleteCustomerAccountAsyncRequest
 */
 func (a *AccountQCSService) DeleteCustomerAccountAsync(ctx context.Context, customerId string, accountId string) AccountQCSDeleteCustomerAccountAsyncRequest {
 	return AccountQCSDeleteCustomerAccountAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
 func (a *AccountQCSService) DeleteCustomerAccountAsyncExecute(r AccountQCSDeleteCustomerAccountAsyncRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.DeleteCustomerAccountAsync")
@@ -231,7 +238,7 @@ func (a *AccountQCSService) DeleteCustomerAccountAsyncExecute(r AccountQCSDelete
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -264,6 +271,13 @@ func (a *AccountQCSService) DeleteCustomerAccountAsyncExecute(r AccountQCSDelete
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -276,12 +290,12 @@ func (a *AccountQCSService) DeleteCustomerAccountAsyncExecute(r AccountQCSDelete
 }
 
 type AccountQCSGetAccountResourcesAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
-	accountId string
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
+	accountId           string
 	citrixTransactionId *string
-	body *SearchAwsEdcAccountResourceRequest
+	body                *SearchAwsEdcAccountResourceRequest
 }
 
 // The Transaction Id.
@@ -303,28 +317,29 @@ func (r AccountQCSGetAccountResourcesAsyncRequest) Execute() (*AccountResources,
 /*
 GetAccountResourcesAsync Get the account resources for the specified customer
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of the account
- @return AccountQCSGetAccountResourcesAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of the account
+	@return AccountQCSGetAccountResourcesAsyncRequest
 */
 func (a *AccountQCSService) GetAccountResourcesAsync(ctx context.Context, customerId string, accountId string) AccountQCSGetAccountResourcesAsyncRequest {
 	return AccountQCSGetAccountResourcesAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
-//  @return AccountResources
+//
+//	@return AccountResources
 func (a *AccountQCSService) GetAccountResourcesAsyncExecute(r AccountQCSGetAccountResourcesAsyncRequest) (*AccountResources, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AccountResources
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AccountResources
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.GetAccountResourcesAsync")
@@ -358,7 +373,7 @@ func (a *AccountQCSService) GetAccountResourcesAsyncExecute(r AccountQCSGetAccou
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -393,6 +408,13 @@ func (a *AccountQCSService) GetAccountResourcesAsyncExecute(r AccountQCSGetAccou
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -414,10 +436,10 @@ func (a *AccountQCSService) GetAccountResourcesAsyncExecute(r AccountQCSGetAccou
 }
 
 type AccountQCSGetCustomerAccountAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
-	accountId string
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
+	accountId           string
 	citrixTransactionId *string
 }
 
@@ -434,28 +456,29 @@ func (r AccountQCSGetCustomerAccountAsyncRequest) Execute() (*AwsEdcAccount, *ht
 /*
 GetCustomerAccountAsync Get the account configured for the specified customer
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of the account
- @return AccountQCSGetCustomerAccountAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of the account
+	@return AccountQCSGetCustomerAccountAsyncRequest
 */
 func (a *AccountQCSService) GetCustomerAccountAsync(ctx context.Context, customerId string, accountId string) AccountQCSGetCustomerAccountAsyncRequest {
 	return AccountQCSGetCustomerAccountAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcAccount
+//
+//	@return AwsEdcAccount
 func (a *AccountQCSService) GetCustomerAccountAsyncExecute(r AccountQCSGetCustomerAccountAsyncRequest) (*AwsEdcAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcAccount
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.GetCustomerAccountAsync")
@@ -489,7 +512,7 @@ func (a *AccountQCSService) GetCustomerAccountAsyncExecute(r AccountQCSGetCustom
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -522,6 +545,13 @@ func (a *AccountQCSService) GetCustomerAccountAsyncExecute(r AccountQCSGetCustom
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -543,11 +573,11 @@ func (a *AccountQCSService) GetCustomerAccountAsyncExecute(r AccountQCSGetCustom
 }
 
 type AccountQCSGetCustomerAccountResourcesAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
 	citrixTransactionId *string
-	body *SearchAwsEdcAccountResourceRequest
+	body                *SearchAwsEdcAccountResourceRequest
 }
 
 // The Transaction Id.
@@ -569,26 +599,27 @@ func (r AccountQCSGetCustomerAccountResourcesAsyncRequest) Execute() (*AccountRe
 /*
 GetCustomerAccountResourcesAsync Get the account resources for the specified customer
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @return AccountQCSGetCustomerAccountResourcesAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@return AccountQCSGetCustomerAccountResourcesAsyncRequest
 */
 func (a *AccountQCSService) GetCustomerAccountResourcesAsync(ctx context.Context, customerId string) AccountQCSGetCustomerAccountResourcesAsyncRequest {
 	return AccountQCSGetCustomerAccountResourcesAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
 	}
 }
 
 // Execute executes the request
-//  @return AccountResources
+//
+//	@return AccountResources
 func (a *AccountQCSService) GetCustomerAccountResourcesAsyncExecute(r AccountQCSGetCustomerAccountResourcesAsyncRequest) (*AccountResources, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AccountResources
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AccountResources
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.GetCustomerAccountResourcesAsync")
@@ -621,7 +652,7 @@ func (a *AccountQCSService) GetCustomerAccountResourcesAsyncExecute(r AccountQCS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -656,6 +687,13 @@ func (a *AccountQCSService) GetCustomerAccountResourcesAsyncExecute(r AccountQCS
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -677,11 +715,11 @@ func (a *AccountQCSService) GetCustomerAccountResourcesAsyncExecute(r AccountQCS
 }
 
 type AccountQCSGetCustomerAccountTaskAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
-	accountId string
-	taskId string
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
+	accountId           string
+	taskId              string
 	citrixTransactionId *string
 }
 
@@ -698,30 +736,31 @@ func (r AccountQCSGetCustomerAccountTaskAsyncRequest) Execute() (*AccountTask, *
 /*
 GetCustomerAccountTaskAsync Gets account task
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of the account
- @param taskId ID of task
- @return AccountQCSGetCustomerAccountTaskAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of the account
+	@param taskId ID of task
+	@return AccountQCSGetCustomerAccountTaskAsyncRequest
 */
 func (a *AccountQCSService) GetCustomerAccountTaskAsync(ctx context.Context, customerId string, accountId string, taskId string) AccountQCSGetCustomerAccountTaskAsyncRequest {
 	return AccountQCSGetCustomerAccountTaskAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
-		taskId: taskId,
+		accountId:  accountId,
+		taskId:     taskId,
 	}
 }
 
 // Execute executes the request
-//  @return AccountTask
+//
+//	@return AccountTask
 func (a *AccountQCSService) GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCustomerAccountTaskAsyncRequest) (*AccountTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AccountTask
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AccountTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.GetCustomerAccountTaskAsync")
@@ -756,7 +795,7 @@ func (a *AccountQCSService) GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -789,6 +828,13 @@ func (a *AccountQCSService) GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -810,11 +856,11 @@ func (a *AccountQCSService) GetCustomerAccountTaskAsyncExecute(r AccountQCSGetCu
 }
 
 type AccountQCSGetCustomerAccountsAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
-	accountType *AccountType
-	fetchDetails *bool
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
+	accountType         *AccountType
+	fetchDetails        *bool
 	citrixTransactionId *string
 }
 
@@ -843,26 +889,27 @@ func (r AccountQCSGetCustomerAccountsAsyncRequest) Execute() (*Accounts, *http.R
 /*
 GetCustomerAccountsAsync Get the accounts configured for the specified customer
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @return AccountQCSGetCustomerAccountsAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@return AccountQCSGetCustomerAccountsAsyncRequest
 */
 func (a *AccountQCSService) GetCustomerAccountsAsync(ctx context.Context, customerId string) AccountQCSGetCustomerAccountsAsyncRequest {
 	return AccountQCSGetCustomerAccountsAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
 	}
 }
 
 // Execute executes the request
-//  @return Accounts
+//
+//	@return Accounts
 func (a *AccountQCSService) GetCustomerAccountsAsyncExecute(r AccountQCSGetCustomerAccountsAsyncRequest) (*Accounts, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Accounts
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Accounts
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.GetCustomerAccountsAsync")
@@ -878,10 +925,13 @@ func (a *AccountQCSService) GetCustomerAccountsAsyncExecute(r AccountQCSGetCusto
 	localVarFormParams := url.Values{}
 
 	if r.accountType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accountType", r.accountType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accountType", r.accountType, "form", "")
 	}
 	if r.fetchDetails != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "fetchDetails", r.fetchDetails, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fetchDetails", r.fetchDetails, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.fetchDetails = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -901,7 +951,7 @@ func (a *AccountQCSService) GetCustomerAccountsAsyncExecute(r AccountQCSGetCusto
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -934,6 +984,13 @@ func (a *AccountQCSService) GetCustomerAccountsAsyncExecute(r AccountQCSGetCusto
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -955,12 +1012,12 @@ func (a *AccountQCSService) GetCustomerAccountsAsyncExecute(r AccountQCSGetCusto
 }
 
 type AccountQCSInititateAccountTaskAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
-	accountId string
+	ctx                 context.Context
+	ApiService          *AccountQCSService
+	customerId          string
+	accountId           string
 	citrixTransactionId *string
-	body *RegisterAwsEdcAccountTask
+	body                *RegisterAwsEdcAccountTask
 }
 
 // The Transaction Id.
@@ -982,28 +1039,29 @@ func (r AccountQCSInititateAccountTaskAsyncRequest) Execute() (*AwsEdcRegisterAc
 /*
 InititateAccountTaskAsync Registers account BYOL account
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of the account
- @return AccountQCSInititateAccountTaskAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of the account
+	@return AccountQCSInititateAccountTaskAsyncRequest
 */
 func (a *AccountQCSService) InititateAccountTaskAsync(ctx context.Context, customerId string, accountId string) AccountQCSInititateAccountTaskAsyncRequest {
 	return AccountQCSInititateAccountTaskAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcRegisterAccount
+//
+//	@return AwsEdcRegisterAccount
 func (a *AccountQCSService) InititateAccountTaskAsyncExecute(r AccountQCSInititateAccountTaskAsyncRequest) (*AwsEdcRegisterAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcRegisterAccount
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcRegisterAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.InititateAccountTaskAsync")
@@ -1037,7 +1095,7 @@ func (a *AccountQCSService) InititateAccountTaskAsyncExecute(r AccountQCSInitita
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -1072,6 +1130,13 @@ func (a *AccountQCSService) InititateAccountTaskAsyncExecute(r AccountQCSInitita
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1093,11 +1158,11 @@ func (a *AccountQCSService) InititateAccountTaskAsyncExecute(r AccountQCSInitita
 }
 
 type AccountQCSUpdateCustomerAccountAsyncRequest struct {
-	ctx context.Context
-	ApiService *AccountQCSService
-	customerId string
-	accountId string
-	citrixTransactionId *string
+	ctx                               context.Context
+	ApiService                        *AccountQCSService
+	customerId                        string
+	accountId                         string
+	citrixTransactionId               *string
 	updateCustomerAccountAsyncRequest *UpdateCustomerAccountAsyncRequest
 }
 
@@ -1120,26 +1185,26 @@ func (r AccountQCSUpdateCustomerAccountAsyncRequest) Execute() (*http.Response, 
 /*
 UpdateCustomerAccountAsync Updates the account access keys for the specified customer
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of the account
- @return AccountQCSUpdateCustomerAccountAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of the account
+	@return AccountQCSUpdateCustomerAccountAsyncRequest
 */
 func (a *AccountQCSService) UpdateCustomerAccountAsync(ctx context.Context, customerId string, accountId string) AccountQCSUpdateCustomerAccountAsyncRequest {
 	return AccountQCSUpdateCustomerAccountAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
 func (a *AccountQCSService) UpdateCustomerAccountAsyncExecute(r AccountQCSUpdateCustomerAccountAsyncRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AccountQCSService.UpdateCustomerAccountAsync")
@@ -1173,7 +1238,7 @@ func (a *AccountQCSService) UpdateCustomerAccountAsyncExecute(r AccountQCSUpdate
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.updateCustomerAccountAsyncRequest
@@ -1206,6 +1271,13 @@ func (a *AccountQCSService) UpdateCustomerAccountAsyncExecute(r AccountQCSUpdate
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

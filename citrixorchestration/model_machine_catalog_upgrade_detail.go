@@ -384,6 +384,7 @@ func (o *MachineCatalogUpgradeDetail) HasTargetPackageVersion() bool {
 func (o *MachineCatalogUpgradeDetail) SetTargetPackageVersion(v string) {
 	o.TargetPackageVersion.Set(&v)
 }
+
 // SetTargetPackageVersionNil sets the value for TargetPackageVersion to be an explicit nil
 func (o *MachineCatalogUpgradeDetail) SetTargetPackageVersionNil() {
 	o.TargetPackageVersion.Set(nil)
@@ -490,6 +491,7 @@ func (o *MachineCatalogUpgradeDetail) HasAvailableForUpgradeCount() bool {
 func (o *MachineCatalogUpgradeDetail) SetAvailableForUpgradeCount(v int32) {
 	o.AvailableForUpgradeCount.Set(&v)
 }
+
 // SetAvailableForUpgradeCountNil sets the value for AvailableForUpgradeCount to be an explicit nil
 func (o *MachineCatalogUpgradeDetail) SetAvailableForUpgradeCountNil() {
 	o.AvailableForUpgradeCount.Set(nil)
@@ -501,7 +503,7 @@ func (o *MachineCatalogUpgradeDetail) UnsetAvailableForUpgradeCount() {
 }
 
 func (o MachineCatalogUpgradeDetail) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -587,5 +589,3 @@ func (v *NullableMachineCatalogUpgradeDetail) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

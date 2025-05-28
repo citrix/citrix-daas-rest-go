@@ -20,9 +20,9 @@ var _ MappedNullable = &CreateImageSchemeRequestModel{}
 // CreateImageSchemeRequestModel Request object for creation of image scheme.
 type CreateImageSchemeRequestModel struct {
 	// The hypervisor resource path of the Cloud service offering to use when creating machines.
-	ServiceOfferingPath NullableString `json:"ServiceOfferingPath,omitempty"`
+	ServiceOfferingPath NullableString "json:\"ServiceOfferingPath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Image Version Specification is associated.
-	MachineProfile NullableString `json:"MachineProfile,omitempty"`
+	MachineProfile NullableString "json:\"MachineProfile,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// The number of processors that virtual machines created from the image preparing should use.
 	CpuCount NullableInt32 `json:"CpuCount,omitempty"`
 	// The maximum amount of memory that virtual machines created from the image preparing should use.
@@ -82,6 +82,7 @@ func (o *CreateImageSchemeRequestModel) HasServiceOfferingPath() bool {
 func (o *CreateImageSchemeRequestModel) SetServiceOfferingPath(v string) {
 	o.ServiceOfferingPath.Set(&v)
 }
+
 // SetServiceOfferingPathNil sets the value for ServiceOfferingPath to be an explicit nil
 func (o *CreateImageSchemeRequestModel) SetServiceOfferingPathNil() {
 	o.ServiceOfferingPath.Set(nil)
@@ -124,6 +125,7 @@ func (o *CreateImageSchemeRequestModel) HasMachineProfile() bool {
 func (o *CreateImageSchemeRequestModel) SetMachineProfile(v string) {
 	o.MachineProfile.Set(&v)
 }
+
 // SetMachineProfileNil sets the value for MachineProfile to be an explicit nil
 func (o *CreateImageSchemeRequestModel) SetMachineProfileNil() {
 	o.MachineProfile.Set(nil)
@@ -166,6 +168,7 @@ func (o *CreateImageSchemeRequestModel) HasCpuCount() bool {
 func (o *CreateImageSchemeRequestModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *CreateImageSchemeRequestModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -208,6 +211,7 @@ func (o *CreateImageSchemeRequestModel) HasMemoryMB() bool {
 func (o *CreateImageSchemeRequestModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *CreateImageSchemeRequestModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -285,7 +289,7 @@ func (o *CreateImageSchemeRequestModel) SetCustomProperties(v []NameValueStringP
 }
 
 func (o CreateImageSchemeRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -350,5 +354,3 @@ func (v *NullableCreateImageSchemeRequestModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

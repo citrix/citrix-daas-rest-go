@@ -22,6 +22,8 @@ type SiteQuery200Response struct {
 	Items []SiteModel `json:"items"`
 }
 
+type _SiteQuery200Response SiteQuery200Response
+
 // NewSiteQuery200Response instantiates a new SiteQuery200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -65,7 +67,7 @@ func (o *SiteQuery200Response) SetItems(v []SiteModel) {
 }
 
 func (o SiteQuery200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -113,5 +115,3 @@ func (v *NullableSiteQuery200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

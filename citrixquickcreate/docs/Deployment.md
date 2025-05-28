@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of provider associated with the account | 
 **DeploymentId** | Pointer to **NullableString** | Deployment Id | [optional] 
 **DeploymentName** | Pointer to **NullableString** | Deployment Name | [optional] 
 **AccountId** | Pointer to **NullableString** | Account Id | [optional] 
 **AccountName** | Pointer to **NullableString** | Account name | [optional] 
 **ConnectionId** | Pointer to **NullableString** | Connection Id | [optional] 
 **ConnectionName** | Pointer to **NullableString** | Connection Name | [optional] 
-**DeploymentState** | Pointer to [**NullableDeploymentState**](DeploymentState.md) |  | [optional] 
+**DeploymentState** | Pointer to [**NullableDeploymentState**](DeploymentState.md) | Deployment State | [optional] 
 **UserCount** | Pointer to **int32** | The number of users in this deployment | [optional] 
 **ErrorMessage** | Pointer to **NullableString** | Error message associated with the deployment | [optional] 
 **Warnings** | Pointer to [**[]DeploymentWarning**](DeploymentWarning.md) | Warnings and errors associated with the deployment | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **BrokerMachineCatalogId** | Pointer to **NullableString** | Id for the machine catalog of the deployment, could be null | [optional] 
 **BrokerDeliveryGroupId** | Pointer to **NullableString** | Id for the delivery group of the deployment, could be null | [optional] 
 **CitrixManaged** | Pointer to **NullableBool** | Indicates whether the deployment is managed by Citrix | [optional] 
-**ScaleSettings** | Pointer to [**NullableDeploymentScaleSettings**](DeploymentScaleSettings.md) |  | [optional] 
+**ScaleSettings** | Pointer to [**NullableScaleSettings**](ScaleSettings.md) | Power management scale settings | [optional] 
 
 ## Methods
 
@@ -542,20 +542,20 @@ HasCitrixManaged returns a boolean if a field has been set.
 UnsetCitrixManaged ensures that no value is present for CitrixManaged, not even an explicit nil
 ### GetScaleSettings
 
-`func (o *Deployment) GetScaleSettings() DeploymentScaleSettings`
+`func (o *Deployment) GetScaleSettings() ScaleSettings`
 
 GetScaleSettings returns the ScaleSettings field if non-nil, zero value otherwise.
 
 ### GetScaleSettingsOk
 
-`func (o *Deployment) GetScaleSettingsOk() (*DeploymentScaleSettings, bool)`
+`func (o *Deployment) GetScaleSettingsOk() (*ScaleSettings, bool)`
 
 GetScaleSettingsOk returns a tuple with the ScaleSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScaleSettings
 
-`func (o *Deployment) SetScaleSettings(v DeploymentScaleSettings)`
+`func (o *Deployment) SetScaleSettings(v ScaleSettings)`
 
 SetScaleSettings sets ScaleSettings field to given value.
 

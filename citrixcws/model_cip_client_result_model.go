@@ -19,9 +19,9 @@ var _ MappedNullable = &CipClientResultModel{}
 
 // CipClientResultModel struct for CipClientResultModel
 type CipClientResultModel struct {
-	ClientId NullableString `json:"clientId,omitempty"`
+	ClientId     NullableString `json:"clientId,omitempty"`
 	ClientSecret NullableString `json:"clientSecret,omitempty"`
-	RedirectUrl NullableString `json:"redirectUrl,omitempty"`
+	RedirectUrl  NullableString `json:"redirectUrl,omitempty"`
 }
 
 // NewCipClientResultModel instantiates a new CipClientResultModel object
@@ -73,6 +73,7 @@ func (o *CipClientResultModel) HasClientId() bool {
 func (o *CipClientResultModel) SetClientId(v string) {
 	o.ClientId.Set(&v)
 }
+
 // SetClientIdNil sets the value for ClientId to be an explicit nil
 func (o *CipClientResultModel) SetClientIdNil() {
 	o.ClientId.Set(nil)
@@ -115,6 +116,7 @@ func (o *CipClientResultModel) HasClientSecret() bool {
 func (o *CipClientResultModel) SetClientSecret(v string) {
 	o.ClientSecret.Set(&v)
 }
+
 // SetClientSecretNil sets the value for ClientSecret to be an explicit nil
 func (o *CipClientResultModel) SetClientSecretNil() {
 	o.ClientSecret.Set(nil)
@@ -157,6 +159,7 @@ func (o *CipClientResultModel) HasRedirectUrl() bool {
 func (o *CipClientResultModel) SetRedirectUrl(v string) {
 	o.RedirectUrl.Set(&v)
 }
+
 // SetRedirectUrlNil sets the value for RedirectUrl to be an explicit nil
 func (o *CipClientResultModel) SetRedirectUrlNil() {
 	o.RedirectUrl.Set(nil)
@@ -168,7 +171,7 @@ func (o *CipClientResultModel) UnsetRedirectUrl() {
 }
 
 func (o CipClientResultModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -224,5 +227,3 @@ func (v *NullableCipClientResultModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

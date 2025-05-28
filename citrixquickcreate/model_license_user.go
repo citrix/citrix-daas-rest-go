@@ -19,9 +19,10 @@ var _ MappedNullable = &LicenseUser{}
 
 // LicenseUser struct for LicenseUser
 type LicenseUser struct {
-	HdxLicenseState *LicenseState `json:"hdxLicenseState,omitempty"`
-	DisplayName NullableString `json:"displayName,omitempty"`
-	Windows365Licenses []string `json:"windows365Licenses,omitempty"`
+	// Denotes whether the user has an active license or not
+	HdxLicenseState    *LicenseState  `json:"hdxLicenseState,omitempty"`
+	DisplayName        NullableString `json:"displayName,omitempty"`
+	Windows365Licenses []string       `json:"windows365Licenses,omitempty"`
 	// AAD User ID for which we want to assign/revoke license
 	UserId NullableString `json:"userId,omitempty"`
 	// AAD UPN for provided User
@@ -109,6 +110,7 @@ func (o *LicenseUser) HasDisplayName() bool {
 func (o *LicenseUser) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *LicenseUser) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -140,7 +142,7 @@ func (o *LicenseUser) GetWindows365LicensesOk() ([]string, bool) {
 
 // HasWindows365Licenses returns a boolean if a field has been set.
 func (o *LicenseUser) HasWindows365Licenses() bool {
-	if o != nil && IsNil(o.Windows365Licenses) {
+	if o != nil && !IsNil(o.Windows365Licenses) {
 		return true
 	}
 
@@ -184,6 +186,7 @@ func (o *LicenseUser) HasUserId() bool {
 func (o *LicenseUser) SetUserId(v string) {
 	o.UserId.Set(&v)
 }
+
 // SetUserIdNil sets the value for UserId to be an explicit nil
 func (o *LicenseUser) SetUserIdNil() {
 	o.UserId.Set(nil)
@@ -226,6 +229,7 @@ func (o *LicenseUser) HasUserPrincipalName() bool {
 func (o *LicenseUser) SetUserPrincipalName(v string) {
 	o.UserPrincipalName.Set(&v)
 }
+
 // SetUserPrincipalNameNil sets the value for UserPrincipalName to be an explicit nil
 func (o *LicenseUser) SetUserPrincipalNameNil() {
 	o.UserPrincipalName.Set(nil)
@@ -237,7 +241,7 @@ func (o *LicenseUser) UnsetUserPrincipalName() {
 }
 
 func (o LicenseUser) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -299,5 +303,3 @@ func (v *NullableLicenseUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -76,6 +76,7 @@ func (o *CreateApplicationFolderRequestModel) HasName() bool {
 func (o *CreateApplicationFolderRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *CreateApplicationFolderRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,6 +119,7 @@ func (o *CreateApplicationFolderRequestModel) HasPath() bool {
 func (o *CreateApplicationFolderRequestModel) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *CreateApplicationFolderRequestModel) SetPathNil() {
 	o.Path.Set(nil)
@@ -160,6 +162,7 @@ func (o *CreateApplicationFolderRequestModel) HasParentId() bool {
 func (o *CreateApplicationFolderRequestModel) SetParentId(v string) {
 	o.ParentId.Set(&v)
 }
+
 // SetParentIdNil sets the value for ParentId to be an explicit nil
 func (o *CreateApplicationFolderRequestModel) SetParentIdNil() {
 	o.ParentId.Set(nil)
@@ -171,7 +174,7 @@ func (o *CreateApplicationFolderRequestModel) UnsetParentId() {
 }
 
 func (o CreateApplicationFolderRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableCreateApplicationFolderRequestModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

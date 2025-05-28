@@ -19,8 +19,8 @@ var _ MappedNullable = &DeliveryGroupSortCriteriaRequestModel{}
 
 // DeliveryGroupSortCriteriaRequestModel DeliveryGroup sort criteria.
 type DeliveryGroupSortCriteriaRequestModel struct {
-	Property DeliveryGroupSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      DeliveryGroupSearchProperty `json:"Property"`
+	SortDirection ListSortDirection           `json:"SortDirection"`
 }
 
 // NewDeliveryGroupSortCriteriaRequestModel instantiates a new DeliveryGroupSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *DeliveryGroupSortCriteriaRequestModel) SetSortDirection(v ListSortDirec
 }
 
 func (o DeliveryGroupSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableDeliveryGroupSortCriteriaRequestModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

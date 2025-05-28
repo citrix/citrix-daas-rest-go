@@ -76,6 +76,7 @@ func (o *UnitPriceResponseModel) HasPrice() bool {
 func (o *UnitPriceResponseModel) SetPrice(v float32) {
 	o.Price.Set(&v)
 }
+
 // SetPriceNil sets the value for Price to be an explicit nil
 func (o *UnitPriceResponseModel) SetPriceNil() {
 	o.Price.Set(nil)
@@ -118,6 +119,7 @@ func (o *UnitPriceResponseModel) HasUnitOfMeasure() bool {
 func (o *UnitPriceResponseModel) SetUnitOfMeasure(v string) {
 	o.UnitOfMeasure.Set(&v)
 }
+
 // SetUnitOfMeasureNil sets the value for UnitOfMeasure to be an explicit nil
 func (o *UnitPriceResponseModel) SetUnitOfMeasureNil() {
 	o.UnitOfMeasure.Set(nil)
@@ -160,6 +162,7 @@ func (o *UnitPriceResponseModel) HasCurrency() bool {
 func (o *UnitPriceResponseModel) SetCurrency(v string) {
 	o.Currency.Set(&v)
 }
+
 // SetCurrencyNil sets the value for Currency to be an explicit nil
 func (o *UnitPriceResponseModel) SetCurrencyNil() {
 	o.Currency.Set(nil)
@@ -171,7 +174,7 @@ func (o *UnitPriceResponseModel) UnsetCurrency() {
 }
 
 func (o UnitPriceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableUnitPriceResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

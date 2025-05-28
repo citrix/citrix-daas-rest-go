@@ -109,6 +109,7 @@ func (o *CollectionEnvelopeOfFilterDefinition) HasContinuationToken() bool {
 func (o *CollectionEnvelopeOfFilterDefinition) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionEnvelopeOfFilterDefinition) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -151,6 +152,7 @@ func (o *CollectionEnvelopeOfFilterDefinition) HasTotalItems() bool {
 func (o *CollectionEnvelopeOfFilterDefinition) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionEnvelopeOfFilterDefinition) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -162,7 +164,7 @@ func (o *CollectionEnvelopeOfFilterDefinition) UnsetTotalItems() {
 }
 
 func (o CollectionEnvelopeOfFilterDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,5 +220,3 @@ func (v *NullableCollectionEnvelopeOfFilterDefinition) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -32,12 +32,17 @@ type AwsEdcDeploymentMachine struct {
 	RootVolumeEncrypted *bool `json:"rootVolumeEncrypted,omitempty"`
 	// Is user storage volume encrypted
 	UserVolumeEncrypted *bool `json:"userVolumeEncrypted,omitempty"`
+	// Compute size
 	ComputeType NullableAwsEdcWorkspaceCompute `json:"computeType,omitempty"`
+	// Running mode
 	RunningMode NullableAwsEdcWorkspaceRunningMode `json:"runningMode,omitempty"`
+	// Status of workspace  Enum values PENDING, AVAILABLE, ADMIN_MAINTANCE, ERROR, STOPPED, STOPPING, SUSPENDED, TERMINATED, TERMINATING, STARTING, REBOOTING, MAINTENANCE, IMPARED, UNHEALTHY, UPDATING
 	WorkspaceStatus NullableAwsEdcWorkspaceState `json:"workspaceStatus,omitempty"`
 	// Error Message
 	ErrorMessage NullableString `json:"errorMessage,omitempty"`
 }
+
+type _AwsEdcDeploymentMachine AwsEdcDeploymentMachine
 
 // NewAwsEdcDeploymentMachine instantiates a new AwsEdcDeploymentMachine object
 // This constructor will assign default values to properties that have it defined,
@@ -89,6 +94,7 @@ func (o *AwsEdcDeploymentMachine) HasWorkspaceId() bool {
 func (o *AwsEdcDeploymentMachine) SetWorkspaceId(v string) {
 	o.WorkspaceId.Set(&v)
 }
+
 // SetWorkspaceIdNil sets the value for WorkspaceId to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetWorkspaceIdNil() {
 	o.WorkspaceId.Set(nil)
@@ -131,6 +137,7 @@ func (o *AwsEdcDeploymentMachine) HasUsername() bool {
 func (o *AwsEdcDeploymentMachine) SetUsername(v string) {
 	o.Username.Set(&v)
 }
+
 // SetUsernameNil sets the value for Username to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetUsernameNil() {
 	o.Username.Set(nil)
@@ -173,6 +180,7 @@ func (o *AwsEdcDeploymentMachine) HasRootVolumeSize() bool {
 func (o *AwsEdcDeploymentMachine) SetRootVolumeSize(v int32) {
 	o.RootVolumeSize.Set(&v)
 }
+
 // SetRootVolumeSizeNil sets the value for RootVolumeSize to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetRootVolumeSizeNil() {
 	o.RootVolumeSize.Set(nil)
@@ -215,6 +223,7 @@ func (o *AwsEdcDeploymentMachine) HasUserVolumeSize() bool {
 func (o *AwsEdcDeploymentMachine) SetUserVolumeSize(v int32) {
 	o.UserVolumeSize.Set(&v)
 }
+
 // SetUserVolumeSizeNil sets the value for UserVolumeSize to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetUserVolumeSizeNil() {
 	o.UserVolumeSize.Set(nil)
@@ -321,6 +330,7 @@ func (o *AwsEdcDeploymentMachine) HasComputeType() bool {
 func (o *AwsEdcDeploymentMachine) SetComputeType(v AwsEdcWorkspaceCompute) {
 	o.ComputeType.Set(&v)
 }
+
 // SetComputeTypeNil sets the value for ComputeType to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetComputeTypeNil() {
 	o.ComputeType.Set(nil)
@@ -363,6 +373,7 @@ func (o *AwsEdcDeploymentMachine) HasRunningMode() bool {
 func (o *AwsEdcDeploymentMachine) SetRunningMode(v AwsEdcWorkspaceRunningMode) {
 	o.RunningMode.Set(&v)
 }
+
 // SetRunningModeNil sets the value for RunningMode to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetRunningModeNil() {
 	o.RunningMode.Set(nil)
@@ -405,6 +416,7 @@ func (o *AwsEdcDeploymentMachine) HasWorkspaceStatus() bool {
 func (o *AwsEdcDeploymentMachine) SetWorkspaceStatus(v AwsEdcWorkspaceState) {
 	o.WorkspaceStatus.Set(&v)
 }
+
 // SetWorkspaceStatusNil sets the value for WorkspaceStatus to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetWorkspaceStatusNil() {
 	o.WorkspaceStatus.Set(nil)
@@ -447,6 +459,7 @@ func (o *AwsEdcDeploymentMachine) HasErrorMessage() bool {
 func (o *AwsEdcDeploymentMachine) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *AwsEdcDeploymentMachine) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -458,7 +471,7 @@ func (o *AwsEdcDeploymentMachine) UnsetErrorMessage() {
 }
 
 func (o AwsEdcDeploymentMachine) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -543,5 +556,3 @@ func (v *NullableAwsEdcDeploymentMachine) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

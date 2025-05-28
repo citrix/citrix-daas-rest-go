@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Operation** | Pointer to [**NullableResourceConnectionTaskOperationType**](ResourceConnectionTaskOperationType.md) |  | [optional] 
+**Operation** | Pointer to [**NullableResourceConnectionTaskOperationType**](ResourceConnectionTaskOperationType.md) | Task Type | [optional] 
 **ResourceConnectionId** | Pointer to **NullableString** | The ResourceConnectionId this task is working on | [optional] 
 
 ## Methods

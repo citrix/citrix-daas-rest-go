@@ -22,7 +22,7 @@ type UpdateMachineAccountRequestModel struct {
 	// Indicates whether the machine account password should be reset.
 	ResetPassword NullableBool `json:"ResetPassword,omitempty"`
 	// The current password for the machine account, in the format specified by PasswordFormat.
-	Password NullableString `json:"Password,omitempty"`
+	Password       NullableString          `json:"Password,omitempty" validate:"regexp=(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\\\$%\\\\^&\\\\*]).{8,}|^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$|(.*)*"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
 	// Indicates whether accounts that are marked as 'in-use' can be reset or not.
 	ForceReset NullableBool `json:"ForceReset,omitempty"`
@@ -77,6 +77,7 @@ func (o *UpdateMachineAccountRequestModel) HasResetPassword() bool {
 func (o *UpdateMachineAccountRequestModel) SetResetPassword(v bool) {
 	o.ResetPassword.Set(&v)
 }
+
 // SetResetPasswordNil sets the value for ResetPassword to be an explicit nil
 func (o *UpdateMachineAccountRequestModel) SetResetPasswordNil() {
 	o.ResetPassword.Set(nil)
@@ -119,6 +120,7 @@ func (o *UpdateMachineAccountRequestModel) HasPassword() bool {
 func (o *UpdateMachineAccountRequestModel) SetPassword(v string) {
 	o.Password.Set(&v)
 }
+
 // SetPasswordNil sets the value for Password to be an explicit nil
 func (o *UpdateMachineAccountRequestModel) SetPasswordNil() {
 	o.Password.Set(nil)
@@ -193,6 +195,7 @@ func (o *UpdateMachineAccountRequestModel) HasForceReset() bool {
 func (o *UpdateMachineAccountRequestModel) SetForceReset(v bool) {
 	o.ForceReset.Set(&v)
 }
+
 // SetForceResetNil sets the value for ForceReset to be an explicit nil
 func (o *UpdateMachineAccountRequestModel) SetForceResetNil() {
 	o.ForceReset.Set(nil)
@@ -204,7 +207,7 @@ func (o *UpdateMachineAccountRequestModel) UnsetForceReset() {
 }
 
 func (o UpdateMachineAccountRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -263,5 +266,3 @@ func (v *NullableUpdateMachineAccountRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,14 +20,14 @@ type ReasonStatus string
 
 // List of ReasonStatus
 const (
-	REASONSTATUS_ALLOW_POSITIVE ReasonStatus = "AllowPositive"
-	REASONSTATUS_ALLOW_NO_MATCH ReasonStatus = "AllowNoMatch"
-	REASONSTATUS_DENY_POSITIVE ReasonStatus = "DenyPositive"
-	REASONSTATUS_DENY_NEGATIVE ReasonStatus = "DenyNegative"
-	REASONSTATUS_ALLOW_INSUFFICIENT ReasonStatus = "AllowInsufficient"
-	REASONSTATUS_ALLOW_NEGATIVE ReasonStatus = "AllowNegative"
-	REASONSTATUS_POLICY_DISABLED ReasonStatus = "PolicyDisabled"
-	REASONSTATUS_POLICY_NO_SETTINGS ReasonStatus = "PolicyNoSettings"
+	REASONSTATUS_ALLOW_POSITIVE      ReasonStatus = "AllowPositive"
+	REASONSTATUS_ALLOW_NO_MATCH      ReasonStatus = "AllowNoMatch"
+	REASONSTATUS_DENY_POSITIVE       ReasonStatus = "DenyPositive"
+	REASONSTATUS_DENY_NEGATIVE       ReasonStatus = "DenyNegative"
+	REASONSTATUS_ALLOW_INSUFFICIENT  ReasonStatus = "AllowInsufficient"
+	REASONSTATUS_ALLOW_NEGATIVE      ReasonStatus = "AllowNegative"
+	REASONSTATUS_POLICY_DISABLED     ReasonStatus = "PolicyDisabled"
+	REASONSTATUS_POLICY_NO_SETTINGS  ReasonStatus = "PolicyNoSettings"
 	REASONSTATUS_POLICY_NOT_FILTERED ReasonStatus = "PolicyNotFiltered"
 )
 
@@ -50,7 +50,7 @@ func (v *ReasonStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ReasonStatus(value)
 	return nil
 }
@@ -116,4 +116,3 @@ func (v *NullableReasonStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

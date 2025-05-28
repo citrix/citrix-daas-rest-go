@@ -28,8 +28,8 @@ type MachineHostingResponseModel struct {
 	// Time of last update to any hosting data (such as power states) for this machine reported by the hypervisor connection.
 	LastHostingUpdateTime NullableString `json:"LastHostingUpdateTime,omitempty"`
 	// Formatted time of last update to any hosting data (such as power states) for this machine reported by the hypervisor connection. RFC 3339 compatible format.
-	FormattedLastHostingUpdateTime NullableString `json:"FormattedLastHostingUpdateTime,omitempty"`
-	HypervisorConnection *RefResponseModel `json:"HypervisorConnection,omitempty"`
+	FormattedLastHostingUpdateTime NullableString    `json:"FormattedLastHostingUpdateTime,omitempty"`
+	HypervisorConnection           *RefResponseModel `json:"HypervisorConnection,omitempty"`
 	// Indicates whether the machine image matches the latest image specified for the machine catalog.
 	ImageOutOfDate *bool `json:"ImageOutOfDate,omitempty"`
 }
@@ -83,6 +83,7 @@ func (o *MachineHostingResponseModel) HasHostedMachineId() bool {
 func (o *MachineHostingResponseModel) SetHostedMachineId(v string) {
 	o.HostedMachineId.Set(&v)
 }
+
 // SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
 func (o *MachineHostingResponseModel) SetHostedMachineIdNil() {
 	o.HostedMachineId.Set(nil)
@@ -125,6 +126,7 @@ func (o *MachineHostingResponseModel) HasHostedMachineName() bool {
 func (o *MachineHostingResponseModel) SetHostedMachineName(v string) {
 	o.HostedMachineName.Set(&v)
 }
+
 // SetHostedMachineNameNil sets the value for HostedMachineName to be an explicit nil
 func (o *MachineHostingResponseModel) SetHostedMachineNameNil() {
 	o.HostedMachineName.Set(nil)
@@ -167,6 +169,7 @@ func (o *MachineHostingResponseModel) HasHostingServerName() bool {
 func (o *MachineHostingResponseModel) SetHostingServerName(v string) {
 	o.HostingServerName.Set(&v)
 }
+
 // SetHostingServerNameNil sets the value for HostingServerName to be an explicit nil
 func (o *MachineHostingResponseModel) SetHostingServerNameNil() {
 	o.HostingServerName.Set(nil)
@@ -209,6 +212,7 @@ func (o *MachineHostingResponseModel) HasLastHostingUpdateTime() bool {
 func (o *MachineHostingResponseModel) SetLastHostingUpdateTime(v string) {
 	o.LastHostingUpdateTime.Set(&v)
 }
+
 // SetLastHostingUpdateTimeNil sets the value for LastHostingUpdateTime to be an explicit nil
 func (o *MachineHostingResponseModel) SetLastHostingUpdateTimeNil() {
 	o.LastHostingUpdateTime.Set(nil)
@@ -251,6 +255,7 @@ func (o *MachineHostingResponseModel) HasFormattedLastHostingUpdateTime() bool {
 func (o *MachineHostingResponseModel) SetFormattedLastHostingUpdateTime(v string) {
 	o.FormattedLastHostingUpdateTime.Set(&v)
 }
+
 // SetFormattedLastHostingUpdateTimeNil sets the value for FormattedLastHostingUpdateTime to be an explicit nil
 func (o *MachineHostingResponseModel) SetFormattedLastHostingUpdateTimeNil() {
 	o.FormattedLastHostingUpdateTime.Set(nil)
@@ -326,7 +331,7 @@ func (o *MachineHostingResponseModel) SetImageOutOfDate(v bool) {
 }
 
 func (o MachineHostingResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -394,5 +399,3 @@ func (v *NullableMachineHostingResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

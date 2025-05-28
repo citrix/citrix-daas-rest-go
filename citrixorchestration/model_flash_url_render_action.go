@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// FlashUrlRenderAction 
+// FlashUrlRenderAction
 type FlashUrlRenderAction string
 
 // List of FlashUrlRenderAction
 const (
 	FLASHURLRENDERACTION_CLIENT FlashUrlRenderAction = "Client"
 	FLASHURLRENDERACTION_SERVER FlashUrlRenderAction = "Server"
-	FLASHURLRENDERACTION_BLOCK FlashUrlRenderAction = "Block"
+	FLASHURLRENDERACTION_BLOCK  FlashUrlRenderAction = "Block"
 )
 
 // All allowed values of FlashUrlRenderAction enum
@@ -38,7 +38,7 @@ func (v *FlashUrlRenderAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = FlashUrlRenderAction(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableFlashUrlRenderAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -17,7 +17,7 @@ import (
 // checks if the ApplicationGroupAddApplicationsRequestModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationGroupAddApplicationsRequestModel{}
 
-// ApplicationGroupAddApplicationsRequestModel The request model for adding apps to app group.             
+// ApplicationGroupAddApplicationsRequestModel The request model for adding apps to app group.
 type ApplicationGroupAddApplicationsRequestModel struct {
 	// List of existing applications to be associated with the application group.  Optional.  Default is not to create any new associations of existing applications to the application group.   Each item can be specified by  or .   All applications associated with a application group must SharingKind equal to Shared.
 	ExistingApplications []string `json:"ExistingApplications,omitempty"`
@@ -109,7 +109,7 @@ func (o *ApplicationGroupAddApplicationsRequestModel) SetNewApplications(v []Cre
 }
 
 func (o ApplicationGroupAddApplicationsRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -162,5 +162,3 @@ func (v *NullableApplicationGroupAddApplicationsRequestModel) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

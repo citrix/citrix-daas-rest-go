@@ -20,7 +20,7 @@ var _ MappedNullable = &BackupStorageInfo{}
 // BackupStorageInfo Backup/Restore cloud storage definition
 type BackupStorageInfo struct {
 	BlobStorageType *BackupRestoreBlobStorage `json:"BlobStorageType,omitempty"`
-	// File Storage folder             
+	// File Storage folder
 	FileStorageFolder NullableString `json:"FileStorageFolder,omitempty"`
 	// Info 1 for storage
 	Info1 NullableString `json:"Info1,omitempty"`
@@ -115,6 +115,7 @@ func (o *BackupStorageInfo) HasFileStorageFolder() bool {
 func (o *BackupStorageInfo) SetFileStorageFolder(v string) {
 	o.FileStorageFolder.Set(&v)
 }
+
 // SetFileStorageFolderNil sets the value for FileStorageFolder to be an explicit nil
 func (o *BackupStorageInfo) SetFileStorageFolderNil() {
 	o.FileStorageFolder.Set(nil)
@@ -157,6 +158,7 @@ func (o *BackupStorageInfo) HasInfo1() bool {
 func (o *BackupStorageInfo) SetInfo1(v string) {
 	o.Info1.Set(&v)
 }
+
 // SetInfo1Nil sets the value for Info1 to be an explicit nil
 func (o *BackupStorageInfo) SetInfo1Nil() {
 	o.Info1.Set(nil)
@@ -199,6 +201,7 @@ func (o *BackupStorageInfo) HasInfo2() bool {
 func (o *BackupStorageInfo) SetInfo2(v string) {
 	o.Info2.Set(&v)
 }
+
 // SetInfo2Nil sets the value for Info2 to be an explicit nil
 func (o *BackupStorageInfo) SetInfo2Nil() {
 	o.Info2.Set(nil)
@@ -241,6 +244,7 @@ func (o *BackupStorageInfo) HasInfo3() bool {
 func (o *BackupStorageInfo) SetInfo3(v string) {
 	o.Info3.Set(&v)
 }
+
 // SetInfo3Nil sets the value for Info3 to be an explicit nil
 func (o *BackupStorageInfo) SetInfo3Nil() {
 	o.Info3.Set(nil)
@@ -283,6 +287,7 @@ func (o *BackupStorageInfo) HasInfo4() bool {
 func (o *BackupStorageInfo) SetInfo4(v string) {
 	o.Info4.Set(&v)
 }
+
 // SetInfo4Nil sets the value for Info4 to be an explicit nil
 func (o *BackupStorageInfo) SetInfo4Nil() {
 	o.Info4.Set(nil)
@@ -326,7 +331,7 @@ func (o *BackupStorageInfo) SetInitialized(v bool) {
 }
 
 func (o BackupStorageInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -394,5 +399,3 @@ func (v *NullableBackupStorageInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

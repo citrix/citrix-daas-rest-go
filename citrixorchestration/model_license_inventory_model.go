@@ -33,9 +33,9 @@ type LicenseInventoryModel struct {
 	// The number of the available licenses
 	LicensesAvailable *int32 `json:"LicensesAvailable,omitempty"`
 	// The number of the overdraft licenses
-	LicenseOverdraft *int32 `json:"LicenseOverdraft,omitempty"`
-	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
-	ProductEdition *ProductEdition `json:"ProductEdition,omitempty"`
+	LicenseOverdraft *int32          `json:"LicenseOverdraft,omitempty"`
+	LicenseModel     *LicenseModel   `json:"LicenseModel,omitempty"`
+	ProductEdition   *ProductEdition `json:"ProductEdition,omitempty"`
 	// Localized license name of the product edition
 	LocalizedLicenseProductEdition NullableString `json:"LocalizedLicenseProductEdition,omitempty"`
 }
@@ -121,6 +121,7 @@ func (o *LicenseInventoryModel) HasLocalizedLicenseProductName() bool {
 func (o *LicenseInventoryModel) SetLocalizedLicenseProductName(v string) {
 	o.LocalizedLicenseProductName.Set(&v)
 }
+
 // SetLocalizedLicenseProductNameNil sets the value for LocalizedLicenseProductName to be an explicit nil
 func (o *LicenseInventoryModel) SetLocalizedLicenseProductNameNil() {
 	o.LocalizedLicenseProductName.Set(nil)
@@ -163,6 +164,7 @@ func (o *LicenseInventoryModel) HasLicenseExpirationDate() bool {
 func (o *LicenseInventoryModel) SetLicenseExpirationDate(v string) {
 	o.LicenseExpirationDate.Set(&v)
 }
+
 // SetLicenseExpirationDateNil sets the value for LicenseExpirationDate to be an explicit nil
 func (o *LicenseInventoryModel) SetLicenseExpirationDateNil() {
 	o.LicenseExpirationDate.Set(nil)
@@ -205,6 +207,7 @@ func (o *LicenseInventoryModel) HasLicenseSubscriptionAdvantageDate() bool {
 func (o *LicenseInventoryModel) SetLicenseSubscriptionAdvantageDate(v string) {
 	o.LicenseSubscriptionAdvantageDate.Set(&v)
 }
+
 // SetLicenseSubscriptionAdvantageDateNil sets the value for LicenseSubscriptionAdvantageDate to be an explicit nil
 func (o *LicenseInventoryModel) SetLicenseSubscriptionAdvantageDateNil() {
 	o.LicenseSubscriptionAdvantageDate.Set(nil)
@@ -247,6 +250,7 @@ func (o *LicenseInventoryModel) HasLicenseType() bool {
 func (o *LicenseInventoryModel) SetLicenseType(v string) {
 	o.LicenseType.Set(&v)
 }
+
 // SetLicenseTypeNil sets the value for LicenseType to be an explicit nil
 func (o *LicenseInventoryModel) SetLicenseTypeNil() {
 	o.LicenseType.Set(nil)
@@ -449,6 +453,7 @@ func (o *LicenseInventoryModel) HasLocalizedLicenseProductEdition() bool {
 func (o *LicenseInventoryModel) SetLocalizedLicenseProductEdition(v string) {
 	o.LocalizedLicenseProductEdition.Set(&v)
 }
+
 // SetLocalizedLicenseProductEditionNil sets the value for LocalizedLicenseProductEdition to be an explicit nil
 func (o *LicenseInventoryModel) SetLocalizedLicenseProductEditionNil() {
 	o.LocalizedLicenseProductEdition.Set(nil)
@@ -460,7 +465,7 @@ func (o *LicenseInventoryModel) UnsetLocalizedLicenseProductEdition() {
 }
 
 func (o LicenseInventoryModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -540,5 +545,3 @@ func (v *NullableLicenseInventoryModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

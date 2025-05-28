@@ -19,10 +19,10 @@ var _ MappedNullable = &ImageDefinitionErrorWarningModel{}
 
 // ImageDefinitionErrorWarningModel struct for ImageDefinitionErrorWarningModel
 type ImageDefinitionErrorWarningModel struct {
-	NumberOfErrors *int32 `json:"NumberOfErrors,omitempty"`
-	NumberOfWarnings *int32 `json:"NumberOfWarnings,omitempty"`
-	Id NullableString `json:"Id,omitempty"`
-	Name NullableString `json:"Name,omitempty"`
+	NumberOfErrors   *int32         `json:"NumberOfErrors,omitempty"`
+	NumberOfWarnings *int32         `json:"NumberOfWarnings,omitempty"`
+	Id               NullableString `json:"Id,omitempty"`
+	Name             NullableString `json:"Name,omitempty"`
 }
 
 // NewImageDefinitionErrorWarningModel instantiates a new ImageDefinitionErrorWarningModel object
@@ -138,6 +138,7 @@ func (o *ImageDefinitionErrorWarningModel) HasId() bool {
 func (o *ImageDefinitionErrorWarningModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ImageDefinitionErrorWarningModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -180,6 +181,7 @@ func (o *ImageDefinitionErrorWarningModel) HasName() bool {
 func (o *ImageDefinitionErrorWarningModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ImageDefinitionErrorWarningModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -191,7 +193,7 @@ func (o *ImageDefinitionErrorWarningModel) UnsetName() {
 }
 
 func (o ImageDefinitionErrorWarningModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -250,5 +252,3 @@ func (v *NullableImageDefinitionErrorWarningModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

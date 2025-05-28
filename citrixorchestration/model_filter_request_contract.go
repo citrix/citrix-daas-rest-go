@@ -88,6 +88,7 @@ func (o *FilterRequestContract) HasFilterType() bool {
 func (o *FilterRequestContract) SetFilterType(v string) {
 	o.FilterType.Set(&v)
 }
+
 // SetFilterTypeNil sets the value for FilterType to be an explicit nil
 func (o *FilterRequestContract) SetFilterTypeNil() {
 	o.FilterType.Set(nil)
@@ -130,6 +131,7 @@ func (o *FilterRequestContract) HasFilterName() bool {
 func (o *FilterRequestContract) SetFilterName(v string) {
 	o.FilterName.Set(&v)
 }
+
 // SetFilterNameNil sets the value for FilterName to be an explicit nil
 func (o *FilterRequestContract) SetFilterNameNil() {
 	o.FilterName.Set(nil)
@@ -172,6 +174,7 @@ func (o *FilterRequestContract) HasIsAllowed() bool {
 func (o *FilterRequestContract) SetIsAllowed(v bool) {
 	o.IsAllowed.Set(&v)
 }
+
 // SetIsAllowedNil sets the value for IsAllowed to be an explicit nil
 func (o *FilterRequestContract) SetIsAllowedNil() {
 	o.IsAllowed.Set(nil)
@@ -214,6 +217,7 @@ func (o *FilterRequestContract) HasIsEnabled() bool {
 func (o *FilterRequestContract) SetIsEnabled(v bool) {
 	o.IsEnabled.Set(&v)
 }
+
 // SetIsEnabledNil sets the value for IsEnabled to be an explicit nil
 func (o *FilterRequestContract) SetIsEnabledNil() {
 	o.IsEnabled.Set(nil)
@@ -256,6 +260,7 @@ func (o *FilterRequestContract) HasFilterValue() bool {
 func (o *FilterRequestContract) SetFilterValue(v string) {
 	o.FilterValue.Set(&v)
 }
+
 // SetFilterValueNil sets the value for FilterValue to be an explicit nil
 func (o *FilterRequestContract) SetFilterValueNil() {
 	o.FilterValue.Set(nil)
@@ -267,7 +272,7 @@ func (o *FilterRequestContract) UnsetFilterValue() {
 }
 
 func (o FilterRequestContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -329,5 +334,3 @@ func (v *NullableFilterRequestContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

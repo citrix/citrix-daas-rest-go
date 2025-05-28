@@ -60,7 +60,7 @@ func (o *IdentityProvidersStatus) GetIdentityProviderEnabledOk() (*map[string]bo
 
 // HasIdentityProviderEnabled returns a boolean if a field has been set.
 func (o *IdentityProvidersStatus) HasIdentityProviderEnabled() bool {
-	if o != nil && IsNil(o.IdentityProviderEnabled) {
+	if o != nil && !IsNil(o.IdentityProviderEnabled) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *IdentityProvidersStatus) SetIdentityProviderEnabled(v map[string]bool) 
 }
 
 func (o IdentityProvidersStatus) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableIdentityProvidersStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

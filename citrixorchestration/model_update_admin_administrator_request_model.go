@@ -107,6 +107,7 @@ func (o *UpdateAdminAdministratorRequestModel) HasEnabled() bool {
 func (o *UpdateAdminAdministratorRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *UpdateAdminAdministratorRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -118,7 +119,7 @@ func (o *UpdateAdminAdministratorRequestModel) UnsetEnabled() {
 }
 
 func (o UpdateAdminAdministratorRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableUpdateAdminAdministratorRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

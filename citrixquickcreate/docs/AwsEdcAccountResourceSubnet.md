@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SubnetId** | Pointer to **NullableString** | Subnet Id | [optional] 
-**Status** | Pointer to [**NullableAwsEdcSubnetStatus**](AwsEdcSubnetStatus.md) |  | [optional] 
+**Status** | Pointer to [**NullableAwsEdcSubnetStatus**](AwsEdcSubnetStatus.md) | Subnet Status  Enum values AVAILABLE, PENDING | [optional] 
 **SubnetArn** | Pointer to **NullableString** | Subnet Status | [optional] 
 **CidrBlock** | Pointer to **NullableString** | Subnet CIDR Block | [optional] 
 **VpcId** | Pointer to **NullableString** | Subnet Vpc Id | [optional] 

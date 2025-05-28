@@ -20,14 +20,14 @@ type ScopedObjectType string
 
 // List of ScopedObjectType
 const (
-	SCOPEDOBJECTTYPE_UNKNOWN ScopedObjectType = "Unknown"
+	SCOPEDOBJECTTYPE_UNKNOWN               ScopedObjectType = "Unknown"
 	SCOPEDOBJECTTYPE_HYPERVISOR_CONNECTION ScopedObjectType = "HypervisorConnection"
-	SCOPEDOBJECTTYPE_MACHINE_CATALOG ScopedObjectType = "MachineCatalog"
-	SCOPEDOBJECTTYPE_DELIVERY_GROUP ScopedObjectType = "DeliveryGroup"
-	SCOPEDOBJECTTYPE_APPLICATION_GROUP ScopedObjectType = "ApplicationGroup"
-	SCOPEDOBJECTTYPE_TAG ScopedObjectType = "Tag"
-	SCOPEDOBJECTTYPE_POLICY_SET ScopedObjectType = "PolicySet"
-	SCOPEDOBJECTTYPE_SERVICE_ACCOUNT ScopedObjectType = "ServiceAccount"
+	SCOPEDOBJECTTYPE_MACHINE_CATALOG       ScopedObjectType = "MachineCatalog"
+	SCOPEDOBJECTTYPE_DELIVERY_GROUP        ScopedObjectType = "DeliveryGroup"
+	SCOPEDOBJECTTYPE_APPLICATION_GROUP     ScopedObjectType = "ApplicationGroup"
+	SCOPEDOBJECTTYPE_TAG                   ScopedObjectType = "Tag"
+	SCOPEDOBJECTTYPE_POLICY_SET            ScopedObjectType = "PolicySet"
+	SCOPEDOBJECTTYPE_SERVICE_ACCOUNT       ScopedObjectType = "ServiceAccount"
 )
 
 // All allowed values of ScopedObjectType enum
@@ -48,7 +48,7 @@ func (v *ScopedObjectType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ScopedObjectType(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableScopedObjectType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

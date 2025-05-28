@@ -20,7 +20,7 @@ var _ MappedNullable = &RemotePCEnrollmentScopeResponseModel{}
 // RemotePCEnrollmentScopeResponseModel Enrollment scope for remote PCs.
 type RemotePCEnrollmentScopeResponseModel struct {
 	// Specifies the DN of an AD container containing machines allowed to enroll as remote PCs.
-	OU string `json:"OU"`
+	OU string `json:"OU" validate:"regexp=.*|any"`
 	// Indicates whether machines in subfolders of OU are allowed to enroll as remote PCs.
 	IncludeSubfolders NullableBool `json:"IncludeSubfolders,omitempty"`
 	// Indicates whether this objet is for a OU or for a machine
@@ -113,6 +113,7 @@ func (o *RemotePCEnrollmentScopeResponseModel) HasIncludeSubfolders() bool {
 func (o *RemotePCEnrollmentScopeResponseModel) SetIncludeSubfolders(v bool) {
 	o.IncludeSubfolders.Set(&v)
 }
+
 // SetIncludeSubfoldersNil sets the value for IncludeSubfolders to be an explicit nil
 func (o *RemotePCEnrollmentScopeResponseModel) SetIncludeSubfoldersNil() {
 	o.IncludeSubfolders.Set(nil)
@@ -155,6 +156,7 @@ func (o *RemotePCEnrollmentScopeResponseModel) HasIsOrganizationalUnit() bool {
 func (o *RemotePCEnrollmentScopeResponseModel) SetIsOrganizationalUnit(v bool) {
 	o.IsOrganizationalUnit.Set(&v)
 }
+
 // SetIsOrganizationalUnitNil sets the value for IsOrganizationalUnit to be an explicit nil
 func (o *RemotePCEnrollmentScopeResponseModel) SetIsOrganizationalUnitNil() {
 	o.IsOrganizationalUnit.Set(nil)
@@ -232,7 +234,7 @@ func (o *RemotePCEnrollmentScopeResponseModel) SetMachinesIncluded(v []string) {
 }
 
 func (o RemotePCEnrollmentScopeResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -292,5 +294,3 @@ func (v *NullableRemotePCEnrollmentScopeResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

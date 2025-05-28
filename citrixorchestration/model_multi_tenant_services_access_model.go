@@ -78,6 +78,7 @@ func (o *MultiTenantServicesAccessModel) HasXaCatalogService() bool {
 func (o *MultiTenantServicesAccessModel) SetXaCatalogService(v bool) {
 	o.XaCatalogService.Set(&v)
 }
+
 // SetXaCatalogServiceNil sets the value for XaCatalogService to be an explicit nil
 func (o *MultiTenantServicesAccessModel) SetXaCatalogServiceNil() {
 	o.XaCatalogService.Set(nil)
@@ -120,6 +121,7 @@ func (o *MultiTenantServicesAccessModel) HasXdQuickCreateService() bool {
 func (o *MultiTenantServicesAccessModel) SetXdQuickCreateService(v bool) {
 	o.XdQuickCreateService.Set(&v)
 }
+
 // SetXdQuickCreateServiceNil sets the value for XdQuickCreateService to be an explicit nil
 func (o *MultiTenantServicesAccessModel) SetXdQuickCreateServiceNil() {
 	o.XdQuickCreateService.Set(nil)
@@ -162,6 +164,7 @@ func (o *MultiTenantServicesAccessModel) HasXdCloudPcRegistrationService() bool 
 func (o *MultiTenantServicesAccessModel) SetXdCloudPcRegistrationService(v bool) {
 	o.XdCloudPcRegistrationService.Set(&v)
 }
+
 // SetXdCloudPcRegistrationServiceNil sets the value for XdCloudPcRegistrationService to be an explicit nil
 func (o *MultiTenantServicesAccessModel) SetXdCloudPcRegistrationServiceNil() {
 	o.XdCloudPcRegistrationService.Set(nil)
@@ -204,6 +207,7 @@ func (o *MultiTenantServicesAccessModel) HasItsm() bool {
 func (o *MultiTenantServicesAccessModel) SetItsm(v bool) {
 	o.Itsm.Set(&v)
 }
+
 // SetItsmNil sets the value for Itsm to be an explicit nil
 func (o *MultiTenantServicesAccessModel) SetItsmNil() {
 	o.Itsm.Set(nil)
@@ -215,7 +219,7 @@ func (o *MultiTenantServicesAccessModel) UnsetItsm() {
 }
 
 func (o MultiTenantServicesAccessModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableMultiTenantServicesAccessModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

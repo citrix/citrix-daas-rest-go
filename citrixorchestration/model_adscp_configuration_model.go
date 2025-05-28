@@ -74,6 +74,7 @@ func (o *ADSCPConfigurationModel) HasName() bool {
 func (o *ADSCPConfigurationModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ADSCPConfigurationModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,7 +119,7 @@ func (o *ADSCPConfigurationModel) SetKeywords(v []string) {
 }
 
 func (o ADSCPConfigurationModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableADSCPConfigurationModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

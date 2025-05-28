@@ -21,8 +21,8 @@ type MaintenanceCycleSearchProperty string
 // List of MaintenanceCycleSearchProperty
 const (
 	MAINTENANCECYCLESEARCHPROPERTY_CATALOG_NAME MaintenanceCycleSearchProperty = "CatalogName"
-	MAINTENANCECYCLESEARCHPROPERTY_OPERATION MaintenanceCycleSearchProperty = "Operation"
-	MAINTENANCECYCLESEARCHPROPERTY_STATUS MaintenanceCycleSearchProperty = "Status"
+	MAINTENANCECYCLESEARCHPROPERTY_OPERATION    MaintenanceCycleSearchProperty = "Operation"
+	MAINTENANCECYCLESEARCHPROPERTY_STATUS       MaintenanceCycleSearchProperty = "Status"
 )
 
 // All allowed values of MaintenanceCycleSearchProperty enum
@@ -38,7 +38,7 @@ func (v *MaintenanceCycleSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MaintenanceCycleSearchProperty(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableMaintenanceCycleSearchProperty) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]UserModel**](UserModel.md) |  | 
+**Items** | [**[]UserModel**](UserModel.md) |  | [readonly] 
 
 ## Methods
 

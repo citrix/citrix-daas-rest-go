@@ -31,9 +31,9 @@ type AdvancedAccessPolicyResponseModel struct {
 	// Whether users are allowed to self-service restart machines.
 	AllowMachineRestart *bool `json:"AllowMachineRestart,omitempty"`
 	// Whether RDP connections are allowed to the delivery group. CHANGE: was: public bool AllowsRdpAccess { get; set; }
-	AllowRdpAccess *bool `json:"AllowRdpAccess,omitempty"`
+	AllowRdpAccess    *bool              `json:"AllowRdpAccess,omitempty"`
 	AllowedConnection *AllowedConnection `json:"AllowedConnection,omitempty"`
-	AllowedUsers *AllowedUser `json:"AllowedUsers,omitempty"`
+	AllowedUsers      *AllowedUser       `json:"AllowedUsers,omitempty"`
 	// Description.
 	Description NullableString `json:"Description,omitempty"`
 	// Whether the advanced access policy is enabled.  If a policy is disabled it is not considered when evaluating whether a user may access the delivery group.
@@ -69,8 +69,8 @@ type AdvancedAccessPolicyResponseModel struct {
 	// Indicates whether the IncludedSmartAccessTags filter is enabled.  If the filter is disabled, it is ignored when the access policy is evaluated. CHANGE: was: public bool AccessGatewayConnectionsUseFilters { get; set; }
 	IncludedSmartAccessFilterEnabled *bool `json:"IncludedSmartAccessFilterEnabled,omitempty"`
 	// The SmartAccess tags which grant access to the delivery group, if any occur in those provided by NetScaler Gateway with the user's connection.
-	IncludedSmartAccessTags []SmartAccessTagResponseModel `json:"IncludedSmartAccessTags,omitempty"`
-	IncludedSmartAccessFilterType *FilterMatchType `json:"IncludedSmartAccessFilterType,omitempty"`
+	IncludedSmartAccessTags       []SmartAccessTagResponseModel `json:"IncludedSmartAccessTags,omitempty"`
+	IncludedSmartAccessFilterType *FilterMatchType              `json:"IncludedSmartAccessFilterType,omitempty"`
 	// Indicates whether the IncludedUsers filter is enabled. If the filter is disabled, it is ignored when the access policy is evaluated.
 	IncludedUserFilterEnabled *bool `json:"IncludedUserFilterEnabled,omitempty"`
 	// Indicates whether key logging app protection is required.
@@ -135,6 +135,7 @@ func (o *AdvancedAccessPolicyResponseModel) HasId() bool {
 func (o *AdvancedAccessPolicyResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *AdvancedAccessPolicyResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -180,6 +181,7 @@ func (o *AdvancedAccessPolicyResponseModel) HasUid() bool {
 func (o *AdvancedAccessPolicyResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *AdvancedAccessPolicyResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -222,6 +224,7 @@ func (o *AdvancedAccessPolicyResponseModel) HasName() bool {
 func (o *AdvancedAccessPolicyResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AdvancedAccessPolicyResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -424,6 +427,7 @@ func (o *AdvancedAccessPolicyResponseModel) HasDescription() bool {
 func (o *AdvancedAccessPolicyResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *AdvancedAccessPolicyResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -1203,7 +1207,7 @@ func (o *AdvancedAccessPolicyResponseModel) SetIncludedUsers(v []IdentityUserRes
 }
 
 func (o AdvancedAccessPolicyResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1347,5 +1351,3 @@ func (v *NullableAdvancedAccessPolicyResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

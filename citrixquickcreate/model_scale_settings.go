@@ -80,6 +80,7 @@ func (o *ScaleSettings) HasAutoScaleEnabled() bool {
 func (o *ScaleSettings) SetAutoScaleEnabled(v bool) {
 	o.AutoScaleEnabled.Set(&v)
 }
+
 // SetAutoScaleEnabledNil sets the value for AutoScaleEnabled to be an explicit nil
 func (o *ScaleSettings) SetAutoScaleEnabledNil() {
 	o.AutoScaleEnabled.Set(nil)
@@ -122,6 +123,7 @@ func (o *ScaleSettings) HasOffPeakDisconnectTimeoutMinutes() bool {
 func (o *ScaleSettings) SetOffPeakDisconnectTimeoutMinutes(v int32) {
 	o.OffPeakDisconnectTimeoutMinutes.Set(&v)
 }
+
 // SetOffPeakDisconnectTimeoutMinutesNil sets the value for OffPeakDisconnectTimeoutMinutes to be an explicit nil
 func (o *ScaleSettings) SetOffPeakDisconnectTimeoutMinutesNil() {
 	o.OffPeakDisconnectTimeoutMinutes.Set(nil)
@@ -164,6 +166,7 @@ func (o *ScaleSettings) HasOffPeakLogOffTimeoutMinutes() bool {
 func (o *ScaleSettings) SetOffPeakLogOffTimeoutMinutes(v int32) {
 	o.OffPeakLogOffTimeoutMinutes.Set(&v)
 }
+
 // SetOffPeakLogOffTimeoutMinutesNil sets the value for OffPeakLogOffTimeoutMinutes to be an explicit nil
 func (o *ScaleSettings) SetOffPeakLogOffTimeoutMinutesNil() {
 	o.OffPeakLogOffTimeoutMinutes.Set(nil)
@@ -206,6 +209,7 @@ func (o *ScaleSettings) HasSessionIdleTimeoutMinutes() bool {
 func (o *ScaleSettings) SetSessionIdleTimeoutMinutes(v int32) {
 	o.SessionIdleTimeoutMinutes.Set(&v)
 }
+
 // SetSessionIdleTimeoutMinutesNil sets the value for SessionIdleTimeoutMinutes to be an explicit nil
 func (o *ScaleSettings) SetSessionIdleTimeoutMinutesNil() {
 	o.SessionIdleTimeoutMinutes.Set(nil)
@@ -248,6 +252,7 @@ func (o *ScaleSettings) HasOffPeakBufferSizePercent() bool {
 func (o *ScaleSettings) SetOffPeakBufferSizePercent(v int32) {
 	o.OffPeakBufferSizePercent.Set(&v)
 }
+
 // SetOffPeakBufferSizePercentNil sets the value for OffPeakBufferSizePercent to be an explicit nil
 func (o *ScaleSettings) SetOffPeakBufferSizePercentNil() {
 	o.OffPeakBufferSizePercent.Set(nil)
@@ -259,7 +264,7 @@ func (o *ScaleSettings) UnsetOffPeakBufferSizePercent() {
 }
 
 func (o ScaleSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -321,5 +326,3 @@ func (v *NullableScaleSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

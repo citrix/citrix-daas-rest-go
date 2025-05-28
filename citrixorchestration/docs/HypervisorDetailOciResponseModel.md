@@ -4,6 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ApiKey** | **string** | The API key used to authenticate with the AWS APIs. | 
+**Region** | **string** | The AWS region which the hypervisor represents. | 
+**MaximumConcurrentProvisioningOperations** | Pointer to **NullableInt32** | AWS maximum concurrent provisioning operations. | [optional] 
+**ApplicationId** | **string** | Application ID of the service principal used to access the Azure APIs. | 
+**SubscriptionId** | **string** | Azure subscription ID. | 
+**ActiveDirectoryId** | **string** | Azure active directory ID. | 
+**Environment** | [**AzureEnvironment**](AzureEnvironment.md) |  | 
+**ManagementEndpoint** | **string** | Azure management endpoint. | 
+**AuthenticationAuthority** | **string** | Azure authentication authority. | 
+**StorageSuffix** | **string** | Azure storage suffix. | 
+**ServiceAccountId** | **string** | The service account ID used to access the Oracle Cloud Infrastructure APIs. | 
+**SccmWakeUpProxy** | **bool** | Indicates whether Microsoft System Center Configuration Manager 2012 SP1 Wake-up Proxy is used for power management. | 
+**WakeOnLanPackets** | [**WakeOnLanTransmission**](WakeOnLanTransmission.md) |  | 
+**SslThumbprints** | Pointer to **[]string** | SSL thumbprints considered acceptable for the SSL certificate presented by the hypervisor. | [optional] 
+**UserName** | **string** | The user name for the credentials used to communicate with the hypervisor. | 
+**TenancyOcid** | **string** | Oracle Cloud Infrastructure tenancy to connect to. Required. | 
+**OciRegion** | **string** | The region of Oracle Cloud Infrastructure. | 
+**OciEnvironment** | **string** | The environment of Oracle Cloud Infrastructure, Commercial or Government. | 
+**Fingerprint** | **string** | The fingerprint of Oracle Cloud Infrastructure API key. | 
 **Id** | Pointer to **NullableString** | Id of the resource. | [optional] 
 **Name** | Pointer to **NullableString** | Name of the resource. | [optional] 
 **XDPath** | Pointer to **NullableString** | XenApp &amp; XenDesktop path to the resource on the hypervisor.  An example value is: &#x60;XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot&#x60; or &#x60;XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}&#x60; | [optional] 
@@ -30,17 +49,12 @@ Name | Type | Description | Notes
 **SupportsLocalStorageCaching** | **bool** | Indicates whether the hypervisor supports local storage caching. | 
 **SupportsPvsVms** | **bool** | Indicates whether the hypervisor supports PVS VMs. | 
 **Metadata** | Pointer to [**[]NameValueStringPairModel**](NameValueStringPairModel.md) | Metadata for hypervisor connections. | [optional] 
-**TenancyOcid** | **string** | Oracle Cloud Infrastructure tenancy to connect to. Required. | 
-**OciRegion** | **string** | The region of Oracle Cloud Infrastructure. | 
-**ServiceAccountId** | **string** | The service account ID used to access the Oracle Cloud Infrastructure APIs. | 
-**OciEnvironment** | **string** | The environment of Oracle Cloud Infrastructure, Commercial or Government. | 
-**Fingerprint** | **string** | The fingerprint of Oracle Cloud Infrastructure API key. | 
 
 ## Methods
 
 ### NewHypervisorDetailOciResponseModel
 
-`func NewHypervisorDetailOciResponseModel(connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, tenancyOcid string, ociRegion string, serviceAccountId string, ociEnvironment string, fingerprint string, ) *HypervisorDetailOciResponseModel`
+`func NewHypervisorDetailOciResponseModel(apiKey string, region string, applicationId string, subscriptionId string, activeDirectoryId string, environment AzureEnvironment, managementEndpoint string, authenticationAuthority string, storageSuffix string, serviceAccountId string, sccmWakeUpProxy bool, wakeOnLanPackets WakeOnLanTransmission, userName string, tenancyOcid string, ociRegion string, ociEnvironment string, fingerprint string, connectionType HypervisorConnectionType, addresses []string, inMaintenanceMode bool, pluginId string, scopes []ScopeResponseModel, usesCloudInfrastructure bool, zone RefResponseModel, capabilities []string, configurationObjectCapabilities []HypervisorConfigurationObjectCapability, pluginRevision string, maxAbsoluteActiveActions int32, maxAbsoluteNewActionsPerMinute int32, maxPowerActionsPercentageOfMachines int32, connectionOptions string, supportsLocalStorageCaching bool, supportsPvsVms bool, ) *HypervisorDetailOciResponseModel`
 
 NewHypervisorDetailOciResponseModel instantiates a new HypervisorDetailOciResponseModel object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +68,416 @@ will change when the set of required properties is changed
 NewHypervisorDetailOciResponseModelWithDefaults instantiates a new HypervisorDetailOciResponseModel object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetApiKey
+
+`func (o *HypervisorDetailOciResponseModel) GetApiKey() string`
+
+GetApiKey returns the ApiKey field if non-nil, zero value otherwise.
+
+### GetApiKeyOk
+
+`func (o *HypervisorDetailOciResponseModel) GetApiKeyOk() (*string, bool)`
+
+GetApiKeyOk returns a tuple with the ApiKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApiKey
+
+`func (o *HypervisorDetailOciResponseModel) SetApiKey(v string)`
+
+SetApiKey sets ApiKey field to given value.
+
+
+### GetRegion
+
+`func (o *HypervisorDetailOciResponseModel) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *HypervisorDetailOciResponseModel) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *HypervisorDetailOciResponseModel) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+
+### GetMaximumConcurrentProvisioningOperations
+
+`func (o *HypervisorDetailOciResponseModel) GetMaximumConcurrentProvisioningOperations() int32`
+
+GetMaximumConcurrentProvisioningOperations returns the MaximumConcurrentProvisioningOperations field if non-nil, zero value otherwise.
+
+### GetMaximumConcurrentProvisioningOperationsOk
+
+`func (o *HypervisorDetailOciResponseModel) GetMaximumConcurrentProvisioningOperationsOk() (*int32, bool)`
+
+GetMaximumConcurrentProvisioningOperationsOk returns a tuple with the MaximumConcurrentProvisioningOperations field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaximumConcurrentProvisioningOperations
+
+`func (o *HypervisorDetailOciResponseModel) SetMaximumConcurrentProvisioningOperations(v int32)`
+
+SetMaximumConcurrentProvisioningOperations sets MaximumConcurrentProvisioningOperations field to given value.
+
+### HasMaximumConcurrentProvisioningOperations
+
+`func (o *HypervisorDetailOciResponseModel) HasMaximumConcurrentProvisioningOperations() bool`
+
+HasMaximumConcurrentProvisioningOperations returns a boolean if a field has been set.
+
+### SetMaximumConcurrentProvisioningOperationsNil
+
+`func (o *HypervisorDetailOciResponseModel) SetMaximumConcurrentProvisioningOperationsNil(b bool)`
+
+ SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
+
+### UnsetMaximumConcurrentProvisioningOperations
+`func (o *HypervisorDetailOciResponseModel) UnsetMaximumConcurrentProvisioningOperations()`
+
+UnsetMaximumConcurrentProvisioningOperations ensures that no value is present for MaximumConcurrentProvisioningOperations, not even an explicit nil
+### GetApplicationId
+
+`func (o *HypervisorDetailOciResponseModel) GetApplicationId() string`
+
+GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
+
+### GetApplicationIdOk
+
+`func (o *HypervisorDetailOciResponseModel) GetApplicationIdOk() (*string, bool)`
+
+GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetApplicationId
+
+`func (o *HypervisorDetailOciResponseModel) SetApplicationId(v string)`
+
+SetApplicationId sets ApplicationId field to given value.
+
+
+### GetSubscriptionId
+
+`func (o *HypervisorDetailOciResponseModel) GetSubscriptionId() string`
+
+GetSubscriptionId returns the SubscriptionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionIdOk
+
+`func (o *HypervisorDetailOciResponseModel) GetSubscriptionIdOk() (*string, bool)`
+
+GetSubscriptionIdOk returns a tuple with the SubscriptionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionId
+
+`func (o *HypervisorDetailOciResponseModel) SetSubscriptionId(v string)`
+
+SetSubscriptionId sets SubscriptionId field to given value.
+
+
+### GetActiveDirectoryId
+
+`func (o *HypervisorDetailOciResponseModel) GetActiveDirectoryId() string`
+
+GetActiveDirectoryId returns the ActiveDirectoryId field if non-nil, zero value otherwise.
+
+### GetActiveDirectoryIdOk
+
+`func (o *HypervisorDetailOciResponseModel) GetActiveDirectoryIdOk() (*string, bool)`
+
+GetActiveDirectoryIdOk returns a tuple with the ActiveDirectoryId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveDirectoryId
+
+`func (o *HypervisorDetailOciResponseModel) SetActiveDirectoryId(v string)`
+
+SetActiveDirectoryId sets ActiveDirectoryId field to given value.
+
+
+### GetEnvironment
+
+`func (o *HypervisorDetailOciResponseModel) GetEnvironment() AzureEnvironment`
+
+GetEnvironment returns the Environment field if non-nil, zero value otherwise.
+
+### GetEnvironmentOk
+
+`func (o *HypervisorDetailOciResponseModel) GetEnvironmentOk() (*AzureEnvironment, bool)`
+
+GetEnvironmentOk returns a tuple with the Environment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironment
+
+`func (o *HypervisorDetailOciResponseModel) SetEnvironment(v AzureEnvironment)`
+
+SetEnvironment sets Environment field to given value.
+
+
+### GetManagementEndpoint
+
+`func (o *HypervisorDetailOciResponseModel) GetManagementEndpoint() string`
+
+GetManagementEndpoint returns the ManagementEndpoint field if non-nil, zero value otherwise.
+
+### GetManagementEndpointOk
+
+`func (o *HypervisorDetailOciResponseModel) GetManagementEndpointOk() (*string, bool)`
+
+GetManagementEndpointOk returns a tuple with the ManagementEndpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManagementEndpoint
+
+`func (o *HypervisorDetailOciResponseModel) SetManagementEndpoint(v string)`
+
+SetManagementEndpoint sets ManagementEndpoint field to given value.
+
+
+### GetAuthenticationAuthority
+
+`func (o *HypervisorDetailOciResponseModel) GetAuthenticationAuthority() string`
+
+GetAuthenticationAuthority returns the AuthenticationAuthority field if non-nil, zero value otherwise.
+
+### GetAuthenticationAuthorityOk
+
+`func (o *HypervisorDetailOciResponseModel) GetAuthenticationAuthorityOk() (*string, bool)`
+
+GetAuthenticationAuthorityOk returns a tuple with the AuthenticationAuthority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthenticationAuthority
+
+`func (o *HypervisorDetailOciResponseModel) SetAuthenticationAuthority(v string)`
+
+SetAuthenticationAuthority sets AuthenticationAuthority field to given value.
+
+
+### GetStorageSuffix
+
+`func (o *HypervisorDetailOciResponseModel) GetStorageSuffix() string`
+
+GetStorageSuffix returns the StorageSuffix field if non-nil, zero value otherwise.
+
+### GetStorageSuffixOk
+
+`func (o *HypervisorDetailOciResponseModel) GetStorageSuffixOk() (*string, bool)`
+
+GetStorageSuffixOk returns a tuple with the StorageSuffix field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStorageSuffix
+
+`func (o *HypervisorDetailOciResponseModel) SetStorageSuffix(v string)`
+
+SetStorageSuffix sets StorageSuffix field to given value.
+
+
+### GetServiceAccountId
+
+`func (o *HypervisorDetailOciResponseModel) GetServiceAccountId() string`
+
+GetServiceAccountId returns the ServiceAccountId field if non-nil, zero value otherwise.
+
+### GetServiceAccountIdOk
+
+`func (o *HypervisorDetailOciResponseModel) GetServiceAccountIdOk() (*string, bool)`
+
+GetServiceAccountIdOk returns a tuple with the ServiceAccountId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetServiceAccountId
+
+`func (o *HypervisorDetailOciResponseModel) SetServiceAccountId(v string)`
+
+SetServiceAccountId sets ServiceAccountId field to given value.
+
+
+### GetSccmWakeUpProxy
+
+`func (o *HypervisorDetailOciResponseModel) GetSccmWakeUpProxy() bool`
+
+GetSccmWakeUpProxy returns the SccmWakeUpProxy field if non-nil, zero value otherwise.
+
+### GetSccmWakeUpProxyOk
+
+`func (o *HypervisorDetailOciResponseModel) GetSccmWakeUpProxyOk() (*bool, bool)`
+
+GetSccmWakeUpProxyOk returns a tuple with the SccmWakeUpProxy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSccmWakeUpProxy
+
+`func (o *HypervisorDetailOciResponseModel) SetSccmWakeUpProxy(v bool)`
+
+SetSccmWakeUpProxy sets SccmWakeUpProxy field to given value.
+
+
+### GetWakeOnLanPackets
+
+`func (o *HypervisorDetailOciResponseModel) GetWakeOnLanPackets() WakeOnLanTransmission`
+
+GetWakeOnLanPackets returns the WakeOnLanPackets field if non-nil, zero value otherwise.
+
+### GetWakeOnLanPacketsOk
+
+`func (o *HypervisorDetailOciResponseModel) GetWakeOnLanPacketsOk() (*WakeOnLanTransmission, bool)`
+
+GetWakeOnLanPacketsOk returns a tuple with the WakeOnLanPackets field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWakeOnLanPackets
+
+`func (o *HypervisorDetailOciResponseModel) SetWakeOnLanPackets(v WakeOnLanTransmission)`
+
+SetWakeOnLanPackets sets WakeOnLanPackets field to given value.
+
+
+### GetSslThumbprints
+
+`func (o *HypervisorDetailOciResponseModel) GetSslThumbprints() []string`
+
+GetSslThumbprints returns the SslThumbprints field if non-nil, zero value otherwise.
+
+### GetSslThumbprintsOk
+
+`func (o *HypervisorDetailOciResponseModel) GetSslThumbprintsOk() (*[]string, bool)`
+
+GetSslThumbprintsOk returns a tuple with the SslThumbprints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSslThumbprints
+
+`func (o *HypervisorDetailOciResponseModel) SetSslThumbprints(v []string)`
+
+SetSslThumbprints sets SslThumbprints field to given value.
+
+### HasSslThumbprints
+
+`func (o *HypervisorDetailOciResponseModel) HasSslThumbprints() bool`
+
+HasSslThumbprints returns a boolean if a field has been set.
+
+### SetSslThumbprintsNil
+
+`func (o *HypervisorDetailOciResponseModel) SetSslThumbprintsNil(b bool)`
+
+ SetSslThumbprintsNil sets the value for SslThumbprints to be an explicit nil
+
+### UnsetSslThumbprints
+`func (o *HypervisorDetailOciResponseModel) UnsetSslThumbprints()`
+
+UnsetSslThumbprints ensures that no value is present for SslThumbprints, not even an explicit nil
+### GetUserName
+
+`func (o *HypervisorDetailOciResponseModel) GetUserName() string`
+
+GetUserName returns the UserName field if non-nil, zero value otherwise.
+
+### GetUserNameOk
+
+`func (o *HypervisorDetailOciResponseModel) GetUserNameOk() (*string, bool)`
+
+GetUserNameOk returns a tuple with the UserName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUserName
+
+`func (o *HypervisorDetailOciResponseModel) SetUserName(v string)`
+
+SetUserName sets UserName field to given value.
+
+
+### GetTenancyOcid
+
+`func (o *HypervisorDetailOciResponseModel) GetTenancyOcid() string`
+
+GetTenancyOcid returns the TenancyOcid field if non-nil, zero value otherwise.
+
+### GetTenancyOcidOk
+
+`func (o *HypervisorDetailOciResponseModel) GetTenancyOcidOk() (*string, bool)`
+
+GetTenancyOcidOk returns a tuple with the TenancyOcid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenancyOcid
+
+`func (o *HypervisorDetailOciResponseModel) SetTenancyOcid(v string)`
+
+SetTenancyOcid sets TenancyOcid field to given value.
+
+
+### GetOciRegion
+
+`func (o *HypervisorDetailOciResponseModel) GetOciRegion() string`
+
+GetOciRegion returns the OciRegion field if non-nil, zero value otherwise.
+
+### GetOciRegionOk
+
+`func (o *HypervisorDetailOciResponseModel) GetOciRegionOk() (*string, bool)`
+
+GetOciRegionOk returns a tuple with the OciRegion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciRegion
+
+`func (o *HypervisorDetailOciResponseModel) SetOciRegion(v string)`
+
+SetOciRegion sets OciRegion field to given value.
+
+
+### GetOciEnvironment
+
+`func (o *HypervisorDetailOciResponseModel) GetOciEnvironment() string`
+
+GetOciEnvironment returns the OciEnvironment field if non-nil, zero value otherwise.
+
+### GetOciEnvironmentOk
+
+`func (o *HypervisorDetailOciResponseModel) GetOciEnvironmentOk() (*string, bool)`
+
+GetOciEnvironmentOk returns a tuple with the OciEnvironment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOciEnvironment
+
+`func (o *HypervisorDetailOciResponseModel) SetOciEnvironment(v string)`
+
+SetOciEnvironment sets OciEnvironment field to given value.
+
+
+### GetFingerprint
+
+`func (o *HypervisorDetailOciResponseModel) GetFingerprint() string`
+
+GetFingerprint returns the Fingerprint field if non-nil, zero value otherwise.
+
+### GetFingerprintOk
+
+`func (o *HypervisorDetailOciResponseModel) GetFingerprintOk() (*string, bool)`
+
+GetFingerprintOk returns a tuple with the Fingerprint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFingerprint
+
+`func (o *HypervisorDetailOciResponseModel) SetFingerprint(v string)`
+
+SetFingerprint sets Fingerprint field to given value.
+
 
 ### GetId
 
@@ -695,106 +1119,6 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *HypervisorDetailOciResponseModel) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
-### GetTenancyOcid
-
-`func (o *HypervisorDetailOciResponseModel) GetTenancyOcid() string`
-
-GetTenancyOcid returns the TenancyOcid field if non-nil, zero value otherwise.
-
-### GetTenancyOcidOk
-
-`func (o *HypervisorDetailOciResponseModel) GetTenancyOcidOk() (*string, bool)`
-
-GetTenancyOcidOk returns a tuple with the TenancyOcid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTenancyOcid
-
-`func (o *HypervisorDetailOciResponseModel) SetTenancyOcid(v string)`
-
-SetTenancyOcid sets TenancyOcid field to given value.
-
-
-### GetOciRegion
-
-`func (o *HypervisorDetailOciResponseModel) GetOciRegion() string`
-
-GetOciRegion returns the OciRegion field if non-nil, zero value otherwise.
-
-### GetOciRegionOk
-
-`func (o *HypervisorDetailOciResponseModel) GetOciRegionOk() (*string, bool)`
-
-GetOciRegionOk returns a tuple with the OciRegion field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOciRegion
-
-`func (o *HypervisorDetailOciResponseModel) SetOciRegion(v string)`
-
-SetOciRegion sets OciRegion field to given value.
-
-
-### GetServiceAccountId
-
-`func (o *HypervisorDetailOciResponseModel) GetServiceAccountId() string`
-
-GetServiceAccountId returns the ServiceAccountId field if non-nil, zero value otherwise.
-
-### GetServiceAccountIdOk
-
-`func (o *HypervisorDetailOciResponseModel) GetServiceAccountIdOk() (*string, bool)`
-
-GetServiceAccountIdOk returns a tuple with the ServiceAccountId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetServiceAccountId
-
-`func (o *HypervisorDetailOciResponseModel) SetServiceAccountId(v string)`
-
-SetServiceAccountId sets ServiceAccountId field to given value.
-
-
-### GetOciEnvironment
-
-`func (o *HypervisorDetailOciResponseModel) GetOciEnvironment() string`
-
-GetOciEnvironment returns the OciEnvironment field if non-nil, zero value otherwise.
-
-### GetOciEnvironmentOk
-
-`func (o *HypervisorDetailOciResponseModel) GetOciEnvironmentOk() (*string, bool)`
-
-GetOciEnvironmentOk returns a tuple with the OciEnvironment field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOciEnvironment
-
-`func (o *HypervisorDetailOciResponseModel) SetOciEnvironment(v string)`
-
-SetOciEnvironment sets OciEnvironment field to given value.
-
-
-### GetFingerprint
-
-`func (o *HypervisorDetailOciResponseModel) GetFingerprint() string`
-
-GetFingerprint returns the Fingerprint field if non-nil, zero value otherwise.
-
-### GetFingerprintOk
-
-`func (o *HypervisorDetailOciResponseModel) GetFingerprintOk() (*string, bool)`
-
-GetFingerprintOk returns a tuple with the Fingerprint field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFingerprint
-
-`func (o *HypervisorDetailOciResponseModel) SetFingerprint(v string)`
-
-SetFingerprint sets Fingerprint field to given value.
-
-
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

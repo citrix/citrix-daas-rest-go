@@ -20,9 +20,9 @@ type DesktopCondition string
 
 // List of DesktopCondition
 const (
-	DESKTOPCONDITION_UNKNOWN DesktopCondition = "Unknown"
-	DESKTOPCONDITION_CPU DesktopCondition = "CPU"
-	DESKTOPCONDITION_ICA_LATENCY DesktopCondition = "ICALatency"
+	DESKTOPCONDITION_UNKNOWN        DesktopCondition = "Unknown"
+	DESKTOPCONDITION_CPU            DesktopCondition = "CPU"
+	DESKTOPCONDITION_ICA_LATENCY    DesktopCondition = "ICALatency"
 	DESKTOPCONDITION_UPM_LOGON_TIME DesktopCondition = "UPMLogonTime"
 )
 
@@ -40,7 +40,7 @@ func (v *DesktopCondition) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DesktopCondition(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableDesktopCondition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

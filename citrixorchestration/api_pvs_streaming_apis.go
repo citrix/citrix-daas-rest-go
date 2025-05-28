@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // PvsStreamingAPIsDAASService PvsStreamingAPIsDAAS service
 type PvsStreamingAPIsDAASService service
 
 type ApiPvsStreamingGetPvsStreamingSitesRequest struct {
-	ctx context.Context
-	ApiService *PvsStreamingAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *PvsStreamingAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	farmId *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	farmId              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -98,24 +97,25 @@ func (r ApiPvsStreamingGetPvsStreamingSitesRequest) Execute() (*PvsStreamingSite
 /*
 PvsStreamingGetPvsStreamingSites Get the list of PVS sites.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPvsStreamingGetPvsStreamingSitesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPvsStreamingGetPvsStreamingSitesRequest
 */
 func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSites(ctx context.Context) ApiPvsStreamingGetPvsStreamingSitesRequest {
 	return ApiPvsStreamingGetPvsStreamingSitesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PvsStreamingSiteResponseModelCollection
+//
+//	@return PvsStreamingSiteResponseModelCollection
 func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r ApiPvsStreamingGetPvsStreamingSitesRequest) (*PvsStreamingSiteResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PvsStreamingSiteResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PvsStreamingSiteResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PvsStreamingAPIsDAASService.PvsStreamingGetPvsStreamingSites")
@@ -218,8 +218,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -229,8 +229,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -240,8 +240,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -251,8 +251,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -262,8 +262,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -273,8 +273,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -284,8 +284,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -303,18 +303,18 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingSitesExecute(r 
 }
 
 type ApiPvsStreamingGetPvsStreamingStoresRequest struct {
-	ctx context.Context
-	ApiService *PvsStreamingAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	farmId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *PvsStreamingAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	farmId              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	pvsSiteId *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	pvsSiteId           *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -378,26 +378,27 @@ func (r ApiPvsStreamingGetPvsStreamingStoresRequest) Execute() (*PvsStreamingSto
 /*
 PvsStreamingGetPvsStreamingStores Get the list of PVS stores.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param farmId PVS farm id.
- @return ApiPvsStreamingGetPvsStreamingStoresRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param farmId PVS farm id.
+	@return ApiPvsStreamingGetPvsStreamingStoresRequest
 */
 func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStores(ctx context.Context, farmId string) ApiPvsStreamingGetPvsStreamingStoresRequest {
 	return ApiPvsStreamingGetPvsStreamingStoresRequest{
 		ApiService: a,
-		ctx: ctx,
-		farmId: farmId,
+		ctx:        ctx,
+		farmId:     farmId,
 	}
 }
 
 // Execute executes the request
-//  @return PvsStreamingStoreResponseModelCollection
+//
+//	@return PvsStreamingStoreResponseModelCollection
 func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r ApiPvsStreamingGetPvsStreamingStoresRequest) (*PvsStreamingStoreResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PvsStreamingStoreResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PvsStreamingStoreResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PvsStreamingAPIsDAASService.PvsStreamingGetPvsStreamingStores")
@@ -501,8 +502,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -512,8 +513,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -523,8 +524,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -534,8 +535,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -545,8 +546,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -556,8 +557,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -567,8 +568,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -578,8 +579,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -597,20 +598,20 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingStoresExecute(r
 }
 
 type ApiPvsStreamingGetPvsStreamingVDisksRequest struct {
-	ctx context.Context
-	ApiService *PvsStreamingAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *PvsStreamingAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	farmId *string
-	pvsSiteId *string
-	storeId *string
-	diskLocatorId *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	farmId              *string
+	pvsSiteId           *string
+	storeId             *string
+	diskLocatorId       *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -692,24 +693,25 @@ func (r ApiPvsStreamingGetPvsStreamingVDisksRequest) Execute() (*PvsStreamingVDi
 /*
 PvsStreamingGetPvsStreamingVDisks Get the list of PVS vDisks.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPvsStreamingGetPvsStreamingVDisksRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPvsStreamingGetPvsStreamingVDisksRequest
 */
 func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisks(ctx context.Context) ApiPvsStreamingGetPvsStreamingVDisksRequest {
 	return ApiPvsStreamingGetPvsStreamingVDisksRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PvsStreamingVDiskResponseModelCollection
+//
+//	@return PvsStreamingVDiskResponseModelCollection
 func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r ApiPvsStreamingGetPvsStreamingVDisksRequest) (*PvsStreamingVDiskResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PvsStreamingVDiskResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PvsStreamingVDiskResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PvsStreamingAPIsDAASService.PvsStreamingGetPvsStreamingVDisks")
@@ -821,8 +823,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -832,8 +834,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -843,8 +845,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -854,8 +856,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -865,8 +867,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -876,8 +878,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -887,8 +889,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -906,16 +908,16 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingGetPvsStreamingVDisksExecute(r
 }
 
 type ApiPvsStreamingTestDeviceCollectionExistsRequest struct {
-	ctx context.Context
-	ApiService *PvsStreamingAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                   context.Context
+	ApiService                            *PvsStreamingAPIsDAASService
+	citrixCustomerId                      *string
+	citrixInstanceId                      *string
 	deviceCollectionNameCheckRequestModel *DeviceCollectionNameCheckRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                             *string
+	authorization                         *string
+	citrixTransactionId                   *string
+	accept                                *string
+	citrixLocale                          *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -975,22 +977,22 @@ PvsStreamingTestDeviceCollectionExists Test the existence of a device collection
 
 Check for the existence of a device collection by name
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPvsStreamingTestDeviceCollectionExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPvsStreamingTestDeviceCollectionExistsRequest
 */
 func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExists(ctx context.Context) ApiPvsStreamingTestDeviceCollectionExistsRequest {
 	return ApiPvsStreamingTestDeviceCollectionExistsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExecute(r ApiPvsStreamingTestDeviceCollectionExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PvsStreamingAPIsDAASService.PvsStreamingTestDeviceCollectionExists")
@@ -1092,8 +1094,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1103,8 +1105,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1114,8 +1116,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1125,8 +1127,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1136,8 +1138,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1147,8 +1149,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1158,8 +1160,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1169,8 +1171,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1180,8 +1182,8 @@ func (a *PvsStreamingAPIsDAASService) PvsStreamingTestDeviceCollectionExistsExec
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

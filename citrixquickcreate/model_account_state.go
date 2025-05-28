@@ -21,9 +21,9 @@ type AccountState string
 // List of AccountState
 const (
 	ACCOUNTSTATE_AUTHENTICATED AccountState = "AUTHENTICATED"
-	ACCOUNTSTATE_PENDING AccountState = "PENDING"
-	ACCOUNTSTATE_ERROR AccountState = "ERROR"
-	ACCOUNTSTATE_UNKNOWN AccountState = "UNKNOWN"
+	ACCOUNTSTATE_PENDING       AccountState = "PENDING"
+	ACCOUNTSTATE_ERROR         AccountState = "ERROR"
+	ACCOUNTSTATE_UNKNOWN       AccountState = "UNKNOWN"
 )
 
 // All allowed values of AccountState enum
@@ -112,4 +112,3 @@ func (v *NullableAccountState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

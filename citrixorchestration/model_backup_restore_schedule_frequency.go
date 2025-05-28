@@ -20,10 +20,10 @@ type BackupRestoreScheduleFrequency string
 
 // List of BackupRestoreScheduleFrequency
 const (
-	BACKUPRESTORESCHEDULEFREQUENCY_DAILY BackupRestoreScheduleFrequency = "Daily"
-	BACKUPRESTORESCHEDULEFREQUENCY_WEEKLY BackupRestoreScheduleFrequency = "Weekly"
-	BACKUPRESTORESCHEDULEFREQUENCY_MONTHLY BackupRestoreScheduleFrequency = "Monthly"
-	BACKUPRESTORESCHEDULEFREQUENCY_ONCE BackupRestoreScheduleFrequency = "Once"
+	BACKUPRESTORESCHEDULEFREQUENCY_DAILY       BackupRestoreScheduleFrequency = "Daily"
+	BACKUPRESTORESCHEDULEFREQUENCY_WEEKLY      BackupRestoreScheduleFrequency = "Weekly"
+	BACKUPRESTORESCHEDULEFREQUENCY_MONTHLY     BackupRestoreScheduleFrequency = "Monthly"
+	BACKUPRESTORESCHEDULEFREQUENCY_ONCE        BackupRestoreScheduleFrequency = "Once"
 	BACKUPRESTORESCHEDULEFREQUENCY_NOT_DEFINED BackupRestoreScheduleFrequency = "NotDefined"
 )
 
@@ -42,7 +42,7 @@ func (v *BackupRestoreScheduleFrequency) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreScheduleFrequency(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableBackupRestoreScheduleFrequency) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

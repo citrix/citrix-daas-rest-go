@@ -140,6 +140,7 @@ func (o *LogSiteResponseModel) HasLocale() bool {
 func (o *LogSiteResponseModel) SetLocale(v string) {
 	o.Locale.Set(&v)
 }
+
 // SetLocaleNil sets the value for Locale to be an explicit nil
 func (o *LogSiteResponseModel) SetLocaleNil() {
 	o.Locale.Set(nil)
@@ -151,7 +152,7 @@ func (o *LogSiteResponseModel) UnsetLocale() {
 }
 
 func (o LogSiteResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableLogSiteResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

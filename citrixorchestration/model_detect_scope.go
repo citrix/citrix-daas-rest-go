@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// DetectScope 
+// DetectScope
 type DetectScope string
 
 // List of DetectScope
 const (
 	DETECTSCOPE_HOSTING_CONNECTION DetectScope = "HostingConnection"
-	DETECTSCOPE_UNKNOWN DetectScope = "Unknown"
+	DETECTSCOPE_UNKNOWN            DetectScope = "Unknown"
 )
 
 // All allowed values of DetectScope enum
@@ -36,7 +36,7 @@ func (v *DetectScope) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DetectScope(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableDetectScope) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

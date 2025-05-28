@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// AutoscalePluginType 
+// AutoscalePluginType
 type AutoscalePluginType string
 
 // List of AutoscalePluginType
 const (
-	AUTOSCALEPLUGINTYPE_UNKNOWN AutoscalePluginType = "Unknown"
-	AUTOSCALEPLUGINTYPE_HOLIDAY AutoscalePluginType = "Holiday"
+	AUTOSCALEPLUGINTYPE_UNKNOWN     AutoscalePluginType = "Unknown"
+	AUTOSCALEPLUGINTYPE_HOLIDAY     AutoscalePluginType = "Holiday"
 	AUTOSCALEPLUGINTYPE_INTELLIGENT AutoscalePluginType = "Intelligent"
 )
 
@@ -38,7 +38,7 @@ func (v *AutoscalePluginType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AutoscalePluginType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableAutoscalePluginType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

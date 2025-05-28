@@ -130,6 +130,7 @@ func (o *EnrollmentResponseModel) HasTokenName() bool {
 func (o *EnrollmentResponseModel) SetTokenName(v string) {
 	o.TokenName.Set(&v)
 }
+
 // SetTokenNameNil sets the value for TokenName to be an explicit nil
 func (o *EnrollmentResponseModel) SetTokenNameNil() {
 	o.TokenName.Set(nil)
@@ -172,6 +173,7 @@ func (o *EnrollmentResponseModel) HasIssuerId() bool {
 func (o *EnrollmentResponseModel) SetIssuerId(v string) {
 	o.IssuerId.Set(&v)
 }
+
 // SetIssuerIdNil sets the value for IssuerId to be an explicit nil
 func (o *EnrollmentResponseModel) SetIssuerIdNil() {
 	o.IssuerId.Set(nil)
@@ -214,6 +216,7 @@ func (o *EnrollmentResponseModel) HasIssuedToUser() bool {
 func (o *EnrollmentResponseModel) SetIssuedToUser(v string) {
 	o.IssuedToUser.Set(&v)
 }
+
 // SetIssuedToUserNil sets the value for IssuedToUser to be an explicit nil
 func (o *EnrollmentResponseModel) SetIssuedToUserNil() {
 	o.IssuedToUser.Set(nil)
@@ -256,6 +259,7 @@ func (o *EnrollmentResponseModel) HasDateIssued() bool {
 func (o *EnrollmentResponseModel) SetDateIssued(v string) {
 	o.DateIssued.Set(&v)
 }
+
 // SetDateIssuedNil sets the value for DateIssued to be an explicit nil
 func (o *EnrollmentResponseModel) SetDateIssuedNil() {
 	o.DateIssued.Set(nil)
@@ -298,6 +302,7 @@ func (o *EnrollmentResponseModel) HasExpirationDate() bool {
 func (o *EnrollmentResponseModel) SetExpirationDate(v string) {
 	o.ExpirationDate.Set(&v)
 }
+
 // SetExpirationDateNil sets the value for ExpirationDate to be an explicit nil
 func (o *EnrollmentResponseModel) SetExpirationDateNil() {
 	o.ExpirationDate.Set(nil)
@@ -340,6 +345,7 @@ func (o *EnrollmentResponseModel) HasNotValidBeforeDate() bool {
 func (o *EnrollmentResponseModel) SetNotValidBeforeDate(v string) {
 	o.NotValidBeforeDate.Set(&v)
 }
+
 // SetNotValidBeforeDateNil sets the value for NotValidBeforeDate to be an explicit nil
 func (o *EnrollmentResponseModel) SetNotValidBeforeDateNil() {
 	o.NotValidBeforeDate.Set(nil)
@@ -414,6 +420,7 @@ func (o *EnrollmentResponseModel) HasCatalogId() bool {
 func (o *EnrollmentResponseModel) SetCatalogId(v string) {
 	o.CatalogId.Set(&v)
 }
+
 // SetCatalogIdNil sets the value for CatalogId to be an explicit nil
 func (o *EnrollmentResponseModel) SetCatalogIdNil() {
 	o.CatalogId.Set(nil)
@@ -488,6 +495,7 @@ func (o *EnrollmentResponseModel) HasLastUsed() bool {
 func (o *EnrollmentResponseModel) SetLastUsed(v string) {
 	o.LastUsed.Set(&v)
 }
+
 // SetLastUsedNil sets the value for LastUsed to be an explicit nil
 func (o *EnrollmentResponseModel) SetLastUsedNil() {
 	o.LastUsed.Set(nil)
@@ -562,6 +570,7 @@ func (o *EnrollmentResponseModel) HasToken() bool {
 func (o *EnrollmentResponseModel) SetToken(v string) {
 	o.Token.Set(&v)
 }
+
 // SetTokenNil sets the value for Token to be an explicit nil
 func (o *EnrollmentResponseModel) SetTokenNil() {
 	o.Token.Set(nil)
@@ -604,6 +613,7 @@ func (o *EnrollmentResponseModel) HasHostConnectionId() bool {
 func (o *EnrollmentResponseModel) SetHostConnectionId(v string) {
 	o.HostConnectionId.Set(&v)
 }
+
 // SetHostConnectionIdNil sets the value for HostConnectionId to be an explicit nil
 func (o *EnrollmentResponseModel) SetHostConnectionIdNil() {
 	o.HostConnectionId.Set(nil)
@@ -615,7 +625,7 @@ func (o *EnrollmentResponseModel) UnsetHostConnectionId() {
 }
 
 func (o EnrollmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -704,5 +714,3 @@ func (v *NullableEnrollmentResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

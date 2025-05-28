@@ -20,7 +20,7 @@ type MaintenanceCycleVmOperationJobSearchFilterGroupType string
 
 // List of MaintenanceCycleVmOperationJobSearchFilterGroupType
 const (
-	MAINTENANCECYCLEVMOPERATIONJOBSEARCHFILTERGROUPTYPE_OR MaintenanceCycleVmOperationJobSearchFilterGroupType = "Or"
+	MAINTENANCECYCLEVMOPERATIONJOBSEARCHFILTERGROUPTYPE_OR  MaintenanceCycleVmOperationJobSearchFilterGroupType = "Or"
 	MAINTENANCECYCLEVMOPERATIONJOBSEARCHFILTERGROUPTYPE_AND MaintenanceCycleVmOperationJobSearchFilterGroupType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *MaintenanceCycleVmOperationJobSearchFilterGroupType) UnmarshalJSON(src 
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MaintenanceCycleVmOperationJobSearchFilterGroupType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableMaintenanceCycleVmOperationJobSearchFilterGroupType) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

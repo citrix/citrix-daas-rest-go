@@ -42,7 +42,7 @@ type LogOperationResponseModel struct {
 	// Indicates whether the operation completed successfully.
 	IsSuccessful NullableBool `json:"IsSuccessful,omitempty"`
 	// Type of objects that were affected by the operation.
-	TargetTypes []string `json:"TargetTypes"`
+	TargetTypes   []string         `json:"TargetTypes"`
 	OperationType LogOperationType `json:"OperationType"`
 	// Labels of the operation.
 	Labels []string `json:"Labels,omitempty"`
@@ -157,6 +157,7 @@ func (o *LogOperationResponseModel) HasUser() bool {
 func (o *LogOperationResponseModel) SetUser(v string) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *LogOperationResponseModel) SetUserNil() {
 	o.User.Set(nil)
@@ -199,6 +200,7 @@ func (o *LogOperationResponseModel) HasUserIdentity() bool {
 func (o *LogOperationResponseModel) SetUserIdentity(v string) {
 	o.UserIdentity.Set(&v)
 }
+
 // SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
 func (o *LogOperationResponseModel) SetUserIdentityNil() {
 	o.UserIdentity.Set(nil)
@@ -265,6 +267,7 @@ func (o *LogOperationResponseModel) HasAdminMachineIP() bool {
 func (o *LogOperationResponseModel) SetAdminMachineIP(v string) {
 	o.AdminMachineIP.Set(&v)
 }
+
 // SetAdminMachineIPNil sets the value for AdminMachineIP to be an explicit nil
 func (o *LogOperationResponseModel) SetAdminMachineIPNil() {
 	o.AdminMachineIP.Set(nil)
@@ -307,6 +310,7 @@ func (o *LogOperationResponseModel) HasEndTime() bool {
 func (o *LogOperationResponseModel) SetEndTime(v string) {
 	o.EndTime.Set(&v)
 }
+
 // SetEndTimeNil sets the value for EndTime to be an explicit nil
 func (o *LogOperationResponseModel) SetEndTimeNil() {
 	o.EndTime.Set(nil)
@@ -349,6 +353,7 @@ func (o *LogOperationResponseModel) HasFormattedEndTime() bool {
 func (o *LogOperationResponseModel) SetFormattedEndTime(v string) {
 	o.FormattedEndTime.Set(&v)
 }
+
 // SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
 func (o *LogOperationResponseModel) SetFormattedEndTimeNil() {
 	o.FormattedEndTime.Set(nil)
@@ -439,6 +444,7 @@ func (o *LogOperationResponseModel) HasIsSuccessful() bool {
 func (o *LogOperationResponseModel) SetIsSuccessful(v bool) {
 	o.IsSuccessful.Set(&v)
 }
+
 // SetIsSuccessfulNil sets the value for IsSuccessful to be an explicit nil
 func (o *LogOperationResponseModel) SetIsSuccessfulNil() {
 	o.IsSuccessful.Set(nil)
@@ -588,7 +594,7 @@ func (o *LogOperationResponseModel) SetParameters(v []NameValueStringPairModel) 
 }
 
 func (o LogOperationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -667,5 +673,3 @@ func (v *NullableLogOperationResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ type MaintenanceCycleOperation string
 
 // List of MaintenanceCycleOperation
 const (
-	MAINTENANCECYCLEOPERATION_UNKNOWN MaintenanceCycleOperation = "Unknown"
-	MAINTENANCECYCLEOPERATION_IMAGE_UPDATE MaintenanceCycleOperation = "ImageUpdate"
+	MAINTENANCECYCLEOPERATION_UNKNOWN         MaintenanceCycleOperation = "Unknown"
+	MAINTENANCECYCLEOPERATION_IMAGE_UPDATE    MaintenanceCycleOperation = "ImageUpdate"
 	MAINTENANCECYCLEOPERATION_HARDWARE_UPDATE MaintenanceCycleOperation = "HardwareUpdate"
-	MAINTENANCECYCLEOPERATION_RESET_OS_DISK MaintenanceCycleOperation = "ResetOSDisk"
-	MAINTENANCECYCLEOPERATION_RESET_ID_DISK MaintenanceCycleOperation = "ResetIDDisk"
+	MAINTENANCECYCLEOPERATION_RESET_OS_DISK   MaintenanceCycleOperation = "ResetOSDisk"
+	MAINTENANCECYCLEOPERATION_RESET_ID_DISK   MaintenanceCycleOperation = "ResetIDDisk"
 )
 
 // All allowed values of MaintenanceCycleOperation enum
@@ -42,7 +42,7 @@ func (v *MaintenanceCycleOperation) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MaintenanceCycleOperation(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableMaintenanceCycleOperation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

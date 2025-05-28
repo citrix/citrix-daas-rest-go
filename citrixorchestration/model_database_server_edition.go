@@ -15,12 +15,12 @@ import (
 	"fmt"
 )
 
-// DatabaseServerEdition 
+// DatabaseServerEdition
 type DatabaseServerEdition string
 
 // List of DatabaseServerEdition
 const (
-	DATABASESERVEREDITION_AZURE DatabaseServerEdition = "Azure"
+	DATABASESERVEREDITION_AZURE   DatabaseServerEdition = "Azure"
 	DATABASESERVEREDITION_ON_PREM DatabaseServerEdition = "OnPrem"
 )
 
@@ -36,7 +36,7 @@ func (v *DatabaseServerEdition) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DatabaseServerEdition(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableDatabaseServerEdition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

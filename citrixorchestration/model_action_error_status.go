@@ -20,9 +20,9 @@ type ActionErrorStatus string
 
 // List of ActionErrorStatus
 const (
-	ACTIONERRORSTATUS_UNKNOWN ActionErrorStatus = "Unknown"
-	ACTIONERRORSTATUS_NONE ActionErrorStatus = "None"
-	ACTIONERRORSTATUS_FAILED ActionErrorStatus = "Failed"
+	ACTIONERRORSTATUS_UNKNOWN      ActionErrorStatus = "Unknown"
+	ACTIONERRORSTATUS_NONE         ActionErrorStatus = "None"
+	ACTIONERRORSTATUS_FAILED       ActionErrorStatus = "Failed"
 	ACTIONERRORSTATUS_PARTIAL_FAIL ActionErrorStatus = "PartialFail"
 )
 
@@ -40,7 +40,7 @@ func (v *ActionErrorStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ActionErrorStatus(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableActionErrorStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

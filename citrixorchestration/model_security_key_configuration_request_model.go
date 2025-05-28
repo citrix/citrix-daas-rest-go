@@ -78,6 +78,7 @@ func (o *SecurityKeyConfigurationRequestModel) HasKey1() bool {
 func (o *SecurityKeyConfigurationRequestModel) SetKey1(v string) {
 	o.Key1.Set(&v)
 }
+
 // SetKey1Nil sets the value for Key1 to be an explicit nil
 func (o *SecurityKeyConfigurationRequestModel) SetKey1Nil() {
 	o.Key1.Set(nil)
@@ -120,6 +121,7 @@ func (o *SecurityKeyConfigurationRequestModel) HasKey2() bool {
 func (o *SecurityKeyConfigurationRequestModel) SetKey2(v string) {
 	o.Key2.Set(&v)
 }
+
 // SetKey2Nil sets the value for Key2 to be an explicit nil
 func (o *SecurityKeyConfigurationRequestModel) SetKey2Nil() {
 	o.Key2.Set(nil)
@@ -162,6 +164,7 @@ func (o *SecurityKeyConfigurationRequestModel) HasRequireKeyForSta() bool {
 func (o *SecurityKeyConfigurationRequestModel) SetRequireKeyForSta(v bool) {
 	o.RequireKeyForSta.Set(&v)
 }
+
 // SetRequireKeyForStaNil sets the value for RequireKeyForSta to be an explicit nil
 func (o *SecurityKeyConfigurationRequestModel) SetRequireKeyForStaNil() {
 	o.RequireKeyForSta.Set(nil)
@@ -204,6 +207,7 @@ func (o *SecurityKeyConfigurationRequestModel) HasRequireKeyForXml() bool {
 func (o *SecurityKeyConfigurationRequestModel) SetRequireKeyForXml(v bool) {
 	o.RequireKeyForXml.Set(&v)
 }
+
 // SetRequireKeyForXmlNil sets the value for RequireKeyForXml to be an explicit nil
 func (o *SecurityKeyConfigurationRequestModel) SetRequireKeyForXmlNil() {
 	o.RequireKeyForXml.Set(nil)
@@ -215,7 +219,7 @@ func (o *SecurityKeyConfigurationRequestModel) UnsetRequireKeyForXml() {
 }
 
 func (o SecurityKeyConfigurationRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableSecurityKeyConfigurationRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

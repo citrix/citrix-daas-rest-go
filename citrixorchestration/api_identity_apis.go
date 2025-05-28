@@ -16,29 +16,28 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
-
 
 // IdentityAPIsDAASService IdentityAPIsDAAS service
 type IdentityAPIsDAASService service
 
 type ApiIdentityAddAzureAdSecurityGroupMemberRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	azureAdTenantId string
-	groupId string
-	refGroupId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	azureAdTenantId     string
+	groupId             string
+	refGroupId          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	serviceAccountUid *string
+	xAccessToken        *string
+	accept              *string
+	citrixLocale        *string
+	serviceAccountUid   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -101,28 +100,28 @@ func (r ApiIdentityAddAzureAdSecurityGroupMemberRequest) Execute() (*http.Respon
 /*
 IdentityAddAzureAdSecurityGroupMember Add a security group to an assigned security as it's member
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param azureAdTenantId The Azure tenant id.
- @param groupId The parent assigned security group object id
- @param refGroupId The nested devices security group object id
- @return ApiIdentityAddAzureAdSecurityGroupMemberRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param azureAdTenantId The Azure tenant id.
+	@param groupId The parent assigned security group object id
+	@param refGroupId The nested devices security group object id
+	@return ApiIdentityAddAzureAdSecurityGroupMemberRequest
 */
 func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMember(ctx context.Context, azureAdTenantId string, groupId string, refGroupId string) ApiIdentityAddAzureAdSecurityGroupMemberRequest {
 	return ApiIdentityAddAzureAdSecurityGroupMemberRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		azureAdTenantId: azureAdTenantId,
-		groupId: groupId,
-		refGroupId: refGroupId,
+		groupId:         groupId,
+		refGroupId:      refGroupId,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r ApiIdentityAddAzureAdSecurityGroupMemberRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityAddAzureAdSecurityGroupMember")
@@ -228,8 +227,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -239,8 +238,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -250,8 +249,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -261,8 +260,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -272,8 +271,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -283,8 +282,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -294,8 +293,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -305,8 +304,8 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -315,18 +314,18 @@ func (a *IdentityAPIsDAASService) IdentityAddAzureAdSecurityGroupMemberExecute(r
 }
 
 type ApiIdentityCreateMachineRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                               context.Context
+	ApiService                        *IdentityAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
 	identityCreateMachineRequestModel *IdentityCreateMachineRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	xAdminCredential                  *string
+	accept                            *string
+	citrixLocale                      *string
+	async                             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -398,24 +397,25 @@ IdentityCreateMachine Create machine identity
 
 Create machine identity.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityCreateMachineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityCreateMachineRequest
 */
 func (a *IdentityAPIsDAASService) IdentityCreateMachine(ctx context.Context) ApiIdentityCreateMachineRequest {
 	return ApiIdentityCreateMachineRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityMachineResponseModel
+//
+//	@return IdentityMachineResponseModel
 func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCreateMachineRequest) (*IdentityMachineResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityMachineResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityMachineResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityCreateMachine")
@@ -523,8 +523,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -534,8 +534,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -545,8 +545,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -556,8 +556,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -567,8 +567,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -578,8 +578,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -589,8 +589,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -600,8 +600,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -611,8 +611,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -630,17 +630,17 @@ func (a *IdentityAPIsDAASService) IdentityCreateMachineExecute(r ApiIdentityCrea
 }
 
 type ApiIdentityCreateServiceAccountRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                              context.Context
+	ApiService                       *IdentityAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
 	createServiceAccountRequestModel *CreateServiceAccountRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -655,7 +655,7 @@ func (r ApiIdentityCreateServiceAccountRequest) CitrixInstanceId(citrixInstanceI
 	return r
 }
 
-// The object of CreateServiceAccountRequestModel used to create a service account. 
+// The object of CreateServiceAccountRequestModel used to create a service account.
 func (r ApiIdentityCreateServiceAccountRequest) CreateServiceAccountRequestModel(createServiceAccountRequestModel CreateServiceAccountRequestModel) ApiIdentityCreateServiceAccountRequest {
 	r.createServiceAccountRequestModel = &createServiceAccountRequestModel
 	return r
@@ -704,24 +704,25 @@ func (r ApiIdentityCreateServiceAccountRequest) Execute() (*ServiceAccountRespon
 /*
 IdentityCreateServiceAccount Create a service account async.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityCreateServiceAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityCreateServiceAccountRequest
 */
 func (a *IdentityAPIsDAASService) IdentityCreateServiceAccount(ctx context.Context) ApiIdentityCreateServiceAccountRequest {
 	return ApiIdentityCreateServiceAccountRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceAccountResponseModel
+//
+//	@return ServiceAccountResponseModel
 func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdentityCreateServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceAccountResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceAccountResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityCreateServiceAccount")
@@ -826,8 +827,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -837,8 +838,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -848,8 +849,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -859,8 +860,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -870,8 +871,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -881,8 +882,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -892,8 +893,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -903,8 +904,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -914,8 +915,8 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -933,21 +934,21 @@ func (a *IdentityAPIsDAASService) IdentityCreateServiceAccountExecute(r ApiIdent
 }
 
 type ApiIdentityDeleteMachineRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	machine string
-	forest *string
-	domain *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	machine             string
+	forest              *string
+	domain              *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
+	xAdminCredential    *string
+	accept              *string
+	citrixLocale        *string
 	directoryServerHint *string
-	async *bool
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1031,24 +1032,24 @@ IdentityDeleteMachine Delete a machine identity
 
 Delete a machine identity.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param machine Machine identity to delete.
- @return ApiIdentityDeleteMachineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param machine Machine identity to delete.
+	@return ApiIdentityDeleteMachineRequest
 */
 func (a *IdentityAPIsDAASService) IdentityDeleteMachine(ctx context.Context, machine string) ApiIdentityDeleteMachineRequest {
 	return ApiIdentityDeleteMachineRequest{
 		ApiService: a,
-		ctx: ctx,
-		machine: machine,
+		ctx:        ctx,
+		machine:    machine,
 	}
 }
 
 // Execute executes the request
 func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDeleteMachineRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityDeleteMachine")
@@ -1163,8 +1164,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1174,8 +1175,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1185,8 +1186,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1196,8 +1197,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1207,8 +1208,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1218,8 +1219,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1229,8 +1230,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1240,8 +1241,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1250,16 +1251,16 @@ func (a *IdentityAPIsDAASService) IdentityDeleteMachineExecute(r ApiIdentityDele
 }
 
 type ApiIdentityDeleteServiceAccountRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	serviceAccountUid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	serviceAccountUid   string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1311,14 +1312,14 @@ func (r ApiIdentityDeleteServiceAccountRequest) Execute() (*http.Response, error
 /*
 IdentityDeleteServiceAccount Delete an existing service account.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceAccountUid The ServiceAccountUid of an existing service account. 
- @return ApiIdentityDeleteServiceAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceAccountUid The ServiceAccountUid of an existing service account.
+	@return ApiIdentityDeleteServiceAccountRequest
 */
 func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityDeleteServiceAccountRequest {
 	return ApiIdentityDeleteServiceAccountRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		serviceAccountUid: serviceAccountUid,
 	}
 }
@@ -1326,9 +1327,9 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccount(ctx context.Conte
 // Execute executes the request
 func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdentityDeleteServiceAccountRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityDeleteServiceAccount")
@@ -1426,8 +1427,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1437,8 +1438,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1448,8 +1449,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1459,8 +1460,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1470,8 +1471,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1481,8 +1482,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1492,8 +1493,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1503,8 +1504,8 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -1513,19 +1514,19 @@ func (a *IdentityAPIsDAASService) IdentityDeleteServiceAccountExecute(r ApiIdent
 }
 
 type ApiIdentityGetAzureADSecurityGroupsRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	azureAdTenantId string
-	groupId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	azureAdTenantId     string
+	groupId             string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	serviceAccountUid *string
+	xAccessToken        *string
+	accept              *string
+	citrixLocale        *string
+	serviceAccountUid   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1591,28 +1592,29 @@ IdentityGetAzureADSecurityGroups Get Azure AD security group by group id.
 
 Retrieves AzureAD's security groups by user's input.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param azureAdTenantId AzureAD tenantId
- @param groupId AzureAD security group's objectId
- @return ApiIdentityGetAzureADSecurityGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param azureAdTenantId AzureAD tenantId
+	@param groupId AzureAD security group's objectId
+	@return ApiIdentityGetAzureADSecurityGroupsRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroups(ctx context.Context, azureAdTenantId string, groupId string) ApiIdentityGetAzureADSecurityGroupsRequest {
 	return ApiIdentityGetAzureADSecurityGroupsRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		azureAdTenantId: azureAdTenantId,
-		groupId: groupId,
+		groupId:         groupId,
 	}
 }
 
 // Execute executes the request
-//  @return AzureADSecurityGroupResponseModel
+//
+//	@return AzureADSecurityGroupResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiIdentityGetAzureADSecurityGroupsRequest) (*AzureADSecurityGroupResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AzureADSecurityGroupResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AzureADSecurityGroupResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetAzureADSecurityGroups")
@@ -1717,8 +1719,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1728,8 +1730,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1739,8 +1741,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1750,8 +1752,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1761,8 +1763,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1772,8 +1774,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1783,8 +1785,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1794,8 +1796,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1813,21 +1815,21 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureADSecurityGroupsExecute(r ApiI
 }
 
 type ApiIdentityGetAzureAdSecurityGroupMemberRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	azureAdTenantId string
-	groupId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	azureAdTenantId     string
+	groupId             string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	type_ *string
-	maxCount *int32
-	serviceAccountUid *string
+	xAccessToken        *string
+	accept              *string
+	citrixLocale        *string
+	type_               *string
+	maxCount            *int32
+	serviceAccountUid   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1903,28 +1905,29 @@ func (r ApiIdentityGetAzureAdSecurityGroupMemberRequest) Execute() (*AzureADSecu
 /*
 IdentityGetAzureAdSecurityGroupMember Retrieves all the group type of members of a specific group
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param azureAdTenantId The Azure tenant id.
- @param groupId The security group object id.
- @return ApiIdentityGetAzureAdSecurityGroupMemberRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param azureAdTenantId The Azure tenant id.
+	@param groupId The security group object id.
+	@return ApiIdentityGetAzureAdSecurityGroupMemberRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMember(ctx context.Context, azureAdTenantId string, groupId string) ApiIdentityGetAzureAdSecurityGroupMemberRequest {
 	return ApiIdentityGetAzureAdSecurityGroupMemberRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		azureAdTenantId: azureAdTenantId,
-		groupId: groupId,
+		groupId:         groupId,
 	}
 }
 
 // Execute executes the request
-//  @return AzureADSecurityGroupResponseModelCollection
+//
+//	@return AzureADSecurityGroupResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r ApiIdentityGetAzureAdSecurityGroupMemberRequest) (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AzureADSecurityGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AzureADSecurityGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetAzureAdSecurityGroupMember")
@@ -2035,8 +2038,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2046,8 +2049,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2057,8 +2060,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2068,8 +2071,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2079,8 +2082,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2090,8 +2093,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2101,8 +2104,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2112,8 +2115,8 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2131,20 +2134,20 @@ func (a *IdentityAPIsDAASService) IdentityGetAzureAdSecurityGroupMemberExecute(r
 }
 
 type ApiIdentityGetContainerRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	container string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
-	directoryServerHint *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	container            string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *string
+	directoryServerHint  *string
 	propertiesToRetrieve *int32
 }
 
@@ -2229,26 +2232,27 @@ IdentityGetContainer Get a single container (e.g. OU)
 
 Get a single container (e.g. OU).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param container Container to get.
- @return ApiIdentityGetContainerRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param container Container to get.
+	@return ApiIdentityGetContainerRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetContainer(ctx context.Context, container string) ApiIdentityGetContainerRequest {
 	return ApiIdentityGetContainerRequest{
 		ApiService: a,
-		ctx: ctx,
-		container: container,
+		ctx:        ctx,
+		container:  container,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityContainerResponseModel
+//
+//	@return IdentityContainerResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetContainerRequest) (*IdentityContainerResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityContainerResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityContainerResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetContainer")
@@ -2361,8 +2365,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2372,8 +2376,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2383,8 +2387,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2394,8 +2398,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2405,8 +2409,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2416,8 +2420,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2427,8 +2431,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2438,8 +2442,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2457,29 +2461,29 @@ func (a *IdentityAPIsDAASService) IdentityGetContainerExecute(r ApiIdentityGetCo
 }
 
 type ApiIdentityGetContainersRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
-	container *[]string
-	startsWith *string
-	contains *string
-	matches *string
-	parentOU *string
-	recursive *bool
-	containerType *[]IdentityContainerType
-	directoryServerHint *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *string
+	container            *[]string
+	startsWith           *string
+	contains             *string
+	matches              *string
+	parentOU             *string
+	recursive            *bool
+	containerType        *[]IdentityContainerType
+	directoryServerHint  *string
 	propertiesToRetrieve *int32
-	limit *int32
-	continuationToken *string
+	limit                *int32
+	continuationToken    *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2617,24 +2621,25 @@ IdentityGetContainers Get containers from identity provider.
 
 Get containers from identity provider
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetContainersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetContainersRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetContainers(ctx context.Context) ApiIdentityGetContainersRequest {
 	return ApiIdentityGetContainersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityContainerResponseModelCollection
+//
+//	@return IdentityContainerResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetContainersRequest) (*IdentityContainerResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityContainerResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityContainerResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetContainers")
@@ -2789,8 +2794,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2800,8 +2805,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2811,8 +2816,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2822,8 +2827,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2833,8 +2838,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2844,8 +2849,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2855,8 +2860,8 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2874,17 +2879,17 @@ func (a *IdentityAPIsDAASService) IdentityGetContainersExecute(r ApiIdentityGetC
 }
 
 type ApiIdentityGetDirectoriesRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2950,24 +2955,25 @@ IdentityGetDirectories Get list of directories from all identity providers
 
 Get list of directories from all identity providers.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetDirectoriesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetDirectoriesRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetDirectories(ctx context.Context) ApiIdentityGetDirectoriesRequest {
 	return ApiIdentityGetDirectoriesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityDirectoryResponseModelCollection
+//
+//	@return IdentityDirectoryResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGetDirectoriesRequest) (*IdentityDirectoryResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityDirectoryResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityDirectoryResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetDirectories")
@@ -3070,8 +3076,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3081,8 +3087,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3092,8 +3098,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3103,8 +3109,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3114,8 +3120,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3125,8 +3131,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3136,8 +3142,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3155,19 +3161,19 @@ func (a *IdentityAPIsDAASService) IdentityGetDirectoriesExecute(r ApiIdentityGet
 }
 
 type ApiIdentityGetDomainRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	domain string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	directoryServerHint *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	domain               string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	directoryServerHint  *string
 	propertiesToRetrieve *int32
 }
 
@@ -3246,26 +3252,27 @@ IdentityGetDomain Get a single domain from the identity provider
 
 Get a single domain from the identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param domain Domain to get details from.
- @return ApiIdentityGetDomainRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param domain Domain to get details from.
+	@return ApiIdentityGetDomainRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetDomain(ctx context.Context, domain string) ApiIdentityGetDomainRequest {
 	return ApiIdentityGetDomainRequest{
 		ApiService: a,
-		ctx: ctx,
-		domain: domain,
+		ctx:        ctx,
+		domain:     domain,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityDomainResponseModel
+//
+//	@return IdentityDomainResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomainRequest) (*IdentityDomainResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityDomainResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityDomainResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetDomain")
@@ -3375,8 +3382,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3386,8 +3393,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3397,8 +3404,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3408,8 +3415,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3419,8 +3426,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3430,8 +3437,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3441,8 +3448,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3452,8 +3459,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3471,16 +3478,16 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainExecute(r ApiIdentityGetDomai
 }
 
 type ApiIdentityGetDomainAzureADCustomDomainRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	domain string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	domain              string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3532,26 +3539,27 @@ func (r ApiIdentityGetDomainAzureADCustomDomainRequest) Execute() (*AzureADCusto
 /*
 IdentityGetDomainAzureADCustomDomain Gets the Azure AD custom domain with the specified domain name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param domain Domain name.
- @return ApiIdentityGetDomainAzureADCustomDomainRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param domain Domain name.
+	@return ApiIdentityGetDomainAzureADCustomDomainRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomain(ctx context.Context, domain string) ApiIdentityGetDomainAzureADCustomDomainRequest {
 	return ApiIdentityGetDomainAzureADCustomDomainRequest{
 		ApiService: a,
-		ctx: ctx,
-		domain: domain,
+		ctx:        ctx,
+		domain:     domain,
 	}
 }
 
 // Execute executes the request
-//  @return AzureADCustomDomainResponseModel
+//
+//	@return AzureADCustomDomainResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r ApiIdentityGetDomainAzureADCustomDomainRequest) (*AzureADCustomDomainResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AzureADCustomDomainResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AzureADCustomDomainResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetDomainAzureADCustomDomain")
@@ -3649,8 +3657,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3660,8 +3668,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3671,8 +3679,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3682,8 +3690,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3693,8 +3701,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3704,8 +3712,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3715,8 +3723,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3726,8 +3734,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -3745,25 +3753,25 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainAzureADCustomDomainExecute(r 
 }
 
 type ApiIdentityGetDomainsRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *[]string
-	directoryServerHint *string
-	parentDomain *string
-	recursive *bool
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *[]string
+	directoryServerHint  *string
+	parentDomain         *string
+	recursive            *bool
 	propertiesToRetrieve *int32
-	limit *int32
-	continuationToken *string
-	async *bool
+	limit                *int32
+	continuationToken    *string
+	async                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3876,24 +3884,25 @@ IdentityGetDomains Get list of domains from the identity provider
 
 Get list of domains from the identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetDomainsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetDomainsRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetDomains(ctx context.Context) ApiIdentityGetDomainsRequest {
 	return ApiIdentityGetDomainsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityDomainResponseModelCollection
+//
+//	@return IdentityDomainResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDomainsRequest) (*IdentityDomainResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityDomainResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityDomainResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetDomains")
@@ -4028,8 +4037,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4039,8 +4048,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4050,8 +4059,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4061,8 +4070,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4072,8 +4081,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4083,8 +4092,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4094,8 +4103,8 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4113,17 +4122,17 @@ func (a *IdentityAPIsDAASService) IdentityGetDomainsExecute(r ApiIdentityGetDoma
 }
 
 type ApiIdentityGetForestRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	forest string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	forest               string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
 	propertiesToRetrieve *int32
 }
 
@@ -4190,26 +4199,27 @@ IdentityGetForest Get information about a single forest
 
 Get information about a single forest.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param forest forest
- @return ApiIdentityGetForestRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param forest forest
+	@return ApiIdentityGetForestRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetForest(ctx context.Context, forest string) ApiIdentityGetForestRequest {
 	return ApiIdentityGetForestRequest{
 		ApiService: a,
-		ctx: ctx,
-		forest: forest,
+		ctx:        ctx,
+		forest:     forest,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityForestResponseModel
+//
+//	@return IdentityForestResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetForestRequest) (*IdentityForestResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityForestResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityForestResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetForest")
@@ -4313,8 +4323,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4324,8 +4334,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4335,8 +4345,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4346,8 +4356,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4357,8 +4367,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4368,8 +4378,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4379,8 +4389,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4390,8 +4400,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4409,20 +4419,20 @@ func (a *IdentityAPIsDAASService) IdentityGetForestExecute(r ApiIdentityGetFores
 }
 
 type ApiIdentityGetForestsRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *[]string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *[]string
 	propertiesToRetrieve *int32
-	limit *int32
-	continuationToken *string
+	limit                *int32
+	continuationToken    *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4506,24 +4516,25 @@ IdentityGetForests Get the list of forests from the identity provider
 
 Get the list of forests from the identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetForestsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetForestsRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetForests(ctx context.Context) ApiIdentityGetForestsRequest {
 	return ApiIdentityGetForestsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityForestResponseModelCollection
+//
+//	@return IdentityForestResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetForestsRequest) (*IdentityForestResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityForestResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityForestResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetForests")
@@ -4643,8 +4654,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4654,8 +4665,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4665,8 +4676,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4676,8 +4687,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4687,8 +4698,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4698,8 +4709,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4709,8 +4720,8 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4728,20 +4739,20 @@ func (a *IdentityAPIsDAASService) IdentityGetForestsExecute(r ApiIdentityGetFore
 }
 
 type ApiIdentityGetMachineRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	machine string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
-	directoryServerHint *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	machine              string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *string
+	directoryServerHint  *string
 	propertiesToRetrieve *int32
 }
 
@@ -4826,26 +4837,27 @@ IdentityGetMachine Get a single machine account from identity provider
 
 Get a single machine account from identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param machine Machine to get.
- @return ApiIdentityGetMachineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param machine Machine to get.
+	@return ApiIdentityGetMachineRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetMachine(ctx context.Context, machine string) ApiIdentityGetMachineRequest {
 	return ApiIdentityGetMachineRequest{
 		ApiService: a,
-		ctx: ctx,
-		machine: machine,
+		ctx:        ctx,
+		machine:    machine,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityMachineResponseModel
+//
+//	@return IdentityMachineResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMachineRequest) (*IdentityMachineResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityMachineResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityMachineResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetMachine")
@@ -4958,8 +4970,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4969,8 +4981,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4980,8 +4992,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -4991,8 +5003,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5002,8 +5014,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5013,8 +5025,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5024,8 +5036,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5035,8 +5047,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5054,28 +5066,28 @@ func (a *IdentityAPIsDAASService) IdentityGetMachineExecute(r ApiIdentityGetMach
 }
 
 type ApiIdentityGetMachinesRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
-	machine *[]string
-	startsWith *string
-	contains *string
-	matches *string
-	parentOU *string
-	recursive *bool
-	directoryServerHint *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *string
+	machine              *[]string
+	startsWith           *string
+	contains             *string
+	matches              *string
+	parentOU             *string
+	recursive            *bool
+	directoryServerHint  *string
 	propertiesToRetrieve *int32
-	limit *int32
-	continuationToken *string
+	limit                *int32
+	continuationToken    *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5207,24 +5219,25 @@ IdentityGetMachines Get machine accounts from identity provider
 
 Get machine accounts from identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetMachinesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetMachinesRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetMachines(ctx context.Context) ApiIdentityGetMachinesRequest {
 	return ApiIdentityGetMachinesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityMachineResponseModelCollection
+//
+//	@return IdentityMachineResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMachinesRequest) (*IdentityMachineResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityMachineResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityMachineResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetMachines")
@@ -5368,8 +5381,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5379,8 +5392,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5390,8 +5403,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5401,8 +5414,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5412,8 +5425,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5423,8 +5436,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5434,8 +5447,8 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5453,21 +5466,21 @@ func (a *IdentityAPIsDAASService) IdentityGetMachinesExecute(r ApiIdentityGetMac
 }
 
 type ApiIdentityGetPrintersRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
-	server *string
-	uncpath *string
-	async *bool
+	xAdminCredential    *string
+	accept              *string
+	citrixLocale        *string
+	forest              *string
+	domain              *string
+	server              *string
+	uncpath             *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5557,24 +5570,25 @@ IdentityGetPrinters Get network printers from identity provider
 
 Get network printers from identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetPrintersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetPrintersRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetPrinters(ctx context.Context) ApiIdentityGetPrintersRequest {
 	return ApiIdentityGetPrintersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityPrinterResponseModelCollection
+//
+//	@return IdentityPrinterResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPrintersRequest) (*IdentityPrinterResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityPrinterResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityPrinterResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetPrinters")
@@ -5689,8 +5703,8 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5700,8 +5714,8 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5711,8 +5725,8 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5722,8 +5736,8 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5733,8 +5747,8 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5744,8 +5758,8 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5755,8 +5769,8 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5774,16 +5788,16 @@ func (a *IdentityAPIsDAASService) IdentityGetPrintersExecute(r ApiIdentityGetPri
 }
 
 type ApiIdentityGetServiceAccountRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	serviceAccountUid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	serviceAccountUid   string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5835,26 +5849,27 @@ func (r ApiIdentityGetServiceAccountRequest) Execute() (*ServiceAccountResponseM
 /*
 IdentityGetServiceAccount Get a specific service account.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceAccountUid The ServiceAccountUid of a specific service account. 
- @return ApiIdentityGetServiceAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceAccountUid The ServiceAccountUid of a specific service account.
+	@return ApiIdentityGetServiceAccountRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountRequest {
 	return ApiIdentityGetServiceAccountRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		serviceAccountUid: serviceAccountUid,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceAccountResponseModel
+//
+//	@return ServiceAccountResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentityGetServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceAccountResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceAccountResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetServiceAccount")
@@ -5952,8 +5967,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5963,8 +5978,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5974,8 +5989,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5985,8 +6000,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5996,8 +6011,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6007,8 +6022,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6018,8 +6033,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6029,8 +6044,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6048,18 +6063,18 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountExecute(r ApiIdentity
 }
 
 type ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	serviceAccountUid string
+	ctx                                               context.Context
+	ApiService                                        *IdentityAPIsDAASService
+	citrixCustomerId                                  *string
+	citrixInstanceId                                  *string
+	serviceAccountUid                                 string
 	updateServiceAccountCapabilityPreviewRequestModel *UpdateServiceAccountCapabilityPreviewRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                                         *string
+	authorization                                     *string
+	citrixTransactionId                               *string
+	accept                                            *string
+	citrixLocale                                      *string
+	async                                             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6126,26 +6141,27 @@ IdentityGetServiceAccountCapabilityPatchPreview Get the service account capabili
 Get the service account capability patch preview before updating the service account.
 SetServiceAccount.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceAccountUid ID of the service account to test.
- @return ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceAccountUid ID of the service account to test.
+	@return ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPreview(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest {
 	return ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		serviceAccountUid: serviceAccountUid,
 	}
 }
 
 // Execute executes the request
-//  @return UpdateServiceAccountCapabilityPreviewResponseModel
+//
+//	@return UpdateServiceAccountCapabilityPreviewResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPreviewExecute(r ApiIdentityGetServiceAccountCapabilityPatchPreviewRequest) (*UpdateServiceAccountCapabilityPreviewResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpdateServiceAccountCapabilityPreviewResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpdateServiceAccountCapabilityPreviewResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetServiceAccountCapabilityPatchPreview")
@@ -6251,8 +6267,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6262,8 +6278,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6273,8 +6289,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6284,8 +6300,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6295,8 +6311,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -6306,8 +6322,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -6317,8 +6333,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6328,8 +6344,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6339,8 +6355,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6350,8 +6366,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6369,16 +6385,16 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountCapabilityPatchPrevie
 }
 
 type ApiIdentityGetServiceAccountTestReportRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	serviceAccountUid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	serviceAccountUid   string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6433,26 +6449,27 @@ IdentityGetServiceAccountTestReport Get the most recent test report for a servic
 Get the test report from the last run of
 TestServiceAccount.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceAccountUid ID of the service account.
- @return ApiIdentityGetServiceAccountTestReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceAccountUid ID of the service account.
+	@return ApiIdentityGetServiceAccountTestReportRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReport(ctx context.Context, serviceAccountUid string) ApiIdentityGetServiceAccountTestReportRequest {
 	return ApiIdentityGetServiceAccountTestReportRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		serviceAccountUid: serviceAccountUid,
 	}
 }
 
 // Execute executes the request
-//  @return TestReportResponseModel
+//
+//	@return TestReportResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r ApiIdentityGetServiceAccountTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TestReportResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TestReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetServiceAccountTestReport")
@@ -6550,8 +6567,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6561,8 +6578,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6572,8 +6589,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6583,8 +6600,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6594,8 +6611,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6605,8 +6622,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6616,8 +6633,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6627,8 +6644,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6646,16 +6663,16 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountTestReportExecute(r A
 }
 
 type ApiIdentityGetServiceAccountsRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6712,24 +6729,25 @@ func (r ApiIdentityGetServiceAccountsRequest) Execute() (*ServiceAccountResponse
 /*
 IdentityGetServiceAccounts Get all service accounts.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetServiceAccountsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetServiceAccountsRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccounts(ctx context.Context) ApiIdentityGetServiceAccountsRequest {
 	return ApiIdentityGetServiceAccountsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceAccountResponseModelCollection
+//
+//	@return ServiceAccountResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentityGetServiceAccountsRequest) (*ServiceAccountResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceAccountResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceAccountResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetServiceAccounts")
@@ -6829,8 +6847,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6840,8 +6858,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6851,8 +6869,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6862,8 +6880,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6873,8 +6891,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6884,8 +6902,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6895,8 +6913,8 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6914,19 +6932,19 @@ func (a *IdentityAPIsDAASService) IdentityGetServiceAccountsExecute(r ApiIdentit
 }
 
 type ApiIdentityGetSiteRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	site string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	site                 string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *string
 	propertiesToRetrieve *int32
 }
 
@@ -7005,26 +7023,27 @@ IdentityGetSite Get information about a single site
 
 Get information about a single site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param site The site to get details for.
- @return ApiIdentityGetSiteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param site The site to get details for.
+	@return ApiIdentityGetSiteRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetSite(ctx context.Context, site string) ApiIdentityGetSiteRequest {
 	return ApiIdentityGetSiteRequest{
 		ApiService: a,
-		ctx: ctx,
-		site: site,
+		ctx:        ctx,
+		site:       site,
 	}
 }
 
 // Execute executes the request
-//  @return IdentitySiteResponseModel
+//
+//	@return IdentitySiteResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteRequest) (*IdentitySiteResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentitySiteResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentitySiteResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetSite")
@@ -7134,8 +7153,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7145,8 +7164,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7156,8 +7175,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7167,8 +7186,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7178,8 +7197,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7189,8 +7208,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7200,8 +7219,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7211,8 +7230,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7230,23 +7249,23 @@ func (a *IdentityAPIsDAASService) IdentityGetSiteExecute(r ApiIdentityGetSiteReq
 }
 
 type ApiIdentityGetSitesRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
-	hostNameOrIP *string
-	site *[]string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *string
+	hostNameOrIP         *string
+	site                 *[]string
 	propertiesToRetrieve *int32
-	limit *int32
-	continuationToken *string
+	limit                *int32
+	continuationToken    *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7348,24 +7367,25 @@ IdentityGetSites Get list of sites from the identity provider
 
 Get list of sites from the identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetSitesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetSitesRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetSites(ctx context.Context) ApiIdentityGetSitesRequest {
 	return ApiIdentityGetSitesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentitySiteResponseModelCollection
+//
+//	@return IdentitySiteResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesRequest) (*IdentitySiteResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentitySiteResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentitySiteResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetSites")
@@ -7494,8 +7514,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7505,8 +7525,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7516,8 +7536,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7527,8 +7547,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7538,8 +7558,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7549,8 +7569,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7560,8 +7580,8 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7579,20 +7599,20 @@ func (a *IdentityAPIsDAASService) IdentityGetSitesExecute(r ApiIdentityGetSitesR
 }
 
 type ApiIdentityGetUserRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userOrGroup string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	forest *string
-	domain *string
-	directoryServerHint *string
+	ctx                  context.Context
+	ApiService           *IdentityAPIsDAASService
+	citrixCustomerId     *string
+	citrixInstanceId     *string
+	userOrGroup          string
+	userAgent            *string
+	authorization        *string
+	citrixTransactionId  *string
+	xAdminCredential     *string
+	accept               *string
+	citrixLocale         *string
+	forest               *string
+	domain               *string
+	directoryServerHint  *string
 	propertiesToRetrieve *int32
 }
 
@@ -7677,26 +7697,27 @@ IdentityGetUser Get a single user or group
 
 Get a single user or group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userOrGroup Identity of the user or group to get.
- @return ApiIdentityGetUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userOrGroup Identity of the user or group to get.
+	@return ApiIdentityGetUserRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetUser(ctx context.Context, userOrGroup string) ApiIdentityGetUserRequest {
 	return ApiIdentityGetUserRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		userOrGroup: userOrGroup,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityUserResponseModel
+//
+//	@return IdentityUserResponseModel
 func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserRequest) (*IdentityUserResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityUserResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityUserResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetUser")
@@ -7809,8 +7830,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7820,8 +7841,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7831,8 +7852,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7842,8 +7863,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7853,8 +7874,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7864,8 +7885,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7875,8 +7896,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7886,8 +7907,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7905,33 +7926,33 @@ func (a *IdentityAPIsDAASService) IdentityGetUserExecute(r ApiIdentityGetUserReq
 }
 
 type ApiIdentityGetUsersRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	provider *IdentityProviderType
-	forest *string
-	domain *string
-	tenant *string
-	user *[]string
-	startsWith *string
-	contains *string
-	matches *string
-	parentOU *string
-	recursive *bool
-	userType *IdentityUserType
-	directoryServerHint *string
-	propertiesToRetrieve *int32
-	limit *int32
-	continuationToken *string
-	async *bool
-	idpInstanceId *string
+	ctx                   context.Context
+	ApiService            *IdentityAPIsDAASService
+	citrixCustomerId      *string
+	citrixInstanceId      *string
+	userAgent             *string
+	authorization         *string
+	citrixTransactionId   *string
+	xAdminCredential      *string
+	accept                *string
+	citrixLocale          *string
+	provider              *IdentityProviderType
+	forest                *string
+	domain                *string
+	tenant                *string
+	user                  *[]string
+	startsWith            *string
+	contains              *string
+	matches               *string
+	parentOU              *string
+	recursive             *bool
+	userType              *IdentityUserType
+	directoryServerHint   *string
+	propertiesToRetrieve  *int32
+	limit                 *int32
+	continuationToken     *string
+	async                 *bool
+	idpInstanceId         *string
 	includeIdentityClaims *bool
 }
 
@@ -8100,24 +8121,25 @@ IdentityGetUsers Get users from identity provider
 
 Get users from identity provider.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityGetUsersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityGetUsersRequest
 */
 func (a *IdentityAPIsDAASService) IdentityGetUsers(ctx context.Context) ApiIdentityGetUsersRequest {
 	return ApiIdentityGetUsersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityUserResponseModelCollection
+//
+//	@return IdentityUserResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersRequest) (*IdentityUserResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityUserResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityUserResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityGetUsers")
@@ -8279,8 +8301,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8290,8 +8312,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8301,8 +8323,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8312,8 +8334,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8323,8 +8345,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8334,8 +8356,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8345,8 +8367,8 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8364,21 +8386,21 @@ func (a *IdentityAPIsDAASService) IdentityGetUsersExecute(r ApiIdentityGetUsersR
 }
 
 type ApiIdentityQueryAzureAdSecurityGroupsRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	azureAdTenantId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	azureAdTenantId     string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	xAccessToken *string
-	accept *string
-	citrixLocale *string
-	name *string
-	assigned *bool
-	maxCount *int32
-	serviceAccountUid *string
+	xAccessToken        *string
+	accept              *string
+	citrixLocale        *string
+	name                *string
+	assigned            *bool
+	maxCount            *int32
+	serviceAccountUid   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8462,26 +8484,27 @@ IdentityQueryAzureAdSecurityGroups Query AzureAD security group by user's input.
 
 When user's input all are empty, then all those assigned security group in a specific tenant it will be retrieved.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param azureAdTenantId The specific azure tenant id.
- @return ApiIdentityQueryAzureAdSecurityGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param azureAdTenantId The specific azure tenant id.
+	@return ApiIdentityQueryAzureAdSecurityGroupsRequest
 */
 func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroups(ctx context.Context, azureAdTenantId string) ApiIdentityQueryAzureAdSecurityGroupsRequest {
 	return ApiIdentityQueryAzureAdSecurityGroupsRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		azureAdTenantId: azureAdTenantId,
 	}
 }
 
 // Execute executes the request
-//  @return AzureADSecurityGroupResponseModelCollection
+//
+//	@return AzureADSecurityGroupResponseModelCollection
 func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r ApiIdentityQueryAzureAdSecurityGroupsRequest) (*AzureADSecurityGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AzureADSecurityGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AzureADSecurityGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityQueryAzureAdSecurityGroups")
@@ -8594,8 +8617,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8605,8 +8628,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8616,8 +8639,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8627,8 +8650,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8638,8 +8661,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8649,8 +8672,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8660,8 +8683,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8671,8 +8694,8 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8690,18 +8713,18 @@ func (a *IdentityAPIsDAASService) IdentityQueryAzureAdSecurityGroupsExecute(r Ap
 }
 
 type ApiIdentitySetServiceAccountRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	serviceAccountUid string
+	ctx                              context.Context
+	ApiService                       *IdentityAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
+	serviceAccountUid                string
 	updateServiceAccountRequestModel *UpdateServiceAccountRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
+	async                            *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8716,7 +8739,7 @@ func (r ApiIdentitySetServiceAccountRequest) CitrixInstanceId(citrixInstanceId s
 	return r
 }
 
-// The object of UpdateServiceAccountRequestModel used to set an existing service account. 
+// The object of UpdateServiceAccountRequestModel used to set an existing service account.
 func (r ApiIdentitySetServiceAccountRequest) UpdateServiceAccountRequestModel(updateServiceAccountRequestModel UpdateServiceAccountRequestModel) ApiIdentitySetServiceAccountRequest {
 	r.updateServiceAccountRequestModel = &updateServiceAccountRequestModel
 	return r
@@ -8752,7 +8775,7 @@ func (r ApiIdentitySetServiceAccountRequest) CitrixLocale(citrixLocale string) A
 	return r
 }
 
-// If &#x60;true&#x60;, this will be queried as a background task.             The task will have JobType SetServiceAccount.             When the task is complete it will redirect to GetJobResults.             
+// If &#x60;true&#x60;, this will be queried as a background task.             The task will have JobType SetServiceAccount.             When the task is complete it will redirect to GetJobResults.
 func (r ApiIdentitySetServiceAccountRequest) Async(async bool) ApiIdentitySetServiceAccountRequest {
 	r.async = &async
 	return r
@@ -8765,26 +8788,27 @@ func (r ApiIdentitySetServiceAccountRequest) Execute() (*ServiceAccountResponseM
 /*
 IdentitySetServiceAccount Set properties of an existing service account.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceAccountUid The ServiceAccountUid of service account. 
- @return ApiIdentitySetServiceAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceAccountUid The ServiceAccountUid of service account.
+	@return ApiIdentitySetServiceAccountRequest
 */
 func (a *IdentityAPIsDAASService) IdentitySetServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentitySetServiceAccountRequest {
 	return ApiIdentitySetServiceAccountRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		serviceAccountUid: serviceAccountUid,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceAccountResponseModel
+//
+//	@return ServiceAccountResponseModel
 func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentitySetServiceAccountRequest) (*ServiceAccountResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceAccountResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceAccountResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentitySetServiceAccount")
@@ -8890,8 +8914,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8901,8 +8925,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8912,8 +8936,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -8923,8 +8947,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8934,8 +8958,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -8945,8 +8969,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8956,8 +8980,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8967,8 +8991,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8978,8 +9002,8 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8997,17 +9021,17 @@ func (a *IdentityAPIsDAASService) IdentitySetServiceAccountExecute(r ApiIdentity
 }
 
 type ApiIdentityTestServiceAccountRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	serviceAccountUid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IdentityAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	serviceAccountUid   string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9069,26 +9093,27 @@ Run tests on a service account and create a test report.  Obtain the most
 recent report from
 GetServiceAccountTestReport.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param serviceAccountUid ID of the service account to test.
- @return ApiIdentityTestServiceAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param serviceAccountUid ID of the service account to test.
+	@return ApiIdentityTestServiceAccountRequest
 */
 func (a *IdentityAPIsDAASService) IdentityTestServiceAccount(ctx context.Context, serviceAccountUid string) ApiIdentityTestServiceAccountRequest {
 	return ApiIdentityTestServiceAccountRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		serviceAccountUid: serviceAccountUid,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceAccountTestResponseModel
+//
+//	@return ServiceAccountTestResponseModel
 func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentityTestServiceAccountRequest) (*ServiceAccountTestResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceAccountTestResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceAccountTestResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityTestServiceAccount")
@@ -9189,8 +9214,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9200,8 +9225,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9211,8 +9236,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9222,8 +9247,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9233,8 +9258,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9244,8 +9269,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9255,8 +9280,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9266,8 +9291,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9277,8 +9302,8 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9296,22 +9321,22 @@ func (a *IdentityAPIsDAASService) IdentityTestServiceAccountExecute(r ApiIdentit
 }
 
 type ApiIdentityUpdateMachineRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	machine string
-	forest *string
-	domain *string
+	ctx                               context.Context
+	ApiService                        *IdentityAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
+	machine                           string
+	forest                            *string
+	domain                            *string
 	identityUpdateMachineRequestModel *IdentityUpdateMachineRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	directoryServerHint *string
-	async *bool
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	xAdminCredential                  *string
+	accept                            *string
+	citrixLocale                      *string
+	directoryServerHint               *string
+	async                             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9401,26 +9426,27 @@ IdentityUpdateMachine Update a machine identity
 
 Update a machine identity.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param machine Machine identity to update.
- @return ApiIdentityUpdateMachineRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param machine Machine identity to update.
+	@return ApiIdentityUpdateMachineRequest
 */
 func (a *IdentityAPIsDAASService) IdentityUpdateMachine(ctx context.Context, machine string) ApiIdentityUpdateMachineRequest {
 	return ApiIdentityUpdateMachineRequest{
 		ApiService: a,
-		ctx: ctx,
-		machine: machine,
+		ctx:        ctx,
+		machine:    machine,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityMachineResponseModel
+//
+//	@return IdentityMachineResponseModel
 func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpdateMachineRequest) (*IdentityMachineResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityMachineResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityMachineResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityUpdateMachine")
@@ -9540,8 +9566,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9551,8 +9577,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9562,8 +9588,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9573,8 +9599,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9584,8 +9610,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9595,8 +9621,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9606,8 +9632,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9617,8 +9643,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9628,8 +9654,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9647,22 +9673,22 @@ func (a *IdentityAPIsDAASService) IdentityUpdateMachineExecute(r ApiIdentityUpda
 }
 
 type ApiIdentityUpdateUserRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	user string
-	forest *string
-	domain *string
+	ctx                            context.Context
+	ApiService                     *IdentityAPIsDAASService
+	citrixCustomerId               *string
+	citrixInstanceId               *string
+	user                           string
+	forest                         *string
+	domain                         *string
 	identityUpdateUserRequestModel *IdentityUpdateUserRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	xAdminCredential *string
-	accept *string
-	citrixLocale *string
-	directoryServerHint *string
-	async *bool
+	userAgent                      *string
+	authorization                  *string
+	citrixTransactionId            *string
+	xAdminCredential               *string
+	accept                         *string
+	citrixLocale                   *string
+	directoryServerHint            *string
+	async                          *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9752,26 +9778,27 @@ IdentityUpdateUser Update a user identity
 
 Update a user identity.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param user User identity to update.
- @return ApiIdentityUpdateUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param user User identity to update.
+	@return ApiIdentityUpdateUserRequest
 */
 func (a *IdentityAPIsDAASService) IdentityUpdateUser(ctx context.Context, user string) ApiIdentityUpdateUserRequest {
 	return ApiIdentityUpdateUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		user: user,
+		ctx:        ctx,
+		user:       user,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityUserResponseModel
+//
+//	@return IdentityUserResponseModel
 func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateUserRequest) (*IdentityUserResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityUserResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityUserResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityUpdateUser")
@@ -9891,8 +9918,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9902,8 +9929,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9913,8 +9940,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9924,8 +9951,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9935,8 +9962,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9946,8 +9973,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9957,8 +9984,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9968,8 +9995,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9979,8 +10006,8 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9998,16 +10025,16 @@ func (a *IdentityAPIsDAASService) IdentityUpdateUserExecute(r ApiIdentityUpdateU
 }
 
 type ApiIdentityValidateUserRequest struct {
-	ctx context.Context
-	ApiService *IdentityAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                              context.Context
+	ApiService                       *IdentityAPIsDAASService
+	citrixCustomerId                 *string
+	citrixInstanceId                 *string
 	identityValidateUserRequestModel *IdentityValidateUserRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                        *string
+	authorization                    *string
+	citrixTransactionId              *string
+	accept                           *string
+	citrixLocale                     *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10067,24 +10094,25 @@ IdentityValidateUser Validate a user's credentials
 
 Validate a user's credentials, and if valid, get information about the user account.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIdentityValidateUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIdentityValidateUserRequest
 */
 func (a *IdentityAPIsDAASService) IdentityValidateUser(ctx context.Context) ApiIdentityValidateUserRequest {
 	return ApiIdentityValidateUserRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IdentityUserResponseModel
+//
+//	@return IdentityUserResponseModel
 func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValidateUserRequest) (*IdentityUserResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IdentityUserResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IdentityUserResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIsDAASService.IdentityValidateUser")
@@ -10186,8 +10214,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10197,8 +10225,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10208,8 +10236,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10219,8 +10247,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -10230,8 +10258,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -10241,8 +10269,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10252,8 +10280,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10263,8 +10291,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10274,8 +10302,8 @@ func (a *IdentityAPIsDAASService) IdentityValidateUserExecute(r ApiIdentityValid
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

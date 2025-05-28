@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **UserVolumeSize** | Pointer to **NullableInt32** | Size of user storage volume | [optional] 
 **RootVolumeEncrypted** | Pointer to **bool** | Is operating system volume encrypted | [optional] 
 **UserVolumeEncrypted** | Pointer to **bool** | Is user storage volume encrypted | [optional] 
-**ComputeType** | Pointer to [**NullableAwsEdcWorkspaceCompute**](AwsEdcWorkspaceCompute.md) |  | [optional] 
-**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) |  | [optional] 
-**WorkspaceStatus** | Pointer to [**NullableAwsEdcWorkspaceState**](AwsEdcWorkspaceState.md) |  | [optional] 
+**ComputeType** | Pointer to [**NullableAwsEdcWorkspaceCompute**](AwsEdcWorkspaceCompute.md) | Compute size | [optional] 
+**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) | Running mode | [optional] 
+**WorkspaceStatus** | Pointer to [**NullableAwsEdcWorkspaceState**](AwsEdcWorkspaceState.md) | Status of workspace  Enum values PENDING, AVAILABLE, ADMIN_MAINTANCE, ERROR, STOPPED, STOPPING, SUSPENDED, TERMINATED, TERMINATING, STARTING, REBOOTING, MAINTENANCE, IMPARED, UNHEALTHY, UPDATING | [optional] 
 **ErrorMessage** | Pointer to **NullableString** | Error Message | [optional] 
 
 ## Methods

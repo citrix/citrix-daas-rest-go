@@ -144,7 +144,7 @@ func (o *SearchStartMenuApplicationsRequestModel) SetTagRestrictions(v []string)
 }
 
 func (o SearchStartMenuApplicationsRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -200,5 +200,3 @@ func (v *NullableSearchStartMenuApplicationsRequestModel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

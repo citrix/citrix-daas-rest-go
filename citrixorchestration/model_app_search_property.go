@@ -15,33 +15,33 @@ import (
 	"fmt"
 )
 
-// AppSearchProperty Application properties can be used for advanced application searches.             
+// AppSearchProperty Application properties can be used for advanced application searches.
 type AppSearchProperty string
 
 // List of AppSearchProperty
 const (
-	APPSEARCHPROPERTY_UID AppSearchProperty = "Uid"
-	APPSEARCHPROPERTY_CLIENT_FOLDER AppSearchProperty = "ClientFolder"
-	APPSEARCHPROPERTY_APPLICATION_GROUP AppSearchProperty = "ApplicationGroup"
-	APPSEARCHPROPERTY_NAME AppSearchProperty = "Name"
-	APPSEARCHPROPERTY_PATH AppSearchProperty = "Path"
-	APPSEARCHPROPERTY_BROWSER_NAME AppSearchProperty = "BrowserName"
-	APPSEARCHPROPERTY_COMMAND_LINE_ARGUMENTS AppSearchProperty = "CommandLineArguments"
-	APPSEARCHPROPERTY_DELIVERY_GROUP AppSearchProperty = "DeliveryGroup"
-	APPSEARCHPROPERTY_DESCRIPTION AppSearchProperty = "Description"
-	APPSEARCHPROPERTY_PUBLISHED_NAME AppSearchProperty = "PublishedName"
-	APPSEARCHPROPERTY_ENABLED AppSearchProperty = "Enabled"
-	APPSEARCHPROPERTY_MAX_TOTAL_INSTANCES AppSearchProperty = "MaxTotalInstances"
-	APPSEARCHPROPERTY_MAX_PER_USER_INSTANCES AppSearchProperty = "MaxPerUserInstances"
-	APPSEARCHPROPERTY_SHORTCUT_ADDED_TO_DESKTOP AppSearchProperty = "ShortcutAddedToDesktop"
-	APPSEARCHPROPERTY_SHORTCUT_ADDED_TO_START_MENU AppSearchProperty = "ShortcutAddedToStartMenu"
-	APPSEARCHPROPERTY_START_MENU_FOLDER AppSearchProperty = "StartMenuFolder"
-	APPSEARCHPROPERTY_TAGS AppSearchProperty = "Tags"
-	APPSEARCHPROPERTY_APPLICATION_TYPE AppSearchProperty = "ApplicationType"
-	APPSEARCHPROPERTY_VISIBLE AppSearchProperty = "Visible"
-	APPSEARCHPROPERTY_WAIT_FOR_PRINTER_CREATION AppSearchProperty = "WaitForPrinterCreation"
-	APPSEARCHPROPERTY_WORKING_DIRECTORY AppSearchProperty = "WorkingDirectory"
-	APPSEARCHPROPERTY_PACKAGED_APPLICATION_TYPE AppSearchProperty = "PackagedApplicationType"
+	APPSEARCHPROPERTY_UID                             AppSearchProperty = "Uid"
+	APPSEARCHPROPERTY_CLIENT_FOLDER                   AppSearchProperty = "ClientFolder"
+	APPSEARCHPROPERTY_APPLICATION_GROUP               AppSearchProperty = "ApplicationGroup"
+	APPSEARCHPROPERTY_NAME                            AppSearchProperty = "Name"
+	APPSEARCHPROPERTY_PATH                            AppSearchProperty = "Path"
+	APPSEARCHPROPERTY_BROWSER_NAME                    AppSearchProperty = "BrowserName"
+	APPSEARCHPROPERTY_COMMAND_LINE_ARGUMENTS          AppSearchProperty = "CommandLineArguments"
+	APPSEARCHPROPERTY_DELIVERY_GROUP                  AppSearchProperty = "DeliveryGroup"
+	APPSEARCHPROPERTY_DESCRIPTION                     AppSearchProperty = "Description"
+	APPSEARCHPROPERTY_PUBLISHED_NAME                  AppSearchProperty = "PublishedName"
+	APPSEARCHPROPERTY_ENABLED                         AppSearchProperty = "Enabled"
+	APPSEARCHPROPERTY_MAX_TOTAL_INSTANCES             AppSearchProperty = "MaxTotalInstances"
+	APPSEARCHPROPERTY_MAX_PER_USER_INSTANCES          AppSearchProperty = "MaxPerUserInstances"
+	APPSEARCHPROPERTY_SHORTCUT_ADDED_TO_DESKTOP       AppSearchProperty = "ShortcutAddedToDesktop"
+	APPSEARCHPROPERTY_SHORTCUT_ADDED_TO_START_MENU    AppSearchProperty = "ShortcutAddedToStartMenu"
+	APPSEARCHPROPERTY_START_MENU_FOLDER               AppSearchProperty = "StartMenuFolder"
+	APPSEARCHPROPERTY_TAGS                            AppSearchProperty = "Tags"
+	APPSEARCHPROPERTY_APPLICATION_TYPE                AppSearchProperty = "ApplicationType"
+	APPSEARCHPROPERTY_VISIBLE                         AppSearchProperty = "Visible"
+	APPSEARCHPROPERTY_WAIT_FOR_PRINTER_CREATION       AppSearchProperty = "WaitForPrinterCreation"
+	APPSEARCHPROPERTY_WORKING_DIRECTORY               AppSearchProperty = "WorkingDirectory"
+	APPSEARCHPROPERTY_PACKAGED_APPLICATION_TYPE       AppSearchProperty = "PackagedApplicationType"
 	APPSEARCHPROPERTY_PACKAGED_APPLICATION_VISIBILITY AppSearchProperty = "PackagedApplicationVisibility"
 )
 
@@ -78,7 +78,7 @@ func (v *AppSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppSearchProperty(value)
 	return nil
 }
@@ -144,4 +144,3 @@ func (v *NullableAppSearchProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

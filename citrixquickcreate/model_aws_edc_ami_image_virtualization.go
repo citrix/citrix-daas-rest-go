@@ -20,7 +20,7 @@ type AwsEdcAmiImageVirtualization string
 
 // List of AwsEdcAmiImageVirtualization
 const (
-	AWSEDCAMIIMAGEVIRTUALIZATION_HVM AwsEdcAmiImageVirtualization = "HVM"
+	AWSEDCAMIIMAGEVIRTUALIZATION_HVM         AwsEdcAmiImageVirtualization = "HVM"
 	AWSEDCAMIIMAGEVIRTUALIZATION_PARAVIRTUAL AwsEdcAmiImageVirtualization = "PARAVIRTUAL"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcAmiImageVirtualization) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// LogoffOption Logoff options for VDA upgrade.             
+// LogoffOption Logoff options for VDA upgrade.
 type LogoffOption string
 
 // List of LogoffOption
 const (
-	LOGOFFOPTION_DO_NOT_LOGOFF LogoffOption = "DoNotLogoff"
-	LOGOFFOPTION_ACTIVE_SESSIONS_ONLY LogoffOption = "ActiveSessionsOnly"
-	LOGOFFOPTION_DISCONNECTED_SESSIONS_ONLY LogoffOption = "DisconnectedSessionsOnly"
+	LOGOFFOPTION_DO_NOT_LOGOFF                    LogoffOption = "DoNotLogoff"
+	LOGOFFOPTION_ACTIVE_SESSIONS_ONLY             LogoffOption = "ActiveSessionsOnly"
+	LOGOFFOPTION_DISCONNECTED_SESSIONS_ONLY       LogoffOption = "DisconnectedSessionsOnly"
 	LOGOFFOPTION_ACTIVE_AND_DISCONNECTED_SESSIONS LogoffOption = "ActiveAndDisconnectedSessions"
 )
 
@@ -40,7 +40,7 @@ func (v *LogoffOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LogoffOption(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableLogoffOption) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

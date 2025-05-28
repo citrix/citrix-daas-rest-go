@@ -132,6 +132,7 @@ func (o *DelegatedAdminPermissionResponseModel) HasDescription() bool {
 func (o *DelegatedAdminPermissionResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *DelegatedAdminPermissionResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -191,7 +192,7 @@ func (o *DelegatedAdminPermissionResponseModel) SetOperations(v []string) {
 }
 
 func (o DelegatedAdminPermissionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -245,5 +246,3 @@ func (v *NullableDelegatedAdminPermissionResponseModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

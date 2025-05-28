@@ -1721,6 +1721,12 @@ components:
       type: object
     ErrorModel:
       additionalProperties: false
+      example:
+        detail: detail
+        type: type
+        parameters:
+        - key: parameters
+        - key: parameters
       properties:
         type:
           nullable: true

@@ -21,8 +21,8 @@ var _ MappedNullable = &MaintenanceCycleVmOperationJobSearchFilterGroupsRequestM
 type MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel struct {
 	SearchFilterGroupType *MaintenanceCycleVmOperationJobSearchFilterGroupType `json:"SearchFilterGroupType,omitempty"`
 	// The search filters in search filter group
-	SearchFilters []MaintenanceCycleVMOperationJobSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SearchFilterGroupsType *MaintenanceCycleVmOperationJobSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilters          []MaintenanceCycleVMOperationJobSearchFilterRequestModel `json:"SearchFilters,omitempty"`
+	SearchFilterGroupsType *MaintenanceCycleVmOperationJobSearchFilterGroupsType    `json:"SearchFilterGroupsType,omitempty"`
 	// The search filter group in search filter groups
 	SearchFilterGroups []MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel `json:"SearchFilterGroups,omitempty"`
 }
@@ -175,7 +175,7 @@ func (o *MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel) SetSearch
 }
 
 func (o MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableMaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel) U
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

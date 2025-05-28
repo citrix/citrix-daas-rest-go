@@ -20,7 +20,7 @@ type MaintenanceCycleSearchFilterGroupsType string
 
 // List of MaintenanceCycleSearchFilterGroupsType
 const (
-	MAINTENANCECYCLESEARCHFILTERGROUPSTYPE_OR MaintenanceCycleSearchFilterGroupsType = "Or"
+	MAINTENANCECYCLESEARCHFILTERGROUPSTYPE_OR  MaintenanceCycleSearchFilterGroupsType = "Or"
 	MAINTENANCECYCLESEARCHFILTERGROUPSTYPE_AND MaintenanceCycleSearchFilterGroupsType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *MaintenanceCycleSearchFilterGroupsType) UnmarshalJSON(src []byte) error
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MaintenanceCycleSearchFilterGroupsType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableMaintenanceCycleSearchFilterGroupsType) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

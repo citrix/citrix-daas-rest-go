@@ -101,6 +101,7 @@ func (o *CollectionModelOfAutoscaleGroupPluginModel) HasContinuationToken() bool
 func (o *CollectionModelOfAutoscaleGroupPluginModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionModelOfAutoscaleGroupPluginModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *CollectionModelOfAutoscaleGroupPluginModel) HasTotalItems() bool {
 func (o *CollectionModelOfAutoscaleGroupPluginModel) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionModelOfAutoscaleGroupPluginModel) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *CollectionModelOfAutoscaleGroupPluginModel) UnsetTotalItems() {
 }
 
 func (o CollectionModelOfAutoscaleGroupPluginModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCollectionModelOfAutoscaleGroupPluginModel) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

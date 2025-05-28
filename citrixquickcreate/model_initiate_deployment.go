@@ -19,11 +19,14 @@ var _ MappedNullable = &InitiateDeployment{}
 
 // InitiateDeployment Initiates deployment
 type InitiateDeployment struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// Hosting Connection Id
-	ConnectionId string `json:"connectionId"`
+	ConnectionId   string `json:"connectionId"`
 	DeploymentName string `json:"deploymentName"`
 }
+
+type _InitiateDeployment InitiateDeployment
 
 // NewInitiateDeployment instantiates a new InitiateDeployment object
 // This constructor will assign default values to properties that have it defined,
@@ -118,7 +121,7 @@ func (o *InitiateDeployment) SetDeploymentName(v string) {
 }
 
 func (o InitiateDeployment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -168,5 +171,3 @@ func (v *NullableInitiateDeployment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

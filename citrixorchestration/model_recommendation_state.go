@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// RecommendationState 
+// RecommendationState
 type RecommendationState string
 
 // List of RecommendationState
 const (
 	RECOMMENDATIONSTATE_UNKNOWN RecommendationState = "Unknown"
 	RECOMMENDATIONSTATE_DISMISS RecommendationState = "Dismiss"
-	RECOMMENDATIONSTATE_ACCEPT RecommendationState = "Accept"
+	RECOMMENDATIONSTATE_ACCEPT  RecommendationState = "Accept"
 )
 
 // All allowed values of RecommendationState enum
@@ -38,7 +38,7 @@ func (v *RecommendationState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = RecommendationState(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableRecommendationState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

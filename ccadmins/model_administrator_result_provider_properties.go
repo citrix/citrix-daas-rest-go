@@ -20,7 +20,7 @@ var _ MappedNullable = &AdministratorResultProviderProperties{}
 // AdministratorResultProviderProperties struct for AdministratorResultProviderProperties
 type AdministratorResultProviderProperties struct {
 	DisplayName NullableString `json:"displayName,omitempty"`
-	Tid NullableString `json:"tid,omitempty"`
+	Tid         NullableString `json:"tid,omitempty"`
 }
 
 // NewAdministratorResultProviderProperties instantiates a new AdministratorResultProviderProperties object
@@ -72,6 +72,7 @@ func (o *AdministratorResultProviderProperties) HasDisplayName() bool {
 func (o *AdministratorResultProviderProperties) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *AdministratorResultProviderProperties) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -114,6 +115,7 @@ func (o *AdministratorResultProviderProperties) HasTid() bool {
 func (o *AdministratorResultProviderProperties) SetTid(v string) {
 	o.Tid.Set(&v)
 }
+
 // SetTidNil sets the value for Tid to be an explicit nil
 func (o *AdministratorResultProviderProperties) SetTidNil() {
 	o.Tid.Set(nil)
@@ -125,7 +127,7 @@ func (o *AdministratorResultProviderProperties) UnsetTid() {
 }
 
 func (o AdministratorResultProviderProperties) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableAdministratorResultProviderProperties) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,8 +20,8 @@ var _ MappedNullable = &HypervisorAzureEnvironmentResponseModel{}
 // HypervisorAzureEnvironmentResponseModel Azure rm environment instance, which used for front end Azure environment show.
 type HypervisorAzureEnvironmentResponseModel struct {
 	// Environment display name which used to show on the front end. e.g. Azure Global, Azure China and Azure US Government.
-	EnvironmentDisplayName NullableString `json:"EnvironmentDisplayName,omitempty"`
-	EnvironmentName *AzureEnvironment `json:"EnvironmentName,omitempty"`
+	EnvironmentDisplayName NullableString    `json:"EnvironmentDisplayName,omitempty"`
+	EnvironmentName        *AzureEnvironment `json:"EnvironmentName,omitempty"`
 }
 
 // NewHypervisorAzureEnvironmentResponseModel instantiates a new HypervisorAzureEnvironmentResponseModel object
@@ -73,6 +73,7 @@ func (o *HypervisorAzureEnvironmentResponseModel) HasEnvironmentDisplayName() bo
 func (o *HypervisorAzureEnvironmentResponseModel) SetEnvironmentDisplayName(v string) {
 	o.EnvironmentDisplayName.Set(&v)
 }
+
 // SetEnvironmentDisplayNameNil sets the value for EnvironmentDisplayName to be an explicit nil
 func (o *HypervisorAzureEnvironmentResponseModel) SetEnvironmentDisplayNameNil() {
 	o.EnvironmentDisplayName.Set(nil)
@@ -116,7 +117,7 @@ func (o *HypervisorAzureEnvironmentResponseModel) SetEnvironmentName(v AzureEnvi
 }
 
 func (o HypervisorAzureEnvironmentResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +170,3 @@ func (v *NullableHypervisorAzureEnvironmentResponseModel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ var _ MappedNullable = &BackupRestoreScheduleRequestModel{}
 // BackupRestoreScheduleRequestModel struct for BackupRestoreScheduleRequestModel
 type BackupRestoreScheduleRequestModel struct {
 	// Name
-	Name string `json:"Name"`
-	Day *BackupRestoreScheduleDays `json:"Day,omitempty"`
+	Name string                     `json:"Name"`
+	Day  *BackupRestoreScheduleDays `json:"Day,omitempty"`
 	// Days in Week
-	DaysInWeek []BackupRestoreScheduleDays `json:"DaysInWeek,omitempty"`
-	DayInMonth *BackupRestoreScheduleDays `json:"DayInMonth,omitempty"`
+	DaysInWeek  []BackupRestoreScheduleDays `json:"DaysInWeek,omitempty"`
+	DayInMonth  *BackupRestoreScheduleDays  `json:"DayInMonth,omitempty"`
 	WeekInMonth *BackupRestoreScheduleWeeks `json:"WeekInMonth,omitempty"`
 	// Start Date
 	StartDate string `json:"StartDate"`
@@ -32,8 +32,8 @@ type BackupRestoreScheduleRequestModel struct {
 	FrequencyFactor int32 `json:"FrequencyFactor"`
 	// Description
 	Description NullableString `json:"Description,omitempty"`
-	// Enabled             
-	Enabled bool `json:"Enabled"`
+	// Enabled
+	Enabled   bool                           `json:"Enabled"`
 	Frequency BackupRestoreScheduleFrequency `json:"Frequency"`
 	// Start Time
 	StartTime string `json:"StartTime"`
@@ -298,6 +298,7 @@ func (o *BackupRestoreScheduleRequestModel) HasDescription() bool {
 func (o *BackupRestoreScheduleRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *BackupRestoreScheduleRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -405,7 +406,7 @@ func (o *BackupRestoreScheduleRequestModel) SetTimeZoneId(v string) {
 }
 
 func (o BackupRestoreScheduleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -474,5 +475,3 @@ func (v *NullableBackupRestoreScheduleRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,7 +20,7 @@ var _ MappedNullable = &TenantGroupLicenses{}
 // TenantGroupLicenses struct for TenantGroupLicenses
 type TenantGroupLicenses struct {
 	TenantId NullableString `json:"tenantId,omitempty"`
-	GroupIds []string `json:"groupIds,omitempty"`
+	GroupIds []string       `json:"groupIds,omitempty"`
 }
 
 // NewTenantGroupLicenses instantiates a new TenantGroupLicenses object
@@ -72,6 +72,7 @@ func (o *TenantGroupLicenses) HasTenantId() bool {
 func (o *TenantGroupLicenses) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *TenantGroupLicenses) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -103,7 +104,7 @@ func (o *TenantGroupLicenses) GetGroupIdsOk() ([]string, bool) {
 
 // HasGroupIds returns a boolean if a field has been set.
 func (o *TenantGroupLicenses) HasGroupIds() bool {
-	if o != nil && IsNil(o.GroupIds) {
+	if o != nil && !IsNil(o.GroupIds) {
 		return true
 	}
 
@@ -116,7 +117,7 @@ func (o *TenantGroupLicenses) SetGroupIds(v []string) {
 }
 
 func (o TenantGroupLicenses) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +170,3 @@ func (v *NullableTenantGroupLicenses) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

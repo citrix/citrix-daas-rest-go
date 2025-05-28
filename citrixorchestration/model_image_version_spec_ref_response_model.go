@@ -20,9 +20,9 @@ var _ MappedNullable = &ImageVersionSpecRefResponseModel{}
 // ImageVersionSpecRefResponseModel Image version specification reference.
 type ImageVersionSpecRefResponseModel struct {
 	// The Id of the image version specification.
-	Id string `json:"Id"`
-	PreparationType PreparationType `json:"PreparationType"`
-	ResourcePool HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
+	Id              string                                 `json:"Id"`
+	PreparationType PreparationType                        `json:"PreparationType"`
+	ResourcePool    HypervisorResourcePoolRefResponseModel `json:"ResourcePool"`
 }
 
 // NewImageVersionSpecRefResponseModel instantiates a new ImageVersionSpecRefResponseModel object
@@ -118,7 +118,7 @@ func (o *ImageVersionSpecRefResponseModel) SetResourcePool(v HypervisorResourceP
 }
 
 func (o ImageVersionSpecRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -168,5 +168,3 @@ func (v *NullableImageVersionSpecRefResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,23 +19,22 @@ import (
 	"strings"
 )
 
-
 // ActionsAPIsDAASService ActionsAPIsDAAS service
 type ActionsAPIsDAASService service
 
 type ApiActionsCancelActionRequest struct {
-	ctx context.Context
-	ApiService *ActionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	catalogNameOrId string
-	actionId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ActionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	catalogNameOrId     string
+	actionId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -80,7 +79,7 @@ func (r ApiActionsCancelActionRequest) CitrixLocale(citrixLocale string) ApiActi
 	return r
 }
 
-// If async calling. 
+// If async calling.
 func (r ApiActionsCancelActionRequest) Async(async bool) ApiActionsCancelActionRequest {
 	r.async = &async
 	return r
@@ -93,26 +92,26 @@ func (r ApiActionsCancelActionRequest) Execute() (*http.Response, error) {
 /*
 ActionsCancelAction Cancel the specified machine catalog and specified action.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param catalogNameOrId The machine catalog name or id. 
- @param actionId The action Id, the guid string value. 
- @return ApiActionsCancelActionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param catalogNameOrId The machine catalog name or id.
+	@param actionId The action Id, the guid string value.
+	@return ApiActionsCancelActionRequest
 */
 func (a *ActionsAPIsDAASService) ActionsCancelAction(ctx context.Context, catalogNameOrId string, actionId string) ApiActionsCancelActionRequest {
 	return ApiActionsCancelActionRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		catalogNameOrId: catalogNameOrId,
-		actionId: actionId,
+		actionId:        actionId,
 	}
 }
 
 // Execute executes the request
 func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelActionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsAPIsDAASService.ActionsCancelAction")
@@ -214,8 +213,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -225,8 +224,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -236,8 +235,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -247,8 +246,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -258,8 +257,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -269,8 +268,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -280,8 +279,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -291,8 +290,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -302,8 +301,8 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -312,17 +311,17 @@ func (a *ActionsAPIsDAASService) ActionsCancelActionExecute(r ApiActionsCancelAc
 }
 
 type ApiActionsDeleteActionRequest struct {
-	ctx context.Context
-	ApiService *ActionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	catalogNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ActionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	catalogNameOrId     string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -367,7 +366,7 @@ func (r ApiActionsDeleteActionRequest) CitrixLocale(citrixLocale string) ApiActi
 	return r
 }
 
-// If async calling. 
+// If async calling.
 func (r ApiActionsDeleteActionRequest) Async(async bool) ApiActionsDeleteActionRequest {
 	r.async = &async
 	return r
@@ -380,14 +379,14 @@ func (r ApiActionsDeleteActionRequest) Execute() (*http.Response, error) {
 /*
 ActionsDeleteAction Delete specified catalog actions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param catalogNameOrId The machine catalog name or id. 
- @return ApiActionsDeleteActionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param catalogNameOrId The machine catalog name or id.
+	@return ApiActionsDeleteActionRequest
 */
 func (a *ActionsAPIsDAASService) ActionsDeleteAction(ctx context.Context, catalogNameOrId string) ApiActionsDeleteActionRequest {
 	return ApiActionsDeleteActionRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		catalogNameOrId: catalogNameOrId,
 	}
 }
@@ -395,9 +394,9 @@ func (a *ActionsAPIsDAASService) ActionsDeleteAction(ctx context.Context, catalo
 // Execute executes the request
 func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteActionRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsAPIsDAASService.ActionsDeleteAction")
@@ -498,8 +497,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -509,8 +508,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -520,8 +519,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -531,8 +530,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -542,8 +541,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -553,8 +552,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -564,8 +563,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -575,8 +574,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -585,16 +584,16 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionExecute(r ApiActionsDeleteAc
 }
 
 type ApiActionsDeleteActionsRequest struct {
-	ctx context.Context
-	ApiService *ActionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ActionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -639,7 +638,7 @@ func (r ApiActionsDeleteActionsRequest) CitrixLocale(citrixLocale string) ApiAct
 	return r
 }
 
-// If async to request actions. 
+// If async to request actions.
 func (r ApiActionsDeleteActionsRequest) Async(async bool) ApiActionsDeleteActionsRequest {
 	r.async = &async
 	return r
@@ -652,22 +651,22 @@ func (r ApiActionsDeleteActionsRequest) Execute() (*http.Response, error) {
 /*
 ActionsDeleteActions Delete all completed machine catalog actions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiActionsDeleteActionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiActionsDeleteActionsRequest
 */
 func (a *ActionsAPIsDAASService) ActionsDeleteActions(ctx context.Context) ApiActionsDeleteActionsRequest {
 	return ApiActionsDeleteActionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteActionsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsAPIsDAASService.ActionsDeleteActions")
@@ -767,8 +766,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -778,8 +777,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -789,8 +788,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -800,8 +799,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -811,8 +810,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -822,8 +821,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -833,8 +832,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -844,8 +843,8 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -854,18 +853,18 @@ func (a *ActionsAPIsDAASService) ActionsDeleteActionsExecute(r ApiActionsDeleteA
 }
 
 type ApiActionsGetActionRequest struct {
-	ctx context.Context
-	ApiService *ActionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	catalogNameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ActionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	catalogNameOrId     string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	actionId *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	actionId            *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -910,13 +909,13 @@ func (r ApiActionsGetActionRequest) CitrixLocale(citrixLocale string) ApiActions
 	return r
 }
 
-// The action Id, the guid string value. 
+// The action Id, the guid string value.
 func (r ApiActionsGetActionRequest) ActionId(actionId string) ApiActionsGetActionRequest {
 	r.actionId = &actionId
 	return r
 }
 
-// If async calling. 
+// If async calling.
 func (r ApiActionsGetActionRequest) Async(async bool) ApiActionsGetActionRequest {
 	r.async = &async
 	return r
@@ -929,26 +928,27 @@ func (r ApiActionsGetActionRequest) Execute() (*ActionResponseModelCollection, *
 /*
 ActionsGetAction Get machine catalog actions by specified catalog name or id and action Id.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param catalogNameOrId The machine catalog name or id. 
- @return ApiActionsGetActionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param catalogNameOrId The machine catalog name or id.
+	@return ApiActionsGetActionRequest
 */
 func (a *ActionsAPIsDAASService) ActionsGetAction(ctx context.Context, catalogNameOrId string) ApiActionsGetActionRequest {
 	return ApiActionsGetActionRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		catalogNameOrId: catalogNameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ActionResponseModelCollection
+//
+//	@return ActionResponseModelCollection
 func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRequest) (*ActionResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ActionResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ActionResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsAPIsDAASService.ActionsGetAction")
@@ -1052,8 +1052,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1063,8 +1063,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1074,8 +1074,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1085,8 +1085,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1096,8 +1096,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1107,8 +1107,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1118,8 +1118,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1129,8 +1129,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1148,18 +1148,18 @@ func (a *ActionsAPIsDAASService) ActionsGetActionExecute(r ApiActionsGetActionRe
 }
 
 type ApiActionsGetActionByIdRequest struct {
-	ctx context.Context
-	ApiService *ActionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	catalogNameOrId string
-	actionId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ActionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	catalogNameOrId     string
+	actionId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1204,7 +1204,7 @@ func (r ApiActionsGetActionByIdRequest) CitrixLocale(citrixLocale string) ApiAct
 	return r
 }
 
-// If async calling. 
+// If async calling.
 func (r ApiActionsGetActionByIdRequest) Async(async bool) ApiActionsGetActionByIdRequest {
 	r.async = &async
 	return r
@@ -1217,28 +1217,29 @@ func (r ApiActionsGetActionByIdRequest) Execute() (*ActionResponseModel, *http.R
 /*
 ActionsGetActionById Get specified machine catalog specified action.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param catalogNameOrId The machine catalog name or id. 
- @param actionId The action Id, the guid string value. 
- @return ApiActionsGetActionByIdRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param catalogNameOrId The machine catalog name or id.
+	@param actionId The action Id, the guid string value.
+	@return ApiActionsGetActionByIdRequest
 */
 func (a *ActionsAPIsDAASService) ActionsGetActionById(ctx context.Context, catalogNameOrId string, actionId string) ApiActionsGetActionByIdRequest {
 	return ApiActionsGetActionByIdRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		catalogNameOrId: catalogNameOrId,
-		actionId: actionId,
+		actionId:        actionId,
 	}
 }
 
 // Execute executes the request
-//  @return ActionResponseModel
+//
+//	@return ActionResponseModel
 func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActionByIdRequest) (*ActionResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ActionResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ActionResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsAPIsDAASService.ActionsGetActionById")
@@ -1340,8 +1341,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1351,8 +1352,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1362,8 +1363,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1373,8 +1374,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1384,8 +1385,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1395,8 +1396,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1406,8 +1407,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1417,8 +1418,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1436,18 +1437,18 @@ func (a *ActionsAPIsDAASService) ActionsGetActionByIdExecute(r ApiActionsGetActi
 }
 
 type ApiActionsGetActionsRequest struct {
-	ctx context.Context
-	ApiService *ActionsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ActionsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1492,7 +1493,7 @@ func (r ApiActionsGetActionsRequest) CitrixLocale(citrixLocale string) ApiAction
 	return r
 }
 
-// If async to request actions. 
+// If async to request actions.
 func (r ApiActionsGetActionsRequest) Async(async bool) ApiActionsGetActionsRequest {
 	r.async = &async
 	return r
@@ -1517,24 +1518,25 @@ func (r ApiActionsGetActionsRequest) Execute() (*ActionResponseModelCollection, 
 /*
 ActionsGetActions Get all machine catalog actions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiActionsGetActionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiActionsGetActionsRequest
 */
 func (a *ActionsAPIsDAASService) ActionsGetActions(ctx context.Context) ApiActionsGetActionsRequest {
 	return ApiActionsGetActionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ActionResponseModelCollection
+//
+//	@return ActionResponseModelCollection
 func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActionsRequest) (*ActionResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ActionResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ActionResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ActionsAPIsDAASService.ActionsGetActions")
@@ -1640,8 +1642,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1651,8 +1653,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1662,8 +1664,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1673,8 +1675,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1684,8 +1686,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1695,8 +1697,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1706,8 +1708,8 @@ func (a *ActionsAPIsDAASService) ActionsGetActionsExecute(r ApiActionsGetActions
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

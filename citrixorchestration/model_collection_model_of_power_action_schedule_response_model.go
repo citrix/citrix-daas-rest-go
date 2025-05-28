@@ -101,6 +101,7 @@ func (o *CollectionModelOfPowerActionScheduleResponseModel) HasContinuationToken
 func (o *CollectionModelOfPowerActionScheduleResponseModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionModelOfPowerActionScheduleResponseModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *CollectionModelOfPowerActionScheduleResponseModel) HasTotalItems() bool
 func (o *CollectionModelOfPowerActionScheduleResponseModel) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionModelOfPowerActionScheduleResponseModel) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *CollectionModelOfPowerActionScheduleResponseModel) UnsetTotalItems() {
 }
 
 func (o CollectionModelOfPowerActionScheduleResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCollectionModelOfPowerActionScheduleResponseModel) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,12 +20,15 @@ var _ MappedNullable = &TaskBase{}
 
 // TaskBase Base class for Tasks
 type TaskBase struct {
+	// The type of task
 	TaskType TaskType `json:"taskType"`
 	// Task Id
 	TaskId NullableString `json:"taskId,omitempty"`
+	// The state of the task
 	TaskState NullableTaskState `json:"taskState,omitempty"`
 	// Status of the task
 	Status NullableString `json:"status,omitempty"`
+	// The type of account the task is associated with
 	AccountType *AccountType `json:"accountType,omitempty"`
 	// DateTime when the task started
 	StartedAt NullableTime `json:"startedAt,omitempty"`
@@ -38,6 +41,8 @@ type TaskBase struct {
 	// ID of the transaction the task is associated with
 	TransactionId NullableString `json:"transactionId,omitempty"`
 }
+
+type _TaskBase TaskBase
 
 // NewTaskBase instantiates a new TaskBase object
 // This constructor will assign default values to properties that have it defined,
@@ -113,6 +118,7 @@ func (o *TaskBase) HasTaskId() bool {
 func (o *TaskBase) SetTaskId(v string) {
 	o.TaskId.Set(&v)
 }
+
 // SetTaskIdNil sets the value for TaskId to be an explicit nil
 func (o *TaskBase) SetTaskIdNil() {
 	o.TaskId.Set(nil)
@@ -155,6 +161,7 @@ func (o *TaskBase) HasTaskState() bool {
 func (o *TaskBase) SetTaskState(v TaskState) {
 	o.TaskState.Set(&v)
 }
+
 // SetTaskStateNil sets the value for TaskState to be an explicit nil
 func (o *TaskBase) SetTaskStateNil() {
 	o.TaskState.Set(nil)
@@ -197,6 +204,7 @@ func (o *TaskBase) HasStatus() bool {
 func (o *TaskBase) SetStatus(v string) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *TaskBase) SetStatusNil() {
 	o.Status.Set(nil)
@@ -271,6 +279,7 @@ func (o *TaskBase) HasStartedAt() bool {
 func (o *TaskBase) SetStartedAt(v time.Time) {
 	o.StartedAt.Set(&v)
 }
+
 // SetStartedAtNil sets the value for StartedAt to be an explicit nil
 func (o *TaskBase) SetStartedAtNil() {
 	o.StartedAt.Set(nil)
@@ -313,6 +322,7 @@ func (o *TaskBase) HasCompletedAt() bool {
 func (o *TaskBase) SetCompletedAt(v time.Time) {
 	o.CompletedAt.Set(&v)
 }
+
 // SetCompletedAtNil sets the value for CompletedAt to be an explicit nil
 func (o *TaskBase) SetCompletedAtNil() {
 	o.CompletedAt.Set(nil)
@@ -344,7 +354,7 @@ func (o *TaskBase) GetWarningsOk() ([]TaskWarning, bool) {
 
 // HasWarnings returns a boolean if a field has been set.
 func (o *TaskBase) HasWarnings() bool {
-	if o != nil && IsNil(o.Warnings) {
+	if o != nil && !IsNil(o.Warnings) {
 		return true
 	}
 
@@ -377,7 +387,7 @@ func (o *TaskBase) GetErrorsOk() ([]TaskError, bool) {
 
 // HasErrors returns a boolean if a field has been set.
 func (o *TaskBase) HasErrors() bool {
-	if o != nil && IsNil(o.Errors) {
+	if o != nil && !IsNil(o.Errors) {
 		return true
 	}
 
@@ -421,6 +431,7 @@ func (o *TaskBase) HasTransactionId() bool {
 func (o *TaskBase) SetTransactionId(v string) {
 	o.TransactionId.Set(&v)
 }
+
 // SetTransactionIdNil sets the value for TransactionId to be an explicit nil
 func (o *TaskBase) SetTransactionIdNil() {
 	o.TransactionId.Set(nil)
@@ -432,7 +443,7 @@ func (o *TaskBase) UnsetTransactionId() {
 }
 
 func (o TaskBase) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -507,5 +518,3 @@ func (v *NullableTaskBase) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

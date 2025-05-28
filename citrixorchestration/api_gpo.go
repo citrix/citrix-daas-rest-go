@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // GpoDAASService GpoDAAS service
 type GpoDAASService service
 
 type ApiGpoComparePoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	withDefaults *bool
-	requestBody *[]string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	withDefaults        *bool
+	requestBody         *[]string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -98,24 +97,25 @@ func (r ApiGpoComparePoliciesRequest) Execute() (*ComparisonResponseContract, *h
 /*
 GpoComparePolicies Compare policies. The policies can be from different policy sets.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoComparePoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoComparePoliciesRequest
 */
 func (a *GpoDAASService) GpoComparePolicies(ctx context.Context) ApiGpoComparePoliciesRequest {
 	return ApiGpoComparePoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ComparisonResponseContract
+//
+//	@return ComparisonResponseContract
 func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesRequest) (*ComparisonResponseContract, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ComparisonResponseContract
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ComparisonResponseContract
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoComparePolicies")
@@ -221,8 +221,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -232,8 +232,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -243,8 +243,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -254,8 +254,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -265,8 +265,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -276,8 +276,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -287,8 +287,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -298,8 +298,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -309,8 +309,8 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -328,17 +328,17 @@ func (a *GpoDAASService) GpoComparePoliciesExecute(r ApiGpoComparePoliciesReques
 }
 
 type ApiGpoCopyGpoPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	withFilters *bool
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	withFilters         *bool
 	copyPoliciesRequest *CopyPoliciesRequest
-	userAgent *string
-	authorization *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -401,22 +401,22 @@ func (r ApiGpoCopyGpoPoliciesRequest) Execute() (*http.Response, error) {
 /*
 GpoCopyGpoPolicies Copy some policies of a policy set to other policy sets.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoCopyGpoPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoCopyGpoPoliciesRequest
 */
 func (a *GpoDAASService) GpoCopyGpoPolicies(ctx context.Context) ApiGpoCopyGpoPoliciesRequest {
 	return ApiGpoCopyGpoPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoCopyGpoPolicies")
@@ -522,8 +522,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -533,8 +533,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -544,8 +544,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -555,8 +555,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -566,8 +566,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -577,8 +577,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -588,8 +588,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -599,8 +599,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -610,8 +610,8 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -620,18 +620,18 @@ func (a *GpoDAASService) GpoCopyGpoPoliciesExecute(r ApiGpoCopyGpoPoliciesReques
 }
 
 type ApiGpoCopyGpoPolicySetRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid string
-	name *string
-	withFilters *bool
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       string
+	name                *string
+	withFilters         *bool
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -695,26 +695,27 @@ func (r ApiGpoCopyGpoPolicySetRequest) Execute() (*PolicySetResponse, *http.Resp
 /*
 GpoCopyGpoPolicySet Create a new GPO policy set by copying an existing policy set. The policies and settings in each policy are copied to the new policy set. Optionally, the filters in the policies may be copied. Regardless of the type of the source policy set, the resulting policy set is always of type DeliveryGroupPolicies.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policySetGuid GUID of the existing policy set
- @return ApiGpoCopyGpoPolicySetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policySetGuid GUID of the existing policy set
+	@return ApiGpoCopyGpoPolicySetRequest
 */
 func (a *GpoDAASService) GpoCopyGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoCopyGpoPolicySetRequest {
 	return ApiGpoCopyGpoPolicySetRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		policySetGuid: policySetGuid,
 	}
 }
 
 // Execute executes the request
-//  @return PolicySetResponse
+//
+//	@return PolicySetResponse
 func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PolicySetResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PolicySetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoCopyGpoPolicySet")
@@ -820,8 +821,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -831,8 +832,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -842,8 +843,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -853,8 +854,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -864,8 +865,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -875,8 +876,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -886,8 +887,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -897,8 +898,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -908,8 +909,8 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -927,17 +928,17 @@ func (a *GpoDAASService) GpoCopyGpoPolicySetExecute(r ApiGpoCopyGpoPolicySetRequ
 }
 
 type ApiGpoCreateGpoFilterRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policyGuid *string
-	filterRequest *FilterRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyGuid          *string
+	filterRequest       *FilterRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1001,24 +1002,25 @@ func (r ApiGpoCreateGpoFilterRequest) Execute() (*FilterResponse, *http.Response
 /*
 GpoCreateGpoFilter Create a filter in a policy. Filters cannot be created in a policy in a policy set of type SiteTemplates or CustomTemplates.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoCreateGpoFilterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoCreateGpoFilterRequest
 */
 func (a *GpoDAASService) GpoCreateGpoFilter(ctx context.Context) ApiGpoCreateGpoFilterRequest {
 	return ApiGpoCreateGpoFilterRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return FilterResponse
+//
+//	@return FilterResponse
 func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterRequest) (*FilterResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FilterResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FilterResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoCreateGpoFilter")
@@ -1124,8 +1126,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1135,8 +1137,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1146,8 +1148,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1157,8 +1159,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1168,8 +1170,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1179,8 +1181,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1190,8 +1192,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1201,8 +1203,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1212,8 +1214,8 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1231,17 +1233,17 @@ func (a *GpoDAASService) GpoCreateGpoFilterExecute(r ApiGpoCreateGpoFilterReques
 }
 
 type ApiGpoCreateGpoPolicyRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid *string
-	policyRequest *PolicyRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       *string
+	policyRequest       *PolicyRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1305,24 +1307,25 @@ func (r ApiGpoCreateGpoPolicyRequest) Execute() (*PolicyResponse, *http.Response
 /*
 GpoCreateGpoPolicy Create a new policy. Policies cannot be created in the policy set of type SiteTemplates.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoCreateGpoPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoCreateGpoPolicyRequest
 */
 func (a *GpoDAASService) GpoCreateGpoPolicy(ctx context.Context) ApiGpoCreateGpoPolicyRequest {
 	return ApiGpoCreateGpoPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PolicyResponse
+//
+//	@return PolicyResponse
 func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyRequest) (*PolicyResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PolicyResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PolicyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoCreateGpoPolicy")
@@ -1428,8 +1431,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1439,8 +1442,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1450,8 +1453,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1461,8 +1464,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1472,8 +1475,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1483,8 +1486,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1494,8 +1497,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1505,8 +1508,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1516,8 +1519,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1535,16 +1538,16 @@ func (a *GpoDAASService) GpoCreateGpoPolicyExecute(r ApiGpoCreateGpoPolicyReques
 }
 
 type ApiGpoCreateGpoPolicySetRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetRequest *PolicySetRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetRequest    *PolicySetRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1602,24 +1605,25 @@ func (r ApiGpoCreateGpoPolicySetRequest) Execute() (*PolicySetResponse, *http.Re
 /*
 GpoCreateGpoPolicySet Create a new GPO policy set. Only a policy set of type DeliveryGroupPolicies can be created.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoCreateGpoPolicySetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoCreateGpoPolicySetRequest
 */
 func (a *GpoDAASService) GpoCreateGpoPolicySet(ctx context.Context) ApiGpoCreateGpoPolicySetRequest {
 	return ApiGpoCreateGpoPolicySetRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PolicySetResponse
+//
+//	@return PolicySetResponse
 func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PolicySetResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PolicySetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoCreateGpoPolicySet")
@@ -1721,8 +1725,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1732,8 +1736,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1743,8 +1747,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1754,8 +1758,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1765,8 +1769,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1776,8 +1780,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1787,8 +1791,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1798,8 +1802,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1809,8 +1813,8 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1828,17 +1832,17 @@ func (a *GpoDAASService) GpoCreateGpoPolicySetExecute(r ApiGpoCreateGpoPolicySet
 }
 
 type ApiGpoCreateGpoSettingRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policyGuid *string
-	settingRequest *SettingRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyGuid          *string
+	settingRequest      *SettingRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1902,24 +1906,25 @@ func (r ApiGpoCreateGpoSettingRequest) Execute() (*SettingResponse, *http.Respon
 /*
 GpoCreateGpoSetting Create a setting in a policy. Settings cannot be created in the policy set of type SiteTemplates.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoCreateGpoSettingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoCreateGpoSettingRequest
 */
 func (a *GpoDAASService) GpoCreateGpoSetting(ctx context.Context) ApiGpoCreateGpoSettingRequest {
 	return ApiGpoCreateGpoSettingRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SettingResponse
+//
+//	@return SettingResponse
 func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequest) (*SettingResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SettingResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SettingResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoCreateGpoSetting")
@@ -2025,8 +2030,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2036,8 +2041,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2047,8 +2052,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2058,8 +2063,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2069,8 +2074,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2080,8 +2085,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2091,8 +2096,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2102,8 +2107,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2113,8 +2118,8 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2132,16 +2137,16 @@ func (a *GpoDAASService) GpoCreateGpoSettingExecute(r ApiGpoCreateGpoSettingRequ
 }
 
 type ApiGpoDeleteGpoFilterRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	filterGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	filterGuid          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2193,14 +2198,14 @@ func (r ApiGpoDeleteGpoFilterRequest) Execute() (*http.Response, error) {
 /*
 GpoDeleteGpoFilter Delete an existing filter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filterGuid The GUID of the filter to be deleted
- @return ApiGpoDeleteGpoFilterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param filterGuid The GUID of the filter to be deleted
+	@return ApiGpoDeleteGpoFilterRequest
 */
 func (a *GpoDAASService) GpoDeleteGpoFilter(ctx context.Context, filterGuid string) ApiGpoDeleteGpoFilterRequest {
 	return ApiGpoDeleteGpoFilterRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		filterGuid: filterGuid,
 	}
 }
@@ -2208,9 +2213,9 @@ func (a *GpoDAASService) GpoDeleteGpoFilter(ctx context.Context, filterGuid stri
 // Execute executes the request
 func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoDeleteGpoFilter")
@@ -2308,8 +2313,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2319,8 +2324,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2330,8 +2335,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2341,8 +2346,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2352,8 +2357,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2363,8 +2368,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2374,8 +2379,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2385,8 +2390,8 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2395,16 +2400,16 @@ func (a *GpoDAASService) GpoDeleteGpoFilterExecute(r ApiGpoDeleteGpoFilterReques
 }
 
 type ApiGpoDeleteGpoPolicyRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policyGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyGuid          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2456,14 +2461,14 @@ func (r ApiGpoDeleteGpoPolicyRequest) Execute() (*http.Response, error) {
 /*
 GpoDeleteGpoPolicy Delete an existing GPO policy. A policy in the policy set of type SiteTemplates cannot be deleted. The Unfiltered policy in the policy set of type SitePolicies cannot be deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policyGuid GUID of the policy to be deleted
- @return ApiGpoDeleteGpoPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policyGuid GUID of the policy to be deleted
+	@return ApiGpoDeleteGpoPolicyRequest
 */
 func (a *GpoDAASService) GpoDeleteGpoPolicy(ctx context.Context, policyGuid string) ApiGpoDeleteGpoPolicyRequest {
 	return ApiGpoDeleteGpoPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		policyGuid: policyGuid,
 	}
 }
@@ -2471,9 +2476,9 @@ func (a *GpoDAASService) GpoDeleteGpoPolicy(ctx context.Context, policyGuid stri
 // Execute executes the request
 func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoDeleteGpoPolicy")
@@ -2571,8 +2576,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2582,8 +2587,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2593,8 +2598,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2604,8 +2609,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2615,8 +2620,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2626,8 +2631,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2637,8 +2642,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2648,8 +2653,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2658,16 +2663,16 @@ func (a *GpoDAASService) GpoDeleteGpoPolicyExecute(r ApiGpoDeleteGpoPolicyReques
 }
 
 type ApiGpoDeleteGpoPolicySetRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2719,14 +2724,14 @@ func (r ApiGpoDeleteGpoPolicySetRequest) Execute() (*http.Response, error) {
 /*
 GpoDeleteGpoPolicySet Delete an existing GPO policy set. Only policy sets of type DeliveryGroupPolicies can be deleted. Policies in the policy set are deleted if a policy set is deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policySetGuid The GUID of the policy set to be deleted
- @return ApiGpoDeleteGpoPolicySetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policySetGuid The GUID of the policy set to be deleted
+	@return ApiGpoDeleteGpoPolicySetRequest
 */
 func (a *GpoDAASService) GpoDeleteGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoDeleteGpoPolicySetRequest {
 	return ApiGpoDeleteGpoPolicySetRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		policySetGuid: policySetGuid,
 	}
 }
@@ -2734,9 +2739,9 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySet(ctx context.Context, policySetGui
 // Execute executes the request
 func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoDeleteGpoPolicySet")
@@ -2834,8 +2839,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2845,8 +2850,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2856,8 +2861,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2867,8 +2872,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -2878,8 +2883,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2889,8 +2894,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2900,8 +2905,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2911,8 +2916,8 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2921,16 +2926,16 @@ func (a *GpoDAASService) GpoDeleteGpoPolicySetExecute(r ApiGpoDeleteGpoPolicySet
 }
 
 type ApiGpoDeleteGpoSettingRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	settingGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	settingGuid         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2982,14 +2987,14 @@ func (r ApiGpoDeleteGpoSettingRequest) Execute() (*http.Response, error) {
 /*
 GpoDeleteGpoSetting Delete a setting. Settings in the policy set of type SiteTemplates cannot be deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param settingGuid GUID of the setting to be deleted
- @return ApiGpoDeleteGpoSettingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param settingGuid GUID of the setting to be deleted
+	@return ApiGpoDeleteGpoSettingRequest
 */
 func (a *GpoDAASService) GpoDeleteGpoSetting(ctx context.Context, settingGuid string) ApiGpoDeleteGpoSettingRequest {
 	return ApiGpoDeleteGpoSettingRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		settingGuid: settingGuid,
 	}
 }
@@ -2997,9 +3002,9 @@ func (a *GpoDAASService) GpoDeleteGpoSetting(ctx context.Context, settingGuid st
 // Execute executes the request
 func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoDeleteGpoSetting")
@@ -3097,8 +3102,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3108,8 +3113,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3119,8 +3124,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3130,8 +3135,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3141,8 +3146,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3152,8 +3157,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3163,8 +3168,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3174,8 +3179,8 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3184,16 +3189,16 @@ func (a *GpoDAASService) GpoDeleteGpoSettingExecute(r ApiGpoDeleteGpoSettingRequ
 }
 
 type ApiGpoDisableGpoPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	requestBody *[]string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	requestBody         *[]string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3251,22 +3256,22 @@ func (r ApiGpoDisableGpoPoliciesRequest) Execute() (*http.Response, error) {
 /*
 GpoDisableGpoPolicies Disable some policies of a policy set.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoDisableGpoPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoDisableGpoPoliciesRequest
 */
 func (a *GpoDAASService) GpoDisableGpoPolicies(ctx context.Context) ApiGpoDisableGpoPoliciesRequest {
 	return ApiGpoDisableGpoPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPoliciesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoDisableGpoPolicies")
@@ -3368,8 +3373,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3379,8 +3384,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3390,8 +3395,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3401,8 +3406,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3412,8 +3417,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3423,8 +3428,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3434,8 +3439,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3445,8 +3450,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3456,8 +3461,8 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3466,16 +3471,16 @@ func (a *GpoDAASService) GpoDisableGpoPoliciesExecute(r ApiGpoDisableGpoPolicies
 }
 
 type ApiGpoEnableGpoPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	requestBody *[]string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	requestBody         *[]string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3533,22 +3538,22 @@ func (r ApiGpoEnableGpoPoliciesRequest) Execute() (*http.Response, error) {
 /*
 GpoEnableGpoPolicies Enable some policies of a policy set.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoEnableGpoPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoEnableGpoPoliciesRequest
 */
 func (a *GpoDAASService) GpoEnableGpoPolicies(ctx context.Context) ApiGpoEnableGpoPoliciesRequest {
 	return ApiGpoEnableGpoPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoEnableGpoPolicies")
@@ -3650,8 +3655,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3661,8 +3666,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3672,8 +3677,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3683,8 +3688,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3694,8 +3699,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3705,8 +3710,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3716,8 +3721,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3727,8 +3732,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3738,8 +3743,8 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3748,15 +3753,15 @@ func (a *GpoDAASService) GpoEnableGpoPoliciesExecute(r ApiGpoEnableGpoPoliciesRe
 }
 
 type ApiGpoGetFilterDefinitionsRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3808,24 +3813,25 @@ func (r ApiGpoGetFilterDefinitionsRequest) Execute() (*CollectionEnvelopeOfFilte
 /*
 GpoGetFilterDefinitions Get all filter definitions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoGetFilterDefinitionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoGetFilterDefinitionsRequest
 */
 func (a *GpoDAASService) GpoGetFilterDefinitions(ctx context.Context) ApiGpoGetFilterDefinitionsRequest {
 	return ApiGpoGetFilterDefinitionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfFilterDefinition
+//
+//	@return CollectionEnvelopeOfFilterDefinition
 func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinitionsRequest) (*CollectionEnvelopeOfFilterDefinition, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfFilterDefinition
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfFilterDefinition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoGetFilterDefinitions")
@@ -3922,8 +3928,8 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3933,8 +3939,8 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3944,8 +3950,8 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3955,8 +3961,8 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3966,8 +3972,8 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3977,8 +3983,8 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3988,8 +3994,8 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4007,21 +4013,21 @@ func (a *GpoDAASService) GpoGetFilterDefinitionsExecute(r ApiGpoGetFilterDefinit
 }
 
 type ApiGpoGetSettingDefinitionsRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	isLean *bool
-	limit *int32
-	isAscending *bool
-	namePattern *string
-	isUserSetting *bool
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	isLean              *bool
+	limit               *int32
+	isAscending         *bool
+	namePattern         *string
+	isUserSetting       *bool
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4084,13 +4090,13 @@ func (r ApiGpoGetSettingDefinitionsRequest) IsAscending(isAscending bool) ApiGpo
 	return r
 }
 
-// Specify a regular expression to match the internal setting name. The default is match all names.             
+// Specify a regular expression to match the internal setting name. The default is match all names.
 func (r ApiGpoGetSettingDefinitionsRequest) NamePattern(namePattern string) ApiGpoGetSettingDefinitionsRequest {
 	r.namePattern = &namePattern
 	return r
 }
 
-// Specify the target of applying the settings. If it&#39;s set to true, only user settings are retrieved. If it&#39;s set to false, only computer settings are retrieved. If not specified, both kinds of settings are retrieved. The default is to retrieve both kinds of settings.             
+// Specify the target of applying the settings. If it&#39;s set to true, only user settings are retrieved. If it&#39;s set to false, only computer settings are retrieved. If not specified, both kinds of settings are retrieved. The default is to retrieve both kinds of settings.
 func (r ApiGpoGetSettingDefinitionsRequest) IsUserSetting(isUserSetting bool) ApiGpoGetSettingDefinitionsRequest {
 	r.isUserSetting = &isUserSetting
 	return r
@@ -4109,24 +4115,25 @@ func (r ApiGpoGetSettingDefinitionsRequest) Execute() (*SettingDefinitionEnvelop
 /*
 GpoGetSettingDefinitions Get setting definitions. If isLean is set to true, only basic session information is returned. EnumType, VdaVersions, VersionDetails, and Explanation are not retrieved. If limit is set to -1 or a number larger than the number of settings available, all entries are retrieved. If limit is set to a positive integer smaller than the number of settings available, the specified number of settings are retrieved.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoGetSettingDefinitionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoGetSettingDefinitionsRequest
 */
 func (a *GpoDAASService) GpoGetSettingDefinitions(ctx context.Context) ApiGpoGetSettingDefinitionsRequest {
 	return ApiGpoGetSettingDefinitionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SettingDefinitionEnvelope
+//
+//	@return SettingDefinitionEnvelope
 func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefinitionsRequest) (*SettingDefinitionEnvelope, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SettingDefinitionEnvelope
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SettingDefinitionEnvelope
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoGetSettingDefinitions")
@@ -4241,8 +4248,8 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4252,8 +4259,8 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4263,8 +4270,8 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4274,8 +4281,8 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4285,8 +4292,8 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4296,8 +4303,8 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4307,8 +4314,8 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4326,16 +4333,16 @@ func (a *GpoDAASService) GpoGetSettingDefinitionsExecute(r ApiGpoGetSettingDefin
 }
 
 type ApiGpoGetSettingFullDetailRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	settingName *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	settingName         *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4393,24 +4400,25 @@ func (r ApiGpoGetSettingFullDetailRequest) Execute() (*SettingDefinition, *http.
 /*
 GpoGetSettingFullDetail Get full detail of a setting definition.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoGetSettingFullDetailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoGetSettingFullDetailRequest
 */
 func (a *GpoDAASService) GpoGetSettingFullDetail(ctx context.Context) ApiGpoGetSettingFullDetailRequest {
 	return ApiGpoGetSettingFullDetailRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SettingDefinition
+//
+//	@return SettingDefinition
 func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDetailRequest) (*SettingDefinition, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SettingDefinition
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SettingDefinition
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoGetSettingFullDetail")
@@ -4511,8 +4519,8 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4522,8 +4530,8 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4533,8 +4541,8 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4544,8 +4552,8 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4555,8 +4563,8 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4566,8 +4574,8 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4577,8 +4585,8 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -4596,17 +4604,17 @@ func (a *GpoDAASService) GpoGetSettingFullDetailExecute(r ApiGpoGetSettingFullDe
 }
 
 type ApiGpoMoveGpoPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	toPolicySet *string
-	requestBody *[]string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	toPolicySet         *string
+	requestBody         *[]string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4670,22 +4678,22 @@ func (r ApiGpoMoveGpoPoliciesRequest) Execute() (*http.Response, error) {
 /*
 GpoMoveGpoPolicies Move some policies of a policy set to another policy set.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoMoveGpoPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoMoveGpoPoliciesRequest
 */
 func (a *GpoDAASService) GpoMoveGpoPolicies(ctx context.Context) ApiGpoMoveGpoPoliciesRequest {
 	return ApiGpoMoveGpoPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoMoveGpoPolicies")
@@ -4791,8 +4799,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -4802,8 +4810,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -4813,8 +4821,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -4824,8 +4832,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -4835,8 +4843,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -4846,8 +4854,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -4857,8 +4865,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -4868,8 +4876,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -4879,8 +4887,8 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -4889,17 +4897,17 @@ func (a *GpoDAASService) GpoMoveGpoPoliciesExecute(r ApiGpoMoveGpoPoliciesReques
 }
 
 type ApiGpoRankGpoPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid *string
-	requestBody *[]string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       *string
+	requestBody         *[]string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -4963,24 +4971,25 @@ func (r ApiGpoRankGpoPoliciesRequest) Execute() (bool, *http.Response, error) {
 /*
 GpoRankGpoPolicies Specify new priority order for all existing policies in a policy set. All the policies in the policy set must be specified, even if the priorities of only some of the policies are changed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoRankGpoPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoRankGpoPoliciesRequest
 */
 func (a *GpoDAASService) GpoRankGpoPolicies(ctx context.Context) ApiGpoRankGpoPoliciesRequest {
 	return ApiGpoRankGpoPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoRankGpoPolicies")
@@ -5086,8 +5095,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5097,8 +5106,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5108,8 +5117,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5119,8 +5128,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -5130,8 +5139,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -5141,8 +5150,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5152,8 +5161,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5163,8 +5172,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5174,8 +5183,8 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5193,16 +5202,16 @@ func (a *GpoDAASService) GpoRankGpoPoliciesExecute(r ApiGpoRankGpoPoliciesReques
 }
 
 type ApiGpoReadGpoFilterRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	filterGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	filterGuid          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5254,26 +5263,27 @@ func (r ApiGpoReadGpoFilterRequest) Execute() (*FilterResponse, *http.Response, 
 /*
 GpoReadGpoFilter Read a specific filter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filterGuid The GUID of the filter to be read
- @return ApiGpoReadGpoFilterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param filterGuid The GUID of the filter to be read
+	@return ApiGpoReadGpoFilterRequest
 */
 func (a *GpoDAASService) GpoReadGpoFilter(ctx context.Context, filterGuid string) ApiGpoReadGpoFilterRequest {
 	return ApiGpoReadGpoFilterRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		filterGuid: filterGuid,
 	}
 }
 
 // Execute executes the request
-//  @return FilterResponse
+//
+//	@return FilterResponse
 func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (*FilterResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FilterResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FilterResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoFilter")
@@ -5371,8 +5381,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5382,8 +5392,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5393,8 +5403,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -5404,8 +5414,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5415,8 +5425,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5426,8 +5436,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5437,8 +5447,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5448,8 +5458,8 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5467,16 +5477,16 @@ func (a *GpoDAASService) GpoReadGpoFilterExecute(r ApiGpoReadGpoFilterRequest) (
 }
 
 type ApiGpoReadGpoFiltersRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policyGuid *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyGuid          *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5534,24 +5544,25 @@ func (r ApiGpoReadGpoFiltersRequest) Execute() (*CollectionEnvelopeOfFilterRespo
 /*
 GpoReadGpoFilters Read filters defined in a policy. A policy in a policy set of type SiteTemplates or CustomTemplates does not have filters.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoReadGpoFiltersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoReadGpoFiltersRequest
 */
 func (a *GpoDAASService) GpoReadGpoFilters(ctx context.Context) ApiGpoReadGpoFiltersRequest {
 	return ApiGpoReadGpoFiltersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfFilterResponse
+//
+//	@return CollectionEnvelopeOfFilterResponse
 func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest) (*CollectionEnvelopeOfFilterResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfFilterResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfFilterResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoFilters")
@@ -5652,8 +5663,8 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5663,8 +5674,8 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5674,8 +5685,8 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5685,8 +5696,8 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5696,8 +5707,8 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5707,8 +5718,8 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -5718,8 +5729,8 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -5737,18 +5748,18 @@ func (a *GpoDAASService) GpoReadGpoFiltersExecute(r ApiGpoReadGpoFiltersRequest)
 }
 
 type ApiGpoReadGpoPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	withSettings *bool
-	withFilters *bool
+	accept              *string
+	citrixLocale        *string
+	withSettings        *bool
+	withFilters         *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -5818,24 +5829,25 @@ func (r ApiGpoReadGpoPoliciesRequest) Execute() (*CollectionEnvelopeOfPolicyResp
 /*
 GpoReadGpoPolicies Read all policies defined in a policy set. Policy templates don't have filters.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoReadGpoPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoReadGpoPoliciesRequest
 */
 func (a *GpoDAASService) GpoReadGpoPolicies(ctx context.Context) ApiGpoReadGpoPoliciesRequest {
 	return ApiGpoReadGpoPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfPolicyResponse
+//
+//	@return CollectionEnvelopeOfPolicyResponse
 func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesRequest) (*CollectionEnvelopeOfPolicyResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfPolicyResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfPolicyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoPolicies")
@@ -5942,8 +5954,8 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -5953,8 +5965,8 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -5964,8 +5976,8 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -5975,8 +5987,8 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -5986,8 +5998,8 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -5997,8 +6009,8 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6008,8 +6020,8 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6027,18 +6039,18 @@ func (a *GpoDAASService) GpoReadGpoPoliciesExecute(r ApiGpoReadGpoPoliciesReques
 }
 
 type ApiGpoReadGpoPolicyRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policyGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyGuid          string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	withSettings *bool
-	withFilters *bool
+	accept              *string
+	citrixLocale        *string
+	withSettings        *bool
+	withFilters         *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6102,26 +6114,27 @@ func (r ApiGpoReadGpoPolicyRequest) Execute() (*PolicyResponse, *http.Response, 
 /*
 GpoReadGpoPolicy Read a policy. A policy template doesn't have filters.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policyGuid GUID of the policy to be read
- @return ApiGpoReadGpoPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policyGuid GUID of the policy to be read
+	@return ApiGpoReadGpoPolicyRequest
 */
 func (a *GpoDAASService) GpoReadGpoPolicy(ctx context.Context, policyGuid string) ApiGpoReadGpoPolicyRequest {
 	return ApiGpoReadGpoPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		policyGuid: policyGuid,
 	}
 }
 
 // Execute executes the request
-//  @return PolicyResponse
+//
+//	@return PolicyResponse
 func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (*PolicyResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PolicyResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PolicyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoPolicy")
@@ -6225,8 +6238,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6236,8 +6249,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6247,8 +6260,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6258,8 +6271,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6269,8 +6282,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6280,8 +6293,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6291,8 +6304,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6302,8 +6315,8 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6321,17 +6334,17 @@ func (a *GpoDAASService) GpoReadGpoPolicyExecute(r ApiGpoReadGpoPolicyRequest) (
 }
 
 type ApiGpoReadGpoPolicySetRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	withPolicies *bool
+	accept              *string
+	citrixLocale        *string
+	withPolicies        *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6389,26 +6402,27 @@ func (r ApiGpoReadGpoPolicySetRequest) Execute() (*PolicySetResponse, *http.Resp
 /*
 GpoReadGpoPolicySet Read a GPO policy set.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policySetGuid GUID of the policy set to read
- @return ApiGpoReadGpoPolicySetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policySetGuid GUID of the policy set to read
+	@return ApiGpoReadGpoPolicySetRequest
 */
 func (a *GpoDAASService) GpoReadGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoReadGpoPolicySetRequest {
 	return ApiGpoReadGpoPolicySetRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		policySetGuid: policySetGuid,
 	}
 }
 
 // Execute executes the request
-//  @return PolicySetResponse
+//
+//	@return PolicySetResponse
 func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequest) (*PolicySetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PolicySetResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PolicySetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoPolicySet")
@@ -6509,8 +6523,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6520,8 +6534,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6531,8 +6545,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -6542,8 +6556,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6553,8 +6567,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6564,8 +6578,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6575,8 +6589,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6586,8 +6600,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6605,15 +6619,15 @@ func (a *GpoDAASService) GpoReadGpoPolicySetExecute(r ApiGpoReadGpoPolicySetRequ
 }
 
 type ApiGpoReadGpoPolicySetsRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6665,24 +6679,25 @@ func (r ApiGpoReadGpoPolicySetsRequest) Execute() (*CollectionEnvelopeOfPolicySe
 /*
 GpoReadGpoPolicySets Get all GPO policy sets in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoReadGpoPolicySetsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoReadGpoPolicySetsRequest
 */
 func (a *GpoDAASService) GpoReadGpoPolicySets(ctx context.Context) ApiGpoReadGpoPolicySetsRequest {
 	return ApiGpoReadGpoPolicySetsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfPolicySetResponse
+//
+//	@return CollectionEnvelopeOfPolicySetResponse
 func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRequest) (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfPolicySetResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfPolicySetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoPolicySets")
@@ -6779,8 +6794,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -6790,8 +6805,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -6801,8 +6816,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -6812,8 +6827,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -6823,8 +6838,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -6834,8 +6849,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -6845,8 +6860,8 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -6864,16 +6879,16 @@ func (a *GpoDAASService) GpoReadGpoPolicySetsExecute(r ApiGpoReadGpoPolicySetsRe
 }
 
 type ApiGpoReadGpoSettingRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	settingGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	settingGuid         string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -6925,26 +6940,27 @@ func (r ApiGpoReadGpoSettingRequest) Execute() (*SettingResponse, *http.Response
 /*
 GpoReadGpoSetting Read a specific setting.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param settingGuid GUID of the setting to be read
- @return ApiGpoReadGpoSettingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param settingGuid GUID of the setting to be read
+	@return ApiGpoReadGpoSettingRequest
 */
 func (a *GpoDAASService) GpoReadGpoSetting(ctx context.Context, settingGuid string) ApiGpoReadGpoSettingRequest {
 	return ApiGpoReadGpoSettingRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		settingGuid: settingGuid,
 	}
 }
 
 // Execute executes the request
-//  @return SettingResponse
+//
+//	@return SettingResponse
 func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest) (*SettingResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SettingResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SettingResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoSetting")
@@ -7042,8 +7058,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7053,8 +7069,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7064,8 +7080,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -7075,8 +7091,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7086,8 +7102,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7097,8 +7113,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7108,8 +7124,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7119,8 +7135,8 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7138,16 +7154,16 @@ func (a *GpoDAASService) GpoReadGpoSettingExecute(r ApiGpoReadGpoSettingRequest)
 }
 
 type ApiGpoReadGpoSettingsRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policyGuid *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyGuid          *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7205,24 +7221,25 @@ func (r ApiGpoReadGpoSettingsRequest) Execute() (*CollectionEnvelopeOfSettingRes
 /*
 GpoReadGpoSettings Read settings defined in a policy.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoReadGpoSettingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoReadGpoSettingsRequest
 */
 func (a *GpoDAASService) GpoReadGpoSettings(ctx context.Context) ApiGpoReadGpoSettingsRequest {
 	return ApiGpoReadGpoSettingsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfSettingResponse
+//
+//	@return CollectionEnvelopeOfSettingResponse
 func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsRequest) (*CollectionEnvelopeOfSettingResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfSettingResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfSettingResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoReadGpoSettings")
@@ -7323,8 +7340,8 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7334,8 +7351,8 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7345,8 +7362,8 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7356,8 +7373,8 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7367,8 +7384,8 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7378,8 +7395,8 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7389,8 +7406,8 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7408,16 +7425,16 @@ func (a *GpoDAASService) GpoReadGpoSettingsExecute(r ApiGpoReadGpoSettingsReques
 }
 
 type ApiGpoRemoveGpoPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	requestBody *[]string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	requestBody         *[]string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7475,22 +7492,22 @@ func (r ApiGpoRemoveGpoPoliciesRequest) Execute() (*http.Response, error) {
 /*
 GpoRemoveGpoPolicies Remove some policies of a policy set.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoRemoveGpoPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoRemoveGpoPoliciesRequest
 */
 func (a *GpoDAASService) GpoRemoveGpoPolicies(ctx context.Context) ApiGpoRemoveGpoPoliciesRequest {
 	return ApiGpoRemoveGpoPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoRemoveGpoPolicies")
@@ -7592,8 +7609,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7603,8 +7620,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7614,8 +7631,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7625,8 +7642,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7636,8 +7653,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -7647,8 +7664,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7658,8 +7675,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7669,8 +7686,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7680,8 +7697,8 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -7690,17 +7707,17 @@ func (a *GpoDAASService) GpoRemoveGpoPoliciesExecute(r ApiGpoRemoveGpoPoliciesRe
 }
 
 type ApiGpoRunSimulationRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid *string
+	ctx                       context.Context
+	ApiService                *GpoDAASService
+	citrixCustomerId          *string
+	citrixInstanceId          *string
+	policySetGuid             *string
 	simulationRequestContract *SimulationRequestContract
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                 *string
+	authorization             *string
+	citrixTransactionId       *string
+	accept                    *string
+	citrixLocale              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -7764,24 +7781,25 @@ func (r ApiGpoRunSimulationRequest) Execute() ([]SimulationResponseContract, *ht
 /*
 GpoRunSimulation Simulate policy application.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoRunSimulationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoRunSimulationRequest
 */
 func (a *GpoDAASService) GpoRunSimulation(ctx context.Context) ApiGpoRunSimulationRequest {
 	return ApiGpoRunSimulationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []SimulationResponseContract
+//
+//	@return []SimulationResponseContract
 func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) ([]SimulationResponseContract, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SimulationResponseContract
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []SimulationResponseContract
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoRunSimulation")
@@ -7887,8 +7905,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -7898,8 +7916,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -7909,8 +7927,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -7920,8 +7938,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -7931,8 +7949,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -7942,8 +7960,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -7953,8 +7971,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -7964,8 +7982,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -7975,8 +7993,8 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -7994,16 +8012,16 @@ func (a *GpoDAASService) GpoRunSimulationExecute(r ApiGpoRunSimulationRequest) (
 }
 
 type ApiGpoRunValidationRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	all *bool
+	accept              *string
+	citrixLocale        *string
+	all                 *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8061,24 +8079,25 @@ func (r ApiGpoRunValidationRequest) Execute() ([]GpoTestPolicyData, *http.Respon
 /*
 GpoRunValidation Check the site policies to ensure that they can be successfully converted to the new GPO objects. If an error exists in the value of a setting or filter, the error must be fixed before the policy data can be converted to new GPO setting, filter, and policy objects. The validation is done only on the site policies.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoRunValidationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoRunValidationRequest
 */
 func (a *GpoDAASService) GpoRunValidation(ctx context.Context) ApiGpoRunValidationRequest {
 	return ApiGpoRunValidationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []GpoTestPolicyData
+//
+//	@return []GpoTestPolicyData
 func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) ([]GpoTestPolicyData, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []GpoTestPolicyData
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []GpoTestPolicyData
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoRunValidation")
@@ -8178,8 +8197,8 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8189,8 +8208,8 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8200,8 +8219,8 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8211,8 +8230,8 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8222,8 +8241,8 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8233,8 +8252,8 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8244,8 +8263,8 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8263,19 +8282,19 @@ func (a *GpoDAASService) GpoRunValidationExecute(r ApiGpoRunValidationRequest) (
 }
 
 type ApiGpoSearchFiltersRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	filterSearch *FilterSearch
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	filterSearch        *FilterSearch
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8351,24 +8370,25 @@ func (r ApiGpoSearchFiltersRequest) Execute() (*CollectionEnvelopeOfFilterRespon
 /*
 GpoSearchFilters Perform an advanced search for GPO filters.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoSearchFiltersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoSearchFiltersRequest
 */
 func (a *GpoDAASService) GpoSearchFilters(ctx context.Context) ApiGpoSearchFiltersRequest {
 	return ApiGpoSearchFiltersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfFilterResponse
+//
+//	@return CollectionEnvelopeOfFilterResponse
 func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (*CollectionEnvelopeOfFilterResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfFilterResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfFilterResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoSearchFilters")
@@ -8479,8 +8499,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8490,8 +8510,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8501,8 +8521,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8512,8 +8532,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8523,8 +8543,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -8534,8 +8554,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8545,8 +8565,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8556,8 +8576,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8567,8 +8587,8 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8586,19 +8606,19 @@ func (a *GpoDAASService) GpoSearchFiltersExecute(r ApiGpoSearchFiltersRequest) (
 }
 
 type ApiGpoSearchPoliciesRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySearch *PolicySearch
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySearch        *PolicySearch
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8674,24 +8694,25 @@ func (r ApiGpoSearchPoliciesRequest) Execute() (*CollectionEnvelopeOfPolicyRespo
 /*
 GpoSearchPolicies Perform an advanced search for GPO policies.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoSearchPoliciesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoSearchPoliciesRequest
 */
 func (a *GpoDAASService) GpoSearchPolicies(ctx context.Context) ApiGpoSearchPoliciesRequest {
 	return ApiGpoSearchPoliciesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfPolicyResponse
+//
+//	@return CollectionEnvelopeOfPolicyResponse
 func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest) (*CollectionEnvelopeOfPolicyResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfPolicyResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfPolicyResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoSearchPolicies")
@@ -8802,8 +8823,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -8813,8 +8834,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -8824,8 +8845,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -8835,8 +8856,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -8846,8 +8867,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -8857,8 +8878,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -8868,8 +8889,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -8879,8 +8900,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -8890,8 +8911,8 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -8909,19 +8930,19 @@ func (a *GpoDAASService) GpoSearchPoliciesExecute(r ApiGpoSearchPoliciesRequest)
 }
 
 type ApiGpoSearchPolicySetsRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetSearch *PolicySetSearch
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetSearch     *PolicySetSearch
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -8997,24 +9018,25 @@ func (r ApiGpoSearchPolicySetsRequest) Execute() (*CollectionEnvelopeOfPolicySet
 /*
 GpoSearchPolicySets Perform an advanced search for GPO policy sets.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoSearchPolicySetsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoSearchPolicySetsRequest
 */
 func (a *GpoDAASService) GpoSearchPolicySets(ctx context.Context) ApiGpoSearchPolicySetsRequest {
 	return ApiGpoSearchPolicySetsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfPolicySetResponse
+//
+//	@return CollectionEnvelopeOfPolicySetResponse
 func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequest) (*CollectionEnvelopeOfPolicySetResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfPolicySetResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfPolicySetResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoSearchPolicySets")
@@ -9125,8 +9147,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9136,8 +9158,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9147,8 +9169,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9158,8 +9180,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9169,8 +9191,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9180,8 +9202,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9191,8 +9213,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9202,8 +9224,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9213,8 +9235,8 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9232,19 +9254,19 @@ func (a *GpoDAASService) GpoSearchPolicySetsExecute(r ApiGpoSearchPolicySetsRequ
 }
 
 type ApiGpoSearchSettingsRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	settingSearch *SettingSearch
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	settingSearch       *SettingSearch
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9320,24 +9342,25 @@ func (r ApiGpoSearchSettingsRequest) Execute() (*CollectionEnvelopeOfSettingResp
 /*
 GpoSearchSettings Perform an advanced search for GPO settings.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGpoSearchSettingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGpoSearchSettingsRequest
 */
 func (a *GpoDAASService) GpoSearchSettings(ctx context.Context) ApiGpoSearchSettingsRequest {
 	return ApiGpoSearchSettingsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CollectionEnvelopeOfSettingResponse
+//
+//	@return CollectionEnvelopeOfSettingResponse
 func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest) (*CollectionEnvelopeOfSettingResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CollectionEnvelopeOfSettingResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CollectionEnvelopeOfSettingResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoSearchSettings")
@@ -9448,8 +9471,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9459,8 +9482,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9470,8 +9493,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9481,8 +9504,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -9492,8 +9515,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9503,8 +9526,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9514,8 +9537,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9525,8 +9548,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9536,8 +9559,8 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -9555,17 +9578,17 @@ func (a *GpoDAASService) GpoSearchSettingsExecute(r ApiGpoSearchSettingsRequest)
 }
 
 type ApiGpoUpdateGpoFilterRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	filterGuid string
-	filterRequest *FilterRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	filterGuid          string
+	filterRequest       *FilterRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9623,14 +9646,14 @@ func (r ApiGpoUpdateGpoFilterRequest) Execute() (*http.Response, error) {
 /*
 GpoUpdateGpoFilter Update an existing filter.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filterGuid The GUID of the filter to be updated
- @return ApiGpoUpdateGpoFilterRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param filterGuid The GUID of the filter to be updated
+	@return ApiGpoUpdateGpoFilterRequest
 */
 func (a *GpoDAASService) GpoUpdateGpoFilter(ctx context.Context, filterGuid string) ApiGpoUpdateGpoFilterRequest {
 	return ApiGpoUpdateGpoFilterRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		filterGuid: filterGuid,
 	}
 }
@@ -9638,9 +9661,9 @@ func (a *GpoDAASService) GpoUpdateGpoFilter(ctx context.Context, filterGuid stri
 // Execute executes the request
 func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoUpdateGpoFilter")
@@ -9743,8 +9766,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -9754,8 +9777,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -9765,8 +9788,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -9776,8 +9799,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -9787,8 +9810,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -9798,8 +9821,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -9809,8 +9832,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -9820,8 +9843,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -9831,8 +9854,8 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -9841,17 +9864,17 @@ func (a *GpoDAASService) GpoUpdateGpoFilterExecute(r ApiGpoUpdateGpoFilterReques
 }
 
 type ApiGpoUpdateGpoPolicyRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policyGuid string
-	policyBodyRequest *PolicyBodyRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policyGuid          string
+	policyBodyRequest   *PolicyBodyRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -9909,14 +9932,14 @@ func (r ApiGpoUpdateGpoPolicyRequest) Execute() (*http.Response, error) {
 /*
 GpoUpdateGpoPolicy Update a policy. Only the policy body is updated.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policyGuid GUID of the policy to be updated
- @return ApiGpoUpdateGpoPolicyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policyGuid GUID of the policy to be updated
+	@return ApiGpoUpdateGpoPolicyRequest
 */
 func (a *GpoDAASService) GpoUpdateGpoPolicy(ctx context.Context, policyGuid string) ApiGpoUpdateGpoPolicyRequest {
 	return ApiGpoUpdateGpoPolicyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		policyGuid: policyGuid,
 	}
 }
@@ -9924,9 +9947,9 @@ func (a *GpoDAASService) GpoUpdateGpoPolicy(ctx context.Context, policyGuid stri
 // Execute executes the request
 func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoUpdateGpoPolicy")
@@ -10029,8 +10052,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10040,8 +10063,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10051,8 +10074,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10062,8 +10085,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10073,8 +10096,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -10084,8 +10107,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10095,8 +10118,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10106,8 +10129,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10117,8 +10140,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10127,17 +10150,17 @@ func (a *GpoDAASService) GpoUpdateGpoPolicyExecute(r ApiGpoUpdateGpoPolicyReques
 }
 
 type ApiGpoUpdateGpoPolicySetRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid string
-	policySetRequest *PolicySetRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       string
+	policySetRequest    *PolicySetRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10195,14 +10218,14 @@ func (r ApiGpoUpdateGpoPolicySetRequest) Execute() (*http.Response, error) {
 /*
 GpoUpdateGpoPolicySet Update an existing GPO policy set.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policySetGuid The GUID of the policy set to update
- @return ApiGpoUpdateGpoPolicySetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policySetGuid The GUID of the policy set to update
+	@return ApiGpoUpdateGpoPolicySetRequest
 */
 func (a *GpoDAASService) GpoUpdateGpoPolicySet(ctx context.Context, policySetGuid string) ApiGpoUpdateGpoPolicySetRequest {
 	return ApiGpoUpdateGpoPolicySetRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		policySetGuid: policySetGuid,
 	}
 }
@@ -10210,9 +10233,9 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySet(ctx context.Context, policySetGui
 // Execute executes the request
 func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySetRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoUpdateGpoPolicySet")
@@ -10315,8 +10338,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10326,8 +10349,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10337,8 +10360,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10348,8 +10371,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10359,8 +10382,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -10370,8 +10393,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10381,8 +10404,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10392,8 +10415,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10403,8 +10426,8 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10413,17 +10436,17 @@ func (a *GpoDAASService) GpoUpdateGpoPolicySetExecute(r ApiGpoUpdateGpoPolicySet
 }
 
 type ApiGpoUpdateGpoSettingRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	settingGuid string
-	settingRequest *SettingRequest
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	settingGuid         string
+	settingRequest      *SettingRequest
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10481,14 +10504,14 @@ func (r ApiGpoUpdateGpoSettingRequest) Execute() (*http.Response, error) {
 /*
 GpoUpdateGpoSetting Update a setting. Settings in the policy set of type SiteTemplates cannot be updated.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param settingGuid GUID of the setting to be updated
- @return ApiGpoUpdateGpoSettingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param settingGuid GUID of the setting to be updated
+	@return ApiGpoUpdateGpoSettingRequest
 */
 func (a *GpoDAASService) GpoUpdateGpoSetting(ctx context.Context, settingGuid string) ApiGpoUpdateGpoSettingRequest {
 	return ApiGpoUpdateGpoSettingRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:  a,
+		ctx:         ctx,
 		settingGuid: settingGuid,
 	}
 }
@@ -10496,9 +10519,9 @@ func (a *GpoDAASService) GpoUpdateGpoSetting(ctx context.Context, settingGuid st
 // Execute executes the request
 func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoUpdateGpoSetting")
@@ -10601,8 +10624,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10612,8 +10635,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10623,8 +10646,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10634,8 +10657,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10645,8 +10668,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -10656,8 +10679,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10667,8 +10690,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10678,8 +10701,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10689,8 +10712,8 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -10699,16 +10722,16 @@ func (a *GpoDAASService) GpoUpdateGpoSettingExecute(r ApiGpoUpdateGpoSettingRequ
 }
 
 type ApiGpoUpdatePolicySetBlobRequest struct {
-	ctx context.Context
-	ApiService *GpoDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	policySetGuid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *GpoDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	policySetGuid       string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -10760,14 +10783,14 @@ func (r ApiGpoUpdatePolicySetBlobRequest) Execute() (*http.Response, error) {
 /*
 GpoUpdatePolicySetBlob Force serialization of policy set. The data of a policy set is serialized into a byte stream before it is sent to VDAs. The serialization is done automatically in the background at 5 minute intervals. A change made to the data in a policy set may not be in the serialized data for up to 5 minutes. This call tells the background thread to serialize the data immediately. No serialization is done if there have been no changes to the policy set data since the last time the data was serialized.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param policySetGuid The GUID of the policy set whose data is to be serialized
- @return ApiGpoUpdatePolicySetBlobRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param policySetGuid The GUID of the policy set whose data is to be serialized
+	@return ApiGpoUpdatePolicySetBlobRequest
 */
 func (a *GpoDAASService) GpoUpdatePolicySetBlob(ctx context.Context, policySetGuid string) ApiGpoUpdatePolicySetBlobRequest {
 	return ApiGpoUpdatePolicySetBlobRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		policySetGuid: policySetGuid,
 	}
 }
@@ -10775,9 +10798,9 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlob(ctx context.Context, policySetGu
 // Execute executes the request
 func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBlobRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GpoDAASService.GpoUpdatePolicySetBlob")
@@ -10875,8 +10898,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -10886,8 +10909,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -10897,8 +10920,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -10908,8 +10931,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -10919,8 +10942,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -10930,8 +10953,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -10941,8 +10964,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -10952,8 +10975,8 @@ func (a *GpoDAASService) GpoUpdatePolicySetBlobExecute(r ApiGpoUpdatePolicySetBl
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

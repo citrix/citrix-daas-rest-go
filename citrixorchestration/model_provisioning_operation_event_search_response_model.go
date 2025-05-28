@@ -102,6 +102,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasLinkedObjectType() bo
 func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectType(v string) {
 	o.LinkedObjectType.Set(&v)
 }
+
 // SetLinkedObjectTypeNil sets the value for LinkedObjectType to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectTypeNil() {
 	o.LinkedObjectType.Set(nil)
@@ -144,6 +145,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasLinkedObjectUid() boo
 func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectUid(v string) {
 	o.LinkedObjectUid.Set(&v)
 }
+
 // SetLinkedObjectUidNil sets the value for LinkedObjectUid to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectUidNil() {
 	o.LinkedObjectUid.Set(nil)
@@ -218,6 +220,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasEventCategory() bool 
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventCategory(v string) {
 	o.EventCategory.Set(&v)
 }
+
 // SetEventCategoryNil sets the value for EventCategory to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventCategoryNil() {
 	o.EventCategory.Set(nil)
@@ -260,6 +263,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasEventSeverity() bool 
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventSeverity(v string) {
 	o.EventSeverity.Set(&v)
 }
+
 // SetEventSeverityNil sets the value for EventSeverity to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventSeverityNil() {
 	o.EventSeverity.Set(nil)
@@ -302,6 +306,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasEventSource() bool {
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventSource(v string) {
 	o.EventSource.Set(&v)
 }
+
 // SetEventSourceNil sets the value for EventSource to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventSourceNil() {
 	o.EventSource.Set(nil)
@@ -344,6 +349,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasEventState() bool {
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventState(v string) {
 	o.EventState.Set(&v)
 }
+
 // SetEventStateNil sets the value for EventState to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventStateNil() {
 	o.EventState.Set(nil)
@@ -386,6 +392,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasEventMessage() bool {
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventMessage(v string) {
 	o.EventMessage.Set(&v)
 }
+
 // SetEventMessageNil sets the value for EventMessage to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventMessageNil() {
 	o.EventMessage.Set(nil)
@@ -428,6 +435,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasEventDateTime() bool 
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventDateTime(v string) {
 	o.EventDateTime.Set(&v)
 }
+
 // SetEventDateTimeNil sets the value for EventDateTime to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventDateTimeNil() {
 	o.EventDateTime.Set(nil)
@@ -470,6 +478,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasEventAdditionalData()
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventAdditionalData(v string) {
 	o.EventAdditionalData.Set(&v)
 }
+
 // SetEventAdditionalDataNil sets the value for EventAdditionalData to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetEventAdditionalDataNil() {
 	o.EventAdditionalData.Set(nil)
@@ -512,6 +521,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasOperationName() bool 
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationName(v string) {
 	o.OperationName.Set(&v)
 }
+
 // SetOperationNameNil sets the value for OperationName to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationNameNil() {
 	o.OperationName.Set(nil)
@@ -554,6 +564,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasOperationTargetType()
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationTargetType(v string) {
 	o.OperationTargetType.Set(&v)
 }
+
 // SetOperationTargetTypeNil sets the value for OperationTargetType to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationTargetTypeNil() {
 	o.OperationTargetType.Set(nil)
@@ -596,6 +607,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasOperationTargetName()
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationTargetName(v string) {
 	o.OperationTargetName.Set(&v)
 }
+
 // SetOperationTargetNameNil sets the value for OperationTargetName to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationTargetNameNil() {
 	o.OperationTargetName.Set(nil)
@@ -638,6 +650,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasOperationType() bool 
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationType(v string) {
 	o.OperationType.Set(&v)
 }
+
 // SetOperationTypeNil sets the value for OperationType to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetOperationTypeNil() {
 	o.OperationType.Set(nil)
@@ -680,6 +693,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasLinkedObjectName() bo
 func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectName(v string) {
 	o.LinkedObjectName.Set(&v)
 }
+
 // SetLinkedObjectNameNil sets the value for LinkedObjectName to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetLinkedObjectNameNil() {
 	o.LinkedObjectName.Set(nil)
@@ -722,6 +736,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) HasRecommendation() bool
 func (o *ProvisioningOperationEventSearchResponseModel) SetRecommendation(v string) {
 	o.Recommendation.Set(&v)
 }
+
 // SetRecommendationNil sets the value for Recommendation to be an explicit nil
 func (o *ProvisioningOperationEventSearchResponseModel) SetRecommendationNil() {
 	o.Recommendation.Set(nil)
@@ -733,7 +748,7 @@ func (o *ProvisioningOperationEventSearchResponseModel) UnsetRecommendation() {
 }
 
 func (o ProvisioningOperationEventSearchResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -828,5 +843,3 @@ func (v *NullableProvisioningOperationEventSearchResponseModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ type NamingSchemeType string
 
 // List of NamingSchemeType
 const (
-	NAMINGSCHEMETYPE_UNKNOWN NamingSchemeType = "Unknown"
-	NAMINGSCHEMETYPE_NONE NamingSchemeType = "None"
-	NAMINGSCHEMETYPE_NUMERIC NamingSchemeType = "Numeric"
+	NAMINGSCHEMETYPE_UNKNOWN    NamingSchemeType = "Unknown"
+	NAMINGSCHEMETYPE_NONE       NamingSchemeType = "None"
+	NAMINGSCHEMETYPE_NUMERIC    NamingSchemeType = "Numeric"
 	NAMINGSCHEMETYPE_ALPHABETIC NamingSchemeType = "Alphabetic"
-	NAMINGSCHEMETYPE_UNICODE NamingSchemeType = "Unicode"
+	NAMINGSCHEMETYPE_UNICODE    NamingSchemeType = "Unicode"
 )
 
 // All allowed values of NamingSchemeType enum
@@ -114,4 +114,3 @@ func (v *NullableNamingSchemeType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

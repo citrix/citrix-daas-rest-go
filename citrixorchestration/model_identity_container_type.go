@@ -20,11 +20,11 @@ type IdentityContainerType string
 
 // List of IdentityContainerType
 const (
-	IDENTITYCONTAINERTYPE_UNKNOWN IdentityContainerType = "Unknown"
+	IDENTITYCONTAINERTYPE_UNKNOWN             IdentityContainerType = "Unknown"
 	IDENTITYCONTAINERTYPE_ORGANIZATIONAL_UNIT IdentityContainerType = "OrganizationalUnit"
-	IDENTITYCONTAINERTYPE_CONTAINER IdentityContainerType = "Container"
-	IDENTITYCONTAINERTYPE_LOST_AND_FOUND IdentityContainerType = "LostAndFound"
-	IDENTITYCONTAINERTYPE_BUILT_IN_DOMAIN IdentityContainerType = "BuiltInDomain"
+	IDENTITYCONTAINERTYPE_CONTAINER           IdentityContainerType = "Container"
+	IDENTITYCONTAINERTYPE_LOST_AND_FOUND      IdentityContainerType = "LostAndFound"
+	IDENTITYCONTAINERTYPE_BUILT_IN_DOMAIN     IdentityContainerType = "BuiltInDomain"
 )
 
 // All allowed values of IdentityContainerType enum
@@ -42,7 +42,7 @@ func (v *IdentityContainerType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = IdentityContainerType(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableIdentityContainerType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

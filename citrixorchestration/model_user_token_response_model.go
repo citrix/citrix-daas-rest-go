@@ -72,6 +72,7 @@ func (o *UserTokenResponseModel) HasUserToken() bool {
 func (o *UserTokenResponseModel) SetUserToken(v string) {
 	o.UserToken.Set(&v)
 }
+
 // SetUserTokenNil sets the value for UserToken to be an explicit nil
 func (o *UserTokenResponseModel) SetUserTokenNil() {
 	o.UserToken.Set(nil)
@@ -83,7 +84,7 @@ func (o *UserTokenResponseModel) UnsetUserToken() {
 }
 
 func (o UserTokenResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,5 +134,3 @@ func (v *NullableUserTokenResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

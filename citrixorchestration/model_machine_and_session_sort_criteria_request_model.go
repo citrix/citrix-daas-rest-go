@@ -19,8 +19,8 @@ var _ MappedNullable = &MachineAndSessionSortCriteriaRequestModel{}
 
 // MachineAndSessionSortCriteriaRequestModel Machine sort criteria.
 type MachineAndSessionSortCriteriaRequestModel struct {
-	Property MachineAndSessionSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      MachineAndSessionSearchProperty `json:"Property"`
+	SortDirection ListSortDirection               `json:"SortDirection"`
 }
 
 // NewMachineAndSessionSortCriteriaRequestModel instantiates a new MachineAndSessionSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *MachineAndSessionSortCriteriaRequestModel) SetSortDirection(v ListSortD
 }
 
 func (o MachineAndSessionSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableMachineAndSessionSortCriteriaRequestModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

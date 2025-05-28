@@ -126,6 +126,7 @@ func (o *AssignImageVersionToProvisioningSchemeRequestModel) HasImageAssignmentN
 func (o *AssignImageVersionToProvisioningSchemeRequestModel) SetImageAssignmentNote(v string) {
 	o.ImageAssignmentNote.Set(&v)
 }
+
 // SetImageAssignmentNoteNil sets the value for ImageAssignmentNote to be an explicit nil
 func (o *AssignImageVersionToProvisioningSchemeRequestModel) SetImageAssignmentNoteNil() {
 	o.ImageAssignmentNote.Set(nil)
@@ -137,7 +138,7 @@ func (o *AssignImageVersionToProvisioningSchemeRequestModel) UnsetImageAssignmen
 }
 
 func (o AssignImageVersionToProvisioningSchemeRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +190,3 @@ func (v *NullableAssignImageVersionToProvisioningSchemeRequestModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

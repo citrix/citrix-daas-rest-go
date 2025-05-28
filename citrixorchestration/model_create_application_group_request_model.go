@@ -17,7 +17,7 @@ import (
 // checks if the CreateApplicationGroupRequestModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateApplicationGroupRequestModel{}
 
-// CreateApplicationGroupRequestModel Request body for creating an application group.             
+// CreateApplicationGroupRequestModel Request body for creating an application group.
 type CreateApplicationGroupRequestModel struct {
 	// The admin folder in which the application group should be created.
 	AdminFolder NullableString `json:"AdminFolder,omitempty"`
@@ -107,6 +107,7 @@ func (o *CreateApplicationGroupRequestModel) HasAdminFolder() bool {
 func (o *CreateApplicationGroupRequestModel) SetAdminFolder(v string) {
 	o.AdminFolder.Set(&v)
 }
+
 // SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
 func (o *CreateApplicationGroupRequestModel) SetAdminFolderNil() {
 	o.AdminFolder.Set(nil)
@@ -173,6 +174,7 @@ func (o *CreateApplicationGroupRequestModel) HasDescription() bool {
 func (o *CreateApplicationGroupRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateApplicationGroupRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -215,6 +217,7 @@ func (o *CreateApplicationGroupRequestModel) HasEnabled() bool {
 func (o *CreateApplicationGroupRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *CreateApplicationGroupRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -257,6 +260,7 @@ func (o *CreateApplicationGroupRequestModel) HasRestrictToTag() bool {
 func (o *CreateApplicationGroupRequestModel) SetRestrictToTag(v string) {
 	o.RestrictToTag.Set(&v)
 }
+
 // SetRestrictToTagNil sets the value for RestrictToTag to be an explicit nil
 func (o *CreateApplicationGroupRequestModel) SetRestrictToTagNil() {
 	o.RestrictToTag.Set(nil)
@@ -365,6 +369,7 @@ func (o *CreateApplicationGroupRequestModel) HasSessionSharingEnabled() bool {
 func (o *CreateApplicationGroupRequestModel) SetSessionSharingEnabled(v bool) {
 	o.SessionSharingEnabled.Set(&v)
 }
+
 // SetSessionSharingEnabledNil sets the value for SessionSharingEnabled to be an explicit nil
 func (o *CreateApplicationGroupRequestModel) SetSessionSharingEnabledNil() {
 	o.SessionSharingEnabled.Set(nil)
@@ -407,6 +412,7 @@ func (o *CreateApplicationGroupRequestModel) HasIncludedUserFilterEnabled() bool
 func (o *CreateApplicationGroupRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *CreateApplicationGroupRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -517,7 +523,7 @@ func (o *CreateApplicationGroupRequestModel) SetMetadata(v []NameValueStringPair
 }
 
 func (o CreateApplicationGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -598,5 +604,3 @@ func (v *NullableCreateApplicationGroupRequestModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -101,6 +101,7 @@ func (o *PowerTimeSchemeResponseModelCollection) HasContinuationToken() bool {
 func (o *PowerTimeSchemeResponseModelCollection) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *PowerTimeSchemeResponseModelCollection) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *PowerTimeSchemeResponseModelCollection) HasTotalItems() bool {
 func (o *PowerTimeSchemeResponseModelCollection) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *PowerTimeSchemeResponseModelCollection) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *PowerTimeSchemeResponseModelCollection) UnsetTotalItems() {
 }
 
 func (o PowerTimeSchemeResponseModelCollection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullablePowerTimeSchemeResponseModelCollection) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -24,6 +24,8 @@ type AwsEdcRegisterAccount struct {
 	CidrRange NullableString `json:"cidrRange,omitempty"`
 }
 
+type _AwsEdcRegisterAccount AwsEdcRegisterAccount
+
 // NewAwsEdcRegisterAccount instantiates a new AwsEdcRegisterAccount object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -74,6 +76,7 @@ func (o *AwsEdcRegisterAccount) HasCidrRange() bool {
 func (o *AwsEdcRegisterAccount) SetCidrRange(v string) {
 	o.CidrRange.Set(&v)
 }
+
 // SetCidrRangeNil sets the value for CidrRange to be an explicit nil
 func (o *AwsEdcRegisterAccount) SetCidrRangeNil() {
 	o.CidrRange.Set(nil)
@@ -85,7 +88,7 @@ func (o *AwsEdcRegisterAccount) UnsetCidrRange() {
 }
 
 func (o AwsEdcRegisterAccount) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -143,5 +146,3 @@ func (v *NullableAwsEdcRegisterAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

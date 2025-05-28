@@ -20,12 +20,12 @@ type CpuPriorityLevel string
 
 // List of CpuPriorityLevel
 const (
-	CPUPRIORITYLEVEL_UNKNOWN CpuPriorityLevel = "Unknown"
-	CPUPRIORITYLEVEL_LOW CpuPriorityLevel = "Low"
+	CPUPRIORITYLEVEL_UNKNOWN      CpuPriorityLevel = "Unknown"
+	CPUPRIORITYLEVEL_LOW          CpuPriorityLevel = "Low"
 	CPUPRIORITYLEVEL_BELOW_NORMAL CpuPriorityLevel = "BelowNormal"
-	CPUPRIORITYLEVEL_NORMAL CpuPriorityLevel = "Normal"
+	CPUPRIORITYLEVEL_NORMAL       CpuPriorityLevel = "Normal"
 	CPUPRIORITYLEVEL_ABOVE_NORMAL CpuPriorityLevel = "AboveNormal"
-	CPUPRIORITYLEVEL_HIGH CpuPriorityLevel = "High"
+	CPUPRIORITYLEVEL_HIGH         CpuPriorityLevel = "High"
 )
 
 // All allowed values of CpuPriorityLevel enum
@@ -44,7 +44,7 @@ func (v *CpuPriorityLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = CpuPriorityLevel(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableCpuPriorityLevel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

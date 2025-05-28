@@ -74,6 +74,7 @@ func (o *ExportMachineCatalogResponseModel) HasProvisioningSchemeData() bool {
 func (o *ExportMachineCatalogResponseModel) SetProvisioningSchemeData(v string) {
 	o.ProvisioningSchemeData.Set(&v)
 }
+
 // SetProvisioningSchemeDataNil sets the value for ProvisioningSchemeData to be an explicit nil
 func (o *ExportMachineCatalogResponseModel) SetProvisioningSchemeDataNil() {
 	o.ProvisioningSchemeData.Set(nil)
@@ -116,6 +117,7 @@ func (o *ExportMachineCatalogResponseModel) HasIdentityPoolData() bool {
 func (o *ExportMachineCatalogResponseModel) SetIdentityPoolData(v string) {
 	o.IdentityPoolData.Set(&v)
 }
+
 // SetIdentityPoolDataNil sets the value for IdentityPoolData to be an explicit nil
 func (o *ExportMachineCatalogResponseModel) SetIdentityPoolDataNil() {
 	o.IdentityPoolData.Set(nil)
@@ -127,7 +129,7 @@ func (o *ExportMachineCatalogResponseModel) UnsetIdentityPoolData() {
 }
 
 func (o ExportMachineCatalogResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableExportMachineCatalogResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

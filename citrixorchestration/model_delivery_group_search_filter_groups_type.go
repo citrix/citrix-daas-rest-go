@@ -20,7 +20,7 @@ type DeliveryGroupSearchFilterGroupsType string
 
 // List of DeliveryGroupSearchFilterGroupsType
 const (
-	DELIVERYGROUPSEARCHFILTERGROUPSTYPE_OR DeliveryGroupSearchFilterGroupsType = "Or"
+	DELIVERYGROUPSEARCHFILTERGROUPSTYPE_OR  DeliveryGroupSearchFilterGroupsType = "Or"
 	DELIVERYGROUPSEARCHFILTERGROUPSTYPE_AND DeliveryGroupSearchFilterGroupsType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *DeliveryGroupSearchFilterGroupsType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DeliveryGroupSearchFilterGroupsType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableDeliveryGroupSearchFilterGroupsType) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

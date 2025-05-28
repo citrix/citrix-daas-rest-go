@@ -20,12 +20,12 @@ type BackupRestoreActionStartStatus string
 
 // List of BackupRestoreActionStartStatus
 const (
-	BACKUPRESTOREACTIONSTARTSTATUS_FAILED BackupRestoreActionStartStatus = "Failed"
-	BACKUPRESTOREACTIONSTARTSTATUS_SUCCESS BackupRestoreActionStartStatus = "Success"
-	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_ACTION_IN_PROGRESS BackupRestoreActionStartStatus = "ExistingActionInProgress"
-	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_BACKUP_IN_PROGRESS BackupRestoreActionStartStatus = "ExistingBackupInProgress"
+	BACKUPRESTOREACTIONSTARTSTATUS_FAILED                       BackupRestoreActionStartStatus = "Failed"
+	BACKUPRESTOREACTIONSTARTSTATUS_SUCCESS                      BackupRestoreActionStartStatus = "Success"
+	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_ACTION_IN_PROGRESS  BackupRestoreActionStartStatus = "ExistingActionInProgress"
+	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_BACKUP_IN_PROGRESS  BackupRestoreActionStartStatus = "ExistingBackupInProgress"
 	BACKUPRESTOREACTIONSTARTSTATUS_EXISTING_RESTORE_IN_PROGRESS BackupRestoreActionStartStatus = "ExistingRestoreInProgress"
-	BACKUPRESTOREACTIONSTARTSTATUS_STORAGE_NOT_VALID BackupRestoreActionStartStatus = "StorageNotValid"
+	BACKUPRESTOREACTIONSTARTSTATUS_STORAGE_NOT_VALID            BackupRestoreActionStartStatus = "StorageNotValid"
 )
 
 // All allowed values of BackupRestoreActionStartStatus enum
@@ -44,7 +44,7 @@ func (v *BackupRestoreActionStartStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestoreActionStartStatus(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableBackupRestoreActionStartStatus) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

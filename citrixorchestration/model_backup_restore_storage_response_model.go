@@ -22,9 +22,9 @@ type BackupRestoreStorageResponseModel struct {
 	StorageInfo *BackupStorageInfo `json:"StorageInfo,omitempty"`
 	// Maximum Backups
 	MaximumBackups *int32 `json:"MaximumBackups,omitempty"`
-	// Maximum Pinned Backups 
+	// Maximum Pinned Backups
 	MaximumPinnedBackups *int32 `json:"MaximumPinnedBackups,omitempty"`
-	// Maximum Auto-Pinned Backups 
+	// Maximum Auto-Pinned Backups
 	MaximumAutoPinnedBackups *int32 `json:"MaximumAutoPinnedBackups,omitempty"`
 }
 
@@ -174,7 +174,7 @@ func (o *BackupRestoreStorageResponseModel) SetMaximumAutoPinnedBackups(v int32)
 }
 
 func (o BackupRestoreStorageResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -233,5 +233,3 @@ func (v *NullableBackupRestoreStorageResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

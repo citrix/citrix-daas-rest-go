@@ -28,26 +28,26 @@ Add a account
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := AddAwsEdcAccount(987) // AddAwsEdcAccount | Configuration of the account to add (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := AddAwsEdcAccount(987) // AddAwsEdcAccount | Configuration of the account to add (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountQCS.AddAccountAsync(context.Background(), customerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.AddAccountAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AddAccountAsync`: AwsEdcAccount
-    fmt.Fprintf(os.Stdout, "Response from `AccountQCS.AddAccountAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountQCS.AddAccountAsync(context.Background(), customerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.AddAccountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AddAccountAsync`: AwsEdcAccount
+	fmt.Fprintf(os.Stdout, "Response from `AccountQCS.AddAccountAsync`: %v\n", resp)
 }
 ```
 
@@ -100,24 +100,24 @@ Deletes the account configured for the specified customer
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of the account
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of the account
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountQCS.DeleteCustomerAccountAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.DeleteCustomerAccountAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AccountQCS.DeleteCustomerAccountAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.DeleteCustomerAccountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -171,27 +171,27 @@ Get the account resources for the specified customer
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of the account
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := SearchAwsEdcAccountResourceRequest(987) // SearchAwsEdcAccountResourceRequest | Search request (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of the account
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := SearchAwsEdcAccountResourceRequest(987) // SearchAwsEdcAccountResourceRequest | Search request (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountQCS.GetAccountResourcesAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetAccountResourcesAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetAccountResourcesAsync`: AccountResources
-    fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetAccountResourcesAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountQCS.GetAccountResourcesAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetAccountResourcesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAccountResourcesAsync`: AccountResources
+	fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetAccountResourcesAsync`: %v\n", resp)
 }
 ```
 
@@ -246,26 +246,26 @@ Get the account configured for the specified customer
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of the account
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of the account
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountQCS.GetCustomerAccountAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCustomerAccountAsync`: AwsEdcAccount
-    fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountQCS.GetCustomerAccountAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCustomerAccountAsync`: AwsEdcAccount
+	fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountAsync`: %v\n", resp)
 }
 ```
 
@@ -319,26 +319,26 @@ Get the account resources for the specified customer
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := SearchAwsEdcAccountResourceRequest(987) // SearchAwsEdcAccountResourceRequest | Search request (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := SearchAwsEdcAccountResourceRequest(987) // SearchAwsEdcAccountResourceRequest | Search request (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountQCS.GetCustomerAccountResourcesAsync(context.Background(), customerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountResourcesAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCustomerAccountResourcesAsync`: AccountResources
-    fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountResourcesAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountQCS.GetCustomerAccountResourcesAsync(context.Background(), customerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountResourcesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCustomerAccountResourcesAsync`: AccountResources
+	fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountResourcesAsync`: %v\n", resp)
 }
 ```
 
@@ -391,27 +391,27 @@ Gets account task
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of the account
-    taskId := "taskId_example" // string | ID of task
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of the account
+	taskId := "taskId_example" // string | ID of task
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountQCS.GetCustomerAccountTaskAsync(context.Background(), customerId, accountId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountTaskAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCustomerAccountTaskAsync`: AccountTask
-    fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountTaskAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountQCS.GetCustomerAccountTaskAsync(context.Background(), customerId, accountId, taskId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountTaskAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCustomerAccountTaskAsync`: AccountTask
+	fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountTaskAsync`: %v\n", resp)
 }
 ```
 
@@ -467,27 +467,27 @@ Get the accounts configured for the specified customer
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountType := openapiclient.AccountType("AWSEDC") // AccountType | Account Type (optional)
-    fetchDetails := true // bool | If true, checks if all accounts have the required set of permissions for assume role tasks (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountType := openapiclient.AccountType("AWSEDC") // AccountType | Account Type (optional)
+	fetchDetails := true // bool | If true, checks if all accounts have the required set of permissions for assume role tasks (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountQCS.GetCustomerAccountsAsync(context.Background(), customerId).AccountType(accountType).FetchDetails(fetchDetails).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountsAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetCustomerAccountsAsync`: Accounts
-    fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountsAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountQCS.GetCustomerAccountsAsync(context.Background(), customerId).AccountType(accountType).FetchDetails(fetchDetails).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.GetCustomerAccountsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetCustomerAccountsAsync`: Accounts
+	fmt.Fprintf(os.Stdout, "Response from `AccountQCS.GetCustomerAccountsAsync`: %v\n", resp)
 }
 ```
 
@@ -541,27 +541,27 @@ Registers account BYOL account
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of the account
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := RegisterAwsEdcAccountTask(987) // RegisterAwsEdcAccountTask | Task request (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of the account
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := RegisterAwsEdcAccountTask(987) // RegisterAwsEdcAccountTask | Task request (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AccountQCS.InititateAccountTaskAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.InititateAccountTaskAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InititateAccountTaskAsync`: AwsEdcRegisterAccount
-    fmt.Fprintf(os.Stdout, "Response from `AccountQCS.InititateAccountTaskAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AccountQCS.InititateAccountTaskAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.InititateAccountTaskAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InititateAccountTaskAsync`: AwsEdcRegisterAccount
+	fmt.Fprintf(os.Stdout, "Response from `AccountQCS.InititateAccountTaskAsync`: %v\n", resp)
 }
 ```
 
@@ -616,25 +616,25 @@ Updates the account access keys for the specified customer
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    accountId := "accountId_example" // string | ID of the account
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    updateCustomerAccountAsyncRequest := openapiclient.UpdateCustomerAccountAsync_request{UpdateAccount: openapiclient.NewUpdateAccount(openapiclient.UpdateAccountOperationType("RenameAccount"))} // UpdateCustomerAccountAsyncRequest | Configuration of the account to update (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	accountId := "accountId_example" // string | ID of the account
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	updateCustomerAccountAsyncRequest := openapiclient.UpdateCustomerAccountAsync_request{UpdateAccount: openapiclient.NewUpdateAccount(openapiclient.UpdateAccountOperationType("RenameAccount"))} // UpdateCustomerAccountAsyncRequest | Configuration of the account to update (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.AccountQCS.UpdateCustomerAccountAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).UpdateCustomerAccountAsyncRequest(updateCustomerAccountAsyncRequest).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.UpdateCustomerAccountAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AccountQCS.UpdateCustomerAccountAsync(context.Background(), customerId, accountId).CitrixTransactionId(citrixTransactionId).UpdateCustomerAccountAsyncRequest(updateCustomerAccountAsyncRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccountQCS.UpdateCustomerAccountAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 

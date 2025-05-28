@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // IconsAPIsDAASService IconsAPIsDAAS service
 type IconsAPIsDAASService service
 
 type ApiIconsAddIconRequest struct {
-	ctx context.Context
-	ApiService *IconsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                 context.Context
+	ApiService          *IconsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
 	addIconRequestModel *AddIconRequestModel
-	userAgent *string
-	authorization *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -85,7 +84,7 @@ func (r ApiIconsAddIconRequest) CitrixLocale(citrixLocale string) ApiIconsAddIco
 	return r
 }
 
-// If &#x60;true&#x60;, the icon will be added as a background task. The task will have JobType AddIcon. When the task is complete it will redirect to GetIcon.             
+// If &#x60;true&#x60;, the icon will be added as a background task. The task will have JobType AddIcon. When the task is complete it will redirect to GetIcon.
 func (r ApiIconsAddIconRequest) Async(async bool) ApiIconsAddIconRequest {
 	r.async = &async
 	return r
@@ -98,24 +97,25 @@ func (r ApiIconsAddIconRequest) Execute() (*IconResponseModel, *http.Response, e
 /*
 IconsAddIcon add a customized icon.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIconsAddIconRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIconsAddIconRequest
 */
 func (a *IconsAPIsDAASService) IconsAddIcon(ctx context.Context) ApiIconsAddIconRequest {
 	return ApiIconsAddIconRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IconResponseModel
+//
+//	@return IconResponseModel
 func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*IconResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IconResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IconResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IconsAPIsDAASService.IconsAddIcon")
@@ -220,8 +220,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -231,8 +231,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -242,8 +242,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -253,8 +253,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -264,8 +264,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -275,8 +275,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -286,8 +286,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -297,8 +297,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -308,8 +308,8 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -327,16 +327,16 @@ func (a *IconsAPIsDAASService) IconsAddIconExecute(r ApiIconsAddIconRequest) (*I
 }
 
 type ApiIconsGetAppVServerPackageApplicationIconRequest struct {
-	ctx context.Context
-	ApiService *IconsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                          context.Context
+	ApiService                                   *IconsAPIsDAASService
+	citrixCustomerId                             *string
+	citrixInstanceId                             *string
 	appvServerPackageApplicationIconRequestModel *AppvServerPackageApplicationIconRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                                    *string
+	authorization                                *string
+	citrixTransactionId                          *string
+	accept                                       *string
+	citrixLocale                                 *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -397,24 +397,25 @@ IconsGetAppVServerPackageApplicationIcon Get the icon for a single App-V applica
 Get the icon for a single App-V package on a server (as
 opposed to within the site).
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIconsGetAppVServerPackageApplicationIconRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIconsGetAppVServerPackageApplicationIconRequest
 */
 func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIcon(ctx context.Context) ApiIconsGetAppVServerPackageApplicationIconRequest {
 	return ApiIconsGetAppVServerPackageApplicationIconRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IconDataResponseModel
+//
+//	@return IconDataResponseModel
 func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r ApiIconsGetAppVServerPackageApplicationIconRequest) (*IconDataResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IconDataResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IconDataResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IconsAPIsDAASService.IconsGetAppVServerPackageApplicationIcon")
@@ -516,8 +517,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -527,8 +528,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -538,8 +539,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -549,8 +550,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -560,8 +561,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -571,8 +572,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -582,8 +583,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -593,8 +594,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -604,8 +605,8 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -623,17 +624,17 @@ func (a *IconsAPIsDAASService) IconsGetAppVServerPackageApplicationIconExecute(r
 }
 
 type ApiIconsGetIconRequest struct {
-	ctx context.Context
-	ApiService *IconsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IconsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	iconFormat *string
+	accept              *string
+	citrixLocale        *string
+	iconFormat          *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -693,26 +694,27 @@ IconsGetIcon Get a single icon from the site.
 
 Get a single icon from the site
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id ID of the icon.
- @return ApiIconsGetIconRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id ID of the icon.
+	@return ApiIconsGetIconRequest
 */
 func (a *IconsAPIsDAASService) IconsGetIcon(ctx context.Context, id string) ApiIconsGetIconRequest {
 	return ApiIconsGetIconRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IconResponseModel
+//
+//	@return IconResponseModel
 func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*IconResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IconResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IconResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IconsAPIsDAASService.IconsGetIcon")
@@ -813,8 +815,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -824,8 +826,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -835,8 +837,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -846,8 +848,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -857,8 +859,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -868,8 +870,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -879,8 +881,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -890,8 +892,8 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -909,20 +911,20 @@ func (a *IconsAPIsDAASService) IconsGetIconExecute(r ApiIconsGetIconRequest) (*I
 }
 
 type ApiIconsGetIconsRequest struct {
-	ctx context.Context
-	ApiService *IconsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IconsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	iconFormat *string
-	builtIn *bool
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	iconFormat          *string
+	builtIn             *bool
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -979,7 +981,7 @@ func (r ApiIconsGetIconsRequest) BuiltIn(builtIn bool) ApiIconsGetIconsRequest {
 	return r
 }
 
-// If async execute. 
+// If async execute.
 func (r ApiIconsGetIconsRequest) Async(async bool) ApiIconsGetIconsRequest {
 	r.async = &async
 	return r
@@ -1006,24 +1008,25 @@ IconsGetIcons Get all icons in the site.
 
 Get all icons in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIconsGetIconsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIconsGetIconsRequest
 */
 func (a *IconsAPIsDAASService) IconsGetIcons(ctx context.Context) ApiIconsGetIconsRequest {
 	return ApiIconsGetIconsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IconResponseModelCollection
+//
+//	@return IconResponseModelCollection
 func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (*IconResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IconResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IconResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IconsAPIsDAASService.IconsGetIcons")
@@ -1135,8 +1138,8 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1146,8 +1149,8 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1157,8 +1160,8 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1168,8 +1171,8 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1179,8 +1182,8 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1190,8 +1193,8 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1201,8 +1204,8 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1220,17 +1223,17 @@ func (a *IconsAPIsDAASService) IconsGetIconsExecute(r ApiIconsGetIconsRequest) (
 }
 
 type ApiIconsRemoveIconRequest struct {
-	ctx context.Context
-	ApiService *IconsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	id int32
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *IconsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	id                  int32
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1275,7 +1278,7 @@ func (r ApiIconsRemoveIconRequest) CitrixLocale(citrixLocale string) ApiIconsRem
 	return r
 }
 
-// If &#x60;true&#x60;, the icon will be removed as a background task. The task will have JobType RemoveIcon. When the task is complete it will redirect to GetIcons.             
+// If &#x60;true&#x60;, the icon will be removed as a background task. The task will have JobType RemoveIcon. When the task is complete it will redirect to GetIcons.
 func (r ApiIconsRemoveIconRequest) Async(async bool) ApiIconsRemoveIconRequest {
 	r.async = &async
 	return r
@@ -1288,24 +1291,24 @@ func (r ApiIconsRemoveIconRequest) Execute() (*http.Response, error) {
 /*
 IconsRemoveIcon Remove a customized icon.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id id of the icon to remove
- @return ApiIconsRemoveIconRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id id of the icon to remove
+	@return ApiIconsRemoveIconRequest
 */
 func (a *IconsAPIsDAASService) IconsRemoveIcon(ctx context.Context, id int32) ApiIconsRemoveIconRequest {
 	return ApiIconsRemoveIconRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IconsAPIsDAASService.IconsRemoveIcon")
@@ -1406,8 +1409,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1417,8 +1420,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1428,8 +1431,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1439,8 +1442,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -1450,8 +1453,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1461,8 +1464,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1472,8 +1475,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1483,8 +1486,8 @@ func (a *IconsAPIsDAASService) IconsRemoveIconExecute(r ApiIconsRemoveIconReques
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

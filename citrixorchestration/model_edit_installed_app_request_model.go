@@ -76,6 +76,7 @@ func (o *EditInstalledAppRequestModel) HasCommandLineArguments() bool {
 func (o *EditInstalledAppRequestModel) SetCommandLineArguments(v string) {
 	o.CommandLineArguments.Set(&v)
 }
+
 // SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
 func (o *EditInstalledAppRequestModel) SetCommandLineArgumentsNil() {
 	o.CommandLineArguments.Set(nil)
@@ -118,6 +119,7 @@ func (o *EditInstalledAppRequestModel) HasCommandLineExecutable() bool {
 func (o *EditInstalledAppRequestModel) SetCommandLineExecutable(v string) {
 	o.CommandLineExecutable.Set(&v)
 }
+
 // SetCommandLineExecutableNil sets the value for CommandLineExecutable to be an explicit nil
 func (o *EditInstalledAppRequestModel) SetCommandLineExecutableNil() {
 	o.CommandLineExecutable.Set(nil)
@@ -160,6 +162,7 @@ func (o *EditInstalledAppRequestModel) HasWorkingDirectory() bool {
 func (o *EditInstalledAppRequestModel) SetWorkingDirectory(v string) {
 	o.WorkingDirectory.Set(&v)
 }
+
 // SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
 func (o *EditInstalledAppRequestModel) SetWorkingDirectoryNil() {
 	o.WorkingDirectory.Set(nil)
@@ -171,7 +174,7 @@ func (o *EditInstalledAppRequestModel) UnsetWorkingDirectory() {
 }
 
 func (o EditInstalledAppRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableEditInstalledAppRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

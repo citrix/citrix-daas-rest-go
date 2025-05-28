@@ -15,22 +15,22 @@ import (
 	"fmt"
 )
 
-// CvadSecurityTypes 
+// CvadSecurityTypes
 type CvadSecurityTypes string
 
 // List of CvadSecurityTypes
 const (
-	CVADSECURITYTYPES_UNKNOWN CvadSecurityTypes = "Unknown"
-	CVADSECURITYTYPES_XEN_SERVER CvadSecurityTypes = "XenServer"
-	CVADSECURITYTYPES_SCVMM CvadSecurityTypes = "SCVMM"
-	CVADSECURITYTYPES_V_CENTER CvadSecurityTypes = "VCenter"
-	CVADSECURITYTYPES_CUSTOM CvadSecurityTypes = "Custom"
-	CVADSECURITYTYPES_AWS CvadSecurityTypes = "AWS"
-	CVADSECURITYTYPES_WAKE_ON_LAN CvadSecurityTypes = "WakeOnLAN"
-	CVADSECURITYTYPES_AZURE_RM CvadSecurityTypes = "AzureRM"
+	CVADSECURITYTYPES_UNKNOWN               CvadSecurityTypes = "Unknown"
+	CVADSECURITYTYPES_XEN_SERVER            CvadSecurityTypes = "XenServer"
+	CVADSECURITYTYPES_SCVMM                 CvadSecurityTypes = "SCVMM"
+	CVADSECURITYTYPES_V_CENTER              CvadSecurityTypes = "VCenter"
+	CVADSECURITYTYPES_CUSTOM                CvadSecurityTypes = "Custom"
+	CVADSECURITYTYPES_AWS                   CvadSecurityTypes = "AWS"
+	CVADSECURITYTYPES_WAKE_ON_LAN           CvadSecurityTypes = "WakeOnLAN"
+	CVADSECURITYTYPES_AZURE_RM              CvadSecurityTypes = "AzureRM"
 	CVADSECURITYTYPES_GOOGLE_CLOUD_PLATFORM CvadSecurityTypes = "GoogleCloudPlatform"
-	CVADSECURITYTYPES_CLOUD_PLATFORM CvadSecurityTypes = "CloudPlatform"
-	CVADSECURITYTYPES_NUTANIX CvadSecurityTypes = "Nutanix"
+	CVADSECURITYTYPES_CLOUD_PLATFORM        CvadSecurityTypes = "CloudPlatform"
+	CVADSECURITYTYPES_NUTANIX               CvadSecurityTypes = "Nutanix"
 )
 
 // All allowed values of CvadSecurityTypes enum
@@ -54,7 +54,7 @@ func (v *CvadSecurityTypes) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = CvadSecurityTypes(value)
 	return nil
 }
@@ -120,4 +120,3 @@ func (v *NullableCvadSecurityTypes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

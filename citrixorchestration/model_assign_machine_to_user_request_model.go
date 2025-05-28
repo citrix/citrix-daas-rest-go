@@ -103,6 +103,7 @@ func (o *AssignMachineToUserRequestModel) HasMachinePublishedName() bool {
 func (o *AssignMachineToUserRequestModel) SetMachinePublishedName(v string) {
 	o.MachinePublishedName.Set(&v)
 }
+
 // SetMachinePublishedNameNil sets the value for MachinePublishedName to be an explicit nil
 func (o *AssignMachineToUserRequestModel) SetMachinePublishedNameNil() {
 	o.MachinePublishedName.Set(nil)
@@ -178,6 +179,7 @@ func (o *AssignMachineToUserRequestModel) HasIcon() bool {
 func (o *AssignMachineToUserRequestModel) SetIcon(v string) {
 	o.Icon.Set(&v)
 }
+
 // SetIconNil sets the value for Icon to be an explicit nil
 func (o *AssignMachineToUserRequestModel) SetIconNil() {
 	o.Icon.Set(nil)
@@ -189,7 +191,7 @@ func (o *AssignMachineToUserRequestModel) UnsetIcon() {
 }
 
 func (o AssignMachineToUserRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -246,5 +248,3 @@ func (v *NullableAssignMachineToUserRequestModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

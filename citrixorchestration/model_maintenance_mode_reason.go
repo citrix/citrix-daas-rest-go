@@ -20,9 +20,9 @@ type MaintenanceModeReason string
 
 // List of MaintenanceModeReason
 const (
-	MAINTENANCEMODEREASON_UNKNOWN MaintenanceModeReason = "Unknown"
-	MAINTENANCEMODEREASON_NONE MaintenanceModeReason = "None"
-	MAINTENANCEMODEREASON_ADMINISTRATOR MaintenanceModeReason = "Administrator"
+	MAINTENANCEMODEREASON_UNKNOWN                  MaintenanceModeReason = "Unknown"
+	MAINTENANCEMODEREASON_NONE                     MaintenanceModeReason = "None"
+	MAINTENANCEMODEREASON_ADMINISTRATOR            MaintenanceModeReason = "Administrator"
 	MAINTENANCEMODEREASON_MAX_FAILED_REGISTRATIONS MaintenanceModeReason = "MaxFailedRegistrations"
 )
 
@@ -40,7 +40,7 @@ func (v *MaintenanceModeReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MaintenanceModeReason(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableMaintenanceModeReason) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

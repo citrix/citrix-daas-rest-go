@@ -22,8 +22,8 @@ type FilterProperty string
 const (
 	FILTERPROPERTY_FILTER_DATA FilterProperty = "FilterData"
 	FILTERPROPERTY_FILTER_TYPE FilterProperty = "FilterType"
-	FILTERPROPERTY_IS_ALLOWED FilterProperty = "IsAllowed"
-	FILTERPROPERTY_IS_ENABLED FilterProperty = "IsEnabled"
+	FILTERPROPERTY_IS_ALLOWED  FilterProperty = "IsAllowed"
+	FILTERPROPERTY_IS_ENABLED  FilterProperty = "IsEnabled"
 )
 
 // All allowed values of FilterProperty enum
@@ -40,7 +40,7 @@ func (v *FilterProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = FilterProperty(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableFilterProperty) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

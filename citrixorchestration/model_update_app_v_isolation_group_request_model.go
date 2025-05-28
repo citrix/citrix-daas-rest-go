@@ -76,6 +76,7 @@ func (o *UpdateAppVIsolationGroupRequestModel) HasName() bool {
 func (o *UpdateAppVIsolationGroupRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UpdateAppVIsolationGroupRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,6 +119,7 @@ func (o *UpdateAppVIsolationGroupRequestModel) HasDescription() bool {
 func (o *UpdateAppVIsolationGroupRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateAppVIsolationGroupRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -162,7 +164,7 @@ func (o *UpdateAppVIsolationGroupRequestModel) SetIncludedAppVPackages(v []AppVI
 }
 
 func (o UpdateAppVIsolationGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,5 +220,3 @@ func (v *NullableUpdateAppVIsolationGroupRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,8 +22,8 @@ type NetworkMapResponseModel struct {
 	// The name for the network.  This is for display only and may not be populated.
 	DeviceName NullableString `json:"DeviceName,omitempty"`
 	// Network device ID.  Zero indicates the primary network device.
-	DeviceId string `json:"DeviceId"`
-	Network HypervisorResourceRefResponseModel `json:"Network"`
+	DeviceId string                             `json:"DeviceId"`
+	Network  HypervisorResourceRefResponseModel `json:"Network"`
 	// Gets or sets a value indicating whether IsCardEnabled.
 	IsCardEnabled *bool `json:"IsCardEnabled,omitempty"`
 }
@@ -79,6 +79,7 @@ func (o *NetworkMapResponseModel) HasDeviceName() bool {
 func (o *NetworkMapResponseModel) SetDeviceName(v string) {
 	o.DeviceName.Set(&v)
 }
+
 // SetDeviceNameNil sets the value for DeviceName to be an explicit nil
 func (o *NetworkMapResponseModel) SetDeviceNameNil() {
 	o.DeviceName.Set(nil)
@@ -170,7 +171,7 @@ func (o *NetworkMapResponseModel) SetIsCardEnabled(v bool) {
 }
 
 func (o NetworkMapResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -225,5 +226,3 @@ func (v *NullableNetworkMapResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

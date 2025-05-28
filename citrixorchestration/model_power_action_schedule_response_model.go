@@ -20,13 +20,13 @@ var _ MappedNullable = &PowerActionScheduleResponseModel{}
 
 // PowerActionScheduleResponseModel Power action schedule.
 type PowerActionScheduleResponseModel struct {
-	Action *SupportedPowerAction `json:"Action,omitempty"`
-	ActionDueTime *time.Time `json:"ActionDueTime,omitempty"`
-	DNSName NullableString `json:"DNSName,omitempty"`
-	HostedMachineName NullableString `json:"HostedMachineName,omitempty"`
-	HypervisorConnectionUid *int32 `json:"HypervisorConnectionUid,omitempty"`
-	MachineName NullableString `json:"MachineName,omitempty"`
-	Uid *int64 `json:"Uid,omitempty"`
+	Action                  *SupportedPowerAction `json:"Action,omitempty"`
+	ActionDueTime           *time.Time            `json:"ActionDueTime,omitempty"`
+	DNSName                 NullableString        `json:"DNSName,omitempty"`
+	HostedMachineName       NullableString        `json:"HostedMachineName,omitempty"`
+	HypervisorConnectionUid *int32                `json:"HypervisorConnectionUid,omitempty"`
+	MachineName             NullableString        `json:"MachineName,omitempty"`
+	Uid                     *int64                `json:"Uid,omitempty"`
 }
 
 // NewPowerActionScheduleResponseModel instantiates a new PowerActionScheduleResponseModel object
@@ -142,6 +142,7 @@ func (o *PowerActionScheduleResponseModel) HasDNSName() bool {
 func (o *PowerActionScheduleResponseModel) SetDNSName(v string) {
 	o.DNSName.Set(&v)
 }
+
 // SetDNSNameNil sets the value for DNSName to be an explicit nil
 func (o *PowerActionScheduleResponseModel) SetDNSNameNil() {
 	o.DNSName.Set(nil)
@@ -184,6 +185,7 @@ func (o *PowerActionScheduleResponseModel) HasHostedMachineName() bool {
 func (o *PowerActionScheduleResponseModel) SetHostedMachineName(v string) {
 	o.HostedMachineName.Set(&v)
 }
+
 // SetHostedMachineNameNil sets the value for HostedMachineName to be an explicit nil
 func (o *PowerActionScheduleResponseModel) SetHostedMachineNameNil() {
 	o.HostedMachineName.Set(nil)
@@ -258,6 +260,7 @@ func (o *PowerActionScheduleResponseModel) HasMachineName() bool {
 func (o *PowerActionScheduleResponseModel) SetMachineName(v string) {
 	o.MachineName.Set(&v)
 }
+
 // SetMachineNameNil sets the value for MachineName to be an explicit nil
 func (o *PowerActionScheduleResponseModel) SetMachineNameNil() {
 	o.MachineName.Set(nil)
@@ -301,7 +304,7 @@ func (o *PowerActionScheduleResponseModel) SetUid(v int64) {
 }
 
 func (o PowerActionScheduleResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -369,5 +372,3 @@ func (v *NullablePowerActionScheduleResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

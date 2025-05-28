@@ -28,9 +28,9 @@ type AppAccessPolicyResponseModel struct {
 	// Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group's access policy may access applications published on the delivery group.
 	IncludedUserFilterEnabled bool `json:"IncludedUserFilterEnabled"`
 	// The included users filter for applications published on the delivery group; that is, the users and groups who are explicitly granted access to applications published on the delivery group.
-	IncludedUsers []IdentityUserResponseModel `json:"IncludedUsers,omitempty"`
-	LeasingBehavior *LeasingBehavior `json:"LeasingBehavior,omitempty"`
-	SessionReconnection *SessionReconnection `json:"SessionReconnection,omitempty"`
+	IncludedUsers       []IdentityUserResponseModel `json:"IncludedUsers,omitempty"`
+	LeasingBehavior     *LeasingBehavior            `json:"LeasingBehavior,omitempty"`
+	SessionReconnection *SessionReconnection        `json:"SessionReconnection,omitempty"`
 }
 
 // NewAppAccessPolicyResponseModel instantiates a new AppAccessPolicyResponseModel object
@@ -263,7 +263,7 @@ func (o *AppAccessPolicyResponseModel) SetSessionReconnection(v SessionReconnect
 }
 
 func (o AppAccessPolicyResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -327,5 +327,3 @@ func (v *NullableAppAccessPolicyResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

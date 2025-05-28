@@ -34,27 +34,27 @@ Adds machine to deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := AddAwsEdcDeploymentMachines(987) // AddAwsEdcDeploymentMachines | Configuration of machine (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := AddAwsEdcDeploymentMachines(987) // AddAwsEdcDeploymentMachines | Configuration of machine (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.AddMachineAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.AddMachineAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `AddMachineAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.AddMachineAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.AddMachineAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.AddMachineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `AddMachineAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.AddMachineAsync`: %v\n", resp)
 }
 ```
 
@@ -109,27 +109,27 @@ Delete deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    forceDelete := true // bool | Force delete deployment (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	forceDelete := true // bool | Force delete deployment (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.DeleteDeploymentAsync(context.Background(), customerId, deploymentId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.DeleteDeploymentAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `DeleteDeploymentAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.DeleteDeploymentAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.DeleteDeploymentAsync(context.Background(), customerId, deploymentId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.DeleteDeploymentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `DeleteDeploymentAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.DeleteDeploymentAsync`: %v\n", resp)
 }
 ```
 
@@ -184,26 +184,26 @@ Gets deployment with vdas
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.GetDeploymentAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.GetDeploymentAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetDeploymentAsync`: AwsEdcDeployment
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.GetDeploymentAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.GetDeploymentAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.GetDeploymentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDeploymentAsync`: AwsEdcDeployment
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.GetDeploymentAsync`: %v\n", resp)
 }
 ```
 
@@ -257,27 +257,27 @@ Gets deployments
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    includeVdas := true // bool | Indicates if the deployment VDAs should be included in the response (optional)
-    accountType := openapiclient.AccountType("AWSEDC") // AccountType | Account Type (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	includeVdas := true // bool | Indicates if the deployment VDAs should be included in the response (optional)
+	accountType := openapiclient.AccountType("AWSEDC") // AccountType | Account Type (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.GetDeploymentsAsync(context.Background(), customerId).IncludeVdas(includeVdas).AccountType(accountType).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.GetDeploymentsAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetDeploymentsAsync`: Deployments
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.GetDeploymentsAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.GetDeploymentsAsync(context.Background(), customerId).IncludeVdas(includeVdas).AccountType(accountType).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.GetDeploymentsAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetDeploymentsAsync`: Deployments
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.GetDeploymentsAsync`: %v\n", resp)
 }
 ```
 
@@ -331,28 +331,28 @@ Initiate delete deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    forceDelete := true // bool | Force delete deployment (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    deploymentIdInitiateDeleteBody := *openapiclient.NewDeploymentIdInitiateDeleteBody() // DeploymentIdInitiateDeleteBody | Deployment AD credentials (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	forceDelete := true // bool | Force delete deployment (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	deploymentIdInitiateDeleteBody := *openapiclient.NewDeploymentIdInitiateDeleteBody() // DeploymentIdInitiateDeleteBody | Deployment AD credentials (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.InitiateDeleteDeploymentAsync(context.Background(), customerId, deploymentId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).DeploymentIdInitiateDeleteBody(deploymentIdInitiateDeleteBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.InitiateDeleteDeploymentAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InitiateDeleteDeploymentAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.InitiateDeleteDeploymentAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.InitiateDeleteDeploymentAsync(context.Background(), customerId, deploymentId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).DeploymentIdInitiateDeleteBody(deploymentIdInitiateDeleteBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.InitiateDeleteDeploymentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InitiateDeleteDeploymentAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.InitiateDeleteDeploymentAsync`: %v\n", resp)
 }
 ```
 
@@ -408,26 +408,26 @@ Initiates deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := InitiateAwsEdcDeployment(987) // InitiateAwsEdcDeployment | Deployment configuration (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := InitiateAwsEdcDeployment(987) // InitiateAwsEdcDeployment | Deployment configuration (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.InitiateDeploymentAsync(context.Background(), customerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.InitiateDeploymentAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InitiateDeploymentAsync`: AwsEdcDeployment
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.InitiateDeploymentAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.InitiateDeploymentAsync(context.Background(), customerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.InitiateDeploymentAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InitiateDeploymentAsync`: AwsEdcDeployment
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.InitiateDeploymentAsync`: %v\n", resp)
 }
 ```
 
@@ -480,29 +480,29 @@ Initiate removal of machine from deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    machineId := "machineId_example" // string | ID of the machine
-    forceDelete := true // bool | Force delete machine (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    machineIdInitiateDeleteBody := *openapiclient.NewMachineIdInitiateDeleteBody() // MachineIdInitiateDeleteBody | Active Directory credentials for the machine (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	machineId := "machineId_example" // string | ID of the machine
+	forceDelete := true // bool | Force delete machine (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	machineIdInitiateDeleteBody := *openapiclient.NewMachineIdInitiateDeleteBody() // MachineIdInitiateDeleteBody | Active Directory credentials for the machine (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.InitiateRemoveMachineAsync(context.Background(), customerId, deploymentId, machineId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).MachineIdInitiateDeleteBody(machineIdInitiateDeleteBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.InitiateRemoveMachineAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InitiateRemoveMachineAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.InitiateRemoveMachineAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.InitiateRemoveMachineAsync(context.Background(), customerId, deploymentId, machineId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).MachineIdInitiateDeleteBody(machineIdInitiateDeleteBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.InitiateRemoveMachineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `InitiateRemoveMachineAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.InitiateRemoveMachineAsync`: %v\n", resp)
 }
 ```
 
@@ -560,25 +560,25 @@ Turn on or off the deployment mode for deployment machines
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    deploymentIdMachinesBody := *openapiclient.NewDeploymentIdMachinesBody(openapiclient.AccountType("AWSEDC"), false, []string{"MachineIds_example"}) // DeploymentIdMachinesBody | Machines to be modified to turn on or off maintenance mode (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	deploymentIdMachinesBody := *openapiclient.NewDeploymentIdMachinesBody(openapiclient.AccountType("AWSEDC"), false, []string{"MachineIds_example"}) // DeploymentIdMachinesBody | Machines to be modified to turn on or off maintenance mode (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeploymentQCS.PatchMachinesAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).DeploymentIdMachinesBody(deploymentIdMachinesBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.PatchMachinesAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DeploymentQCS.PatchMachinesAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).DeploymentIdMachinesBody(deploymentIdMachinesBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.PatchMachinesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -633,28 +633,28 @@ Removes machine to deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    machineId := "machineId_example" // string | ID of the machine
-    forceDelete := true // bool | Force delete machine (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	machineId := "machineId_example" // string | ID of the machine
+	forceDelete := true // bool | Force delete machine (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.RemoveMachineAsync(context.Background(), customerId, deploymentId, machineId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.RemoveMachineAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RemoveMachineAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.RemoveMachineAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.RemoveMachineAsync(context.Background(), customerId, deploymentId, machineId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.RemoveMachineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RemoveMachineAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.RemoveMachineAsync`: %v\n", resp)
 }
 ```
 
@@ -711,28 +711,28 @@ Removes machines from deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    forceDelete := true // bool | Force delete machines (optional) (default to false)
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    machinesDeleteBody := *openapiclient.NewMachinesDeleteBody(openapiclient.AccountType("AWSEDC"), []string{"MachineIds_example"}) // MachinesDeleteBody | Configuration object specifying which machines to delete (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	forceDelete := true // bool | Force delete machines (optional) (default to false)
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	machinesDeleteBody := *openapiclient.NewMachinesDeleteBody(openapiclient.AccountType("AWSEDC"), []string{"MachineIds_example"}) // MachinesDeleteBody | Configuration object specifying which machines to delete (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.RemoveMachinesAsync(context.Background(), customerId, deploymentId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).MachinesDeleteBody(machinesDeleteBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.RemoveMachinesAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RemoveMachinesAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.RemoveMachinesAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.RemoveMachinesAsync(context.Background(), customerId, deploymentId).ForceDelete(forceDelete).CitrixTransactionId(citrixTransactionId).MachinesDeleteBody(machinesDeleteBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.RemoveMachinesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RemoveMachinesAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.RemoveMachinesAsync`: %v\n", resp)
 }
 ```
 
@@ -788,25 +788,25 @@ Restart a machine
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    machineId := "machineId_example" // string | ID of the machine
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	machineId := "machineId_example" // string | ID of the machine
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.DeploymentQCS.RestartMachineAsync(context.Background(), customerId, deploymentId, machineId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.RestartMachineAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.DeploymentQCS.RestartMachineAsync(context.Background(), customerId, deploymentId, machineId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.RestartMachineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -862,28 +862,28 @@ Save image to account
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    machineId := "machineId_example" // string | ID of the image builder machine
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    machineIdSaveAsImageBody := *openapiclient.NewMachineIdSaveAsImageBody("AccountId_example", "ImageName_example", "ImageDescription_example") // MachineIdSaveAsImageBody | configurations of the new image (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	machineId := "machineId_example" // string | ID of the image builder machine
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	machineIdSaveAsImageBody := *openapiclient.NewMachineIdSaveAsImageBody("AccountId_example", "ImageName_example", "ImageDescription_example") // MachineIdSaveAsImageBody | configurations of the new image (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.SaveAsImageAsync(context.Background(), customerId, deploymentId, machineId).CitrixTransactionId(citrixTransactionId).MachineIdSaveAsImageBody(machineIdSaveAsImageBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.SaveAsImageAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SaveAsImageAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.SaveAsImageAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.SaveAsImageAsync(context.Background(), customerId, deploymentId, machineId).CitrixTransactionId(citrixTransactionId).MachineIdSaveAsImageBody(machineIdSaveAsImageBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.SaveAsImageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SaveAsImageAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.SaveAsImageAsync`: %v\n", resp)
 }
 ```
 
@@ -940,27 +940,27 @@ Update image for a deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    imageUpdateBody := *openapiclient.NewImageUpdateBody() // ImageUpdateBody | Details of the new image (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	imageUpdateBody := *openapiclient.NewImageUpdateBody() // ImageUpdateBody | Details of the new image (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.UpdateDeploymentImageAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).ImageUpdateBody(imageUpdateBody).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.UpdateDeploymentImageAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateDeploymentImageAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.UpdateDeploymentImageAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.UpdateDeploymentImageAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).ImageUpdateBody(imageUpdateBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.UpdateDeploymentImageAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateDeploymentImageAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.UpdateDeploymentImageAsync`: %v\n", resp)
 }
 ```
 
@@ -1015,27 +1015,27 @@ Updates deployment properties
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := UpdateAwsEdcDeploymentProperties(987) // UpdateAwsEdcDeploymentProperties | Deployment properties configuration (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := UpdateAwsEdcDeploymentProperties(987) // UpdateAwsEdcDeploymentProperties | Deployment properties configuration (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.UpdateDeploymentPropertiesAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.UpdateDeploymentPropertiesAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateDeploymentPropertiesAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.UpdateDeploymentPropertiesAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.UpdateDeploymentPropertiesAsync(context.Background(), customerId, deploymentId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.UpdateDeploymentPropertiesAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateDeploymentPropertiesAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.UpdateDeploymentPropertiesAsync`: %v\n", resp)
 }
 ```
 
@@ -1090,28 +1090,28 @@ Updates machine in deployment
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func main() {
-    customerId := "customerId_example" // string | ID of the customer
-    deploymentId := "deploymentId_example" // string | ID of the deployment
-    machineId := "machineId_example" // string | ID of the machine
-    citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
-    body := UpdateAwsEdcDeploymentMachine(987) // UpdateAwsEdcDeploymentMachine | Configuration of machine (optional)
+	customerId := "customerId_example" // string | ID of the customer
+	deploymentId := "deploymentId_example" // string | ID of the deployment
+	machineId := "machineId_example" // string | ID of the machine
+	citrixTransactionId := "citrixTransactionId_example" // string | The Transaction Id. (optional)
+	body := UpdateAwsEdcDeploymentMachine(987) // UpdateAwsEdcDeploymentMachine | Configuration of machine (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DeploymentQCS.UpdateMachineAsync(context.Background(), customerId, deploymentId, machineId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.UpdateMachineAsync``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `UpdateMachineAsync`: DeploymentTask
-    fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.UpdateMachineAsync`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.DeploymentQCS.UpdateMachineAsync(context.Background(), customerId, deploymentId, machineId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `DeploymentQCS.UpdateMachineAsync``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateMachineAsync`: DeploymentTask
+	fmt.Fprintf(os.Stdout, "Response from `DeploymentQCS.UpdateMachineAsync`: %v\n", resp)
 }
 ```
 

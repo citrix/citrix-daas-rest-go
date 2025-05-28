@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// LicensingAlertLevel2 
+// LicensingAlertLevel2
 type LicensingAlertLevel2 string
 
 // List of LicensingAlertLevel2
 const (
 	LICENSINGALERTLEVEL2_UNKNOWN LicensingAlertLevel2 = "Unknown"
-	LICENSINGALERTLEVEL2_INFO LicensingAlertLevel2 = "Info"
-	LICENSINGALERTLEVEL2_ALERT LicensingAlertLevel2 = "Alert"
-	LICENSINGALERTLEVEL2_ALARM LicensingAlertLevel2 = "Alarm"
+	LICENSINGALERTLEVEL2_INFO    LicensingAlertLevel2 = "Info"
+	LICENSINGALERTLEVEL2_ALERT   LicensingAlertLevel2 = "Alert"
+	LICENSINGALERTLEVEL2_ALARM   LicensingAlertLevel2 = "Alarm"
 )
 
 // All allowed values of LicensingAlertLevel2 enum
@@ -40,7 +40,7 @@ func (v *LicensingAlertLevel2) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LicensingAlertLevel2(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableLicensingAlertLevel2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

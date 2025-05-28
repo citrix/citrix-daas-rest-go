@@ -76,6 +76,7 @@ func (o *SettingRequest) HasSettingName() bool {
 func (o *SettingRequest) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *SettingRequest) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -150,6 +151,7 @@ func (o *SettingRequest) HasSettingValue() bool {
 func (o *SettingRequest) SetSettingValue(v string) {
 	o.SettingValue.Set(&v)
 }
+
 // SetSettingValueNil sets the value for SettingValue to be an explicit nil
 func (o *SettingRequest) SetSettingValueNil() {
 	o.SettingValue.Set(nil)
@@ -161,7 +163,7 @@ func (o *SettingRequest) UnsetSettingValue() {
 }
 
 func (o SettingRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -217,5 +219,3 @@ func (v *NullableSettingRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

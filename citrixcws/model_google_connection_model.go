@@ -19,10 +19,12 @@ var _ MappedNullable = &GoogleConnectionModel{}
 
 // GoogleConnectionModel struct for GoogleConnectionModel
 type GoogleConnectionModel struct {
-	GoogleClientEmail string `json:"googleClientEmail"`
-	GooglePrivateKey string `json:"googlePrivateKey"`
+	GoogleClientEmail      string `json:"googleClientEmail"`
+	GooglePrivateKey       string `json:"googlePrivateKey"`
 	GoogleImpersonatedUser string `json:"googleImpersonatedUser"`
 }
+
+type _GoogleConnectionModel GoogleConnectionModel
 
 // NewGoogleConnectionModel instantiates a new GoogleConnectionModel object
 // This constructor will assign default values to properties that have it defined,
@@ -117,7 +119,7 @@ func (o *GoogleConnectionModel) SetGoogleImpersonatedUser(v string) {
 }
 
 func (o GoogleConnectionModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -167,5 +169,3 @@ func (v *NullableGoogleConnectionModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

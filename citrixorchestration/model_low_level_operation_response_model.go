@@ -17,40 +17,40 @@ import (
 // checks if the LowLevelOperationResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LowLevelOperationResponseModel{}
 
-// LowLevelOperationResponseModel Low level operation response model             
+// LowLevelOperationResponseModel Low level operation response model
 type LowLevelOperationResponseModel struct {
-	// IP address of the admin machine from which the operation was performed.             
+	// IP address of the admin machine from which the operation was performed.
 	AdminMachineIP NullableString `json:"AdminMachineIP,omitempty"`
-	// Details.             
+	// Details.
 	Details []LowLevelOperationDetailResponseModel `json:"Details,omitempty"`
-	// Time when the operation ended. If the operation is incomplete, will be null.             
+	// Time when the operation ended. If the operation is incomplete, will be null.
 	EndTime NullableString `json:"EndTime,omitempty"`
-	// Formatted time when the operation ended. RFC 3339 compatible format. If the operation is incomplete, will be null.             
+	// Formatted time when the operation ended. RFC 3339 compatible format. If the operation is incomplete, will be null.
 	FormattedEndTime NullableString `json:"FormattedEndTime,omitempty"`
-	// ID of the logged operation.             
+	// ID of the logged operation.
 	Id string `json:"Id"`
-	// Indicates whether the operation completed successfully.  If the operation is incomplete, will be null.             
+	// Indicates whether the operation completed successfully.  If the operation is incomplete, will be null.
 	IsSuccessful NullableBool `json:"IsSuccessful,omitempty"`
-	// The id of the (high level) operation.             
-	OperationId string `json:"OperationId"`
+	// The id of the (high level) operation.
+	OperationId   string           `json:"OperationId"`
 	OperationType LogOperationType `json:"OperationType"`
-	// Operation parameters.             
+	// Operation parameters.
 	Parameters []NameValueStringPairModel `json:"Parameters"`
-	// Source of the operation.             
+	// Source of the operation.
 	Source string `json:"Source"`
-	// The source SDK.             
+	// The source SDK.
 	SourceSdk NullableString `json:"SourceSdk,omitempty"`
-	// Time when the operation started.             
+	// Time when the operation started.
 	StartTime string `json:"StartTime"`
-	// Formatted time when the operation started. RFC 3339 compatible format.             
+	// Formatted time when the operation started. RFC 3339 compatible format.
 	FormattedStartTime string `json:"FormattedStartTime"`
-	// The type(s) of object which were the target of the configuration change. For example, \"Session\" or \"Machine\".             
+	// The type(s) of object which were the target of the configuration change. For example, \"Session\" or \"Machine\".
 	TargetTypes []string `json:"TargetTypes"`
-	// Human-readable description of the change.             
+	// Human-readable description of the change.
 	Text string `json:"Text"`
-	// User who performed the change.             
+	// User who performed the change.
 	User NullableString `json:"User,omitempty"`
-	// The identity (SID) of the user that performed the operation.             
+	// The identity (SID) of the user that performed the operation.
 	UserIdentity NullableString `json:"UserIdentity,omitempty"`
 }
 
@@ -112,6 +112,7 @@ func (o *LowLevelOperationResponseModel) HasAdminMachineIP() bool {
 func (o *LowLevelOperationResponseModel) SetAdminMachineIP(v string) {
 	o.AdminMachineIP.Set(&v)
 }
+
 // SetAdminMachineIPNil sets the value for AdminMachineIP to be an explicit nil
 func (o *LowLevelOperationResponseModel) SetAdminMachineIPNil() {
 	o.AdminMachineIP.Set(nil)
@@ -187,6 +188,7 @@ func (o *LowLevelOperationResponseModel) HasEndTime() bool {
 func (o *LowLevelOperationResponseModel) SetEndTime(v string) {
 	o.EndTime.Set(&v)
 }
+
 // SetEndTimeNil sets the value for EndTime to be an explicit nil
 func (o *LowLevelOperationResponseModel) SetEndTimeNil() {
 	o.EndTime.Set(nil)
@@ -229,6 +231,7 @@ func (o *LowLevelOperationResponseModel) HasFormattedEndTime() bool {
 func (o *LowLevelOperationResponseModel) SetFormattedEndTime(v string) {
 	o.FormattedEndTime.Set(&v)
 }
+
 // SetFormattedEndTimeNil sets the value for FormattedEndTime to be an explicit nil
 func (o *LowLevelOperationResponseModel) SetFormattedEndTimeNil() {
 	o.FormattedEndTime.Set(nil)
@@ -295,6 +298,7 @@ func (o *LowLevelOperationResponseModel) HasIsSuccessful() bool {
 func (o *LowLevelOperationResponseModel) SetIsSuccessful(v bool) {
 	o.IsSuccessful.Set(&v)
 }
+
 // SetIsSuccessfulNil sets the value for IsSuccessful to be an explicit nil
 func (o *LowLevelOperationResponseModel) SetIsSuccessfulNil() {
 	o.IsSuccessful.Set(nil)
@@ -433,6 +437,7 @@ func (o *LowLevelOperationResponseModel) HasSourceSdk() bool {
 func (o *LowLevelOperationResponseModel) SetSourceSdk(v string) {
 	o.SourceSdk.Set(&v)
 }
+
 // SetSourceSdkNil sets the value for SourceSdk to be an explicit nil
 func (o *LowLevelOperationResponseModel) SetSourceSdkNil() {
 	o.SourceSdk.Set(nil)
@@ -571,6 +576,7 @@ func (o *LowLevelOperationResponseModel) HasUser() bool {
 func (o *LowLevelOperationResponseModel) SetUser(v string) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *LowLevelOperationResponseModel) SetUserNil() {
 	o.User.Set(nil)
@@ -613,6 +619,7 @@ func (o *LowLevelOperationResponseModel) HasUserIdentity() bool {
 func (o *LowLevelOperationResponseModel) SetUserIdentity(v string) {
 	o.UserIdentity.Set(&v)
 }
+
 // SetUserIdentityNil sets the value for UserIdentity to be an explicit nil
 func (o *LowLevelOperationResponseModel) SetUserIdentityNil() {
 	o.UserIdentity.Set(nil)
@@ -624,7 +631,7 @@ func (o *LowLevelOperationResponseModel) UnsetUserIdentity() {
 }
 
 func (o LowLevelOperationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -704,5 +711,3 @@ func (v *NullableLowLevelOperationResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

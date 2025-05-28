@@ -84,6 +84,7 @@ func (o *MachineCatalogDeliveryGroupRefResponseModel) HasId() bool {
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -126,6 +127,7 @@ func (o *MachineCatalogDeliveryGroupRefResponseModel) HasUid() bool {
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -168,6 +170,7 @@ func (o *MachineCatalogDeliveryGroupRefResponseModel) HasName() bool {
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -210,6 +213,7 @@ func (o *MachineCatalogDeliveryGroupRefResponseModel) HasPriority() bool {
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetPriority(v int32) {
 	o.Priority.Set(&v)
 }
+
 // SetPriorityNil sets the value for Priority to be an explicit nil
 func (o *MachineCatalogDeliveryGroupRefResponseModel) SetPriorityNil() {
 	o.Priority.Set(nil)
@@ -269,7 +273,7 @@ func (o *MachineCatalogDeliveryGroupRefResponseModel) SetTotal(v int32) {
 }
 
 func (o MachineCatalogDeliveryGroupRefResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -330,5 +334,3 @@ func (v *NullableMachineCatalogDeliveryGroupRefResponseModel) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

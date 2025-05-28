@@ -19,8 +19,8 @@ var _ MappedNullable = &CatalogSortCriteriaRequestModel{}
 
 // CatalogSortCriteriaRequestModel Catalog sort criteria.
 type CatalogSortCriteriaRequestModel struct {
-	Property CatalogSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      CatalogSearchProperty `json:"Property"`
+	SortDirection ListSortDirection     `json:"SortDirection"`
 }
 
 // NewCatalogSortCriteriaRequestModel instantiates a new CatalogSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *CatalogSortCriteriaRequestModel) SetSortDirection(v ListSortDirection) 
 }
 
 func (o CatalogSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableCatalogSortCriteriaRequestModel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

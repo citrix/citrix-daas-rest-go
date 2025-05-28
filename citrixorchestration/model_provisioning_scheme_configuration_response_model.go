@@ -24,13 +24,13 @@ type ProvisioningSchemeConfigurationResponseModel struct {
 	// Memory in MB
 	MemoryMB NullableInt32 `json:"MemoryMB,omitempty"`
 	// Custom properties
-	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
-	MachineProfile *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
+	CustomProperties []NameValueStringPairModel          `json:"CustomProperties,omitempty"`
+	MachineProfile   *HypervisorResourceRefResponseModel `json:"MachineProfile,omitempty"`
 	// Service offering used by Cloud provisioned VMs.
 	ServiceOffering NullableString `json:"ServiceOffering,omitempty"`
-	// Provisioning scheme configuration version. 
+	// Provisioning scheme configuration version.
 	Version *int32 `json:"Version,omitempty"`
-	// Network mappings. 
+	// Network mappings.
 	NetworkMappings []NetworkMapResponseModel `json:"NetworkMappings,omitempty"`
 	// Security groups.
 	SecurityGroups []SecurityGroup `json:"SecurityGroups,omitempty"`
@@ -89,6 +89,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) HasCpuCount() bool {
 func (o *ProvisioningSchemeConfigurationResponseModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *ProvisioningSchemeConfigurationResponseModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -131,6 +132,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) HasMemoryMB() bool {
 func (o *ProvisioningSchemeConfigurationResponseModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *ProvisioningSchemeConfigurationResponseModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -238,6 +240,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) HasServiceOffering() bool
 func (o *ProvisioningSchemeConfigurationResponseModel) SetServiceOffering(v string) {
 	o.ServiceOffering.Set(&v)
 }
+
 // SetServiceOfferingNil sets the value for ServiceOffering to be an explicit nil
 func (o *ProvisioningSchemeConfigurationResponseModel) SetServiceOfferingNil() {
 	o.ServiceOffering.Set(nil)
@@ -378,6 +381,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) HasProvisioningSchemeName
 func (o *ProvisioningSchemeConfigurationResponseModel) SetProvisioningSchemeName(v string) {
 	o.ProvisioningSchemeName.Set(&v)
 }
+
 // SetProvisioningSchemeNameNil sets the value for ProvisioningSchemeName to be an explicit nil
 func (o *ProvisioningSchemeConfigurationResponseModel) SetProvisioningSchemeNameNil() {
 	o.ProvisioningSchemeName.Set(nil)
@@ -421,7 +425,7 @@ func (o *ProvisioningSchemeConfigurationResponseModel) SetProvisioningSchemeId(v
 }
 
 func (o ProvisioningSchemeConfigurationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -498,5 +502,3 @@ func (v *NullableProvisioningSchemeConfigurationResponseModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

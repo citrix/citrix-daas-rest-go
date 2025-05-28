@@ -20,7 +20,7 @@ var _ MappedNullable = &EditHypervisorResourcePoolAzureRequestModel{}
 // EditHypervisorResourcePoolAzureRequestModel struct for EditHypervisorResourcePoolAzureRequestModel
 type EditHypervisorResourcePoolAzureRequestModel struct {
 	// Name of the resource pool.  Optional.  If not specified, will not be changed.
-	Name NullableString `json:"Name,omitempty"`
+	Name           NullableString           `json:"Name,omitempty" validate:"regexp=(.*)*"`
 	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
 	// Indicates whether VMs created by Virtual Apps & Desktops provisioning operations should be tagged.  Tagged VMs are filtered out of queries by default.
 	VmTagging NullableBool `json:"VmTagging,omitempty"`
@@ -33,11 +33,11 @@ type EditHypervisorResourcePoolAzureRequestModel struct {
 	// Path to the personal virtual disk storage resource(s). Optional; if not specified, will not be changed.  If any storage is specified, all desired storage must be listed.  Any storage that was previously used for the resource pool, but not listed during an edit operation, will be removed. Note that removing storage from the resource pool will permanently disable the ability to update or rollback machines that are provisioned using that storage.  Therefore, removal of storage should _only_ be done when the storage is terminally broken or is being replaced.
 	PersonalvDiskStorage []HypervisorResourcePoolStorageRequestModel `json:"PersonalvDiskStorage,omitempty"`
 	// Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom.
-	CustomProperties NullableString `json:"CustomProperties,omitempty"`
+	CustomProperties NullableString `json:"CustomProperties,omitempty" validate:"regexp=((.|\\\\n)*)"`
 	// Indicates whether local storage on the hypervisor will be used for caching purposes. Not all hypervisor types support this.  Defaults to `false`.
 	UseLocalStorageCaching NullableBool `json:"UseLocalStorageCaching,omitempty"`
 	// Path to the network resource(s) that are available for provisioning operations in this resource pool.  At least one is required.
-	Networks []string `json:"Networks,omitempty"`
+	Networks           []string            `json:"Networks,omitempty"`
 	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
 	// Path to the subnet(s) that are available for provisioning operations in this resource pool.  At least one is required.
 	Subnets []string `json:"Subnets,omitempty"`
@@ -93,6 +93,7 @@ func (o *EditHypervisorResourcePoolAzureRequestModel) HasName() bool {
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -159,6 +160,7 @@ func (o *EditHypervisorResourcePoolAzureRequestModel) HasVmTagging() bool {
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetVmTagging(v bool) {
 	o.VmTagging.Set(&v)
 }
+
 // SetVmTaggingNil sets the value for VmTagging to be an explicit nil
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetVmTaggingNil() {
 	o.VmTagging.Set(nil)
@@ -333,6 +335,7 @@ func (o *EditHypervisorResourcePoolAzureRequestModel) HasCustomProperties() bool
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -375,6 +378,7 @@ func (o *EditHypervisorResourcePoolAzureRequestModel) HasUseLocalStorageCaching(
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetUseLocalStorageCaching(v bool) {
 	o.UseLocalStorageCaching.Set(&v)
 }
+
 // SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
 func (o *EditHypervisorResourcePoolAzureRequestModel) SetUseLocalStorageCachingNil() {
 	o.UseLocalStorageCaching.Set(nil)
@@ -484,7 +488,7 @@ func (o *EditHypervisorResourcePoolAzureRequestModel) SetSubnets(v []string) {
 }
 
 func (o EditHypervisorResourcePoolAzureRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -565,5 +569,3 @@ func (v *NullableEditHypervisorResourcePoolAzureRequestModel) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

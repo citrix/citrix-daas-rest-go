@@ -17,7 +17,7 @@ import (
 // checks if the ADDomainResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ADDomainResponseModel{}
 
-// ADDomainResponseModel Response model for ad domain.             
+// ADDomainResponseModel Response model for ad domain.
 type ADDomainResponseModel struct {
 	// Domain name
 	Name NullableString `json:"Name,omitempty"`
@@ -74,6 +74,7 @@ func (o *ADDomainResponseModel) HasName() bool {
 func (o *ADDomainResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ADDomainResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -116,6 +117,7 @@ func (o *ADDomainResponseModel) HasForestName() bool {
 func (o *ADDomainResponseModel) SetForestName(v string) {
 	o.ForestName.Set(&v)
 }
+
 // SetForestNameNil sets the value for ForestName to be an explicit nil
 func (o *ADDomainResponseModel) SetForestNameNil() {
 	o.ForestName.Set(nil)
@@ -127,7 +129,7 @@ func (o *ADDomainResponseModel) UnsetForestName() {
 }
 
 func (o ADDomainResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableADDomainResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

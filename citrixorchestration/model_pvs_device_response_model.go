@@ -22,8 +22,8 @@ type PvsDeviceResponseModel struct {
 	// Machine name.
 	Name string `json:"Name"`
 	// Machine's Active Directory SID.
-	Sid string `json:"Sid"`
-	PvsSite RefResponseModel `json:"PvsSite"`
+	Sid           string           `json:"Sid"`
+	PvsSite       RefResponseModel `json:"PvsSite"`
 	PvsCollection RefResponseModel `json:"PvsCollection"`
 	// Hypervisor connection associated with the machine.  Will be set if the caller requested `resolveHypervisor=true` and the machine is located on one of the hypervisors connected to the site.
 	HypervisorConnection NullableString `json:"HypervisorConnection,omitempty"`
@@ -180,6 +180,7 @@ func (o *PvsDeviceResponseModel) HasHypervisorConnection() bool {
 func (o *PvsDeviceResponseModel) SetHypervisorConnection(v string) {
 	o.HypervisorConnection.Set(&v)
 }
+
 // SetHypervisorConnectionNil sets the value for HypervisorConnection to be an explicit nil
 func (o *PvsDeviceResponseModel) SetHypervisorConnectionNil() {
 	o.HypervisorConnection.Set(nil)
@@ -222,6 +223,7 @@ func (o *PvsDeviceResponseModel) HasHostedMachineId() bool {
 func (o *PvsDeviceResponseModel) SetHostedMachineId(v string) {
 	o.HostedMachineId.Set(&v)
 }
+
 // SetHostedMachineIdNil sets the value for HostedMachineId to be an explicit nil
 func (o *PvsDeviceResponseModel) SetHostedMachineIdNil() {
 	o.HostedMachineId.Set(nil)
@@ -233,7 +235,7 @@ func (o *PvsDeviceResponseModel) UnsetHostedMachineId() {
 }
 
 func (o PvsDeviceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -290,5 +292,3 @@ func (v *NullablePvsDeviceResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

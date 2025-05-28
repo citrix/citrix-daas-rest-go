@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to [**PowerResponseCode**](PowerResponseCode.md) |  | [optional] 
+**Code** | Pointer to [**PowerResponseCode**](PowerResponseCode.md) | Code for the response | [optional] 
 **ErrorDescription** | Pointer to **NullableString** | Description about the error | [optional] [readonly] 
 
 ## Methods

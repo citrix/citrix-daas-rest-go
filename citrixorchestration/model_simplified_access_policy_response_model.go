@@ -150,6 +150,7 @@ func (o *SimplifiedAccessPolicyResponseModel) HasAllowMachineRestart() bool {
 func (o *SimplifiedAccessPolicyResponseModel) SetAllowMachineRestart(v bool) {
 	o.AllowMachineRestart.Set(&v)
 }
+
 // SetAllowMachineRestartNil sets the value for AllowMachineRestart to be an explicit nil
 func (o *SimplifiedAccessPolicyResponseModel) SetAllowMachineRestartNil() {
 	o.AllowMachineRestart.Set(nil)
@@ -404,7 +405,7 @@ func (o *SimplifiedAccessPolicyResponseModel) SetExcludedUsers(v []IdentityUserR
 }
 
 func (o SimplifiedAccessPolicyResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -471,5 +472,3 @@ func (v *NullableSimplifiedAccessPolicyResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

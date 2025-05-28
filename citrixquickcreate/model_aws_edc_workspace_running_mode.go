@@ -22,7 +22,7 @@ type AwsEdcWorkspaceRunningMode string
 const (
 	AWSEDCWORKSPACERUNNINGMODE_ALWAYS_ON AwsEdcWorkspaceRunningMode = "ALWAYS_ON"
 	AWSEDCWORKSPACERUNNINGMODE_AUTO_STOP AwsEdcWorkspaceRunningMode = "AUTO_STOP"
-	AWSEDCWORKSPACERUNNINGMODE_MANUAL AwsEdcWorkspaceRunningMode = "MANUAL"
+	AWSEDCWORKSPACERUNNINGMODE_MANUAL    AwsEdcWorkspaceRunningMode = "MANUAL"
 )
 
 // All allowed values of AwsEdcWorkspaceRunningMode enum
@@ -110,4 +110,3 @@ func (v *NullableAwsEdcWorkspaceRunningMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,17 +20,17 @@ type PowerState string
 
 // List of PowerState
 const (
-	POWERSTATE_UNKNOWN PowerState = "Unknown"
-	POWERSTATE_UNMANAGED PowerState = "Unmanaged"
-	POWERSTATE_UNAVAILABLE PowerState = "Unavailable"
-	POWERSTATE_OFF PowerState = "Off"
-	POWERSTATE_ON PowerState = "On"
-	POWERSTATE_SUSPENDED PowerState = "Suspended"
-	POWERSTATE_TURNING_ON PowerState = "TurningOn"
-	POWERSTATE_TURNING_OFF PowerState = "TurningOff"
-	POWERSTATE_SUSPENDING PowerState = "Suspending"
-	POWERSTATE_RESUMING PowerState = "Resuming"
-	POWERSTATE_NOT_SUPPORTED PowerState = "NotSupported"
+	POWERSTATE_UNKNOWN                   PowerState = "Unknown"
+	POWERSTATE_UNMANAGED                 PowerState = "Unmanaged"
+	POWERSTATE_UNAVAILABLE               PowerState = "Unavailable"
+	POWERSTATE_OFF                       PowerState = "Off"
+	POWERSTATE_ON                        PowerState = "On"
+	POWERSTATE_SUSPENDED                 PowerState = "Suspended"
+	POWERSTATE_TURNING_ON                PowerState = "TurningOn"
+	POWERSTATE_TURNING_OFF               PowerState = "TurningOff"
+	POWERSTATE_SUSPENDING                PowerState = "Suspending"
+	POWERSTATE_RESUMING                  PowerState = "Resuming"
+	POWERSTATE_NOT_SUPPORTED             PowerState = "NotSupported"
 	POWERSTATE_VIRTUAL_MACHINE_NOT_FOUND PowerState = "VirtualMachineNotFound"
 )
 
@@ -56,7 +56,7 @@ func (v *PowerState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PowerState(value)
 	return nil
 }
@@ -122,4 +122,3 @@ func (v *NullablePowerState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

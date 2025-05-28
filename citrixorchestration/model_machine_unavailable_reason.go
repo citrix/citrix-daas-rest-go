@@ -20,14 +20,14 @@ type MachineUnavailableReason string
 
 // List of MachineUnavailableReason
 const (
-	MACHINEUNAVAILABLEREASON_UNKNOWN MachineUnavailableReason = "Unknown"
-	MACHINEUNAVAILABLEREASON_NONE MachineUnavailableReason = "None"
-	MACHINEUNAVAILABLEREASON_LOAD_MANAGEMENT_INITIALIZING MachineUnavailableReason = "LoadManagementInitializing"
-	MACHINEUNAVAILABLEREASON_PVD_INITIALIZING MachineUnavailableReason = "PvdInitializing"
-	MACHINEUNAVAILABLEREASON_PVD_FAILED MachineUnavailableReason = "PvdFailed"
-	MACHINEUNAVAILABLEREASON_GCT_CONNECTION_INITIALIZING MachineUnavailableReason = "GctConnectionInitializing"
-	MACHINEUNAVAILABLEREASON_AZURE_AD_JOIN_INITIALIZING MachineUnavailableReason = "AzureAdJoinInitializing"
-	MACHINEUNAVAILABLEREASON_INTUNE_ENROLL_PENDING MachineUnavailableReason = "IntuneEnrollPending"
+	MACHINEUNAVAILABLEREASON_UNKNOWN                       MachineUnavailableReason = "Unknown"
+	MACHINEUNAVAILABLEREASON_NONE                          MachineUnavailableReason = "None"
+	MACHINEUNAVAILABLEREASON_LOAD_MANAGEMENT_INITIALIZING  MachineUnavailableReason = "LoadManagementInitializing"
+	MACHINEUNAVAILABLEREASON_PVD_INITIALIZING              MachineUnavailableReason = "PvdInitializing"
+	MACHINEUNAVAILABLEREASON_PVD_FAILED                    MachineUnavailableReason = "PvdFailed"
+	MACHINEUNAVAILABLEREASON_GCT_CONNECTION_INITIALIZING   MachineUnavailableReason = "GctConnectionInitializing"
+	MACHINEUNAVAILABLEREASON_AZURE_AD_JOIN_INITIALIZING    MachineUnavailableReason = "AzureAdJoinInitializing"
+	MACHINEUNAVAILABLEREASON_INTUNE_ENROLL_PENDING         MachineUnavailableReason = "IntuneEnrollPending"
 	MACHINEUNAVAILABLEREASON_AZURE_ARC_ONBOARDING_REQUIRED MachineUnavailableReason = "AzureArcOnboardingRequired"
 )
 
@@ -50,7 +50,7 @@ func (v *MachineUnavailableReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineUnavailableReason(value)
 	return nil
 }
@@ -116,4 +116,3 @@ func (v *NullableMachineUnavailableReason) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

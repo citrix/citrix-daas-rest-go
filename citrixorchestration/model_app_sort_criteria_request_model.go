@@ -17,9 +17,9 @@ import (
 // checks if the AppSortCriteriaRequestModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AppSortCriteriaRequestModel{}
 
-// AppSortCriteriaRequestModel Application sort criteria.             
+// AppSortCriteriaRequestModel Application sort criteria.
 type AppSortCriteriaRequestModel struct {
-	Property AppSearchProperty `json:"Property"`
+	Property      AppSearchProperty `json:"Property"`
 	SortDirection ListSortDirection `json:"SortDirection"`
 }
 
@@ -91,7 +91,7 @@ func (o *AppSortCriteriaRequestModel) SetSortDirection(v ListSortDirection) {
 }
 
 func (o AppSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableAppSortCriteriaRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -15,13 +15,13 @@ import (
 	"fmt"
 )
 
-// AutoscaleScaleDownAction 
+// AutoscaleScaleDownAction
 type AutoscaleScaleDownAction string
 
 // List of AutoscaleScaleDownAction
 const (
 	AUTOSCALESCALEDOWNACTION_SHUTDOWN AutoscaleScaleDownAction = "Shutdown"
-	AUTOSCALESCALEDOWNACTION_SUSPEND AutoscaleScaleDownAction = "Suspend"
+	AUTOSCALESCALEDOWNACTION_SUSPEND  AutoscaleScaleDownAction = "Suspend"
 )
 
 // All allowed values of AutoscaleScaleDownAction enum
@@ -36,7 +36,7 @@ func (v *AutoscaleScaleDownAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AutoscaleScaleDownAction(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableAutoscaleScaleDownAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

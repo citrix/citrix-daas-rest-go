@@ -19,9 +19,9 @@ var _ MappedNullable = &FlashUrlRuleContract{}
 
 // FlashUrlRuleContract struct for FlashUrlRuleContract
 type FlashUrlRuleContract struct {
-	RenderAction *FlashUrlRenderAction `json:"RenderAction,omitempty"`
-	UrlPattern NullableString `json:"UrlPattern,omitempty"`
-	FlashInstance NullableString `json:"FlashInstance,omitempty"`
+	RenderAction  *FlashUrlRenderAction `json:"RenderAction,omitempty"`
+	UrlPattern    NullableString        `json:"UrlPattern,omitempty"`
+	FlashInstance NullableString        `json:"FlashInstance,omitempty"`
 }
 
 // NewFlashUrlRuleContract instantiates a new FlashUrlRuleContract object
@@ -105,6 +105,7 @@ func (o *FlashUrlRuleContract) HasUrlPattern() bool {
 func (o *FlashUrlRuleContract) SetUrlPattern(v string) {
 	o.UrlPattern.Set(&v)
 }
+
 // SetUrlPatternNil sets the value for UrlPattern to be an explicit nil
 func (o *FlashUrlRuleContract) SetUrlPatternNil() {
 	o.UrlPattern.Set(nil)
@@ -147,6 +148,7 @@ func (o *FlashUrlRuleContract) HasFlashInstance() bool {
 func (o *FlashUrlRuleContract) SetFlashInstance(v string) {
 	o.FlashInstance.Set(&v)
 }
+
 // SetFlashInstanceNil sets the value for FlashInstance to be an explicit nil
 func (o *FlashUrlRuleContract) SetFlashInstanceNil() {
 	o.FlashInstance.Set(nil)
@@ -158,7 +160,7 @@ func (o *FlashUrlRuleContract) UnsetFlashInstance() {
 }
 
 func (o FlashUrlRuleContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -214,5 +216,3 @@ func (v *NullableFlashUrlRuleContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

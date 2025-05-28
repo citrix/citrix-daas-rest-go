@@ -21,10 +21,10 @@ type PrintQualitySetting string
 // List of PrintQualitySetting
 const (
 	PRINTQUALITYSETTING_CUSTOM PrintQualitySetting = "Custom"
-	PRINTQUALITYSETTING_HIGH PrintQualitySetting = "High"
+	PRINTQUALITYSETTING_HIGH   PrintQualitySetting = "High"
 	PRINTQUALITYSETTING_MEDIUM PrintQualitySetting = "Medium"
-	PRINTQUALITYSETTING_LOW PrintQualitySetting = "Low"
-	PRINTQUALITYSETTING_DRAFT PrintQualitySetting = "Draft"
+	PRINTQUALITYSETTING_LOW    PrintQualitySetting = "Low"
+	PRINTQUALITYSETTING_DRAFT  PrintQualitySetting = "Draft"
 )
 
 // All allowed values of PrintQualitySetting enum
@@ -42,7 +42,7 @@ func (v *PrintQualitySetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PrintQualitySetting(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullablePrintQualitySetting) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

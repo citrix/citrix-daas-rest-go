@@ -19,7 +19,7 @@ var _ MappedNullable = &OperatingSystemInfoResponseModel{}
 
 // OperatingSystemInfoResponseModel The operating sysytem information
 type OperatingSystemInfoResponseModel struct {
-	Type NullableString `json:"Type,omitempty"`
+	Type     NullableString `json:"Type,omitempty"`
 	FullName NullableString `json:"FullName,omitempty"`
 }
 
@@ -72,6 +72,7 @@ func (o *OperatingSystemInfoResponseModel) HasType() bool {
 func (o *OperatingSystemInfoResponseModel) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *OperatingSystemInfoResponseModel) SetTypeNil() {
 	o.Type.Set(nil)
@@ -114,6 +115,7 @@ func (o *OperatingSystemInfoResponseModel) HasFullName() bool {
 func (o *OperatingSystemInfoResponseModel) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
+
 // SetFullNameNil sets the value for FullName to be an explicit nil
 func (o *OperatingSystemInfoResponseModel) SetFullNameNil() {
 	o.FullName.Set(nil)
@@ -125,7 +127,7 @@ func (o *OperatingSystemInfoResponseModel) UnsetFullName() {
 }
 
 func (o OperatingSystemInfoResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableOperatingSystemInfoResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

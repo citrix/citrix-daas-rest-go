@@ -109,6 +109,7 @@ func (o *CollectionEnvelopeOfPolicySetResponse) HasContinuationToken() bool {
 func (o *CollectionEnvelopeOfPolicySetResponse) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *CollectionEnvelopeOfPolicySetResponse) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -151,6 +152,7 @@ func (o *CollectionEnvelopeOfPolicySetResponse) HasTotalItems() bool {
 func (o *CollectionEnvelopeOfPolicySetResponse) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *CollectionEnvelopeOfPolicySetResponse) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -162,7 +164,7 @@ func (o *CollectionEnvelopeOfPolicySetResponse) UnsetTotalItems() {
 }
 
 func (o CollectionEnvelopeOfPolicySetResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,5 +220,3 @@ func (v *NullableCollectionEnvelopeOfPolicySetResponse) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

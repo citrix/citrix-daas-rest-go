@@ -72,6 +72,7 @@ func (o *ApplicationGroupNameCheckRequestModel) HasName() bool {
 func (o *ApplicationGroupNameCheckRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ApplicationGroupNameCheckRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -83,7 +84,7 @@ func (o *ApplicationGroupNameCheckRequestModel) UnsetName() {
 }
 
 func (o ApplicationGroupNameCheckRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,5 +134,3 @@ func (v *NullableApplicationGroupNameCheckRequestModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

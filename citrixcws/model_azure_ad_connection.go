@@ -19,10 +19,10 @@ var _ MappedNullable = &AzureAdConnection{}
 
 // AzureAdConnection struct for AzureAdConnection
 type AzureAdConnection struct {
-	AuthDomainName NullableString `json:"authDomainName,omitempty"`
+	AuthDomainName        NullableString `json:"authDomainName,omitempty"`
 	AuthDomainDisplayName NullableString `json:"authDomainDisplayName,omitempty"`
-	HintApp NullableString `json:"hintApp,omitempty"`
-	Resources NullableString `json:"resources,omitempty"`
+	HintApp               NullableString `json:"hintApp,omitempty"`
+	Resources             NullableString `json:"resources,omitempty"`
 }
 
 // NewAzureAdConnection instantiates a new AzureAdConnection object
@@ -74,6 +74,7 @@ func (o *AzureAdConnection) HasAuthDomainName() bool {
 func (o *AzureAdConnection) SetAuthDomainName(v string) {
 	o.AuthDomainName.Set(&v)
 }
+
 // SetAuthDomainNameNil sets the value for AuthDomainName to be an explicit nil
 func (o *AzureAdConnection) SetAuthDomainNameNil() {
 	o.AuthDomainName.Set(nil)
@@ -116,6 +117,7 @@ func (o *AzureAdConnection) HasAuthDomainDisplayName() bool {
 func (o *AzureAdConnection) SetAuthDomainDisplayName(v string) {
 	o.AuthDomainDisplayName.Set(&v)
 }
+
 // SetAuthDomainDisplayNameNil sets the value for AuthDomainDisplayName to be an explicit nil
 func (o *AzureAdConnection) SetAuthDomainDisplayNameNil() {
 	o.AuthDomainDisplayName.Set(nil)
@@ -158,6 +160,7 @@ func (o *AzureAdConnection) HasHintApp() bool {
 func (o *AzureAdConnection) SetHintApp(v string) {
 	o.HintApp.Set(&v)
 }
+
 // SetHintAppNil sets the value for HintApp to be an explicit nil
 func (o *AzureAdConnection) SetHintAppNil() {
 	o.HintApp.Set(nil)
@@ -200,6 +203,7 @@ func (o *AzureAdConnection) HasResources() bool {
 func (o *AzureAdConnection) SetResources(v string) {
 	o.Resources.Set(&v)
 }
+
 // SetResourcesNil sets the value for Resources to be an explicit nil
 func (o *AzureAdConnection) SetResourcesNil() {
 	o.Resources.Set(nil)
@@ -211,7 +215,7 @@ func (o *AzureAdConnection) UnsetResources() {
 }
 
 func (o AzureAdConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -270,5 +274,3 @@ func (v *NullableAzureAdConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

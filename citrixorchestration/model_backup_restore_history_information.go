@@ -20,8 +20,8 @@ var _ MappedNullable = &BackupRestoreHistoryInformation{}
 
 // BackupRestoreHistoryInformation Single history for backup / restore operations
 type BackupRestoreHistoryInformation struct {
-	// Unique Identifier             
-	Uid *int32 `json:"Uid,omitempty"`
+	// Unique Identifier
+	Uid    *int32               `json:"Uid,omitempty"`
 	Action BackupRestoreActions `json:"Action"`
 	// History entry ID
 	HistoryId string `json:"HistoryId"`
@@ -34,7 +34,7 @@ type BackupRestoreHistoryInformation struct {
 	// Date and time the action was started
 	DateTime *time.Time `json:"DateTime,omitempty"`
 	// Notes about the action
-	Notes NullableString `json:"Notes,omitempty"`
+	Notes       NullableString             `json:"Notes,omitempty"`
 	RestoreType *BackupRestoreRestoreTypes `json:"RestoreType,omitempty"`
 	// Filters used (applicable only when the action was restore)
 	Filters NullableString `json:"Filters,omitempty"`
@@ -43,8 +43,8 @@ type BackupRestoreHistoryInformation struct {
 	// Check mode (applicable only when the action was restore)
 	CheckMode *bool `json:"CheckMode,omitempty"`
 	// Name of schedule to perform backup (applicable only when the action was backup)
-	ScheduleName NullableString `json:"ScheduleName,omitempty"`
-	Component *BckRstrAutoConfigComponents `json:"Component,omitempty"`
+	ScheduleName NullableString               `json:"ScheduleName,omitempty"`
+	Component    *BckRstrAutoConfigComponents `json:"Component,omitempty"`
 	// Execution Id
 	ExecutionId NullableString `json:"ExecutionId,omitempty"`
 	// Backup name
@@ -69,7 +69,7 @@ type BackupRestoreHistoryInformation struct {
 	RestoreDetails []BackupRestoreRestoreSingleMemberModel `json:"RestoreDetails,omitempty"`
 	// Simple Results (such as Get backed up member names)
 	SimpleResults []string `json:"SimpleResults,omitempty"`
-	// Fixups 
+	// Fixups
 	Fixups []BackupRestoreFixupModel `json:"Fixups,omitempty"`
 }
 
@@ -325,6 +325,7 @@ func (o *BackupRestoreHistoryInformation) HasNotes() bool {
 func (o *BackupRestoreHistoryInformation) SetNotes(v string) {
 	o.Notes.Set(&v)
 }
+
 // SetNotesNil sets the value for Notes to be an explicit nil
 func (o *BackupRestoreHistoryInformation) SetNotesNil() {
 	o.Notes.Set(nil)
@@ -399,6 +400,7 @@ func (o *BackupRestoreHistoryInformation) HasFilters() bool {
 func (o *BackupRestoreHistoryInformation) SetFilters(v string) {
 	o.Filters.Set(&v)
 }
+
 // SetFiltersNil sets the value for Filters to be an explicit nil
 func (o *BackupRestoreHistoryInformation) SetFiltersNil() {
 	o.Filters.Set(nil)
@@ -505,6 +507,7 @@ func (o *BackupRestoreHistoryInformation) HasScheduleName() bool {
 func (o *BackupRestoreHistoryInformation) SetScheduleName(v string) {
 	o.ScheduleName.Set(&v)
 }
+
 // SetScheduleNameNil sets the value for ScheduleName to be an explicit nil
 func (o *BackupRestoreHistoryInformation) SetScheduleNameNil() {
 	o.ScheduleName.Set(nil)
@@ -579,6 +582,7 @@ func (o *BackupRestoreHistoryInformation) HasExecutionId() bool {
 func (o *BackupRestoreHistoryInformation) SetExecutionId(v string) {
 	o.ExecutionId.Set(&v)
 }
+
 // SetExecutionIdNil sets the value for ExecutionId to be an explicit nil
 func (o *BackupRestoreHistoryInformation) SetExecutionIdNil() {
 	o.ExecutionId.Set(nil)
@@ -621,6 +625,7 @@ func (o *BackupRestoreHistoryInformation) HasBackupName() bool {
 func (o *BackupRestoreHistoryInformation) SetBackupName(v string) {
 	o.BackupName.Set(&v)
 }
+
 // SetBackupNameNil sets the value for BackupName to be an explicit nil
 func (o *BackupRestoreHistoryInformation) SetBackupNameNil() {
 	o.BackupName.Set(nil)
@@ -695,6 +700,7 @@ func (o *BackupRestoreHistoryInformation) HasBackupFileSpec() bool {
 func (o *BackupRestoreHistoryInformation) SetBackupFileSpec(v string) {
 	o.BackupFileSpec.Set(&v)
 }
+
 // SetBackupFileSpecNil sets the value for BackupFileSpec to be an explicit nil
 func (o *BackupRestoreHistoryInformation) SetBackupFileSpecNil() {
 	o.BackupFileSpec.Set(nil)
@@ -865,6 +871,7 @@ func (o *BackupRestoreHistoryInformation) HasAdministratorName() bool {
 func (o *BackupRestoreHistoryInformation) SetAdministratorName(v string) {
 	o.AdministratorName.Set(&v)
 }
+
 // SetAdministratorNameNil sets the value for AdministratorName to be an explicit nil
 func (o *BackupRestoreHistoryInformation) SetAdministratorNameNil() {
 	o.AdministratorName.Set(nil)
@@ -1008,7 +1015,7 @@ func (o *BackupRestoreHistoryInformation) SetFixups(v []BackupRestoreFixupModel)
 }
 
 func (o BackupRestoreHistoryInformation) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1130,5 +1137,3 @@ func (v *NullableBackupRestoreHistoryInformation) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

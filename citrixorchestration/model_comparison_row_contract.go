@@ -84,6 +84,7 @@ func (o *ComparisonRowContract) HasSettingName() bool {
 func (o *ComparisonRowContract) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *ComparisonRowContract) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -256,6 +257,7 @@ func (o *ComparisonRowContract) HasCategory() bool {
 func (o *ComparisonRowContract) SetCategory(v string) {
 	o.Category.Set(&v)
 }
+
 // SetCategoryNil sets the value for Category to be an explicit nil
 func (o *ComparisonRowContract) SetCategoryNil() {
 	o.Category.Set(nil)
@@ -298,6 +300,7 @@ func (o *ComparisonRowContract) HasDefaultValue() bool {
 func (o *ComparisonRowContract) SetDefaultValue(v string) {
 	o.DefaultValue.Set(&v)
 }
+
 // SetDefaultValueNil sets the value for DefaultValue to be an explicit nil
 func (o *ComparisonRowContract) SetDefaultValueNil() {
 	o.DefaultValue.Set(nil)
@@ -309,7 +312,7 @@ func (o *ComparisonRowContract) UnsetDefaultValue() {
 }
 
 func (o ComparisonRowContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -377,5 +380,3 @@ func (v *NullableComparisonRowContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

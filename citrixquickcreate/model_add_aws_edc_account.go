@@ -21,18 +21,20 @@ var _ MappedNullable = &AddAwsEdcAccount{}
 type AddAwsEdcAccount struct {
 	AddAccount
 	// The ID of Access Key associated with the account
-	AwsAccessKeyId NullableString `json:"awsAccessKeyId,omitempty"`
+	AwsAccessKeyId NullableString `json:"awsAccessKeyId,omitempty" validate:"regexp=^[\\\\w]+$"`
 	// The secret associated with access key for the account
 	AwsSecretAccessKey NullableString `json:"awsSecretAccessKey,omitempty"`
 	// The AWS region the account is associated with
 	AwsRegion *string `json:"awsRegion,omitempty"`
 	// The ARN of the role to assume when making requests in this account
-	AwsRoleArn NullableString `json:"awsRoleArn,omitempty"`
+	AwsRoleArn NullableString `json:"awsRoleArn,omitempty" validate:"regexp=^arn:aws(-us-gov)?:iam::[0-9]{12}:role\\/[a-zA-Z0-9+=,.@\\\\-_]{1,64}$"`
 	// The ARN external ID to use when assuming the role
 	AwsExternalId NullableString `json:"awsExternalId,omitempty"`
 	// Indicates if the associated AWS EDC account has BYOL support is enabled\\r\\nBy default we expect customer to use BYOL configuration to be enabled at this moment
 	AwsByolFeatureEnabled NullableBool `json:"awsByolFeatureEnabled,omitempty"`
 }
+
+type _AddAwsEdcAccount AddAwsEdcAccount
 
 // NewAddAwsEdcAccount instantiates a new AddAwsEdcAccount object
 // This constructor will assign default values to properties that have it defined,
@@ -85,6 +87,7 @@ func (o *AddAwsEdcAccount) HasAwsAccessKeyId() bool {
 func (o *AddAwsEdcAccount) SetAwsAccessKeyId(v string) {
 	o.AwsAccessKeyId.Set(&v)
 }
+
 // SetAwsAccessKeyIdNil sets the value for AwsAccessKeyId to be an explicit nil
 func (o *AddAwsEdcAccount) SetAwsAccessKeyIdNil() {
 	o.AwsAccessKeyId.Set(nil)
@@ -127,6 +130,7 @@ func (o *AddAwsEdcAccount) HasAwsSecretAccessKey() bool {
 func (o *AddAwsEdcAccount) SetAwsSecretAccessKey(v string) {
 	o.AwsSecretAccessKey.Set(&v)
 }
+
 // SetAwsSecretAccessKeyNil sets the value for AwsSecretAccessKey to be an explicit nil
 func (o *AddAwsEdcAccount) SetAwsSecretAccessKeyNil() {
 	o.AwsSecretAccessKey.Set(nil)
@@ -201,6 +205,7 @@ func (o *AddAwsEdcAccount) HasAwsRoleArn() bool {
 func (o *AddAwsEdcAccount) SetAwsRoleArn(v string) {
 	o.AwsRoleArn.Set(&v)
 }
+
 // SetAwsRoleArnNil sets the value for AwsRoleArn to be an explicit nil
 func (o *AddAwsEdcAccount) SetAwsRoleArnNil() {
 	o.AwsRoleArn.Set(nil)
@@ -243,6 +248,7 @@ func (o *AddAwsEdcAccount) HasAwsExternalId() bool {
 func (o *AddAwsEdcAccount) SetAwsExternalId(v string) {
 	o.AwsExternalId.Set(&v)
 }
+
 // SetAwsExternalIdNil sets the value for AwsExternalId to be an explicit nil
 func (o *AddAwsEdcAccount) SetAwsExternalIdNil() {
 	o.AwsExternalId.Set(nil)
@@ -285,6 +291,7 @@ func (o *AddAwsEdcAccount) HasAwsByolFeatureEnabled() bool {
 func (o *AddAwsEdcAccount) SetAwsByolFeatureEnabled(v bool) {
 	o.AwsByolFeatureEnabled.Set(&v)
 }
+
 // SetAwsByolFeatureEnabledNil sets the value for AwsByolFeatureEnabled to be an explicit nil
 func (o *AddAwsEdcAccount) SetAwsByolFeatureEnabledNil() {
 	o.AwsByolFeatureEnabled.Set(nil)
@@ -296,7 +303,7 @@ func (o *AddAwsEdcAccount) UnsetAwsByolFeatureEnabled() {
 }
 
 func (o AddAwsEdcAccount) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -369,5 +376,3 @@ func (v *NullableAddAwsEdcAccount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

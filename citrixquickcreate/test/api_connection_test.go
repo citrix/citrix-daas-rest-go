@@ -11,10 +11,11 @@ package citrixquickcreate
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixquickcreate"
 )
 
 func Test_citrixquickcreate_ConnectionQCSService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixquickcreate_ConnectionQCSService(t *testing.T) {
 
 	t.Run("Test ConnectionQCSService AddResourceConnectionAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var accountId string
@@ -39,7 +40,7 @@ func Test_citrixquickcreate_ConnectionQCSService(t *testing.T) {
 
 	t.Run("Test ConnectionQCSService GetAllResourceConnectionsAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 
@@ -53,7 +54,7 @@ func Test_citrixquickcreate_ConnectionQCSService(t *testing.T) {
 
 	t.Run("Test ConnectionQCSService GetResourceConnectionAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var accountId string
@@ -69,7 +70,7 @@ func Test_citrixquickcreate_ConnectionQCSService(t *testing.T) {
 
 	t.Run("Test ConnectionQCSService GetResourceConnectionsAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var accountId string
@@ -84,7 +85,7 @@ func Test_citrixquickcreate_ConnectionQCSService(t *testing.T) {
 
 	t.Run("Test ConnectionQCSService ModifyResourceConnectionAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var accountId string
@@ -100,7 +101,7 @@ func Test_citrixquickcreate_ConnectionQCSService(t *testing.T) {
 
 	t.Run("Test ConnectionQCSService RemoveResourceConnectionAsync", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var customerId string
 		var accountId string

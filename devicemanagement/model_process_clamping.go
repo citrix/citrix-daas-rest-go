@@ -20,7 +20,7 @@ var _ MappedNullable = &ProcessClamping{}
 // ProcessClamping struct for ProcessClamping
 type ProcessClamping struct {
 	ProcessName *string `json:"processName,omitempty"`
-	Percentage *int32 `json:"percentage,omitempty"`
+	Percentage  *int32  `json:"percentage,omitempty"`
 }
 
 // NewProcessClamping instantiates a new ProcessClamping object
@@ -105,7 +105,7 @@ func (o *ProcessClamping) SetPercentage(v int32) {
 }
 
 func (o ProcessClamping) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableProcessClamping) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

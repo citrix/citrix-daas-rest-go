@@ -19,12 +19,15 @@ var _ MappedNullable = &DeploymentIdMachinesBody{}
 
 // DeploymentIdMachinesBody Turn on or off maintenance mode on machines by id
 type DeploymentIdMachinesBody struct {
+	// The type of provider associated with the account
 	AccountType AccountType `json:"accountType"`
 	// The type of provider associated with the account
 	InMaintenanceMode bool `json:"inMaintenanceMode"`
 	// The list of machine ids to be updated
 	MachineIds []string `json:"machineIds"`
 }
+
+type _DeploymentIdMachinesBody DeploymentIdMachinesBody
 
 // NewDeploymentIdMachinesBody instantiates a new DeploymentIdMachinesBody object
 // This constructor will assign default values to properties that have it defined,
@@ -119,7 +122,7 @@ func (o *DeploymentIdMachinesBody) SetMachineIds(v []string) {
 }
 
 func (o DeploymentIdMachinesBody) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +172,3 @@ func (v *NullableDeploymentIdMachinesBody) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

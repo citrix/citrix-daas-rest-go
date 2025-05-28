@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// AccountNamingSchemeType 
+// AccountNamingSchemeType
 type AccountNamingSchemeType string
 
 // List of AccountNamingSchemeType
 const (
-	ACCOUNTNAMINGSCHEMETYPE_UNKNOWN AccountNamingSchemeType = "Unknown"
-	ACCOUNTNAMINGSCHEMETYPE_NONE AccountNamingSchemeType = "None"
+	ACCOUNTNAMINGSCHEMETYPE_UNKNOWN    AccountNamingSchemeType = "Unknown"
+	ACCOUNTNAMINGSCHEMETYPE_NONE       AccountNamingSchemeType = "None"
 	ACCOUNTNAMINGSCHEMETYPE_ALPHABETIC AccountNamingSchemeType = "Alphabetic"
-	ACCOUNTNAMINGSCHEMETYPE_NUMERIC AccountNamingSchemeType = "Numeric"
+	ACCOUNTNAMINGSCHEMETYPE_NUMERIC    AccountNamingSchemeType = "Numeric"
 )
 
 // All allowed values of AccountNamingSchemeType enum
@@ -40,7 +40,7 @@ func (v *AccountNamingSchemeType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AccountNamingSchemeType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableAccountNamingSchemeType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -78,6 +78,7 @@ func (o *ServiceAccountCapabilityReference) HasName() bool {
 func (o *ServiceAccountCapabilityReference) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ServiceAccountCapabilityReference) SetNameNil() {
 	o.Name.Set(nil)
@@ -120,6 +121,7 @@ func (o *ServiceAccountCapabilityReference) HasEffectiveScope() bool {
 func (o *ServiceAccountCapabilityReference) SetEffectiveScope(v string) {
 	o.EffectiveScope.Set(&v)
 }
+
 // SetEffectiveScopeNil sets the value for EffectiveScope to be an explicit nil
 func (o *ServiceAccountCapabilityReference) SetEffectiveScopeNil() {
 	o.EffectiveScope.Set(nil)
@@ -194,6 +196,7 @@ func (o *ServiceAccountCapabilityReference) HasFailureReason() bool {
 func (o *ServiceAccountCapabilityReference) SetFailureReason(v string) {
 	o.FailureReason.Set(&v)
 }
+
 // SetFailureReasonNil sets the value for FailureReason to be an explicit nil
 func (o *ServiceAccountCapabilityReference) SetFailureReasonNil() {
 	o.FailureReason.Set(nil)
@@ -205,7 +208,7 @@ func (o *ServiceAccountCapabilityReference) UnsetFailureReason() {
 }
 
 func (o ServiceAccountCapabilityReference) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -264,5 +267,3 @@ func (v *NullableServiceAccountCapabilityReference) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type SamlSignRequestType string
 // List of SamlSignRequestType
 const (
 	SAMLSIGNREQUESTTYPE_YES SamlSignRequestType = "Yes"
-	SAMLSIGNREQUESTTYPE_NO SamlSignRequestType = "No"
+	SAMLSIGNREQUESTTYPE_NO  SamlSignRequestType = "No"
 )
 
 // All allowed values of SamlSignRequestType enum
@@ -108,4 +108,3 @@ func (v *NullableSamlSignRequestType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

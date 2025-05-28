@@ -1,6 +1,6 @@
 package models
 
-//Base Model shared by Add and Set StoreFarm Request Models
+// Base Model shared by Add and Set StoreFarm Request Models
 type BaseSTFStoreFarmRequestModel struct {
 	FarmName                   NullableString `json:"FarmName"`
 	Port                       NullableInt64  `json:"Port"`

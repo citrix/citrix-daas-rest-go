@@ -109,6 +109,7 @@ func (o *SiteErrorWarningModel) HasType() bool {
 func (o *SiteErrorWarningModel) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *SiteErrorWarningModel) SetTypeNil() {
 	o.Type.Set(nil)
@@ -151,6 +152,7 @@ func (o *SiteErrorWarningModel) HasTimeInUtc() bool {
 func (o *SiteErrorWarningModel) SetTimeInUtc(v string) {
 	o.TimeInUtc.Set(&v)
 }
+
 // SetTimeInUtcNil sets the value for TimeInUtc to be an explicit nil
 func (o *SiteErrorWarningModel) SetTimeInUtcNil() {
 	o.TimeInUtc.Set(nil)
@@ -194,7 +196,7 @@ func (o *SiteErrorWarningModel) SetIsHighPriority(v bool) {
 }
 
 func (o SiteErrorWarningModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -253,5 +255,3 @@ func (v *NullableSiteErrorWarningModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,10 +19,12 @@ var _ MappedNullable = &AdministratorNotificationsEmailsPreferences{}
 
 // AdministratorNotificationsEmailsPreferences struct for AdministratorNotificationsEmailsPreferences
 type AdministratorNotificationsEmailsPreferences struct {
-	SendNotificationEmails bool `json:"sendNotificationEmails"`
+	SendNotificationEmails  bool                        `json:"sendNotificationEmails"`
 	NotificationsSubscribed []AdministratorNotification `json:"notificationsSubscribed,omitempty"`
-	EnabledDate NullableString `json:"enabledDate,omitempty"`
+	EnabledDate             NullableString              `json:"enabledDate,omitempty"`
 }
+
+type _AdministratorNotificationsEmailsPreferences AdministratorNotificationsEmailsPreferences
 
 // NewAdministratorNotificationsEmailsPreferences instantiates a new AdministratorNotificationsEmailsPreferences object
 // This constructor will assign default values to properties that have it defined,
@@ -87,7 +89,7 @@ func (o *AdministratorNotificationsEmailsPreferences) GetNotificationsSubscribed
 
 // HasNotificationsSubscribed returns a boolean if a field has been set.
 func (o *AdministratorNotificationsEmailsPreferences) HasNotificationsSubscribed() bool {
-	if o != nil && IsNil(o.NotificationsSubscribed) {
+	if o != nil && !IsNil(o.NotificationsSubscribed) {
 		return true
 	}
 
@@ -131,6 +133,7 @@ func (o *AdministratorNotificationsEmailsPreferences) HasEnabledDate() bool {
 func (o *AdministratorNotificationsEmailsPreferences) SetEnabledDate(v string) {
 	o.EnabledDate.Set(&v)
 }
+
 // SetEnabledDateNil sets the value for EnabledDate to be an explicit nil
 func (o *AdministratorNotificationsEmailsPreferences) SetEnabledDateNil() {
 	o.EnabledDate.Set(nil)
@@ -142,7 +145,7 @@ func (o *AdministratorNotificationsEmailsPreferences) UnsetEnabledDate() {
 }
 
 func (o AdministratorNotificationsEmailsPreferences) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +199,3 @@ func (v *NullableAdministratorNotificationsEmailsPreferences) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

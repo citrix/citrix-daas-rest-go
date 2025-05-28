@@ -19,21 +19,20 @@ import (
 	"strings"
 )
 
-
 // SitesAPIsDAASService SitesAPIsDAAS service
 type SitesAPIsDAASService service
 
 type ApiSitesCheckObjectNameExistsRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                               context.Context
+	ApiService                        *SitesAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
 	checkObjectNameExistsRequestModel *CheckObjectNameExistsRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -93,24 +92,25 @@ SitesCheckObjectNameExists Check for the existence of an object.
 
 If the name exists, this returns true; otherwise, it returns false.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSitesCheckObjectNameExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSitesCheckObjectNameExistsRequest
 */
 func (a *SitesAPIsDAASService) SitesCheckObjectNameExists(ctx context.Context) ApiSitesCheckObjectNameExistsRequest {
 	return ApiSitesCheckObjectNameExistsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheckObjectNameExistsRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesCheckObjectNameExists")
@@ -212,8 +212,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -223,8 +223,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -234,8 +234,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -245,8 +245,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -256,8 +256,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -267,8 +267,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -278,8 +278,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -289,8 +289,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -300,8 +300,8 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -319,14 +319,14 @@ func (a *SitesAPIsDAASService) SitesCheckObjectNameExistsExecute(r ApiSitesCheck
 }
 
 type ApiSitesGetMultipleRemotePCAssignmentsRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -366,26 +366,27 @@ func (r ApiSitesGetMultipleRemotePCAssignmentsRequest) Execute() (bool, *http.Re
 /*
 SitesGetMultipleRemotePCAssignments Get multi-user auto-assignment for Remote PC Access.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesGetMultipleRemotePCAssignmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesGetMultipleRemotePCAssignmentsRequest
 */
 func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignments(ctx context.Context, nameOrId string) ApiSitesGetMultipleRemotePCAssignmentsRequest {
 	return ApiSitesGetMultipleRemotePCAssignmentsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiSitesGetMultipleRemotePCAssignmentsRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetMultipleRemotePCAssignments")
@@ -476,8 +477,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -487,8 +488,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -498,8 +499,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -509,8 +510,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -520,8 +521,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -531,8 +532,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -542,8 +543,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -553,8 +554,8 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -572,17 +573,17 @@ func (a *SitesAPIsDAASService) SitesGetMultipleRemotePCAssignmentsExecute(r ApiS
 }
 
 type ApiSitesGetSessionsTrendRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	startDate *string
-	endDate *string
-	intervalLength *int32
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	startDate           *string
+	endDate             *string
+	intervalLength      *int32
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -640,26 +641,27 @@ func (r ApiSitesGetSessionsTrendRequest) Execute() (*SessionsTrendResponseModel,
 /*
 SitesGetSessionsTrend Get the sessions trend
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId The site name or ID.
- @return ApiSitesGetSessionsTrendRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId The site name or ID.
+	@return ApiSitesGetSessionsTrendRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSessionsTrend(ctx context.Context, nameOrId string) ApiSitesGetSessionsTrendRequest {
 	return ApiSitesGetSessionsTrendRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return SessionsTrendResponseModel
+//
+//	@return SessionsTrendResponseModel
 func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSessionsTrendRequest) (*SessionsTrendResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SessionsTrendResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SessionsTrendResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSessionsTrend")
@@ -762,8 +764,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -773,8 +775,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -784,8 +786,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -795,8 +797,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -806,8 +808,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -817,8 +819,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -828,8 +830,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -839,8 +841,8 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -858,14 +860,14 @@ func (a *SitesAPIsDAASService) SitesGetSessionsTrendExecute(r ApiSitesGetSession
 }
 
 type ApiSitesGetSiteRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -905,26 +907,27 @@ func (r ApiSitesGetSiteRequest) Execute() (*SiteDetailResponseModel, *http.Respo
 /*
 SitesGetSite Get the details about a single site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesGetSiteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesGetSiteRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSite(ctx context.Context, nameOrId string) ApiSitesGetSiteRequest {
 	return ApiSitesGetSiteRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return SiteDetailResponseModel
+//
+//	@return SiteDetailResponseModel
 func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*SiteDetailResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SiteDetailResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SiteDetailResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSite")
@@ -1015,8 +1018,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1026,8 +1029,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1037,8 +1040,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1048,8 +1051,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1059,8 +1062,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1070,8 +1073,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1081,8 +1084,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1092,8 +1095,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1111,16 +1114,16 @@ func (a *SitesAPIsDAASService) SitesGetSiteExecute(r ApiSitesGetSiteRequest) (*S
 }
 
 type ApiSitesGetSiteErrorWarningRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1153,13 +1156,13 @@ func (r ApiSitesGetSiteErrorWarningRequest) CitrixLocale(citrixLocale string) Ap
 	return r
 }
 
-// To specify the object for which the number of the errors and warnings are reported.             Otherwise, the number of errors and warning will be reported for all objects.             The value should be a comma-separated list of object types.             Supported object types are: MachineCatalog, DeliveryGroup, Machine, Hypervisor, Image, Zone, Site             
+// To specify the object for which the number of the errors and warnings are reported.             Otherwise, the number of errors and warning will be reported for all objects.             The value should be a comma-separated list of object types.             Supported object types are: MachineCatalog, DeliveryGroup, Machine, Hypervisor, Image, Zone, Site
 func (r ApiSitesGetSiteErrorWarningRequest) Fields(fields string) ApiSitesGetSiteErrorWarningRequest {
 	r.fields = &fields
 	return r
 }
 
-// If &#x60;true&#x60;, to get the number of error and warning will be done as a background task.             The task will have JobType GetSiteErrorWarning             
+// If &#x60;true&#x60;, to get the number of error and warning will be done as a background task.             The task will have JobType GetSiteErrorWarning
 func (r ApiSitesGetSiteErrorWarningRequest) Async(async bool) ApiSitesGetSiteErrorWarningRequest {
 	r.async = &async
 	return r
@@ -1172,26 +1175,27 @@ func (r ApiSitesGetSiteErrorWarningRequest) Execute() (*ErrorWarningResponseMode
 /*
 SitesGetSiteErrorWarning Get number of errors and warnings for the specified objects in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesGetSiteErrorWarningRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesGetSiteErrorWarningRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSiteErrorWarning(ctx context.Context, nameOrId string) ApiSitesGetSiteErrorWarningRequest {
 	return ApiSitesGetSiteErrorWarningRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ErrorWarningResponseModel
+//
+//	@return ErrorWarningResponseModel
 func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSiteErrorWarningRequest) (*ErrorWarningResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ErrorWarningResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ErrorWarningResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSiteErrorWarning")
@@ -1288,8 +1292,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1299,8 +1303,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1310,8 +1314,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1321,8 +1325,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1332,8 +1336,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1343,8 +1347,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1354,8 +1358,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1365,8 +1369,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1384,14 +1388,14 @@ func (a *SitesAPIsDAASService) SitesGetSiteErrorWarningExecute(r ApiSitesGetSite
 }
 
 type ApiSitesGetSiteMisconfigurationReportRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1433,26 +1437,27 @@ SitesGetSiteMisconfigurationReport Get the misconfiguration report.
 
 Get the misconfiguration report />.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId ID of the site.
- @return ApiSitesGetSiteMisconfigurationReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId ID of the site.
+	@return ApiSitesGetSiteMisconfigurationReportRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReport(ctx context.Context, nameOrId string) ApiSitesGetSiteMisconfigurationReportRequest {
 	return ApiSitesGetSiteMisconfigurationReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return string
+//
+//	@return string
 func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSitesGetSiteMisconfigurationReportRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSiteMisconfigurationReport")
@@ -1543,8 +1548,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1554,8 +1559,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1565,8 +1570,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1576,8 +1581,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1587,8 +1592,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1598,8 +1603,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1609,8 +1614,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1620,8 +1625,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1639,15 +1644,15 @@ func (a *SitesAPIsDAASService) SitesGetSiteMisconfigurationReportExecute(r ApiSi
 }
 
 type ApiSitesGetSiteSettingsRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	fields *string
+	accept              *string
+	citrixLocale        *string
+	fields              *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1693,26 +1698,27 @@ func (r ApiSitesGetSiteSettingsRequest) Execute() (*SiteSettingsResponseModel, *
 /*
 SitesGetSiteSettings Get the settings for the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesGetSiteSettingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesGetSiteSettingsRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSiteSettings(ctx context.Context, nameOrId string) ApiSitesGetSiteSettingsRequest {
 	return ApiSitesGetSiteSettingsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return SiteSettingsResponseModel
+//
+//	@return SiteSettingsResponseModel
 func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSettingsRequest) (*SiteSettingsResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SiteSettingsResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SiteSettingsResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSiteSettings")
@@ -1806,8 +1812,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1817,8 +1823,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1828,8 +1834,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1839,8 +1845,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1850,8 +1856,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1861,8 +1867,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1872,8 +1878,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1883,8 +1889,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1902,15 +1908,15 @@ func (a *SitesAPIsDAASService) SitesGetSiteSettingsExecute(r ApiSitesGetSiteSett
 }
 
 type ApiSitesGetSiteStatusRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1956,26 +1962,27 @@ func (r ApiSitesGetSiteStatusRequest) Execute() (*SiteStatusResponseModel, *http
 /*
 SitesGetSiteStatus Get the status of a site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesGetSiteStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesGetSiteStatusRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSiteStatus(ctx context.Context, nameOrId string) ApiSitesGetSiteStatusRequest {
 	return ApiSitesGetSiteStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return SiteStatusResponseModel
+//
+//	@return SiteStatusResponseModel
 func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatusRequest) (*SiteStatusResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SiteStatusResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SiteStatusResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSiteStatus")
@@ -2069,8 +2076,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2080,8 +2087,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2091,8 +2098,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2102,8 +2109,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2113,8 +2120,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2124,8 +2131,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2135,8 +2142,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2146,8 +2153,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2165,14 +2172,14 @@ func (a *SitesAPIsDAASService) SitesGetSiteStatusExecute(r ApiSitesGetSiteStatus
 }
 
 type ApiSitesGetSiteTestReportRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2214,26 +2221,27 @@ SitesGetSiteTestReport Get the most recent test report.
 
 Get the test report from the last run of TestSite.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesGetSiteTestReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesGetSiteTestReportRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSiteTestReport(ctx context.Context, nameOrId string) ApiSitesGetSiteTestReportRequest {
 	return ApiSitesGetSiteTestReportRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return TestReportResponseModel
+//
+//	@return TestReportResponseModel
 func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTestReportRequest) (*TestReportResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TestReportResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TestReportResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSiteTestReport")
@@ -2324,8 +2332,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2335,8 +2343,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2346,8 +2354,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2357,8 +2365,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2368,8 +2376,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2379,8 +2387,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2390,8 +2398,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2401,8 +2409,8 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2420,13 +2428,13 @@ func (a *SitesAPIsDAASService) SitesGetSiteTestReportExecute(r ApiSitesGetSiteTe
 }
 
 type ApiSitesGetSitesRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2466,24 +2474,25 @@ func (r ApiSitesGetSitesRequest) Execute() (*SiteResponseModelCollection, *http.
 /*
 SitesGetSites Get the list of sites that are available to the customer and visible to the admin.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSitesGetSitesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSitesGetSitesRequest
 */
 func (a *SitesAPIsDAASService) SitesGetSites(ctx context.Context) ApiSitesGetSitesRequest {
 	return ApiSitesGetSitesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return SiteResponseModelCollection
+//
+//	@return SiteResponseModelCollection
 func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (*SiteResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SiteResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SiteResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetSites")
@@ -2573,8 +2582,8 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2584,8 +2593,8 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2595,8 +2604,8 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2606,8 +2615,8 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2617,8 +2626,8 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2628,8 +2637,8 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2639,8 +2648,8 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2658,14 +2667,14 @@ func (a *SitesAPIsDAASService) SitesGetSitesExecute(r ApiSitesGetSitesRequest) (
 }
 
 type ApiSitesGetUpgradePackageVersionsRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2705,26 +2714,27 @@ func (r ApiSitesGetUpgradePackageVersionsRequest) Execute() (*UpgradePackageVers
 /*
 SitesGetUpgradePackageVersions Get the latest released VDA upgrade package versions in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesGetUpgradePackageVersionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesGetUpgradePackageVersionsRequest
 */
 func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersions(ctx context.Context, nameOrId string) ApiSitesGetUpgradePackageVersionsRequest {
 	return ApiSitesGetUpgradePackageVersionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return UpgradePackageVersionResponseModelCollection
+//
+//	@return UpgradePackageVersionResponseModelCollection
 func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesGetUpgradePackageVersionsRequest) (*UpgradePackageVersionResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UpgradePackageVersionResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UpgradePackageVersionResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesGetUpgradePackageVersions")
@@ -2815,8 +2825,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2826,8 +2836,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2837,8 +2847,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2848,8 +2858,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2859,8 +2869,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2870,8 +2880,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2881,8 +2891,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2892,8 +2902,8 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2911,15 +2921,15 @@ func (a *SitesAPIsDAASService) SitesGetUpgradePackageVersionsExecute(r ApiSitesG
 }
 
 type ApiSitesPatchMultipleRemotePCAssignmentsRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	allow *bool
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	allow               *bool
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -2965,24 +2975,24 @@ func (r ApiSitesPatchMultipleRemotePCAssignmentsRequest) Execute() (*http.Respon
 /*
 SitesPatchMultipleRemotePCAssignments Update multi-user auto-assignment for Remote PC Access.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesPatchMultipleRemotePCAssignmentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesPatchMultipleRemotePCAssignmentsRequest
 */
 func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignments(ctx context.Context, nameOrId string) ApiSitesPatchMultipleRemotePCAssignmentsRequest {
 	return ApiSitesPatchMultipleRemotePCAssignmentsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r ApiSitesPatchMultipleRemotePCAssignmentsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesPatchMultipleRemotePCAssignments")
@@ -3077,8 +3087,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3088,8 +3098,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3099,8 +3109,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3110,8 +3120,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3121,8 +3131,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3132,8 +3142,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3143,8 +3153,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3154,8 +3164,8 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3164,15 +3174,15 @@ func (a *SitesAPIsDAASService) SitesPatchMultipleRemotePCAssignmentsExecute(r Ap
 }
 
 type ApiSitesPatchSiteSettingsRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
+	ctx                          context.Context
+	ApiService                   *SitesAPIsDAASService
+	citrixCustomerId             *string
+	nameOrId                     string
 	editSiteSettingsRequestModel *EditSiteSettingsRequestModel
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	authorization                *string
+	citrixTransactionId          *string
+	accept                       *string
+	citrixLocale                 *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3218,24 +3228,24 @@ func (r ApiSitesPatchSiteSettingsRequest) Execute() (*http.Response, error) {
 /*
 SitesPatchSiteSettings Update the site settings.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesPatchSiteSettingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesPatchSiteSettingsRequest
 */
 func (a *SitesAPIsDAASService) SitesPatchSiteSettings(ctx context.Context, nameOrId string) ApiSitesPatchSiteSettingsRequest {
 	return ApiSitesPatchSiteSettingsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSiteSettingsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesPatchSiteSettings")
@@ -3331,8 +3341,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3342,8 +3352,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3353,8 +3363,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3364,8 +3374,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3375,8 +3385,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -3386,8 +3396,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3397,8 +3407,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3408,8 +3418,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3419,8 +3429,8 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -3429,15 +3439,15 @@ func (a *SitesAPIsDAASService) SitesPatchSiteSettingsExecute(r ApiSitesPatchSite
 }
 
 type ApiSitesTestSiteRequest struct {
-	ctx context.Context
-	ApiService *SitesAPIsDAASService
-	citrixCustomerId *string
-	nameOrId string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *SitesAPIsDAASService
+	citrixCustomerId    *string
+	nameOrId            string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -3486,26 +3496,27 @@ SitesTestSite Run tests on a site and create a test report.
 Run tests on a site and create a test report.  Obtain the most recent report
 from GetSiteTestReport.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or ID of the site.
- @return ApiSitesTestSiteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or ID of the site.
+	@return ApiSitesTestSiteRequest
 */
 func (a *SitesAPIsDAASService) SitesTestSite(ctx context.Context, nameOrId string) ApiSitesTestSiteRequest {
 	return ApiSitesTestSiteRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return SiteTestResponseModel
+//
+//	@return SiteTestResponseModel
 func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (*SiteTestResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SiteTestResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SiteTestResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SitesAPIsDAASService.SitesTestSite")
@@ -3599,8 +3610,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -3610,8 +3621,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -3621,8 +3632,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -3632,8 +3643,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -3643,8 +3654,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -3654,8 +3665,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -3665,8 +3676,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -3676,8 +3687,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -3687,8 +3698,8 @@ func (a *SitesAPIsDAASService) SitesTestSiteExecute(r ApiSitesTestSiteRequest) (
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

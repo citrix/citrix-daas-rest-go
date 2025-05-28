@@ -74,6 +74,7 @@ func (o *AssociatedResourceConnection) HasResourceConnectionId() bool {
 func (o *AssociatedResourceConnection) SetResourceConnectionId(v string) {
 	o.ResourceConnectionId.Set(&v)
 }
+
 // SetResourceConnectionIdNil sets the value for ResourceConnectionId to be an explicit nil
 func (o *AssociatedResourceConnection) SetResourceConnectionIdNil() {
 	o.ResourceConnectionId.Set(nil)
@@ -116,6 +117,7 @@ func (o *AssociatedResourceConnection) HasResourceConnectionName() bool {
 func (o *AssociatedResourceConnection) SetResourceConnectionName(v string) {
 	o.ResourceConnectionName.Set(&v)
 }
+
 // SetResourceConnectionNameNil sets the value for ResourceConnectionName to be an explicit nil
 func (o *AssociatedResourceConnection) SetResourceConnectionNameNil() {
 	o.ResourceConnectionName.Set(nil)
@@ -127,7 +129,7 @@ func (o *AssociatedResourceConnection) UnsetResourceConnectionName() {
 }
 
 func (o AssociatedResourceConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableAssociatedResourceConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -74,6 +74,7 @@ func (o *IdentitySubnetResponseModel) HasName() bool {
 func (o *IdentitySubnetResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *IdentitySubnetResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -116,6 +117,7 @@ func (o *IdentitySubnetResponseModel) HasGuid() bool {
 func (o *IdentitySubnetResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *IdentitySubnetResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -127,7 +129,7 @@ func (o *IdentitySubnetResponseModel) UnsetGuid() {
 }
 
 func (o IdentitySubnetResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableIdentitySubnetResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

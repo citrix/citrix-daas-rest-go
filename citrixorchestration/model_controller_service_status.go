@@ -15,30 +15,30 @@ import (
 	"fmt"
 )
 
-// ControllerServiceStatus 
+// ControllerServiceStatus
 type ControllerServiceStatus string
 
 // List of ControllerServiceStatus
 const (
-	CONTROLLERSERVICESTATUS_STOPPED ControllerServiceStatus = "Stopped"
-	CONTROLLERSERVICESTATUS_DB_UNCONFIGURED ControllerServiceStatus = "DBUnconfigured"
-	CONTROLLERSERVICESTATUS_DB_REJECTED_CONNECTION ControllerServiceStatus = "DBRejectedConnection"
-	CONTROLLERSERVICESTATUS_INVALID_DB_CONFIGURED ControllerServiceStatus = "InvalidDBConfigured"
-	CONTROLLERSERVICESTATUS_DB_NOT_FOUND ControllerServiceStatus = "DBNotFound"
-	CONTROLLERSERVICESTATUS_DB_MISSING_OPTIONAL_FEATURE ControllerServiceStatus = "DBMissingOptionalFeature"
-	CONTROLLERSERVICESTATUS_DB_MISSING_MANDATORY_FEATURE ControllerServiceStatus = "DBMissingMandatoryFeature"
+	CONTROLLERSERVICESTATUS_STOPPED                       ControllerServiceStatus = "Stopped"
+	CONTROLLERSERVICESTATUS_DB_UNCONFIGURED               ControllerServiceStatus = "DBUnconfigured"
+	CONTROLLERSERVICESTATUS_DB_REJECTED_CONNECTION        ControllerServiceStatus = "DBRejectedConnection"
+	CONTROLLERSERVICESTATUS_INVALID_DB_CONFIGURED         ControllerServiceStatus = "InvalidDBConfigured"
+	CONTROLLERSERVICESTATUS_DB_NOT_FOUND                  ControllerServiceStatus = "DBNotFound"
+	CONTROLLERSERVICESTATUS_DB_MISSING_OPTIONAL_FEATURE   ControllerServiceStatus = "DBMissingOptionalFeature"
+	CONTROLLERSERVICESTATUS_DB_MISSING_MANDATORY_FEATURE  ControllerServiceStatus = "DBMissingMandatoryFeature"
 	CONTROLLERSERVICESTATUS_DB_NEWER_VERSION_THAN_SERVICE ControllerServiceStatus = "DBNewerVersionThanService"
 	CONTROLLERSERVICESTATUS_DB_OLDER_VERSION_THAN_SERVICE ControllerServiceStatus = "DBOlderVersionThanService"
 	CONTROLLERSERVICESTATUS_DB_VERSION_CHANGE_IN_PROGRESS ControllerServiceStatus = "DBVersionChangeInProgress"
-	CONTROLLERSERVICESTATUS_OK ControllerServiceStatus = "OK"
-	CONTROLLERSERVICESTATUS_PENDING_FAILURE ControllerServiceStatus = "PendingFailure"
-	CONTROLLERSERVICESTATUS_FAILED ControllerServiceStatus = "Failed"
-	CONTROLLERSERVICESTATUS_UNKNOWN ControllerServiceStatus = "Unknown"
-	CONTROLLERSERVICESTATUS_SERVICE_NOT_IN_SITE_DB ControllerServiceStatus = "ServiceNotInSiteDB"
-	CONTROLLERSERVICESTATUS_INVALID_DB_CONNECTION_STRING ControllerServiceStatus = "InvalidDBConnectionString"
-	CONTROLLERSERVICESTATUS_PENDING_SERVICE_DISCOVERY ControllerServiceStatus = "PendingServiceDiscovery"
-	CONTROLLERSERVICESTATUS_PENDING_SERVICE_REGISTRATION ControllerServiceStatus = "PendingServiceRegistration"
-	CONTROLLERSERVICESTATUS_PENDING_CONFIGURATION ControllerServiceStatus = "PendingConfiguration"
+	CONTROLLERSERVICESTATUS_OK                            ControllerServiceStatus = "OK"
+	CONTROLLERSERVICESTATUS_PENDING_FAILURE               ControllerServiceStatus = "PendingFailure"
+	CONTROLLERSERVICESTATUS_FAILED                        ControllerServiceStatus = "Failed"
+	CONTROLLERSERVICESTATUS_UNKNOWN                       ControllerServiceStatus = "Unknown"
+	CONTROLLERSERVICESTATUS_SERVICE_NOT_IN_SITE_DB        ControllerServiceStatus = "ServiceNotInSiteDB"
+	CONTROLLERSERVICESTATUS_INVALID_DB_CONNECTION_STRING  ControllerServiceStatus = "InvalidDBConnectionString"
+	CONTROLLERSERVICESTATUS_PENDING_SERVICE_DISCOVERY     ControllerServiceStatus = "PendingServiceDiscovery"
+	CONTROLLERSERVICESTATUS_PENDING_SERVICE_REGISTRATION  ControllerServiceStatus = "PendingServiceRegistration"
+	CONTROLLERSERVICESTATUS_PENDING_CONFIGURATION         ControllerServiceStatus = "PendingConfiguration"
 )
 
 // All allowed values of ControllerServiceStatus enum
@@ -70,7 +70,7 @@ func (v *ControllerServiceStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ControllerServiceStatus(value)
 	return nil
 }
@@ -136,4 +136,3 @@ func (v *NullableControllerServiceStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

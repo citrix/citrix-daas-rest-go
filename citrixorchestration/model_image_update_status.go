@@ -20,11 +20,11 @@ type ImageUpdateStatus string
 
 // List of ImageUpdateStatus
 const (
-	IMAGEUPDATESTATUS_UNKNOWN ImageUpdateStatus = "Unknown"
-	IMAGEUPDATESTATUS_UPDATE_TO_DATE ImageUpdateStatus = "UpdateToDate"
+	IMAGEUPDATESTATUS_UNKNOWN           ImageUpdateStatus = "Unknown"
+	IMAGEUPDATESTATUS_UPDATE_TO_DATE    ImageUpdateStatus = "UpdateToDate"
 	IMAGEUPDATESTATUS_PARTIALLY_UPDATED ImageUpdateStatus = "PartiallyUpdated"
-	IMAGEUPDATESTATUS_PENDING_UPDATE ImageUpdateStatus = "PendingUpdate"
-	IMAGEUPDATESTATUS_PREPARING_IMAGE ImageUpdateStatus = "PreparingImage"
+	IMAGEUPDATESTATUS_PENDING_UPDATE    ImageUpdateStatus = "PendingUpdate"
+	IMAGEUPDATESTATUS_PREPARING_IMAGE   ImageUpdateStatus = "PreparingImage"
 )
 
 // All allowed values of ImageUpdateStatus enum
@@ -42,7 +42,7 @@ func (v *ImageUpdateStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ImageUpdateStatus(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableImageUpdateStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

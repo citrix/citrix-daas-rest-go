@@ -26,7 +26,7 @@ type EnrollMachineRequestModel struct {
 	// The vda's public service key to be registered with FMA Trust Service.
 	ServicePublicKey string `json:"ServicePublicKey"`
 	// Real sid of AD machine for domain joined; or virtual sid if non-domain joined this parameter will be used to create machine
-	MachineSid string `json:"MachineSid"`
+	MachineSid      string                      `json:"MachineSid"`
 	MachineMetadata *EnrollMachineMetaDataModel `json:"MachineMetadata,omitempty"`
 }
 
@@ -180,7 +180,7 @@ func (o *EnrollMachineRequestModel) SetMachineMetadata(v EnrollMachineMetaDataMo
 }
 
 func (o EnrollMachineRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableEnrollMachineRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

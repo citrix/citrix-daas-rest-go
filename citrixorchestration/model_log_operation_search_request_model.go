@@ -20,13 +20,13 @@ var _ MappedNullable = &LogOperationSearchRequestModel{}
 // LogOperationSearchRequestModel Request model for defining advanced configuration log search criteria.
 type LogOperationSearchRequestModel struct {
 	// Basic search string.
-	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
-	SearchType *LogOperationSearchFilterGroupType `json:"SearchType,omitempty"`
+	BasicSearchString NullableString                     `json:"BasicSearchString,omitempty"`
+	SearchType        *LogOperationSearchFilterGroupType `json:"SearchType,omitempty"`
 	// Advanced search filters.
 	SearchFilters []LogOperationSearchFilterRequestModel `json:"SearchFilters,omitempty"`
 	// Advanced search filter groups.
 	SearchFilterGroups []LogOperationSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SortCriteria *LogOperationSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
+	SortCriteria       *LogOperationSortCriteriaRequestModel       `json:"SortCriteria,omitempty"`
 }
 
 // NewLogOperationSearchRequestModel instantiates a new LogOperationSearchRequestModel object
@@ -78,6 +78,7 @@ func (o *LogOperationSearchRequestModel) HasBasicSearchString() bool {
 func (o *LogOperationSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *LogOperationSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -219,7 +220,7 @@ func (o *LogOperationSearchRequestModel) SetSortCriteria(v LogOperationSortCrite
 }
 
 func (o LogOperationSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -281,5 +282,3 @@ func (v *NullableLogOperationSearchRequestModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

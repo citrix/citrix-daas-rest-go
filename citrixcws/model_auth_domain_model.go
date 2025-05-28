@@ -19,12 +19,12 @@ var _ MappedNullable = &AuthDomainModel{}
 
 // AuthDomainModel struct for AuthDomainModel
 type AuthDomainModel struct {
-	Extensions map[string]interface{} `json:"extensions,omitempty"`
-	IdpDisplayName NullableString `json:"idpDisplayName,omitempty"`
-	IdpProperties map[string]string `json:"idpProperties,omitempty"`
-	IdpType NullableString `json:"idpType,omitempty"`
-	Name NullableString `json:"name,omitempty"`
-	Product NullableString `json:"product,omitempty"`
+	Extensions     map[string]interface{} `json:"extensions,omitempty"`
+	IdpDisplayName NullableString         `json:"idpDisplayName,omitempty"`
+	IdpProperties  map[string]string      `json:"idpProperties,omitempty"`
+	IdpType        NullableString         `json:"idpType,omitempty"`
+	Name           NullableString         `json:"name,omitempty"`
+	Product        NullableString         `json:"product,omitempty"`
 }
 
 // NewAuthDomainModel instantiates a new AuthDomainModel object
@@ -65,7 +65,7 @@ func (o *AuthDomainModel) GetExtensionsOk() (map[string]interface{}, bool) {
 
 // HasExtensions returns a boolean if a field has been set.
 func (o *AuthDomainModel) HasExtensions() bool {
-	if o != nil && IsNil(o.Extensions) {
+	if o != nil && !IsNil(o.Extensions) {
 		return true
 	}
 
@@ -109,6 +109,7 @@ func (o *AuthDomainModel) HasIdpDisplayName() bool {
 func (o *AuthDomainModel) SetIdpDisplayName(v string) {
 	o.IdpDisplayName.Set(&v)
 }
+
 // SetIdpDisplayNameNil sets the value for IdpDisplayName to be an explicit nil
 func (o *AuthDomainModel) SetIdpDisplayNameNil() {
 	o.IdpDisplayName.Set(nil)
@@ -140,7 +141,7 @@ func (o *AuthDomainModel) GetIdpPropertiesOk() (*map[string]string, bool) {
 
 // HasIdpProperties returns a boolean if a field has been set.
 func (o *AuthDomainModel) HasIdpProperties() bool {
-	if o != nil && IsNil(o.IdpProperties) {
+	if o != nil && !IsNil(o.IdpProperties) {
 		return true
 	}
 
@@ -184,6 +185,7 @@ func (o *AuthDomainModel) HasIdpType() bool {
 func (o *AuthDomainModel) SetIdpType(v string) {
 	o.IdpType.Set(&v)
 }
+
 // SetIdpTypeNil sets the value for IdpType to be an explicit nil
 func (o *AuthDomainModel) SetIdpTypeNil() {
 	o.IdpType.Set(nil)
@@ -226,6 +228,7 @@ func (o *AuthDomainModel) HasName() bool {
 func (o *AuthDomainModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AuthDomainModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -268,6 +271,7 @@ func (o *AuthDomainModel) HasProduct() bool {
 func (o *AuthDomainModel) SetProduct(v string) {
 	o.Product.Set(&v)
 }
+
 // SetProductNil sets the value for Product to be an explicit nil
 func (o *AuthDomainModel) SetProductNil() {
 	o.Product.Set(nil)
@@ -279,7 +283,7 @@ func (o *AuthDomainModel) UnsetProduct() {
 }
 
 func (o AuthDomainModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -344,5 +348,3 @@ func (v *NullableAuthDomainModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

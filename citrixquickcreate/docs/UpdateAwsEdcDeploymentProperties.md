@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) |  | [optional] 
-**ScaleSettings** | Pointer to [**NullableScaleSettings**](ScaleSettings.md) |  | [optional] 
+**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) | Running mode to apply to all workspaces | [optional] 
+**ScaleSettings** | Pointer to [**NullableScaleSettings**](ScaleSettings.md) | Power Configuration for AWS Deployment | [optional] 
 
 ## Methods
 

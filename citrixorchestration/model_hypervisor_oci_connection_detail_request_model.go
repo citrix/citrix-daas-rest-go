@@ -20,7 +20,7 @@ var _ MappedNullable = &HypervisorOciConnectionDetailRequestModel{}
 // HypervisorOciConnectionDetailRequestModel struct for HypervisorOciConnectionDetailRequestModel
 type HypervisorOciConnectionDetailRequestModel struct {
 	// Name of the hypervisor to create.  Required.
-	Name string `json:"Name"`
+	Name           string                   `json:"Name" validate:"regexp=(.*)*"`
 	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
 	// Administrative scopes which the newly created hypervisor will be a part of.
 	Scopes []string `json:"Scopes,omitempty"`
@@ -33,65 +33,65 @@ type HypervisorOciConnectionDetailRequestModel struct {
 	// Maximum percentage of machines on the hypervisor which can have their power state changed simultaneously.  Optional; if not specified, an appropriate default is selected based on the ConnectionType.
 	MaxPowerActionsPercentageOfMachines NullableInt32 `json:"MaxPowerActionsPercentageOfMachines,omitempty"`
 	// Connection options to use for the hypervisor.  Optional.
-	ConnectionOptions NullableString `json:"ConnectionOptions,omitempty"`
+	ConnectionOptions NullableString `json:"ConnectionOptions,omitempty" validate:"regexp=((.|\\\\n)*)"`
 	// Zone the hypervisor is associated with.  Optional. If not specified, the hypervisor is associated with the primary zone. See PrimaryZone.
 	Zone NullableString `json:"Zone,omitempty"`
 	// Metadata to use for the hypervisor. Optional.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// The API key used to authenticate with the AWS APIs.  Required.
-	ApiKey *string `json:"ApiKey,omitempty"`
+	ApiKey *string `json:"ApiKey,omitempty" validate:"regexp=(.*)*"`
 	// The secret key used to authenticate with the AWS APIs.  Required. Must be specified in the format indicated by SecretKeyFormat.
-	SecretKey *string `json:"SecretKey,omitempty"`
+	SecretKey       *string                 `json:"SecretKey,omitempty" validate:"regexp=(.*)*"`
 	SecretKeyFormat *IdentityPasswordFormat `json:"SecretKeyFormat,omitempty"`
 	// Oracle Cloud Infrastructure region to connect to. Required.
-	Region string `json:"Region"`
+	Region string `json:"Region" validate:"regexp=(.*)*"`
 	// Custom AWS Address.
 	Address NullableString `json:"Address,omitempty"`
 	// The properties of host connection that are specific to the target hosting infrastructure.
-	CustomProperties NullableString `json:"CustomProperties,omitempty"`
+	CustomProperties NullableString `json:"CustomProperties,omitempty" validate:"regexp=((.|\\\\n)*)"`
 	// Application ID of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret or UserAssignedManagedIdentity.
-	ApplicationId NullableString `json:"ApplicationId,omitempty"`
+	ApplicationId NullableString `json:"ApplicationId,omitempty" validate:"regexp=^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$"`
 	// The Application Secret of the service principal used to access the Azure APIs. Required for AuthenticationMode in CustomProperties is AppClientSecret. Must be specified in the format indicated by ApplicationSecretFormat.
-	ApplicationSecret NullableString `json:"ApplicationSecret,omitempty"`
+	ApplicationSecret       NullableString          `json:"ApplicationSecret,omitempty"`
 	ApplicationSecretFormat *IdentityPasswordFormat `json:"ApplicationSecretFormat,omitempty"`
 	// Azure subscription ID.  Required.
-	SubscriptionId *string `json:"SubscriptionId,omitempty"`
+	SubscriptionId *string `json:"SubscriptionId,omitempty" validate:"regexp=^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$"`
 	// Azure active directory ID.  Required.
-	ActiveDirectoryId *string `json:"ActiveDirectoryId,omitempty"`
-	Environment *AzureEnvironment `json:"Environment,omitempty"`
+	ActiveDirectoryId *string           `json:"ActiveDirectoryId,omitempty" validate:"regexp=^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$"`
+	Environment       *AzureEnvironment `json:"Environment,omitempty"`
 	// Azure management endpoint.  Required if Environment is Custom. Optional otherwise.
-	ManagementEndpoint NullableString `json:"ManagementEndpoint,omitempty"`
+	ManagementEndpoint NullableString `json:"ManagementEndpoint,omitempty" validate:"regexp=(.*)*"`
 	// Azure authentication authority.  Required if Environment is Custom. Optional otherwise.
-	AuthenticationAuthority NullableString `json:"AuthenticationAuthority,omitempty"`
+	AuthenticationAuthority NullableString `json:"AuthenticationAuthority,omitempty" validate:"regexp=(.*)*"`
 	// Azure storage suffix.  Required if Environment is Custom. Optional otherwise.
-	StorageSuffix NullableString `json:"StorageSuffix,omitempty"`
+	StorageSuffix NullableString `json:"StorageSuffix,omitempty" validate:"regexp=(.*)*"`
 	// The service account ID used to access the Oracle Cloud Infrastructure APIs. Required.
-	ServiceAccountId string `json:"ServiceAccountId"`
+	ServiceAccountId string `json:"ServiceAccountId" validate:"regexp=(.*)*"`
 	// the JSON-encoded service account credentials used to access the Google Cloud APIs.  Required. Must be specified in the format indicated by ServiceAccountCredentialsFormat.
-	ServiceAccountCredentials *string `json:"ServiceAccountCredentials,omitempty"`
+	ServiceAccountCredentials       *string                 `json:"ServiceAccountCredentials,omitempty" validate:"regexp=((.|\\\\n)*)"`
 	ServiceAccountCredentialsFormat *IdentityPasswordFormat `json:"ServiceAccountCredentialsFormat,omitempty"`
 	// Hypervisor user name.  Required.
-	UserName *string `json:"UserName,omitempty"`
+	UserName *string `json:"UserName,omitempty" validate:"regexp=(.*)*"`
 	// Hypervisor password.  Required. Must be specified in the format indicated by PasswordFormat.
-	Password *string `json:"Password,omitempty"`
+	Password       *string                 `json:"Password,omitempty" validate:"regexp=(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\\\$%\\\\^&\\\\*]).{8,}|^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$|(.*)*"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
 	// Hypervisor address(es).  At least one is required.
 	Addresses []string `json:"Addresses,omitempty"`
 	// Custom hypervisor plugin ID.  Required if the ConnectionType is Custom.  Otherwise must not be specified.
-	PluginId NullableString `json:"PluginId,omitempty"`
+	PluginId NullableString `json:"PluginId,omitempty" validate:"regexp=(.*)*"`
 	// SSL certificate thumbprints to consider acceptable for this connection.  Optional.  If not specified, and the hypervisor uses SSL for its connection, the SSL certificate's root certification authority and any intermediate certificates must be trusted.
 	SslThumbprints []string `json:"SslThumbprints,omitempty"`
 	// Indicates whether Microsoft System Center Configuration Manager 2012 SP1 Wake-up Proxy is used for power management.  Optional; default is `false`.
-	SccmWakeUpProxy NullableBool `json:"SccmWakeUpProxy,omitempty"`
+	SccmWakeUpProxy  NullableBool           `json:"SccmWakeUpProxy,omitempty"`
 	WakeOnLanPackets *WakeOnLanTransmission `json:"WakeOnLanPackets,omitempty"`
 	// Oracle Cloud Infrastructure tenancy to connect to. Required.
-	TenancyOcid string `json:"TenancyOcid"`
+	TenancyOcid string `json:"TenancyOcid" validate:"regexp=(.*)*"`
 	// The private key string to access the Oracle Cloud Infrastructure APIs. Required. Must be specified in the format indicated by ServiceAccountCredentialFormat.
-	ServiceAccountCredential string `json:"ServiceAccountCredential"`
+	ServiceAccountCredential       string                  `json:"ServiceAccountCredential" validate:"regexp=((.|\\\\n)*)"`
 	ServiceAccountCredentialFormat *IdentityPasswordFormat `json:"ServiceAccountCredentialFormat,omitempty"`
 	// The fingerprint of the public key associate with the ServiceAccountCredential.
-	ServiceAccountFingerprint string `json:"ServiceAccountFingerprint"`
-	OciEnvironment *OciEnvironment `json:"OciEnvironment,omitempty"`
+	ServiceAccountFingerprint string          `json:"ServiceAccountFingerprint" validate:"regexp=(.*)*"`
+	OciEnvironment            *OciEnvironment `json:"OciEnvironment,omitempty"`
 }
 
 // NewHypervisorOciConnectionDetailRequestModel instantiates a new HypervisorOciConnectionDetailRequestModel object
@@ -264,6 +264,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasMaxAbsoluteActiveActions(
 func (o *HypervisorOciConnectionDetailRequestModel) SetMaxAbsoluteActiveActions(v int32) {
 	o.MaxAbsoluteActiveActions.Set(&v)
 }
+
 // SetMaxAbsoluteActiveActionsNil sets the value for MaxAbsoluteActiveActions to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetMaxAbsoluteActiveActionsNil() {
 	o.MaxAbsoluteActiveActions.Set(nil)
@@ -306,6 +307,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasMaxAbsoluteNewActionsPerM
 func (o *HypervisorOciConnectionDetailRequestModel) SetMaxAbsoluteNewActionsPerMinute(v int32) {
 	o.MaxAbsoluteNewActionsPerMinute.Set(&v)
 }
+
 // SetMaxAbsoluteNewActionsPerMinuteNil sets the value for MaxAbsoluteNewActionsPerMinute to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetMaxAbsoluteNewActionsPerMinuteNil() {
 	o.MaxAbsoluteNewActionsPerMinute.Set(nil)
@@ -348,6 +350,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasMaxPowerActionsPercentage
 func (o *HypervisorOciConnectionDetailRequestModel) SetMaxPowerActionsPercentageOfMachines(v int32) {
 	o.MaxPowerActionsPercentageOfMachines.Set(&v)
 }
+
 // SetMaxPowerActionsPercentageOfMachinesNil sets the value for MaxPowerActionsPercentageOfMachines to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetMaxPowerActionsPercentageOfMachinesNil() {
 	o.MaxPowerActionsPercentageOfMachines.Set(nil)
@@ -390,6 +393,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasConnectionOptions() bool 
 func (o *HypervisorOciConnectionDetailRequestModel) SetConnectionOptions(v string) {
 	o.ConnectionOptions.Set(&v)
 }
+
 // SetConnectionOptionsNil sets the value for ConnectionOptions to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetConnectionOptionsNil() {
 	o.ConnectionOptions.Set(nil)
@@ -432,6 +436,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasZone() bool {
 func (o *HypervisorOciConnectionDetailRequestModel) SetZone(v string) {
 	o.Zone.Set(&v)
 }
+
 // SetZoneNil sets the value for Zone to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetZoneNil() {
 	o.Zone.Set(nil)
@@ -627,6 +632,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasAddress() bool {
 func (o *HypervisorOciConnectionDetailRequestModel) SetAddress(v string) {
 	o.Address.Set(&v)
 }
+
 // SetAddressNil sets the value for Address to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetAddressNil() {
 	o.Address.Set(nil)
@@ -669,6 +675,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasCustomProperties() bool {
 func (o *HypervisorOciConnectionDetailRequestModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -711,6 +718,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasApplicationId() bool {
 func (o *HypervisorOciConnectionDetailRequestModel) SetApplicationId(v string) {
 	o.ApplicationId.Set(&v)
 }
+
 // SetApplicationIdNil sets the value for ApplicationId to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetApplicationIdNil() {
 	o.ApplicationId.Set(nil)
@@ -753,6 +761,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasApplicationSecret() bool 
 func (o *HypervisorOciConnectionDetailRequestModel) SetApplicationSecret(v string) {
 	o.ApplicationSecret.Set(&v)
 }
+
 // SetApplicationSecretNil sets the value for ApplicationSecret to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetApplicationSecretNil() {
 	o.ApplicationSecret.Set(nil)
@@ -923,6 +932,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasManagementEndpoint() bool
 func (o *HypervisorOciConnectionDetailRequestModel) SetManagementEndpoint(v string) {
 	o.ManagementEndpoint.Set(&v)
 }
+
 // SetManagementEndpointNil sets the value for ManagementEndpoint to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetManagementEndpointNil() {
 	o.ManagementEndpoint.Set(nil)
@@ -965,6 +975,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasAuthenticationAuthority()
 func (o *HypervisorOciConnectionDetailRequestModel) SetAuthenticationAuthority(v string) {
 	o.AuthenticationAuthority.Set(&v)
 }
+
 // SetAuthenticationAuthorityNil sets the value for AuthenticationAuthority to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetAuthenticationAuthorityNil() {
 	o.AuthenticationAuthority.Set(nil)
@@ -1007,6 +1018,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasStorageSuffix() bool {
 func (o *HypervisorOciConnectionDetailRequestModel) SetStorageSuffix(v string) {
 	o.StorageSuffix.Set(&v)
 }
+
 // SetStorageSuffixNil sets the value for StorageSuffix to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetStorageSuffixNil() {
 	o.StorageSuffix.Set(nil)
@@ -1265,6 +1277,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasPluginId() bool {
 func (o *HypervisorOciConnectionDetailRequestModel) SetPluginId(v string) {
 	o.PluginId.Set(&v)
 }
+
 // SetPluginIdNil sets the value for PluginId to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetPluginIdNil() {
 	o.PluginId.Set(nil)
@@ -1340,6 +1353,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) HasSccmWakeUpProxy() bool {
 func (o *HypervisorOciConnectionDetailRequestModel) SetSccmWakeUpProxy(v bool) {
 	o.SccmWakeUpProxy.Set(&v)
 }
+
 // SetSccmWakeUpProxyNil sets the value for SccmWakeUpProxy to be an explicit nil
 func (o *HypervisorOciConnectionDetailRequestModel) SetSccmWakeUpProxyNil() {
 	o.SccmWakeUpProxy.Set(nil)
@@ -1519,7 +1533,7 @@ func (o *HypervisorOciConnectionDetailRequestModel) SetOciEnvironment(v OciEnvir
 }
 
 func (o HypervisorOciConnectionDetailRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1675,5 +1689,3 @@ func (v *NullableHypervisorOciConnectionDetailRequestModel) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,10 +20,10 @@ type ZonePreference string
 
 // List of ZonePreference
 const (
-	ZONEPREFERENCE_UNKNOWN ZonePreference = "Unknown"
-	ZONEPREFERENCE_USER_LOCATION ZonePreference = "UserLocation"
-	ZONEPREFERENCE_USER_HOME ZonePreference = "UserHome"
-	ZONEPREFERENCE_USER_HOME_ONLY ZonePreference = "UserHomeOnly"
+	ZONEPREFERENCE_UNKNOWN          ZonePreference = "Unknown"
+	ZONEPREFERENCE_USER_LOCATION    ZonePreference = "UserLocation"
+	ZONEPREFERENCE_USER_HOME        ZonePreference = "UserHome"
+	ZONEPREFERENCE_USER_HOME_ONLY   ZonePreference = "UserHomeOnly"
 	ZONEPREFERENCE_APPLICATION_HOME ZonePreference = "ApplicationHome"
 )
 
@@ -42,7 +42,7 @@ func (v *ZonePreference) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ZonePreference(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableZonePreference) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,14 +20,14 @@ var _ MappedNullable = &CreateApplicationRequestModel{}
 // CreateApplicationRequestModel Request object for creating a published application.
 type CreateApplicationRequestModel struct {
 	// The application folder in which the application should be created.
-	ApplicationFolder NullableString `json:"ApplicationFolder,omitempty"`
-	ApplicationType *ApplicationType `json:"ApplicationType,omitempty"`
-	PackagedApplicationType *PackagedApplicationType `json:"PackagedApplicationType,omitempty"`
+	ApplicationFolder             NullableString                 `json:"ApplicationFolder,omitempty"`
+	ApplicationType               *ApplicationType               `json:"ApplicationType,omitempty"`
+	PackagedApplicationType       *PackagedApplicationType       `json:"PackagedApplicationType,omitempty"`
 	PackagedApplicationVisibility *PackagedApplicationVisibility `json:"PackagedApplicationVisibility,omitempty"`
 	// Internal name of the application.
 	BrowserName NullableString `json:"BrowserName,omitempty"`
 	// Specifies the folder that the application belongs to as the user sees it.
-	ClientFolder NullableString `json:"ClientFolder,omitempty"`
+	ClientFolder     NullableString    `json:"ClientFolder,omitempty"`
 	CpuPriorityLevel *CpuPriorityLevel `json:"CpuPriorityLevel,omitempty"`
 	// Specifies one or more application groups which the application will be published to.
 	ApplicationGroups []string `json:"ApplicationGroups,omitempty"`
@@ -38,8 +38,8 @@ type CreateApplicationRequestModel struct {
 	// Indicates whether or not this application is enumerable
 	DoNotEnumerate NullableBool `json:"DoNotEnumerate,omitempty"`
 	// Specifies a home zone preference used when launching this application.
-	HomeZone NullableString `json:"HomeZone,omitempty"`
-	HomeZoneMode *HomeZoneMode `json:"HomeZoneMode,omitempty"`
+	HomeZone     NullableString `json:"HomeZone,omitempty"`
+	HomeZoneMode *HomeZoneMode  `json:"HomeZoneMode,omitempty"`
 	// Icon to use for the application.
 	Icon NullableString `json:"Icon,omitempty"`
 	// Specifies Whether the Icon is from client or not. Only can be set to `true` if Application Type is InstalledOnClient
@@ -47,10 +47,10 @@ type CreateApplicationRequestModel struct {
 	// Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group's access polic(ies) is implicitly granted access to the application.
 	IncludedUserFilterEnabled NullableBool `json:"IncludedUserFilterEnabled,omitempty"`
 	// Specifies the included users filter of the application; that is, the users and groups who are explicitly granted access to the published application.
-	IncludedUsers []string `json:"IncludedUsers,omitempty"`
+	IncludedUsers          []string                        `json:"IncludedUsers,omitempty"`
 	InstalledAppProperties *CreateInstalledAppRequestModel `json:"InstalledAppProperties,omitempty"`
-	PackagedAppProperties *AppVAppRequestModel `json:"PackagedAppProperties,omitempty"`
-	AppVAppProperties *AppVAppRequestModel `json:"AppVAppProperties,omitempty"`
+	PackagedAppProperties  *AppVAppRequestModel            `json:"PackagedAppProperties,omitempty"`
+	AppVAppProperties      *AppVAppRequestModel            `json:"AppVAppProperties,omitempty"`
 	// Location of published content.
 	ContentLocation NullableString `json:"ContentLocation,omitempty"`
 	// Specifies the maximum allowed concurrently running instances of the application that an individual user can have.
@@ -167,6 +167,7 @@ func (o *CreateApplicationRequestModel) HasApplicationFolder() bool {
 func (o *CreateApplicationRequestModel) SetApplicationFolder(v string) {
 	o.ApplicationFolder.Set(&v)
 }
+
 // SetApplicationFolderNil sets the value for ApplicationFolder to be an explicit nil
 func (o *CreateApplicationRequestModel) SetApplicationFolderNil() {
 	o.ApplicationFolder.Set(nil)
@@ -305,6 +306,7 @@ func (o *CreateApplicationRequestModel) HasBrowserName() bool {
 func (o *CreateApplicationRequestModel) SetBrowserName(v string) {
 	o.BrowserName.Set(&v)
 }
+
 // SetBrowserNameNil sets the value for BrowserName to be an explicit nil
 func (o *CreateApplicationRequestModel) SetBrowserNameNil() {
 	o.BrowserName.Set(nil)
@@ -347,6 +349,7 @@ func (o *CreateApplicationRequestModel) HasClientFolder() bool {
 func (o *CreateApplicationRequestModel) SetClientFolder(v string) {
 	o.ClientFolder.Set(&v)
 }
+
 // SetClientFolderNil sets the value for ClientFolder to be an explicit nil
 func (o *CreateApplicationRequestModel) SetClientFolderNil() {
 	o.ClientFolder.Set(nil)
@@ -454,6 +457,7 @@ func (o *CreateApplicationRequestModel) HasDescription() bool {
 func (o *CreateApplicationRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateApplicationRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -496,6 +500,7 @@ func (o *CreateApplicationRequestModel) HasEnabled() bool {
 func (o *CreateApplicationRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *CreateApplicationRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -538,6 +543,7 @@ func (o *CreateApplicationRequestModel) HasDoNotEnumerate() bool {
 func (o *CreateApplicationRequestModel) SetDoNotEnumerate(v bool) {
 	o.DoNotEnumerate.Set(&v)
 }
+
 // SetDoNotEnumerateNil sets the value for DoNotEnumerate to be an explicit nil
 func (o *CreateApplicationRequestModel) SetDoNotEnumerateNil() {
 	o.DoNotEnumerate.Set(nil)
@@ -580,6 +586,7 @@ func (o *CreateApplicationRequestModel) HasHomeZone() bool {
 func (o *CreateApplicationRequestModel) SetHomeZone(v string) {
 	o.HomeZone.Set(&v)
 }
+
 // SetHomeZoneNil sets the value for HomeZone to be an explicit nil
 func (o *CreateApplicationRequestModel) SetHomeZoneNil() {
 	o.HomeZone.Set(nil)
@@ -654,6 +661,7 @@ func (o *CreateApplicationRequestModel) HasIcon() bool {
 func (o *CreateApplicationRequestModel) SetIcon(v string) {
 	o.Icon.Set(&v)
 }
+
 // SetIconNil sets the value for Icon to be an explicit nil
 func (o *CreateApplicationRequestModel) SetIconNil() {
 	o.Icon.Set(nil)
@@ -696,6 +704,7 @@ func (o *CreateApplicationRequestModel) HasIconFromClient() bool {
 func (o *CreateApplicationRequestModel) SetIconFromClient(v bool) {
 	o.IconFromClient.Set(&v)
 }
+
 // SetIconFromClientNil sets the value for IconFromClient to be an explicit nil
 func (o *CreateApplicationRequestModel) SetIconFromClientNil() {
 	o.IconFromClient.Set(nil)
@@ -738,6 +747,7 @@ func (o *CreateApplicationRequestModel) HasIncludedUserFilterEnabled() bool {
 func (o *CreateApplicationRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *CreateApplicationRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -909,6 +919,7 @@ func (o *CreateApplicationRequestModel) HasContentLocation() bool {
 func (o *CreateApplicationRequestModel) SetContentLocation(v string) {
 	o.ContentLocation.Set(&v)
 }
+
 // SetContentLocationNil sets the value for ContentLocation to be an explicit nil
 func (o *CreateApplicationRequestModel) SetContentLocationNil() {
 	o.ContentLocation.Set(nil)
@@ -951,6 +962,7 @@ func (o *CreateApplicationRequestModel) HasMaxPerUserInstances() bool {
 func (o *CreateApplicationRequestModel) SetMaxPerUserInstances(v int32) {
 	o.MaxPerUserInstances.Set(&v)
 }
+
 // SetMaxPerUserInstancesNil sets the value for MaxPerUserInstances to be an explicit nil
 func (o *CreateApplicationRequestModel) SetMaxPerUserInstancesNil() {
 	o.MaxPerUserInstances.Set(nil)
@@ -993,6 +1005,7 @@ func (o *CreateApplicationRequestModel) HasMaxTotalInstances() bool {
 func (o *CreateApplicationRequestModel) SetMaxTotalInstances(v int32) {
 	o.MaxTotalInstances.Set(&v)
 }
+
 // SetMaxTotalInstancesNil sets the value for MaxTotalInstances to be an explicit nil
 func (o *CreateApplicationRequestModel) SetMaxTotalInstancesNil() {
 	o.MaxTotalInstances.Set(nil)
@@ -1059,6 +1072,7 @@ func (o *CreateApplicationRequestModel) HasPublishedName() bool {
 func (o *CreateApplicationRequestModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *CreateApplicationRequestModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -1101,6 +1115,7 @@ func (o *CreateApplicationRequestModel) HasShortcutAddedToDesktop() bool {
 func (o *CreateApplicationRequestModel) SetShortcutAddedToDesktop(v bool) {
 	o.ShortcutAddedToDesktop.Set(&v)
 }
+
 // SetShortcutAddedToDesktopNil sets the value for ShortcutAddedToDesktop to be an explicit nil
 func (o *CreateApplicationRequestModel) SetShortcutAddedToDesktopNil() {
 	o.ShortcutAddedToDesktop.Set(nil)
@@ -1143,6 +1158,7 @@ func (o *CreateApplicationRequestModel) HasShortcutAddedToStartMenu() bool {
 func (o *CreateApplicationRequestModel) SetShortcutAddedToStartMenu(v bool) {
 	o.ShortcutAddedToStartMenu.Set(&v)
 }
+
 // SetShortcutAddedToStartMenuNil sets the value for ShortcutAddedToStartMenu to be an explicit nil
 func (o *CreateApplicationRequestModel) SetShortcutAddedToStartMenuNil() {
 	o.ShortcutAddedToStartMenu.Set(nil)
@@ -1185,6 +1201,7 @@ func (o *CreateApplicationRequestModel) HasStartMenuFolder() bool {
 func (o *CreateApplicationRequestModel) SetStartMenuFolder(v string) {
 	o.StartMenuFolder.Set(&v)
 }
+
 // SetStartMenuFolderNil sets the value for StartMenuFolder to be an explicit nil
 func (o *CreateApplicationRequestModel) SetStartMenuFolderNil() {
 	o.StartMenuFolder.Set(nil)
@@ -1227,6 +1244,7 @@ func (o *CreateApplicationRequestModel) HasVisible() bool {
 func (o *CreateApplicationRequestModel) SetVisible(v bool) {
 	o.Visible.Set(&v)
 }
+
 // SetVisibleNil sets the value for Visible to be an explicit nil
 func (o *CreateApplicationRequestModel) SetVisibleNil() {
 	o.Visible.Set(nil)
@@ -1269,6 +1287,7 @@ func (o *CreateApplicationRequestModel) HasWaitForPrinterCreation() bool {
 func (o *CreateApplicationRequestModel) SetWaitForPrinterCreation(v bool) {
 	o.WaitForPrinterCreation.Set(&v)
 }
+
 // SetWaitForPrinterCreationNil sets the value for WaitForPrinterCreation to be an explicit nil
 func (o *CreateApplicationRequestModel) SetWaitForPrinterCreationNil() {
 	o.WaitForPrinterCreation.Set(nil)
@@ -1346,7 +1365,7 @@ func (o *CreateApplicationRequestModel) SetFileTypes(v []FtaRequestModel) {
 }
 
 func (o CreateApplicationRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1487,5 +1506,3 @@ func (v *NullableCreateApplicationRequestModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

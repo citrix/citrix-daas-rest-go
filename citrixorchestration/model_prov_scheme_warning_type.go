@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// ProvSchemeWarningType 
+// ProvSchemeWarningType
 type ProvSchemeWarningType string
 
 // List of ProvSchemeWarningType
 const (
-	PROVSCHEMEWARNINGTYPE_UNKNOWN ProvSchemeWarningType = "Unknown"
+	PROVSCHEMEWARNINGTYPE_UNKNOWN                      ProvSchemeWarningType = "Unknown"
 	PROVSCHEMEWARNINGTYPE_GET_CUSTOM_PROPERTIES_FAILED ProvSchemeWarningType = "GetCustomPropertiesFailed"
-	PROVSCHEMEWARNINGTYPE_GET_VM_METADATA_FAILED ProvSchemeWarningType = "GetVMMetadataFailed"
+	PROVSCHEMEWARNINGTYPE_GET_VM_METADATA_FAILED       ProvSchemeWarningType = "GetVMMetadataFailed"
 )
 
 // All allowed values of ProvSchemeWarningType enum
@@ -38,7 +38,7 @@ func (v *ProvSchemeWarningType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvSchemeWarningType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableProvSchemeWarningType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

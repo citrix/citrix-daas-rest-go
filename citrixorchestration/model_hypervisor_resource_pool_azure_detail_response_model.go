@@ -19,15 +19,36 @@ var _ MappedNullable = &HypervisorResourcePoolAzureDetailResponseModel{}
 
 // HypervisorResourcePoolAzureDetailResponseModel struct for HypervisorResourcePoolAzureDetailResponseModel
 type HypervisorResourcePoolAzureDetailResponseModel struct {
+	VirtualPrivateCloud HypervisorResourceRefResponseModel `json:"VirtualPrivateCloud"`
+	AvailabilityZone    HypervisorResourceRefResponseModel `json:"AvailabilityZone"`
+	// List of networks that may be used within the resource pool.
+	Networks       []HypervisorResourceRefResponseModel `json:"Networks"`
+	Region         HypervisorResourceRefResponseModel   `json:"Region"`
+	VirtualNetwork HypervisorResourceRefResponseModel   `json:"VirtualNetwork"`
+	// List of subnets in the VirtualNetwork that may be used within the resource pool.
+	Subnets  []HypervisorResourceRefResponseModel `json:"Subnets"`
+	Project  HypervisorResourceRefResponseModel   `json:"Project"`
+	RootPath *HypervisorResourceRefResponseModel  `json:"RootPath,omitempty"`
+	// List of hypervisor-connected storage in the resource pool that is used for OS disks of virtual machines.
+	Storage []HypervisorStorageResourceResponseModel `json:"Storage"`
+	// List of hypervisor-connected storage in the resource pool that is used for temporary data storage for virtual machines.
+	TemporaryStorage []HypervisorStorageResourceResponseModel `json:"TemporaryStorage"`
+	// Indicates whether virtual machines created within this resource pool will use local storage caching for their disk images.
+	UseLocalStorageCaching NullableBool `json:"UseLocalStorageCaching,omitempty"`
+	// Custom properties.  Optional.  If not specified, will not be changed.  Only used for hypervisors of type Custom.
+	CustomProperties NullableString `json:"CustomProperties,omitempty"`
+	// List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines.
+	PersonalvDiskStorage []HypervisorStorageResourceResponseModel `json:"PersonalvDiskStorage,omitempty"`
+	StorageBalanceType   *StorageBalanceType                      `json:"StorageBalanceType,omitempty"`
 	// Id of the resource.
 	Id NullableString `json:"Id,omitempty"`
 	// Name of the resource.
 	Name NullableString `json:"Name,omitempty"`
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
-	XDPath NullableString `json:"XDPath,omitempty"`
-	HypervisorConnection RefResponseModel `json:"HypervisorConnection"`
-	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
-	DefaultNetwork HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
+	XDPath               NullableString                     `json:"XDPath,omitempty"`
+	HypervisorConnection RefResponseModel                   `json:"HypervisorConnection"`
+	ConnectionType       HypervisorConnectionType           `json:"ConnectionType"`
+	DefaultNetwork       HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
 	// Indicates whether new virtual machines are tagged with metadata from the hypervisor.
 	VMTaggingEnabled bool `json:"VMTaggingEnabled"`
 	// Hypervisor resourcePool RootPath.
@@ -38,29 +59,31 @@ type HypervisorResourcePoolAzureDetailResponseModel struct {
 	GpuTypes []HypervisorResourceRefResponseModel `json:"GpuTypes,omitempty"`
 	// If the hypervisor resource pool use ExplicitStorage.
 	UsesExplicitStorage *bool `json:"UsesExplicitStorage,omitempty"`
-	// Metadata for hypervisor resource pool. 
+	// Metadata for hypervisor resource pool.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Delegated admin scopes in which the containers of the resource pool reside.
 	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
-	Region HypervisorResourceRefResponseModel `json:"Region"`
-	VirtualNetwork HypervisorResourceRefResponseModel `json:"VirtualNetwork"`
-	// List of subnets in the VirtualNetwork that may be used within the resource pool.
-	Subnets []HypervisorResourceRefResponseModel `json:"Subnets"`
 }
 
 // NewHypervisorResourcePoolAzureDetailResponseModel instantiates a new HypervisorResourcePoolAzureDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHypervisorResourcePoolAzureDetailResponseModel(hypervisorConnection RefResponseModel, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool, region HypervisorResourceRefResponseModel, virtualNetwork HypervisorResourceRefResponseModel, subnets []HypervisorResourceRefResponseModel) *HypervisorResourcePoolAzureDetailResponseModel {
+func NewHypervisorResourcePoolAzureDetailResponseModel(virtualPrivateCloud HypervisorResourceRefResponseModel, availabilityZone HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel, region HypervisorResourceRefResponseModel, virtualNetwork HypervisorResourceRefResponseModel, subnets []HypervisorResourceRefResponseModel, project HypervisorResourceRefResponseModel, storage []HypervisorStorageResourceResponseModel, temporaryStorage []HypervisorStorageResourceResponseModel, hypervisorConnection RefResponseModel, connectionType HypervisorConnectionType, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool) *HypervisorResourcePoolAzureDetailResponseModel {
 	this := HypervisorResourcePoolAzureDetailResponseModel{}
+	this.VirtualPrivateCloud = virtualPrivateCloud
+	this.AvailabilityZone = availabilityZone
+	this.Networks = networks
+	this.Region = region
+	this.VirtualNetwork = virtualNetwork
+	this.Subnets = subnets
+	this.Project = project
+	this.Storage = storage
+	this.TemporaryStorage = temporaryStorage
 	this.HypervisorConnection = hypervisorConnection
 	this.ConnectionType = connectionType
 	this.DefaultNetwork = defaultNetwork
 	this.VMTaggingEnabled = vMTaggingEnabled
-	this.Region = region
-	this.VirtualNetwork = virtualNetwork
-	this.Subnets = subnets
 	return &this
 }
 
@@ -70,6 +93,405 @@ func NewHypervisorResourcePoolAzureDetailResponseModel(hypervisorConnection RefR
 func NewHypervisorResourcePoolAzureDetailResponseModelWithDefaults() *HypervisorResourcePoolAzureDetailResponseModel {
 	this := HypervisorResourcePoolAzureDetailResponseModel{}
 	return &this
+}
+
+// GetVirtualPrivateCloud returns the VirtualPrivateCloud field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetVirtualPrivateCloud() HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.VirtualPrivateCloud
+}
+
+// GetVirtualPrivateCloudOk returns a tuple with the VirtualPrivateCloud field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetVirtualPrivateCloudOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VirtualPrivateCloud, true
+}
+
+// SetVirtualPrivateCloud sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetVirtualPrivateCloud(v HypervisorResourceRefResponseModel) {
+	o.VirtualPrivateCloud = v
+}
+
+// GetAvailabilityZone returns the AvailabilityZone field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetAvailabilityZone() HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.AvailabilityZone
+}
+
+// GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetAvailabilityZoneOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvailabilityZone, true
+}
+
+// SetAvailabilityZone sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetAvailabilityZone(v HypervisorResourceRefResponseModel) {
+	o.AvailabilityZone = v
+}
+
+// GetNetworks returns the Networks field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetNetworks() []HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret []HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.Networks
+}
+
+// GetNetworksOk returns a tuple with the Networks field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetNetworksOk() ([]HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Networks, true
+}
+
+// SetNetworks sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetNetworks(v []HypervisorResourceRefResponseModel) {
+	o.Networks = v
+}
+
+// GetRegion returns the Region field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetRegion() HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetRegionOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Region, true
+}
+
+// SetRegion sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetRegion(v HypervisorResourceRefResponseModel) {
+	o.Region = v
+}
+
+// GetVirtualNetwork returns the VirtualNetwork field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetVirtualNetwork() HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.VirtualNetwork
+}
+
+// GetVirtualNetworkOk returns a tuple with the VirtualNetwork field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetVirtualNetworkOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VirtualNetwork, true
+}
+
+// SetVirtualNetwork sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetVirtualNetwork(v HypervisorResourceRefResponseModel) {
+	o.VirtualNetwork = v
+}
+
+// GetSubnets returns the Subnets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetSubnets() []HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret []HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.Subnets
+}
+
+// GetSubnetsOk returns a tuple with the Subnets field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetSubnetsOk() ([]HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Subnets, true
+}
+
+// SetSubnets sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetSubnets(v []HypervisorResourceRefResponseModel) {
+	o.Subnets = v
+}
+
+// GetProject returns the Project field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetProject() HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.Project
+}
+
+// GetProjectOk returns a tuple with the Project field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetProjectOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Project, true
+}
+
+// SetProject sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetProject(v HypervisorResourceRefResponseModel) {
+	o.Project = v
+}
+
+// GetRootPath returns the RootPath field value if set, zero value otherwise.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetRootPath() HypervisorResourceRefResponseModel {
+	if o == nil || IsNil(o.RootPath) {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+	return *o.RootPath
+}
+
+// GetRootPathOk returns a tuple with the RootPath field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetRootPathOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil || IsNil(o.RootPath) {
+		return nil, false
+	}
+	return o.RootPath, true
+}
+
+// HasRootPath returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) HasRootPath() bool {
+	if o != nil && !IsNil(o.RootPath) {
+		return true
+	}
+
+	return false
+}
+
+// SetRootPath gets a reference to the given HypervisorResourceRefResponseModel and assigns it to the RootPath field.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetRootPath(v HypervisorResourceRefResponseModel) {
+	o.RootPath = &v
+}
+
+// GetStorage returns the Storage field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetStorage() []HypervisorStorageResourceResponseModel {
+	if o == nil {
+		var ret []HypervisorStorageResourceResponseModel
+		return ret
+	}
+
+	return o.Storage
+}
+
+// GetStorageOk returns a tuple with the Storage field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetStorageOk() ([]HypervisorStorageResourceResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Storage, true
+}
+
+// SetStorage sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetStorage(v []HypervisorStorageResourceResponseModel) {
+	o.Storage = v
+}
+
+// GetTemporaryStorage returns the TemporaryStorage field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetTemporaryStorage() []HypervisorStorageResourceResponseModel {
+	if o == nil {
+		var ret []HypervisorStorageResourceResponseModel
+		return ret
+	}
+
+	return o.TemporaryStorage
+}
+
+// GetTemporaryStorageOk returns a tuple with the TemporaryStorage field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetTemporaryStorageOk() ([]HypervisorStorageResourceResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TemporaryStorage, true
+}
+
+// SetTemporaryStorage sets field value
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetTemporaryStorage(v []HypervisorStorageResourceResponseModel) {
+	o.TemporaryStorage = v
+}
+
+// GetUseLocalStorageCaching returns the UseLocalStorageCaching field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetUseLocalStorageCaching() bool {
+	if o == nil || IsNil(o.UseLocalStorageCaching.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.UseLocalStorageCaching.Get()
+}
+
+// GetUseLocalStorageCachingOk returns a tuple with the UseLocalStorageCaching field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetUseLocalStorageCachingOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UseLocalStorageCaching.Get(), o.UseLocalStorageCaching.IsSet()
+}
+
+// HasUseLocalStorageCaching returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) HasUseLocalStorageCaching() bool {
+	if o != nil && o.UseLocalStorageCaching.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUseLocalStorageCaching gets a reference to the given NullableBool and assigns it to the UseLocalStorageCaching field.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetUseLocalStorageCaching(v bool) {
+	o.UseLocalStorageCaching.Set(&v)
+}
+
+// SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetUseLocalStorageCachingNil() {
+	o.UseLocalStorageCaching.Set(nil)
+}
+
+// UnsetUseLocalStorageCaching ensures that no value is present for UseLocalStorageCaching, not even an explicit nil
+func (o *HypervisorResourcePoolAzureDetailResponseModel) UnsetUseLocalStorageCaching() {
+	o.UseLocalStorageCaching.Unset()
+}
+
+// GetCustomProperties returns the CustomProperties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetCustomProperties() string {
+	if o == nil || IsNil(o.CustomProperties.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CustomProperties.Get()
+}
+
+// GetCustomPropertiesOk returns a tuple with the CustomProperties field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetCustomPropertiesOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CustomProperties.Get(), o.CustomProperties.IsSet()
+}
+
+// HasCustomProperties returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) HasCustomProperties() bool {
+	if o != nil && o.CustomProperties.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCustomProperties gets a reference to the given NullableString and assigns it to the CustomProperties field.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetCustomProperties(v string) {
+	o.CustomProperties.Set(&v)
+}
+
+// SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetCustomPropertiesNil() {
+	o.CustomProperties.Set(nil)
+}
+
+// UnsetCustomProperties ensures that no value is present for CustomProperties, not even an explicit nil
+func (o *HypervisorResourcePoolAzureDetailResponseModel) UnsetCustomProperties() {
+	o.CustomProperties.Unset()
+}
+
+// GetPersonalvDiskStorage returns the PersonalvDiskStorage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetPersonalvDiskStorage() []HypervisorStorageResourceResponseModel {
+	if o == nil {
+		var ret []HypervisorStorageResourceResponseModel
+		return ret
+	}
+	return o.PersonalvDiskStorage
+}
+
+// GetPersonalvDiskStorageOk returns a tuple with the PersonalvDiskStorage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetPersonalvDiskStorageOk() ([]HypervisorStorageResourceResponseModel, bool) {
+	if o == nil || IsNil(o.PersonalvDiskStorage) {
+		return nil, false
+	}
+	return o.PersonalvDiskStorage, true
+}
+
+// HasPersonalvDiskStorage returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) HasPersonalvDiskStorage() bool {
+	if o != nil && IsNil(o.PersonalvDiskStorage) {
+		return true
+	}
+
+	return false
+}
+
+// SetPersonalvDiskStorage gets a reference to the given []HypervisorStorageResourceResponseModel and assigns it to the PersonalvDiskStorage field.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetPersonalvDiskStorage(v []HypervisorStorageResourceResponseModel) {
+	o.PersonalvDiskStorage = v
+}
+
+// GetStorageBalanceType returns the StorageBalanceType field value if set, zero value otherwise.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetStorageBalanceType() StorageBalanceType {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		var ret StorageBalanceType
+		return ret
+	}
+	return *o.StorageBalanceType
+}
+
+// GetStorageBalanceTypeOk returns a tuple with the StorageBalanceType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) GetStorageBalanceTypeOk() (*StorageBalanceType, bool) {
+	if o == nil || IsNil(o.StorageBalanceType) {
+		return nil, false
+	}
+	return o.StorageBalanceType, true
+}
+
+// HasStorageBalanceType returns a boolean if a field has been set.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) HasStorageBalanceType() bool {
+	if o != nil && !IsNil(o.StorageBalanceType) {
+		return true
+	}
+
+	return false
+}
+
+// SetStorageBalanceType gets a reference to the given StorageBalanceType and assigns it to the StorageBalanceType field.
+func (o *HypervisorResourcePoolAzureDetailResponseModel) SetStorageBalanceType(v StorageBalanceType) {
+	o.StorageBalanceType = &v
 }
 
 // GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -104,6 +526,7 @@ func (o *HypervisorResourcePoolAzureDetailResponseModel) HasId() bool {
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -146,6 +569,7 @@ func (o *HypervisorResourcePoolAzureDetailResponseModel) HasName() bool {
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -188,6 +612,7 @@ func (o *HypervisorResourcePoolAzureDetailResponseModel) HasXDPath() bool {
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -326,6 +751,7 @@ func (o *HypervisorResourcePoolAzureDetailResponseModel) HasResourcePoolRootPath
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetResourcePoolRootPath(v string) {
 	o.ResourcePoolRootPath.Set(&v)
 }
+
 // SetResourcePoolRootPathNil sets the value for ResourcePoolRootPath to be an explicit nil
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetResourcePoolRootPathNil() {
 	o.ResourcePoolRootPath.Set(nil)
@@ -368,6 +794,7 @@ func (o *HypervisorResourcePoolAzureDetailResponseModel) HasResourcePoolRootId()
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetResourcePoolRootId(v string) {
 	o.ResourcePoolRootId.Set(&v)
 }
+
 // SetResourcePoolRootIdNil sets the value for ResourcePoolRootId to be an explicit nil
 func (o *HypervisorResourcePoolAzureDetailResponseModel) SetResourcePoolRootIdNil() {
 	o.ResourcePoolRootId.Set(nil)
@@ -509,80 +936,8 @@ func (o *HypervisorResourcePoolAzureDetailResponseModel) SetContainerScopes(v []
 	o.ContainerScopes = v
 }
 
-// GetRegion returns the Region field value
-func (o *HypervisorResourcePoolAzureDetailResponseModel) GetRegion() HypervisorResourceRefResponseModel {
-	if o == nil {
-		var ret HypervisorResourceRefResponseModel
-		return ret
-	}
-
-	return o.Region
-}
-
-// GetRegionOk returns a tuple with the Region field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorResourcePoolAzureDetailResponseModel) GetRegionOk() (*HypervisorResourceRefResponseModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Region, true
-}
-
-// SetRegion sets field value
-func (o *HypervisorResourcePoolAzureDetailResponseModel) SetRegion(v HypervisorResourceRefResponseModel) {
-	o.Region = v
-}
-
-// GetVirtualNetwork returns the VirtualNetwork field value
-func (o *HypervisorResourcePoolAzureDetailResponseModel) GetVirtualNetwork() HypervisorResourceRefResponseModel {
-	if o == nil {
-		var ret HypervisorResourceRefResponseModel
-		return ret
-	}
-
-	return o.VirtualNetwork
-}
-
-// GetVirtualNetworkOk returns a tuple with the VirtualNetwork field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorResourcePoolAzureDetailResponseModel) GetVirtualNetworkOk() (*HypervisorResourceRefResponseModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.VirtualNetwork, true
-}
-
-// SetVirtualNetwork sets field value
-func (o *HypervisorResourcePoolAzureDetailResponseModel) SetVirtualNetwork(v HypervisorResourceRefResponseModel) {
-	o.VirtualNetwork = v
-}
-
-// GetSubnets returns the Subnets field value
-func (o *HypervisorResourcePoolAzureDetailResponseModel) GetSubnets() []HypervisorResourceRefResponseModel {
-	if o == nil {
-		var ret []HypervisorResourceRefResponseModel
-		return ret
-	}
-
-	return o.Subnets
-}
-
-// GetSubnetsOk returns a tuple with the Subnets field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorResourcePoolAzureDetailResponseModel) GetSubnetsOk() ([]HypervisorResourceRefResponseModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Subnets, true
-}
-
-// SetSubnets sets field value
-func (o *HypervisorResourcePoolAzureDetailResponseModel) SetSubnets(v []HypervisorResourceRefResponseModel) {
-	o.Subnets = v
-}
-
 func (o HypervisorResourcePoolAzureDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -591,6 +946,30 @@ func (o HypervisorResourcePoolAzureDetailResponseModel) MarshalJSON() ([]byte, e
 
 func (o HypervisorResourcePoolAzureDetailResponseModel) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["VirtualPrivateCloud"] = o.VirtualPrivateCloud
+	toSerialize["AvailabilityZone"] = o.AvailabilityZone
+	toSerialize["Networks"] = o.Networks
+	toSerialize["Region"] = o.Region
+	toSerialize["VirtualNetwork"] = o.VirtualNetwork
+	toSerialize["Subnets"] = o.Subnets
+	toSerialize["Project"] = o.Project
+	if !IsNil(o.RootPath) {
+		toSerialize["RootPath"] = o.RootPath
+	}
+	toSerialize["Storage"] = o.Storage
+	toSerialize["TemporaryStorage"] = o.TemporaryStorage
+	if o.UseLocalStorageCaching.IsSet() {
+		toSerialize["UseLocalStorageCaching"] = o.UseLocalStorageCaching.Get()
+	}
+	if o.CustomProperties.IsSet() {
+		toSerialize["CustomProperties"] = o.CustomProperties.Get()
+	}
+	if o.PersonalvDiskStorage != nil {
+		toSerialize["PersonalvDiskStorage"] = o.PersonalvDiskStorage
+	}
+	if !IsNil(o.StorageBalanceType) {
+		toSerialize["StorageBalanceType"] = o.StorageBalanceType
+	}
 	if o.Id.IsSet() {
 		toSerialize["Id"] = o.Id.Get()
 	}
@@ -622,9 +1001,6 @@ func (o HypervisorResourcePoolAzureDetailResponseModel) ToMap() (map[string]inte
 	if o.ContainerScopes != nil {
 		toSerialize["ContainerScopes"] = o.ContainerScopes
 	}
-	toSerialize["Region"] = o.Region
-	toSerialize["VirtualNetwork"] = o.VirtualNetwork
-	toSerialize["Subnets"] = o.Subnets
 	return toSerialize, nil
 }
 
@@ -663,5 +1039,3 @@ func (v *NullableHypervisorResourcePoolAzureDetailResponseModel) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

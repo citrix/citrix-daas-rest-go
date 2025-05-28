@@ -21,7 +21,7 @@ type AccountTaskOperationType string
 // List of AccountTaskOperationType
 const (
 	ACCOUNTTASKOPERATIONTYPE_AWS_BYOL_REGISTRATION AccountTaskOperationType = "AWS_BYOL_REGISTRATION"
-	ACCOUNTTASKOPERATIONTYPE_DELETE_CONNECTOR AccountTaskOperationType = "DELETE_CONNECTOR"
+	ACCOUNTTASKOPERATIONTYPE_DELETE_CONNECTOR      AccountTaskOperationType = "DELETE_CONNECTOR"
 )
 
 // All allowed values of AccountTaskOperationType enum
@@ -108,4 +108,3 @@ func (v *NullableAccountTaskOperationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

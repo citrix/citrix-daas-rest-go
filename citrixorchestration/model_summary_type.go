@@ -20,7 +20,7 @@ type SummaryType string
 
 // List of SummaryType
 const (
-	SUMMARYTYPE_VM SummaryType = "VM"
+	SUMMARYTYPE_VM   SummaryType = "VM"
 	SUMMARYTYPE_DISK SummaryType = "Disk"
 )
 
@@ -36,7 +36,7 @@ func (v *SummaryType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SummaryType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableSummaryType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

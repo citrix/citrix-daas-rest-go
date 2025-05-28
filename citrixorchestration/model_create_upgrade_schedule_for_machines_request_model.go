@@ -29,8 +29,8 @@ type CreateUpgradeScheduleForMachinesRequestModel struct {
 	// Custom location to download the VDA Workstation package from. Currently, only network shares (specified using a UNC path) are supported.
 	VdaWorkstationPackageUri NullableString `json:"VdaWorkstationPackageUri,omitempty"`
 	// Custom location to download the VDA Server package from. Currently, only network shares (specified using a UNC path) are supported.
-	VdaServerPackageUri NullableString `json:"VdaServerPackageUri,omitempty"`
-	LogoffOption *LogoffOption `json:"LogoffOption,omitempty"`
+	VdaServerPackageUri                  NullableString                                `json:"VdaServerPackageUri,omitempty"`
+	LogoffOption                         *LogoffOption                                 `json:"LogoffOption,omitempty"`
 	VDAComponentsAndFeaturesRequestModel *VDAComponentsSelectionValidationRequestModel `json:"VDAComponentsAndFeaturesRequestModel,omitempty"`
 	// Specify VDA needs to be rebooted before upgrade.
 	Reboot NullableBool `json:"Reboot,omitempty"`
@@ -111,6 +111,7 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) HasStartDateTimeUtc() boo
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetStartDateTimeUtc(v time.Time) {
 	o.StartDateTimeUtc.Set(&v)
 }
+
 // SetStartDateTimeUtcNil sets the value for StartDateTimeUtc to be an explicit nil
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetStartDateTimeUtcNil() {
 	o.StartDateTimeUtc.Set(nil)
@@ -177,6 +178,7 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) HasVdaWorkstationPackageU
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaWorkstationPackageUri(v string) {
 	o.VdaWorkstationPackageUri.Set(&v)
 }
+
 // SetVdaWorkstationPackageUriNil sets the value for VdaWorkstationPackageUri to be an explicit nil
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaWorkstationPackageUriNil() {
 	o.VdaWorkstationPackageUri.Set(nil)
@@ -219,6 +221,7 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) HasVdaServerPackageUri() 
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaServerPackageUri(v string) {
 	o.VdaServerPackageUri.Set(&v)
 }
+
 // SetVdaServerPackageUriNil sets the value for VdaServerPackageUri to be an explicit nil
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetVdaServerPackageUriNil() {
 	o.VdaServerPackageUri.Set(nil)
@@ -325,6 +328,7 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) HasReboot() bool {
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetReboot(v bool) {
 	o.Reboot.Set(&v)
 }
+
 // SetRebootNil sets the value for Reboot to be an explicit nil
 func (o *CreateUpgradeScheduleForMachinesRequestModel) SetRebootNil() {
 	o.Reboot.Set(nil)
@@ -336,7 +340,7 @@ func (o *CreateUpgradeScheduleForMachinesRequestModel) UnsetReboot() {
 }
 
 func (o CreateUpgradeScheduleForMachinesRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -403,5 +407,3 @@ func (v *NullableCreateUpgradeScheduleForMachinesRequestModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

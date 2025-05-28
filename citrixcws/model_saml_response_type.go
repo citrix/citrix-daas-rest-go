@@ -21,8 +21,8 @@ type SamlResponseType string
 // List of SamlResponseType
 const (
 	SAMLRESPONSETYPE_SIGN_EITHER_RESPONSE_OR_ASSERTION SamlResponseType = "SignEitherResponseOrAssertion"
-	SAMLRESPONSETYPE_MUST_SIGN_RESPONSE SamlResponseType = "MustSignResponse"
-	SAMLRESPONSETYPE_MUST_SIGN_ASSERTION SamlResponseType = "MustSignAssertion"
+	SAMLRESPONSETYPE_MUST_SIGN_RESPONSE                SamlResponseType = "MustSignResponse"
+	SAMLRESPONSETYPE_MUST_SIGN_ASSERTION               SamlResponseType = "MustSignAssertion"
 )
 
 // All allowed values of SamlResponseType enum
@@ -110,4 +110,3 @@ func (v *NullableSamlResponseType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

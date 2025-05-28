@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 // ConnectionQCSService ConnectionQCS service
 type ConnectionQCSService service
 
 type ConnectionQCSAddResourceConnectionAsyncRequest struct {
-	ctx context.Context
-	ApiService *ConnectionQCSService
-	customerId string
-	accountId string
+	ctx                 context.Context
+	ApiService          *ConnectionQCSService
+	customerId          string
+	accountId           string
 	citrixTransactionId *string
-	body *AddAwsEdcDirectoryConnection
+	body                *AddAwsEdcDirectoryConnection
 }
 
 // The Transaction Id.
@@ -51,28 +50,29 @@ func (r ConnectionQCSAddResourceConnectionAsyncRequest) Execute() (*ResourceConn
 /*
 AddResourceConnectionAsync Adds resource connection asyncronously
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of account
- @return ConnectionQCSAddResourceConnectionAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of account
+	@return ConnectionQCSAddResourceConnectionAsyncRequest
 */
 func (a *ConnectionQCSService) AddResourceConnectionAsync(ctx context.Context, customerId string, accountId string) ConnectionQCSAddResourceConnectionAsyncRequest {
 	return ConnectionQCSAddResourceConnectionAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
-//  @return ResourceConnectionTask
+//
+//	@return ResourceConnectionTask
 func (a *ConnectionQCSService) AddResourceConnectionAsyncExecute(r ConnectionQCSAddResourceConnectionAsyncRequest) (*ResourceConnectionTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ResourceConnectionTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceConnectionTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionQCSService.AddResourceConnectionAsync")
@@ -106,7 +106,7 @@ func (a *ConnectionQCSService) AddResourceConnectionAsyncExecute(r ConnectionQCS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -141,6 +141,13 @@ func (a *ConnectionQCSService) AddResourceConnectionAsyncExecute(r ConnectionQCS
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -162,10 +169,10 @@ func (a *ConnectionQCSService) AddResourceConnectionAsyncExecute(r ConnectionQCS
 }
 
 type ConnectionQCSGetAllResourceConnectionsAsyncRequest struct {
-	ctx context.Context
-	ApiService *ConnectionQCSService
-	customerId string
-	accountType *AccountType
+	ctx                 context.Context
+	ApiService          *ConnectionQCSService
+	customerId          string
+	accountType         *AccountType
 	citrixTransactionId *string
 }
 
@@ -188,26 +195,27 @@ func (r ConnectionQCSGetAllResourceConnectionsAsyncRequest) Execute() (*Resource
 /*
 GetAllResourceConnectionsAsync Gets all resource connections without specifying account
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @return ConnectionQCSGetAllResourceConnectionsAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@return ConnectionQCSGetAllResourceConnectionsAsyncRequest
 */
 func (a *ConnectionQCSService) GetAllResourceConnectionsAsync(ctx context.Context, customerId string) ConnectionQCSGetAllResourceConnectionsAsyncRequest {
 	return ConnectionQCSGetAllResourceConnectionsAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
 	}
 }
 
 // Execute executes the request
-//  @return ResourceConnections
+//
+//	@return ResourceConnections
 func (a *ConnectionQCSService) GetAllResourceConnectionsAsyncExecute(r ConnectionQCSGetAllResourceConnectionsAsyncRequest) (*ResourceConnections, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ResourceConnections
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceConnections
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionQCSService.GetAllResourceConnectionsAsync")
@@ -223,7 +231,7 @@ func (a *ConnectionQCSService) GetAllResourceConnectionsAsyncExecute(r Connectio
 	localVarFormParams := url.Values{}
 
 	if r.accountType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accountType", r.accountType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accountType", r.accountType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -243,7 +251,7 @@ func (a *ConnectionQCSService) GetAllResourceConnectionsAsyncExecute(r Connectio
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -276,6 +284,13 @@ func (a *ConnectionQCSService) GetAllResourceConnectionsAsyncExecute(r Connectio
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -297,11 +312,11 @@ func (a *ConnectionQCSService) GetAllResourceConnectionsAsyncExecute(r Connectio
 }
 
 type ConnectionQCSGetResourceConnectionAsyncRequest struct {
-	ctx context.Context
-	ApiService *ConnectionQCSService
-	customerId string
-	accountId string
-	connectionId string
+	ctx                 context.Context
+	ApiService          *ConnectionQCSService
+	customerId          string
+	accountId           string
+	connectionId        string
 	citrixTransactionId *string
 }
 
@@ -318,30 +333,31 @@ func (r ConnectionQCSGetResourceConnectionAsyncRequest) Execute() (*AwsEdcDirect
 /*
 GetResourceConnectionAsync Gets resource connection
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of account
- @param connectionId ID of connection
- @return ConnectionQCSGetResourceConnectionAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of account
+	@param connectionId ID of connection
+	@return ConnectionQCSGetResourceConnectionAsyncRequest
 */
 func (a *ConnectionQCSService) GetResourceConnectionAsync(ctx context.Context, customerId string, accountId string, connectionId string) ConnectionQCSGetResourceConnectionAsyncRequest {
 	return ConnectionQCSGetResourceConnectionAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
-		accountId: accountId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
+		accountId:    accountId,
 		connectionId: connectionId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcDirectoryConnection
+//
+//	@return AwsEdcDirectoryConnection
 func (a *ConnectionQCSService) GetResourceConnectionAsyncExecute(r ConnectionQCSGetResourceConnectionAsyncRequest) (*AwsEdcDirectoryConnection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcDirectoryConnection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcDirectoryConnection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionQCSService.GetResourceConnectionAsync")
@@ -376,7 +392,7 @@ func (a *ConnectionQCSService) GetResourceConnectionAsyncExecute(r ConnectionQCS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -407,6 +423,13 @@ func (a *ConnectionQCSService) GetResourceConnectionAsyncExecute(r ConnectionQCS
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -430,11 +453,11 @@ func (a *ConnectionQCSService) GetResourceConnectionAsyncExecute(r ConnectionQCS
 }
 
 type ConnectionQCSGetResourceConnectionsAsyncRequest struct {
-	ctx context.Context
-	ApiService *ConnectionQCSService
-	customerId string
-	accountId string
-	citrixManaged *bool
+	ctx                 context.Context
+	ApiService          *ConnectionQCSService
+	customerId          string
+	accountId           string
+	citrixManaged       *bool
 	citrixTransactionId *string
 }
 
@@ -457,28 +480,29 @@ func (r ConnectionQCSGetResourceConnectionsAsyncRequest) Execute() (*ResourceCon
 /*
 GetResourceConnectionsAsync Gets resource connections
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of account
- @return ConnectionQCSGetResourceConnectionsAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of account
+	@return ConnectionQCSGetResourceConnectionsAsyncRequest
 */
 func (a *ConnectionQCSService) GetResourceConnectionsAsync(ctx context.Context, customerId string, accountId string) ConnectionQCSGetResourceConnectionsAsyncRequest {
 	return ConnectionQCSGetResourceConnectionsAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
-		accountId: accountId,
+		accountId:  accountId,
 	}
 }
 
 // Execute executes the request
-//  @return ResourceConnections
+//
+//	@return ResourceConnections
 func (a *ConnectionQCSService) GetResourceConnectionsAsyncExecute(r ConnectionQCSGetResourceConnectionsAsyncRequest) (*ResourceConnections, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ResourceConnections
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceConnections
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionQCSService.GetResourceConnectionsAsync")
@@ -495,7 +519,7 @@ func (a *ConnectionQCSService) GetResourceConnectionsAsyncExecute(r ConnectionQC
 	localVarFormParams := url.Values{}
 
 	if r.citrixManaged != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "citrixManaged", r.citrixManaged, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "citrixManaged", r.citrixManaged, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -515,7 +539,7 @@ func (a *ConnectionQCSService) GetResourceConnectionsAsyncExecute(r ConnectionQC
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -548,6 +572,13 @@ func (a *ConnectionQCSService) GetResourceConnectionsAsyncExecute(r ConnectionQC
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -569,13 +600,13 @@ func (a *ConnectionQCSService) GetResourceConnectionsAsyncExecute(r ConnectionQC
 }
 
 type ConnectionQCSModifyResourceConnectionAsyncRequest struct {
-	ctx context.Context
-	ApiService *ConnectionQCSService
-	customerId string
-	accountId string
-	connectionId string
+	ctx                 context.Context
+	ApiService          *ConnectionQCSService
+	customerId          string
+	accountId           string
+	connectionId        string
 	citrixTransactionId *string
-	body *UpdateAwsEdcDirectoryConnection
+	body                *UpdateAwsEdcDirectoryConnection
 }
 
 // The Transaction Id.
@@ -597,30 +628,31 @@ func (r ConnectionQCSModifyResourceConnectionAsyncRequest) Execute() (*AwsEdcDir
 /*
 ModifyResourceConnectionAsync Modifies connection
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of account
- @param connectionId ID of connection
- @return ConnectionQCSModifyResourceConnectionAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of account
+	@param connectionId ID of connection
+	@return ConnectionQCSModifyResourceConnectionAsyncRequest
 */
 func (a *ConnectionQCSService) ModifyResourceConnectionAsync(ctx context.Context, customerId string, accountId string, connectionId string) ConnectionQCSModifyResourceConnectionAsyncRequest {
 	return ConnectionQCSModifyResourceConnectionAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
-		accountId: accountId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
+		accountId:    accountId,
 		connectionId: connectionId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcDirectoryConnection
+//
+//	@return AwsEdcDirectoryConnection
 func (a *ConnectionQCSService) ModifyResourceConnectionAsyncExecute(r ConnectionQCSModifyResourceConnectionAsyncRequest) (*AwsEdcDirectoryConnection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcDirectoryConnection
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcDirectoryConnection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionQCSService.ModifyResourceConnectionAsync")
@@ -655,7 +687,7 @@ func (a *ConnectionQCSService) ModifyResourceConnectionAsyncExecute(r Connection
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -690,6 +722,13 @@ func (a *ConnectionQCSService) ModifyResourceConnectionAsyncExecute(r Connection
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -711,12 +750,12 @@ func (a *ConnectionQCSService) ModifyResourceConnectionAsyncExecute(r Connection
 }
 
 type ConnectionQCSRemoveResourceConnectionAsyncRequest struct {
-	ctx context.Context
-	ApiService *ConnectionQCSService
-	customerId string
-	accountId string
-	connectionId string
-	forceDelete *bool
+	ctx                 context.Context
+	ApiService          *ConnectionQCSService
+	customerId          string
+	accountId           string
+	connectionId        string
+	forceDelete         *bool
 	citrixTransactionId *string
 }
 
@@ -739,30 +778,31 @@ func (r ConnectionQCSRemoveResourceConnectionAsyncRequest) Execute() (*ResourceC
 /*
 RemoveResourceConnectionAsync Removes connection
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param accountId ID of account
- @param connectionId ID of connection
- @return ConnectionQCSRemoveResourceConnectionAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param accountId ID of account
+	@param connectionId ID of connection
+	@return ConnectionQCSRemoveResourceConnectionAsyncRequest
 */
 func (a *ConnectionQCSService) RemoveResourceConnectionAsync(ctx context.Context, customerId string, accountId string, connectionId string) ConnectionQCSRemoveResourceConnectionAsyncRequest {
 	return ConnectionQCSRemoveResourceConnectionAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
-		accountId: accountId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
+		accountId:    accountId,
 		connectionId: connectionId,
 	}
 }
 
 // Execute executes the request
-//  @return ResourceConnectionTask
+//
+//	@return ResourceConnectionTask
 func (a *ConnectionQCSService) RemoveResourceConnectionAsyncExecute(r ConnectionQCSRemoveResourceConnectionAsyncRequest) (*ResourceConnectionTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ResourceConnectionTask
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ResourceConnectionTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConnectionQCSService.RemoveResourceConnectionAsync")
@@ -780,7 +820,10 @@ func (a *ConnectionQCSService) RemoveResourceConnectionAsyncExecute(r Connection
 	localVarFormParams := url.Values{}
 
 	if r.forceDelete != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.forceDelete = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -800,7 +843,7 @@ func (a *ConnectionQCSService) RemoveResourceConnectionAsyncExecute(r Connection
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -831,6 +874,13 @@ func (a *ConnectionQCSService) RemoveResourceConnectionAsyncExecute(r Connection
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

@@ -15,12 +15,12 @@ import (
 	"fmt"
 )
 
-// DatabaseAuthenticationMode 
+// DatabaseAuthenticationMode
 type DatabaseAuthenticationMode string
 
 // List of DatabaseAuthenticationMode
 const (
-	DATABASEAUTHENTICATIONMODE_WINDOWS DatabaseAuthenticationMode = "Windows"
+	DATABASEAUTHENTICATIONMODE_WINDOWS    DatabaseAuthenticationMode = "Windows"
 	DATABASEAUTHENTICATIONMODE_SQL_SERVER DatabaseAuthenticationMode = "SQLServer"
 )
 
@@ -36,7 +36,7 @@ func (v *DatabaseAuthenticationMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DatabaseAuthenticationMode(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableDatabaseAuthenticationMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

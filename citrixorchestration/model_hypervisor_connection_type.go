@@ -20,20 +20,20 @@ type HypervisorConnectionType string
 
 // List of HypervisorConnectionType
 const (
-	HYPERVISORCONNECTIONTYPE_UNKNOWN HypervisorConnectionType = "Unknown"
-	HYPERVISORCONNECTIONTYPE_XEN_SERVER HypervisorConnectionType = "XenServer"
-	HYPERVISORCONNECTIONTYPE_SCVMM HypervisorConnectionType = "SCVMM"
-	HYPERVISORCONNECTIONTYPE_V_CENTER HypervisorConnectionType = "VCenter"
-	HYPERVISORCONNECTIONTYPE_CUSTOM HypervisorConnectionType = "Custom"
-	HYPERVISORCONNECTIONTYPE_AWS HypervisorConnectionType = "AWS"
-	HYPERVISORCONNECTIONTYPE_WAKE_ON_LAN HypervisorConnectionType = "WakeOnLAN"
-	HYPERVISORCONNECTIONTYPE_AZURE_RM HypervisorConnectionType = "AzureRM"
-	HYPERVISORCONNECTIONTYPE_GOOGLE_CLOUD_PLATFORM HypervisorConnectionType = "GoogleCloudPlatform"
-	HYPERVISORCONNECTIONTYPE_CLOUD_PLATFORM HypervisorConnectionType = "CloudPlatform"
+	HYPERVISORCONNECTIONTYPE_UNKNOWN                     HypervisorConnectionType = "Unknown"
+	HYPERVISORCONNECTIONTYPE_XEN_SERVER                  HypervisorConnectionType = "XenServer"
+	HYPERVISORCONNECTIONTYPE_SCVMM                       HypervisorConnectionType = "SCVMM"
+	HYPERVISORCONNECTIONTYPE_V_CENTER                    HypervisorConnectionType = "VCenter"
+	HYPERVISORCONNECTIONTYPE_CUSTOM                      HypervisorConnectionType = "Custom"
+	HYPERVISORCONNECTIONTYPE_AWS                         HypervisorConnectionType = "AWS"
+	HYPERVISORCONNECTIONTYPE_WAKE_ON_LAN                 HypervisorConnectionType = "WakeOnLAN"
+	HYPERVISORCONNECTIONTYPE_AZURE_RM                    HypervisorConnectionType = "AzureRM"
+	HYPERVISORCONNECTIONTYPE_GOOGLE_CLOUD_PLATFORM       HypervisorConnectionType = "GoogleCloudPlatform"
+	HYPERVISORCONNECTIONTYPE_CLOUD_PLATFORM              HypervisorConnectionType = "CloudPlatform"
 	HYPERVISORCONNECTIONTYPE_ORACLE_CLOUD_INFRASTRUCTURE HypervisorConnectionType = "OracleCloudInfrastructure"
-	HYPERVISORCONNECTIONTYPE_AZURE_ARC HypervisorConnectionType = "AzureArc"
-	HYPERVISORCONNECTIONTYPE_OPEN_SHIFT HypervisorConnectionType = "OpenShift"
-	HYPERVISORCONNECTIONTYPE_AMAZON_WORK_SPACES_CORE HypervisorConnectionType = "AmazonWorkSpacesCore"
+	HYPERVISORCONNECTIONTYPE_AZURE_ARC                   HypervisorConnectionType = "AzureArc"
+	HYPERVISORCONNECTIONTYPE_OPEN_SHIFT                  HypervisorConnectionType = "OpenShift"
+	HYPERVISORCONNECTIONTYPE_AMAZON_WORK_SPACES_CORE     HypervisorConnectionType = "AmazonWorkSpacesCore"
 )
 
 // All allowed values of HypervisorConnectionType enum
@@ -60,7 +60,7 @@ func (v *HypervisorConnectionType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = HypervisorConnectionType(value)
 	return nil
 }
@@ -126,4 +126,3 @@ func (v *NullableHypervisorConnectionType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

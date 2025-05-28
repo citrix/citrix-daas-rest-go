@@ -19,10 +19,10 @@ var _ MappedNullable = &BackupRestoreOptionsResponseModel{}
 
 // BackupRestoreOptionsResponseModel struct for BackupRestoreOptionsResponseModel
 type BackupRestoreOptionsResponseModel struct {
-	OneScheduledBackupPerDay NullableBool `json:"OneScheduledBackupPerDay,omitempty"`
-	AutoPinScheduleUid NullableInt32 `json:"AutoPinScheduleUid,omitempty"`
-	AutoPinScheduleName NullableString `json:"AutoPinScheduleName,omitempty"`
-	Result *bool `json:"result,omitempty"`
+	OneScheduledBackupPerDay NullableBool   `json:"OneScheduledBackupPerDay,omitempty"`
+	AutoPinScheduleUid       NullableInt32  `json:"AutoPinScheduleUid,omitempty"`
+	AutoPinScheduleName      NullableString `json:"AutoPinScheduleName,omitempty"`
+	Result                   *bool          `json:"result,omitempty"`
 }
 
 // NewBackupRestoreOptionsResponseModel instantiates a new BackupRestoreOptionsResponseModel object
@@ -74,6 +74,7 @@ func (o *BackupRestoreOptionsResponseModel) HasOneScheduledBackupPerDay() bool {
 func (o *BackupRestoreOptionsResponseModel) SetOneScheduledBackupPerDay(v bool) {
 	o.OneScheduledBackupPerDay.Set(&v)
 }
+
 // SetOneScheduledBackupPerDayNil sets the value for OneScheduledBackupPerDay to be an explicit nil
 func (o *BackupRestoreOptionsResponseModel) SetOneScheduledBackupPerDayNil() {
 	o.OneScheduledBackupPerDay.Set(nil)
@@ -116,6 +117,7 @@ func (o *BackupRestoreOptionsResponseModel) HasAutoPinScheduleUid() bool {
 func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleUid(v int32) {
 	o.AutoPinScheduleUid.Set(&v)
 }
+
 // SetAutoPinScheduleUidNil sets the value for AutoPinScheduleUid to be an explicit nil
 func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleUidNil() {
 	o.AutoPinScheduleUid.Set(nil)
@@ -158,6 +160,7 @@ func (o *BackupRestoreOptionsResponseModel) HasAutoPinScheduleName() bool {
 func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleName(v string) {
 	o.AutoPinScheduleName.Set(&v)
 }
+
 // SetAutoPinScheduleNameNil sets the value for AutoPinScheduleName to be an explicit nil
 func (o *BackupRestoreOptionsResponseModel) SetAutoPinScheduleNameNil() {
 	o.AutoPinScheduleName.Set(nil)
@@ -201,7 +204,7 @@ func (o *BackupRestoreOptionsResponseModel) SetResult(v bool) {
 }
 
 func (o BackupRestoreOptionsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -260,5 +263,3 @@ func (v *NullableBackupRestoreOptionsResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

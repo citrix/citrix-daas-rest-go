@@ -20,8 +20,8 @@ type SessionType string
 
 // List of SessionType
 const (
-	SESSIONTYPE_UNKNOWN SessionType = "Unknown"
-	SESSIONTYPE_DESKTOP SessionType = "Desktop"
+	SESSIONTYPE_UNKNOWN     SessionType = "Unknown"
+	SESSIONTYPE_DESKTOP     SessionType = "Desktop"
 	SESSIONTYPE_APPLICATION SessionType = "Application"
 )
 
@@ -38,7 +38,7 @@ func (v *SessionType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SessionType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableSessionType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

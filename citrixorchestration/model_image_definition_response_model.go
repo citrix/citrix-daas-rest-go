@@ -26,9 +26,9 @@ type ImageDefinitionResponseModel struct {
 	CreationTime NullableString `json:"CreationTime,omitempty"`
 	// description
 	Description NullableString `json:"Description,omitempty"`
-	OsType OsType `json:"OsType"`
+	OsType      OsType         `json:"OsType"`
 	// the latest version for the image definition
-	LatestVersion int32 `json:"LatestVersion"`
+	LatestVersion     int32          `json:"LatestVersion"`
 	VDASessionSupport SessionSupport `json:"VDASessionSupport"`
 	// The hypervisor connections on which image definition is associated.
 	HypervisorConnections []ImageDefinitionHypervisorConnectionResponseModel `json:"HypervisorConnections,omitempty"`
@@ -111,6 +111,7 @@ func (o *ImageDefinitionResponseModel) HasName() bool {
 func (o *ImageDefinitionResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ImageDefinitionResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -153,6 +154,7 @@ func (o *ImageDefinitionResponseModel) HasCreationTime() bool {
 func (o *ImageDefinitionResponseModel) SetCreationTime(v string) {
 	o.CreationTime.Set(&v)
 }
+
 // SetCreationTimeNil sets the value for CreationTime to be an explicit nil
 func (o *ImageDefinitionResponseModel) SetCreationTimeNil() {
 	o.CreationTime.Set(nil)
@@ -195,6 +197,7 @@ func (o *ImageDefinitionResponseModel) HasDescription() bool {
 func (o *ImageDefinitionResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ImageDefinitionResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -311,7 +314,7 @@ func (o *ImageDefinitionResponseModel) SetHypervisorConnections(v []ImageDefinit
 }
 
 func (o ImageDefinitionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +377,3 @@ func (v *NullableImageDefinitionResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

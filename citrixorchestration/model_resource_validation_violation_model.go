@@ -127,6 +127,7 @@ func (o *ResourceValidationViolationModel) HasDetail() bool {
 func (o *ResourceValidationViolationModel) SetDetail(v string) {
 	o.Detail.Set(&v)
 }
+
 // SetDetailNil sets the value for Detail to be an explicit nil
 func (o *ResourceValidationViolationModel) SetDetailNil() {
 	o.Detail.Set(nil)
@@ -169,6 +170,7 @@ func (o *ResourceValidationViolationModel) HasRelativePath() bool {
 func (o *ResourceValidationViolationModel) SetRelativePath(v string) {
 	o.RelativePath.Set(&v)
 }
+
 // SetRelativePathNil sets the value for RelativePath to be an explicit nil
 func (o *ResourceValidationViolationModel) SetRelativePathNil() {
 	o.RelativePath.Set(nil)
@@ -180,7 +182,7 @@ func (o *ResourceValidationViolationModel) UnsetRelativePath() {
 }
 
 func (o ResourceValidationViolationModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -235,5 +237,3 @@ func (v *NullableResourceValidationViolationModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

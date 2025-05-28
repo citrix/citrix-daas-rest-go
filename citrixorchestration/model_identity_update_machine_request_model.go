@@ -24,7 +24,7 @@ type IdentityUpdateMachineRequestModel struct {
 	// Old account password, used when changing the account password.
 	OldPassword NullableString `json:"OldPassword,omitempty"`
 	// New account password, used when changing the account password.
-	NewPassword NullableString `json:"NewPassword,omitempty"`
+	NewPassword           NullableString          `json:"NewPassword,omitempty"`
 	AccountPasswordFormat *IdentityPasswordFormat `json:"AccountPasswordFormat,omitempty"`
 }
 
@@ -77,6 +77,7 @@ func (o *IdentityUpdateMachineRequestModel) HasEnabled() bool {
 func (o *IdentityUpdateMachineRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *IdentityUpdateMachineRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -119,6 +120,7 @@ func (o *IdentityUpdateMachineRequestModel) HasOldPassword() bool {
 func (o *IdentityUpdateMachineRequestModel) SetOldPassword(v string) {
 	o.OldPassword.Set(&v)
 }
+
 // SetOldPasswordNil sets the value for OldPassword to be an explicit nil
 func (o *IdentityUpdateMachineRequestModel) SetOldPasswordNil() {
 	o.OldPassword.Set(nil)
@@ -161,6 +163,7 @@ func (o *IdentityUpdateMachineRequestModel) HasNewPassword() bool {
 func (o *IdentityUpdateMachineRequestModel) SetNewPassword(v string) {
 	o.NewPassword.Set(&v)
 }
+
 // SetNewPasswordNil sets the value for NewPassword to be an explicit nil
 func (o *IdentityUpdateMachineRequestModel) SetNewPasswordNil() {
 	o.NewPassword.Set(nil)
@@ -204,7 +207,7 @@ func (o *IdentityUpdateMachineRequestModel) SetAccountPasswordFormat(v IdentityP
 }
 
 func (o IdentityUpdateMachineRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -263,5 +266,3 @@ func (v *NullableIdentityUpdateMachineRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

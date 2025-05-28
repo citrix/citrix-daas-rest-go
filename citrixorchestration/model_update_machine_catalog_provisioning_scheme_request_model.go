@@ -20,11 +20,11 @@ var _ MappedNullable = &UpdateMachineCatalogProvisioningSchemeRequestModel{}
 // UpdateMachineCatalogProvisioningSchemeRequestModel Request object for updating the master image used for provisioned machines in a machine catalog.
 type UpdateMachineCatalogProvisioningSchemeRequestModel struct {
 	// The path in the resource pool to the virtual machine snapshot or VM template that will be used. This identifies the hard disk to be used and the default values for the memory and processors. This must be a path to a Snapshot or Template item in the resource pool to which the Machine Catalog is associated.
-	MasterImagePath NullableString `json:"MasterImagePath,omitempty"`
+	MasterImagePath NullableString "json:\"MasterImagePath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// The path in the resource pool to the virtual machine template that will be used. This identifies the VM template to be used and the default values for the tags, virtual machine size, boot diagnostics, host cache property of OS disk, accelerated networking and availability zone. This must be a path to a Virtual machine or Template item in the resource pool to which the Machine Catalog is associated.
-	MachineProfilePath NullableString `json:"MachineProfilePath,omitempty"`
+	MachineProfilePath NullableString "json:\"MachineProfilePath,omitempty\" validate:\"regexp=(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})Connections(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)XDHyp:(\\\\\\\\{1,2}|\\/{1,2})HostingUnits(\\\\\\\\{1,2}|\\/{1,2}).*|(?i)hypervisors(\\\\\\\\{1,2}|\\/{1,2}).*|^[^;:#\\\\*\\\\?=<>\\\\|\\\\[\\\\]\\\\(\\\\)\\\"'\\\\{\\\\}`]*.*\""
 	// Whether the old image is stored in the catalog history.
-	StoreOldImage NullableBool `json:"StoreOldImage,omitempty"`
+	StoreOldImage          NullableBool     `json:"StoreOldImage,omitempty"`
 	MinimumFunctionalLevel *FunctionalLevel `json:"MinimumFunctionalLevel,omitempty"`
 	// The note of the new image.
 	MasterImageNote NullableString `json:"MasterImageNote,omitempty"`
@@ -40,19 +40,19 @@ type UpdateMachineCatalogProvisioningSchemeRequestModel struct {
 	// The properties of the provisioning scheme that are specific to the target hosting infrastructure.
 	CustomProperties []NameValueStringPairModel `json:"CustomProperties,omitempty"`
 	// The properties of the provisioning scheme in a single string, that are specific to the target hosting infrastructure. This is an optional method to set the custom properties which are not in the form of an array.
-	CustomPropertiesInString NullableString `json:"CustomPropertiesInString,omitempty"`
-	RebootOptions *RebootMachinesRequestModel `json:"RebootOptions,omitempty"`
+	CustomPropertiesInString NullableString              `json:"CustomPropertiesInString,omitempty"`
+	RebootOptions            *RebootMachinesRequestModel `json:"RebootOptions,omitempty"`
 	// `DEPRECATED.` Total number of machines desired within the catalog. Optional; default is to leave the number of machines in the catalog unchanged.
 	// Deprecated
-	NumTotalMachines NullableInt32 `json:"NumTotalMachines,omitempty"`
+	NumTotalMachines            NullableInt32                                  `json:"NumTotalMachines,omitempty"`
 	MachineAccountCreationRules *UpdateMachineAccountCreationRulesRequestModel `json:"MachineAccountCreationRules,omitempty"`
 	// `DEPRECATED.` List of Active Directory machine accounts to add to the pool of available accounts that are to be used when machines are provisioned.
 	// Deprecated
 	AddAvailableMachineAccounts []MachineAccountRequestModel `json:"AddAvailableMachineAccounts,omitempty"`
 	// `DEPRECATED.` List of Active Directory machine accounts to remove from the pool of available accounts that are used when machines are provisioned.
 	// Deprecated
-	RemoveAvailableMachineAccounts []string `json:"RemoveAvailableMachineAccounts,omitempty"`
-	MachineAccountDeleteOption *MachineAccountDeleteOption `json:"MachineAccountDeleteOption,omitempty"`
+	RemoveAvailableMachineAccounts         []string                                            `json:"RemoveAvailableMachineAccounts,omitempty"`
+	MachineAccountDeleteOption             *MachineAccountDeleteOption                         `json:"MachineAccountDeleteOption,omitempty"`
 	AssignImageVersionToProvisioningScheme *AssignImageVersionToProvisioningSchemeRequestModel `json:"AssignImageVersionToProvisioningScheme,omitempty"`
 	// The metadata of provisioning scheme. Set the value of the NameValueStringPairModel is null or empty will be remove this metadata. Not existing Name and Value NameValueStringPairModel object will be added. The same Name but different value object will be updated. If Metadata is specified, note that other properties in request will be ignored. So MasterImagePath and  AssignImageVersionToProvisioningScheme only can be null or empty, to avoid unintented update.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
@@ -107,6 +107,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasMasterImagePath(
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMasterImagePath(v string) {
 	o.MasterImagePath.Set(&v)
 }
+
 // SetMasterImagePathNil sets the value for MasterImagePath to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMasterImagePathNil() {
 	o.MasterImagePath.Set(nil)
@@ -149,6 +150,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasMachineProfilePa
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMachineProfilePath(v string) {
 	o.MachineProfilePath.Set(&v)
 }
+
 // SetMachineProfilePathNil sets the value for MachineProfilePath to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMachineProfilePathNil() {
 	o.MachineProfilePath.Set(nil)
@@ -191,6 +193,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasStoreOldImage() 
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetStoreOldImage(v bool) {
 	o.StoreOldImage.Set(&v)
 }
+
 // SetStoreOldImageNil sets the value for StoreOldImage to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetStoreOldImageNil() {
 	o.StoreOldImage.Set(nil)
@@ -265,6 +268,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasMasterImageNote(
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMasterImageNote(v string) {
 	o.MasterImageNote.Set(&v)
 }
+
 // SetMasterImageNoteNil sets the value for MasterImageNote to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMasterImageNoteNil() {
 	o.MasterImageNote.Set(nil)
@@ -310,6 +314,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasCpuCount() bool 
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCpuCount(v int32) {
 	o.CpuCount.Set(&v)
 }
+
 // SetCpuCountNil sets the value for CpuCount to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCpuCountNil() {
 	o.CpuCount.Set(nil)
@@ -355,6 +360,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasMemoryMB() bool 
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMemoryMB(v int32) {
 	o.MemoryMB.Set(&v)
 }
+
 // SetMemoryMBNil sets the value for MemoryMB to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMemoryMBNil() {
 	o.MemoryMB.Set(nil)
@@ -400,6 +406,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasServiceOfferingP
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetServiceOfferingPath(v string) {
 	o.ServiceOfferingPath.Set(&v)
 }
+
 // SetServiceOfferingPathNil sets the value for ServiceOfferingPath to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetServiceOfferingPathNil() {
 	o.ServiceOfferingPath.Set(nil)
@@ -475,6 +482,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasCustomProperties
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInString(v string) {
 	o.CustomPropertiesInString.Set(&v)
 }
+
 // SetCustomPropertiesInStringNil sets the value for CustomPropertiesInString to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetCustomPropertiesInStringNil() {
 	o.CustomPropertiesInString.Set(nil)
@@ -552,6 +560,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) HasNumTotalMachines
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetNumTotalMachines(v int32) {
 	o.NumTotalMachines.Set(&v)
 }
+
 // SetNumTotalMachinesNil sets the value for NumTotalMachines to be an explicit nil
 func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetNumTotalMachinesNil() {
 	o.NumTotalMachines.Set(nil)
@@ -764,7 +773,7 @@ func (o *UpdateMachineCatalogProvisioningSchemeRequestModel) SetMetadata(v []Nam
 }
 
 func (o UpdateMachineCatalogProvisioningSchemeRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -865,5 +874,3 @@ func (v *NullableUpdateMachineCatalogProvisioningSchemeRequestModel) UnmarshalJS
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

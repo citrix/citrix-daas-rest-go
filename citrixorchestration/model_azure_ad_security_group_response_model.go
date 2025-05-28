@@ -78,6 +78,7 @@ func (o *AzureADSecurityGroupResponseModel) HasObjectId() bool {
 func (o *AzureADSecurityGroupResponseModel) SetObjectId(v string) {
 	o.ObjectId.Set(&v)
 }
+
 // SetObjectIdNil sets the value for ObjectId to be an explicit nil
 func (o *AzureADSecurityGroupResponseModel) SetObjectIdNil() {
 	o.ObjectId.Set(nil)
@@ -120,6 +121,7 @@ func (o *AzureADSecurityGroupResponseModel) HasName() bool {
 func (o *AzureADSecurityGroupResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AzureADSecurityGroupResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -162,6 +164,7 @@ func (o *AzureADSecurityGroupResponseModel) HasType() bool {
 func (o *AzureADSecurityGroupResponseModel) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *AzureADSecurityGroupResponseModel) SetTypeNil() {
 	o.Type.Set(nil)
@@ -204,6 +207,7 @@ func (o *AzureADSecurityGroupResponseModel) HasMembershipRule() bool {
 func (o *AzureADSecurityGroupResponseModel) SetMembershipRule(v string) {
 	o.MembershipRule.Set(&v)
 }
+
 // SetMembershipRuleNil sets the value for MembershipRule to be an explicit nil
 func (o *AzureADSecurityGroupResponseModel) SetMembershipRuleNil() {
 	o.MembershipRule.Set(nil)
@@ -215,7 +219,7 @@ func (o *AzureADSecurityGroupResponseModel) UnsetMembershipRule() {
 }
 
 func (o AzureADSecurityGroupResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableAzureADSecurityGroupResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

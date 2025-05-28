@@ -15,31 +15,31 @@ import (
 	"fmt"
 )
 
-// ControllerServiceType 
+// ControllerServiceType
 type ControllerServiceType string
 
 // List of ControllerServiceType
 const (
-	CONTROLLERSERVICETYPE_UNKNOWN ControllerServiceType = "Unknown"
-	CONTROLLERSERVICETYPE_BROKER ControllerServiceType = "Broker"
-	CONTROLLERSERVICETYPE_ACCT ControllerServiceType = "Acct"
-	CONTROLLERSERVICETYPE_PROV ControllerServiceType = "Prov"
-	CONTROLLERSERVICETYPE_HYP ControllerServiceType = "Hyp"
-	CONTROLLERSERVICETYPE_LIC ControllerServiceType = "Lic"
-	CONTROLLERSERVICETYPE_PVS ControllerServiceType = "Pvs"
-	CONTROLLERSERVICETYPE_MONITOR ControllerServiceType = "Monitor"
-	CONTROLLERSERVICETYPE_SF ControllerServiceType = "Sf"
-	CONTROLLERSERVICETYPE_ENV_TEST ControllerServiceType = "EnvTest"
-	CONTROLLERSERVICETYPE_ORCH ControllerServiceType = "Orch"
-	CONTROLLERSERVICETYPE_TRUST ControllerServiceType = "Trust"
-	CONTROLLERSERVICETYPE_APP_V ControllerServiceType = "AppV"
-	CONTROLLERSERVICETYPE_VUS ControllerServiceType = "Vus"
-	CONTROLLERSERVICETYPE_CONFIG ControllerServiceType = "Config"
-	CONTROLLERSERVICETYPE_LOG ControllerServiceType = "Log"
+	CONTROLLERSERVICETYPE_UNKNOWN   ControllerServiceType = "Unknown"
+	CONTROLLERSERVICETYPE_BROKER    ControllerServiceType = "Broker"
+	CONTROLLERSERVICETYPE_ACCT      ControllerServiceType = "Acct"
+	CONTROLLERSERVICETYPE_PROV      ControllerServiceType = "Prov"
+	CONTROLLERSERVICETYPE_HYP       ControllerServiceType = "Hyp"
+	CONTROLLERSERVICETYPE_LIC       ControllerServiceType = "Lic"
+	CONTROLLERSERVICETYPE_PVS       ControllerServiceType = "Pvs"
+	CONTROLLERSERVICETYPE_MONITOR   ControllerServiceType = "Monitor"
+	CONTROLLERSERVICETYPE_SF        ControllerServiceType = "Sf"
+	CONTROLLERSERVICETYPE_ENV_TEST  ControllerServiceType = "EnvTest"
+	CONTROLLERSERVICETYPE_ORCH      ControllerServiceType = "Orch"
+	CONTROLLERSERVICETYPE_TRUST     ControllerServiceType = "Trust"
+	CONTROLLERSERVICETYPE_APP_V     ControllerServiceType = "AppV"
+	CONTROLLERSERVICETYPE_VUS       ControllerServiceType = "Vus"
+	CONTROLLERSERVICETYPE_CONFIG    ControllerServiceType = "Config"
+	CONTROLLERSERVICETYPE_LOG       ControllerServiceType = "Log"
 	CONTROLLERSERVICETYPE_ANALYTICS ControllerServiceType = "Analytics"
-	CONTROLLERSERVICETYPE_ADMIN ControllerServiceType = "Admin"
-	CONTROLLERSERVICETYPE_APP_LIB ControllerServiceType = "AppLib"
-	CONTROLLERSERVICETYPE_IDENTITY ControllerServiceType = "Identity"
+	CONTROLLERSERVICETYPE_ADMIN     ControllerServiceType = "Admin"
+	CONTROLLERSERVICETYPE_APP_LIB   ControllerServiceType = "AppLib"
+	CONTROLLERSERVICETYPE_IDENTITY  ControllerServiceType = "Identity"
 )
 
 // All allowed values of ControllerServiceType enum
@@ -72,7 +72,7 @@ func (v *ControllerServiceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ControllerServiceType(value)
 	return nil
 }
@@ -138,4 +138,3 @@ func (v *NullableControllerServiceType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

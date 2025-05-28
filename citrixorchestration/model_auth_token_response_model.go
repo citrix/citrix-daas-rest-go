@@ -80,6 +80,7 @@ func (o *AuthTokenResponseModel) HasToken() bool {
 func (o *AuthTokenResponseModel) SetToken(v string) {
 	o.Token.Set(&v)
 }
+
 // SetTokenNil sets the value for Token to be an explicit nil
 func (o *AuthTokenResponseModel) SetTokenNil() {
 	o.Token.Set(nil)
@@ -122,6 +123,7 @@ func (o *AuthTokenResponseModel) HasPrincipal() bool {
 func (o *AuthTokenResponseModel) SetPrincipal(v string) {
 	o.Principal.Set(&v)
 }
+
 // SetPrincipalNil sets the value for Principal to be an explicit nil
 func (o *AuthTokenResponseModel) SetPrincipalNil() {
 	o.Principal.Set(nil)
@@ -164,6 +166,7 @@ func (o *AuthTokenResponseModel) HasUserId() bool {
 func (o *AuthTokenResponseModel) SetUserId(v string) {
 	o.UserId.Set(&v)
 }
+
 // SetUserIdNil sets the value for UserId to be an explicit nil
 func (o *AuthTokenResponseModel) SetUserIdNil() {
 	o.UserId.Set(nil)
@@ -206,6 +209,7 @@ func (o *AuthTokenResponseModel) HasCustomerId() bool {
 func (o *AuthTokenResponseModel) SetCustomerId(v string) {
 	o.CustomerId.Set(&v)
 }
+
 // SetCustomerIdNil sets the value for CustomerId to be an explicit nil
 func (o *AuthTokenResponseModel) SetCustomerIdNil() {
 	o.CustomerId.Set(nil)
@@ -248,6 +252,7 @@ func (o *AuthTokenResponseModel) HasExpiresAt() bool {
 func (o *AuthTokenResponseModel) SetExpiresAt(v string) {
 	o.ExpiresAt.Set(&v)
 }
+
 // SetExpiresAtNil sets the value for ExpiresAt to be an explicit nil
 func (o *AuthTokenResponseModel) SetExpiresAtNil() {
 	o.ExpiresAt.Set(nil)
@@ -259,7 +264,7 @@ func (o *AuthTokenResponseModel) UnsetExpiresAt() {
 }
 
 func (o AuthTokenResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -321,5 +326,3 @@ func (v *NullableAuthTokenResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

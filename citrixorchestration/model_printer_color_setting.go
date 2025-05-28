@@ -21,7 +21,7 @@ type PrinterColorSetting string
 // List of PrinterColorSetting
 const (
 	PRINTERCOLORSETTING_MONOCHROME PrinterColorSetting = "Monochrome"
-	PRINTERCOLORSETTING_COLOR PrinterColorSetting = "Color"
+	PRINTERCOLORSETTING_COLOR      PrinterColorSetting = "Color"
 )
 
 // All allowed values of PrinterColorSetting enum
@@ -36,7 +36,7 @@ func (v *PrinterColorSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PrinterColorSetting(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullablePrinterColorSetting) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

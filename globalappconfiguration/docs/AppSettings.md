@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Chromeos** | Pointer to [**[]PlatformSettings**](PlatformSettings.md) |  | [optional] 
 **Html5** | Pointer to [**[]PlatformSettings**](PlatformSettings.md) |  | [optional] 
 **Ios** | Pointer to [**[]PlatformSettings**](PlatformSettings.md) |  | [optional] 
+**Linux** | Pointer to [**[]PlatformSettings**](PlatformSettings.md) |  | [optional] 
 **Macos** | Pointer to [**[]PlatformSettings**](PlatformSettings.md) |  | [optional] 
 **Windows** | Pointer to [**[]PlatformSettings**](PlatformSettings.md) |  | [optional] 
 
@@ -129,6 +130,31 @@ SetIos sets Ios field to given value.
 `func (o *AppSettings) HasIos() bool`
 
 HasIos returns a boolean if a field has been set.
+
+### GetLinux
+
+`func (o *AppSettings) GetLinux() []PlatformSettings`
+
+GetLinux returns the Linux field if non-nil, zero value otherwise.
+
+### GetLinuxOk
+
+`func (o *AppSettings) GetLinuxOk() (*[]PlatformSettings, bool)`
+
+GetLinuxOk returns a tuple with the Linux field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLinux
+
+`func (o *AppSettings) SetLinux(v []PlatformSettings)`
+
+SetLinux sets Linux field to given value.
+
+### HasLinux
+
+`func (o *AppSettings) HasLinux() bool`
+
+HasLinux returns a boolean if a field has been set.
 
 ### GetMacos
 

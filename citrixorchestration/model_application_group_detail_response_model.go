@@ -17,7 +17,7 @@ import (
 // checks if the ApplicationGroupDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationGroupDetailResponseModel{}
 
-// ApplicationGroupDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Description,Enabled,Name,FullName,AdminFolder.               Detailed response object for application groups.              
+// ApplicationGroupDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,Description,Enabled,Name,FullName,AdminFolder.               Detailed response object for application groups.
 type ApplicationGroupDetailResponseModel struct {
 	// Id of the application group. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
 	Id NullableString `json:"Id,omitempty"`
@@ -47,13 +47,13 @@ type ApplicationGroupDetailResponseModel struct {
 	// Number of machines capable of hosting the applications in the application group.
 	NumMachines *int32 `json:"NumMachines,omitempty"`
 	// Total number of machines across all desktop groups on which the application group is published, and which are tagged with the tag given by the RestrictToTag property.
-	NumMachinesWithTag *int32 `json:"NumMachinesWithTag,omitempty"`
-	RestrictToTag *RefResponseModel `json:"RestrictToTag,omitempty"`
+	NumMachinesWithTag *int32            `json:"NumMachinesWithTag,omitempty"`
+	RestrictToTag      *RefResponseModel `json:"RestrictToTag,omitempty"`
 	// Delivery groups associated with the application group.
 	DeliveryGroups []ApplicationGroupDeliveryGroupRefResponseModel `json:"DeliveryGroups,omitempty"`
 	// Delivery group uids associated with the application group.
-	AssociatedDeliveryGroupUids []int32 `json:"AssociatedDeliveryGroupUids,omitempty"`
-	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
+	AssociatedDeliveryGroupUids []int32           `json:"AssociatedDeliveryGroupUids,omitempty"`
+	AdminFolder                 *RefResponseModel `json:"AdminFolder,omitempty"`
 	// Number of applications in the group.
 	ApplicationCount int32 `json:"ApplicationCount"`
 	// Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group's access polic(ies) is implicitly granted access to the applications in the application group.
@@ -119,6 +119,7 @@ func (o *ApplicationGroupDetailResponseModel) HasId() bool {
 func (o *ApplicationGroupDetailResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ApplicationGroupDetailResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -164,6 +165,7 @@ func (o *ApplicationGroupDetailResponseModel) HasUid() bool {
 func (o *ApplicationGroupDetailResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *ApplicationGroupDetailResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -239,6 +241,7 @@ func (o *ApplicationGroupDetailResponseModel) HasDescription() bool {
 func (o *ApplicationGroupDetailResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ApplicationGroupDetailResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -313,6 +316,7 @@ func (o *ApplicationGroupDetailResponseModel) HasName() bool {
 func (o *ApplicationGroupDetailResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ApplicationGroupDetailResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -355,6 +359,7 @@ func (o *ApplicationGroupDetailResponseModel) HasFullName() bool {
 func (o *ApplicationGroupDetailResponseModel) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
+
 // SetFullNameNil sets the value for FullName to be an explicit nil
 func (o *ApplicationGroupDetailResponseModel) SetFullNameNil() {
 	o.FullName.Set(nil)
@@ -853,7 +858,7 @@ func (o *ApplicationGroupDetailResponseModel) SetTotalMachines(v int32) {
 }
 
 func (o ApplicationGroupDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -961,5 +966,3 @@ func (v *NullableApplicationGroupDetailResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

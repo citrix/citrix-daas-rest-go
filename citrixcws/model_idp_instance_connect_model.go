@@ -20,14 +20,16 @@ var _ MappedNullable = &IdpInstanceConnectModel{}
 // IdpInstanceConnectModel struct for IdpInstanceConnectModel
 type IdpInstanceConnectModel struct {
 	AdaptiveAuthenticationConnectionDetails *AdaptiveAuthenticationConnectionModel `json:"adaptiveAuthenticationConnectionDetails,omitempty"`
-	AuthDomainName NullableString `json:"authDomainName,omitempty"`
-	AzureAd *AzureAdConnectionSettings `json:"azureAd,omitempty"`
-	GatewayConnectionDetails *GatewayConnectionModel `json:"gatewayConnectionDetails,omitempty"`
-	GoogleConnectionModel *GoogleConnectionModel `json:"googleConnectionModel,omitempty"`
-	IdentityProviderType string `json:"identityProviderType"`
-	OktaConnectionModel *OktaConnectionModel `json:"oktaConnectionModel,omitempty"`
-	SamlConnectionModel *SamlConnectionModel `json:"samlConnectionModel,omitempty"`
+	AuthDomainName                          NullableString                         `json:"authDomainName,omitempty"`
+	AzureAd                                 *AzureAdConnectionSettings             `json:"azureAd,omitempty"`
+	GatewayConnectionDetails                *GatewayConnectionModel                `json:"gatewayConnectionDetails,omitempty"`
+	GoogleConnectionModel                   *GoogleConnectionModel                 `json:"googleConnectionModel,omitempty"`
+	IdentityProviderType                    string                                 `json:"identityProviderType"`
+	OktaConnectionModel                     *OktaConnectionModel                   `json:"oktaConnectionModel,omitempty"`
+	SamlConnectionModel                     *SamlConnectionModel                   `json:"samlConnectionModel,omitempty"`
 }
+
+type _IdpInstanceConnectModel IdpInstanceConnectModel
 
 // NewIdpInstanceConnectModel instantiates a new IdpInstanceConnectModel object
 // This constructor will assign default values to properties that have it defined,
@@ -111,6 +113,7 @@ func (o *IdpInstanceConnectModel) HasAuthDomainName() bool {
 func (o *IdpInstanceConnectModel) SetAuthDomainName(v string) {
 	o.AuthDomainName.Set(&v)
 }
+
 // SetAuthDomainNameNil sets the value for AuthDomainName to be an explicit nil
 func (o *IdpInstanceConnectModel) SetAuthDomainNameNil() {
 	o.AuthDomainName.Set(nil)
@@ -306,7 +309,7 @@ func (o *IdpInstanceConnectModel) SetSamlConnectionModel(v SamlConnectionModel) 
 }
 
 func (o IdpInstanceConnectModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -375,5 +378,3 @@ func (v *NullableIdpInstanceConnectModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

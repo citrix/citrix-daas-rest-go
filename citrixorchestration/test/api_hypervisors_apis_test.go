@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsCheckHypervisorExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -37,7 +38,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsCheckHypervisorResourcePoolExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var name string
@@ -51,7 +52,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsCreateHypervisor", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsCreateHypervisor(context.Background()).Execute()
 
@@ -63,7 +64,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsCreateResourcePool", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -77,7 +78,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsDeleteHypervisor", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -90,7 +91,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsDeleteHypervisorResourcePool", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -104,7 +105,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsDoHypervisorAllResourcesSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -118,7 +119,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsDoHypervisorAllResourcesSearchWithoutConnection", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsDoHypervisorAllResourcesSearchWithoutConnection(context.Background()).Execute()
 
@@ -130,7 +131,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsDoHypervisorResourceSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -145,7 +146,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisor", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -159,7 +160,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAdministrators", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -173,7 +174,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAllResourcePools", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcePools(context.Background()).Execute()
 
@@ -185,7 +186,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAllResources", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -199,7 +200,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorAllResourcesWithoutConnection", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorAllResourcesWithoutConnection(context.Background()).Execute()
 
@@ -211,7 +212,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorDeletePreview", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -225,7 +226,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorJobs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -239,7 +240,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorMachineCatalogs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -253,7 +254,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorOrphanedResources", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -267,7 +268,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePool", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -282,7 +283,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolAdministrators", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -297,7 +298,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolAllAvailableNetworks", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorResourcePoolAllAvailableNetworks(context.Background()).Execute()
 
@@ -309,7 +310,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolDeletePreview", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -324,7 +325,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolJobs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -339,7 +340,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolMachineCatalogs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -354,7 +355,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolPatchPreview", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -369,7 +370,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolResources", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -384,7 +385,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePoolTestReport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -399,7 +400,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePools", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -413,7 +414,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorResourcePrices", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -427,7 +428,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorServerHAAddresses", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -441,7 +442,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorTestReport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -455,7 +456,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorWithoutConnection", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorWithoutConnection(context.Background()).Execute()
 
@@ -467,7 +468,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisors", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisors(context.Background()).Execute()
 
@@ -479,7 +480,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetHypervisorsAndResourcePools", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetHypervisorsAndResourcePools(context.Background()).Execute()
 
@@ -491,7 +492,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsGetSupportHypervisors", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsGetSupportHypervisors(context.Background()).Execute()
 
@@ -503,7 +504,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsPatchHypervisor", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -516,7 +517,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsPatchHypervisorResourcePool", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -530,7 +531,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsPutBrokerHypervisorConnection", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -543,7 +544,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsResetBrokerHypervisorConnection", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -556,7 +557,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsTestHypervisor", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -570,7 +571,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsTestHypervisorResourcePool", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -585,7 +586,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsValidateHypervisorResourcePoolResource", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var poolId string
@@ -600,7 +601,7 @@ func Test_citrixorchestration_HypervisorsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test HypervisorsAPIsDAASService HypervisorsValidateVmPath", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.HypervisorsAPIsDAAS.HypervisorsValidateVmPath(context.Background()).Execute()
 

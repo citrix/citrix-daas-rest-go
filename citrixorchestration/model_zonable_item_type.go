@@ -20,13 +20,13 @@ type ZonableItemType string
 
 // List of ZonableItemType
 const (
-	ZONABLEITEMTYPE_UNKNOWN ZonableItemType = "Unknown"
+	ZONABLEITEMTYPE_UNKNOWN               ZonableItemType = "Unknown"
 	ZONABLEITEMTYPE_HYPERVISOR_CONNECTION ZonableItemType = "HypervisorConnection"
-	ZONABLEITEMTYPE_CONTROLLER ZonableItemType = "Controller"
-	ZONABLEITEMTYPE_MACHINE_CATALOG ZonableItemType = "MachineCatalog"
-	ZONABLEITEMTYPE_EDGE_SERVER ZonableItemType = "EdgeServer"
-	ZONABLEITEMTYPE_USER ZonableItemType = "User"
-	ZONABLEITEMTYPE_APPLICATION ZonableItemType = "Application"
+	ZONABLEITEMTYPE_CONTROLLER            ZonableItemType = "Controller"
+	ZONABLEITEMTYPE_MACHINE_CATALOG       ZonableItemType = "MachineCatalog"
+	ZONABLEITEMTYPE_EDGE_SERVER           ZonableItemType = "EdgeServer"
+	ZONABLEITEMTYPE_USER                  ZonableItemType = "User"
+	ZONABLEITEMTYPE_APPLICATION           ZonableItemType = "Application"
 )
 
 // All allowed values of ZonableItemType enum
@@ -46,7 +46,7 @@ func (v *ZonableItemType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ZonableItemType(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableZonableItemType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

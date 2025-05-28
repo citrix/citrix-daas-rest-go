@@ -16,26 +16,25 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
 )
-
 
 // AdminFoldersAPIsDAASService AdminFoldersAPIsDAAS service
 type AdminFoldersAPIsDAASService service
 
 type ApiAdminFoldersCreateAdminFolderRequest struct {
-	ctx context.Context
-	ApiService *AdminFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                           context.Context
+	ApiService                    *AdminFoldersAPIsDAASService
+	citrixCustomerId              *string
+	citrixInstanceId              *string
 	createAdminFolderRequestModel *CreateAdminFolderRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                     *string
+	authorization                 *string
+	citrixTransactionId           *string
+	accept                        *string
+	citrixLocale                  *string
+	async                         *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -101,24 +100,25 @@ AdminFoldersCreateAdminFolder Create an admin folder
 
 Create an admin folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminFoldersCreateAdminFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminFoldersCreateAdminFolderRequest
 */
 func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolder(ctx context.Context) ApiAdminFoldersCreateAdminFolderRequest {
 	return ApiAdminFoldersCreateAdminFolderRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdminFolderResponseModel
+//
+//	@return AdminFolderResponseModel
 func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r ApiAdminFoldersCreateAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdminFolderResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdminFolderResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminFoldersAPIsDAASService.AdminFoldersCreateAdminFolder")
@@ -223,8 +223,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -234,8 +234,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -245,8 +245,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -256,8 +256,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -267,8 +267,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -278,8 +278,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -289,8 +289,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -300,8 +300,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -311,8 +311,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -330,18 +330,18 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersCreateAdminFolderExecute(r Api
 }
 
 type ApiAdminFoldersDeleteAdminFolderRequest struct {
-	ctx context.Context
-	ApiService *AdminFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	pathOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	objectsToRemove *[]AdminFolderObjects
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	objectsToRemove     *[]AdminFolderObjects
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -408,24 +408,24 @@ AdminFoldersDeleteAdminFolder Delete an admin folder.
 Delete an admin folder. An admin folder is not allowed to be deleted
 when it contains any objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Name or ID of the admin folder to delete.
- @return ApiAdminFoldersDeleteAdminFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Name or ID of the admin folder to delete.
+	@return ApiAdminFoldersDeleteAdminFolderRequest
 */
 func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersDeleteAdminFolderRequest {
 	return ApiAdminFoldersDeleteAdminFolderRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r ApiAdminFoldersDeleteAdminFolderRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminFoldersAPIsDAASService.AdminFoldersDeleteAdminFolder")
@@ -537,8 +537,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -548,8 +548,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -559,8 +559,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -570,8 +570,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -581,8 +581,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -592,8 +592,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -603,8 +603,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -614,8 +614,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -624,16 +624,16 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersDeleteAdminFolderExecute(r Api
 }
 
 type ApiAdminFoldersGetAdminFolderRequest struct {
-	ctx context.Context
-	ApiService *AdminFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	pathOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -687,26 +687,27 @@ AdminFoldersGetAdminFolder Get details about a single admin folder.
 
 Gets the details of a single admin folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Path (URL-encoded) or ID of the admin folder.
- @return ApiAdminFoldersGetAdminFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Path (URL-encoded) or ID of the admin folder.
+	@return ApiAdminFoldersGetAdminFolderRequest
 */
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderRequest {
 	return ApiAdminFoldersGetAdminFolderRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdminFolderResponseModel
+//
+//	@return AdminFolderResponseModel
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdminFoldersGetAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdminFolderResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdminFolderResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminFoldersAPIsDAASService.AdminFoldersGetAdminFolder")
@@ -804,8 +805,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -815,8 +816,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -826,8 +827,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -837,8 +838,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -848,8 +849,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -859,8 +860,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -870,8 +871,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -881,8 +882,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -900,20 +901,20 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderExecute(r ApiAdm
 }
 
 type ApiAdminFoldersGetAdminFolderApplicationsRequest struct {
-	ctx context.Context
-	ApiService *AdminFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	pathOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -991,26 +992,27 @@ AdminFoldersGetAdminFolderApplications Get the applications in an admin folder.
 
 Get a list of all applications in an admin folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Path (URL-encoded) or ID of the admin folder.
- @return ApiAdminFoldersGetAdminFolderApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Path (URL-encoded) or ID of the admin folder.
+	@return ApiAdminFoldersGetAdminFolderApplicationsRequest
 */
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplications(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderApplicationsRequest {
 	return ApiAdminFoldersGetAdminFolderApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationResponseModelCollection
+//
+//	@return ApplicationResponseModelCollection
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExecute(r ApiAdminFoldersGetAdminFolderApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminFoldersAPIsDAASService.AdminFoldersGetAdminFolderApplications")
@@ -1120,8 +1122,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1131,8 +1133,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1142,8 +1144,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1153,8 +1155,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1164,8 +1166,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1175,8 +1177,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1186,8 +1188,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1197,8 +1199,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1216,20 +1218,20 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderApplicationsExec
 }
 
 type ApiAdminFoldersGetAdminFolderMachineCatalogsRequest struct {
-	ctx context.Context
-	ApiService *AdminFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	pathOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1307,26 +1309,27 @@ AdminFoldersGetAdminFolderMachineCatalogs Get the machineCatalogs in an admin fo
 
 Get a list of all machineCatalogs in an admin folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Path (URL-encoded) or ID of the admin folder.
- @return ApiAdminFoldersGetAdminFolderMachineCatalogsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Path (URL-encoded) or ID of the admin folder.
+	@return ApiAdminFoldersGetAdminFolderMachineCatalogsRequest
 */
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogs(ctx context.Context, pathOrId string) ApiAdminFoldersGetAdminFolderMachineCatalogsRequest {
 	return ApiAdminFoldersGetAdminFolderMachineCatalogsRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MachineCatalogResponseModelCollection
+//
+//	@return MachineCatalogResponseModelCollection
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsExecute(r ApiAdminFoldersGetAdminFolderMachineCatalogsRequest) (*MachineCatalogResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MachineCatalogResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MachineCatalogResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminFoldersAPIsDAASService.AdminFoldersGetAdminFolderMachineCatalogs")
@@ -1436,8 +1439,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1447,8 +1450,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1458,8 +1461,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1469,8 +1472,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1480,8 +1483,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1491,8 +1494,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1502,8 +1505,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1513,8 +1516,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1532,18 +1535,18 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolderMachineCatalogsE
 }
 
 type ApiAdminFoldersGetAdminFoldersRequest struct {
-	ctx context.Context
-	ApiService *AdminFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AdminFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
-	limit *int32
-	continuationToken *string
+	accept              *string
+	citrixLocale        *string
+	async               *bool
+	limit               *int32
+	continuationToken   *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1615,24 +1618,25 @@ AdminFoldersGetAdminFolders Get admin folders.
 
 Gets all admin folders within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminFoldersGetAdminFoldersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminFoldersGetAdminFoldersRequest
 */
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFolders(ctx context.Context) ApiAdminFoldersGetAdminFoldersRequest {
 	return ApiAdminFoldersGetAdminFoldersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdminFolderResponseModelCollection
+//
+//	@return AdminFolderResponseModelCollection
 func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAdminFoldersGetAdminFoldersRequest) (*AdminFolderResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdminFolderResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdminFolderResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminFoldersAPIsDAASService.AdminFoldersGetAdminFolders")
@@ -1738,8 +1742,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1749,8 +1753,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1760,8 +1764,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1771,8 +1775,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1782,8 +1786,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1793,8 +1797,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1804,8 +1808,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1823,18 +1827,18 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersGetAdminFoldersExecute(r ApiAd
 }
 
 type ApiAdminFoldersUpdateAdminFolderRequest struct {
-	ctx context.Context
-	ApiService *AdminFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
+	ctx                         context.Context
+	ApiService                  *AdminFoldersAPIsDAASService
+	citrixCustomerId            *string
+	citrixInstanceId            *string
+	pathOrId                    string
 	editAdminFolderRequestModel *EditAdminFolderRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                   *string
+	authorization               *string
+	citrixTransactionId         *string
+	accept                      *string
+	citrixLocale                *string
+	async                       *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1900,26 +1904,27 @@ AdminFoldersUpdateAdminFolder Update an admin folder.
 
 Update an admin folder's properties.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Path or ID of the admin folder path to update.
- @return ApiAdminFoldersUpdateAdminFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Path or ID of the admin folder path to update.
+	@return ApiAdminFoldersUpdateAdminFolderRequest
 */
 func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolder(ctx context.Context, pathOrId string) ApiAdminFoldersUpdateAdminFolderRequest {
 	return ApiAdminFoldersUpdateAdminFolderRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AdminFolderResponseModel
+//
+//	@return AdminFolderResponseModel
 func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r ApiAdminFoldersUpdateAdminFolderRequest) (*AdminFolderResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdminFolderResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdminFolderResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminFoldersAPIsDAASService.AdminFoldersUpdateAdminFolder")
@@ -2025,8 +2030,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -2036,8 +2041,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -2047,8 +2052,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2058,8 +2063,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -2069,8 +2074,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -2080,8 +2085,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2091,8 +2096,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2102,8 +2107,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2113,8 +2118,8 @@ func (a *AdminFoldersAPIsDAASService) AdminFoldersUpdateAdminFolderExecute(r Api
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

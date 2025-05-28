@@ -20,9 +20,9 @@ type AwsEdcWorkspaceImageState string
 
 // List of AwsEdcWorkspaceImageState
 const (
-	AWSEDCWORKSPACEIMAGESTATE_AVAILABLE AwsEdcWorkspaceImageState = "AVAILABLE"
-	AWSEDCWORKSPACEIMAGESTATE_ERROR AwsEdcWorkspaceImageState = "ERROR"
-	AWSEDCWORKSPACEIMAGESTATE_PENDING AwsEdcWorkspaceImageState = "PENDING"
+	AWSEDCWORKSPACEIMAGESTATE_AVAILABLE             AwsEdcWorkspaceImageState = "AVAILABLE"
+	AWSEDCWORKSPACEIMAGESTATE_ERROR                 AwsEdcWorkspaceImageState = "ERROR"
+	AWSEDCWORKSPACEIMAGESTATE_PENDING               AwsEdcWorkspaceImageState = "PENDING"
 	AWSEDCWORKSPACEIMAGESTATE_ERROR_INVALID_ACCOUNT AwsEdcWorkspaceImageState = "ERROR_INVALID_ACCOUNT"
 )
 
@@ -112,4 +112,3 @@ func (v *NullableAwsEdcWorkspaceImageState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

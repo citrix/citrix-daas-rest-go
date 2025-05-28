@@ -20,7 +20,7 @@ var _ MappedNullable = &ProcessIoPriority{}
 // ProcessIoPriority struct for ProcessIoPriority
 type ProcessIoPriority struct {
 	ProcessName *string `json:"processName,omitempty"`
-	Priority *string `json:"priority,omitempty"`
+	Priority    *string `json:"priority,omitempty"`
 }
 
 // NewProcessIoPriority instantiates a new ProcessIoPriority object
@@ -105,7 +105,7 @@ func (o *ProcessIoPriority) SetPriority(v string) {
 }
 
 func (o ProcessIoPriority) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableProcessIoPriority) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

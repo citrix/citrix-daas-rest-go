@@ -15,26 +15,26 @@ import (
 	"fmt"
 )
 
-// ProvisioningOperationEventSearchProperty Properties which can be used for provisioned virtual machines.             
+// ProvisioningOperationEventSearchProperty Properties which can be used for provisioned virtual machines.
 type ProvisioningOperationEventSearchProperty string
 
 // List of ProvisioningOperationEventSearchProperty
 const (
 	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_ADDITIONAL_DATA ProvisioningOperationEventSearchProperty = "EventAdditionalData"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_CATEGORY ProvisioningOperationEventSearchProperty = "EventCategory"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_DATE_TIME ProvisioningOperationEventSearchProperty = "EventDateTime"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_MESSAGE ProvisioningOperationEventSearchProperty = "EventMessage"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_RECORD_ID ProvisioningOperationEventSearchProperty = "EventRecordId"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_SEVERITY ProvisioningOperationEventSearchProperty = "EventSeverity"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_SOURCE ProvisioningOperationEventSearchProperty = "EventSource"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_STATE ProvisioningOperationEventSearchProperty = "EventState"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_LINKED_OBJECT_TYPE ProvisioningOperationEventSearchProperty = "LinkedObjectType"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_LINKED_OBJECT_UID ProvisioningOperationEventSearchProperty = "LinkedObjectUid"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_OPERATION_NAME ProvisioningOperationEventSearchProperty = "OperationName"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_CATEGORY        ProvisioningOperationEventSearchProperty = "EventCategory"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_DATE_TIME       ProvisioningOperationEventSearchProperty = "EventDateTime"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_MESSAGE         ProvisioningOperationEventSearchProperty = "EventMessage"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_RECORD_ID       ProvisioningOperationEventSearchProperty = "EventRecordId"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_SEVERITY        ProvisioningOperationEventSearchProperty = "EventSeverity"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_SOURCE          ProvisioningOperationEventSearchProperty = "EventSource"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_EVENT_STATE           ProvisioningOperationEventSearchProperty = "EventState"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_LINKED_OBJECT_TYPE    ProvisioningOperationEventSearchProperty = "LinkedObjectType"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_LINKED_OBJECT_UID     ProvisioningOperationEventSearchProperty = "LinkedObjectUid"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_OPERATION_NAME        ProvisioningOperationEventSearchProperty = "OperationName"
 	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_OPERATION_TARGET_NAME ProvisioningOperationEventSearchProperty = "OperationTargetName"
 	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_OPERATION_TARGET_TYPE ProvisioningOperationEventSearchProperty = "OperationTargetType"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_OPERATION_TYPE ProvisioningOperationEventSearchProperty = "OperationType"
-	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_RECOMMENDATION ProvisioningOperationEventSearchProperty = "Recommendation"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_OPERATION_TYPE        ProvisioningOperationEventSearchProperty = "OperationType"
+	PROVISIONINGOPERATIONEVENTSEARCHPROPERTY_RECOMMENDATION        ProvisioningOperationEventSearchProperty = "Recommendation"
 )
 
 // All allowed values of ProvisioningOperationEventSearchProperty enum
@@ -62,7 +62,7 @@ func (v *ProvisioningOperationEventSearchProperty) UnmarshalJSON(src []byte) err
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisioningOperationEventSearchProperty(value)
 	return nil
 }
@@ -128,4 +128,3 @@ func (v *NullableProvisioningOperationEventSearchProperty) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

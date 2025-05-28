@@ -20,7 +20,7 @@ type CatalogSearchFilterGroupsType string
 
 // List of CatalogSearchFilterGroupsType
 const (
-	CATALOGSEARCHFILTERGROUPSTYPE_OR CatalogSearchFilterGroupsType = "Or"
+	CATALOGSEARCHFILTERGROUPSTYPE_OR  CatalogSearchFilterGroupsType = "Or"
 	CATALOGSEARCHFILTERGROUPSTYPE_AND CatalogSearchFilterGroupsType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *CatalogSearchFilterGroupsType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = CatalogSearchFilterGroupsType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableCatalogSearchFilterGroupsType) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

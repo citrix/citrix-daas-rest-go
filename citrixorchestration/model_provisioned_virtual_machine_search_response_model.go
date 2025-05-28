@@ -46,7 +46,7 @@ type ProvisionedVirtualMachineSearchResponseModel struct {
 	// Provisioned Virtual Machine Update Configuration Version.
 	ProvVMConfigurationUpdateVersion NullableInt32 `json:"ProvVMConfigurationUpdateVersion,omitempty"`
 	// Provisioned virtual machine name on hypervisor.
-	VMName NullableString `json:"VMName,omitempty"`
+	VMName         NullableString         `json:"VMName,omitempty"`
 	ActivationType *WindowsActivationType `json:"ActivationType,omitempty"`
 	// Whether use write back cache.
 	UseWriteBackCache *bool `json:"UseWriteBackCache,omitempty"`
@@ -63,8 +63,8 @@ type ProvisionedVirtualMachineSearchResponseModel struct {
 	// Network maps.
 	NetworkMaps []ProvisionedVirtualMachineNetworkMapSearchResponseModel `json:"NetworkMaps,omitempty"`
 	// Provision Scheme Version.
-	CurrentProvisioningSchemeVersion *int32 `json:"CurrentProvisioningSchemeVersion,omitempty"`
-	PowerState *PowerState `json:"PowerState,omitempty"`
+	CurrentProvisioningSchemeVersion *int32      `json:"CurrentProvisioningSchemeVersion,omitempty"`
+	PowerState                       *PowerState `json:"PowerState,omitempty"`
 	// Hypervisor connection id.
 	HypervisorConnectionId NullableString `json:"HypervisorConnectionId,omitempty"`
 	// Property Update Window Start.
@@ -126,6 +126,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasActiveOperation() bool
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetActiveOperation(v string) {
 	o.ActiveOperation.Set(&v)
 }
+
 // SetActiveOperationNil sets the value for ActiveOperation to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetActiveOperationNil() {
 	o.ActiveOperation.Set(nil)
@@ -168,6 +169,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasVMSid() bool {
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetVMSid(v string) {
 	o.VMSid.Set(&v)
 }
+
 // SetVMSidNil sets the value for VMSid to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetVMSidNil() {
 	o.VMSid.Set(nil)
@@ -242,6 +244,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasIdentityType() bool {
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetIdentityType(v string) {
 	o.IdentityType.Set(&v)
 }
+
 // SetIdentityTypeNil sets the value for IdentityType to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetIdentityTypeNil() {
 	o.IdentityType.Set(nil)
@@ -284,6 +287,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasIdentities() bool {
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetIdentities(v string) {
 	o.Identities.Set(&v)
 }
+
 // SetIdentitiesNil sets the value for Identities to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetIdentitiesNil() {
 	o.Identities.Set(nil)
@@ -358,6 +362,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasLastBootTime() bool {
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetLastBootTime(v string) {
 	o.LastBootTime.Set(&v)
 }
+
 // SetLastBootTimeNil sets the value for LastBootTime to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetLastBootTimeNil() {
 	o.LastBootTime.Set(nil)
@@ -464,6 +469,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasProvisioningSchemeName
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeName(v string) {
 	o.ProvisioningSchemeName.Set(&v)
 }
+
 // SetProvisioningSchemeNameNil sets the value for ProvisioningSchemeName to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeNameNil() {
 	o.ProvisioningSchemeName.Set(nil)
@@ -506,6 +512,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasProvisioningSchemeId()
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeId(v string) {
 	o.ProvisioningSchemeId.Set(&v)
 }
+
 // SetProvisioningSchemeIdNil sets the value for ProvisioningSchemeId to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvisioningSchemeIdNil() {
 	o.ProvisioningSchemeId.Set(nil)
@@ -580,6 +587,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasProvVMConfigurationUpd
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvVMConfigurationUpdateVersion(v int32) {
 	o.ProvVMConfigurationUpdateVersion.Set(&v)
 }
+
 // SetProvVMConfigurationUpdateVersionNil sets the value for ProvVMConfigurationUpdateVersion to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetProvVMConfigurationUpdateVersionNil() {
 	o.ProvVMConfigurationUpdateVersion.Set(nil)
@@ -622,6 +630,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasVMName() bool {
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetVMName(v string) {
 	o.VMName.Set(&v)
 }
+
 // SetVMNameNil sets the value for VMName to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetVMNameNil() {
 	o.VMName.Set(nil)
@@ -825,6 +834,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasResourcePoolName() boo
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolName(v string) {
 	o.ResourcePoolName.Set(&v)
 }
+
 // SetResourcePoolNameNil sets the value for ResourcePoolName to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolNameNil() {
 	o.ResourcePoolName.Set(nil)
@@ -867,6 +877,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasResourcePoolId() bool 
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolId(v string) {
 	o.ResourcePoolId.Set(&v)
 }
+
 // SetResourcePoolIdNil sets the value for ResourcePoolId to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetResourcePoolIdNil() {
 	o.ResourcePoolId.Set(nil)
@@ -1006,6 +1017,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasHypervisorConnectionId
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetHypervisorConnectionId(v string) {
 	o.HypervisorConnectionId.Set(&v)
 }
+
 // SetHypervisorConnectionIdNil sets the value for HypervisorConnectionId to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetHypervisorConnectionIdNil() {
 	o.HypervisorConnectionId.Set(nil)
@@ -1048,6 +1060,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasPropertyUpdateWindowSt
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowStart(v string) {
 	o.PropertyUpdateWindowStart.Set(&v)
 }
+
 // SetPropertyUpdateWindowStartNil sets the value for PropertyUpdateWindowStart to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowStartNil() {
 	o.PropertyUpdateWindowStart.Set(nil)
@@ -1090,6 +1103,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) HasPropertyUpdateWindowEn
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowEnd(v string) {
 	o.PropertyUpdateWindowEnd.Set(&v)
 }
+
 // SetPropertyUpdateWindowEndNil sets the value for PropertyUpdateWindowEnd to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchResponseModel) SetPropertyUpdateWindowEndNil() {
 	o.PropertyUpdateWindowEnd.Set(nil)
@@ -1166,7 +1180,7 @@ func (o *ProvisionedVirtualMachineSearchResponseModel) SetInMaintenanceMode(v bo
 }
 
 func (o ProvisionedVirtualMachineSearchResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1300,5 +1314,3 @@ func (v *NullableProvisionedVirtualMachineSearchResponseModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

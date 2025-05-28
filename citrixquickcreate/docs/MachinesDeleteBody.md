@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of provider associated with the account | 
 **MachineIds** | **[]string** | The list of machine ids to be deleted | 
-**Credentials** | Pointer to [**NullableDeleteMachinesCredentials**](DeleteMachinesCredentials.md) |  | [optional] 
+**Credentials** | Pointer to [**NullableDeploymentCredentials**](DeploymentCredentials.md) | Optional domain credentials details | [optional] 
 
 ## Methods
 
@@ -69,20 +69,20 @@ SetMachineIds sets MachineIds field to given value.
 
 ### GetCredentials
 
-`func (o *MachinesDeleteBody) GetCredentials() DeleteMachinesCredentials`
+`func (o *MachinesDeleteBody) GetCredentials() DeploymentCredentials`
 
 GetCredentials returns the Credentials field if non-nil, zero value otherwise.
 
 ### GetCredentialsOk
 
-`func (o *MachinesDeleteBody) GetCredentialsOk() (*DeleteMachinesCredentials, bool)`
+`func (o *MachinesDeleteBody) GetCredentialsOk() (*DeploymentCredentials, bool)`
 
 GetCredentialsOk returns a tuple with the Credentials field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCredentials
 
-`func (o *MachinesDeleteBody) SetCredentials(v DeleteMachinesCredentials)`
+`func (o *MachinesDeleteBody) SetCredentials(v DeploymentCredentials)`
 
 SetCredentials sets Credentials field to given value.
 

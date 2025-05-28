@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | Pointer to **NullableString** | Provides additional status on image like  error message | [optional] 
 **AmazonImageId** | Pointer to **NullableString** | Id of the Image on AWS | [optional] 
-**IngestionProcess** | Pointer to [**NullableAwsEdcWorkspaceImageIngestionProcess**](AwsEdcWorkspaceImageIngestionProcess.md) |  | [optional] 
-**WorkspaceImageTenancy** | Pointer to [**NullableAwsEdcWorkspaceImageTenancy**](AwsEdcWorkspaceImageTenancy.md) |  | [optional] 
-**WorkspaceImageState** | Pointer to [**NullableAwsEdcWorkspaceImageState**](AwsEdcWorkspaceImageState.md) |  | [optional] 
+**IngestionProcess** | Pointer to [**NullableAwsEdcWorkspaceImageIngestionProcess**](AwsEdcWorkspaceImageIngestionProcess.md) | Ingestion Process used during image import | [optional] 
+**WorkspaceImageTenancy** | Pointer to [**NullableAwsEdcWorkspaceImageTenancy**](AwsEdcWorkspaceImageTenancy.md) | Tenancy of the image  Enum values DEDICATED, DEFAULT | [optional] 
+**WorkspaceImageState** | Pointer to [**NullableAwsEdcWorkspaceImageState**](AwsEdcWorkspaceImageState.md) | State of the image  Enum values AVAILABLE, ERROR, PENDING | [optional] 
 **ApplicationList** | Pointer to [**[]AwsEdcAmiImportApplications**](AwsEdcAmiImportApplications.md) | The list of installed applications | [optional] 
 
 ## Methods

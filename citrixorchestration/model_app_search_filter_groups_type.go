@@ -20,7 +20,7 @@ type AppSearchFilterGroupsType string
 
 // List of AppSearchFilterGroupsType
 const (
-	APPSEARCHFILTERGROUPSTYPE_OR AppSearchFilterGroupsType = "Or"
+	APPSEARCHFILTERGROUPSTYPE_OR  AppSearchFilterGroupsType = "Or"
 	APPSEARCHFILTERGROUPSTYPE_AND AppSearchFilterGroupsType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *AppSearchFilterGroupsType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppSearchFilterGroupsType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableAppSearchFilterGroupsType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -21,7 +21,7 @@ var _ MappedNullable = &LicenseProductEditionResponseModel{}
 type LicenseProductEditionResponseModel struct {
 	LicenseProduct *LicenseProduct `json:"LicenseProduct,omitempty"`
 	ProductEdition *ProductEdition `json:"ProductEdition,omitempty"`
-	LicenseModel *LicenseModel `json:"LicenseModel,omitempty"`
+	LicenseModel   *LicenseModel   `json:"LicenseModel,omitempty"`
 }
 
 // NewLicenseProductEditionResponseModel instantiates a new LicenseProductEditionResponseModel object
@@ -138,7 +138,7 @@ func (o *LicenseProductEditionResponseModel) SetLicenseModel(v LicenseModel) {
 }
 
 func (o LicenseProductEditionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,5 +194,3 @@ func (v *NullableLicenseProductEditionResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

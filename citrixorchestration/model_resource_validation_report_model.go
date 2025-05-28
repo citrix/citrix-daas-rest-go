@@ -20,7 +20,7 @@ var _ MappedNullable = &ResourceValidationReportModel{}
 // ResourceValidationReportModel The validation report.
 type ResourceValidationReportModel struct {
 	Category *ResourceValidationCategory `json:"Category,omitempty"`
-	Result *ResourceValidationResult `json:"Result,omitempty"`
+	Result   *ResourceValidationResult   `json:"Result,omitempty"`
 	// A list of violations.
 	Violations []ResourceValidationViolationModel `json:"Violations,omitempty"`
 }
@@ -140,7 +140,7 @@ func (o *ResourceValidationReportModel) SetViolations(v []ResourceValidationViol
 }
 
 func (o ResourceValidationReportModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableResourceValidationReportModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

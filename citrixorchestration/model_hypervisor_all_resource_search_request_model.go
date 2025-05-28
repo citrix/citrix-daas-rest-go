@@ -19,8 +19,8 @@ var _ MappedNullable = &HypervisorAllResourceSearchRequestModel{}
 
 // HypervisorAllResourceSearchRequestModel Request model for searching all resources in a hypervisor without connection.
 type HypervisorAllResourceSearchRequestModel struct {
-	ConnectionDetail HypervisorConnectionDetailRequestModel `json:"ConnectionDetail"`
-	ResourceSearchRequest HypervisorResourceSearchRequestModel `json:"ResourceSearchRequest"`
+	ConnectionDetail      HypervisorConnectionDetailRequestModel `json:"ConnectionDetail"`
+	ResourceSearchRequest HypervisorResourceSearchRequestModel   `json:"ResourceSearchRequest"`
 }
 
 // NewHypervisorAllResourceSearchRequestModel instantiates a new HypervisorAllResourceSearchRequestModel object
@@ -91,7 +91,7 @@ func (o *HypervisorAllResourceSearchRequestModel) SetResourceSearchRequest(v Hyp
 }
 
 func (o HypervisorAllResourceSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableHypervisorAllResourceSearchRequestModel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

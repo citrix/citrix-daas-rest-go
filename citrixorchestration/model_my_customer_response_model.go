@@ -102,6 +102,7 @@ func (o *MyCustomerResponseModel) HasName() bool {
 func (o *MyCustomerResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MyCustomerResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -137,7 +138,7 @@ func (o *MyCustomerResponseModel) SetSites(v []MySiteResponseModel) {
 }
 
 func (o MyCustomerResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +190,3 @@ func (v *NullableMyCustomerResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

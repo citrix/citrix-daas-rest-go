@@ -20,12 +20,12 @@ type DefaultPrinterOption string
 
 // List of DefaultPrinterOption
 const (
-	DEFAULTPRINTEROPTION_NOT_CONFIGURED DefaultPrinterOption = "NotConfigured"
-	DEFAULTPRINTEROPTION_DO_NOT_ADJUST DefaultPrinterOption = "DoNotAdjust"
-	DEFAULTPRINTEROPTION_CLIENT_DEFAULT DefaultPrinterOption = "ClientDefault"
-	DEFAULTPRINTEROPTION_SPECIFIC_PRINTER DefaultPrinterOption = "SpecificPrinter"
+	DEFAULTPRINTEROPTION_NOT_CONFIGURED            DefaultPrinterOption = "NotConfigured"
+	DEFAULTPRINTEROPTION_DO_NOT_ADJUST             DefaultPrinterOption = "DoNotAdjust"
+	DEFAULTPRINTEROPTION_CLIENT_DEFAULT            DefaultPrinterOption = "ClientDefault"
+	DEFAULTPRINTEROPTION_SPECIFIC_PRINTER          DefaultPrinterOption = "SpecificPrinter"
 	DEFAULTPRINTEROPTION_GENERIC_UNIVERSAL_PRINTER DefaultPrinterOption = "GenericUniversalPrinter"
-	DEFAULTPRINTEROPTION_PDF_PRINTER DefaultPrinterOption = "PDFPrinter"
+	DEFAULTPRINTEROPTION_PDF_PRINTER               DefaultPrinterOption = "PDFPrinter"
 )
 
 // All allowed values of DefaultPrinterOption enum
@@ -44,7 +44,7 @@ func (v *DefaultPrinterOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = DefaultPrinterOption(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableDefaultPrinterOption) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

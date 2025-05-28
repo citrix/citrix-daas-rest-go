@@ -20,13 +20,13 @@ type AwsEdcAmiImageStatus string
 
 // List of AwsEdcAmiImageStatus
 const (
-	AWSEDCAMIIMAGESTATUS_AVAILABLE AwsEdcAmiImageStatus = "AVAILABLE"
+	AWSEDCAMIIMAGESTATUS_AVAILABLE    AwsEdcAmiImageStatus = "AVAILABLE"
 	AWSEDCAMIIMAGESTATUS_DEREGISTERED AwsEdcAmiImageStatus = "DEREGISTERED"
-	AWSEDCAMIIMAGESTATUS_ERROR AwsEdcAmiImageStatus = "ERROR"
-	AWSEDCAMIIMAGESTATUS_FAILED AwsEdcAmiImageStatus = "FAILED"
-	AWSEDCAMIIMAGESTATUS_INVALID AwsEdcAmiImageStatus = "INVALID"
-	AWSEDCAMIIMAGESTATUS_PENDING AwsEdcAmiImageStatus = "PENDING"
-	AWSEDCAMIIMAGESTATUS_TRANSIENT AwsEdcAmiImageStatus = "TRANSIENT"
+	AWSEDCAMIIMAGESTATUS_ERROR        AwsEdcAmiImageStatus = "ERROR"
+	AWSEDCAMIIMAGESTATUS_FAILED       AwsEdcAmiImageStatus = "FAILED"
+	AWSEDCAMIIMAGESTATUS_INVALID      AwsEdcAmiImageStatus = "INVALID"
+	AWSEDCAMIIMAGESTATUS_PENDING      AwsEdcAmiImageStatus = "PENDING"
+	AWSEDCAMIIMAGESTATUS_TRANSIENT    AwsEdcAmiImageStatus = "TRANSIENT"
 )
 
 // All allowed values of AwsEdcAmiImageStatus enum
@@ -118,4 +118,3 @@ func (v *NullableAwsEdcAmiImageStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

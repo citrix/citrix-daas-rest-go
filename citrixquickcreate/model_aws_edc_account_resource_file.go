@@ -28,12 +28,15 @@ type AwsEdcAccountResourceFile struct {
 	ContentType NullableString `json:"contentType,omitempty"`
 }
 
+type _AwsEdcAccountResourceFile AwsEdcAccountResourceFile
+
 // NewAwsEdcAccountResourceFile instantiates a new AwsEdcAccountResourceFile object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceFile(accountType AccountType) *AwsEdcAccountResourceFile {
+func NewAwsEdcAccountResourceFile(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceFile {
 	this := AwsEdcAccountResourceFile{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -78,6 +81,7 @@ func (o *AwsEdcAccountResourceFile) HasFileContent() bool {
 func (o *AwsEdcAccountResourceFile) SetFileContent(v string) {
 	o.FileContent.Set(&v)
 }
+
 // SetFileContentNil sets the value for FileContent to be an explicit nil
 func (o *AwsEdcAccountResourceFile) SetFileContentNil() {
 	o.FileContent.Set(nil)
@@ -120,6 +124,7 @@ func (o *AwsEdcAccountResourceFile) HasFileName() bool {
 func (o *AwsEdcAccountResourceFile) SetFileName(v string) {
 	o.FileName.Set(&v)
 }
+
 // SetFileNameNil sets the value for FileName to be an explicit nil
 func (o *AwsEdcAccountResourceFile) SetFileNameNil() {
 	o.FileName.Set(nil)
@@ -162,6 +167,7 @@ func (o *AwsEdcAccountResourceFile) HasContentType() bool {
 func (o *AwsEdcAccountResourceFile) SetContentType(v string) {
 	o.ContentType.Set(&v)
 }
+
 // SetContentTypeNil sets the value for ContentType to be an explicit nil
 func (o *AwsEdcAccountResourceFile) SetContentTypeNil() {
 	o.ContentType.Set(nil)
@@ -173,7 +179,7 @@ func (o *AwsEdcAccountResourceFile) UnsetContentType() {
 }
 
 func (o AwsEdcAccountResourceFile) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -237,5 +243,3 @@ func (v *NullableAwsEdcAccountResourceFile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

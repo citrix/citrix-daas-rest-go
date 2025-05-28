@@ -21,8 +21,8 @@ type ProtocolType string
 // List of ProtocolType
 const (
 	PROTOCOLTYPE_UNKNOWN ProtocolType = "Unknown"
-	PROTOCOLTYPE_HDX ProtocolType = "Hdx"
-	PROTOCOLTYPE_RDP ProtocolType = "Rdp"
+	PROTOCOLTYPE_HDX     ProtocolType = "Hdx"
+	PROTOCOLTYPE_RDP     ProtocolType = "Rdp"
 	PROTOCOLTYPE_CONSOLE ProtocolType = "Console"
 )
 
@@ -40,7 +40,7 @@ func (v *ProtocolType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProtocolType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableProtocolType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

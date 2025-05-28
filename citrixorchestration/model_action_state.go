@@ -20,12 +20,12 @@ type ActionState string
 
 // List of ActionState
 const (
-	ACTIONSTATE_UNKNOWN ActionState = "Unknown"
+	ACTIONSTATE_UNKNOWN     ActionState = "Unknown"
 	ACTIONSTATE_NOT_STARTED ActionState = "NotStarted"
-	ACTIONSTATE_RUNNING ActionState = "Running"
-	ACTIONSTATE_CANCELED ActionState = "Canceled"
-	ACTIONSTATE_COMPLETED ActionState = "Completed"
-	ACTIONSTATE_FAILED ActionState = "Failed"
+	ACTIONSTATE_RUNNING     ActionState = "Running"
+	ACTIONSTATE_CANCELED    ActionState = "Canceled"
+	ACTIONSTATE_COMPLETED   ActionState = "Completed"
+	ACTIONSTATE_FAILED      ActionState = "Failed"
 )
 
 // All allowed values of ActionState enum
@@ -44,7 +44,7 @@ func (v *ActionState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ActionState(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableActionState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

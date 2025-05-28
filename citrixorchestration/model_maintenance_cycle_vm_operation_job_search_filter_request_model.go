@@ -21,7 +21,7 @@ var _ MappedNullable = &MaintenanceCycleVMOperationJobSearchFilterRequestModel{}
 type MaintenanceCycleVMOperationJobSearchFilterRequestModel struct {
 	Property MaintenanceCycleVMOperationJobSearchProperty `json:"Property"`
 	// Value to match.
-	Value NullableString `json:"Value,omitempty"`
+	Value    NullableString `json:"Value,omitempty"`
 	Operator SearchOperator `json:"Operator"`
 }
 
@@ -100,6 +100,7 @@ func (o *MaintenanceCycleVMOperationJobSearchFilterRequestModel) HasValue() bool
 func (o *MaintenanceCycleVMOperationJobSearchFilterRequestModel) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobSearchFilterRequestModel) SetValueNil() {
 	o.Value.Set(nil)
@@ -135,7 +136,7 @@ func (o *MaintenanceCycleVMOperationJobSearchFilterRequestModel) SetOperator(v S
 }
 
 func (o MaintenanceCycleVMOperationJobSearchFilterRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,5 +188,3 @@ func (v *NullableMaintenanceCycleVMOperationJobSearchFilterRequestModel) Unmarsh
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

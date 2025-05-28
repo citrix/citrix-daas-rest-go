@@ -83,6 +83,7 @@ func (o *MultiSiteModel) HasName() bool {
 func (o *MultiSiteModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MultiSiteModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -183,7 +184,7 @@ func (o *MultiSiteModel) SetDefault(v bool) {
 }
 
 func (o MultiSiteModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -240,5 +241,3 @@ func (v *NullableMultiSiteModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

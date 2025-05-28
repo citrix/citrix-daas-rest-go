@@ -21,10 +21,10 @@ type RebootScheduleFrequency string
 // List of RebootScheduleFrequency
 const (
 	REBOOTSCHEDULEFREQUENCY_UNKNOWN RebootScheduleFrequency = "Unknown"
-	REBOOTSCHEDULEFREQUENCY_DAILY RebootScheduleFrequency = "Daily"
-	REBOOTSCHEDULEFREQUENCY_WEEKLY RebootScheduleFrequency = "Weekly"
+	REBOOTSCHEDULEFREQUENCY_DAILY   RebootScheduleFrequency = "Daily"
+	REBOOTSCHEDULEFREQUENCY_WEEKLY  RebootScheduleFrequency = "Weekly"
 	REBOOTSCHEDULEFREQUENCY_MONTHLY RebootScheduleFrequency = "Monthly"
-	REBOOTSCHEDULEFREQUENCY_ONCE RebootScheduleFrequency = "Once"
+	REBOOTSCHEDULEFREQUENCY_ONCE    RebootScheduleFrequency = "Once"
 )
 
 // All allowed values of RebootScheduleFrequency enum
@@ -42,7 +42,7 @@ func (v *RebootScheduleFrequency) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = RebootScheduleFrequency(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableRebootScheduleFrequency) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

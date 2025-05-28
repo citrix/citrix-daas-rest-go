@@ -19,12 +19,12 @@ var _ MappedNullable = &HypervisorResourcePoolAWSDetailResponseModel{}
 
 // HypervisorResourcePoolAWSDetailResponseModel struct for HypervisorResourcePoolAWSDetailResponseModel
 type HypervisorResourcePoolAWSDetailResponseModel struct {
-	Region HypervisorResourceRefResponseModel `json:"Region"`
+	Region         HypervisorResourceRefResponseModel `json:"Region"`
 	VirtualNetwork HypervisorResourceRefResponseModel `json:"VirtualNetwork"`
 	// List of subnets in the VirtualNetwork that may be used within the resource pool.
-	Subnets []HypervisorResourceRefResponseModel `json:"Subnets"`
-	Project HypervisorResourceRefResponseModel `json:"Project"`
-	RootPath *HypervisorResourceRefResponseModel `json:"RootPath,omitempty"`
+	Subnets  []HypervisorResourceRefResponseModel `json:"Subnets"`
+	Project  HypervisorResourceRefResponseModel   `json:"Project"`
+	RootPath *HypervisorResourceRefResponseModel  `json:"RootPath,omitempty"`
 	// List of hypervisor-connected storage in the resource pool that is used for OS disks of virtual machines.
 	Storage []HypervisorStorageResourceResponseModel `json:"Storage"`
 	// List of hypervisor-connected storage in the resource pool that is used for temporary data storage for virtual machines.
@@ -35,49 +35,55 @@ type HypervisorResourcePoolAWSDetailResponseModel struct {
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// List of hypervisor-connected storage in the resource pool that is used for personal v disk data storage for virtual machines.
 	PersonalvDiskStorage []HypervisorStorageResourceResponseModel `json:"PersonalvDiskStorage,omitempty"`
-	StorageBalanceType *StorageBalanceType `json:"StorageBalanceType,omitempty"`
+	StorageBalanceType   *StorageBalanceType                      `json:"StorageBalanceType,omitempty"`
 	// GPU types available in the resource pool.  Only applicable to hypervisors that support GPU types.
-	GpuTypes []HypervisorResourceRefResponseModel `json:"GpuTypes,omitempty"`
-	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
+	GpuTypes       []HypervisorResourceRefResponseModel `json:"GpuTypes,omitempty"`
+	ConnectionType HypervisorConnectionType             `json:"ConnectionType"`
 	// If the hypervisor resource pool use ExplicitStorage.
 	UsesExplicitStorage *bool `json:"UsesExplicitStorage,omitempty"`
-	// Metadata for hypervisor resource pool. 
+	// Metadata for hypervisor resource pool.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Delegated admin scopes in which the containers of the resource pool reside.
-	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
+	ContainerScopes     []ContainerScopeResponseModel      `json:"ContainerScopes,omitempty"`
+	VirtualPrivateCloud HypervisorResourceRefResponseModel `json:"VirtualPrivateCloud"`
+	AvailabilityZone    HypervisorResourceRefResponseModel `json:"AvailabilityZone"`
+	// List of networks that may be used within the resource pool.
+	Networks []HypervisorResourceRefResponseModel `json:"Networks"`
 	// Id of the resource.
 	Id NullableString `json:"Id,omitempty"`
 	// Name of the resource.
 	Name NullableString `json:"Name,omitempty"`
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
-	XDPath NullableString `json:"XDPath,omitempty"`
-	HypervisorConnection RefResponseModel `json:"HypervisorConnection"`
-	DefaultNetwork HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
+	XDPath               NullableString                     `json:"XDPath,omitempty"`
+	HypervisorConnection RefResponseModel                   `json:"HypervisorConnection"`
+	DefaultNetwork       HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
 	// Indicates whether new virtual machines are tagged with metadata from the hypervisor.
 	VMTaggingEnabled bool `json:"VMTaggingEnabled"`
 	// Hypervisor resourcePool RootPath.
 	ResourcePoolRootPath NullableString `json:"ResourcePoolRootPath,omitempty"`
 	// Hypervisor resourcePool RootId.
 	ResourcePoolRootId NullableString `json:"ResourcePoolRootId,omitempty"`
-	VirtualPrivateCloud HypervisorResourceRefResponseModel `json:"VirtualPrivateCloud"`
-	AvailabilityZone HypervisorResourceRefResponseModel `json:"AvailabilityZone"`
-	// List of networks that may be used within the resource pool.
-	Networks []HypervisorResourceRefResponseModel `json:"Networks"`
 }
 
 // NewHypervisorResourcePoolAWSDetailResponseModel instantiates a new HypervisorResourcePoolAWSDetailResponseModel object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHypervisorResourcePoolAWSDetailResponseModel(region HypervisorResourceRefResponseModel, virtualNetwork HypervisorResourceRefResponseModel, subnets []HypervisorResourceRefResponseModel, project HypervisorResourceRefResponseModel, storage []HypervisorStorageResourceResponseModel, temporaryStorage []HypervisorStorageResourceResponseModel, connectionType HypervisorConnectionType, hypervisorConnection RefResponseModel, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool, virtualPrivateCloud HypervisorResourceRefResponseModel, availabilityZone HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel) *HypervisorResourcePoolAWSDetailResponseModel {
+func NewHypervisorResourcePoolAWSDetailResponseModel(region HypervisorResourceRefResponseModel, virtualNetwork HypervisorResourceRefResponseModel, subnets []HypervisorResourceRefResponseModel, project HypervisorResourceRefResponseModel, storage []HypervisorStorageResourceResponseModel, temporaryStorage []HypervisorStorageResourceResponseModel, connectionType HypervisorConnectionType, virtualPrivateCloud HypervisorResourceRefResponseModel, availabilityZone HypervisorResourceRefResponseModel, networks []HypervisorResourceRefResponseModel, hypervisorConnection RefResponseModel, defaultNetwork HypervisorResourceRefResponseModel, vMTaggingEnabled bool) *HypervisorResourcePoolAWSDetailResponseModel {
 	this := HypervisorResourcePoolAWSDetailResponseModel{}
+	this.VirtualPrivateCloud = virtualPrivateCloud
+	this.AvailabilityZone = availabilityZone
+	this.Networks = networks
+	this.Region = region
+	this.VirtualNetwork = virtualNetwork
+	this.Subnets = subnets
+	this.Project = project
+	this.Storage = storage
+	this.TemporaryStorage = temporaryStorage
 	this.HypervisorConnection = hypervisorConnection
 	this.ConnectionType = connectionType
 	this.DefaultNetwork = defaultNetwork
 	this.VMTaggingEnabled = vMTaggingEnabled
-	this.VirtualPrivateCloud = virtualPrivateCloud
-	this.AvailabilityZone = availabilityZone
-	this.Networks = networks
 	return &this
 }
 
@@ -297,6 +303,7 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasUseLocalStorageCaching
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetUseLocalStorageCaching(v bool) {
 	o.UseLocalStorageCaching.Set(&v)
 }
+
 // SetUseLocalStorageCachingNil sets the value for UseLocalStorageCaching to be an explicit nil
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetUseLocalStorageCachingNil() {
 	o.UseLocalStorageCaching.Set(nil)
@@ -339,6 +346,7 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasCustomProperties() boo
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -569,6 +577,78 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) SetContainerScopes(v []Co
 	o.ContainerScopes = v
 }
 
+// GetVirtualPrivateCloud returns the VirtualPrivateCloud field value
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetVirtualPrivateCloud() HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.VirtualPrivateCloud
+}
+
+// GetVirtualPrivateCloudOk returns a tuple with the VirtualPrivateCloud field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetVirtualPrivateCloudOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.VirtualPrivateCloud, true
+}
+
+// SetVirtualPrivateCloud sets field value
+func (o *HypervisorResourcePoolAWSDetailResponseModel) SetVirtualPrivateCloud(v HypervisorResourceRefResponseModel) {
+	o.VirtualPrivateCloud = v
+}
+
+// GetAvailabilityZone returns the AvailabilityZone field value
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetAvailabilityZone() HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.AvailabilityZone
+}
+
+// GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetAvailabilityZoneOk() (*HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvailabilityZone, true
+}
+
+// SetAvailabilityZone sets field value
+func (o *HypervisorResourcePoolAWSDetailResponseModel) SetAvailabilityZone(v HypervisorResourceRefResponseModel) {
+	o.AvailabilityZone = v
+}
+
+// GetNetworks returns the Networks field value
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetNetworks() []HypervisorResourceRefResponseModel {
+	if o == nil {
+		var ret []HypervisorResourceRefResponseModel
+		return ret
+	}
+
+	return o.Networks
+}
+
+// GetNetworksOk returns a tuple with the Networks field value
+// and a boolean to check if the value has been set.
+func (o *HypervisorResourcePoolAWSDetailResponseModel) GetNetworksOk() ([]HypervisorResourceRefResponseModel, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Networks, true
+}
+
+// SetNetworks sets field value
+func (o *HypervisorResourcePoolAWSDetailResponseModel) SetNetworks(v []HypervisorResourceRefResponseModel) {
+	o.Networks = v
+}
+
 // GetId returns the Id field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HypervisorResourcePoolAWSDetailResponseModel) GetId() string {
 	if o == nil || IsNil(o.Id.Get()) {
@@ -601,6 +681,7 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasId() bool {
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -643,6 +724,7 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasName() bool {
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -685,6 +767,7 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasXDPath() bool {
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -799,6 +882,7 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasResourcePoolRootPath()
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetResourcePoolRootPath(v string) {
 	o.ResourcePoolRootPath.Set(&v)
 }
+
 // SetResourcePoolRootPathNil sets the value for ResourcePoolRootPath to be an explicit nil
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetResourcePoolRootPathNil() {
 	o.ResourcePoolRootPath.Set(nil)
@@ -841,6 +925,7 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) HasResourcePoolRootId() b
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetResourcePoolRootId(v string) {
 	o.ResourcePoolRootId.Set(&v)
 }
+
 // SetResourcePoolRootIdNil sets the value for ResourcePoolRootId to be an explicit nil
 func (o *HypervisorResourcePoolAWSDetailResponseModel) SetResourcePoolRootIdNil() {
 	o.ResourcePoolRootId.Set(nil)
@@ -851,80 +936,8 @@ func (o *HypervisorResourcePoolAWSDetailResponseModel) UnsetResourcePoolRootId()
 	o.ResourcePoolRootId.Unset()
 }
 
-// GetVirtualPrivateCloud returns the VirtualPrivateCloud field value
-func (o *HypervisorResourcePoolAWSDetailResponseModel) GetVirtualPrivateCloud() HypervisorResourceRefResponseModel {
-	if o == nil {
-		var ret HypervisorResourceRefResponseModel
-		return ret
-	}
-
-	return o.VirtualPrivateCloud
-}
-
-// GetVirtualPrivateCloudOk returns a tuple with the VirtualPrivateCloud field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorResourcePoolAWSDetailResponseModel) GetVirtualPrivateCloudOk() (*HypervisorResourceRefResponseModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.VirtualPrivateCloud, true
-}
-
-// SetVirtualPrivateCloud sets field value
-func (o *HypervisorResourcePoolAWSDetailResponseModel) SetVirtualPrivateCloud(v HypervisorResourceRefResponseModel) {
-	o.VirtualPrivateCloud = v
-}
-
-// GetAvailabilityZone returns the AvailabilityZone field value
-func (o *HypervisorResourcePoolAWSDetailResponseModel) GetAvailabilityZone() HypervisorResourceRefResponseModel {
-	if o == nil {
-		var ret HypervisorResourceRefResponseModel
-		return ret
-	}
-
-	return o.AvailabilityZone
-}
-
-// GetAvailabilityZoneOk returns a tuple with the AvailabilityZone field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorResourcePoolAWSDetailResponseModel) GetAvailabilityZoneOk() (*HypervisorResourceRefResponseModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.AvailabilityZone, true
-}
-
-// SetAvailabilityZone sets field value
-func (o *HypervisorResourcePoolAWSDetailResponseModel) SetAvailabilityZone(v HypervisorResourceRefResponseModel) {
-	o.AvailabilityZone = v
-}
-
-// GetNetworks returns the Networks field value
-func (o *HypervisorResourcePoolAWSDetailResponseModel) GetNetworks() []HypervisorResourceRefResponseModel {
-	if o == nil {
-		var ret []HypervisorResourceRefResponseModel
-		return ret
-	}
-
-	return o.Networks
-}
-
-// GetNetworksOk returns a tuple with the Networks field value
-// and a boolean to check if the value has been set.
-func (o *HypervisorResourcePoolAWSDetailResponseModel) GetNetworksOk() ([]HypervisorResourceRefResponseModel, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Networks, true
-}
-
-// SetNetworks sets field value
-func (o *HypervisorResourcePoolAWSDetailResponseModel) SetNetworks(v []HypervisorResourceRefResponseModel) {
-	o.Networks = v
-}
-
 func (o HypervisorResourcePoolAWSDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -967,6 +980,9 @@ func (o HypervisorResourcePoolAWSDetailResponseModel) ToMap() (map[string]interf
 	if o.ContainerScopes != nil {
 		toSerialize["ContainerScopes"] = o.ContainerScopes
 	}
+	toSerialize["VirtualPrivateCloud"] = o.VirtualPrivateCloud
+	toSerialize["AvailabilityZone"] = o.AvailabilityZone
+	toSerialize["Networks"] = o.Networks
 	if o.Id.IsSet() {
 		toSerialize["Id"] = o.Id.Get()
 	}
@@ -985,9 +1001,6 @@ func (o HypervisorResourcePoolAWSDetailResponseModel) ToMap() (map[string]interf
 	if o.ResourcePoolRootId.IsSet() {
 		toSerialize["ResourcePoolRootId"] = o.ResourcePoolRootId.Get()
 	}
-	toSerialize["VirtualPrivateCloud"] = o.VirtualPrivateCloud
-	toSerialize["AvailabilityZone"] = o.AvailabilityZone
-	toSerialize["Networks"] = o.Networks
 	return toSerialize, nil
 }
 
@@ -1026,5 +1039,3 @@ func (v *NullableHypervisorResourcePoolAWSDetailResponseModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

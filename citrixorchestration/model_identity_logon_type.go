@@ -20,8 +20,8 @@ type IdentityLogonType string
 
 // List of IdentityLogonType
 const (
-	IDENTITYLOGONTYPE_UNKNOWN IdentityLogonType = "Unknown"
-	IDENTITYLOGONTYPE_INTERACTIVE IdentityLogonType = "Interactive"
+	IDENTITYLOGONTYPE_UNKNOWN            IdentityLogonType = "Unknown"
+	IDENTITYLOGONTYPE_INTERACTIVE        IdentityLogonType = "Interactive"
 	IDENTITYLOGONTYPE_NETWORK_CLEAR_TEXT IdentityLogonType = "NetworkClearText"
 )
 
@@ -38,7 +38,7 @@ func (v *IdentityLogonType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = IdentityLogonType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableIdentityLogonType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

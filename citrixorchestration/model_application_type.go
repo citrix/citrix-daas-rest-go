@@ -20,18 +20,18 @@ type ApplicationType string
 
 // List of ApplicationType
 const (
-	APPLICATIONTYPE_UNKNOWN ApplicationType = "Unknown"
-	APPLICATIONTYPE_HOSTED_ON_DESKTOP ApplicationType = "HostedOnDesktop"
-	APPLICATIONTYPE_INSTALLED_ON_CLIENT ApplicationType = "InstalledOnClient"
+	APPLICATIONTYPE_UNKNOWN              ApplicationType = "Unknown"
+	APPLICATIONTYPE_HOSTED_ON_DESKTOP    ApplicationType = "HostedOnDesktop"
+	APPLICATIONTYPE_INSTALLED_ON_CLIENT  ApplicationType = "InstalledOnClient"
 	APPLICATIONTYPE_SESSION_PRE_LAUNCHER ApplicationType = "SessionPreLauncher"
-	APPLICATIONTYPE_PUBLISHED_CONTENT ApplicationType = "PublishedContent"
+	APPLICATIONTYPE_PUBLISHED_CONTENT    ApplicationType = "PublishedContent"
 	APPLICATIONTYPE_PACKAGED_APPLICATION ApplicationType = "PackagedApplication"
-	APPLICATIONTYPE_FLEX_APP ApplicationType = "FlexApp"
-	APPLICATIONTYPE_ELASTIC_APP_LAYER ApplicationType = "ElasticAppLayer"
-	APPLICATIONTYPE_APP_V ApplicationType = "AppV"
-	APPLICATIONTYPE_APP_LIBRARY_APP_V ApplicationType = "AppLibraryAppV"
-	APPLICATIONTYPE_MSIX ApplicationType = "Msix"
-	APPLICATIONTYPE_APP_ATTACH ApplicationType = "AppAttach"
+	APPLICATIONTYPE_FLEX_APP             ApplicationType = "FlexApp"
+	APPLICATIONTYPE_ELASTIC_APP_LAYER    ApplicationType = "ElasticAppLayer"
+	APPLICATIONTYPE_APP_V                ApplicationType = "AppV"
+	APPLICATIONTYPE_APP_LIBRARY_APP_V    ApplicationType = "AppLibraryAppV"
+	APPLICATIONTYPE_MSIX                 ApplicationType = "Msix"
+	APPLICATIONTYPE_APP_ATTACH           ApplicationType = "AppAttach"
 )
 
 // All allowed values of ApplicationType enum
@@ -56,7 +56,7 @@ func (v *ApplicationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ApplicationType(value)
 	return nil
 }
@@ -122,4 +122,3 @@ func (v *NullableApplicationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

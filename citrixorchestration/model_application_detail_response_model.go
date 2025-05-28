@@ -17,16 +17,16 @@ import (
 // checks if the ApplicationDetailResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApplicationDetailResponseModel{}
 
-// ApplicationDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): BrowserName,Categories,ConfiguredFtas,CpuPriorityLevel,HomeZone,HomeZoneMode,IncludedUserFilterEnabled,IconFromClient,IncludedUsers,MaxPerUserInstances,MaxTotalInstances,ShortcutAddedToDesktop,ShortcutAddedToStartMenu,StartMenuFolder,WaitForPrinterCreation,Id,Uid,ApplicationFolder,ApplicationType,PackagedApplicationType,PackagedApplicationVisibility,ClientFolder,Description,DoNotEnumerate,Enabled,IconId,ContentLocation,Name,PublishedName,Visible,SharingKind,ZoneId.               Response object for application details.              
+// ApplicationDetailResponseModel Default response field (Only return the fields specified there if supported in  API ): BrowserName,Categories,ConfiguredFtas,CpuPriorityLevel,HomeZone,HomeZoneMode,IncludedUserFilterEnabled,IconFromClient,IncludedUsers,MaxPerUserInstances,MaxTotalInstances,ShortcutAddedToDesktop,ShortcutAddedToStartMenu,StartMenuFolder,WaitForPrinterCreation,Id,Uid,ApplicationFolder,ApplicationType,PackagedApplicationType,PackagedApplicationVisibility,ClientFolder,Description,DoNotEnumerate,Enabled,IconId,ContentLocation,Name,PublishedName,Visible,SharingKind,ZoneId.               Response object for application details.
 type ApplicationDetailResponseModel struct {
 	// The id of the application. Used to be: Uuid Needs to be globally unique This is likely to contain a guid but the property type should be string for future flexibility
 	Id NullableString `json:"Id,omitempty"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED. Use Id.
 	// Deprecated
-	Uid NullableInt32 `json:"Uid,omitempty"`
-	ApplicationFolder *RefResponseModel `json:"ApplicationFolder,omitempty"`
-	ApplicationType *ApplicationType `json:"ApplicationType,omitempty"`
-	PackagedApplicationType *PackagedApplicationType `json:"PackagedApplicationType,omitempty"`
+	Uid                           NullableInt32                  `json:"Uid,omitempty"`
+	ApplicationFolder             *RefResponseModel              `json:"ApplicationFolder,omitempty"`
+	ApplicationType               *ApplicationType               `json:"ApplicationType,omitempty"`
+	PackagedApplicationType       *PackagedApplicationType       `json:"PackagedApplicationType,omitempty"`
 	PackagedApplicationVisibility *PackagedApplicationVisibility `json:"PackagedApplicationVisibility,omitempty"`
 	// The folder that the application belongs to as the user sees it.
 	ClientFolder NullableString `json:"ClientFolder,omitempty"`
@@ -39,10 +39,10 @@ type ApplicationDetailResponseModel struct {
 	// Indicates whether this application can be launched.
 	Enabled *bool `json:"Enabled,omitempty"`
 	// The id of the icon used for the application. Used to be: IconUid (and it was not globally unique) Needs to be globally unique Might be constructed from site ID + internal Uid
-	IconId NullableString `json:"IconId,omitempty"`
+	IconId                 NullableString             `json:"IconId,omitempty"`
 	InstalledAppProperties *InstalledAppResponseModel `json:"InstalledAppProperties,omitempty"`
-	PackagedAppProperties *AppVAppResponseModel `json:"PackagedAppProperties,omitempty"`
-	AppVAppProperties *AppVAppResponseModel `json:"AppVAppProperties,omitempty"`
+	PackagedAppProperties  *AppVAppResponseModel      `json:"PackagedAppProperties,omitempty"`
+	AppVAppProperties      *AppVAppResponseModel      `json:"AppVAppProperties,omitempty"`
 	// Location of published content.
 	ContentLocation NullableString `json:"ContentLocation,omitempty"`
 	// Name of the application.  Only seen by administrators.
@@ -52,7 +52,7 @@ type ApplicationDetailResponseModel struct {
 	// The metadata of application.
 	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
 	// Indicates whether this application is visible to users.
-	Visible *bool `json:"Visible,omitempty"`
+	Visible     *bool        `json:"Visible,omitempty"`
 	SharingKind *SharingKind `json:"SharingKind,omitempty"`
 	// Tags associated with this application.
 	Tags []string `json:"Tags,omitempty"`
@@ -75,10 +75,10 @@ type ApplicationDetailResponseModel struct {
 	// Categories in which the application resides.
 	Categories []string `json:"Categories,omitempty"`
 	// All file types which are associated with the application.
-	ConfiguredFtas []FtaResponseModel `json:"ConfiguredFtas,omitempty"`
-	CpuPriorityLevel CpuPriorityLevel `json:"CpuPriorityLevel"`
-	HomeZone RefResponseModel `json:"HomeZone"`
-	HomeZoneMode HomeZoneMode `json:"HomeZoneMode"`
+	ConfiguredFtas   []FtaResponseModel `json:"ConfiguredFtas,omitempty"`
+	CpuPriorityLevel CpuPriorityLevel   `json:"CpuPriorityLevel"`
+	HomeZone         RefResponseModel   `json:"HomeZone"`
+	HomeZoneMode     HomeZoneMode       `json:"HomeZoneMode"`
 	// Indicates whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group's access polic(ies) is implicitly granted access to the application.
 	IncludedUserFilterEnabled bool `json:"IncludedUserFilterEnabled"`
 	// Specifies whether the icon is gotten from user's computer at run time. If not specified, will not be changed.
@@ -155,6 +155,7 @@ func (o *ApplicationDetailResponseModel) HasId() bool {
 func (o *ApplicationDetailResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -200,6 +201,7 @@ func (o *ApplicationDetailResponseModel) HasUid() bool {
 func (o *ApplicationDetailResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -370,6 +372,7 @@ func (o *ApplicationDetailResponseModel) HasClientFolder() bool {
 func (o *ApplicationDetailResponseModel) SetClientFolder(v string) {
 	o.ClientFolder.Set(&v)
 }
+
 // SetClientFolderNil sets the value for ClientFolder to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetClientFolderNil() {
 	o.ClientFolder.Set(nil)
@@ -445,6 +448,7 @@ func (o *ApplicationDetailResponseModel) HasDescription() bool {
 func (o *ApplicationDetailResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -551,6 +555,7 @@ func (o *ApplicationDetailResponseModel) HasIconId() bool {
 func (o *ApplicationDetailResponseModel) SetIconId(v string) {
 	o.IconId.Set(&v)
 }
+
 // SetIconIdNil sets the value for IconId to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetIconIdNil() {
 	o.IconId.Set(nil)
@@ -689,6 +694,7 @@ func (o *ApplicationDetailResponseModel) HasContentLocation() bool {
 func (o *ApplicationDetailResponseModel) SetContentLocation(v string) {
 	o.ContentLocation.Set(&v)
 }
+
 // SetContentLocationNil sets the value for ContentLocation to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetContentLocationNil() {
 	o.ContentLocation.Set(nil)
@@ -731,6 +737,7 @@ func (o *ApplicationDetailResponseModel) HasName() bool {
 func (o *ApplicationDetailResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -773,6 +780,7 @@ func (o *ApplicationDetailResponseModel) HasPublishedName() bool {
 func (o *ApplicationDetailResponseModel) SetPublishedName(v string) {
 	o.PublishedName.Set(&v)
 }
+
 // SetPublishedNameNil sets the value for PublishedName to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetPublishedNameNil() {
 	o.PublishedName.Set(nil)
@@ -1140,6 +1148,7 @@ func (o *ApplicationDetailResponseModel) HasZoneId() bool {
 func (o *ApplicationDetailResponseModel) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -1368,6 +1377,7 @@ func (o *ApplicationDetailResponseModel) HasIconFromClient() bool {
 func (o *ApplicationDetailResponseModel) SetIconFromClient(v bool) {
 	o.IconFromClient.Set(&v)
 }
+
 // SetIconFromClientNil sets the value for IconFromClient to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetIconFromClientNil() {
 	o.IconFromClient.Set(nil)
@@ -1443,6 +1453,7 @@ func (o *ApplicationDetailResponseModel) HasMaxPerUserInstances() bool {
 func (o *ApplicationDetailResponseModel) SetMaxPerUserInstances(v int32) {
 	o.MaxPerUserInstances.Set(&v)
 }
+
 // SetMaxPerUserInstancesNil sets the value for MaxPerUserInstances to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetMaxPerUserInstancesNil() {
 	o.MaxPerUserInstances.Set(nil)
@@ -1485,6 +1496,7 @@ func (o *ApplicationDetailResponseModel) HasMaxTotalInstances() bool {
 func (o *ApplicationDetailResponseModel) SetMaxTotalInstances(v int32) {
 	o.MaxTotalInstances.Set(&v)
 }
+
 // SetMaxTotalInstancesNil sets the value for MaxTotalInstances to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetMaxTotalInstancesNil() {
 	o.MaxTotalInstances.Set(nil)
@@ -1527,6 +1539,7 @@ func (o *ApplicationDetailResponseModel) HasShortcutAddedToDesktop() bool {
 func (o *ApplicationDetailResponseModel) SetShortcutAddedToDesktop(v bool) {
 	o.ShortcutAddedToDesktop.Set(&v)
 }
+
 // SetShortcutAddedToDesktopNil sets the value for ShortcutAddedToDesktop to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetShortcutAddedToDesktopNil() {
 	o.ShortcutAddedToDesktop.Set(nil)
@@ -1569,6 +1582,7 @@ func (o *ApplicationDetailResponseModel) HasShortcutAddedToStartMenu() bool {
 func (o *ApplicationDetailResponseModel) SetShortcutAddedToStartMenu(v bool) {
 	o.ShortcutAddedToStartMenu.Set(&v)
 }
+
 // SetShortcutAddedToStartMenuNil sets the value for ShortcutAddedToStartMenu to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetShortcutAddedToStartMenuNil() {
 	o.ShortcutAddedToStartMenu.Set(nil)
@@ -1611,6 +1625,7 @@ func (o *ApplicationDetailResponseModel) HasStartMenuFolder() bool {
 func (o *ApplicationDetailResponseModel) SetStartMenuFolder(v string) {
 	o.StartMenuFolder.Set(&v)
 }
+
 // SetStartMenuFolderNil sets the value for StartMenuFolder to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetStartMenuFolderNil() {
 	o.StartMenuFolder.Set(nil)
@@ -1653,6 +1668,7 @@ func (o *ApplicationDetailResponseModel) HasWaitForPrinterCreation() bool {
 func (o *ApplicationDetailResponseModel) SetWaitForPrinterCreation(v bool) {
 	o.WaitForPrinterCreation.Set(&v)
 }
+
 // SetWaitForPrinterCreationNil sets the value for WaitForPrinterCreation to be an explicit nil
 func (o *ApplicationDetailResponseModel) SetWaitForPrinterCreationNil() {
 	o.WaitForPrinterCreation.Set(nil)
@@ -1697,7 +1713,7 @@ func (o *ApplicationDetailResponseModel) SetZoneList(v []string) {
 }
 
 func (o ApplicationDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1869,5 +1885,3 @@ func (v *NullableApplicationDetailResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

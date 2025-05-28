@@ -78,6 +78,7 @@ func (o *AppliedSetting2) HasSettingName() bool {
 func (o *AppliedSetting2) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *AppliedSetting2) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -120,6 +121,7 @@ func (o *AppliedSetting2) HasSettingValue() bool {
 func (o *AppliedSetting2) SetSettingValue(v string) {
 	o.SettingValue.Set(&v)
 }
+
 // SetSettingValueNil sets the value for SettingValue to be an explicit nil
 func (o *AppliedSetting2) SetSettingValueNil() {
 	o.SettingValue.Set(nil)
@@ -162,6 +164,7 @@ func (o *AppliedSetting2) HasWinningGpo() bool {
 func (o *AppliedSetting2) SetWinningGpo(v string) {
 	o.WinningGpo.Set(&v)
 }
+
 // SetWinningGpoNil sets the value for WinningGpo to be an explicit nil
 func (o *AppliedSetting2) SetWinningGpoNil() {
 	o.WinningGpo.Set(nil)
@@ -204,6 +207,7 @@ func (o *AppliedSetting2) HasWinningPolicy() bool {
 func (o *AppliedSetting2) SetWinningPolicy(v string) {
 	o.WinningPolicy.Set(&v)
 }
+
 // SetWinningPolicyNil sets the value for WinningPolicy to be an explicit nil
 func (o *AppliedSetting2) SetWinningPolicyNil() {
 	o.WinningPolicy.Set(nil)
@@ -215,7 +219,7 @@ func (o *AppliedSetting2) UnsetWinningPolicy() {
 }
 
 func (o AppliedSetting2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableAppliedSetting2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

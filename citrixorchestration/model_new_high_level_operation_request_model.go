@@ -21,7 +21,7 @@ var _ MappedNullable = &NewHighLevelOperationRequestModel{}
 type NewHighLevelOperationRequestModel struct {
 	OperationType LogOperationType `json:"OperationType"`
 	// Source of the operation.
-	Source string `json:"Source"`
+	Source string `json:"Source" validate:"regexp=^[a-zA-Z0-9\\\\s]+$"`
 	// Human-readable description of the change.
 	Text string `json:"Text"`
 	// Indicates whether the operation completed successfully.
@@ -146,7 +146,7 @@ func (o *NewHighLevelOperationRequestModel) SetIsSuccessful(v bool) {
 }
 
 func (o NewHighLevelOperationRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableNewHighLevelOperationRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

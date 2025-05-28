@@ -20,12 +20,15 @@ var _ MappedNullable = &UpdateAwsEdcDeploymentMachine{}
 // UpdateAwsEdcDeploymentMachine struct for UpdateAwsEdcDeploymentMachine
 type UpdateAwsEdcDeploymentMachine struct {
 	UpdateDeploymentMachine
+	// Size of operating system volume
 	Compute NullableCompute `json:"compute,omitempty"`
 	// Size of operating system volume
 	RootVolumeSize NullableInt32 `json:"rootVolumeSize,omitempty"`
 	// Size of user storage volume
 	UserVolumeSize NullableInt32 `json:"userVolumeSize,omitempty"`
 }
+
+type _UpdateAwsEdcDeploymentMachine UpdateAwsEdcDeploymentMachine
 
 // NewUpdateAwsEdcDeploymentMachine instantiates a new UpdateAwsEdcDeploymentMachine object
 // This constructor will assign default values to properties that have it defined,
@@ -77,6 +80,7 @@ func (o *UpdateAwsEdcDeploymentMachine) HasCompute() bool {
 func (o *UpdateAwsEdcDeploymentMachine) SetCompute(v Compute) {
 	o.Compute.Set(&v)
 }
+
 // SetComputeNil sets the value for Compute to be an explicit nil
 func (o *UpdateAwsEdcDeploymentMachine) SetComputeNil() {
 	o.Compute.Set(nil)
@@ -119,6 +123,7 @@ func (o *UpdateAwsEdcDeploymentMachine) HasRootVolumeSize() bool {
 func (o *UpdateAwsEdcDeploymentMachine) SetRootVolumeSize(v int32) {
 	o.RootVolumeSize.Set(&v)
 }
+
 // SetRootVolumeSizeNil sets the value for RootVolumeSize to be an explicit nil
 func (o *UpdateAwsEdcDeploymentMachine) SetRootVolumeSizeNil() {
 	o.RootVolumeSize.Set(nil)
@@ -161,6 +166,7 @@ func (o *UpdateAwsEdcDeploymentMachine) HasUserVolumeSize() bool {
 func (o *UpdateAwsEdcDeploymentMachine) SetUserVolumeSize(v int32) {
 	o.UserVolumeSize.Set(&v)
 }
+
 // SetUserVolumeSizeNil sets the value for UserVolumeSize to be an explicit nil
 func (o *UpdateAwsEdcDeploymentMachine) SetUserVolumeSizeNil() {
 	o.UserVolumeSize.Set(nil)
@@ -172,7 +178,7 @@ func (o *UpdateAwsEdcDeploymentMachine) UnsetUserVolumeSize() {
 }
 
 func (o UpdateAwsEdcDeploymentMachine) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -236,5 +242,3 @@ func (v *NullableUpdateAwsEdcDeploymentMachine) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

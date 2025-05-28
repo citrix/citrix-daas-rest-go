@@ -78,6 +78,7 @@ func (o *IdentityClaimsResponseModel) HasOid() bool {
 func (o *IdentityClaimsResponseModel) SetOid(v string) {
 	o.Oid.Set(&v)
 }
+
 // SetOidNil sets the value for Oid to be an explicit nil
 func (o *IdentityClaimsResponseModel) SetOidNil() {
 	o.Oid.Set(nil)
@@ -120,6 +121,7 @@ func (o *IdentityClaimsResponseModel) HasSid() bool {
 func (o *IdentityClaimsResponseModel) SetSid(v string) {
 	o.Sid.Set(&v)
 }
+
 // SetSidNil sets the value for Sid to be an explicit nil
 func (o *IdentityClaimsResponseModel) SetSidNil() {
 	o.Sid.Set(nil)
@@ -162,6 +164,7 @@ func (o *IdentityClaimsResponseModel) HasUpn() bool {
 func (o *IdentityClaimsResponseModel) SetUpn(v string) {
 	o.Upn.Set(&v)
 }
+
 // SetUpnNil sets the value for Upn to be an explicit nil
 func (o *IdentityClaimsResponseModel) SetUpnNil() {
 	o.Upn.Set(nil)
@@ -204,6 +207,7 @@ func (o *IdentityClaimsResponseModel) HasEmail() bool {
 func (o *IdentityClaimsResponseModel) SetEmail(v string) {
 	o.Email.Set(&v)
 }
+
 // SetEmailNil sets the value for Email to be an explicit nil
 func (o *IdentityClaimsResponseModel) SetEmailNil() {
 	o.Email.Set(nil)
@@ -215,7 +219,7 @@ func (o *IdentityClaimsResponseModel) UnsetEmail() {
 }
 
 func (o IdentityClaimsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableIdentityClaimsResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

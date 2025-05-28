@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// AppVSource 
+// AppVSource
 type AppVSource string
 
 // List of AppVSource
 const (
-	APPVSOURCE_UNKNOWN AppVSource = "Unknown"
+	APPVSOURCE_UNKNOWN      AppVSource = "Unknown"
 	APPVSOURCE_APP_V_SERVER AppVSource = "AppVServer"
-	APPVSOURCE_APP_LIBRARY AppVSource = "AppLibrary"
+	APPVSOURCE_APP_LIBRARY  AppVSource = "AppLibrary"
 )
 
 // All allowed values of AppVSource enum
@@ -38,7 +38,7 @@ func (v *AppVSource) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppVSource(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableAppVSource) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

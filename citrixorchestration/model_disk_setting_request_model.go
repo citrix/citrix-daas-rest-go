@@ -139,6 +139,7 @@ func (o *DiskSettingRequestModel) HasLocation() bool {
 func (o *DiskSettingRequestModel) SetLocation(v string) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *DiskSettingRequestModel) SetLocationNil() {
 	o.Location.Set(nil)
@@ -150,7 +151,7 @@ func (o *DiskSettingRequestModel) UnsetLocation() {
 }
 
 func (o DiskSettingRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -206,5 +207,3 @@ func (v *NullableDiskSettingRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

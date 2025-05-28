@@ -65,8 +65,8 @@ type ProvisionedVirtualMachineDetailsResponseModel struct {
 	// Security Information.
 	SecurityInfo NullableString `json:"SecurityInfo,omitempty"`
 	// Provisioned VM Information.
-	VMInfo NullableString `json:"VMInfo,omitempty"`
-	ResourcePool *HypervisorResourcePoolRefResponseModel `json:"ResourcePool,omitempty"`
+	VMInfo                    NullableString                                                   `json:"VMInfo,omitempty"`
+	ResourcePool              *HypervisorResourcePoolRefResponseModel                          `json:"ResourcePool,omitempty"`
 	ConfigurationResultantSet *ProvisionedVirtualMachineConfigurationResultantSetResponseModel `json:"ConfigurationResultantSet,omitempty"`
 	// Failure reason of power action.
 	FailureReason NullableString `json:"FailureReason,omitempty"`
@@ -123,6 +123,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasName() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -165,6 +166,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvisioningSchemeNam
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeName(v string) {
 	o.ProvisioningSchemeName.Set(&v)
 }
+
 // SetProvisioningSchemeNameNil sets the value for ProvisioningSchemeName to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeNameNil() {
 	o.ProvisioningSchemeName.Set(nil)
@@ -207,6 +209,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvisioningSchemeId(
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeId(v string) {
 	o.ProvisioningSchemeId.Set(&v)
 }
+
 // SetProvisioningSchemeIdNil sets the value for ProvisioningSchemeId to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvisioningSchemeIdNil() {
 	o.ProvisioningSchemeId.Set(nil)
@@ -345,6 +348,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasIdentityType() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentityType(v string) {
 	o.IdentityType.Set(&v)
 }
+
 // SetIdentityTypeNil sets the value for IdentityType to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentityTypeNil() {
 	o.IdentityType.Set(nil)
@@ -611,6 +615,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasIdentities() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentities(v string) {
 	o.Identities.Set(&v)
 }
+
 // SetIdentitiesNil sets the value for Identities to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetIdentitiesNil() {
 	o.Identities.Set(nil)
@@ -653,6 +658,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasProvVMConfigurationVe
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvVMConfigurationVersion(v int32) {
 	o.ProvVMConfigurationVersion.Set(&v)
 }
+
 // SetProvVMConfigurationVersionNil sets the value for ProvVMConfigurationVersion to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetProvVMConfigurationVersionNil() {
 	o.ProvVMConfigurationVersion.Set(nil)
@@ -695,6 +701,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasWindowsActivationType
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationType(v string) {
 	o.WindowsActivationType.Set(&v)
 }
+
 // SetWindowsActivationTypeNil sets the value for WindowsActivationType to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetWindowsActivationTypeNil() {
 	o.WindowsActivationType.Set(nil)
@@ -737,6 +744,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasDiskInfo() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetDiskInfo(v string) {
 	o.DiskInfo.Set(&v)
 }
+
 // SetDiskInfoNil sets the value for DiskInfo to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetDiskInfoNil() {
 	o.DiskInfo.Set(nil)
@@ -779,6 +787,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasImageAndTemplateInfo(
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetImageAndTemplateInfo(v string) {
 	o.ImageAndTemplateInfo.Set(&v)
 }
+
 // SetImageAndTemplateInfoNil sets the value for ImageAndTemplateInfo to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetImageAndTemplateInfoNil() {
 	o.ImageAndTemplateInfo.Set(nil)
@@ -821,6 +830,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasMCSIOInfo() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetMCSIOInfo(v string) {
 	o.MCSIOInfo.Set(&v)
 }
+
 // SetMCSIOInfoNil sets the value for MCSIOInfo to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetMCSIOInfoNil() {
 	o.MCSIOInfo.Set(nil)
@@ -863,6 +873,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasNetworkInfo() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetNetworkInfo(v string) {
 	o.NetworkInfo.Set(&v)
 }
+
 // SetNetworkInfoNil sets the value for NetworkInfo to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetNetworkInfoNil() {
 	o.NetworkInfo.Set(nil)
@@ -905,6 +916,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasSecurityInfo() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetSecurityInfo(v string) {
 	o.SecurityInfo.Set(&v)
 }
+
 // SetSecurityInfoNil sets the value for SecurityInfo to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetSecurityInfoNil() {
 	o.SecurityInfo.Set(nil)
@@ -947,6 +959,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasVMInfo() bool {
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMInfo(v string) {
 	o.VMInfo.Set(&v)
 }
+
 // SetVMInfoNil sets the value for VMInfo to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetVMInfoNil() {
 	o.VMInfo.Set(nil)
@@ -1053,6 +1066,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasFailureReason() bool 
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailureReason(v string) {
 	o.FailureReason.Set(&v)
 }
+
 // SetFailureReasonNil sets the value for FailureReason to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailureReasonNil() {
 	o.FailureReason.Set(nil)
@@ -1095,6 +1109,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) HasFailedActionCompletio
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailedActionCompletionTime(v string) {
 	o.FailedActionCompletionTime.Set(&v)
 }
+
 // SetFailedActionCompletionTimeNil sets the value for FailedActionCompletionTime to be an explicit nil
 func (o *ProvisionedVirtualMachineDetailsResponseModel) SetFailedActionCompletionTimeNil() {
 	o.FailedActionCompletionTime.Set(nil)
@@ -1106,7 +1121,7 @@ func (o *ProvisionedVirtualMachineDetailsResponseModel) UnsetFailedActionComplet
 }
 
 func (o ProvisionedVirtualMachineDetailsResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1234,5 +1249,3 @@ func (v *NullableProvisionedVirtualMachineDetailsResponseModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

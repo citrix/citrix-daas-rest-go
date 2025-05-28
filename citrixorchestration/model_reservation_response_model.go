@@ -78,6 +78,7 @@ func (o *ReservationResponseModel) HasTerm() bool {
 func (o *ReservationResponseModel) SetTerm(v string) {
 	o.Term.Set(&v)
 }
+
 // SetTermNil sets the value for Term to be an explicit nil
 func (o *ReservationResponseModel) SetTermNil() {
 	o.Term.Set(nil)
@@ -120,6 +121,7 @@ func (o *ReservationResponseModel) HasEffectivePrice() bool {
 func (o *ReservationResponseModel) SetEffectivePrice(v float32) {
 	o.EffectivePrice.Set(&v)
 }
+
 // SetEffectivePriceNil sets the value for EffectivePrice to be an explicit nil
 func (o *ReservationResponseModel) SetEffectivePriceNil() {
 	o.EffectivePrice.Set(nil)
@@ -162,6 +164,7 @@ func (o *ReservationResponseModel) HasRetailPrice() bool {
 func (o *ReservationResponseModel) SetRetailPrice(v float32) {
 	o.RetailPrice.Set(&v)
 }
+
 // SetRetailPriceNil sets the value for RetailPrice to be an explicit nil
 func (o *ReservationResponseModel) SetRetailPriceNil() {
 	o.RetailPrice.Set(nil)
@@ -204,6 +207,7 @@ func (o *ReservationResponseModel) HasCurrency() bool {
 func (o *ReservationResponseModel) SetCurrency(v string) {
 	o.Currency.Set(&v)
 }
+
 // SetCurrencyNil sets the value for Currency to be an explicit nil
 func (o *ReservationResponseModel) SetCurrencyNil() {
 	o.Currency.Set(nil)
@@ -215,7 +219,7 @@ func (o *ReservationResponseModel) UnsetCurrency() {
 }
 
 func (o ReservationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableReservationResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

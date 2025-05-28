@@ -101,6 +101,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModelCollection) HasContinuatio
 func (o *ImageDefinitionsAndImageVersionsResponseModelCollection) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *ImageDefinitionsAndImageVersionsResponseModelCollection) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -143,6 +144,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModelCollection) HasTotalItems(
 func (o *ImageDefinitionsAndImageVersionsResponseModelCollection) SetTotalItems(v int32) {
 	o.TotalItems.Set(&v)
 }
+
 // SetTotalItemsNil sets the value for TotalItems to be an explicit nil
 func (o *ImageDefinitionsAndImageVersionsResponseModelCollection) SetTotalItemsNil() {
 	o.TotalItems.Set(nil)
@@ -154,7 +156,7 @@ func (o *ImageDefinitionsAndImageVersionsResponseModelCollection) UnsetTotalItem
 }
 
 func (o ImageDefinitionsAndImageVersionsResponseModelCollection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableImageDefinitionsAndImageVersionsResponseModelCollection) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

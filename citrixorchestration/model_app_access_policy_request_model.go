@@ -28,8 +28,8 @@ type AppAccessPolicyRequestModel struct {
 	// Specifies whether the IncludedUsers filter is enabled.  If the filter is disabled then any user who satisfies the requirements of the delivery group's access policy may access applications published on the delivery group.
 	IncludedUserFilterEnabled NullableBool `json:"IncludedUserFilterEnabled,omitempty"`
 	// Specifies the included users filter for applications published on the delivery group; that is, the users and groups who are explicitly granted access to applications published on the delivery group.
-	IncludedUsers []string `json:"IncludedUsers,omitempty"`
-	LeasingBehavior *LeasingBehavior `json:"LeasingBehavior,omitempty"`
+	IncludedUsers       []string             `json:"IncludedUsers,omitempty"`
+	LeasingBehavior     *LeasingBehavior     `json:"LeasingBehavior,omitempty"`
 	SessionReconnection *SessionReconnection `json:"SessionReconnection,omitempty"`
 }
 
@@ -82,6 +82,7 @@ func (o *AppAccessPolicyRequestModel) HasEnabled() bool {
 func (o *AppAccessPolicyRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *AppAccessPolicyRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -124,6 +125,7 @@ func (o *AppAccessPolicyRequestModel) HasExcludedUserFilterEnabled() bool {
 func (o *AppAccessPolicyRequestModel) SetExcludedUserFilterEnabled(v bool) {
 	o.ExcludedUserFilterEnabled.Set(&v)
 }
+
 // SetExcludedUserFilterEnabledNil sets the value for ExcludedUserFilterEnabled to be an explicit nil
 func (o *AppAccessPolicyRequestModel) SetExcludedUserFilterEnabledNil() {
 	o.ExcludedUserFilterEnabled.Set(nil)
@@ -199,6 +201,7 @@ func (o *AppAccessPolicyRequestModel) HasIncludedUserFilterEnabled() bool {
 func (o *AppAccessPolicyRequestModel) SetIncludedUserFilterEnabled(v bool) {
 	o.IncludedUserFilterEnabled.Set(&v)
 }
+
 // SetIncludedUserFilterEnabledNil sets the value for IncludedUserFilterEnabled to be an explicit nil
 func (o *AppAccessPolicyRequestModel) SetIncludedUserFilterEnabledNil() {
 	o.IncludedUserFilterEnabled.Set(nil)
@@ -307,7 +310,7 @@ func (o *AppAccessPolicyRequestModel) SetSessionReconnection(v SessionReconnecti
 }
 
 func (o AppAccessPolicyRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -375,5 +378,3 @@ func (v *NullableAppAccessPolicyRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -24,10 +24,10 @@ type HypervisorResourcePoolResponseModel struct {
 	// Name of the resource.
 	Name NullableString `json:"Name,omitempty"`
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
-	XDPath NullableString `json:"XDPath,omitempty"`
-	HypervisorConnection RefResponseModel `json:"HypervisorConnection"`
-	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
-	DefaultNetwork HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
+	XDPath               NullableString                     `json:"XDPath,omitempty"`
+	HypervisorConnection RefResponseModel                   `json:"HypervisorConnection"`
+	ConnectionType       HypervisorConnectionType           `json:"ConnectionType"`
+	DefaultNetwork       HypervisorResourceRefResponseModel `json:"DefaultNetwork"`
 	// Indicates whether new virtual machines are tagged with metadata from the hypervisor.
 	VMTaggingEnabled bool `json:"VMTaggingEnabled"`
 	// Hypervisor resourcePool RootPath.
@@ -89,6 +89,7 @@ func (o *HypervisorResourcePoolResponseModel) HasId() bool {
 func (o *HypervisorResourcePoolResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourcePoolResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -131,6 +132,7 @@ func (o *HypervisorResourcePoolResponseModel) HasName() bool {
 func (o *HypervisorResourcePoolResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorResourcePoolResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -173,6 +175,7 @@ func (o *HypervisorResourcePoolResponseModel) HasXDPath() bool {
 func (o *HypervisorResourcePoolResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorResourcePoolResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -311,6 +314,7 @@ func (o *HypervisorResourcePoolResponseModel) HasResourcePoolRootPath() bool {
 func (o *HypervisorResourcePoolResponseModel) SetResourcePoolRootPath(v string) {
 	o.ResourcePoolRootPath.Set(&v)
 }
+
 // SetResourcePoolRootPathNil sets the value for ResourcePoolRootPath to be an explicit nil
 func (o *HypervisorResourcePoolResponseModel) SetResourcePoolRootPathNil() {
 	o.ResourcePoolRootPath.Set(nil)
@@ -353,6 +357,7 @@ func (o *HypervisorResourcePoolResponseModel) HasResourcePoolRootId() bool {
 func (o *HypervisorResourcePoolResponseModel) SetResourcePoolRootId(v string) {
 	o.ResourcePoolRootId.Set(&v)
 }
+
 // SetResourcePoolRootIdNil sets the value for ResourcePoolRootId to be an explicit nil
 func (o *HypervisorResourcePoolResponseModel) SetResourcePoolRootIdNil() {
 	o.ResourcePoolRootId.Set(nil)
@@ -364,7 +369,7 @@ func (o *HypervisorResourcePoolResponseModel) UnsetResourcePoolRootId() {
 }
 
 func (o HypervisorResourcePoolResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -430,5 +435,3 @@ func (v *NullableHypervisorResourcePoolResponseModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

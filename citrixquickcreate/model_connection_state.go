@@ -20,12 +20,12 @@ type ConnectionState string
 
 // List of ConnectionState
 const (
-	CONNECTIONSTATE_PENDING ConnectionState = "PENDING"
-	CONNECTIONSTATE_ACTIVE ConnectionState = "ACTIVE"
-	CONNECTIONSTATE_DELETING ConnectionState = "DELETING"
+	CONNECTIONSTATE_PENDING                 ConnectionState = "PENDING"
+	CONNECTIONSTATE_ACTIVE                  ConnectionState = "ACTIVE"
+	CONNECTIONSTATE_DELETING                ConnectionState = "DELETING"
 	CONNECTIONSTATE_PROVISIONING_CONNECTORS ConnectionState = "PROVISIONING_CONNECTORS"
-	CONNECTIONSTATE_ERROR ConnectionState = "ERROR"
-	CONNECTIONSTATE_ERROR_INVALID_ACCOUNT ConnectionState = "ERROR_INVALID_ACCOUNT"
+	CONNECTIONSTATE_ERROR                   ConnectionState = "ERROR"
+	CONNECTIONSTATE_ERROR_INVALID_ACCOUNT   ConnectionState = "ERROR_INVALID_ACCOUNT"
 )
 
 // All allowed values of ConnectionState enum
@@ -116,4 +116,3 @@ func (v *NullableConnectionState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

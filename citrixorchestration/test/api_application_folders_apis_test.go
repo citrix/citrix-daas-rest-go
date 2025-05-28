@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersCheckApplicationFolderPathExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var path string
 
@@ -37,7 +38,7 @@ func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersCreateApplicationFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersCreateApplicationFolder(context.Background()).Execute()
 
@@ -49,7 +50,7 @@ func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersDeleteApplicationFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 
@@ -62,7 +63,7 @@ func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersGetApplicationFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 
@@ -76,7 +77,7 @@ func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersGetApplicationFolderApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 
@@ -90,7 +91,7 @@ func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersGetApplicationFolders", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationFoldersAPIsDAAS.ApplicationFoldersGetApplicationFolders(context.Background()).Execute()
 
@@ -102,7 +103,7 @@ func Test_citrixorchestration_ApplicationFoldersAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationFoldersAPIsDAASService ApplicationFoldersUpdateApplicationFolder", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pathOrId string
 

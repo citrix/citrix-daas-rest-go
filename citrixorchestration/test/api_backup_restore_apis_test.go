@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreCreateBackupSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreCreateBackupSchedule(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreDeleteBackup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -49,7 +50,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreDeleteBackupSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -62,7 +63,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreDisableSingleBackupSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -75,7 +76,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreDoBackup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreDoBackup(context.Background()).Execute()
 
@@ -87,7 +88,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreDownloadSingleBackup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -101,7 +102,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreEnableSingleBackupSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -114,7 +115,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetAllBackupHistory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreGetAllBackupHistory(context.Background()).Execute()
 
@@ -126,7 +127,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetBackupHistoryForSpecificHistory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid string
 
@@ -140,7 +141,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetBackupRestoreOptions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreGetBackupRestoreOptions(context.Background()).Execute()
 
@@ -152,7 +153,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetBackupSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -166,7 +167,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetBackupSchedules", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreGetBackupSchedules(context.Background()).Execute()
 
@@ -178,7 +179,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetBackups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreGetBackups(context.Background()).Execute()
 
@@ -190,7 +191,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetBlobStorage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreGetBlobStorage(context.Background()).Execute()
 
@@ -202,7 +203,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetComponentMembers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -216,7 +217,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetCurrentActionStatus", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreGetCurrentActionStatus(context.Background()).Execute()
 
@@ -228,7 +229,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetHistoryForSpecificBackup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -242,7 +243,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetInformation", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreGetInformation(context.Background()).Execute()
 
@@ -254,7 +255,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreGetResultLog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -268,7 +269,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreModifyBackupSchedule", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -282,7 +283,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestorePinSingleBackup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -296,7 +297,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreRestoreBackupToSite", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -310,7 +311,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreSetBackupRestoreOptions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreSetBackupRestoreOptions(context.Background()).Execute()
 
@@ -322,7 +323,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreSetBlobStorage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreSetBlobStorage(context.Background()).Execute()
 
@@ -334,7 +335,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreSetCurrentActionStatus", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreSetCurrentActionStatus(context.Background()).Execute()
 
@@ -346,7 +347,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreUnpinSingleBackup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var backupName string
 
@@ -360,7 +361,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreUpdateBckRstrHistoryNotes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var uid int32
 
@@ -374,7 +375,7 @@ func Test_citrixorchestration_BackupRestoreAPIsDAASService(t *testing.T) {
 
 	t.Run("Test BackupRestoreAPIsDAASService BackupRestoreValidateStorage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.BackupRestoreAPIsDAAS.BackupRestoreValidateStorage(context.Background()).Execute()
 

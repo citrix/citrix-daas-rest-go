@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // ProvisioningSchemesAPIsDAASService ProvisioningSchemesAPIsDAAS service
 type ProvisioningSchemesAPIsDAASService service
 
 type ApiProvisioningSchemesGetMaintenanceCyclesRequest struct {
-	ctx context.Context
-	ApiService *ProvisioningSchemesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ProvisioningSchemesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -91,26 +90,27 @@ func (r ApiProvisioningSchemesGetMaintenanceCyclesRequest) Execute() (*Maintenan
 /*
 ProvisioningSchemesGetMaintenanceCycles Method for ProvisioningSchemesGetMaintenanceCycles
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId
- @return ApiProvisioningSchemesGetMaintenanceCyclesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId
+	@return ApiProvisioningSchemesGetMaintenanceCyclesRequest
 */
 func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCycles(ctx context.Context, nameOrId string) ApiProvisioningSchemesGetMaintenanceCyclesRequest {
 	return ApiProvisioningSchemesGetMaintenanceCyclesRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return MaintenanceCycleResponseModelCollection
+//
+//	@return MaintenanceCycleResponseModelCollection
 func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCyclesExecute(r ApiProvisioningSchemesGetMaintenanceCyclesRequest) (*MaintenanceCycleResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MaintenanceCycleResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *MaintenanceCycleResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProvisioningSchemesAPIsDAASService.ProvisioningSchemesGetMaintenanceCycles")
@@ -211,8 +211,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -222,8 +222,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -233,8 +233,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -244,8 +244,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -255,8 +255,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -266,8 +266,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -277,8 +277,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -288,8 +288,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -307,18 +307,18 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetMaintenanceCy
 }
 
 type ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest struct {
-	ctx context.Context
-	ApiService *ProvisioningSchemesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ProvisioningSchemesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	version *int32
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	version             *int32
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -363,7 +363,7 @@ func (r ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) Citri
 	return r
 }
 
-// The version of provisioning scheme configuration. 
+// The version of provisioning scheme configuration.
 func (r ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) Version(version int32) ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest {
 	r.version = &version
 	return r
@@ -382,26 +382,27 @@ func (r ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) Execu
 /*
 ProvisioningSchemesGetProvisioiningSchemeConfigurations Get provisioning scheme configurations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Provisioning scheme name or id. 
- @return ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Provisioning scheme name or id.
+	@return ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest
 */
 func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioiningSchemeConfigurations(ctx context.Context, nameOrId string) ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest {
 	return ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ProvisioningSchemeConfigurationResponseModelCollection
+//
+//	@return ProvisioningSchemeConfigurationResponseModelCollection
 func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioiningSchemeConfigurationsExecute(r ApiProvisioningSchemesGetProvisioiningSchemeConfigurationsRequest) (*ProvisioningSchemeConfigurationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProvisioningSchemeConfigurationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProvisioningSchemeConfigurationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProvisioningSchemesAPIsDAASService.ProvisioningSchemesGetProvisioiningSchemeConfigurations")
@@ -505,8 +506,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -516,8 +517,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -527,8 +528,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -538,8 +539,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -549,8 +550,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -560,8 +561,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -571,8 +572,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -582,8 +583,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -601,18 +602,18 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetProvisioining
 }
 
 type ApiProvisioningSchemesGetVMConfigurationResultantSetRequest struct {
-	ctx context.Context
-	ApiService *ProvisioningSchemesAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	vmSid string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ProvisioningSchemesAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	vmSid               string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -670,28 +671,29 @@ func (r ApiProvisioningSchemesGetVMConfigurationResultantSetRequest) Execute() (
 /*
 ProvisioningSchemesGetVMConfigurationResultantSet Provides the ability get the resultant configuration properties for virtual machine created using Machine Creation Services. This merges properties at the provisioning scheme level with those set on a machine with Set-ProvVM specifically.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Provisioning scheme name or id.
- @param vmSid Virtual machine SID.
- @return ApiProvisioningSchemesGetVMConfigurationResultantSetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Provisioning scheme name or id.
+	@param vmSid Virtual machine SID.
+	@return ApiProvisioningSchemesGetVMConfigurationResultantSetRequest
 */
 func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurationResultantSet(ctx context.Context, nameOrId string, vmSid string) ApiProvisioningSchemesGetVMConfigurationResultantSetRequest {
 	return ApiProvisioningSchemesGetVMConfigurationResultantSetRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
-		vmSid: vmSid,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
+		vmSid:      vmSid,
 	}
 }
 
 // Execute executes the request
-//  @return ProvisionedVirtualMachineConfigurationResultantSetResponseModel
+//
+//	@return ProvisionedVirtualMachineConfigurationResultantSetResponseModel
 func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurationResultantSetExecute(r ApiProvisioningSchemesGetVMConfigurationResultantSetRequest) (*ProvisionedVirtualMachineConfigurationResultantSetResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProvisionedVirtualMachineConfigurationResultantSetResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProvisionedVirtualMachineConfigurationResultantSetResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ProvisioningSchemesAPIsDAASService.ProvisioningSchemesGetVMConfigurationResultantSet")
@@ -793,8 +795,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -804,8 +806,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -815,8 +817,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -826,8 +828,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -837,8 +839,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -848,8 +850,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -859,8 +861,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -870,8 +872,8 @@ func (a *ProvisioningSchemesAPIsDAASService) ProvisioningSchemesGetVMConfigurati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

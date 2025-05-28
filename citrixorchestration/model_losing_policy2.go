@@ -110,6 +110,7 @@ func (o *LosingPolicy2) HasPolicyName() bool {
 func (o *LosingPolicy2) SetPolicyName(v string) {
 	o.PolicyName.Set(&v)
 }
+
 // SetPolicyNameNil sets the value for PolicyName to be an explicit nil
 func (o *LosingPolicy2) SetPolicyNameNil() {
 	o.PolicyName.Set(nil)
@@ -186,7 +187,7 @@ func (o *LosingPolicy2) SetSettings(v []WonOverBy2) {
 }
 
 func (o LosingPolicy2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -245,5 +246,3 @@ func (v *NullableLosingPolicy2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

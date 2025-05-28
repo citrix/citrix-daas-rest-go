@@ -81,6 +81,7 @@ func (o *HypervisorSecurityGroupRuleResponseModel) HasFromPort() bool {
 func (o *HypervisorSecurityGroupRuleResponseModel) SetFromPort(v float32) {
 	o.FromPort.Set(&v)
 }
+
 // SetFromPortNil sets the value for FromPort to be an explicit nil
 func (o *HypervisorSecurityGroupRuleResponseModel) SetFromPortNil() {
 	o.FromPort.Set(nil)
@@ -213,6 +214,7 @@ func (o *HypervisorSecurityGroupRuleResponseModel) HasToPort() bool {
 func (o *HypervisorSecurityGroupRuleResponseModel) SetToPort(v float32) {
 	o.ToPort.Set(&v)
 }
+
 // SetToPortNil sets the value for ToPort to be an explicit nil
 func (o *HypervisorSecurityGroupRuleResponseModel) SetToPortNil() {
 	o.ToPort.Set(nil)
@@ -224,7 +226,7 @@ func (o *HypervisorSecurityGroupRuleResponseModel) UnsetToPort() {
 }
 
 func (o HypervisorSecurityGroupRuleResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -284,5 +286,3 @@ func (v *NullableHypervisorSecurityGroupRuleResponseModel) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

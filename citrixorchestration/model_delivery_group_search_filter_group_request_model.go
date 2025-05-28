@@ -21,8 +21,8 @@ var _ MappedNullable = &DeliveryGroupSearchFilterGroupRequestModel{}
 type DeliveryGroupSearchFilterGroupRequestModel struct {
 	SearchFilterGroupType *DeliveryGroupSearchFilterGroupType `json:"SearchFilterGroupType,omitempty"`
 	// The search filters in search filter group
-	SearchFilters []DeliveryGroupSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SearchFilterGroupsType *DeliveryGroupSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilters          []DeliveryGroupSearchFilterRequestModel `json:"SearchFilters,omitempty"`
+	SearchFilterGroupsType *DeliveryGroupSearchFilterGroupsType    `json:"SearchFilterGroupsType,omitempty"`
 	// The search filter group in search filter groups
 	SearchFilterGroups []DeliveryGroupSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
 }
@@ -175,7 +175,7 @@ func (o *DeliveryGroupSearchFilterGroupRequestModel) SetSearchFilterGroups(v []D
 }
 
 func (o DeliveryGroupSearchFilterGroupRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +234,3 @@ func (v *NullableDeliveryGroupSearchFilterGroupRequestModel) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

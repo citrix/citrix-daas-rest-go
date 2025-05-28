@@ -20,32 +20,32 @@ type MachineCatalogWarningSubtype string
 
 // List of MachineCatalogWarningSubtype
 const (
-	MACHINECATALOGWARNINGSUBTYPE_UNKNOWN MachineCatalogWarningSubtype = "Unknown"
-	MACHINECATALOGWARNINGSUBTYPE_NO_WARNING MachineCatalogWarningSubtype = "NoWarning"
-	MACHINECATALOGWARNINGSUBTYPE_NO_POWERED_ON_VM MachineCatalogWarningSubtype = "NoPoweredOnVm"
-	MACHINECATALOGWARNINGSUBTYPE_LICENSING_TYPE_NOT_CONFIGURED MachineCatalogWarningSubtype = "LicensingTypeNotConfigured"
-	MACHINECATALOGWARNINGSUBTYPE_CHECK_NOT_SUPPORTED MachineCatalogWarningSubtype = "CheckNotSupported"
-	MACHINECATALOGWARNINGSUBTYPE_CHECK_NOT_COMPLETED MachineCatalogWarningSubtype = "CheckNotCompleted"
-	MACHINECATALOGWARNINGSUBTYPE_CHECK_FAILED MachineCatalogWarningSubtype = "CheckFailed"
-	MACHINECATALOGWARNINGSUBTYPE_NO_NEW_RDS_CONNECTIONS_ALLOWED MachineCatalogWarningSubtype = "NoNewRdsConnectionsAllowed"
-	MACHINECATALOGWARNINGSUBTYPE_OUT_OF_GRACE_PERIOD MachineCatalogWarningSubtype = "OutOfGracePeriod"
-	MACHINECATALOGWARNINGSUBTYPE_PERSONAL_TERMINAL_SERVER MachineCatalogWarningSubtype = "PersonalTerminalServer"
-	MACHINECATALOGWARNINGSUBTYPE_REMOTE_DESKTOP_FOR_ADMINISTRATION MachineCatalogWarningSubtype = "RemoteDesktopForAdministration"
-	MACHINECATALOGWARNINGSUBTYPE_PER_USER_ALLOWED MachineCatalogWarningSubtype = "PerUserAllowed"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_NO_LICENSE_SERVER MachineCatalogWarningSubtype = "PerDeviceNoLicenseServer"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_INCOMPATIBLE_LICENSE_SERVER MachineCatalogWarningSubtype = "PerDeviceIncompatibleLicenseServer"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_NO_REQUIRED_LICENSE_SERVER MachineCatalogWarningSubtype = "PerDeviceNoRequiredLicenseServer"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_NO_CAL_AND_NO_LICENSE_SERVER MachineCatalogWarningSubtype = "PerDeviceNoCalAndNoLicenseServer"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_ISSUE_MARKED_TEMPORARY_LICENSE MachineCatalogWarningSubtype = "PerDeviceIssueMarkedTemporaryLicense"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_UNMARKED_TEMPORARY_LICENSE MachineCatalogWarningSubtype = "PerDeviceUnmarkedTemporaryLicense"
+	MACHINECATALOGWARNINGSUBTYPE_UNKNOWN                                             MachineCatalogWarningSubtype = "Unknown"
+	MACHINECATALOGWARNINGSUBTYPE_NO_WARNING                                          MachineCatalogWarningSubtype = "NoWarning"
+	MACHINECATALOGWARNINGSUBTYPE_NO_POWERED_ON_VM                                    MachineCatalogWarningSubtype = "NoPoweredOnVm"
+	MACHINECATALOGWARNINGSUBTYPE_LICENSING_TYPE_NOT_CONFIGURED                       MachineCatalogWarningSubtype = "LicensingTypeNotConfigured"
+	MACHINECATALOGWARNINGSUBTYPE_CHECK_NOT_SUPPORTED                                 MachineCatalogWarningSubtype = "CheckNotSupported"
+	MACHINECATALOGWARNINGSUBTYPE_CHECK_NOT_COMPLETED                                 MachineCatalogWarningSubtype = "CheckNotCompleted"
+	MACHINECATALOGWARNINGSUBTYPE_CHECK_FAILED                                        MachineCatalogWarningSubtype = "CheckFailed"
+	MACHINECATALOGWARNINGSUBTYPE_NO_NEW_RDS_CONNECTIONS_ALLOWED                      MachineCatalogWarningSubtype = "NoNewRdsConnectionsAllowed"
+	MACHINECATALOGWARNINGSUBTYPE_OUT_OF_GRACE_PERIOD                                 MachineCatalogWarningSubtype = "OutOfGracePeriod"
+	MACHINECATALOGWARNINGSUBTYPE_PERSONAL_TERMINAL_SERVER                            MachineCatalogWarningSubtype = "PersonalTerminalServer"
+	MACHINECATALOGWARNINGSUBTYPE_REMOTE_DESKTOP_FOR_ADMINISTRATION                   MachineCatalogWarningSubtype = "RemoteDesktopForAdministration"
+	MACHINECATALOGWARNINGSUBTYPE_PER_USER_ALLOWED                                    MachineCatalogWarningSubtype = "PerUserAllowed"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_NO_LICENSE_SERVER                        MachineCatalogWarningSubtype = "PerDeviceNoLicenseServer"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_INCOMPATIBLE_LICENSE_SERVER              MachineCatalogWarningSubtype = "PerDeviceIncompatibleLicenseServer"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_NO_REQUIRED_LICENSE_SERVER               MachineCatalogWarningSubtype = "PerDeviceNoRequiredLicenseServer"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_NO_CAL_AND_NO_LICENSE_SERVER             MachineCatalogWarningSubtype = "PerDeviceNoCalAndNoLicenseServer"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_ISSUE_MARKED_TEMPORARY_LICENSE           MachineCatalogWarningSubtype = "PerDeviceIssueMarkedTemporaryLicense"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_UNMARKED_TEMPORARY_LICENSE               MachineCatalogWarningSubtype = "PerDeviceUnmarkedTemporaryLicense"
 	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_UNEXPIRED_TEMPORARY_LICENSE_NOT_UPGRADED MachineCatalogWarningSubtype = "PerDeviceUnexpiredTemporaryLicenseNotUpgraded"
 	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_USE_UNEXPIRED_UNMARKED_TEMPORARY_LICENSE MachineCatalogWarningSubtype = "PerDeviceUseUnexpiredUnmarkedTemporaryLicense"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_EXPIRED_TEMPORARY_LICENSE_NOT_UPGRADED MachineCatalogWarningSubtype = "PerDeviceExpiredTemporaryLicenseNotUpgraded"
-	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_EXPIRED_UNMARKED_TEMPORARY_LICENSE MachineCatalogWarningSubtype = "PerDeviceExpiredUnmarkedTemporaryLicense"
-	MACHINECATALOGWARNINGSUBTYPE_MACHINE_VDA_UPGRADE_FAILED MachineCatalogWarningSubtype = "MachineVdaUpgradeFailed"
-	MACHINECATALOGWARNINGSUBTYPE_AZURE_AD_JOIN_UNSUPPORTED_OS_VERSION MachineCatalogWarningSubtype = "AzureADJoinUnsupportedOsVersion"
-	MACHINECATALOGWARNINGSUBTYPE_HYBRID_AZURE_AD_JOIN_UNSUPPORTED_OS_VERSION MachineCatalogWarningSubtype = "HybridAzureADJoinUnsupportedOsVersion"
-	MACHINECATALOGWARNINGSUBTYPE_MICROSOFT_INTUNE_ENROLLMENT_UNSUPPORTED_OS_VERSION MachineCatalogWarningSubtype = "MicrosoftIntuneEnrollmentUnsupportedOsVersion"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_EXPIRED_TEMPORARY_LICENSE_NOT_UPGRADED   MachineCatalogWarningSubtype = "PerDeviceExpiredTemporaryLicenseNotUpgraded"
+	MACHINECATALOGWARNINGSUBTYPE_PER_DEVICE_EXPIRED_UNMARKED_TEMPORARY_LICENSE       MachineCatalogWarningSubtype = "PerDeviceExpiredUnmarkedTemporaryLicense"
+	MACHINECATALOGWARNINGSUBTYPE_MACHINE_VDA_UPGRADE_FAILED                          MachineCatalogWarningSubtype = "MachineVdaUpgradeFailed"
+	MACHINECATALOGWARNINGSUBTYPE_AZURE_AD_JOIN_UNSUPPORTED_OS_VERSION                MachineCatalogWarningSubtype = "AzureADJoinUnsupportedOsVersion"
+	MACHINECATALOGWARNINGSUBTYPE_HYBRID_AZURE_AD_JOIN_UNSUPPORTED_OS_VERSION         MachineCatalogWarningSubtype = "HybridAzureADJoinUnsupportedOsVersion"
+	MACHINECATALOGWARNINGSUBTYPE_MICROSOFT_INTUNE_ENROLLMENT_UNSUPPORTED_OS_VERSION  MachineCatalogWarningSubtype = "MicrosoftIntuneEnrollmentUnsupportedOsVersion"
 )
 
 // All allowed values of MachineCatalogWarningSubtype enum
@@ -84,7 +84,7 @@ func (v *MachineCatalogWarningSubtype) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineCatalogWarningSubtype(value)
 	return nil
 }
@@ -150,4 +150,3 @@ func (v *NullableMachineCatalogWarningSubtype) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

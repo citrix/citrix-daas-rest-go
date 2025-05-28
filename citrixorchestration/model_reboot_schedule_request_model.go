@@ -24,12 +24,12 @@ type RebootScheduleRequestModel struct {
 	// A friendly name for the reboot schedule.
 	Name NullableString `json:"Name,omitempty"`
 	// Approximate maximum number of minutes over which the scheduled reboot cycle runs.
-	RebootDurationMinutes NullableInt32 `json:"RebootDurationMinutes,omitempty"`
-	Day *RebootScheduleDays `json:"Day,omitempty"`
+	RebootDurationMinutes NullableInt32       `json:"RebootDurationMinutes,omitempty"`
+	Day                   *RebootScheduleDays `json:"Day,omitempty"`
 	// For weekly cycles, days of the week on which the scheduled reboot cycle starts.
-	DaysInWeek []RebootScheduleDays `json:"DaysInWeek,omitempty"`
+	DaysInWeek  []RebootScheduleDays `json:"DaysInWeek,omitempty"`
 	WeekInMonth *RebootScheduleWeeks `json:"WeekInMonth,omitempty"`
-	DayInMonth *RebootScheduleDays `json:"DayInMonth,omitempty"`
+	DayInMonth  *RebootScheduleDays  `json:"DayInMonth,omitempty"`
 	// An optional description for the reboot schedule.
 	Description NullableString `json:"Description,omitempty"`
 	// Indicates whether the reboot schedule is enabled.
@@ -37,8 +37,8 @@ type RebootScheduleRequestModel struct {
 	// Indicates whether the reboot schedule is active for maintained machines.
 	IgnoreMaintenanceMode NullableBool `json:"IgnoreMaintenanceMode,omitempty"`
 	// Indicates whether the reboot will be a natural reboot, where the machines will be rebooted when they have no sessions. Once UseNaturalReboot is set to true, RebootDurationMinutes won't have any effect.
-	UseNaturalReboot NullableBool `json:"UseNaturalReboot,omitempty"`
-	Frequency *RebootScheduleFrequency `json:"Frequency,omitempty"`
+	UseNaturalReboot NullableBool             `json:"UseNaturalReboot,omitempty"`
+	Frequency        *RebootScheduleFrequency `json:"Frequency,omitempty"`
 	// The frequency factor for the schedule.
 	FrequencyFactor NullableInt32 `json:"FrequencyFactor,omitempty"`
 	// If set, the reboot schedule only applies to machines in the delivery group with the specified tag.
@@ -106,6 +106,7 @@ func (o *RebootScheduleRequestModel) HasId() bool {
 func (o *RebootScheduleRequestModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *RebootScheduleRequestModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -148,6 +149,7 @@ func (o *RebootScheduleRequestModel) HasName() bool {
 func (o *RebootScheduleRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *RebootScheduleRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -190,6 +192,7 @@ func (o *RebootScheduleRequestModel) HasRebootDurationMinutes() bool {
 func (o *RebootScheduleRequestModel) SetRebootDurationMinutes(v int32) {
 	o.RebootDurationMinutes.Set(&v)
 }
+
 // SetRebootDurationMinutesNil sets the value for RebootDurationMinutes to be an explicit nil
 func (o *RebootScheduleRequestModel) SetRebootDurationMinutesNil() {
 	o.RebootDurationMinutes.Set(nil)
@@ -361,6 +364,7 @@ func (o *RebootScheduleRequestModel) HasDescription() bool {
 func (o *RebootScheduleRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *RebootScheduleRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -403,6 +407,7 @@ func (o *RebootScheduleRequestModel) HasEnabled() bool {
 func (o *RebootScheduleRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *RebootScheduleRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -445,6 +450,7 @@ func (o *RebootScheduleRequestModel) HasIgnoreMaintenanceMode() bool {
 func (o *RebootScheduleRequestModel) SetIgnoreMaintenanceMode(v bool) {
 	o.IgnoreMaintenanceMode.Set(&v)
 }
+
 // SetIgnoreMaintenanceModeNil sets the value for IgnoreMaintenanceMode to be an explicit nil
 func (o *RebootScheduleRequestModel) SetIgnoreMaintenanceModeNil() {
 	o.IgnoreMaintenanceMode.Set(nil)
@@ -487,6 +493,7 @@ func (o *RebootScheduleRequestModel) HasUseNaturalReboot() bool {
 func (o *RebootScheduleRequestModel) SetUseNaturalReboot(v bool) {
 	o.UseNaturalReboot.Set(&v)
 }
+
 // SetUseNaturalRebootNil sets the value for UseNaturalReboot to be an explicit nil
 func (o *RebootScheduleRequestModel) SetUseNaturalRebootNil() {
 	o.UseNaturalReboot.Set(nil)
@@ -561,6 +568,7 @@ func (o *RebootScheduleRequestModel) HasFrequencyFactor() bool {
 func (o *RebootScheduleRequestModel) SetFrequencyFactor(v int32) {
 	o.FrequencyFactor.Set(&v)
 }
+
 // SetFrequencyFactorNil sets the value for FrequencyFactor to be an explicit nil
 func (o *RebootScheduleRequestModel) SetFrequencyFactorNil() {
 	o.FrequencyFactor.Set(nil)
@@ -603,6 +611,7 @@ func (o *RebootScheduleRequestModel) HasRestrictToTag() bool {
 func (o *RebootScheduleRequestModel) SetRestrictToTag(v string) {
 	o.RestrictToTag.Set(&v)
 }
+
 // SetRestrictToTagNil sets the value for RestrictToTag to be an explicit nil
 func (o *RebootScheduleRequestModel) SetRestrictToTagNil() {
 	o.RestrictToTag.Set(nil)
@@ -645,6 +654,7 @@ func (o *RebootScheduleRequestModel) HasStartDate() bool {
 func (o *RebootScheduleRequestModel) SetStartDate(v string) {
 	o.StartDate.Set(&v)
 }
+
 // SetStartDateNil sets the value for StartDate to be an explicit nil
 func (o *RebootScheduleRequestModel) SetStartDateNil() {
 	o.StartDate.Set(nil)
@@ -687,6 +697,7 @@ func (o *RebootScheduleRequestModel) HasStartTime() bool {
 func (o *RebootScheduleRequestModel) SetStartTime(v string) {
 	o.StartTime.Set(&v)
 }
+
 // SetStartTimeNil sets the value for StartTime to be an explicit nil
 func (o *RebootScheduleRequestModel) SetStartTimeNil() {
 	o.StartTime.Set(nil)
@@ -729,6 +740,7 @@ func (o *RebootScheduleRequestModel) HasWarningDurationMinutes() bool {
 func (o *RebootScheduleRequestModel) SetWarningDurationMinutes(v int32) {
 	o.WarningDurationMinutes.Set(&v)
 }
+
 // SetWarningDurationMinutesNil sets the value for WarningDurationMinutes to be an explicit nil
 func (o *RebootScheduleRequestModel) SetWarningDurationMinutesNil() {
 	o.WarningDurationMinutes.Set(nil)
@@ -771,6 +783,7 @@ func (o *RebootScheduleRequestModel) HasWarningMessage() bool {
 func (o *RebootScheduleRequestModel) SetWarningMessage(v string) {
 	o.WarningMessage.Set(&v)
 }
+
 // SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
 func (o *RebootScheduleRequestModel) SetWarningMessageNil() {
 	o.WarningMessage.Set(nil)
@@ -813,6 +826,7 @@ func (o *RebootScheduleRequestModel) HasWarningRepeatIntervalMinutes() bool {
 func (o *RebootScheduleRequestModel) SetWarningRepeatIntervalMinutes(v int32) {
 	o.WarningRepeatIntervalMinutes.Set(&v)
 }
+
 // SetWarningRepeatIntervalMinutesNil sets the value for WarningRepeatIntervalMinutes to be an explicit nil
 func (o *RebootScheduleRequestModel) SetWarningRepeatIntervalMinutesNil() {
 	o.WarningRepeatIntervalMinutes.Set(nil)
@@ -855,6 +869,7 @@ func (o *RebootScheduleRequestModel) HasWarningTitle() bool {
 func (o *RebootScheduleRequestModel) SetWarningTitle(v string) {
 	o.WarningTitle.Set(&v)
 }
+
 // SetWarningTitleNil sets the value for WarningTitle to be an explicit nil
 func (o *RebootScheduleRequestModel) SetWarningTitleNil() {
 	o.WarningTitle.Set(nil)
@@ -866,7 +881,7 @@ func (o *RebootScheduleRequestModel) UnsetWarningTitle() {
 }
 
 func (o RebootScheduleRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -973,5 +988,3 @@ func (v *NullableRebootScheduleRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

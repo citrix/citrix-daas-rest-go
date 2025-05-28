@@ -20,32 +20,32 @@ type SearchOperator string
 
 // List of SearchOperator
 const (
-	SEARCHOPERATOR_EQUALS SearchOperator = "Equals"
-	SEARCHOPERATOR_NOT_EQUALS SearchOperator = "NotEquals"
-	SEARCHOPERATOR_LESS_THAN SearchOperator = "LessThan"
-	SEARCHOPERATOR_GREATER_THAN SearchOperator = "GreaterThan"
-	SEARCHOPERATOR_LESS_THAN_OR_EQUALS SearchOperator = "LessThanOrEquals"
-	SEARCHOPERATOR_GREATER_THAN_OR_EQUALS SearchOperator = "GreaterThanOrEquals"
-	SEARCHOPERATOR_LIKE SearchOperator = "Like"
-	SEARCHOPERATOR_NOT_LIKE SearchOperator = "NotLike"
-	SEARCHOPERATOR_ENDS_WITH SearchOperator = "EndsWith"
-	SEARCHOPERATOR_NOT_ENDS_WITH SearchOperator = "NotEndsWith"
-	SEARCHOPERATOR_STARTS_WITH SearchOperator = "StartsWith"
-	SEARCHOPERATOR_NOT_STARTS_WITH SearchOperator = "NotStartsWith"
-	SEARCHOPERATOR_ANY SearchOperator = "Any"
-	SEARCHOPERATOR_NONE SearchOperator = "None"
-	SEARCHOPERATOR_CONTAINS SearchOperator = "Contains"
-	SEARCHOPERATOR_NOT_CONTAINS SearchOperator = "NotContains"
-	SEARCHOPERATOR_CONTAINS_LIKE SearchOperator = "ContainsLike"
-	SEARCHOPERATOR_NOT_CONTAINS_LIKE SearchOperator = "NotContainsLike"
-	SEARCHOPERATOR_CONTAINS_ENDS_WITH SearchOperator = "ContainsEndsWith"
-	SEARCHOPERATOR_NOT_CONTAINS_ENDS_WITH SearchOperator = "NotContainsEndsWith"
-	SEARCHOPERATOR_CONTAINS_STARTS_WITH SearchOperator = "ContainsStartsWith"
+	SEARCHOPERATOR_EQUALS                   SearchOperator = "Equals"
+	SEARCHOPERATOR_NOT_EQUALS               SearchOperator = "NotEquals"
+	SEARCHOPERATOR_LESS_THAN                SearchOperator = "LessThan"
+	SEARCHOPERATOR_GREATER_THAN             SearchOperator = "GreaterThan"
+	SEARCHOPERATOR_LESS_THAN_OR_EQUALS      SearchOperator = "LessThanOrEquals"
+	SEARCHOPERATOR_GREATER_THAN_OR_EQUALS   SearchOperator = "GreaterThanOrEquals"
+	SEARCHOPERATOR_LIKE                     SearchOperator = "Like"
+	SEARCHOPERATOR_NOT_LIKE                 SearchOperator = "NotLike"
+	SEARCHOPERATOR_ENDS_WITH                SearchOperator = "EndsWith"
+	SEARCHOPERATOR_NOT_ENDS_WITH            SearchOperator = "NotEndsWith"
+	SEARCHOPERATOR_STARTS_WITH              SearchOperator = "StartsWith"
+	SEARCHOPERATOR_NOT_STARTS_WITH          SearchOperator = "NotStartsWith"
+	SEARCHOPERATOR_ANY                      SearchOperator = "Any"
+	SEARCHOPERATOR_NONE                     SearchOperator = "None"
+	SEARCHOPERATOR_CONTAINS                 SearchOperator = "Contains"
+	SEARCHOPERATOR_NOT_CONTAINS             SearchOperator = "NotContains"
+	SEARCHOPERATOR_CONTAINS_LIKE            SearchOperator = "ContainsLike"
+	SEARCHOPERATOR_NOT_CONTAINS_LIKE        SearchOperator = "NotContainsLike"
+	SEARCHOPERATOR_CONTAINS_ENDS_WITH       SearchOperator = "ContainsEndsWith"
+	SEARCHOPERATOR_NOT_CONTAINS_ENDS_WITH   SearchOperator = "NotContainsEndsWith"
+	SEARCHOPERATOR_CONTAINS_STARTS_WITH     SearchOperator = "ContainsStartsWith"
 	SEARCHOPERATOR_NOT_CONTAINS_STARTS_WITH SearchOperator = "NotContainsStartsWith"
-	SEARCHOPERATOR_IN SearchOperator = "In"
-	SEARCHOPERATOR_NOT_IN SearchOperator = "NotIn"
-	SEARCHOPERATOR_IS_WITHIN SearchOperator = "IsWithin"
-	SEARCHOPERATOR_IS_NOT_WITHIN SearchOperator = "IsNotWithin"
+	SEARCHOPERATOR_IN                       SearchOperator = "In"
+	SEARCHOPERATOR_NOT_IN                   SearchOperator = "NotIn"
+	SEARCHOPERATOR_IS_WITHIN                SearchOperator = "IsWithin"
+	SEARCHOPERATOR_IS_NOT_WITHIN            SearchOperator = "IsNotWithin"
 )
 
 // All allowed values of SearchOperator enum
@@ -84,7 +84,7 @@ func (v *SearchOperator) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SearchOperator(value)
 	return nil
 }
@@ -150,4 +150,3 @@ func (v *NullableSearchOperator) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

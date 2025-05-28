@@ -142,6 +142,7 @@ func (o *HypervisorResourcePricesResponseModel) HasWarningMessage() bool {
 func (o *HypervisorResourcePricesResponseModel) SetWarningMessage(v string) {
 	o.WarningMessage.Set(&v)
 }
+
 // SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
 func (o *HypervisorResourcePricesResponseModel) SetWarningMessageNil() {
 	o.WarningMessage.Set(nil)
@@ -153,7 +154,7 @@ func (o *HypervisorResourcePricesResponseModel) UnsetWarningMessage() {
 }
 
 func (o HypervisorResourcePricesResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -209,5 +210,3 @@ func (v *NullableHypervisorResourcePricesResponseModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

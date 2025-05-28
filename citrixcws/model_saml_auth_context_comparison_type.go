@@ -20,7 +20,7 @@ type SamlAuthContextComparisonType string
 
 // List of SamlAuthContextComparisonType
 const (
-	SAMLAUTHCONTEXTCOMPARISONTYPE_EXACT SamlAuthContextComparisonType = "Exact"
+	SAMLAUTHCONTEXTCOMPARISONTYPE_EXACT   SamlAuthContextComparisonType = "Exact"
 	SAMLAUTHCONTEXTCOMPARISONTYPE_MINIMUM SamlAuthContextComparisonType = "Minimum"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableSamlAuthContextComparisonType) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

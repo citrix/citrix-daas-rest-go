@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
-**TaskType** | Pointer to [**TaskType**](TaskType.md) |  | [optional] 
+**AccountType** | [**AccountType**](AccountType.md) | The type of provider associated with the account | 
+**TaskType** | Pointer to [**TaskType**](TaskType.md) | Task type | [optional] 
 **TaskId** | Pointer to **NullableString** | Task Id | [optional] 
 
 ## Methods

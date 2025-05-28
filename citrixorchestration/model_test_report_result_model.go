@@ -35,7 +35,7 @@ type TestReportResultModel struct {
 	TestServiceTarget NullableString `json:"TestServiceTarget,omitempty"`
 	// Gets or sets the overall status of this test run.  If the test was run against more than one controller, it is the result of or'ing together of the statuses of each component result.
 	TestComponentStatus NullableString `json:"TestComponentStatus,omitempty"`
-	TestScope *TestScope `json:"TestScope,omitempty"`
+	TestScope           *TestScope     `json:"TestScope,omitempty"`
 	// Gets or sets the list of component results. Each machine that the test is run against will be represented by a component result and their statuses aggregated into TestComponentStatus
 	TestComponents []TestComponentResultModel `json:"TestComponents,omitempty"`
 }
@@ -89,6 +89,7 @@ func (o *TestReportResultModel) HasTestName() bool {
 func (o *TestReportResultModel) SetTestName(v string) {
 	o.TestName.Set(&v)
 }
+
 // SetTestNameNil sets the value for TestName to be an explicit nil
 func (o *TestReportResultModel) SetTestNameNil() {
 	o.TestName.Set(nil)
@@ -131,6 +132,7 @@ func (o *TestReportResultModel) HasTestDescription() bool {
 func (o *TestReportResultModel) SetTestDescription(v string) {
 	o.TestDescription.Set(&v)
 }
+
 // SetTestDescriptionNil sets the value for TestDescription to be an explicit nil
 func (o *TestReportResultModel) SetTestDescriptionNil() {
 	o.TestDescription.Set(nil)
@@ -173,6 +175,7 @@ func (o *TestReportResultModel) HasTestStartTime() bool {
 func (o *TestReportResultModel) SetTestStartTime(v string) {
 	o.TestStartTime.Set(&v)
 }
+
 // SetTestStartTimeNil sets the value for TestStartTime to be an explicit nil
 func (o *TestReportResultModel) SetTestStartTimeNil() {
 	o.TestStartTime.Set(nil)
@@ -215,6 +218,7 @@ func (o *TestReportResultModel) HasFormattedTestStartTime() bool {
 func (o *TestReportResultModel) SetFormattedTestStartTime(v string) {
 	o.FormattedTestStartTime.Set(&v)
 }
+
 // SetFormattedTestStartTimeNil sets the value for FormattedTestStartTime to be an explicit nil
 func (o *TestReportResultModel) SetFormattedTestStartTimeNil() {
 	o.FormattedTestStartTime.Set(nil)
@@ -257,6 +261,7 @@ func (o *TestReportResultModel) HasTestEndTime() bool {
 func (o *TestReportResultModel) SetTestEndTime(v string) {
 	o.TestEndTime.Set(&v)
 }
+
 // SetTestEndTimeNil sets the value for TestEndTime to be an explicit nil
 func (o *TestReportResultModel) SetTestEndTimeNil() {
 	o.TestEndTime.Set(nil)
@@ -299,6 +304,7 @@ func (o *TestReportResultModel) HasFormattedTestEndTime() bool {
 func (o *TestReportResultModel) SetFormattedTestEndTime(v string) {
 	o.FormattedTestEndTime.Set(&v)
 }
+
 // SetFormattedTestEndTimeNil sets the value for FormattedTestEndTime to be an explicit nil
 func (o *TestReportResultModel) SetFormattedTestEndTimeNil() {
 	o.FormattedTestEndTime.Set(nil)
@@ -341,6 +347,7 @@ func (o *TestReportResultModel) HasTestServiceTarget() bool {
 func (o *TestReportResultModel) SetTestServiceTarget(v string) {
 	o.TestServiceTarget.Set(&v)
 }
+
 // SetTestServiceTargetNil sets the value for TestServiceTarget to be an explicit nil
 func (o *TestReportResultModel) SetTestServiceTargetNil() {
 	o.TestServiceTarget.Set(nil)
@@ -383,6 +390,7 @@ func (o *TestReportResultModel) HasTestComponentStatus() bool {
 func (o *TestReportResultModel) SetTestComponentStatus(v string) {
 	o.TestComponentStatus.Set(&v)
 }
+
 // SetTestComponentStatusNil sets the value for TestComponentStatus to be an explicit nil
 func (o *TestReportResultModel) SetTestComponentStatusNil() {
 	o.TestComponentStatus.Set(nil)
@@ -459,7 +467,7 @@ func (o *TestReportResultModel) SetTestComponents(v []TestComponentResultModel) 
 }
 
 func (o TestReportResultModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -536,5 +544,3 @@ func (v *NullableTestReportResultModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

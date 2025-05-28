@@ -20,11 +20,11 @@ type IdentityType string
 
 // List of IdentityType
 const (
-	IDENTITYTYPE_UNKNOWN IdentityType = "Unknown"
+	IDENTITYTYPE_UNKNOWN          IdentityType = "Unknown"
 	IDENTITYTYPE_ACTIVE_DIRECTORY IdentityType = "ActiveDirectory"
-	IDENTITYTYPE_WORKGROUP IdentityType = "Workgroup"
-	IDENTITYTYPE_HYBRID_AZURE_AD IdentityType = "HybridAzureAD"
-	IDENTITYTYPE_AZURE_AD IdentityType = "AzureAD"
+	IDENTITYTYPE_WORKGROUP        IdentityType = "Workgroup"
+	IDENTITYTYPE_HYBRID_AZURE_AD  IdentityType = "HybridAzureAD"
+	IDENTITYTYPE_AZURE_AD         IdentityType = "AzureAD"
 )
 
 // All allowed values of IdentityType enum
@@ -42,7 +42,7 @@ func (v *IdentityType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = IdentityType(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableIdentityType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

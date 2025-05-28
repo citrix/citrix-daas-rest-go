@@ -19,7 +19,7 @@ var _ MappedNullable = &ErrorResponseParameters{}
 
 // ErrorResponseParameters struct for ErrorResponseParameters
 type ErrorResponseParameters struct {
-	Key NullableString `json:"key,omitempty"`
+	Key   NullableString `json:"key,omitempty"`
 	Value NullableString `json:"value,omitempty"`
 }
 
@@ -72,6 +72,7 @@ func (o *ErrorResponseParameters) HasKey() bool {
 func (o *ErrorResponseParameters) SetKey(v string) {
 	o.Key.Set(&v)
 }
+
 // SetKeyNil sets the value for Key to be an explicit nil
 func (o *ErrorResponseParameters) SetKeyNil() {
 	o.Key.Set(nil)
@@ -114,6 +115,7 @@ func (o *ErrorResponseParameters) HasValue() bool {
 func (o *ErrorResponseParameters) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *ErrorResponseParameters) SetValueNil() {
 	o.Value.Set(nil)
@@ -125,7 +127,7 @@ func (o *ErrorResponseParameters) UnsetValue() {
 }
 
 func (o ErrorResponseParameters) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableErrorResponseParameters) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

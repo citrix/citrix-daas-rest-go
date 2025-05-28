@@ -107,6 +107,7 @@ func (o *SendMessageRequestModel) HasTitle() bool {
 func (o *SendMessageRequestModel) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *SendMessageRequestModel) SetTitleNil() {
 	o.Title.Set(nil)
@@ -149,6 +150,7 @@ func (o *SendMessageRequestModel) HasText() bool {
 func (o *SendMessageRequestModel) SetText(v string) {
 	o.Text.Set(&v)
 }
+
 // SetTextNil sets the value for Text to be an explicit nil
 func (o *SendMessageRequestModel) SetTextNil() {
 	o.Text.Set(nil)
@@ -160,7 +162,7 @@ func (o *SendMessageRequestModel) UnsetText() {
 }
 
 func (o SendMessageRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,5 +218,3 @@ func (v *NullableSendMessageRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

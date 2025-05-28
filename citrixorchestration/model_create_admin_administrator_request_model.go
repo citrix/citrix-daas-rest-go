@@ -80,6 +80,7 @@ func (o *CreateAdminAdministratorRequestModel) HasUser() bool {
 func (o *CreateAdminAdministratorRequestModel) SetUser(v string) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *CreateAdminAdministratorRequestModel) SetUserNil() {
 	o.User.Set(nil)
@@ -155,6 +156,7 @@ func (o *CreateAdminAdministratorRequestModel) HasEnabled() bool {
 func (o *CreateAdminAdministratorRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *CreateAdminAdministratorRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -166,7 +168,7 @@ func (o *CreateAdminAdministratorRequestModel) UnsetEnabled() {
 }
 
 func (o CreateAdminAdministratorRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -222,5 +224,3 @@ func (v *NullableCreateAdminAdministratorRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

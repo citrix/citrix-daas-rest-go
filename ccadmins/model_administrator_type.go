@@ -20,9 +20,9 @@ type AdministratorType string
 
 // List of AdministratorType
 const (
-	ADMINISTRATORTYPE_ADMINISTRATOR_USER AdministratorType = "AdministratorUser"
+	ADMINISTRATORTYPE_ADMINISTRATOR_USER  AdministratorType = "AdministratorUser"
 	ADMINISTRATORTYPE_ADMINISTRATOR_GROUP AdministratorType = "AdministratorGroup"
-	ADMINISTRATORTYPE_SERVICE_PRINCIPAL AdministratorType = "ServicePrincipal"
+	ADMINISTRATORTYPE_SERVICE_PRINCIPAL   AdministratorType = "ServicePrincipal"
 )
 
 // All allowed values of AdministratorType enum
@@ -110,4 +110,3 @@ func (v *NullableAdministratorType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

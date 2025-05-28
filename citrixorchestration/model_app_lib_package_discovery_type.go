@@ -15,14 +15,14 @@ import (
 	"fmt"
 )
 
-// AppLibPackageDiscoveryType 
+// AppLibPackageDiscoveryType
 type AppLibPackageDiscoveryType string
 
 // List of AppLibPackageDiscoveryType
 const (
-	APPLIBPACKAGEDISCOVERYTYPE_UNKNOWN AppLibPackageDiscoveryType = "Unknown"
+	APPLIBPACKAGEDISCOVERYTYPE_UNKNOWN                 AppLibPackageDiscoveryType = "Unknown"
 	APPLIBPACKAGEDISCOVERYTYPE_NETWORK_SHARE_DISCOVERY AppLibPackageDiscoveryType = "NetworkShareDiscovery"
-	APPLIBPACKAGEDISCOVERYTYPE_APP_V_SERVER_DISCOVERY AppLibPackageDiscoveryType = "AppVServerDiscovery"
+	APPLIBPACKAGEDISCOVERYTYPE_APP_V_SERVER_DISCOVERY  AppLibPackageDiscoveryType = "AppVServerDiscovery"
 )
 
 // All allowed values of AppLibPackageDiscoveryType enum
@@ -38,7 +38,7 @@ func (v *AppLibPackageDiscoveryType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppLibPackageDiscoveryType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableAppLibPackageDiscoveryType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

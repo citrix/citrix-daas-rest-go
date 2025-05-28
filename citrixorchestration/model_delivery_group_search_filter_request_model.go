@@ -21,7 +21,7 @@ var _ MappedNullable = &DeliveryGroupSearchFilterRequestModel{}
 type DeliveryGroupSearchFilterRequestModel struct {
 	Property DeliveryGroupSearchProperty `json:"Property"`
 	// Value to match.
-	Value NullableString `json:"Value,omitempty"`
+	Value    NullableString `json:"Value,omitempty"`
 	Operator SearchOperator `json:"Operator"`
 }
 
@@ -100,6 +100,7 @@ func (o *DeliveryGroupSearchFilterRequestModel) HasValue() bool {
 func (o *DeliveryGroupSearchFilterRequestModel) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *DeliveryGroupSearchFilterRequestModel) SetValueNil() {
 	o.Value.Set(nil)
@@ -135,7 +136,7 @@ func (o *DeliveryGroupSearchFilterRequestModel) SetOperator(v SearchOperator) {
 }
 
 func (o DeliveryGroupSearchFilterRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,5 +188,3 @@ func (v *NullableDeliveryGroupSearchFilterRequestModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -24,7 +24,7 @@ type IdentityDirectoryResponseModel struct {
 	// Domain of the directory.
 	Domain NullableString `json:"Domain,omitempty"`
 	// Tenant of the directory.
-	Tenant NullableString `json:"Tenant,omitempty"`
+	Tenant           NullableString        `json:"Tenant,omitempty"`
 	IdentityProvider *IdentityProviderType `json:"IdentityProvider,omitempty"`
 	// Instance of the directory.
 	IdpInstanceId NullableString `json:"IdpInstanceId,omitempty"`
@@ -81,6 +81,7 @@ func (o *IdentityDirectoryResponseModel) HasForest() bool {
 func (o *IdentityDirectoryResponseModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *IdentityDirectoryResponseModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -123,6 +124,7 @@ func (o *IdentityDirectoryResponseModel) HasDomain() bool {
 func (o *IdentityDirectoryResponseModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *IdentityDirectoryResponseModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -165,6 +167,7 @@ func (o *IdentityDirectoryResponseModel) HasTenant() bool {
 func (o *IdentityDirectoryResponseModel) SetTenant(v string) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *IdentityDirectoryResponseModel) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -239,6 +242,7 @@ func (o *IdentityDirectoryResponseModel) HasIdpInstanceId() bool {
 func (o *IdentityDirectoryResponseModel) SetIdpInstanceId(v string) {
 	o.IdpInstanceId.Set(&v)
 }
+
 // SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
 func (o *IdentityDirectoryResponseModel) SetIdpInstanceIdNil() {
 	o.IdpInstanceId.Set(nil)
@@ -281,6 +285,7 @@ func (o *IdentityDirectoryResponseModel) HasIdpNickName() bool {
 func (o *IdentityDirectoryResponseModel) SetIdpNickName(v string) {
 	o.IdpNickName.Set(&v)
 }
+
 // SetIdpNickNameNil sets the value for IdpNickName to be an explicit nil
 func (o *IdentityDirectoryResponseModel) SetIdpNickNameNil() {
 	o.IdpNickName.Set(nil)
@@ -292,7 +297,7 @@ func (o *IdentityDirectoryResponseModel) UnsetIdpNickName() {
 }
 
 func (o IdentityDirectoryResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -357,5 +362,3 @@ func (v *NullableIdentityDirectoryResponseModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

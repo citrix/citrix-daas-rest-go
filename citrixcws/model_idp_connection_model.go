@@ -19,10 +19,10 @@ var _ MappedNullable = &IdpConnectionModel{}
 
 // IdpConnectionModel struct for IdpConnectionModel
 type IdpConnectionModel struct {
-	IdpType NullableString `json:"idpType,omitempty"`
-	ConnectedApp NullableString `json:"connectedApp,omitempty"`
-	ConnectionStatus *bool `json:"connectionStatus,omitempty"`
-	IdpProperties map[string]string `json:"idpProperties,omitempty"`
+	IdpType          NullableString    `json:"idpType,omitempty"`
+	ConnectedApp     NullableString    `json:"connectedApp,omitempty"`
+	ConnectionStatus *bool             `json:"connectionStatus,omitempty"`
+	IdpProperties    map[string]string `json:"idpProperties,omitempty"`
 }
 
 // NewIdpConnectionModel instantiates a new IdpConnectionModel object
@@ -74,6 +74,7 @@ func (o *IdpConnectionModel) HasIdpType() bool {
 func (o *IdpConnectionModel) SetIdpType(v string) {
 	o.IdpType.Set(&v)
 }
+
 // SetIdpTypeNil sets the value for IdpType to be an explicit nil
 func (o *IdpConnectionModel) SetIdpTypeNil() {
 	o.IdpType.Set(nil)
@@ -116,6 +117,7 @@ func (o *IdpConnectionModel) HasConnectedApp() bool {
 func (o *IdpConnectionModel) SetConnectedApp(v string) {
 	o.ConnectedApp.Set(&v)
 }
+
 // SetConnectedAppNil sets the value for ConnectedApp to be an explicit nil
 func (o *IdpConnectionModel) SetConnectedAppNil() {
 	o.ConnectedApp.Set(nil)
@@ -179,7 +181,7 @@ func (o *IdpConnectionModel) GetIdpPropertiesOk() (*map[string]string, bool) {
 
 // HasIdpProperties returns a boolean if a field has been set.
 func (o *IdpConnectionModel) HasIdpProperties() bool {
-	if o != nil && IsNil(o.IdpProperties) {
+	if o != nil && !IsNil(o.IdpProperties) {
 		return true
 	}
 
@@ -192,7 +194,7 @@ func (o *IdpConnectionModel) SetIdpProperties(v map[string]string) {
 }
 
 func (o IdpConnectionModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -251,5 +253,3 @@ func (v *NullableIdpConnectionModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

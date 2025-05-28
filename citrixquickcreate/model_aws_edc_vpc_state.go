@@ -21,7 +21,7 @@ type AwsEdcVpcState string
 // List of AwsEdcVpcState
 const (
 	AWSEDCVPCSTATE_AVAILABLE AwsEdcVpcState = "AVAILABLE"
-	AWSEDCVPCSTATE_PENDING AwsEdcVpcState = "PENDING"
+	AWSEDCVPCSTATE_PENDING   AwsEdcVpcState = "PENDING"
 )
 
 // All allowed values of AwsEdcVpcState enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcVpcState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

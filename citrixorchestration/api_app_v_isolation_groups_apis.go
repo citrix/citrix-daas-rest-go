@@ -19,22 +19,21 @@ import (
 	"strings"
 )
 
-
 // AppVIsolationGroupsAPIsDAASService AppVIsolationGroupsAPIsDAAS service
 type AppVIsolationGroupsAPIsDAASService service
 
 type ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest struct {
-	ctx context.Context
-	ApiService *AppVIsolationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                  context.Context
+	ApiService                           *AppVIsolationGroupsAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
 	createAppVIsolationGroupRequestModel *CreateAppVIsolationGroupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -100,22 +99,22 @@ AppVIsolationGroupsCreateAppVIsolationGroup Create an App-V IsolationGroup in th
 
 Create requested App-V IsolationGroup in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest
 */
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolationGroup(ctx context.Context) ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest {
 	return ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolationGroupExecute(r ApiAppVIsolationGroupsCreateAppVIsolationGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVIsolationGroupsAPIsDAASService.AppVIsolationGroupsCreateAppVIsolationGroup")
@@ -220,8 +219,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -231,8 +230,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -242,8 +241,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -253,8 +252,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -264,8 +263,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -275,8 +274,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -286,8 +285,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -297,8 +296,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -308,8 +307,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -318,17 +317,17 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsCreateAppVIsolat
 }
 
 type ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest struct {
-	ctx context.Context
-	ApiService *AppVIsolationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVIsolationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -388,24 +387,24 @@ AppVIsolationGroupsDeleteAppVIsolationGroup Delete an App-V IsolationGroup confi
 
 Delete the specified App-V IsolationGroup .
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or UID of an isolationGroup.
- @return ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or UID of an isolationGroup.
+	@return ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest
 */
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest {
 	return ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolationGroupExecute(r ApiAppVIsolationGroupsDeleteAppVIsolationGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVIsolationGroupsAPIsDAASService.AppVIsolationGroupsDeleteAppVIsolationGroup")
@@ -506,8 +505,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -517,8 +516,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -528,8 +527,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -539,8 +538,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -550,8 +549,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -561,8 +560,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -572,8 +571,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -583,8 +582,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -593,17 +592,17 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsDeleteAppVIsolat
 }
 
 type ApiAppVIsolationGroupsGetAppVIsolationGroupRequest struct {
-	ctx context.Context
-	ApiService *AppVIsolationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVIsolationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	nameOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -663,26 +662,27 @@ AppVIsolationGroupsGetAppVIsolationGroup Get the specified App-V IsolationGroups
 
 Get the specified App-V IsolationGroups configured in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or UID of an isolationGroup.
- @return ApiAppVIsolationGroupsGetAppVIsolationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or UID of an isolationGroup.
+	@return ApiAppVIsolationGroupsGetAppVIsolationGroupRequest
 */
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsGetAppVIsolationGroupRequest {
 	return ApiAppVIsolationGroupsGetAppVIsolationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
-//  @return AppVIsolationGroupResponseModel
+//
+//	@return AppVIsolationGroupResponseModel
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolationGroupExecute(r ApiAppVIsolationGroupsGetAppVIsolationGroupRequest) (*AppVIsolationGroupResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppVIsolationGroupResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppVIsolationGroupResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVIsolationGroupsAPIsDAASService.AppVIsolationGroupsGetAppVIsolationGroup")
@@ -783,8 +783,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -794,8 +794,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -805,8 +805,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -816,8 +816,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -827,8 +827,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -838,8 +838,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -849,8 +849,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -860,8 +860,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -879,16 +879,16 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 }
 
 type ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest struct {
-	ctx context.Context
-	ApiService *AppVIsolationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *AppVIsolationGroupsAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -947,24 +947,25 @@ AppVIsolationGroupsGetAppVIsolationGroups Get the App-V IsolationGroups configur
 
 Get all App-V IsolationGroups configured in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest
 */
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolationGroups(ctx context.Context) ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest {
 	return ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AppVIsolationGroupResponseModelCollection
+//
+//	@return AppVIsolationGroupResponseModelCollection
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolationGroupsExecute(r ApiAppVIsolationGroupsGetAppVIsolationGroupsRequest) (*AppVIsolationGroupResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AppVIsolationGroupResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AppVIsolationGroupResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVIsolationGroupsAPIsDAASService.AppVIsolationGroupsGetAppVIsolationGroups")
@@ -1064,8 +1065,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1075,8 +1076,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1086,8 +1087,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1097,8 +1098,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1108,8 +1109,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1119,8 +1120,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1130,8 +1131,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1149,18 +1150,18 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsGetAppVIsolation
 }
 
 type ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest struct {
-	ctx context.Context
-	ApiService *AppVIsolationGroupsAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	nameOrId string
+	ctx                                  context.Context
+	ApiService                           *AppVIsolationGroupsAPIsDAASService
+	citrixCustomerId                     *string
+	citrixInstanceId                     *string
+	nameOrId                             string
 	updateAppVIsolationGroupRequestModel *UpdateAppVIsolationGroupRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                            *string
+	authorization                        *string
+	citrixTransactionId                  *string
+	accept                               *string
+	citrixLocale                         *string
+	async                                *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1226,24 +1227,24 @@ AppVIsolationGroupsUpdateAppVIsolationGroup Update the App-V IsolationGroup conf
 
 Update the requested App-V IsolationGroup in the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param nameOrId Name or UID of an isolationGroup.
- @return ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param nameOrId Name or UID of an isolationGroup.
+	@return ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest
 */
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolationGroup(ctx context.Context, nameOrId string) ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest {
 	return ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest{
 		ApiService: a,
-		ctx: ctx,
-		nameOrId: nameOrId,
+		ctx:        ctx,
+		nameOrId:   nameOrId,
 	}
 }
 
 // Execute executes the request
 func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolationGroupExecute(r ApiAppVIsolationGroupsUpdateAppVIsolationGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AppVIsolationGroupsAPIsDAASService.AppVIsolationGroupsUpdateAppVIsolationGroup")
@@ -1349,8 +1350,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1360,8 +1361,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1371,8 +1372,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1382,8 +1383,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1393,8 +1394,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1404,8 +1405,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1415,8 +1416,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1426,8 +1427,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1437,8 +1438,8 @@ func (a *AppVIsolationGroupsAPIsDAASService) AppVIsolationGroupsUpdateAppVIsolat
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}

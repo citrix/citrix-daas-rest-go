@@ -20,14 +20,14 @@ type ConnectionFailureReason string
 
 // List of ConnectionFailureReason
 const (
-	CONNECTIONFAILUREREASON_UNKNOWN ConnectionFailureReason = "Unknown"
-	CONNECTIONFAILUREREASON_NONE ConnectionFailureReason = "None"
-	CONNECTIONFAILUREREASON_SESSION_PREPARATION ConnectionFailureReason = "SessionPreparation"
+	CONNECTIONFAILUREREASON_UNKNOWN              ConnectionFailureReason = "Unknown"
+	CONNECTIONFAILUREREASON_NONE                 ConnectionFailureReason = "None"
+	CONNECTIONFAILUREREASON_SESSION_PREPARATION  ConnectionFailureReason = "SessionPreparation"
 	CONNECTIONFAILUREREASON_REGISTRATION_TIMEOUT ConnectionFailureReason = "RegistrationTimeout"
-	CONNECTIONFAILUREREASON_CONNECTION_TIMEOUT ConnectionFailureReason = "ConnectionTimeout"
-	CONNECTIONFAILUREREASON_LICENSING ConnectionFailureReason = "Licensing"
-	CONNECTIONFAILUREREASON_TICKETING ConnectionFailureReason = "Ticketing"
-	CONNECTIONFAILUREREASON_OTHER ConnectionFailureReason = "Other"
+	CONNECTIONFAILUREREASON_CONNECTION_TIMEOUT   ConnectionFailureReason = "ConnectionTimeout"
+	CONNECTIONFAILUREREASON_LICENSING            ConnectionFailureReason = "Licensing"
+	CONNECTIONFAILUREREASON_TICKETING            ConnectionFailureReason = "Ticketing"
+	CONNECTIONFAILUREREASON_OTHER                ConnectionFailureReason = "Other"
 )
 
 // All allowed values of ConnectionFailureReason enum
@@ -48,7 +48,7 @@ func (v *ConnectionFailureReason) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ConnectionFailureReason(value)
 	return nil
 }
@@ -114,4 +114,3 @@ func (v *NullableConnectionFailureReason) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

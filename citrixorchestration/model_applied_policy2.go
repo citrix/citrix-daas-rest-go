@@ -112,6 +112,7 @@ func (o *AppliedPolicy2) HasPolicyName() bool {
 func (o *AppliedPolicy2) SetPolicyName(v string) {
 	o.PolicyName.Set(&v)
 }
+
 // SetPolicyNameNil sets the value for PolicyName to be an explicit nil
 func (o *AppliedPolicy2) SetPolicyNameNil() {
 	o.PolicyName.Set(nil)
@@ -154,6 +155,7 @@ func (o *AppliedPolicy2) HasGpoName() bool {
 func (o *AppliedPolicy2) SetGpoName(v string) {
 	o.GpoName.Set(&v)
 }
+
 // SetGpoNameNil sets the value for GpoName to be an explicit nil
 func (o *AppliedPolicy2) SetGpoNameNil() {
 	o.GpoName.Set(nil)
@@ -231,7 +233,7 @@ func (o *AppliedPolicy2) SetDetails(v map[string][]FilterDetail) {
 }
 
 func (o AppliedPolicy2) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -293,5 +295,3 @@ func (v *NullableAppliedPolicy2) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

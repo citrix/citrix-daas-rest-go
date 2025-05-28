@@ -17,7 +17,7 @@ import (
 // checks if the SessionResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SessionResponseModel{}
 
-// SessionResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,AppState,AppStateLastChangeTime,FormattedAppStateLastChangeTime,Client,EstablishmentDurationMilliseconds,EstablishmentTime,FormattedEstablishmentTime,IsAnonymousUser,IsHidden,LogoffInProgress,LogonInProgress,SessionType,StartTime,FormattedStartTime,State,StateChangeTime,FormattedStateChangeTime,UntrustedUserName,User.               Response object for a session.              
+// SessionResponseModel Default response field (Only return the fields specified there if supported in  API ): Id,Uid,AppState,AppStateLastChangeTime,FormattedAppStateLastChangeTime,Client,EstablishmentDurationMilliseconds,EstablishmentTime,FormattedEstablishmentTime,IsAnonymousUser,IsHidden,LogoffInProgress,LogonInProgress,SessionType,StartTime,FormattedStartTime,State,StateChangeTime,FormattedStateChangeTime,UntrustedUserName,User.               Response object for a session.
 type SessionResponseModel struct {
 	// Id of the session.
 	Id NullableString `json:"Id,omitempty"`
@@ -26,14 +26,14 @@ type SessionResponseModel struct {
 	Uid NullableInt32 `json:"Uid,omitempty"`
 	// List of applications in use in the session.
 	ApplicationsInUse []RefResponseModel `json:"ApplicationsInUse,omitempty"`
-	AppState *AppState `json:"AppState,omitempty"`
+	AppState          *AppState          `json:"AppState,omitempty"`
 	// The time when the session entered the current app state.
 	AppStateLastChangeTime NullableString `json:"AppStateLastChangeTime,omitempty"`
 	// The formatted time when the session entered the current app state. RFC 3339 compatible format.
-	FormattedAppStateLastChangeTime NullableString `json:"FormattedAppStateLastChangeTime,omitempty"`
-	Brokering *SessionBrokeringResponseModel `json:"Brokering,omitempty"`
-	Client *SessionClientResponseModel `json:"Client,omitempty"`
-	Connection *SessionConnectionResponseModel `json:"Connection,omitempty"`
+	FormattedAppStateLastChangeTime NullableString                  `json:"FormattedAppStateLastChangeTime,omitempty"`
+	Brokering                       *SessionBrokeringResponseModel  `json:"Brokering,omitempty"`
+	Client                          *SessionClientResponseModel     `json:"Client,omitempty"`
+	Connection                      *SessionConnectionResponseModel `json:"Connection,omitempty"`
 	// Delegated admin scopes in which the containers of the session reside.
 	ContainerScopes []ContainerScopeResponseModel `json:"ContainerScopes,omitempty"`
 	// Duration that it took to establish the session.
@@ -49,21 +49,21 @@ type SessionResponseModel struct {
 	// Indicates whether the session is in the process of being logged off.
 	LogoffInProgress *bool `json:"LogoffInProgress,omitempty"`
 	// Indicates whether the session is still executing user logon processing or not.
-	LogonInProgress *bool `json:"LogonInProgress,omitempty"`
-	Machine *MachineResponseModel `json:"Machine,omitempty"`
-	SessionType *SessionType `json:"SessionType,omitempty"`
+	LogonInProgress *bool                 `json:"LogonInProgress,omitempty"`
+	Machine         *MachineResponseModel `json:"Machine,omitempty"`
+	SessionType     *SessionType          `json:"SessionType,omitempty"`
 	// The time indicates when the session was started.
 	StartTime NullableString `json:"StartTime,omitempty"`
 	// The formatted time indicates when the session was started. RFC 3339 compatible format.
 	FormattedStartTime NullableString `json:"FormattedStartTime,omitempty"`
-	State *SessionState `json:"State,omitempty"`
+	State              *SessionState  `json:"State,omitempty"`
 	// The time of the most recent state change for the session.
 	StateChangeTime NullableString `json:"StateChangeTime,omitempty"`
 	// The formatted time of the most recent state change for the session. RFC 3339 compatible format.
 	FormattedStateChangeTime NullableString `json:"FormattedStateChangeTime,omitempty"`
 	// The name of the logged-on user reported directly from the machine (in the form DOMAIN\\user). This may be useful where the user is logged in to a non-domain account, however the name cannot be verified and must therefore be considered untrusted.
-	UntrustedUserName NullableString `json:"UntrustedUserName,omitempty"`
-	User *IdentityUserResponseModel `json:"User,omitempty"`
+	UntrustedUserName NullableString             `json:"UntrustedUserName,omitempty"`
+	User              *IdentityUserResponseModel `json:"User,omitempty"`
 }
 
 // NewSessionResponseModel instantiates a new SessionResponseModel object
@@ -115,6 +115,7 @@ func (o *SessionResponseModel) HasId() bool {
 func (o *SessionResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *SessionResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -160,6 +161,7 @@ func (o *SessionResponseModel) HasUid() bool {
 func (o *SessionResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *SessionResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -267,6 +269,7 @@ func (o *SessionResponseModel) HasAppStateLastChangeTime() bool {
 func (o *SessionResponseModel) SetAppStateLastChangeTime(v string) {
 	o.AppStateLastChangeTime.Set(&v)
 }
+
 // SetAppStateLastChangeTimeNil sets the value for AppStateLastChangeTime to be an explicit nil
 func (o *SessionResponseModel) SetAppStateLastChangeTimeNil() {
 	o.AppStateLastChangeTime.Set(nil)
@@ -309,6 +312,7 @@ func (o *SessionResponseModel) HasFormattedAppStateLastChangeTime() bool {
 func (o *SessionResponseModel) SetFormattedAppStateLastChangeTime(v string) {
 	o.FormattedAppStateLastChangeTime.Set(&v)
 }
+
 // SetFormattedAppStateLastChangeTimeNil sets the value for FormattedAppStateLastChangeTime to be an explicit nil
 func (o *SessionResponseModel) SetFormattedAppStateLastChangeTimeNil() {
 	o.FormattedAppStateLastChangeTime.Set(nil)
@@ -480,6 +484,7 @@ func (o *SessionResponseModel) HasEstablishmentDurationMilliseconds() bool {
 func (o *SessionResponseModel) SetEstablishmentDurationMilliseconds(v int32) {
 	o.EstablishmentDurationMilliseconds.Set(&v)
 }
+
 // SetEstablishmentDurationMillisecondsNil sets the value for EstablishmentDurationMilliseconds to be an explicit nil
 func (o *SessionResponseModel) SetEstablishmentDurationMillisecondsNil() {
 	o.EstablishmentDurationMilliseconds.Set(nil)
@@ -522,6 +527,7 @@ func (o *SessionResponseModel) HasEstablishmentTime() bool {
 func (o *SessionResponseModel) SetEstablishmentTime(v string) {
 	o.EstablishmentTime.Set(&v)
 }
+
 // SetEstablishmentTimeNil sets the value for EstablishmentTime to be an explicit nil
 func (o *SessionResponseModel) SetEstablishmentTimeNil() {
 	o.EstablishmentTime.Set(nil)
@@ -564,6 +570,7 @@ func (o *SessionResponseModel) HasFormattedEstablishmentTime() bool {
 func (o *SessionResponseModel) SetFormattedEstablishmentTime(v string) {
 	o.FormattedEstablishmentTime.Set(&v)
 }
+
 // SetFormattedEstablishmentTimeNil sets the value for FormattedEstablishmentTime to be an explicit nil
 func (o *SessionResponseModel) SetFormattedEstablishmentTimeNil() {
 	o.FormattedEstablishmentTime.Set(nil)
@@ -798,6 +805,7 @@ func (o *SessionResponseModel) HasStartTime() bool {
 func (o *SessionResponseModel) SetStartTime(v string) {
 	o.StartTime.Set(&v)
 }
+
 // SetStartTimeNil sets the value for StartTime to be an explicit nil
 func (o *SessionResponseModel) SetStartTimeNil() {
 	o.StartTime.Set(nil)
@@ -840,6 +848,7 @@ func (o *SessionResponseModel) HasFormattedStartTime() bool {
 func (o *SessionResponseModel) SetFormattedStartTime(v string) {
 	o.FormattedStartTime.Set(&v)
 }
+
 // SetFormattedStartTimeNil sets the value for FormattedStartTime to be an explicit nil
 func (o *SessionResponseModel) SetFormattedStartTimeNil() {
 	o.FormattedStartTime.Set(nil)
@@ -914,6 +923,7 @@ func (o *SessionResponseModel) HasStateChangeTime() bool {
 func (o *SessionResponseModel) SetStateChangeTime(v string) {
 	o.StateChangeTime.Set(&v)
 }
+
 // SetStateChangeTimeNil sets the value for StateChangeTime to be an explicit nil
 func (o *SessionResponseModel) SetStateChangeTimeNil() {
 	o.StateChangeTime.Set(nil)
@@ -956,6 +966,7 @@ func (o *SessionResponseModel) HasFormattedStateChangeTime() bool {
 func (o *SessionResponseModel) SetFormattedStateChangeTime(v string) {
 	o.FormattedStateChangeTime.Set(&v)
 }
+
 // SetFormattedStateChangeTimeNil sets the value for FormattedStateChangeTime to be an explicit nil
 func (o *SessionResponseModel) SetFormattedStateChangeTimeNil() {
 	o.FormattedStateChangeTime.Set(nil)
@@ -998,6 +1009,7 @@ func (o *SessionResponseModel) HasUntrustedUserName() bool {
 func (o *SessionResponseModel) SetUntrustedUserName(v string) {
 	o.UntrustedUserName.Set(&v)
 }
+
 // SetUntrustedUserNameNil sets the value for UntrustedUserName to be an explicit nil
 func (o *SessionResponseModel) SetUntrustedUserNameNil() {
 	o.UntrustedUserName.Set(nil)
@@ -1041,7 +1053,7 @@ func (o *SessionResponseModel) SetUser(v IdentityUserResponseModel) {
 }
 
 func (o SessionResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1166,5 +1178,3 @@ func (v *NullableSessionResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

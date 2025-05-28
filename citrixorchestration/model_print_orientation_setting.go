@@ -20,7 +20,7 @@ type PrintOrientationSetting string
 
 // List of PrintOrientationSetting
 const (
-	PRINTORIENTATIONSETTING_PORTRAIT PrintOrientationSetting = "Portrait"
+	PRINTORIENTATIONSETTING_PORTRAIT  PrintOrientationSetting = "Portrait"
 	PRINTORIENTATIONSETTING_LANDSCAPE PrintOrientationSetting = "Landscape"
 )
 
@@ -36,7 +36,7 @@ func (v *PrintOrientationSetting) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PrintOrientationSetting(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullablePrintOrientationSetting) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

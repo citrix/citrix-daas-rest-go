@@ -19,10 +19,12 @@ var _ MappedNullable = &IdpCreateModel{}
 
 // IdpCreateModel struct for IdpCreateModel
 type IdpCreateModel struct {
-	IdentityProviderId string `json:"identityProviderId"`
-	IdentityProviderNickname string `json:"identityProviderNickname"`
-	IdpConnectionModel *IdpConnectionModel `json:"idpConnectionModel,omitempty"`
+	IdentityProviderId       string              `json:"identityProviderId"`
+	IdentityProviderNickname string              `json:"identityProviderNickname"`
+	IdpConnectionModel       *IdpConnectionModel `json:"idpConnectionModel,omitempty"`
 }
+
+type _IdpCreateModel IdpCreateModel
 
 // NewIdpCreateModel instantiates a new IdpCreateModel object
 // This constructor will assign default values to properties that have it defined,
@@ -124,7 +126,7 @@ func (o *IdpCreateModel) SetIdpConnectionModel(v IdpConnectionModel) {
 }
 
 func (o IdpCreateModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -176,5 +178,3 @@ func (v *NullableIdpCreateModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

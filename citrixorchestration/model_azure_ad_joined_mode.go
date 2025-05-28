@@ -20,10 +20,10 @@ type AzureAdJoinedMode string
 
 // List of AzureAdJoinedMode
 const (
-	AZUREADJOINEDMODE_UNKNOWN AzureAdJoinedMode = "Unknown"
-	AZUREADJOINEDMODE_NOT_AAD_JOINED AzureAdJoinedMode = "NotAadJoined"
+	AZUREADJOINEDMODE_UNKNOWN           AzureAdJoinedMode = "Unknown"
+	AZUREADJOINEDMODE_NOT_AAD_JOINED    AzureAdJoinedMode = "NotAadJoined"
 	AZUREADJOINEDMODE_HYBRID_AAD_JOINED AzureAdJoinedMode = "HybridAadJoined"
-	AZUREADJOINEDMODE_PURE_AAD_JOINED AzureAdJoinedMode = "PureAadJoined"
+	AZUREADJOINEDMODE_PURE_AAD_JOINED   AzureAdJoinedMode = "PureAadJoined"
 )
 
 // All allowed values of AzureAdJoinedMode enum
@@ -40,7 +40,7 @@ func (v *AzureAdJoinedMode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AzureAdJoinedMode(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableAzureAdJoinedMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

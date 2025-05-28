@@ -111,6 +111,7 @@ func (o *FilterDefinition) HasFilterName() bool {
 func (o *FilterDefinition) SetFilterName(v string) {
 	o.FilterName.Set(&v)
 }
+
 // SetFilterNameNil sets the value for FilterName to be an explicit nil
 func (o *FilterDefinition) SetFilterNameNil() {
 	o.FilterName.Set(nil)
@@ -153,6 +154,7 @@ func (o *FilterDefinition) HasExplanation() bool {
 func (o *FilterDefinition) SetExplanation(v string) {
 	o.Explanation.Set(&v)
 }
+
 // SetExplanationNil sets the value for Explanation to be an explicit nil
 func (o *FilterDefinition) SetExplanationNil() {
 	o.Explanation.Set(nil)
@@ -228,7 +230,7 @@ func (o *FilterDefinition) SetIsSingleton(v bool) {
 }
 
 func (o FilterDefinition) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -290,5 +292,3 @@ func (v *NullableFilterDefinition) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

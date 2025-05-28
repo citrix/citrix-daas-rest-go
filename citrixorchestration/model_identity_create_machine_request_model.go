@@ -20,15 +20,15 @@ var _ MappedNullable = &IdentityCreateMachineRequestModel{}
 // IdentityCreateMachineRequestModel Add a machine identity.
 type IdentityCreateMachineRequestModel struct {
 	// Forest in which to create the machine identity.
-	Forest string `json:"Forest"`
+	Forest string `json:"Forest" validate:"regexp=UNKNOWN"`
 	// Domain in which to create the machine identity.
-	Domain NullableString `json:"Domain,omitempty"`
+	Domain NullableString `json:"Domain,omitempty" validate:"regexp=^(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\"<>|,~!@$%^&'(){}_\\\\s]*$).*$"`
 	// The machine identity to create.
-	Name string `json:"Name"`
+	Name string "json:\"Name\" validate:\"regexp=^(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\\"<>|,~!@$%^&'`=+;.(){}_\\\\s]*$)(?=^[^\\\\.])(?=^.*[^\\\\d].*$).*(?<!-([tT][aA][cC])|([gG][wW])|([gG][aA][tT][eE][wW][aA][yY]))$\""
 	// The OU where the machine identity should be created.
 	ParentOU NullableString `json:"ParentOU,omitempty"`
 	// The machine account password, in the format specified by AccountPasswordFormat.
-	AccountPassword string `json:"AccountPassword"`
+	AccountPassword       string                  `json:"AccountPassword" validate:"regexp=(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\\\$%\\\\^&\\\\*]).{8,}|^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$|(.*)*"`
 	AccountPasswordFormat *IdentityPasswordFormat `json:"AccountPasswordFormat,omitempty"`
 	// Resource location within which the machine account should be created.
 	ResourceLocationId NullableString `json:"ResourceLocationId,omitempty"`
@@ -110,6 +110,7 @@ func (o *IdentityCreateMachineRequestModel) HasDomain() bool {
 func (o *IdentityCreateMachineRequestModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *IdentityCreateMachineRequestModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -176,6 +177,7 @@ func (o *IdentityCreateMachineRequestModel) HasParentOU() bool {
 func (o *IdentityCreateMachineRequestModel) SetParentOU(v string) {
 	o.ParentOU.Set(&v)
 }
+
 // SetParentOUNil sets the value for ParentOU to be an explicit nil
 func (o *IdentityCreateMachineRequestModel) SetParentOUNil() {
 	o.ParentOU.Set(nil)
@@ -274,6 +276,7 @@ func (o *IdentityCreateMachineRequestModel) HasResourceLocationId() bool {
 func (o *IdentityCreateMachineRequestModel) SetResourceLocationId(v string) {
 	o.ResourceLocationId.Set(&v)
 }
+
 // SetResourceLocationIdNil sets the value for ResourceLocationId to be an explicit nil
 func (o *IdentityCreateMachineRequestModel) SetResourceLocationIdNil() {
 	o.ResourceLocationId.Set(nil)
@@ -285,7 +288,7 @@ func (o *IdentityCreateMachineRequestModel) UnsetResourceLocationId() {
 }
 
 func (o IdentityCreateMachineRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -347,5 +350,3 @@ func (v *NullableIdentityCreateMachineRequestModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

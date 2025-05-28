@@ -19,9 +19,9 @@ var _ MappedNullable = &BackupRestoreCvadSecurityInfo{}
 
 // BackupRestoreCvadSecurityInfo struct for BackupRestoreCvadSecurityInfo
 type BackupRestoreCvadSecurityInfo struct {
-	SecurityName NullableString `json:"SecurityName,omitempty"`
+	SecurityName NullableString     `json:"SecurityName,omitempty"`
 	SecurityType *CvadSecurityTypes `json:"SecurityType,omitempty"`
-	Secret NullableString `json:"Secret,omitempty"`
+	Secret       NullableString     `json:"Secret,omitempty"`
 }
 
 // NewBackupRestoreCvadSecurityInfo instantiates a new BackupRestoreCvadSecurityInfo object
@@ -73,6 +73,7 @@ func (o *BackupRestoreCvadSecurityInfo) HasSecurityName() bool {
 func (o *BackupRestoreCvadSecurityInfo) SetSecurityName(v string) {
 	o.SecurityName.Set(&v)
 }
+
 // SetSecurityNameNil sets the value for SecurityName to be an explicit nil
 func (o *BackupRestoreCvadSecurityInfo) SetSecurityNameNil() {
 	o.SecurityName.Set(nil)
@@ -147,6 +148,7 @@ func (o *BackupRestoreCvadSecurityInfo) HasSecret() bool {
 func (o *BackupRestoreCvadSecurityInfo) SetSecret(v string) {
 	o.Secret.Set(&v)
 }
+
 // SetSecretNil sets the value for Secret to be an explicit nil
 func (o *BackupRestoreCvadSecurityInfo) SetSecretNil() {
 	o.Secret.Set(nil)
@@ -158,7 +160,7 @@ func (o *BackupRestoreCvadSecurityInfo) UnsetSecret() {
 }
 
 func (o BackupRestoreCvadSecurityInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -214,5 +216,3 @@ func (v *NullableBackupRestoreCvadSecurityInfo) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

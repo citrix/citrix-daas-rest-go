@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int64** | Identity of user-level AD object | [optional] [readonly] 
-**Sid** | **string** | SID of user-level AD object | 
-**Name** | **string** | Distingushed name of user-level AD object | 
-**Type** | **string** | Type of user-level AD object | 
+**Sid** | **string** | SID of user-level AD object | [readonly] 
+**Name** | **string** | Distingushed name of user-level AD object | [readonly] 
+**Type** | **string** | Type of user-level AD object | [readonly] 
 **Description** | Pointer to **string** | Description of user-level AD object | [optional] 
-**SiteId** | **int64** | Identity of site to which this user-level AD object belongs | 
+**SiteId** | **int64** | Identity of site to which this user-level AD object belongs | [readonly] 
 **Enabled** | Pointer to **bool** | If this user-level AD objectis enabled | [optional] 
 **Priority** | Pointer to **int64** | Priority of user-level AD object | [optional] 
 

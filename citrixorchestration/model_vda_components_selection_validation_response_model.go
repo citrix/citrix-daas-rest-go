@@ -112,6 +112,7 @@ func (o *VDAComponentsSelectionValidationResponseModel) HasId() bool {
 func (o *VDAComponentsSelectionValidationResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *VDAComponentsSelectionValidationResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -154,6 +155,7 @@ func (o *VDAComponentsSelectionValidationResponseModel) HasName() bool {
 func (o *VDAComponentsSelectionValidationResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *VDAComponentsSelectionValidationResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -228,6 +230,7 @@ func (o *VDAComponentsSelectionValidationResponseModel) HasMessage() bool {
 func (o *VDAComponentsSelectionValidationResponseModel) SetMessage(v string) {
 	o.Message.Set(&v)
 }
+
 // SetMessageNil sets the value for Message to be an explicit nil
 func (o *VDAComponentsSelectionValidationResponseModel) SetMessageNil() {
 	o.Message.Set(nil)
@@ -239,7 +242,7 @@ func (o *VDAComponentsSelectionValidationResponseModel) UnsetMessage() {
 }
 
 func (o VDAComponentsSelectionValidationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -301,5 +304,3 @@ func (v *NullableVDAComponentsSelectionValidationResponseModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

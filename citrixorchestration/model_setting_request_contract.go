@@ -76,6 +76,7 @@ func (o *SettingRequestContract) HasSettingType() bool {
 func (o *SettingRequestContract) SetSettingType(v string) {
 	o.SettingType.Set(&v)
 }
+
 // SetSettingTypeNil sets the value for SettingType to be an explicit nil
 func (o *SettingRequestContract) SetSettingTypeNil() {
 	o.SettingType.Set(nil)
@@ -118,6 +119,7 @@ func (o *SettingRequestContract) HasSettingValue() bool {
 func (o *SettingRequestContract) SetSettingValue(v string) {
 	o.SettingValue.Set(&v)
 }
+
 // SetSettingValueNil sets the value for SettingValue to be an explicit nil
 func (o *SettingRequestContract) SetSettingValueNil() {
 	o.SettingValue.Set(nil)
@@ -162,7 +164,7 @@ func (o *SettingRequestContract) SetTypedValue(v map[string]interface{}) {
 }
 
 func (o SettingRequestContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,5 +220,3 @@ func (v *NullableSettingRequestContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

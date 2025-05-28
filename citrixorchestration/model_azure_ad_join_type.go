@@ -21,9 +21,9 @@ type AzureAdJoinType string
 // List of AzureAdJoinType
 const (
 	AZUREADJOINTYPE_UNKNOWN AzureAdJoinType = "Unknown"
-	AZUREADJOINTYPE_NONE AzureAdJoinType = "None"
-	AZUREADJOINTYPE_HYBRID AzureAdJoinType = "Hybrid"
-	AZUREADJOINTYPE_PURE AzureAdJoinType = "Pure"
+	AZUREADJOINTYPE_NONE    AzureAdJoinType = "None"
+	AZUREADJOINTYPE_HYBRID  AzureAdJoinType = "Hybrid"
+	AZUREADJOINTYPE_PURE    AzureAdJoinType = "Pure"
 )
 
 // All allowed values of AzureAdJoinType enum
@@ -40,7 +40,7 @@ func (v *AzureAdJoinType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AzureAdJoinType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableAzureAdJoinType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

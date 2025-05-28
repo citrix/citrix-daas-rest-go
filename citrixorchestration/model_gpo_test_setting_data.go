@@ -78,6 +78,7 @@ func (o *GpoTestSettingData) HasErrorCode() bool {
 func (o *GpoTestSettingData) SetErrorCode(v string) {
 	o.ErrorCode.Set(&v)
 }
+
 // SetErrorCodeNil sets the value for ErrorCode to be an explicit nil
 func (o *GpoTestSettingData) SetErrorCodeNil() {
 	o.ErrorCode.Set(nil)
@@ -120,6 +121,7 @@ func (o *GpoTestSettingData) HasErrorMessage() bool {
 func (o *GpoTestSettingData) SetErrorMessage(v string) {
 	o.ErrorMessage.Set(&v)
 }
+
 // SetErrorMessageNil sets the value for ErrorMessage to be an explicit nil
 func (o *GpoTestSettingData) SetErrorMessageNil() {
 	o.ErrorMessage.Set(nil)
@@ -162,6 +164,7 @@ func (o *GpoTestSettingData) HasSettingName() bool {
 func (o *GpoTestSettingData) SetSettingName(v string) {
 	o.SettingName.Set(&v)
 }
+
 // SetSettingNameNil sets the value for SettingName to be an explicit nil
 func (o *GpoTestSettingData) SetSettingNameNil() {
 	o.SettingName.Set(nil)
@@ -204,6 +207,7 @@ func (o *GpoTestSettingData) HasSettingValue() bool {
 func (o *GpoTestSettingData) SetSettingValue(v string) {
 	o.SettingValue.Set(&v)
 }
+
 // SetSettingValueNil sets the value for SettingValue to be an explicit nil
 func (o *GpoTestSettingData) SetSettingValueNil() {
 	o.SettingValue.Set(nil)
@@ -215,7 +219,7 @@ func (o *GpoTestSettingData) UnsetSettingValue() {
 }
 
 func (o GpoTestSettingData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableGpoTestSettingData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

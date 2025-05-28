@@ -23,7 +23,7 @@ type UpdateMachineConfigurationRequestModel struct {
 	Name NullableString `json:"Name,omitempty"`
 	// New binary array of encoded settings data. Policy settings data created with the SDK snap-in that matches the SettingsGroup of the configuration slot. Base64 encrypted.
 	Policy NullableString `json:"Policy,omitempty"`
-	// New description for the machine configuration. 
+	// New description for the machine configuration.
 	Description NullableString `json:"Description,omitempty"`
 }
 
@@ -76,6 +76,7 @@ func (o *UpdateMachineConfigurationRequestModel) HasName() bool {
 func (o *UpdateMachineConfigurationRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *UpdateMachineConfigurationRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -118,6 +119,7 @@ func (o *UpdateMachineConfigurationRequestModel) HasPolicy() bool {
 func (o *UpdateMachineConfigurationRequestModel) SetPolicy(v string) {
 	o.Policy.Set(&v)
 }
+
 // SetPolicyNil sets the value for Policy to be an explicit nil
 func (o *UpdateMachineConfigurationRequestModel) SetPolicyNil() {
 	o.Policy.Set(nil)
@@ -160,6 +162,7 @@ func (o *UpdateMachineConfigurationRequestModel) HasDescription() bool {
 func (o *UpdateMachineConfigurationRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UpdateMachineConfigurationRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -171,7 +174,7 @@ func (o *UpdateMachineConfigurationRequestModel) UnsetDescription() {
 }
 
 func (o UpdateMachineConfigurationRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableUpdateMachineConfigurationRequestModel) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

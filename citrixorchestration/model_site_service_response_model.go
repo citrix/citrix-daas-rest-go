@@ -131,6 +131,7 @@ func (o *SiteServiceResponseModel) HasCurrentSchemaVersion() bool {
 func (o *SiteServiceResponseModel) SetCurrentSchemaVersion(v string) {
 	o.CurrentSchemaVersion.Set(&v)
 }
+
 // SetCurrentSchemaVersionNil sets the value for CurrentSchemaVersion to be an explicit nil
 func (o *SiteServiceResponseModel) SetCurrentSchemaVersionNil() {
 	o.CurrentSchemaVersion.Set(nil)
@@ -173,6 +174,7 @@ func (o *SiteServiceResponseModel) HasDesiredSchemaVersion() bool {
 func (o *SiteServiceResponseModel) SetDesiredSchemaVersion(v string) {
 	o.DesiredSchemaVersion.Set(&v)
 }
+
 // SetDesiredSchemaVersionNil sets the value for DesiredSchemaVersion to be an explicit nil
 func (o *SiteServiceResponseModel) SetDesiredSchemaVersionNil() {
 	o.DesiredSchemaVersion.Set(nil)
@@ -208,7 +210,7 @@ func (o *SiteServiceResponseModel) SetCapabilities(v []string) {
 }
 
 func (o SiteServiceResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -264,5 +266,3 @@ func (v *NullableSiteServiceResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

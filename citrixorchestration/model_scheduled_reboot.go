@@ -20,12 +20,12 @@ type ScheduledReboot string
 
 // List of ScheduledReboot
 const (
-	SCHEDULEDREBOOT_UNKNOWN ScheduledReboot = "Unknown"
-	SCHEDULEDREBOOT_NONE ScheduledReboot = "None"
-	SCHEDULEDREBOOT_PENDING ScheduledReboot = "Pending"
-	SCHEDULEDREBOOT_DRAINING ScheduledReboot = "Draining"
+	SCHEDULEDREBOOT_UNKNOWN     ScheduledReboot = "Unknown"
+	SCHEDULEDREBOOT_NONE        ScheduledReboot = "None"
+	SCHEDULEDREBOOT_PENDING     ScheduledReboot = "Pending"
+	SCHEDULEDREBOOT_DRAINING    ScheduledReboot = "Draining"
 	SCHEDULEDREBOOT_IN_PROGRESS ScheduledReboot = "InProgress"
-	SCHEDULEDREBOOT_NATURAL ScheduledReboot = "Natural"
+	SCHEDULEDREBOOT_NATURAL     ScheduledReboot = "Natural"
 )
 
 // All allowed values of ScheduledReboot enum
@@ -44,7 +44,7 @@ func (v *ScheduledReboot) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ScheduledReboot(value)
 	return nil
 }
@@ -110,4 +110,3 @@ func (v *NullableScheduledReboot) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

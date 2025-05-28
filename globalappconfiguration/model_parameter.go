@@ -19,7 +19,7 @@ var _ MappedNullable = &Parameter{}
 
 // Parameter struct for Parameter
 type Parameter struct {
-	Name *string `json:"name,omitempty"`
+	Name  *string `json:"name,omitempty"`
 	Value *string `json:"value,omitempty"`
 }
 
@@ -105,7 +105,7 @@ func (o *Parameter) SetValue(v string) {
 }
 
 func (o Parameter) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,5 +158,3 @@ func (v *NullableParameter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

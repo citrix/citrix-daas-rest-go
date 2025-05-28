@@ -19,17 +19,16 @@ import (
 	"strings"
 )
 
-
 // DeploymentQCSService DeploymentQCS service
 type DeploymentQCSService service
 
 type DeploymentQCSAddMachineAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
 	citrixTransactionId *string
-	body *AddAwsEdcDeploymentMachines
+	body                *AddAwsEdcDeploymentMachines
 }
 
 // The Transaction Id.
@@ -51,28 +50,29 @@ func (r DeploymentQCSAddMachineAsyncRequest) Execute() (*DeploymentTask, *http.R
 /*
 AddMachineAsync Adds machine to deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSAddMachineAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSAddMachineAsyncRequest
 */
 func (a *DeploymentQCSService) AddMachineAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSAddMachineAsyncRequest {
 	return DeploymentQCSAddMachineAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) AddMachineAsyncExecute(r DeploymentQCSAddMachineAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.AddMachineAsync")
@@ -106,7 +106,7 @@ func (a *DeploymentQCSService) AddMachineAsyncExecute(r DeploymentQCSAddMachineA
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -141,6 +141,13 @@ func (a *DeploymentQCSService) AddMachineAsyncExecute(r DeploymentQCSAddMachineA
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -162,11 +169,11 @@ func (a *DeploymentQCSService) AddMachineAsyncExecute(r DeploymentQCSAddMachineA
 }
 
 type DeploymentQCSDeleteDeploymentAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	forceDelete *bool
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
+	forceDelete         *bool
 	citrixTransactionId *string
 }
 
@@ -189,28 +196,29 @@ func (r DeploymentQCSDeleteDeploymentAsyncRequest) Execute() (*DeploymentTask, *
 /*
 DeleteDeploymentAsync Delete deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSDeleteDeploymentAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSDeleteDeploymentAsyncRequest
 */
 func (a *DeploymentQCSService) DeleteDeploymentAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSDeleteDeploymentAsyncRequest {
 	return DeploymentQCSDeleteDeploymentAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) DeleteDeploymentAsyncExecute(r DeploymentQCSDeleteDeploymentAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.DeleteDeploymentAsync")
@@ -227,7 +235,10 @@ func (a *DeploymentQCSService) DeleteDeploymentAsyncExecute(r DeploymentQCSDelet
 	localVarFormParams := url.Values{}
 
 	if r.forceDelete != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.forceDelete = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -247,7 +258,7 @@ func (a *DeploymentQCSService) DeleteDeploymentAsyncExecute(r DeploymentQCSDelet
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -280,6 +291,13 @@ func (a *DeploymentQCSService) DeleteDeploymentAsyncExecute(r DeploymentQCSDelet
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -301,10 +319,10 @@ func (a *DeploymentQCSService) DeleteDeploymentAsyncExecute(r DeploymentQCSDelet
 }
 
 type DeploymentQCSGetDeploymentAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
 	citrixTransactionId *string
 }
 
@@ -321,28 +339,29 @@ func (r DeploymentQCSGetDeploymentAsyncRequest) Execute() (*AwsEdcDeployment, *h
 /*
 GetDeploymentAsync Gets deployment with vdas
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSGetDeploymentAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSGetDeploymentAsyncRequest
 */
 func (a *DeploymentQCSService) GetDeploymentAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSGetDeploymentAsyncRequest {
 	return DeploymentQCSGetDeploymentAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcDeployment
+//
+//	@return AwsEdcDeployment
 func (a *DeploymentQCSService) GetDeploymentAsyncExecute(r DeploymentQCSGetDeploymentAsyncRequest) (*AwsEdcDeployment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcDeployment
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcDeployment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.GetDeploymentAsync")
@@ -376,7 +395,7 @@ func (a *DeploymentQCSService) GetDeploymentAsyncExecute(r DeploymentQCSGetDeplo
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -409,6 +428,13 @@ func (a *DeploymentQCSService) GetDeploymentAsyncExecute(r DeploymentQCSGetDeplo
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -430,11 +456,11 @@ func (a *DeploymentQCSService) GetDeploymentAsyncExecute(r DeploymentQCSGetDeplo
 }
 
 type DeploymentQCSGetDeploymentsAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	includeVdas *bool
-	accountType *AccountType
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	includeVdas         *bool
+	accountType         *AccountType
 	citrixTransactionId *string
 }
 
@@ -463,26 +489,27 @@ func (r DeploymentQCSGetDeploymentsAsyncRequest) Execute() (*Deployments, *http.
 /*
 GetDeploymentsAsync Gets deployments
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @return DeploymentQCSGetDeploymentsAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@return DeploymentQCSGetDeploymentsAsyncRequest
 */
 func (a *DeploymentQCSService) GetDeploymentsAsync(ctx context.Context, customerId string) DeploymentQCSGetDeploymentsAsyncRequest {
 	return DeploymentQCSGetDeploymentsAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
 	}
 }
 
 // Execute executes the request
-//  @return Deployments
+//
+//	@return Deployments
 func (a *DeploymentQCSService) GetDeploymentsAsyncExecute(r DeploymentQCSGetDeploymentsAsyncRequest) (*Deployments, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Deployments
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Deployments
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.GetDeploymentsAsync")
@@ -498,10 +525,10 @@ func (a *DeploymentQCSService) GetDeploymentsAsyncExecute(r DeploymentQCSGetDepl
 	localVarFormParams := url.Values{}
 
 	if r.includeVdas != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "includeVdas", r.includeVdas, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "includeVdas", r.includeVdas, "form", "")
 	}
 	if r.accountType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "accountType", r.accountType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "accountType", r.accountType, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -521,7 +548,7 @@ func (a *DeploymentQCSService) GetDeploymentsAsyncExecute(r DeploymentQCSGetDepl
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -554,6 +581,13 @@ func (a *DeploymentQCSService) GetDeploymentsAsyncExecute(r DeploymentQCSGetDepl
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -575,12 +609,12 @@ func (a *DeploymentQCSService) GetDeploymentsAsyncExecute(r DeploymentQCSGetDepl
 }
 
 type DeploymentQCSInitiateDeleteDeploymentAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	forceDelete *bool
-	citrixTransactionId *string
+	ctx                            context.Context
+	ApiService                     *DeploymentQCSService
+	customerId                     string
+	deploymentId                   string
+	forceDelete                    *bool
+	citrixTransactionId            *string
 	deploymentIdInitiateDeleteBody *DeploymentIdInitiateDeleteBody
 }
 
@@ -609,28 +643,29 @@ func (r DeploymentQCSInitiateDeleteDeploymentAsyncRequest) Execute() (*Deploymen
 /*
 InitiateDeleteDeploymentAsync Initiate delete deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSInitiateDeleteDeploymentAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSInitiateDeleteDeploymentAsyncRequest
 */
 func (a *DeploymentQCSService) InitiateDeleteDeploymentAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSInitiateDeleteDeploymentAsyncRequest {
 	return DeploymentQCSInitiateDeleteDeploymentAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) InitiateDeleteDeploymentAsyncExecute(r DeploymentQCSInitiateDeleteDeploymentAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.InitiateDeleteDeploymentAsync")
@@ -647,7 +682,10 @@ func (a *DeploymentQCSService) InitiateDeleteDeploymentAsyncExecute(r Deployment
 	localVarFormParams := url.Values{}
 
 	if r.forceDelete != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.forceDelete = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
@@ -667,7 +705,7 @@ func (a *DeploymentQCSService) InitiateDeleteDeploymentAsyncExecute(r Deployment
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.deploymentIdInitiateDeleteBody
@@ -702,6 +740,13 @@ func (a *DeploymentQCSService) InitiateDeleteDeploymentAsyncExecute(r Deployment
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -723,11 +768,11 @@ func (a *DeploymentQCSService) InitiateDeleteDeploymentAsyncExecute(r Deployment
 }
 
 type DeploymentQCSInitiateDeploymentAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
 	citrixTransactionId *string
-	body *InitiateAwsEdcDeployment
+	body                *InitiateAwsEdcDeployment
 }
 
 // The Transaction Id.
@@ -749,26 +794,27 @@ func (r DeploymentQCSInitiateDeploymentAsyncRequest) Execute() (*AwsEdcDeploymen
 /*
 InitiateDeploymentAsync Initiates deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @return DeploymentQCSInitiateDeploymentAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@return DeploymentQCSInitiateDeploymentAsyncRequest
 */
 func (a *DeploymentQCSService) InitiateDeploymentAsync(ctx context.Context, customerId string) DeploymentQCSInitiateDeploymentAsyncRequest {
 	return DeploymentQCSInitiateDeploymentAsyncRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		customerId: customerId,
 	}
 }
 
 // Execute executes the request
-//  @return AwsEdcDeployment
+//
+//	@return AwsEdcDeployment
 func (a *DeploymentQCSService) InitiateDeploymentAsyncExecute(r DeploymentQCSInitiateDeploymentAsyncRequest) (*AwsEdcDeployment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AwsEdcDeployment
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AwsEdcDeployment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.InitiateDeploymentAsync")
@@ -801,7 +847,7 @@ func (a *DeploymentQCSService) InitiateDeploymentAsyncExecute(r DeploymentQCSIni
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -836,6 +882,13 @@ func (a *DeploymentQCSService) InitiateDeploymentAsyncExecute(r DeploymentQCSIni
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -857,13 +910,13 @@ func (a *DeploymentQCSService) InitiateDeploymentAsyncExecute(r DeploymentQCSIni
 }
 
 type DeploymentQCSInitiateRemoveMachineAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	machineId string
-	forceDelete *bool
-	citrixTransactionId *string
+	ctx                         context.Context
+	ApiService                  *DeploymentQCSService
+	customerId                  string
+	deploymentId                string
+	machineId                   string
+	forceDelete                 *bool
+	citrixTransactionId         *string
 	machineIdInitiateDeleteBody *MachineIdInitiateDeleteBody
 }
 
@@ -892,30 +945,31 @@ func (r DeploymentQCSInitiateRemoveMachineAsyncRequest) Execute() (*DeploymentTa
 /*
 InitiateRemoveMachineAsync Initiate removal of machine from deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @param machineId ID of the machine
- @return DeploymentQCSInitiateRemoveMachineAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@param machineId ID of the machine
+	@return DeploymentQCSInitiateRemoveMachineAsyncRequest
 */
 func (a *DeploymentQCSService) InitiateRemoveMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSInitiateRemoveMachineAsyncRequest {
 	return DeploymentQCSInitiateRemoveMachineAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
-		machineId: machineId,
+		machineId:    machineId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) InitiateRemoveMachineAsyncExecute(r DeploymentQCSInitiateRemoveMachineAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.InitiateRemoveMachineAsync")
@@ -933,7 +987,10 @@ func (a *DeploymentQCSService) InitiateRemoveMachineAsyncExecute(r DeploymentQCS
 	localVarFormParams := url.Values{}
 
 	if r.forceDelete != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.forceDelete = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
@@ -953,7 +1010,7 @@ func (a *DeploymentQCSService) InitiateRemoveMachineAsyncExecute(r DeploymentQCS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.machineIdInitiateDeleteBody
@@ -988,6 +1045,13 @@ func (a *DeploymentQCSService) InitiateRemoveMachineAsyncExecute(r DeploymentQCS
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1009,11 +1073,11 @@ func (a *DeploymentQCSService) InitiateRemoveMachineAsyncExecute(r DeploymentQCS
 }
 
 type DeploymentQCSPatchMachinesAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	citrixTransactionId *string
+	ctx                      context.Context
+	ApiService               *DeploymentQCSService
+	customerId               string
+	deploymentId             string
+	citrixTransactionId      *string
 	deploymentIdMachinesBody *DeploymentIdMachinesBody
 }
 
@@ -1036,16 +1100,16 @@ func (r DeploymentQCSPatchMachinesAsyncRequest) Execute() (*http.Response, error
 /*
 PatchMachinesAsync Turn on or off the deployment mode for deployment machines
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSPatchMachinesAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSPatchMachinesAsyncRequest
 */
 func (a *DeploymentQCSService) PatchMachinesAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSPatchMachinesAsyncRequest {
 	return DeploymentQCSPatchMachinesAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
@@ -1053,9 +1117,9 @@ func (a *DeploymentQCSService) PatchMachinesAsync(ctx context.Context, customerI
 // Execute executes the request
 func (a *DeploymentQCSService) PatchMachinesAsyncExecute(r DeploymentQCSPatchMachinesAsyncRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.PatchMachinesAsync")
@@ -1089,7 +1153,7 @@ func (a *DeploymentQCSService) PatchMachinesAsyncExecute(r DeploymentQCSPatchMac
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.deploymentIdMachinesBody
@@ -1124,6 +1188,13 @@ func (a *DeploymentQCSService) PatchMachinesAsyncExecute(r DeploymentQCSPatchMac
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1136,12 +1207,12 @@ func (a *DeploymentQCSService) PatchMachinesAsyncExecute(r DeploymentQCSPatchMac
 }
 
 type DeploymentQCSRemoveMachineAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	machineId string
-	forceDelete *bool
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
+	machineId           string
+	forceDelete         *bool
 	citrixTransactionId *string
 }
 
@@ -1164,30 +1235,31 @@ func (r DeploymentQCSRemoveMachineAsyncRequest) Execute() (*DeploymentTask, *htt
 /*
 RemoveMachineAsync Removes machine to deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @param machineId ID of the machine
- @return DeploymentQCSRemoveMachineAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@param machineId ID of the machine
+	@return DeploymentQCSRemoveMachineAsyncRequest
 */
 func (a *DeploymentQCSService) RemoveMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSRemoveMachineAsyncRequest {
 	return DeploymentQCSRemoveMachineAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
-		machineId: machineId,
+		machineId:    machineId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) RemoveMachineAsyncExecute(r DeploymentQCSRemoveMachineAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.RemoveMachineAsync")
@@ -1205,7 +1277,10 @@ func (a *DeploymentQCSService) RemoveMachineAsyncExecute(r DeploymentQCSRemoveMa
 	localVarFormParams := url.Values{}
 
 	if r.forceDelete != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.forceDelete = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1225,7 +1300,7 @@ func (a *DeploymentQCSService) RemoveMachineAsyncExecute(r DeploymentQCSRemoveMa
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1258,6 +1333,13 @@ func (a *DeploymentQCSService) RemoveMachineAsyncExecute(r DeploymentQCSRemoveMa
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1279,13 +1361,13 @@ func (a *DeploymentQCSService) RemoveMachineAsyncExecute(r DeploymentQCSRemoveMa
 }
 
 type DeploymentQCSRemoveMachinesAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	forceDelete *bool
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
+	forceDelete         *bool
 	citrixTransactionId *string
-	machinesDeleteBody *MachinesDeleteBody
+	machinesDeleteBody  *MachinesDeleteBody
 }
 
 // Force delete machines
@@ -1313,28 +1395,29 @@ func (r DeploymentQCSRemoveMachinesAsyncRequest) Execute() (*DeploymentTask, *ht
 /*
 RemoveMachinesAsync Removes machines from deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSRemoveMachinesAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSRemoveMachinesAsyncRequest
 */
 func (a *DeploymentQCSService) RemoveMachinesAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSRemoveMachinesAsyncRequest {
 	return DeploymentQCSRemoveMachinesAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) RemoveMachinesAsyncExecute(r DeploymentQCSRemoveMachinesAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.RemoveMachinesAsync")
@@ -1351,7 +1434,10 @@ func (a *DeploymentQCSService) RemoveMachinesAsyncExecute(r DeploymentQCSRemoveM
 	localVarFormParams := url.Values{}
 
 	if r.forceDelete != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forceDelete", r.forceDelete, "form", "")
+	} else {
+		var defaultValue bool = false
+		r.forceDelete = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json-patch+json", "application/json", "text/json", "application/*+json"}
@@ -1371,7 +1457,7 @@ func (a *DeploymentQCSService) RemoveMachinesAsyncExecute(r DeploymentQCSRemoveM
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.machinesDeleteBody
@@ -1406,6 +1492,13 @@ func (a *DeploymentQCSService) RemoveMachinesAsyncExecute(r DeploymentQCSRemoveM
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1427,11 +1520,11 @@ func (a *DeploymentQCSService) RemoveMachinesAsyncExecute(r DeploymentQCSRemoveM
 }
 
 type DeploymentQCSRestartMachineAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	machineId string
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
+	machineId           string
 	citrixTransactionId *string
 }
 
@@ -1448,28 +1541,28 @@ func (r DeploymentQCSRestartMachineAsyncRequest) Execute() (*http.Response, erro
 /*
 RestartMachineAsync Restart a machine
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @param machineId ID of the machine
- @return DeploymentQCSRestartMachineAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@param machineId ID of the machine
+	@return DeploymentQCSRestartMachineAsyncRequest
 */
 func (a *DeploymentQCSService) RestartMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSRestartMachineAsyncRequest {
 	return DeploymentQCSRestartMachineAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
-		machineId: machineId,
+		machineId:    machineId,
 	}
 }
 
 // Execute executes the request
 func (a *DeploymentQCSService) RestartMachineAsyncExecute(r DeploymentQCSRestartMachineAsyncRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.RestartMachineAsync")
@@ -1504,7 +1597,7 @@ func (a *DeploymentQCSService) RestartMachineAsyncExecute(r DeploymentQCSRestart
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	if r.ctx != nil {
 		// API Key Authentication
@@ -1537,6 +1630,13 @@ func (a *DeploymentQCSService) RestartMachineAsyncExecute(r DeploymentQCSRestart
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1549,12 +1649,12 @@ func (a *DeploymentQCSService) RestartMachineAsyncExecute(r DeploymentQCSRestart
 }
 
 type DeploymentQCSSaveAsImageAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	machineId string
-	citrixTransactionId *string
+	ctx                      context.Context
+	ApiService               *DeploymentQCSService
+	customerId               string
+	deploymentId             string
+	machineId                string
+	citrixTransactionId      *string
 	machineIdSaveAsImageBody *MachineIdSaveAsImageBody
 }
 
@@ -1577,30 +1677,31 @@ func (r DeploymentQCSSaveAsImageAsyncRequest) Execute() (*DeploymentTask, *http.
 /*
 SaveAsImageAsync Save image to account
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @param machineId ID of the image builder machine
- @return DeploymentQCSSaveAsImageAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@param machineId ID of the image builder machine
+	@return DeploymentQCSSaveAsImageAsyncRequest
 */
 func (a *DeploymentQCSService) SaveAsImageAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSSaveAsImageAsyncRequest {
 	return DeploymentQCSSaveAsImageAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
-		machineId: machineId,
+		machineId:    machineId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) SaveAsImageAsyncExecute(r DeploymentQCSSaveAsImageAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.SaveAsImageAsync")
@@ -1635,7 +1736,7 @@ func (a *DeploymentQCSService) SaveAsImageAsyncExecute(r DeploymentQCSSaveAsImag
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.machineIdSaveAsImageBody
@@ -1670,6 +1771,13 @@ func (a *DeploymentQCSService) SaveAsImageAsyncExecute(r DeploymentQCSSaveAsImag
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1691,12 +1799,12 @@ func (a *DeploymentQCSService) SaveAsImageAsyncExecute(r DeploymentQCSSaveAsImag
 }
 
 type DeploymentQCSUpdateDeploymentImageAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
 	citrixTransactionId *string
-	imageUpdateBody *ImageUpdateBody
+	imageUpdateBody     *ImageUpdateBody
 }
 
 // The Transaction Id.
@@ -1718,28 +1826,29 @@ func (r DeploymentQCSUpdateDeploymentImageAsyncRequest) Execute() (*DeploymentTa
 /*
 UpdateDeploymentImageAsync Update image for a deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSUpdateDeploymentImageAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSUpdateDeploymentImageAsyncRequest
 */
 func (a *DeploymentQCSService) UpdateDeploymentImageAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSUpdateDeploymentImageAsyncRequest {
 	return DeploymentQCSUpdateDeploymentImageAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) UpdateDeploymentImageAsyncExecute(r DeploymentQCSUpdateDeploymentImageAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.UpdateDeploymentImageAsync")
@@ -1773,7 +1882,7 @@ func (a *DeploymentQCSService) UpdateDeploymentImageAsyncExecute(r DeploymentQCS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.imageUpdateBody
@@ -1808,6 +1917,13 @@ func (a *DeploymentQCSService) UpdateDeploymentImageAsyncExecute(r DeploymentQCS
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1829,12 +1945,12 @@ func (a *DeploymentQCSService) UpdateDeploymentImageAsyncExecute(r DeploymentQCS
 }
 
 type DeploymentQCSUpdateDeploymentPropertiesAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
 	citrixTransactionId *string
-	body *UpdateAwsEdcDeploymentProperties
+	body                *UpdateAwsEdcDeploymentProperties
 }
 
 // The Transaction Id.
@@ -1856,28 +1972,29 @@ func (r DeploymentQCSUpdateDeploymentPropertiesAsyncRequest) Execute() (*Deploym
 /*
 UpdateDeploymentPropertiesAsync Updates deployment properties
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @return DeploymentQCSUpdateDeploymentPropertiesAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@return DeploymentQCSUpdateDeploymentPropertiesAsyncRequest
 */
 func (a *DeploymentQCSService) UpdateDeploymentPropertiesAsync(ctx context.Context, customerId string, deploymentId string) DeploymentQCSUpdateDeploymentPropertiesAsyncRequest {
 	return DeploymentQCSUpdateDeploymentPropertiesAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) UpdateDeploymentPropertiesAsyncExecute(r DeploymentQCSUpdateDeploymentPropertiesAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.UpdateDeploymentPropertiesAsync")
@@ -1911,7 +2028,7 @@ func (a *DeploymentQCSService) UpdateDeploymentPropertiesAsyncExecute(r Deployme
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -1946,6 +2063,13 @@ func (a *DeploymentQCSService) UpdateDeploymentPropertiesAsyncExecute(r Deployme
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -1967,13 +2091,13 @@ func (a *DeploymentQCSService) UpdateDeploymentPropertiesAsyncExecute(r Deployme
 }
 
 type DeploymentQCSUpdateMachineAsyncRequest struct {
-	ctx context.Context
-	ApiService *DeploymentQCSService
-	customerId string
-	deploymentId string
-	machineId string
+	ctx                 context.Context
+	ApiService          *DeploymentQCSService
+	customerId          string
+	deploymentId        string
+	machineId           string
 	citrixTransactionId *string
-	body *UpdateAwsEdcDeploymentMachine
+	body                *UpdateAwsEdcDeploymentMachine
 }
 
 // The Transaction Id.
@@ -1995,30 +2119,31 @@ func (r DeploymentQCSUpdateMachineAsyncRequest) Execute() (*DeploymentTask, *htt
 /*
 UpdateMachineAsync Updates machine in deployment
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param customerId ID of the customer
- @param deploymentId ID of the deployment
- @param machineId ID of the machine
- @return DeploymentQCSUpdateMachineAsyncRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param customerId ID of the customer
+	@param deploymentId ID of the deployment
+	@param machineId ID of the machine
+	@return DeploymentQCSUpdateMachineAsyncRequest
 */
 func (a *DeploymentQCSService) UpdateMachineAsync(ctx context.Context, customerId string, deploymentId string, machineId string) DeploymentQCSUpdateMachineAsyncRequest {
 	return DeploymentQCSUpdateMachineAsyncRequest{
-		ApiService: a,
-		ctx: ctx,
-		customerId: customerId,
+		ApiService:   a,
+		ctx:          ctx,
+		customerId:   customerId,
 		deploymentId: deploymentId,
-		machineId: machineId,
+		machineId:    machineId,
 	}
 }
 
 // Execute executes the request
-//  @return DeploymentTask
+//
+//	@return DeploymentTask
 func (a *DeploymentQCSService) UpdateMachineAsyncExecute(r DeploymentQCSUpdateMachineAsyncRequest) (*DeploymentTask, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *DeploymentTask
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *DeploymentTask
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DeploymentQCSService.UpdateMachineAsync")
@@ -2053,7 +2178,7 @@ func (a *DeploymentQCSService) UpdateMachineAsyncExecute(r DeploymentQCSUpdateMa
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	if r.citrixTransactionId != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "")
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-TransactionId", r.citrixTransactionId, "simple", "")
 	}
 	// body params
 	localVarPostBody = r.body
@@ -2086,6 +2211,13 @@ func (a *DeploymentQCSService) UpdateMachineAsyncExecute(r DeploymentQCSUpdateMa
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

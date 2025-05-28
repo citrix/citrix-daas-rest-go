@@ -20,8 +20,8 @@ type MachineType string
 
 // List of MachineType
 const (
-	MACHINETYPE_UNKNOWN MachineType = "Unknown"
-	MACHINETYPE_VIRTUAL MachineType = "Virtual"
+	MACHINETYPE_UNKNOWN  MachineType = "Unknown"
+	MACHINETYPE_VIRTUAL  MachineType = "Virtual"
 	MACHINETYPE_PHYSICAL MachineType = "Physical"
 )
 
@@ -38,7 +38,7 @@ func (v *MachineType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MachineType(value)
 	return nil
 }
@@ -104,4 +104,3 @@ func (v *NullableMachineType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

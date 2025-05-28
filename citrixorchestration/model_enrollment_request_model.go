@@ -111,6 +111,7 @@ func (o *EnrollmentRequestModel) HasIssuedToUser() bool {
 func (o *EnrollmentRequestModel) SetIssuedToUser(v string) {
 	o.IssuedToUser.Set(&v)
 }
+
 // SetIssuedToUserNil sets the value for IssuedToUser to be an explicit nil
 func (o *EnrollmentRequestModel) SetIssuedToUserNil() {
 	o.IssuedToUser.Set(nil)
@@ -153,6 +154,7 @@ func (o *EnrollmentRequestModel) HasExpirationDate() bool {
 func (o *EnrollmentRequestModel) SetExpirationDate(v time.Time) {
 	o.ExpirationDate.Set(&v)
 }
+
 // SetExpirationDateNil sets the value for ExpirationDate to be an explicit nil
 func (o *EnrollmentRequestModel) SetExpirationDateNil() {
 	o.ExpirationDate.Set(nil)
@@ -195,6 +197,7 @@ func (o *EnrollmentRequestModel) HasNotValidBeforeDate() bool {
 func (o *EnrollmentRequestModel) SetNotValidBeforeDate(v time.Time) {
 	o.NotValidBeforeDate.Set(&v)
 }
+
 // SetNotValidBeforeDateNil sets the value for NotValidBeforeDate to be an explicit nil
 func (o *EnrollmentRequestModel) SetNotValidBeforeDateNil() {
 	o.NotValidBeforeDate.Set(nil)
@@ -293,6 +296,7 @@ func (o *EnrollmentRequestModel) HasHostConnectionId() bool {
 func (o *EnrollmentRequestModel) SetHostConnectionId(v string) {
 	o.HostConnectionId.Set(&v)
 }
+
 // SetHostConnectionIdNil sets the value for HostConnectionId to be an explicit nil
 func (o *EnrollmentRequestModel) SetHostConnectionIdNil() {
 	o.HostConnectionId.Set(nil)
@@ -304,7 +308,7 @@ func (o *EnrollmentRequestModel) UnsetHostConnectionId() {
 }
 
 func (o EnrollmentRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -368,5 +372,3 @@ func (v *NullableEnrollmentRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

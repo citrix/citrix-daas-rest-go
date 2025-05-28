@@ -22,9 +22,9 @@ type PowerTimeSchemeRequestModel struct {
 	// The pattern of days of the week that the power time scheme covers.
 	DaysOfWeek []TimeSchemeDays `json:"DaysOfWeek,omitempty"`
 	// The administrative name of the power time scheme.
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString `json:"Name,omitempty" validate:"regexp=(.*)*"`
 	// The name of the power time scheme as displayed in the Studio console.
-	DisplayName NullableString `json:"DisplayName,omitempty"`
+	DisplayName NullableString `json:"DisplayName,omitempty" validate:"regexp=(.*)*"`
 	// `DEPRECATED. Use <see cref='PeakTimeRanges'/> instead.` DEPRECATED.  Use PeakTimeRanges instead.  A set of 24 boolean flag values, one for each hour of the day. The first value in the array relates to midnight to 00:59, the next one to 1 AM to 01:59 and so on, with the last array element relating to 11 PM to 11:59. If the flag is `true` it means that the associated hour of the day is considered a peak time; if `false` it means that it is considered off-peak.
 	// Deprecated
 	PeakHours []bool `json:"PeakHours,omitempty"`
@@ -125,6 +125,7 @@ func (o *PowerTimeSchemeRequestModel) HasName() bool {
 func (o *PowerTimeSchemeRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *PowerTimeSchemeRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -167,6 +168,7 @@ func (o *PowerTimeSchemeRequestModel) HasDisplayName() bool {
 func (o *PowerTimeSchemeRequestModel) SetDisplayName(v string) {
 	o.DisplayName.Set(&v)
 }
+
 // SetDisplayNameNil sets the value for DisplayName to be an explicit nil
 func (o *PowerTimeSchemeRequestModel) SetDisplayNameNil() {
 	o.DisplayName.Set(nil)
@@ -347,6 +349,7 @@ func (o *PowerTimeSchemeRequestModel) HasPoolUsingPercentage() bool {
 func (o *PowerTimeSchemeRequestModel) SetPoolUsingPercentage(v bool) {
 	o.PoolUsingPercentage.Set(&v)
 }
+
 // SetPoolUsingPercentageNil sets the value for PoolUsingPercentage to be an explicit nil
 func (o *PowerTimeSchemeRequestModel) SetPoolUsingPercentageNil() {
 	o.PoolUsingPercentage.Set(nil)
@@ -358,7 +361,7 @@ func (o *PowerTimeSchemeRequestModel) UnsetPoolUsingPercentage() {
 }
 
 func (o PowerTimeSchemeRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -429,5 +432,3 @@ func (v *NullablePowerTimeSchemeRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

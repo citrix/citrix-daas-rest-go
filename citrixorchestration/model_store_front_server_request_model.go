@@ -22,11 +22,11 @@ type StoreFrontServerRequestModel struct {
 	// ID of an existing StoreFront server.  If specified, this must be the only property specified in the request model.
 	Id NullableString `json:"Id,omitempty"`
 	// Name of the StoreFront server.
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString `json:"Name,omitempty" validate:"regexp=(.*)*"`
 	// Description of the StoreFront server.
-	Description NullableString `json:"Description,omitempty"`
+	Description NullableString `json:"Description,omitempty" validate:"regexp=^[A-Za-z]+$"`
 	// Url of the StoreFront server.
-	Url NullableString `json:"Url,omitempty"`
+	Url NullableString `json:"Url,omitempty" validate:"regexp=UNKNOWN"`
 	// Whether the StoreFront server is enabled.  Disabled StoreFront servers will not have thier URLs added to hosted receiver.
 	Enabled NullableBool `json:"Enabled,omitempty"`
 }
@@ -84,6 +84,7 @@ func (o *StoreFrontServerRequestModel) HasId() bool {
 func (o *StoreFrontServerRequestModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *StoreFrontServerRequestModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -126,6 +127,7 @@ func (o *StoreFrontServerRequestModel) HasName() bool {
 func (o *StoreFrontServerRequestModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *StoreFrontServerRequestModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -168,6 +170,7 @@ func (o *StoreFrontServerRequestModel) HasDescription() bool {
 func (o *StoreFrontServerRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *StoreFrontServerRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -210,6 +213,7 @@ func (o *StoreFrontServerRequestModel) HasUrl() bool {
 func (o *StoreFrontServerRequestModel) SetUrl(v string) {
 	o.Url.Set(&v)
 }
+
 // SetUrlNil sets the value for Url to be an explicit nil
 func (o *StoreFrontServerRequestModel) SetUrlNil() {
 	o.Url.Set(nil)
@@ -252,6 +256,7 @@ func (o *StoreFrontServerRequestModel) HasEnabled() bool {
 func (o *StoreFrontServerRequestModel) SetEnabled(v bool) {
 	o.Enabled.Set(&v)
 }
+
 // SetEnabledNil sets the value for Enabled to be an explicit nil
 func (o *StoreFrontServerRequestModel) SetEnabledNil() {
 	o.Enabled.Set(nil)
@@ -263,7 +268,7 @@ func (o *StoreFrontServerRequestModel) UnsetEnabled() {
 }
 
 func (o StoreFrontServerRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -325,5 +330,3 @@ func (v *NullableStoreFrontServerRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

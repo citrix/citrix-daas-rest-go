@@ -23,10 +23,10 @@ type MaintenanceCycleVMOperationJobSearchRequestModel struct {
 	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
 	// List of advanced search filters.
 	SearchFilters []MaintenanceCycleVMOperationJobSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SortCriteria *MaintenanceCycleVMOperationJobSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
+	SortCriteria  *MaintenanceCycleVMOperationJobSortCriteriaRequestModel  `json:"SortCriteria,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *MaintenanceCycleVmOperationJobSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []MaintenanceCycleVmOperationJobSearchFilterGroupsRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *MaintenanceCycleVmOperationJobSearchFilterGroupsType          `json:"SearchFilterGroupsType,omitempty"`
 	// Sort criteria for the results, multiple sorting criteria can be specified here.
 	SortCriteriaItems []MaintenanceCycleVMOperationJobSortCriteriaRequestModel `json:"SortCriteriaItems,omitempty"`
 }
@@ -80,6 +80,7 @@ func (o *MaintenanceCycleVMOperationJobSearchRequestModel) HasBasicSearchString(
 func (o *MaintenanceCycleVMOperationJobSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *MaintenanceCycleVMOperationJobSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -254,7 +255,7 @@ func (o *MaintenanceCycleVMOperationJobSearchRequestModel) SetSortCriteriaItems(
 }
 
 func (o MaintenanceCycleVMOperationJobSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -319,5 +320,3 @@ func (v *NullableMaintenanceCycleVMOperationJobSearchRequestModel) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

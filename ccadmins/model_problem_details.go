@@ -19,11 +19,11 @@ var _ MappedNullable = &ProblemDetails{}
 
 // ProblemDetails struct for ProblemDetails
 type ProblemDetails struct {
-	Type NullableString `json:"type,omitempty"`
-	Title NullableString `json:"title,omitempty"`
-	Status NullableInt32 `json:"status,omitempty"`
-	Detail NullableString `json:"detail,omitempty"`
-	Instance NullableString `json:"instance,omitempty"`
+	Type                 NullableString `json:"type,omitempty"`
+	Title                NullableString `json:"title,omitempty"`
+	Status               NullableInt32  `json:"status,omitempty"`
+	Detail               NullableString `json:"detail,omitempty"`
+	Instance             NullableString `json:"instance,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,6 +78,7 @@ func (o *ProblemDetails) HasType() bool {
 func (o *ProblemDetails) SetType(v string) {
 	o.Type.Set(&v)
 }
+
 // SetTypeNil sets the value for Type to be an explicit nil
 func (o *ProblemDetails) SetTypeNil() {
 	o.Type.Set(nil)
@@ -120,6 +121,7 @@ func (o *ProblemDetails) HasTitle() bool {
 func (o *ProblemDetails) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *ProblemDetails) SetTitleNil() {
 	o.Title.Set(nil)
@@ -162,6 +164,7 @@ func (o *ProblemDetails) HasStatus() bool {
 func (o *ProblemDetails) SetStatus(v int32) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *ProblemDetails) SetStatusNil() {
 	o.Status.Set(nil)
@@ -204,6 +207,7 @@ func (o *ProblemDetails) HasDetail() bool {
 func (o *ProblemDetails) SetDetail(v string) {
 	o.Detail.Set(&v)
 }
+
 // SetDetailNil sets the value for Detail to be an explicit nil
 func (o *ProblemDetails) SetDetailNil() {
 	o.Detail.Set(nil)
@@ -246,6 +250,7 @@ func (o *ProblemDetails) HasInstance() bool {
 func (o *ProblemDetails) SetInstance(v string) {
 	o.Instance.Set(&v)
 }
+
 // SetInstanceNil sets the value for Instance to be an explicit nil
 func (o *ProblemDetails) SetInstanceNil() {
 	o.Instance.Set(nil)
@@ -257,7 +262,7 @@ func (o *ProblemDetails) UnsetInstance() {
 }
 
 func (o ProblemDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -287,27 +292,6 @@ func (o ProblemDetails) ToMap() (map[string]interface{}, error) {
 	}
 
 	return toSerialize, nil
-}
-
-func (o *ProblemDetails) UnmarshalJSON(bytes []byte) (err error) {
-	varProblemDetails := _ProblemDetails{}
-
-	if err = json.Unmarshal(bytes, &varProblemDetails); err == nil {
-		*o = ProblemDetails(varProblemDetails)
-	}
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(bytes, &additionalProperties); err == nil {
-		delete(additionalProperties, "type")
-		delete(additionalProperties, "title")
-		delete(additionalProperties, "status")
-		delete(additionalProperties, "detail")
-		delete(additionalProperties, "instance")
-		o.AdditionalProperties = additionalProperties
-	}
-
-	return err
 }
 
 type NullableProblemDetails struct {
@@ -345,5 +329,3 @@ func (v *NullableProblemDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

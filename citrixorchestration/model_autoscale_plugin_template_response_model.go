@@ -20,7 +20,7 @@ var _ MappedNullable = &AutoscalePluginTemplateResponseModel{}
 // AutoscalePluginTemplateResponseModel The autoscale plugin template response model.
 type AutoscalePluginTemplateResponseModel struct {
 	// Autoscale plugin template name.
-	Name NullableString `json:"Name,omitempty"`
+	Name NullableString       `json:"Name,omitempty"`
 	Type *AutoscalePluginType `json:"Type,omitempty"`
 	// Date range for the autoscale holiday plugin template.
 	Dates []string `json:"Dates,omitempty"`
@@ -75,6 +75,7 @@ func (o *AutoscalePluginTemplateResponseModel) HasName() bool {
 func (o *AutoscalePluginTemplateResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AutoscalePluginTemplateResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -151,7 +152,7 @@ func (o *AutoscalePluginTemplateResponseModel) SetDates(v []string) {
 }
 
 func (o AutoscalePluginTemplateResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +208,3 @@ func (v *NullableAutoscalePluginTemplateResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

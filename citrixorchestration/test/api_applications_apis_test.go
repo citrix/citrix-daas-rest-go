@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsAddApplicationTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
@@ -39,7 +40,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsAddApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsAddApplications(context.Background()).Execute()
 
@@ -50,7 +51,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsCheckApplicationExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -63,7 +64,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsDeleteApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -76,7 +77,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsDisableApplicationFta", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var extensionName string
@@ -90,7 +91,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsDoApplicationSearch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsDoApplicationSearch(context.Background()).Execute()
 
@@ -102,7 +103,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsDuplicateApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -116,7 +117,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsEnableApplicationFta", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -129,7 +130,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -143,7 +144,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationAdministrators", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -157,7 +158,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationApplicationGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -171,7 +172,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationDeliveryGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -185,7 +186,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationFta", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var extensionName string
@@ -200,7 +201,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationFtas", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -214,7 +215,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationRecommendName", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -228,7 +229,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationSessions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -242,7 +243,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -256,7 +257,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplications(context.Background()).Execute()
 
@@ -268,7 +269,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsGetApplicationsV2", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsGetApplicationsV2(context.Background()).Execute()
 
@@ -280,7 +281,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsImportFileTypes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -293,7 +294,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsPatchApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -306,7 +307,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsRefreshAppVApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsRefreshAppVApplications(context.Background()).Execute()
 
@@ -318,7 +319,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsRemoveApplicationTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 		var tagNameOrId string
@@ -332,7 +333,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsSearchStartMenuApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationsAPIsDAAS.ApplicationsSearchStartMenuApplications(context.Background()).Execute()
 
@@ -344,7 +345,7 @@ func Test_citrixorchestration_ApplicationsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test ApplicationsAPIsDAASService ApplicationsSetApplicationTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 

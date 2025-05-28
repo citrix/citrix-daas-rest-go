@@ -20,10 +20,10 @@ type ColorDepth string
 
 // List of ColorDepth
 const (
-	COLORDEPTH_UNKNOWN ColorDepth = "Unknown"
-	COLORDEPTH_FOUR_BIT ColorDepth = "FourBit"
-	COLORDEPTH_EIGHT_BIT ColorDepth = "EightBit"
-	COLORDEPTH_SIXTEEN_BIT ColorDepth = "SixteenBit"
+	COLORDEPTH_UNKNOWN         ColorDepth = "Unknown"
+	COLORDEPTH_FOUR_BIT        ColorDepth = "FourBit"
+	COLORDEPTH_EIGHT_BIT       ColorDepth = "EightBit"
+	COLORDEPTH_SIXTEEN_BIT     ColorDepth = "SixteenBit"
 	COLORDEPTH_TWENTY_FOUR_BIT ColorDepth = "TwentyFourBit"
 )
 
@@ -42,7 +42,7 @@ func (v *ColorDepth) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ColorDepth(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableColorDepth) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

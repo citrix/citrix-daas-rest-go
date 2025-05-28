@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VpcId** | Pointer to **NullableString** | Vpc Id | [optional] 
-**Status** | Pointer to [**NullableAwsEdcVpcState**](AwsEdcVpcState.md) |  | [optional] 
-**VpcTenancy** | Pointer to [**NullableAwsEdcVpcTenancy**](AwsEdcVpcTenancy.md) |  | [optional] 
+**Status** | Pointer to [**NullableAwsEdcVpcState**](AwsEdcVpcState.md) | Vpc Status  Enum values AVAILABLE, PENDING | [optional] 
+**VpcTenancy** | Pointer to [**NullableAwsEdcVpcTenancy**](AwsEdcVpcTenancy.md) | Vpc Tenancy  Enum values DEFAULT, DEDICATED, HOST | [optional] 
 **CidrBlock** | Pointer to **NullableString** | Vpc CIDR Block | [optional] 
 **Tags** | Pointer to [**[]Tag**](Tag.md) | Vpc Tags | [optional] 
 

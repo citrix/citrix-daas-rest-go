@@ -19,12 +19,15 @@ var _ MappedNullable = &SearchAccountResourceRequest{}
 
 // SearchAccountResourceRequest Resource objects associated with account
 type SearchAccountResourceRequest struct {
+	// The type of cloud provider the account is associated with.
 	AccountType AccountType `json:"accountType"`
 	// The filter property key.
 	FilterProperty NullableString `json:"filterProperty,omitempty"`
 	// The filter property value.
 	FilterValue NullableString `json:"filterValue,omitempty"`
 }
+
+type _SearchAccountResourceRequest SearchAccountResourceRequest
 
 // NewSearchAccountResourceRequest instantiates a new SearchAccountResourceRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -100,6 +103,7 @@ func (o *SearchAccountResourceRequest) HasFilterProperty() bool {
 func (o *SearchAccountResourceRequest) SetFilterProperty(v string) {
 	o.FilterProperty.Set(&v)
 }
+
 // SetFilterPropertyNil sets the value for FilterProperty to be an explicit nil
 func (o *SearchAccountResourceRequest) SetFilterPropertyNil() {
 	o.FilterProperty.Set(nil)
@@ -142,6 +146,7 @@ func (o *SearchAccountResourceRequest) HasFilterValue() bool {
 func (o *SearchAccountResourceRequest) SetFilterValue(v string) {
 	o.FilterValue.Set(&v)
 }
+
 // SetFilterValueNil sets the value for FilterValue to be an explicit nil
 func (o *SearchAccountResourceRequest) SetFilterValueNil() {
 	o.FilterValue.Set(nil)
@@ -153,7 +158,7 @@ func (o *SearchAccountResourceRequest) UnsetFilterValue() {
 }
 
 func (o SearchAccountResourceRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -207,5 +212,3 @@ func (v *NullableSearchAccountResourceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

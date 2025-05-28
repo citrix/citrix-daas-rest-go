@@ -26,6 +26,7 @@ type AddAwsEdcDirectoryConnection struct {
 	Subnet1Id NullableString `json:"subnet1Id,omitempty"`
 	// Second Subnet Id
 	Subnet2Id NullableString `json:"subnet2Id,omitempty"`
+	// Tenancy of directory  Enum values SHARED, DEDICATED
 	Tenancy NullableAwsEdcDirectoryTenancy `json:"tenancy,omitempty"`
 	// Enable Work Docs
 	EnableWorkDocs *bool `json:"enableWorkDocs,omitempty"`
@@ -38,6 +39,8 @@ type AddAwsEdcDirectoryConnection struct {
 	// Indicates if maintenance mode is enabled for workspaces
 	EnableMaintenanceMode *bool `json:"enableMaintenanceMode,omitempty"`
 }
+
+type _AddAwsEdcDirectoryConnection AddAwsEdcDirectoryConnection
 
 // NewAddAwsEdcDirectoryConnection instantiates a new AddAwsEdcDirectoryConnection object
 // This constructor will assign default values to properties that have it defined,
@@ -90,6 +93,7 @@ func (o *AddAwsEdcDirectoryConnection) HasDirectoryId() bool {
 func (o *AddAwsEdcDirectoryConnection) SetDirectoryId(v string) {
 	o.DirectoryId.Set(&v)
 }
+
 // SetDirectoryIdNil sets the value for DirectoryId to be an explicit nil
 func (o *AddAwsEdcDirectoryConnection) SetDirectoryIdNil() {
 	o.DirectoryId.Set(nil)
@@ -132,6 +136,7 @@ func (o *AddAwsEdcDirectoryConnection) HasSubnet1Id() bool {
 func (o *AddAwsEdcDirectoryConnection) SetSubnet1Id(v string) {
 	o.Subnet1Id.Set(&v)
 }
+
 // SetSubnet1IdNil sets the value for Subnet1Id to be an explicit nil
 func (o *AddAwsEdcDirectoryConnection) SetSubnet1IdNil() {
 	o.Subnet1Id.Set(nil)
@@ -174,6 +179,7 @@ func (o *AddAwsEdcDirectoryConnection) HasSubnet2Id() bool {
 func (o *AddAwsEdcDirectoryConnection) SetSubnet2Id(v string) {
 	o.Subnet2Id.Set(&v)
 }
+
 // SetSubnet2IdNil sets the value for Subnet2Id to be an explicit nil
 func (o *AddAwsEdcDirectoryConnection) SetSubnet2IdNil() {
 	o.Subnet2Id.Set(nil)
@@ -216,6 +222,7 @@ func (o *AddAwsEdcDirectoryConnection) HasTenancy() bool {
 func (o *AddAwsEdcDirectoryConnection) SetTenancy(v AwsEdcDirectoryTenancy) {
 	o.Tenancy.Set(&v)
 }
+
 // SetTenancyNil sets the value for Tenancy to be an explicit nil
 func (o *AddAwsEdcDirectoryConnection) SetTenancyNil() {
 	o.Tenancy.Set(nil)
@@ -322,6 +329,7 @@ func (o *AddAwsEdcDirectoryConnection) HasSecurityGroupId() bool {
 func (o *AddAwsEdcDirectoryConnection) SetSecurityGroupId(v string) {
 	o.SecurityGroupId.Set(&v)
 }
+
 // SetSecurityGroupIdNil sets the value for SecurityGroupId to be an explicit nil
 func (o *AddAwsEdcDirectoryConnection) SetSecurityGroupIdNil() {
 	o.SecurityGroupId.Set(nil)
@@ -364,6 +372,7 @@ func (o *AddAwsEdcDirectoryConnection) HasDefaultOu() bool {
 func (o *AddAwsEdcDirectoryConnection) SetDefaultOu(v string) {
 	o.DefaultOu.Set(&v)
 }
+
 // SetDefaultOuNil sets the value for DefaultOu to be an explicit nil
 func (o *AddAwsEdcDirectoryConnection) SetDefaultOuNil() {
 	o.DefaultOu.Set(nil)
@@ -407,7 +416,7 @@ func (o *AddAwsEdcDirectoryConnection) SetEnableMaintenanceMode(v bool) {
 }
 
 func (o AddAwsEdcDirectoryConnection) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -489,5 +498,3 @@ func (v *NullableAddAwsEdcDirectoryConnection) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

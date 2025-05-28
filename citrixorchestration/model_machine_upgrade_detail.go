@@ -20,7 +20,7 @@ var _ MappedNullable = &MachineUpgradeDetail{}
 // MachineUpgradeDetail Status detail of last VDA upgrade schedule for a machine.
 type MachineUpgradeDetail struct {
 	// Uuid of this upgrade status object.
-	Uuid NullableString `json:"Uuid,omitempty"`
+	Uuid           NullableString                   `json:"Uuid,omitempty"`
 	ScheduleStatus *VdaUpgradeMachineScheduleStatus `json:"ScheduleStatus,omitempty"`
 	// Status message resulted from the action of this upgrade status object.
 	StatusMessage NullableString `json:"StatusMessage,omitempty"`
@@ -83,6 +83,7 @@ func (o *MachineUpgradeDetail) HasUuid() bool {
 func (o *MachineUpgradeDetail) SetUuid(v string) {
 	o.Uuid.Set(&v)
 }
+
 // SetUuidNil sets the value for Uuid to be an explicit nil
 func (o *MachineUpgradeDetail) SetUuidNil() {
 	o.Uuid.Set(nil)
@@ -157,6 +158,7 @@ func (o *MachineUpgradeDetail) HasStatusMessage() bool {
 func (o *MachineUpgradeDetail) SetStatusMessage(v string) {
 	o.StatusMessage.Set(&v)
 }
+
 // SetStatusMessageNil sets the value for StatusMessage to be an explicit nil
 func (o *MachineUpgradeDetail) SetStatusMessageNil() {
 	o.StatusMessage.Set(nil)
@@ -199,6 +201,7 @@ func (o *MachineUpgradeDetail) HasLastStateChangeTimeUtc() bool {
 func (o *MachineUpgradeDetail) SetLastStateChangeTimeUtc(v string) {
 	o.LastStateChangeTimeUtc.Set(&v)
 }
+
 // SetLastStateChangeTimeUtcNil sets the value for LastStateChangeTimeUtc to be an explicit nil
 func (o *MachineUpgradeDetail) SetLastStateChangeTimeUtcNil() {
 	o.LastStateChangeTimeUtc.Set(nil)
@@ -241,6 +244,7 @@ func (o *MachineUpgradeDetail) HasScheduledTimeUtc() bool {
 func (o *MachineUpgradeDetail) SetScheduledTimeUtc(v string) {
 	o.ScheduledTimeUtc.Set(&v)
 }
+
 // SetScheduledTimeUtcNil sets the value for ScheduledTimeUtc to be an explicit nil
 func (o *MachineUpgradeDetail) SetScheduledTimeUtcNil() {
 	o.ScheduledTimeUtc.Set(nil)
@@ -283,6 +287,7 @@ func (o *MachineUpgradeDetail) HasDurationInHours() bool {
 func (o *MachineUpgradeDetail) SetDurationInHours(v int32) {
 	o.DurationInHours.Set(&v)
 }
+
 // SetDurationInHoursNil sets the value for DurationInHours to be an explicit nil
 func (o *MachineUpgradeDetail) SetDurationInHoursNil() {
 	o.DurationInHours.Set(nil)
@@ -325,6 +330,7 @@ func (o *MachineUpgradeDetail) HasTargetPackageVersion() bool {
 func (o *MachineUpgradeDetail) SetTargetPackageVersion(v string) {
 	o.TargetPackageVersion.Set(&v)
 }
+
 // SetTargetPackageVersionNil sets the value for TargetPackageVersion to be an explicit nil
 func (o *MachineUpgradeDetail) SetTargetPackageVersionNil() {
 	o.TargetPackageVersion.Set(nil)
@@ -336,7 +342,7 @@ func (o *MachineUpgradeDetail) UnsetTargetPackageVersion() {
 }
 
 func (o MachineUpgradeDetail) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -404,5 +410,3 @@ func (v *NullableMachineUpgradeDetail) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

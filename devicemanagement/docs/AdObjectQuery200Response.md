@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]MachineModel**](MachineModel.md) |  | 
+**Items** | [**[]MachineModel**](MachineModel.md) |  | [readonly] 
 
 ## Methods
 

@@ -20,9 +20,9 @@ type PowerShellExecutionStatus string
 
 // List of PowerShellExecutionStatus
 const (
-	POWERSHELLEXECUTIONSTATUS_UNKNOWN PowerShellExecutionStatus = "Unknown"
-	POWERSHELLEXECUTIONSTATUS_FAILED PowerShellExecutionStatus = "Failed"
-	POWERSHELLEXECUTIONSTATUS_CANCELED PowerShellExecutionStatus = "Canceled"
+	POWERSHELLEXECUTIONSTATUS_UNKNOWN   PowerShellExecutionStatus = "Unknown"
+	POWERSHELLEXECUTIONSTATUS_FAILED    PowerShellExecutionStatus = "Failed"
+	POWERSHELLEXECUTIONSTATUS_CANCELED  PowerShellExecutionStatus = "Canceled"
 	POWERSHELLEXECUTIONSTATUS_COMPLETED PowerShellExecutionStatus = "Completed"
 )
 
@@ -40,7 +40,7 @@ func (v *PowerShellExecutionStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = PowerShellExecutionStatus(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullablePowerShellExecutionStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

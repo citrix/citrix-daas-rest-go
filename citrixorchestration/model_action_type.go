@@ -20,15 +20,15 @@ type ActionType string
 
 // List of ActionType
 const (
-	ACTIONTYPE_UNKNOWN ActionType = "Unknown"
-	ACTIONTYPE_CREATE_ITEMS ActionType = "CreateItems"
-	ACTIONTYPE_DELETE_ITEMS ActionType = "DeleteItems"
-	ACTIONTYPE_CREATE_CATALOG ActionType = "CreateCatalog"
-	ACTIONTYPE_UPDATE_IMAGE ActionType = "UpdateImage"
-	ACTIONTYPE_ADD_MACHINES ActionType = "AddMachines"
-	ACTIONTYPE_REMOVE_MACHINES ActionType = "RemoveMachines"
+	ACTIONTYPE_UNKNOWN              ActionType = "Unknown"
+	ACTIONTYPE_CREATE_ITEMS         ActionType = "CreateItems"
+	ACTIONTYPE_DELETE_ITEMS         ActionType = "DeleteItems"
+	ACTIONTYPE_CREATE_CATALOG       ActionType = "CreateCatalog"
+	ACTIONTYPE_UPDATE_IMAGE         ActionType = "UpdateImage"
+	ACTIONTYPE_ADD_MACHINES         ActionType = "AddMachines"
+	ACTIONTYPE_REMOVE_MACHINES      ActionType = "RemoveMachines"
 	ACTIONTYPE_UPDATE_SKY_WAY_IMAGE ActionType = "UpdateSkyWayImage"
-	ACTIONTYPE_DELETE_MACHINES ActionType = "DeleteMachines"
+	ACTIONTYPE_DELETE_MACHINES      ActionType = "DeleteMachines"
 )
 
 // All allowed values of ActionType enum
@@ -50,7 +50,7 @@ func (v *ActionType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ActionType(value)
 	return nil
 }
@@ -116,4 +116,3 @@ func (v *NullableActionType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,15 +20,15 @@ type AwsEdcWorkspaceCompute string
 
 // List of AwsEdcWorkspaceCompute
 const (
-	AWSEDCWORKSPACECOMPUTE_GRAPHICS AwsEdcWorkspaceCompute = "GRAPHICS"
-	AWSEDCWORKSPACECOMPUTE_GRAPHICSPRO AwsEdcWorkspaceCompute = "GRAPHICSPRO"
-	AWSEDCWORKSPACECOMPUTE_GRAPHICS_G4_DN AwsEdcWorkspaceCompute = "GRAPHICS_G4DN"
+	AWSEDCWORKSPACECOMPUTE_GRAPHICS          AwsEdcWorkspaceCompute = "GRAPHICS"
+	AWSEDCWORKSPACECOMPUTE_GRAPHICSPRO       AwsEdcWorkspaceCompute = "GRAPHICSPRO"
+	AWSEDCWORKSPACECOMPUTE_GRAPHICS_G4_DN    AwsEdcWorkspaceCompute = "GRAPHICS_G4DN"
 	AWSEDCWORKSPACECOMPUTE_GRAPHICSPRO_G4_DN AwsEdcWorkspaceCompute = "GRAPHICSPRO_G4DN"
-	AWSEDCWORKSPACECOMPUTE_PERFORMANCE AwsEdcWorkspaceCompute = "PERFORMANCE"
-	AWSEDCWORKSPACECOMPUTE_POWER AwsEdcWorkspaceCompute = "POWER"
-	AWSEDCWORKSPACECOMPUTE_POWERPRO AwsEdcWorkspaceCompute = "POWERPRO"
-	AWSEDCWORKSPACECOMPUTE_STANDARD AwsEdcWorkspaceCompute = "STANDARD"
-	AWSEDCWORKSPACECOMPUTE_VALUE AwsEdcWorkspaceCompute = "VALUE"
+	AWSEDCWORKSPACECOMPUTE_PERFORMANCE       AwsEdcWorkspaceCompute = "PERFORMANCE"
+	AWSEDCWORKSPACECOMPUTE_POWER             AwsEdcWorkspaceCompute = "POWER"
+	AWSEDCWORKSPACECOMPUTE_POWERPRO          AwsEdcWorkspaceCompute = "POWERPRO"
+	AWSEDCWORKSPACECOMPUTE_STANDARD          AwsEdcWorkspaceCompute = "STANDARD"
+	AWSEDCWORKSPACECOMPUTE_VALUE             AwsEdcWorkspaceCompute = "VALUE"
 )
 
 // All allowed values of AwsEdcWorkspaceCompute enum
@@ -122,4 +122,3 @@ func (v *NullableAwsEdcWorkspaceCompute) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

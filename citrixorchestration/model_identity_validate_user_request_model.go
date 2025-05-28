@@ -20,14 +20,14 @@ var _ MappedNullable = &IdentityValidateUserRequestModel{}
 // IdentityValidateUserRequestModel Validate user credentials and if successful, retrieve the properties of the user.
 type IdentityValidateUserRequestModel struct {
 	// Forest in which the user account resides.
-	Forest NullableString `json:"Forest,omitempty"`
+	Forest NullableString `json:"Forest,omitempty" validate:"regexp=UNKNOWN"`
 	// Domain in which the user account resides.
-	Domain NullableString `json:"Domain,omitempty"`
+	Domain    NullableString     `json:"Domain,omitempty" validate:"regexp=^(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\"<>|,~!@$%^&'(){}_\\\\s]*$).*$"`
 	LogOnType *IdentityLogonType `json:"LogOnType,omitempty"`
 	// Username to validate.  Required.
-	UserName string `json:"UserName"`
+	UserName string `json:"UserName" validate:"regexp=^(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\"<>|,~!@$%^&'(){}_\\\\s]*$).*$"`
 	// Password to validate.  Required. Must be specified in the format indicated by PasswordFormat.
-	Password string `json:"Password"`
+	Password       string                  `json:"Password" validate:"regexp=(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\\\$%\\\\^&\\\\*]).{8,}|^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$|(.*)*"`
 	PasswordFormat *IdentityPasswordFormat `json:"PasswordFormat,omitempty"`
 }
 
@@ -82,6 +82,7 @@ func (o *IdentityValidateUserRequestModel) HasForest() bool {
 func (o *IdentityValidateUserRequestModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *IdentityValidateUserRequestModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -124,6 +125,7 @@ func (o *IdentityValidateUserRequestModel) HasDomain() bool {
 func (o *IdentityValidateUserRequestModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *IdentityValidateUserRequestModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -247,7 +249,7 @@ func (o *IdentityValidateUserRequestModel) SetPasswordFormat(v IdentityPasswordF
 }
 
 func (o IdentityValidateUserRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -308,5 +310,3 @@ func (v *NullableIdentityValidateUserRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

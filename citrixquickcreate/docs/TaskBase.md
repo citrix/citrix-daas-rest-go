@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TaskType** | [**TaskType**](TaskType.md) |  | 
+**TaskType** | [**TaskType**](TaskType.md) | The type of task | 
 **TaskId** | Pointer to **NullableString** | Task Id | [optional] 
-**TaskState** | Pointer to [**NullableTaskState**](TaskState.md) |  | [optional] 
+**TaskState** | Pointer to [**NullableTaskState**](TaskState.md) | The state of the task | [optional] 
 **Status** | Pointer to **NullableString** | Status of the task | [optional] 
-**AccountType** | Pointer to [**AccountType**](AccountType.md) |  | [optional] 
+**AccountType** | Pointer to [**AccountType**](AccountType.md) | The type of account the task is associated with | [optional] 
 **StartedAt** | Pointer to **NullableTime** | DateTime when the task started | [optional] 
 **CompletedAt** | Pointer to **NullableTime** | Datetime when the task completed | [optional] 
 **Warnings** | Pointer to [**[]TaskWarning**](TaskWarning.md) | Warnings that occurred in task processing | [optional] 

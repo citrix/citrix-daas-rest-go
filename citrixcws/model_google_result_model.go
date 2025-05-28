@@ -19,8 +19,8 @@ var _ MappedNullable = &GoogleResultModel{}
 
 // GoogleResultModel struct for GoogleResultModel
 type GoogleResultModel struct {
-	DomainNames []string `json:"domainNames,omitempty"`
-	ValidCredentials *bool `json:"validCredentials,omitempty"`
+	DomainNames      []string `json:"domainNames,omitempty"`
+	ValidCredentials *bool    `json:"validCredentials,omitempty"`
 }
 
 // NewGoogleResultModel instantiates a new GoogleResultModel object
@@ -61,7 +61,7 @@ func (o *GoogleResultModel) GetDomainNamesOk() ([]string, bool) {
 
 // HasDomainNames returns a boolean if a field has been set.
 func (o *GoogleResultModel) HasDomainNames() bool {
-	if o != nil && IsNil(o.DomainNames) {
+	if o != nil && !IsNil(o.DomainNames) {
 		return true
 	}
 
@@ -106,7 +106,7 @@ func (o *GoogleResultModel) SetValidCredentials(v bool) {
 }
 
 func (o GoogleResultModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableGoogleResultModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

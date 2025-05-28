@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsCheckTagExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var name string
 
@@ -37,7 +38,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsCreateTag", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsCreateTag(context.Background()).Execute()
 
@@ -49,7 +50,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsDeleteTag", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -62,7 +63,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsGetTag", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -76,7 +77,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsGetTagApplicationGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -90,7 +91,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsGetTagApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -104,7 +105,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsGetTagDeliveryGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -118,7 +119,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsGetTagMachineCatalogs", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -132,7 +133,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsGetTagMachines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -146,7 +147,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsGetTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.TagsAPIsDAAS.TagsGetTags(context.Background()).Execute()
 
@@ -158,7 +159,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsPatchTag", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -172,7 +173,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsSetTagApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 
@@ -185,7 +186,7 @@ func Test_citrixorchestration_TagsAPIsDAASService(t *testing.T) {
 
 	t.Run("Test TagsAPIsDAASService TagsSetTagDeliveryGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var nameOrId string
 

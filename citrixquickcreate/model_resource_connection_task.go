@@ -20,10 +20,13 @@ var _ MappedNullable = &ResourceConnectionTask{}
 // ResourceConnectionTask Deployment Task Configuration
 type ResourceConnectionTask struct {
 	TaskBase
+	// Task Type
 	Operation NullableResourceConnectionTaskOperationType `json:"operation,omitempty"`
 	// The ResourceConnectionId this task is working on
 	ResourceConnectionId NullableString `json:"resourceConnectionId,omitempty"`
 }
+
+type _ResourceConnectionTask ResourceConnectionTask
 
 // NewResourceConnectionTask instantiates a new ResourceConnectionTask object
 // This constructor will assign default values to properties that have it defined,
@@ -75,6 +78,7 @@ func (o *ResourceConnectionTask) HasOperation() bool {
 func (o *ResourceConnectionTask) SetOperation(v ResourceConnectionTaskOperationType) {
 	o.Operation.Set(&v)
 }
+
 // SetOperationNil sets the value for Operation to be an explicit nil
 func (o *ResourceConnectionTask) SetOperationNil() {
 	o.Operation.Set(nil)
@@ -117,6 +121,7 @@ func (o *ResourceConnectionTask) HasResourceConnectionId() bool {
 func (o *ResourceConnectionTask) SetResourceConnectionId(v string) {
 	o.ResourceConnectionId.Set(&v)
 }
+
 // SetResourceConnectionIdNil sets the value for ResourceConnectionId to be an explicit nil
 func (o *ResourceConnectionTask) SetResourceConnectionIdNil() {
 	o.ResourceConnectionId.Set(nil)
@@ -128,7 +133,7 @@ func (o *ResourceConnectionTask) UnsetResourceConnectionId() {
 }
 
 func (o ResourceConnectionTask) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +194,3 @@ func (v *NullableResourceConnectionTask) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -5,11 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **int64** | Identity of machine-level AD object | [optional] [readonly] 
-**Sid** | **string** | SID of machine-level AD object | 
-**Name** | **string** | Distingushed name of machine-level AD object | 
-**Type** | **string** | Type of machine-level AD object | 
+**Sid** | **string** | SID of machine-level AD object | [readonly] 
+**Name** | **string** | Distingushed name of machine-level AD object | [readonly] 
+**Type** | **string** | Type of machine-level AD object | [readonly] 
 **Description** | Pointer to **string** | Description of machine-level AD object | [optional] 
-**SiteId** | **int64** | Identity of site to which this machine-level AD object belongs | 
+**SiteId** | **int64** | Identity of site to which this machine-level AD object belongs | [readonly] 
 **Enabled** | Pointer to **bool** | If this nachine-level AD object is enabled | [optional] 
 **Priority** | Pointer to **int64** | Priority of machine-level AD object | [optional] 
 

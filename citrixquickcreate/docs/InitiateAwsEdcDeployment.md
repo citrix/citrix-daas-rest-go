@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ImageId** | **string** | Image Id | 
-**ComputeType** | Pointer to [**AwsEdcWorkspaceCompute**](AwsEdcWorkspaceCompute.md) |  | [optional] 
+**ComputeType** | Pointer to [**AwsEdcWorkspaceCompute**](AwsEdcWorkspaceCompute.md) | Performance size for bundle creation | [optional] 
 **RootVolumeSize** | Pointer to **int32** | Size of operating system volume for bundle creation | [optional] 
 **UserVolumeSize** | Pointer to **int32** | Size of user storage volume for bundle creation | [optional] 
 **VolumesEncrypted** | Pointer to **NullableBool** | Is root and user storage volume encrypted | [optional] 
 **VolumesEncryptionKey** | Pointer to **NullableString** | Volume encryption key | [optional] 
-**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) |  | [optional] 
-**ScaleSettings** | Pointer to [**NullableScaleSettings**](ScaleSettings.md) |  | [optional] 
+**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) | Running mode to apply to all workspaces | [optional] 
+**ScaleSettings** | Pointer to [**NullableScaleSettings**](ScaleSettings.md) | Power Configuration for AWS Deployment | [optional] 
 **UserDecoupledWorkspaces** | Pointer to **NullableBool** | Should workspaces be decoupled from the user during creation | [optional] 
 **Workspaces** | Pointer to [**[]AddAwsEdcWorkspace**](AddAwsEdcWorkspace.md) | Configuration for individual workspace | [optional] 
 

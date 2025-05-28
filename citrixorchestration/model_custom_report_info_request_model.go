@@ -22,8 +22,8 @@ type CustomReportInfoRequestModel struct {
 	// End date of the report. When CustomReportDateRangeType is Custom, start date should be provided.
 	StartDate NullableString `json:"StartDate,omitempty"`
 	// End date of the report. When CustomReportDateRangeType is Custom, end date should be provided.
-	EndDate NullableString `json:"EndDate,omitempty"`
-	CustomReportFormat CustomReportFormatType `json:"CustomReportFormat"`
+	EndDate               NullableString            `json:"EndDate,omitempty"`
+	CustomReportFormat    CustomReportFormatType    `json:"CustomReportFormat"`
 	CustomReportDateRange CustomReportDateRangeType `json:"CustomReportDateRange"`
 }
 
@@ -78,6 +78,7 @@ func (o *CustomReportInfoRequestModel) HasStartDate() bool {
 func (o *CustomReportInfoRequestModel) SetStartDate(v string) {
 	o.StartDate.Set(&v)
 }
+
 // SetStartDateNil sets the value for StartDate to be an explicit nil
 func (o *CustomReportInfoRequestModel) SetStartDateNil() {
 	o.StartDate.Set(nil)
@@ -120,6 +121,7 @@ func (o *CustomReportInfoRequestModel) HasEndDate() bool {
 func (o *CustomReportInfoRequestModel) SetEndDate(v string) {
 	o.EndDate.Set(&v)
 }
+
 // SetEndDateNil sets the value for EndDate to be an explicit nil
 func (o *CustomReportInfoRequestModel) SetEndDateNil() {
 	o.EndDate.Set(nil)
@@ -179,7 +181,7 @@ func (o *CustomReportInfoRequestModel) SetCustomReportDateRange(v CustomReportDa
 }
 
 func (o CustomReportInfoRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -234,5 +236,3 @@ func (v *NullableCustomReportInfoRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

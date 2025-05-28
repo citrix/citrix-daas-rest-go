@@ -126,6 +126,7 @@ func (o *CreateConfigurationSlotRequestModel) HasDescription() bool {
 func (o *CreateConfigurationSlotRequestModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *CreateConfigurationSlotRequestModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -137,7 +138,7 @@ func (o *CreateConfigurationSlotRequestModel) UnsetDescription() {
 }
 
 func (o CreateConfigurationSlotRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -189,5 +190,3 @@ func (v *NullableCreateConfigurationSlotRequestModel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

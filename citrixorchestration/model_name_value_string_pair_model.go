@@ -74,6 +74,7 @@ func (o *NameValueStringPairModel) HasName() bool {
 func (o *NameValueStringPairModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *NameValueStringPairModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -116,6 +117,7 @@ func (o *NameValueStringPairModel) HasValue() bool {
 func (o *NameValueStringPairModel) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *NameValueStringPairModel) SetValueNil() {
 	o.Value.Set(nil)
@@ -127,7 +129,7 @@ func (o *NameValueStringPairModel) UnsetValue() {
 }
 
 func (o NameValueStringPairModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableNameValueStringPairModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

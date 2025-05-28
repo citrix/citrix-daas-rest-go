@@ -24,12 +24,17 @@ type AwsEdcImage struct {
 	Status NullableString `json:"status,omitempty"`
 	// Id of the Image on AWS
 	AmazonImageId NullableString `json:"amazonImageId,omitempty"`
+	// Ingestion Process used during image import
 	IngestionProcess NullableAwsEdcWorkspaceImageIngestionProcess `json:"ingestionProcess,omitempty"`
+	// Tenancy of the image  Enum values DEDICATED, DEFAULT
 	WorkspaceImageTenancy NullableAwsEdcWorkspaceImageTenancy `json:"workspaceImageTenancy,omitempty"`
+	// State of the image  Enum values AVAILABLE, ERROR, PENDING
 	WorkspaceImageState NullableAwsEdcWorkspaceImageState `json:"workspaceImageState,omitempty"`
 	// The list of installed applications
 	ApplicationList []AwsEdcAmiImportApplications `json:"applicationList,omitempty"`
 }
+
+type _AwsEdcImage AwsEdcImage
 
 // NewAwsEdcImage instantiates a new AwsEdcImage object
 // This constructor will assign default values to properties that have it defined,
@@ -81,6 +86,7 @@ func (o *AwsEdcImage) HasStatus() bool {
 func (o *AwsEdcImage) SetStatus(v string) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *AwsEdcImage) SetStatusNil() {
 	o.Status.Set(nil)
@@ -123,6 +129,7 @@ func (o *AwsEdcImage) HasAmazonImageId() bool {
 func (o *AwsEdcImage) SetAmazonImageId(v string) {
 	o.AmazonImageId.Set(&v)
 }
+
 // SetAmazonImageIdNil sets the value for AmazonImageId to be an explicit nil
 func (o *AwsEdcImage) SetAmazonImageIdNil() {
 	o.AmazonImageId.Set(nil)
@@ -165,6 +172,7 @@ func (o *AwsEdcImage) HasIngestionProcess() bool {
 func (o *AwsEdcImage) SetIngestionProcess(v AwsEdcWorkspaceImageIngestionProcess) {
 	o.IngestionProcess.Set(&v)
 }
+
 // SetIngestionProcessNil sets the value for IngestionProcess to be an explicit nil
 func (o *AwsEdcImage) SetIngestionProcessNil() {
 	o.IngestionProcess.Set(nil)
@@ -207,6 +215,7 @@ func (o *AwsEdcImage) HasWorkspaceImageTenancy() bool {
 func (o *AwsEdcImage) SetWorkspaceImageTenancy(v AwsEdcWorkspaceImageTenancy) {
 	o.WorkspaceImageTenancy.Set(&v)
 }
+
 // SetWorkspaceImageTenancyNil sets the value for WorkspaceImageTenancy to be an explicit nil
 func (o *AwsEdcImage) SetWorkspaceImageTenancyNil() {
 	o.WorkspaceImageTenancy.Set(nil)
@@ -249,6 +258,7 @@ func (o *AwsEdcImage) HasWorkspaceImageState() bool {
 func (o *AwsEdcImage) SetWorkspaceImageState(v AwsEdcWorkspaceImageState) {
 	o.WorkspaceImageState.Set(&v)
 }
+
 // SetWorkspaceImageStateNil sets the value for WorkspaceImageState to be an explicit nil
 func (o *AwsEdcImage) SetWorkspaceImageStateNil() {
 	o.WorkspaceImageState.Set(nil)
@@ -280,7 +290,7 @@ func (o *AwsEdcImage) GetApplicationListOk() ([]AwsEdcAmiImportApplications, boo
 
 // HasApplicationList returns a boolean if a field has been set.
 func (o *AwsEdcImage) HasApplicationList() bool {
-	if o != nil && IsNil(o.ApplicationList) {
+	if o != nil && !IsNil(o.ApplicationList) {
 		return true
 	}
 
@@ -293,7 +303,7 @@ func (o *AwsEdcImage) SetApplicationList(v []AwsEdcAmiImportApplications) {
 }
 
 func (o AwsEdcImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -366,5 +376,3 @@ func (v *NullableAwsEdcImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

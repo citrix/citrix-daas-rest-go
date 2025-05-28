@@ -15,15 +15,15 @@ import (
 	"fmt"
 )
 
-// LicensingPermissionLevel 
+// LicensingPermissionLevel
 type LicensingPermissionLevel string
 
 // List of LicensingPermissionLevel
 const (
-	LICENSINGPERMISSIONLEVEL_UNKNOWN LicensingPermissionLevel = "Unknown"
+	LICENSINGPERMISSIONLEVEL_UNKNOWN   LicensingPermissionLevel = "Unknown"
 	LICENSINGPERMISSIONLEVEL_READ_ONLY LicensingPermissionLevel = "ReadOnly"
-	LICENSINGPERMISSIONLEVEL_FULL LicensingPermissionLevel = "Full"
-	LICENSINGPERMISSIONLEVEL_NONE LicensingPermissionLevel = "None"
+	LICENSINGPERMISSIONLEVEL_FULL      LicensingPermissionLevel = "Full"
+	LICENSINGPERMISSIONLEVEL_NONE      LicensingPermissionLevel = "None"
 )
 
 // All allowed values of LicensingPermissionLevel enum
@@ -40,7 +40,7 @@ func (v *LicensingPermissionLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LicensingPermissionLevel(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableLicensingPermissionLevel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

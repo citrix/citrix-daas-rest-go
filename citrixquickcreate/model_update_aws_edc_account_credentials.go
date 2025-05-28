@@ -21,12 +21,14 @@ var _ MappedNullable = &UpdateAwsEdcAccountCredentials{}
 type UpdateAwsEdcAccountCredentials struct {
 	UpdateAccount
 	// The ID of Access Key associated with the account
-	AwsAccessKeyId NullableString `json:"awsAccessKeyId,omitempty"`
+	AwsAccessKeyId NullableString `json:"awsAccessKeyId,omitempty" validate:"regexp=^[\\\\w]+$"`
 	// The secret associated with access key for the account
 	AwsSecretAccessKey NullableString `json:"awsSecretAccessKey,omitempty"`
 	// The ARN of the role to assume
-	AwsRoleArn NullableString `json:"awsRoleArn,omitempty"`
+	AwsRoleArn NullableString `json:"awsRoleArn,omitempty" validate:"regexp=^arn:aws(-us-gov)?:iam::[0-9]{12}:role\\/[a-zA-Z0-9+=,.@\\\\-_]{1,64}$"`
 }
+
+type _UpdateAwsEdcAccountCredentials UpdateAwsEdcAccountCredentials
 
 // NewUpdateAwsEdcAccountCredentials instantiates a new UpdateAwsEdcAccountCredentials object
 // This constructor will assign default values to properties that have it defined,
@@ -78,6 +80,7 @@ func (o *UpdateAwsEdcAccountCredentials) HasAwsAccessKeyId() bool {
 func (o *UpdateAwsEdcAccountCredentials) SetAwsAccessKeyId(v string) {
 	o.AwsAccessKeyId.Set(&v)
 }
+
 // SetAwsAccessKeyIdNil sets the value for AwsAccessKeyId to be an explicit nil
 func (o *UpdateAwsEdcAccountCredentials) SetAwsAccessKeyIdNil() {
 	o.AwsAccessKeyId.Set(nil)
@@ -120,6 +123,7 @@ func (o *UpdateAwsEdcAccountCredentials) HasAwsSecretAccessKey() bool {
 func (o *UpdateAwsEdcAccountCredentials) SetAwsSecretAccessKey(v string) {
 	o.AwsSecretAccessKey.Set(&v)
 }
+
 // SetAwsSecretAccessKeyNil sets the value for AwsSecretAccessKey to be an explicit nil
 func (o *UpdateAwsEdcAccountCredentials) SetAwsSecretAccessKeyNil() {
 	o.AwsSecretAccessKey.Set(nil)
@@ -162,6 +166,7 @@ func (o *UpdateAwsEdcAccountCredentials) HasAwsRoleArn() bool {
 func (o *UpdateAwsEdcAccountCredentials) SetAwsRoleArn(v string) {
 	o.AwsRoleArn.Set(&v)
 }
+
 // SetAwsRoleArnNil sets the value for AwsRoleArn to be an explicit nil
 func (o *UpdateAwsEdcAccountCredentials) SetAwsRoleArnNil() {
 	o.AwsRoleArn.Set(nil)
@@ -173,7 +178,7 @@ func (o *UpdateAwsEdcAccountCredentials) UnsetAwsRoleArn() {
 }
 
 func (o UpdateAwsEdcAccountCredentials) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -237,5 +242,3 @@ func (v *NullableUpdateAwsEdcAccountCredentials) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

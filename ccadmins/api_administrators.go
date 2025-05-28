@@ -19,15 +19,14 @@ import (
 	"strings"
 )
 
-
 // AdministratorsAPIService AdministratorsAPI service
 type AdministratorsAPIService service
 
 type ApiCreateAdministratorRequest struct {
-	ctx context.Context
-	ApiService *AdministratorsAPIService
-	authorization *string
-	citrixCustomerId *string
+	ctx                           context.Context
+	ApiService                    *AdministratorsAPIService
+	authorization                 *string
+	citrixCustomerId              *string
 	createAdministratorInputModel *CreateAdministratorInputModel
 }
 
@@ -56,24 +55,25 @@ func (r ApiCreateAdministratorRequest) Execute() (*AdministratorResult, *http.Re
 /*
 CreateAdministrator Create a new CC administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateAdministratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateAdministratorRequest
 */
 func (a *AdministratorsAPIService) CreateAdministrator(ctx context.Context) ApiCreateAdministratorRequest {
 	return ApiCreateAdministratorRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorResult
+//
+//	@return AdministratorResult
 func (a *AdministratorsAPIService) CreateAdministratorExecute(r ApiCreateAdministratorRequest) (*AdministratorResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdministratorsAPIService.CreateAdministrator")
@@ -110,8 +110,8 @@ func (a *AdministratorsAPIService) CreateAdministratorExecute(r ApiCreateAdminis
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
 	// body params
 	localVarPostBody = r.createAdministratorInputModel
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -129,6 +129,13 @@ func (a *AdministratorsAPIService) CreateAdministratorExecute(r ApiCreateAdminis
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -152,10 +159,10 @@ func (a *AdministratorsAPIService) CreateAdministratorExecute(r ApiCreateAdminis
 }
 
 type ApiDeleteAdministratorRequest struct {
-	ctx context.Context
-	ApiService *AdministratorsAPIService
-	id string
-	authorization *string
+	ctx              context.Context
+	ApiService       *AdministratorsAPIService
+	id               string
+	authorization    *string
 	citrixCustomerId *string
 }
 
@@ -178,24 +185,24 @@ func (r ApiDeleteAdministratorRequest) Execute() (*http.Response, error) {
 /*
 DeleteAdministrator Remove a CC administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id CC administrator ID.
- @return ApiDeleteAdministratorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id CC administrator ID.
+	@return ApiDeleteAdministratorRequest
 */
 func (a *AdministratorsAPIService) DeleteAdministrator(ctx context.Context, id string) ApiDeleteAdministratorRequest {
 	return ApiDeleteAdministratorRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *AdministratorsAPIService) DeleteAdministratorExecute(r ApiDeleteAdministratorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdministratorsAPIService.DeleteAdministrator")
@@ -239,8 +246,8 @@ func (a *AdministratorsAPIService) DeleteAdministratorExecute(r ApiDeleteAdminis
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err
@@ -258,6 +265,13 @@ func (a *AdministratorsAPIService) DeleteAdministratorExecute(r ApiDeleteAdminis
 		return localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -270,10 +284,10 @@ func (a *AdministratorsAPIService) DeleteAdministratorExecute(r ApiDeleteAdminis
 }
 
 type ApiDeleteInvitationRequest struct {
-	ctx context.Context
-	ApiService *AdministratorsAPIService
-	email *string
-	authorization *string
+	ctx              context.Context
+	ApiService       *AdministratorsAPIService
+	email            *string
+	authorization    *string
 	citrixCustomerId *string
 }
 
@@ -302,24 +316,25 @@ func (r ApiDeleteInvitationRequest) Execute() (bool, *http.Response, error) {
 /*
 DeleteInvitation Remove a CC pending user administrator invitation.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteInvitationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteInvitationRequest
 */
 func (a *AdministratorsAPIService) DeleteInvitation(ctx context.Context) ApiDeleteInvitationRequest {
 	return ApiDeleteInvitationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return bool
+//
+//	@return bool
 func (a *AdministratorsAPIService) DeleteInvitationExecute(r ApiDeleteInvitationRequest) (bool, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  bool
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue bool
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdministratorsAPIService.DeleteInvitation")
@@ -348,7 +363,7 @@ func (a *AdministratorsAPIService) DeleteInvitationExecute(r ApiDeleteInvitation
 		return localVarReturnValue, nil, reportError("citrixCustomerId is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "email", r.email, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "email", r.email, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -366,8 +381,8 @@ func (a *AdministratorsAPIService) DeleteInvitationExecute(r ApiDeleteInvitation
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -383,6 +398,13 @@ func (a *AdministratorsAPIService) DeleteInvitationExecute(r ApiDeleteInvitation
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -406,15 +428,15 @@ func (a *AdministratorsAPIService) DeleteInvitationExecute(r ApiDeleteInvitation
 }
 
 type ApiFetchAdministratorsRequest struct {
-	ctx context.Context
-	ApiService *AdministratorsAPIService
-	authorization *string
-	citrixCustomerId *string
-	type_ *string
-	providerType *AdministratorProviderType
-	maxItemCount *string
+	ctx                 context.Context
+	ApiService          *AdministratorsAPIService
+	authorization       *string
+	citrixCustomerId    *string
+	type_               *string
+	providerType        *AdministratorProviderType
+	maxItemCount        *string
 	requestContinuation *string
-	id *string
+	id                  *string
 }
 
 // Access token.
@@ -466,24 +488,25 @@ func (r ApiFetchAdministratorsRequest) Execute() (*AdministratorsResult, *http.R
 /*
 FetchAdministrators Fetch all CC administrators.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFetchAdministratorsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiFetchAdministratorsRequest
 */
 func (a *AdministratorsAPIService) FetchAdministrators(ctx context.Context) ApiFetchAdministratorsRequest {
 	return ApiFetchAdministratorsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorsResult
+//
+//	@return AdministratorsResult
 func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdministratorsRequest) (*AdministratorsResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorsResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorsResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdministratorsAPIService.FetchAdministrators")
@@ -504,19 +527,19 @@ func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdminist
 	}
 
 	if r.type_ != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
 	}
 	if r.providerType != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "providerType", r.providerType, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "providerType", r.providerType, "form", "")
 	}
 	if r.maxItemCount != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "maxItemCount", r.maxItemCount, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "maxItemCount", r.maxItemCount, "form", "")
 	}
 	if r.requestContinuation != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "requestContinuation", r.requestContinuation, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "requestContinuation", r.requestContinuation, "form", "")
 	}
 	if r.id != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
+		parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -535,8 +558,8 @@ func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdminist
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -554,6 +577,13 @@ func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdminist
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -566,8 +596,8 @@ func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdminist
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -577,8 +607,8 @@ func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdminist
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -596,9 +626,9 @@ func (a *AdministratorsAPIService) FetchAdministratorsExecute(r ApiFetchAdminist
 }
 
 type ApiGetAdministratorAccessRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdministratorsAPIService
-	id string
+	id         string
 }
 
 func (r ApiGetAdministratorAccessRequest) Execute() (*AdministratorAccessModel, *http.Response, error) {
@@ -608,26 +638,27 @@ func (r ApiGetAdministratorAccessRequest) Execute() (*AdministratorAccessModel, 
 /*
 GetAdministratorAccess Fetch the access of an administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id UserId for AzureAd and Citrix User Administrators. UcOid for all others.
- @return ApiGetAdministratorAccessRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id UserId for AzureAd and Citrix User Administrators. UcOid for all others.
+	@return ApiGetAdministratorAccessRequest
 */
 func (a *AdministratorsAPIService) GetAdministratorAccess(ctx context.Context, id string) ApiGetAdministratorAccessRequest {
 	return ApiGetAdministratorAccessRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AdministratorAccessModel
+//
+//	@return AdministratorAccessModel
 func (a *AdministratorsAPIService) GetAdministratorAccessExecute(r ApiGetAdministratorAccessRequest) (*AdministratorAccessModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdministratorAccessModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdministratorAccessModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdministratorsAPIService.GetAdministratorAccess")
@@ -676,6 +707,13 @@ func (a *AdministratorsAPIService) GetAdministratorAccessExecute(r ApiGetAdminis
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarReturnValue, localVarHTTPResponse, err
+		}
+	}
+
 	if localVarHTTPResponse.StatusCode >= 300 {
 		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
@@ -697,11 +735,11 @@ func (a *AdministratorsAPIService) GetAdministratorAccessExecute(r ApiGetAdminis
 }
 
 type ApiUpdateAdministratorAccessRequest struct {
-	ctx context.Context
-	ApiService *AdministratorsAPIService
-	id *string
-	authorization *string
-	citrixCustomerId *string
+	ctx                      context.Context
+	ApiService               *AdministratorsAPIService
+	id                       *string
+	authorization            *string
+	citrixCustomerId         *string
 	administratorAccessModel *AdministratorAccessModel
 }
 
@@ -735,22 +773,22 @@ func (r ApiUpdateAdministratorAccessRequest) Execute() (*http.Response, error) {
 /*
 UpdateAdministratorAccess Update roles and permissions of an existing CC administrator.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUpdateAdministratorAccessRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUpdateAdministratorAccessRequest
 */
 func (a *AdministratorsAPIService) UpdateAdministratorAccess(ctx context.Context) ApiUpdateAdministratorAccessRequest {
 	return ApiUpdateAdministratorAccessRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AdministratorsAPIService) UpdateAdministratorAccessExecute(r ApiUpdateAdministratorAccessRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdministratorsAPIService.UpdateAdministratorAccess")
@@ -779,7 +817,7 @@ func (a *AdministratorsAPIService) UpdateAdministratorAccessExecute(r ApiUpdateA
 		return nil, reportError("citrixCustomerId is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "id", r.id, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -797,8 +835,8 @@ func (a *AdministratorsAPIService) UpdateAdministratorAccessExecute(r ApiUpdateA
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Authorization", r.authorization, "simple", "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "Citrix-CustomerId", r.citrixCustomerId, "simple", "")
 	// body params
 	localVarPostBody = r.administratorAccessModel
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -816,6 +854,13 @@ func (a *AdministratorsAPIService) UpdateAdministratorAccessExecute(r ApiUpdateA
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarHTTPResponse, err
+	}
+
+	if a.client.cfg.ResponseMiddleware != nil {
+		err = a.client.cfg.ResponseMiddleware(localVarHTTPResponse, localVarBody)
+		if err != nil {
+			return localVarHTTPResponse, err
+		}
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {

@@ -76,6 +76,7 @@ func (o *VDAFeatureModel) HasFeatureId() bool {
 func (o *VDAFeatureModel) SetFeatureId(v string) {
 	o.FeatureId.Set(&v)
 }
+
 // SetFeatureIdNil sets the value for FeatureId to be an explicit nil
 func (o *VDAFeatureModel) SetFeatureIdNil() {
 	o.FeatureId.Set(nil)
@@ -118,6 +119,7 @@ func (o *VDAFeatureModel) HasFeatureName() bool {
 func (o *VDAFeatureModel) SetFeatureName(v string) {
 	o.FeatureName.Set(&v)
 }
+
 // SetFeatureNameNil sets the value for FeatureName to be an explicit nil
 func (o *VDAFeatureModel) SetFeatureNameNil() {
 	o.FeatureName.Set(nil)
@@ -160,6 +162,7 @@ func (o *VDAFeatureModel) HasFeatureDescription() bool {
 func (o *VDAFeatureModel) SetFeatureDescription(v string) {
 	o.FeatureDescription.Set(&v)
 }
+
 // SetFeatureDescriptionNil sets the value for FeatureDescription to be an explicit nil
 func (o *VDAFeatureModel) SetFeatureDescriptionNil() {
 	o.FeatureDescription.Set(nil)
@@ -171,7 +174,7 @@ func (o *VDAFeatureModel) UnsetFeatureDescription() {
 }
 
 func (o VDAFeatureModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -227,5 +230,3 @@ func (v *NullableVDAFeatureModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

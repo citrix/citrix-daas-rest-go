@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of account the resource is associated with | 
 **AccountId** | Pointer to **NullableString** | The ID of the account the resource is associated with | [optional] 
 **ImageId** | Pointer to **NullableString** | The ID of the image | [optional] 
 **Name** | Pointer to **NullableString** | The name of the image | [optional] 
 **Description** | Pointer to **NullableString** | The description of the image | [optional] 
 **Notes** | Pointer to **NullableString** | The notes of the image | [optional] 
-**SessionSupport** | Pointer to [**NullableSessionSupport**](SessionSupport.md) |  | [optional] 
-**OperatingSystem** | Pointer to [**NullableOperatingSystemType**](OperatingSystemType.md) |  | [optional] 
+**SessionSupport** | Pointer to [**NullableSessionSupport**](SessionSupport.md) | Session Type | [optional] 
+**OperatingSystem** | Pointer to [**NullableOperatingSystemType**](OperatingSystemType.md) | The operating system of the image | [optional] 
 **AssociatedDeployments** | Pointer to [**[]AssociatedDeployment**](AssociatedDeployment.md) |  | [optional] 
 
 ## Methods

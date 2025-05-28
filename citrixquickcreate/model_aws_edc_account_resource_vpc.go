@@ -22,7 +22,9 @@ type AwsEdcAccountResourceVpc struct {
 	AwsEdcAccountResource
 	// Vpc Id
 	VpcId NullableString `json:"vpcId,omitempty"`
+	// Vpc Status  Enum values AVAILABLE, PENDING
 	Status NullableAwsEdcVpcState `json:"status,omitempty"`
+	// Vpc Tenancy  Enum values DEFAULT, DEDICATED, HOST
 	VpcTenancy NullableAwsEdcVpcTenancy `json:"vpcTenancy,omitempty"`
 	// Vpc CIDR Block
 	CidrBlock NullableString `json:"cidrBlock,omitempty"`
@@ -30,12 +32,15 @@ type AwsEdcAccountResourceVpc struct {
 	Tags []Tag `json:"tags,omitempty"`
 }
 
+type _AwsEdcAccountResourceVpc AwsEdcAccountResourceVpc
+
 // NewAwsEdcAccountResourceVpc instantiates a new AwsEdcAccountResourceVpc object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAwsEdcAccountResourceVpc(accountType AccountType) *AwsEdcAccountResourceVpc {
+func NewAwsEdcAccountResourceVpc(resourceType AwsAccountResourceType, accountType AccountType) *AwsEdcAccountResourceVpc {
 	this := AwsEdcAccountResourceVpc{}
+	this.ResourceType = resourceType
 	this.AccountType = accountType
 	return &this
 }
@@ -80,6 +85,7 @@ func (o *AwsEdcAccountResourceVpc) HasVpcId() bool {
 func (o *AwsEdcAccountResourceVpc) SetVpcId(v string) {
 	o.VpcId.Set(&v)
 }
+
 // SetVpcIdNil sets the value for VpcId to be an explicit nil
 func (o *AwsEdcAccountResourceVpc) SetVpcIdNil() {
 	o.VpcId.Set(nil)
@@ -122,6 +128,7 @@ func (o *AwsEdcAccountResourceVpc) HasStatus() bool {
 func (o *AwsEdcAccountResourceVpc) SetStatus(v AwsEdcVpcState) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *AwsEdcAccountResourceVpc) SetStatusNil() {
 	o.Status.Set(nil)
@@ -164,6 +171,7 @@ func (o *AwsEdcAccountResourceVpc) HasVpcTenancy() bool {
 func (o *AwsEdcAccountResourceVpc) SetVpcTenancy(v AwsEdcVpcTenancy) {
 	o.VpcTenancy.Set(&v)
 }
+
 // SetVpcTenancyNil sets the value for VpcTenancy to be an explicit nil
 func (o *AwsEdcAccountResourceVpc) SetVpcTenancyNil() {
 	o.VpcTenancy.Set(nil)
@@ -206,6 +214,7 @@ func (o *AwsEdcAccountResourceVpc) HasCidrBlock() bool {
 func (o *AwsEdcAccountResourceVpc) SetCidrBlock(v string) {
 	o.CidrBlock.Set(&v)
 }
+
 // SetCidrBlockNil sets the value for CidrBlock to be an explicit nil
 func (o *AwsEdcAccountResourceVpc) SetCidrBlockNil() {
 	o.CidrBlock.Set(nil)
@@ -237,7 +246,7 @@ func (o *AwsEdcAccountResourceVpc) GetTagsOk() ([]Tag, bool) {
 
 // HasTags returns a boolean if a field has been set.
 func (o *AwsEdcAccountResourceVpc) HasTags() bool {
-	if o != nil && IsNil(o.Tags) {
+	if o != nil && !IsNil(o.Tags) {
 		return true
 	}
 
@@ -250,7 +259,7 @@ func (o *AwsEdcAccountResourceVpc) SetTags(v []Tag) {
 }
 
 func (o AwsEdcAccountResourceVpc) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -320,5 +329,3 @@ func (v *NullableAwsEdcAccountResourceVpc) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

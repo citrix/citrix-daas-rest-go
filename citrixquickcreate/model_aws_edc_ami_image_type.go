@@ -20,7 +20,7 @@ type AwsEdcAmiImageType string
 
 // List of AwsEdcAmiImageType
 const (
-	AWSEDCAMIIMAGETYPE_KERNEL AwsEdcAmiImageType = "KERNEL"
+	AWSEDCAMIIMAGETYPE_KERNEL  AwsEdcAmiImageType = "KERNEL"
 	AWSEDCAMIIMAGETYPE_MACHINE AwsEdcAmiImageType = "MACHINE"
 	AWSEDCAMIIMAGETYPE_RAMDISK AwsEdcAmiImageType = "RAMDISK"
 )
@@ -110,4 +110,3 @@ func (v *NullableAwsEdcAmiImageType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

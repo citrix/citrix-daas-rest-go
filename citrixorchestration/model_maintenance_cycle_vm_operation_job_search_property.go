@@ -21,10 +21,10 @@ type MaintenanceCycleVMOperationJobSearchProperty string
 // List of MaintenanceCycleVMOperationJobSearchProperty
 const (
 	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_MAINTENANCE_CYCLE_ID MaintenanceCycleVMOperationJobSearchProperty = "MaintenanceCycleId"
-	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_MACHINE_NAME MaintenanceCycleVMOperationJobSearchProperty = "MachineName"
-	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_OPERATION MaintenanceCycleVMOperationJobSearchProperty = "Operation"
-	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_STATUS MaintenanceCycleVMOperationJobSearchProperty = "Status"
-	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_VM_SID MaintenanceCycleVMOperationJobSearchProperty = "VMSid"
+	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_MACHINE_NAME         MaintenanceCycleVMOperationJobSearchProperty = "MachineName"
+	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_OPERATION            MaintenanceCycleVMOperationJobSearchProperty = "Operation"
+	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_STATUS               MaintenanceCycleVMOperationJobSearchProperty = "Status"
+	MAINTENANCECYCLEVMOPERATIONJOBSEARCHPROPERTY_VM_SID               MaintenanceCycleVMOperationJobSearchProperty = "VMSid"
 )
 
 // All allowed values of MaintenanceCycleVMOperationJobSearchProperty enum
@@ -42,7 +42,7 @@ func (v *MaintenanceCycleVMOperationJobSearchProperty) UnmarshalJSON(src []byte)
 	if err != nil {
 		return err
 	}
-	
+
 	*v = MaintenanceCycleVMOperationJobSearchProperty(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableMaintenanceCycleVMOperationJobSearchProperty) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

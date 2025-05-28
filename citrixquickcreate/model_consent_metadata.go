@@ -74,6 +74,7 @@ func (o *ConsentMetadata) HasClientId() bool {
 func (o *ConsentMetadata) SetClientId(v string) {
 	o.ClientId.Set(&v)
 }
+
 // SetClientIdNil sets the value for ClientId to be an explicit nil
 func (o *ConsentMetadata) SetClientIdNil() {
 	o.ClientId.Set(nil)
@@ -116,6 +117,7 @@ func (o *ConsentMetadata) HasScope() bool {
 func (o *ConsentMetadata) SetScope(v string) {
 	o.Scope.Set(&v)
 }
+
 // SetScopeNil sets the value for Scope to be an explicit nil
 func (o *ConsentMetadata) SetScopeNil() {
 	o.Scope.Set(nil)
@@ -127,7 +129,7 @@ func (o *ConsentMetadata) UnsetScope() {
 }
 
 func (o ConsentMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableConsentMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Username** | Pointer to **NullableString** | Username associated with workspace | [optional] 
 **RootVolumeSize** | Pointer to **int32** | Size of operating system volume | [optional] 
 **UserVolumeSize** | Pointer to **int32** | Size of user storage volume | [optional] 
-**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) |  | [optional] 
+**RunningMode** | Pointer to [**NullableAwsEdcWorkspaceRunningMode**](AwsEdcWorkspaceRunningMode.md) | Running mode of this workspace | [optional] 
 
 ## Methods
 

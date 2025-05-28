@@ -30,8 +30,8 @@ type HypervisorDetailResponseModel struct {
 	// Azure subscription ID.
 	SubscriptionId string `json:"SubscriptionId"`
 	// Azure active directory ID.
-	ActiveDirectoryId string `json:"ActiveDirectoryId"`
-	Environment AzureEnvironment `json:"Environment"`
+	ActiveDirectoryId string           `json:"ActiveDirectoryId"`
+	Environment       AzureEnvironment `json:"Environment"`
 	// Azure management endpoint.
 	ManagementEndpoint string `json:"ManagementEndpoint"`
 	// Azure authentication authority.
@@ -41,7 +41,7 @@ type HypervisorDetailResponseModel struct {
 	// The service account ID used to access the Google Cloud APIs.
 	ServiceAccountId string `json:"ServiceAccountId"`
 	// Indicates whether Microsoft System Center Configuration Manager 2012 SP1 Wake-up Proxy is used for power management.
-	SccmWakeUpProxy bool `json:"SccmWakeUpProxy"`
+	SccmWakeUpProxy  bool                  `json:"SccmWakeUpProxy"`
 	WakeOnLanPackets WakeOnLanTransmission `json:"WakeOnLanPackets"`
 	// SSL thumbprints considered acceptable for the SSL certificate presented by the hypervisor.
 	SslThumbprints []string `json:"SslThumbprints,omitempty"`
@@ -60,7 +60,7 @@ type HypervisorDetailResponseModel struct {
 	// Name of the resource.
 	Name NullableString `json:"Name,omitempty"`
 	// XenApp & XenDesktop path to the resource on the hypervisor.  An example value is: `XDHyp:\\Connections\\{{hypervisor name}}\\{{vm name}}.vm\\{{snapshot name}}.snapshot` or `XDHyp:\\HostingUnits\\{{resource pool name}}\\{{resource name}}.{{resource type}}`
-	XDPath NullableString `json:"XDPath,omitempty"`
+	XDPath         NullableString           `json:"XDPath,omitempty"`
 	ConnectionType HypervisorConnectionType `json:"ConnectionType"`
 	// Addresses that can be used to contact the required hypervisor. All the addresses are considered equivalent, that is, all of the addresses provide access to the same virtual machines, snapshots, network, and storage.
 	Addresses []string `json:"Addresses"`
@@ -75,9 +75,9 @@ type HypervisorDetailResponseModel struct {
 	// The tenant(s) that the hypervisor is assigned to.  If `null`, the hypervisor is not assigned to tenants, and may be used by any tenant, including future added tenants.
 	Tenants []RefResponseModel `json:"Tenants,omitempty"`
 	// Indicates whether the hypervisor uses cloud infrastructure.
-	UsesCloudInfrastructure bool `json:"UsesCloudInfrastructure"`
-	Zone RefResponseModel `json:"Zone"`
-	Fault *HypervisorFaultResponseModel `json:"Fault,omitempty"`
+	UsesCloudInfrastructure bool                          `json:"UsesCloudInfrastructure"`
+	Zone                    RefResponseModel              `json:"Zone"`
+	Fault                   *HypervisorFaultResponseModel `json:"Fault,omitempty"`
 	// CustomProperties of hypervisor connection
 	CustomProperties NullableString `json:"CustomProperties,omitempty"`
 	// The broker id.
@@ -219,6 +219,7 @@ func (o *HypervisorDetailResponseModel) HasMaximumConcurrentProvisioningOperatio
 func (o *HypervisorDetailResponseModel) SetMaximumConcurrentProvisioningOperations(v int32) {
 	o.MaximumConcurrentProvisioningOperations.Set(&v)
 }
+
 // SetMaximumConcurrentProvisioningOperationsNil sets the value for MaximumConcurrentProvisioningOperations to be an explicit nil
 func (o *HypervisorDetailResponseModel) SetMaximumConcurrentProvisioningOperationsNil() {
 	o.MaximumConcurrentProvisioningOperations.Set(nil)
@@ -654,6 +655,7 @@ func (o *HypervisorDetailResponseModel) HasId() bool {
 func (o *HypervisorDetailResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorDetailResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -696,6 +698,7 @@ func (o *HypervisorDetailResponseModel) HasName() bool {
 func (o *HypervisorDetailResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *HypervisorDetailResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -738,6 +741,7 @@ func (o *HypervisorDetailResponseModel) HasXDPath() bool {
 func (o *HypervisorDetailResponseModel) SetXDPath(v string) {
 	o.XDPath.Set(&v)
 }
+
 // SetXDPathNil sets the value for XDPath to be an explicit nil
 func (o *HypervisorDetailResponseModel) SetXDPathNil() {
 	o.XDPath.Set(nil)
@@ -1045,6 +1049,7 @@ func (o *HypervisorDetailResponseModel) HasCustomProperties() bool {
 func (o *HypervisorDetailResponseModel) SetCustomProperties(v string) {
 	o.CustomProperties.Set(&v)
 }
+
 // SetCustomPropertiesNil sets the value for CustomProperties to be an explicit nil
 func (o *HypervisorDetailResponseModel) SetCustomPropertiesNil() {
 	o.CustomProperties.Set(nil)
@@ -1087,6 +1092,7 @@ func (o *HypervisorDetailResponseModel) HasUid() bool {
 func (o *HypervisorDetailResponseModel) SetUid(v int32) {
 	o.Uid.Set(&v)
 }
+
 // SetUidNil sets the value for Uid to be an explicit nil
 func (o *HypervisorDetailResponseModel) SetUidNil() {
 	o.Uid.Set(nil)
@@ -1379,7 +1385,7 @@ func (o *HypervisorDetailResponseModel) SetMetadata(v []NameValueStringPairModel
 }
 
 func (o HypervisorDetailResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1495,5 +1501,3 @@ func (v *NullableHypervisorDetailResponseModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

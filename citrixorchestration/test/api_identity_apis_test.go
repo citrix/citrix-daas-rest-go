@@ -11,10 +11,11 @@ package citrixorchestration
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/citrixorchestration"
 )
 
 func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityAddAzureAdSecurityGroupMember", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var azureAdTenantId string
 		var groupId string
@@ -39,7 +40,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityCreateMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityCreateMachine(context.Background()).Execute()
 
@@ -51,7 +52,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityCreateServiceAccount", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityCreateServiceAccount(context.Background()).Execute()
 
@@ -63,7 +64,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityDeleteMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var machine string
 
@@ -76,7 +77,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityDeleteServiceAccount", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceAccountUid string
 
@@ -89,7 +90,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetAzureADSecurityGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var azureAdTenantId string
 		var groupId string
@@ -104,7 +105,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetAzureAdSecurityGroupMember", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var azureAdTenantId string
 		var groupId string
@@ -119,7 +120,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetContainer", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var container string
 
@@ -133,7 +134,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetContainers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetContainers(context.Background()).Execute()
 
@@ -145,7 +146,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetDirectories", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetDirectories(context.Background()).Execute()
 
@@ -157,7 +158,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetDomain", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var domain string
 
@@ -171,7 +172,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetDomainAzureADCustomDomain", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var domain string
 
@@ -185,7 +186,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetDomains", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetDomains(context.Background()).Execute()
 
@@ -197,7 +198,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetForest", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var forest string
 
@@ -211,7 +212,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetForests", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetForests(context.Background()).Execute()
 
@@ -223,7 +224,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var machine string
 
@@ -237,7 +238,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetMachines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetMachines(context.Background()).Execute()
 
@@ -249,7 +250,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetPrinters", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetPrinters(context.Background()).Execute()
 
@@ -261,7 +262,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetServiceAccount", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceAccountUid string
 
@@ -275,7 +276,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetServiceAccountCapabilityPatchPreview", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceAccountUid string
 
@@ -289,7 +290,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetServiceAccountTestReport", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceAccountUid string
 
@@ -303,7 +304,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetServiceAccounts", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetServiceAccounts(context.Background()).Execute()
 
@@ -315,7 +316,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetSite", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var site string
 
@@ -329,7 +330,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetSites", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetSites(context.Background()).Execute()
 
@@ -341,7 +342,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userOrGroup string
 
@@ -355,7 +356,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityGetUsers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityGetUsers(context.Background()).Execute()
 
@@ -367,7 +368,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityQueryAzureAdSecurityGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var azureAdTenantId string
 
@@ -381,7 +382,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentitySetServiceAccount", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceAccountUid string
 
@@ -395,7 +396,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityTestServiceAccount", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var serviceAccountUid string
 
@@ -409,7 +410,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityUpdateMachine", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var machine string
 
@@ -423,7 +424,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityUpdateUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var user string
 
@@ -437,7 +438,7 @@ func Test_citrixorchestration_IdentityAPIsDAASService(t *testing.T) {
 
 	t.Run("Test IdentityAPIsDAASService IdentityValidateUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IdentityAPIsDAAS.IdentityValidateUser(context.Background()).Execute()
 

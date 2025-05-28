@@ -20,9 +20,9 @@ var _ MappedNullable = &SetPreferenceModel{}
 // SetPreferenceModel Set a user preference.
 type SetPreferenceModel struct {
 	// Name.
-	Name string `json:"Name"`
+	Name string `json:"Name" validate:"regexp=(.*)*"`
 	// Value.
-	Value string `json:"Value"`
+	Value string "json:\"Value\" validate:\"regexp=^[\\\\w\\\\s\\\\[\\\\]\\\\(\\\\)\\\\{\\\\}:;<>,.\\/?\\\"'!@#$%^&*+=|\\\\-\\\\\\\\~`]*$\""
 }
 
 // NewSetPreferenceModel instantiates a new SetPreferenceModel object
@@ -93,7 +93,7 @@ func (o *SetPreferenceModel) SetValue(v string) {
 }
 
 func (o SetPreferenceModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -142,5 +142,3 @@ func (v *NullableSetPreferenceModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,9 +20,9 @@ var _ MappedNullable = &BackupRestoreSingleComponentInfo{}
 // BackupRestoreSingleComponentInfo struct for BackupRestoreSingleComponentInfo
 type BackupRestoreSingleComponentInfo struct {
 	// Localized component name
-	LocalizedName NullableString `json:"LocalizedName,omitempty"`
-	Component *BckRstrAutoConfigComponents `json:"Component,omitempty"`
-	ControlPlane *BackupRestoreComponentControlPlane `json:"ControlPlane,omitempty"`
+	LocalizedName NullableString                      `json:"LocalizedName,omitempty"`
+	Component     *BckRstrAutoConfigComponents        `json:"Component,omitempty"`
+	ControlPlane  *BackupRestoreComponentControlPlane `json:"ControlPlane,omitempty"`
 	// Pre-Import check mode; prompt for secrets prior to restoring
 	PreImportCheckMode *bool `json:"PreImportCheckMode,omitempty"`
 	// Compnent member names are viewable
@@ -86,6 +86,7 @@ func (o *BackupRestoreSingleComponentInfo) HasLocalizedName() bool {
 func (o *BackupRestoreSingleComponentInfo) SetLocalizedName(v string) {
 	o.LocalizedName.Set(&v)
 }
+
 // SetLocalizedNameNil sets the value for LocalizedName to be an explicit nil
 func (o *BackupRestoreSingleComponentInfo) SetLocalizedNameNil() {
 	o.LocalizedName.Set(nil)
@@ -353,7 +354,7 @@ func (o *BackupRestoreSingleComponentInfo) SetOnPremOnly(v bool) {
 }
 
 func (o BackupRestoreSingleComponentInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -427,5 +428,3 @@ func (v *NullableBackupRestoreSingleComponentInfo) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,7 +19,7 @@ var _ MappedNullable = &IpRange{}
 
 // IpRange struct for IpRange
 type IpRange struct {
-	CidrIp NullableString `json:"cidrIp,omitempty"`
+	CidrIp      NullableString `json:"cidrIp,omitempty"`
 	Description NullableString `json:"description,omitempty"`
 }
 
@@ -72,6 +72,7 @@ func (o *IpRange) HasCidrIp() bool {
 func (o *IpRange) SetCidrIp(v string) {
 	o.CidrIp.Set(&v)
 }
+
 // SetCidrIpNil sets the value for CidrIp to be an explicit nil
 func (o *IpRange) SetCidrIpNil() {
 	o.CidrIp.Set(nil)
@@ -114,6 +115,7 @@ func (o *IpRange) HasDescription() bool {
 func (o *IpRange) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *IpRange) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -125,7 +127,7 @@ func (o *IpRange) UnsetDescription() {
 }
 
 func (o IpRange) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -178,5 +180,3 @@ func (v *NullableIpRange) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

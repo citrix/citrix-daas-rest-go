@@ -60,7 +60,7 @@ func (o *DeploymentUsers) GetUsernamesOk() ([]string, bool) {
 
 // HasUsernames returns a boolean if a field has been set.
 func (o *DeploymentUsers) HasUsernames() bool {
-	if o != nil && IsNil(o.Usernames) {
+	if o != nil && !IsNil(o.Usernames) {
 		return true
 	}
 
@@ -73,7 +73,7 @@ func (o *DeploymentUsers) SetUsernames(v []string) {
 }
 
 func (o DeploymentUsers) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -123,5 +123,3 @@ func (v *NullableDeploymentUsers) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

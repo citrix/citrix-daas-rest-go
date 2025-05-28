@@ -90,6 +90,7 @@ func (o *AdvisorRecommendationResponseModel) HasId() bool {
 func (o *AdvisorRecommendationResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *AdvisorRecommendationResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -132,6 +133,7 @@ func (o *AdvisorRecommendationResponseModel) HasRecommendation() bool {
 func (o *AdvisorRecommendationResponseModel) SetRecommendation(v string) {
 	o.Recommendation.Set(&v)
 }
+
 // SetRecommendationNil sets the value for Recommendation to be an explicit nil
 func (o *AdvisorRecommendationResponseModel) SetRecommendationNil() {
 	o.Recommendation.Set(nil)
@@ -174,6 +176,7 @@ func (o *AdvisorRecommendationResponseModel) HasDetails() bool {
 func (o *AdvisorRecommendationResponseModel) SetDetails(v string) {
 	o.Details.Set(&v)
 }
+
 // SetDetailsNil sets the value for Details to be an explicit nil
 func (o *AdvisorRecommendationResponseModel) SetDetailsNil() {
 	o.Details.Set(nil)
@@ -216,6 +219,7 @@ func (o *AdvisorRecommendationResponseModel) HasImpact() bool {
 func (o *AdvisorRecommendationResponseModel) SetImpact(v string) {
 	o.Impact.Set(&v)
 }
+
 // SetImpactNil sets the value for Impact to be an explicit nil
 func (o *AdvisorRecommendationResponseModel) SetImpactNil() {
 	o.Impact.Set(nil)
@@ -258,6 +262,7 @@ func (o *AdvisorRecommendationResponseModel) HasAspect() bool {
 func (o *AdvisorRecommendationResponseModel) SetAspect(v string) {
 	o.Aspect.Set(&v)
 }
+
 // SetAspectNil sets the value for Aspect to be an explicit nil
 func (o *AdvisorRecommendationResponseModel) SetAspectNil() {
 	o.Aspect.Set(nil)
@@ -300,6 +305,7 @@ func (o *AdvisorRecommendationResponseModel) HasComponent() bool {
 func (o *AdvisorRecommendationResponseModel) SetComponent(v string) {
 	o.Component.Set(&v)
 }
+
 // SetComponentNil sets the value for Component to be an explicit nil
 func (o *AdvisorRecommendationResponseModel) SetComponentNil() {
 	o.Component.Set(nil)
@@ -407,6 +413,7 @@ func (o *AdvisorRecommendationResponseModel) HasLastReportedTime() bool {
 func (o *AdvisorRecommendationResponseModel) SetLastReportedTime(v string) {
 	o.LastReportedTime.Set(&v)
 }
+
 // SetLastReportedTimeNil sets the value for LastReportedTime to be an explicit nil
 func (o *AdvisorRecommendationResponseModel) SetLastReportedTimeNil() {
 	o.LastReportedTime.Set(nil)
@@ -451,7 +458,7 @@ func (o *AdvisorRecommendationResponseModel) SetAffectedResources(v map[string]i
 }
 
 func (o AdvisorRecommendationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -528,5 +535,3 @@ func (v *NullableAdvisorRecommendationResponseModel) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

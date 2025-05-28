@@ -22,15 +22,15 @@ type RebootScheduleResponseModel struct {
 	// Id of the reboot schedule. needs to be globally unique
 	Id string `json:"Id"`
 	// A friendly name for the reboot schedule.
-	Name string `json:"Name"`
+	Name          string           `json:"Name"`
 	DeliveryGroup RefResponseModel `json:"DeliveryGroup"`
 	// Approximate maximum number of minutes over which the scheduled reboot cycle runs.
-	RebootDurationMinutes int32 `json:"RebootDurationMinutes"`
-	Day *RebootScheduleDays `json:"Day,omitempty"`
+	RebootDurationMinutes int32               `json:"RebootDurationMinutes"`
+	Day                   *RebootScheduleDays `json:"Day,omitempty"`
 	// For weekly cycles, days of the week on which the scheduled reboot cycle starts.
-	DaysInWeek []RebootScheduleDays `json:"DaysInWeek,omitempty"`
+	DaysInWeek  []RebootScheduleDays `json:"DaysInWeek,omitempty"`
 	WeekInMonth *RebootScheduleWeeks `json:"WeekInMonth,omitempty"`
-	DayInMonth *RebootScheduleDays `json:"DayInMonth,omitempty"`
+	DayInMonth  *RebootScheduleDays  `json:"DayInMonth,omitempty"`
 	// An optional description for the reboot schedule.
 	Description NullableString `json:"Description,omitempty"`
 	// Indicates whether the reboot schedule is enabled.
@@ -38,11 +38,11 @@ type RebootScheduleResponseModel struct {
 	// Indicates whether the reboot schedule is active for maintained machines.
 	IgnoreMaintenanceMode bool `json:"IgnoreMaintenanceMode"`
 	// Indicates whether the reboot will be a natural reboot, where the machines will be rebooted when they have no sessions.
-	UseNaturalReboot NullableBool `json:"UseNaturalReboot,omitempty"`
-	Frequency RebootScheduleFrequency `json:"Frequency"`
+	UseNaturalReboot NullableBool            `json:"UseNaturalReboot,omitempty"`
+	Frequency        RebootScheduleFrequency `json:"Frequency"`
 	// The frequency factor for the schedule.
-	FrequencyFactor NullableInt32 `json:"FrequencyFactor,omitempty"`
-	RestrictToTag *RefResponseModel `json:"RestrictToTag,omitempty"`
+	FrequencyFactor NullableInt32     `json:"FrequencyFactor,omitempty"`
+	RestrictToTag   *RefResponseModel `json:"RestrictToTag,omitempty"`
 	// The date on which the schedule is expected to firstly run. RFC 3339 compatible format.
 	StartDate NullableString `json:"StartDate,omitempty"`
 	// Time of day at which the scheduled reboot cycle starts. RFC 3339 compatible format.
@@ -341,6 +341,7 @@ func (o *RebootScheduleResponseModel) HasDescription() bool {
 func (o *RebootScheduleResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *RebootScheduleResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -431,6 +432,7 @@ func (o *RebootScheduleResponseModel) HasUseNaturalReboot() bool {
 func (o *RebootScheduleResponseModel) SetUseNaturalReboot(v bool) {
 	o.UseNaturalReboot.Set(&v)
 }
+
 // SetUseNaturalRebootNil sets the value for UseNaturalReboot to be an explicit nil
 func (o *RebootScheduleResponseModel) SetUseNaturalRebootNil() {
 	o.UseNaturalReboot.Set(nil)
@@ -497,6 +499,7 @@ func (o *RebootScheduleResponseModel) HasFrequencyFactor() bool {
 func (o *RebootScheduleResponseModel) SetFrequencyFactor(v int32) {
 	o.FrequencyFactor.Set(&v)
 }
+
 // SetFrequencyFactorNil sets the value for FrequencyFactor to be an explicit nil
 func (o *RebootScheduleResponseModel) SetFrequencyFactorNil() {
 	o.FrequencyFactor.Set(nil)
@@ -571,6 +574,7 @@ func (o *RebootScheduleResponseModel) HasStartDate() bool {
 func (o *RebootScheduleResponseModel) SetStartDate(v string) {
 	o.StartDate.Set(&v)
 }
+
 // SetStartDateNil sets the value for StartDate to be an explicit nil
 func (o *RebootScheduleResponseModel) SetStartDateNil() {
 	o.StartDate.Set(nil)
@@ -661,6 +665,7 @@ func (o *RebootScheduleResponseModel) HasWarningMessage() bool {
 func (o *RebootScheduleResponseModel) SetWarningMessage(v string) {
 	o.WarningMessage.Set(&v)
 }
+
 // SetWarningMessageNil sets the value for WarningMessage to be an explicit nil
 func (o *RebootScheduleResponseModel) SetWarningMessageNil() {
 	o.WarningMessage.Set(nil)
@@ -727,6 +732,7 @@ func (o *RebootScheduleResponseModel) HasWarningTitle() bool {
 func (o *RebootScheduleResponseModel) SetWarningTitle(v string) {
 	o.WarningTitle.Set(&v)
 }
+
 // SetWarningTitleNil sets the value for WarningTitle to be an explicit nil
 func (o *RebootScheduleResponseModel) SetWarningTitleNil() {
 	o.WarningTitle.Set(nil)
@@ -738,7 +744,7 @@ func (o *RebootScheduleResponseModel) UnsetWarningTitle() {
 }
 
 func (o RebootScheduleResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -828,5 +834,3 @@ func (v *NullableRebootScheduleResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

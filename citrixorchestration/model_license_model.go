@@ -20,9 +20,9 @@ type LicenseModel string
 
 // List of LicenseModel
 const (
-	LICENSEMODEL_UNKNOWN LicenseModel = "Unknown"
-	LICENSEMODEL_NONE LicenseModel = "None"
-	LICENSEMODEL_CONCURRENT LicenseModel = "Concurrent"
+	LICENSEMODEL_UNKNOWN     LicenseModel = "Unknown"
+	LICENSEMODEL_NONE        LicenseModel = "None"
+	LICENSEMODEL_CONCURRENT  LicenseModel = "Concurrent"
 	LICENSEMODEL_USER_DEVICE LicenseModel = "UserDevice"
 )
 
@@ -40,7 +40,7 @@ func (v *LicenseModel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LicenseModel(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableLicenseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

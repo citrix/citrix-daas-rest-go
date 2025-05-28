@@ -20,14 +20,14 @@ var _ MappedNullable = &UpdateMachineAccountCreationRulesRequestModel{}
 // UpdateMachineAccountCreationRulesRequestModel Updates to machine account creation rules.
 type UpdateMachineAccountCreationRulesRequestModel struct {
 	// Defines the template name for AD accounts created in the identity pool.   If this is not specified, it will remain unchanged.   If the provisioning scheme is configured with a NamingScheme already, and this value is set to an empty string, the provisioning scheme will be reconfigured so that it will no longer automatically create machine accounts.
-	NamingScheme NullableString `json:"NamingScheme,omitempty"`
+	NamingScheme     NullableString    "json:\"NamingScheme,omitempty\" validate:\"regexp=^^$|(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\\"<>|,~!@$%^&'`=+;.(){}_\\\\s]*$)(?=^[^\\\\.])(?=^.*[^\\\\d].*$).*(?<!-([tT][aA][cC])|([gG][wW])|([gG][aA][tT][eE][wW][aA][yY]))$\""
 	NamingSchemeType *NamingSchemeType `json:"NamingSchemeType,omitempty"`
 	// The OU that computer accounts will be created into.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, then use the default account container specified by AD. This is the `Computers` container for out-of-the-box installations of AD.
-	OU NullableString `json:"OU,omitempty"`
+	OU NullableString `json:"OU,omitempty" validate:"regexp=.*"`
 	// The AD domain name for the pool. Specify this in FQDN format; for example, MyDomain.com.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, this property is required.
-	Domain NullableString `json:"Domain,omitempty"`
+	Domain NullableString `json:"Domain,omitempty" validate:"regexp=^(?=^.{2,15}$)(?=^[^\\\\\\\\\\/:\\\\*\\\\?\\"<>|,~!@$%^&'(){}_\\\\s]*$).*$"`
 	// Defines the next value that will be used if creating new AD accounts.   If not specified, will not be changed.   Cannot be specified if  is set to an empty string.   If  was not previously set, but is being set now, the default is a sequence of `0`s or `A`s, depending on the .
-	NextValue NullableString `json:"NextValue,omitempty"`
+	NextValue NullableString `json:"NextValue,omitempty" validate:"regexp=^\\\\w+$"`
 }
 
 // NewUpdateMachineAccountCreationRulesRequestModel instantiates a new UpdateMachineAccountCreationRulesRequestModel object
@@ -79,6 +79,7 @@ func (o *UpdateMachineAccountCreationRulesRequestModel) HasNamingScheme() bool {
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetNamingScheme(v string) {
 	o.NamingScheme.Set(&v)
 }
+
 // SetNamingSchemeNil sets the value for NamingScheme to be an explicit nil
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetNamingSchemeNil() {
 	o.NamingScheme.Set(nil)
@@ -153,6 +154,7 @@ func (o *UpdateMachineAccountCreationRulesRequestModel) HasOU() bool {
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetOU(v string) {
 	o.OU.Set(&v)
 }
+
 // SetOUNil sets the value for OU to be an explicit nil
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetOUNil() {
 	o.OU.Set(nil)
@@ -195,6 +197,7 @@ func (o *UpdateMachineAccountCreationRulesRequestModel) HasDomain() bool {
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -237,6 +240,7 @@ func (o *UpdateMachineAccountCreationRulesRequestModel) HasNextValue() bool {
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetNextValue(v string) {
 	o.NextValue.Set(&v)
 }
+
 // SetNextValueNil sets the value for NextValue to be an explicit nil
 func (o *UpdateMachineAccountCreationRulesRequestModel) SetNextValueNil() {
 	o.NextValue.Set(nil)
@@ -248,7 +252,7 @@ func (o *UpdateMachineAccountCreationRulesRequestModel) UnsetNextValue() {
 }
 
 func (o UpdateMachineAccountCreationRulesRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,5 +314,3 @@ func (v *NullableUpdateMachineAccountCreationRulesRequestModel) UnmarshalJSON(sr
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

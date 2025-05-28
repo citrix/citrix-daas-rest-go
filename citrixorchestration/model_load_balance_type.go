@@ -20,10 +20,10 @@ type LoadBalanceType string
 
 // List of LoadBalanceType
 const (
-	LOADBALANCETYPE_UNKNOWN LoadBalanceType = "Unknown"
-	LOADBALANCETYPE_VERTICAL LoadBalanceType = "Vertical"
+	LOADBALANCETYPE_UNKNOWN    LoadBalanceType = "Unknown"
+	LOADBALANCETYPE_VERTICAL   LoadBalanceType = "Vertical"
 	LOADBALANCETYPE_HORIZONTAL LoadBalanceType = "Horizontal"
-	LOADBALANCETYPE_NONE LoadBalanceType = "None"
+	LOADBALANCETYPE_NONE       LoadBalanceType = "None"
 )
 
 // All allowed values of LoadBalanceType enum
@@ -40,7 +40,7 @@ func (v *LoadBalanceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = LoadBalanceType(value)
 	return nil
 }
@@ -106,4 +106,3 @@ func (v *NullableLoadBalanceType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

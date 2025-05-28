@@ -20,13 +20,13 @@ type AppState string
 
 // List of AppState
 const (
-	APPSTATE_UNKNOWN AppState = "Unknown"
-	APPSTATE_PRE_LOGON AppState = "PreLogon"
+	APPSTATE_UNKNOWN      AppState = "Unknown"
+	APPSTATE_PRE_LOGON    AppState = "PreLogon"
 	APPSTATE_PRE_LAUNCHED AppState = "PreLaunched"
-	APPSTATE_ACTIVE AppState = "Active"
-	APPSTATE_DESKTOP AppState = "Desktop"
-	APPSTATE_LINGERING AppState = "Lingering"
-	APPSTATE_NO_APPS AppState = "NoApps"
+	APPSTATE_ACTIVE       AppState = "Active"
+	APPSTATE_DESKTOP      AppState = "Desktop"
+	APPSTATE_LINGERING    AppState = "Lingering"
+	APPSTATE_NO_APPS      AppState = "NoApps"
 )
 
 // All allowed values of AppState enum
@@ -46,7 +46,7 @@ func (v *AppState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = AppState(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableAppState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

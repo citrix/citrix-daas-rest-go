@@ -11,10 +11,11 @@ package ccadmins
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/ccadmins"
 )
 
 func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	t.Run("Test AdministratorsAPIService CreateAdministrator", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdministratorsAPI.CreateAdministrator(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	t.Run("Test AdministratorsAPIService DeleteAdministrator", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -49,7 +50,7 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	t.Run("Test AdministratorsAPIService DeleteInvitation", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdministratorsAPI.DeleteInvitation(context.Background()).Execute()
 
@@ -61,7 +62,7 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	t.Run("Test AdministratorsAPIService FetchAdministrators", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdministratorsAPI.FetchAdministrators(context.Background()).Execute()
 
@@ -73,7 +74,7 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	t.Run("Test AdministratorsAPIService GetAdministratorAccess", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -87,7 +88,7 @@ func Test_ccadmins_AdministratorsAPIService(t *testing.T) {
 
 	t.Run("Test AdministratorsAPIService UpdateAdministratorAccess", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.AdministratorsAPI.UpdateAdministratorAccess(context.Background()).Execute()
 

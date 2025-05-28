@@ -20,10 +20,10 @@ var _ MappedNullable = &MachineAccountCreationRulesResponseModel{}
 // MachineAccountCreationRulesResponseModel Rules for creation of machine accounts in Active Directory.
 type MachineAccountCreationRulesResponseModel struct {
 	// The template name for AD accounts created in the identity pool.
-	NamingScheme NullableString `json:"NamingScheme,omitempty"`
+	NamingScheme     NullableString    `json:"NamingScheme,omitempty"`
 	NamingSchemeType *NamingSchemeType `json:"NamingSchemeType,omitempty"`
 	// The OU that computer accounts will be created into.
-	OU NullableString `json:"OU,omitempty"`
+	OU     NullableString               `json:"OU,omitempty"`
 	Domain *IdentityDomainResponseModel `json:"Domain,omitempty"`
 	// The next value that will be used if creating new AD accounts.
 	NextValue NullableString `json:"NextValue,omitempty"`
@@ -78,6 +78,7 @@ func (o *MachineAccountCreationRulesResponseModel) HasNamingScheme() bool {
 func (o *MachineAccountCreationRulesResponseModel) SetNamingScheme(v string) {
 	o.NamingScheme.Set(&v)
 }
+
 // SetNamingSchemeNil sets the value for NamingScheme to be an explicit nil
 func (o *MachineAccountCreationRulesResponseModel) SetNamingSchemeNil() {
 	o.NamingScheme.Set(nil)
@@ -152,6 +153,7 @@ func (o *MachineAccountCreationRulesResponseModel) HasOU() bool {
 func (o *MachineAccountCreationRulesResponseModel) SetOU(v string) {
 	o.OU.Set(&v)
 }
+
 // SetOUNil sets the value for OU to be an explicit nil
 func (o *MachineAccountCreationRulesResponseModel) SetOUNil() {
 	o.OU.Set(nil)
@@ -226,6 +228,7 @@ func (o *MachineAccountCreationRulesResponseModel) HasNextValue() bool {
 func (o *MachineAccountCreationRulesResponseModel) SetNextValue(v string) {
 	o.NextValue.Set(&v)
 }
+
 // SetNextValueNil sets the value for NextValue to be an explicit nil
 func (o *MachineAccountCreationRulesResponseModel) SetNextValueNil() {
 	o.NextValue.Set(nil)
@@ -237,7 +240,7 @@ func (o *MachineAccountCreationRulesResponseModel) UnsetNextValue() {
 }
 
 func (o MachineAccountCreationRulesResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -299,5 +302,3 @@ func (v *NullableMachineAccountCreationRulesResponseModel) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

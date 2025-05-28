@@ -19,8 +19,8 @@ var _ MappedNullable = &DetectOrphanedResourcesResponseModel{}
 
 // DetectOrphanedResourcesResponseModel struct for DetectOrphanedResourcesResponseModel
 type DetectOrphanedResourcesResponseModel struct {
-	Hypervisor *RefResponseModel `json:"Hypervisor,omitempty"`
-	DetectScope *DetectScope `json:"DetectScope,omitempty"`
+	Hypervisor  *RefResponseModel `json:"Hypervisor,omitempty"`
+	DetectScope *DetectScope      `json:"DetectScope,omitempty"`
 	// The owner of the detect report
 	CreatedBy NullableString `json:"CreatedBy,omitempty"`
 	// The time of the detect report created
@@ -29,9 +29,9 @@ type DetectOrphanedResourcesResponseModel struct {
 	DetectStart NullableString `json:"DetectStart,omitempty"`
 	// The time of detect end.
 	DetectEnd NullableString `json:"DetectEnd,omitempty"`
-	// The number of orphaned resources detected. 
+	// The number of orphaned resources detected.
 	NumDetected *int32 `json:"NumDetected,omitempty"`
-	// Error message if orphaned resources detected failed. 
+	// Error message if orphaned resources detected failed.
 	ErrorMsg NullableString `json:"ErrorMsg,omitempty"`
 	// If orphaned resources detected failed
 	IsFailed *bool `json:"IsFailed,omitempty"`
@@ -152,6 +152,7 @@ func (o *DetectOrphanedResourcesResponseModel) HasCreatedBy() bool {
 func (o *DetectOrphanedResourcesResponseModel) SetCreatedBy(v string) {
 	o.CreatedBy.Set(&v)
 }
+
 // SetCreatedByNil sets the value for CreatedBy to be an explicit nil
 func (o *DetectOrphanedResourcesResponseModel) SetCreatedByNil() {
 	o.CreatedBy.Set(nil)
@@ -194,6 +195,7 @@ func (o *DetectOrphanedResourcesResponseModel) HasReportTime() bool {
 func (o *DetectOrphanedResourcesResponseModel) SetReportTime(v string) {
 	o.ReportTime.Set(&v)
 }
+
 // SetReportTimeNil sets the value for ReportTime to be an explicit nil
 func (o *DetectOrphanedResourcesResponseModel) SetReportTimeNil() {
 	o.ReportTime.Set(nil)
@@ -236,6 +238,7 @@ func (o *DetectOrphanedResourcesResponseModel) HasDetectStart() bool {
 func (o *DetectOrphanedResourcesResponseModel) SetDetectStart(v string) {
 	o.DetectStart.Set(&v)
 }
+
 // SetDetectStartNil sets the value for DetectStart to be an explicit nil
 func (o *DetectOrphanedResourcesResponseModel) SetDetectStartNil() {
 	o.DetectStart.Set(nil)
@@ -278,6 +281,7 @@ func (o *DetectOrphanedResourcesResponseModel) HasDetectEnd() bool {
 func (o *DetectOrphanedResourcesResponseModel) SetDetectEnd(v string) {
 	o.DetectEnd.Set(&v)
 }
+
 // SetDetectEndNil sets the value for DetectEnd to be an explicit nil
 func (o *DetectOrphanedResourcesResponseModel) SetDetectEndNil() {
 	o.DetectEnd.Set(nil)
@@ -352,6 +356,7 @@ func (o *DetectOrphanedResourcesResponseModel) HasErrorMsg() bool {
 func (o *DetectOrphanedResourcesResponseModel) SetErrorMsg(v string) {
 	o.ErrorMsg.Set(&v)
 }
+
 // SetErrorMsgNil sets the value for ErrorMsg to be an explicit nil
 func (o *DetectOrphanedResourcesResponseModel) SetErrorMsgNil() {
 	o.ErrorMsg.Set(nil)
@@ -428,7 +433,7 @@ func (o *DetectOrphanedResourcesResponseModel) SetDetectResults(v []DetectOrphan
 }
 
 func (o DetectOrphanedResourcesResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -505,5 +510,3 @@ func (v *NullableDetectOrphanedResourcesResponseModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

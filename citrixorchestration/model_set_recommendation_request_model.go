@@ -105,6 +105,7 @@ func (o *SetRecommendationRequestModel) HasReason() bool {
 func (o *SetRecommendationRequestModel) SetReason(v string) {
 	o.Reason.Set(&v)
 }
+
 // SetReasonNil sets the value for Reason to be an explicit nil
 func (o *SetRecommendationRequestModel) SetReasonNil() {
 	o.Reason.Set(nil)
@@ -116,7 +117,7 @@ func (o *SetRecommendationRequestModel) UnsetReason() {
 }
 
 func (o SetRecommendationRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -169,5 +170,3 @@ func (v *NullableSetRecommendationRequestModel) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

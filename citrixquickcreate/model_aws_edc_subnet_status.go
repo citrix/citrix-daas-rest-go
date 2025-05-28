@@ -21,7 +21,7 @@ type AwsEdcSubnetStatus string
 // List of AwsEdcSubnetStatus
 const (
 	AWSEDCSUBNETSTATUS_AVAILABLE AwsEdcSubnetStatus = "AVAILABLE"
-	AWSEDCSUBNETSTATUS_PENDING AwsEdcSubnetStatus = "PENDING"
+	AWSEDCSUBNETSTATUS_PENDING   AwsEdcSubnetStatus = "PENDING"
 )
 
 // All allowed values of AwsEdcSubnetStatus enum
@@ -108,4 +108,3 @@ func (v *NullableAwsEdcSubnetStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,13 +20,13 @@ type SummaryState string
 
 // List of SummaryState
 const (
-	SUMMARYSTATE_UNKNOWN SummaryState = "Unknown"
-	SUMMARYSTATE_OFF SummaryState = "Off"
+	SUMMARYSTATE_UNKNOWN      SummaryState = "Unknown"
+	SUMMARYSTATE_OFF          SummaryState = "Off"
 	SUMMARYSTATE_UNREGISTERED SummaryState = "Unregistered"
-	SUMMARYSTATE_AVAILABLE SummaryState = "Available"
+	SUMMARYSTATE_AVAILABLE    SummaryState = "Available"
 	SUMMARYSTATE_DISCONNECTED SummaryState = "Disconnected"
-	SUMMARYSTATE_IN_USE SummaryState = "InUse"
-	SUMMARYSTATE_PREPARING SummaryState = "Preparing"
+	SUMMARYSTATE_IN_USE       SummaryState = "InUse"
+	SUMMARYSTATE_PREPARING    SummaryState = "Preparing"
 )
 
 // All allowed values of SummaryState enum
@@ -46,7 +46,7 @@ func (v *SummaryState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = SummaryState(value)
 	return nil
 }
@@ -112,4 +112,3 @@ func (v *NullableSummaryState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

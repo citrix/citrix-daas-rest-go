@@ -15,26 +15,26 @@ import (
 	"fmt"
 )
 
-// ProvisioningSchemeSearchProperty Properties which can be used for provisioning scheme.             
+// ProvisioningSchemeSearchProperty Properties which can be used for provisioning scheme.
 type ProvisioningSchemeSearchProperty string
 
 // List of ProvisioningSchemeSearchProperty
 const (
-	PROVISIONINGSCHEMESEARCHPROPERTY_ACTIVATION_TYPE ProvisioningSchemeSearchProperty = "ActivationType"
-	PROVISIONINGSCHEMESEARCHPROPERTY_ID ProvisioningSchemeSearchProperty = "Id"
-	PROVISIONINGSCHEMESEARCHPROPERTY_CPU_COUNT ProvisioningSchemeSearchProperty = "CpuCount"
-	PROVISIONINGSCHEMESEARCHPROPERTY_DISK_SIZE ProvisioningSchemeSearchProperty = "DiskSize"
-	PROVISIONINGSCHEMESEARCHPROPERTY_IDENTITY_TYPE ProvisioningSchemeSearchProperty = "IdentityType"
-	PROVISIONINGSCHEMESEARCHPROPERTY_MACHINE_COUNT ProvisioningSchemeSearchProperty = "MachineCount"
-	PROVISIONINGSCHEMESEARCHPROPERTY_MEMORY_MB ProvisioningSchemeSearchProperty = "MemoryMB"
-	PROVISIONINGSCHEMESEARCHPROPERTY_NAME ProvisioningSchemeSearchProperty = "Name"
-	PROVISIONINGSCHEMESEARCHPROPERTY_PERSISTENCY ProvisioningSchemeSearchProperty = "Persistency"
-	PROVISIONINGSCHEMESEARCHPROPERTY_PROVISIONING_SCHEME_TYPE ProvisioningSchemeSearchProperty = "ProvisioningSchemeType"
-	PROVISIONINGSCHEMESEARCHPROPERTY_RESOURCE_POOL_ID ProvisioningSchemeSearchProperty = "ResourcePoolId"
-	PROVISIONINGSCHEMESEARCHPROPERTY_STATE ProvisioningSchemeSearchProperty = "State"
-	PROVISIONINGSCHEMESEARCHPROPERTY_USE_WRITE_BACK_CACHE ProvisioningSchemeSearchProperty = "UseWriteBackCache"
-	PROVISIONINGSCHEMESEARCHPROPERTY_VERSION ProvisioningSchemeSearchProperty = "Version"
-	PROVISIONINGSCHEMESEARCHPROPERTY_WRITE_BACK_CACHE_DISK_SIZE ProvisioningSchemeSearchProperty = "WriteBackCacheDiskSize"
+	PROVISIONINGSCHEMESEARCHPROPERTY_ACTIVATION_TYPE              ProvisioningSchemeSearchProperty = "ActivationType"
+	PROVISIONINGSCHEMESEARCHPROPERTY_ID                           ProvisioningSchemeSearchProperty = "Id"
+	PROVISIONINGSCHEMESEARCHPROPERTY_CPU_COUNT                    ProvisioningSchemeSearchProperty = "CpuCount"
+	PROVISIONINGSCHEMESEARCHPROPERTY_DISK_SIZE                    ProvisioningSchemeSearchProperty = "DiskSize"
+	PROVISIONINGSCHEMESEARCHPROPERTY_IDENTITY_TYPE                ProvisioningSchemeSearchProperty = "IdentityType"
+	PROVISIONINGSCHEMESEARCHPROPERTY_MACHINE_COUNT                ProvisioningSchemeSearchProperty = "MachineCount"
+	PROVISIONINGSCHEMESEARCHPROPERTY_MEMORY_MB                    ProvisioningSchemeSearchProperty = "MemoryMB"
+	PROVISIONINGSCHEMESEARCHPROPERTY_NAME                         ProvisioningSchemeSearchProperty = "Name"
+	PROVISIONINGSCHEMESEARCHPROPERTY_PERSISTENCY                  ProvisioningSchemeSearchProperty = "Persistency"
+	PROVISIONINGSCHEMESEARCHPROPERTY_PROVISIONING_SCHEME_TYPE     ProvisioningSchemeSearchProperty = "ProvisioningSchemeType"
+	PROVISIONINGSCHEMESEARCHPROPERTY_RESOURCE_POOL_ID             ProvisioningSchemeSearchProperty = "ResourcePoolId"
+	PROVISIONINGSCHEMESEARCHPROPERTY_STATE                        ProvisioningSchemeSearchProperty = "State"
+	PROVISIONINGSCHEMESEARCHPROPERTY_USE_WRITE_BACK_CACHE         ProvisioningSchemeSearchProperty = "UseWriteBackCache"
+	PROVISIONINGSCHEMESEARCHPROPERTY_VERSION                      ProvisioningSchemeSearchProperty = "Version"
+	PROVISIONINGSCHEMESEARCHPROPERTY_WRITE_BACK_CACHE_DISK_SIZE   ProvisioningSchemeSearchProperty = "WriteBackCacheDiskSize"
 	PROVISIONINGSCHEMESEARCHPROPERTY_WRITE_BACK_CACHE_MEMORY_SIZE ProvisioningSchemeSearchProperty = "WriteBackCacheMemorySize"
 )
 
@@ -64,7 +64,7 @@ func (v *ProvisioningSchemeSearchProperty) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisioningSchemeSearchProperty(value)
 	return nil
 }
@@ -130,4 +130,3 @@ func (v *NullableProvisioningSchemeSearchProperty) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

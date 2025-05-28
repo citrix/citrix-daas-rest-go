@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Effect** | Pointer to **NullableString** | Determines whether the permissions are Allowed or Denied | [optional] 
 **Action** | Pointer to **[]string** | List of permissions | [optional] 
 **Resource** | Pointer to **NullableString** | Target resources for the permissions | [optional] 
-**Condition** | Pointer to [**NullableAwsEdcMissingRolePermissionsCondition**](AwsEdcMissingRolePermissionsCondition.md) |  | [optional] 
+**Condition** | Pointer to [**NullableConditionalExpression**](ConditionalExpression.md) | Condition statements | [optional] 
 
 ## Methods
 
@@ -135,20 +135,20 @@ HasResource returns a boolean if a field has been set.
 UnsetResource ensures that no value is present for Resource, not even an explicit nil
 ### GetCondition
 
-`func (o *AwsEdcMissingRolePermissions) GetCondition() AwsEdcMissingRolePermissionsCondition`
+`func (o *AwsEdcMissingRolePermissions) GetCondition() ConditionalExpression`
 
 GetCondition returns the Condition field if non-nil, zero value otherwise.
 
 ### GetConditionOk
 
-`func (o *AwsEdcMissingRolePermissions) GetConditionOk() (*AwsEdcMissingRolePermissionsCondition, bool)`
+`func (o *AwsEdcMissingRolePermissions) GetConditionOk() (*ConditionalExpression, bool)`
 
 GetConditionOk returns a tuple with the Condition field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCondition
 
-`func (o *AwsEdcMissingRolePermissions) SetCondition(v AwsEdcMissingRolePermissionsCondition)`
+`func (o *AwsEdcMissingRolePermissions) SetCondition(v ConditionalExpression)`
 
 SetCondition sets Condition field to given value.
 

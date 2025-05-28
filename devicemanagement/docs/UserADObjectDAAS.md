@@ -1,6 +1,6 @@
 # \UserADObjectDAAS
 
-All URIs are relative to *https://api.wem.cloud.com*
+All URIs are relative to *https://.wem.cloud.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,26 +24,26 @@ Create a User-level AD Object
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "6dcad3fb-47ce-45fd-acf4-f4261bc6c590")
-    body := UserModel(987) // UserModel |  (optional)
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "6dcad3fb-47ce-45fd-acf4-f4261bc6c590")
+	body := *openapiclient.NewUserModel("Sid_example", "Name_example", "Type_example", int64(123)) // UserModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserADObjectDAAS.ItemCreate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemCreate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UserADObjectDAAS.ItemCreate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
  **authorization** | **string** | Citrix Cloud authorization token. | 
  **citrixCustomerId** | **string** | Citrix Cloud customer ID. | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. | [default to &quot;6dcad3fb-47ce-45fd-acf4-f4261bc6c590&quot;]
- **body** | **UserModel** |  | 
+ **body** | [**UserModel**](UserModel.md) |  | 
 
 ### Return type
 
@@ -94,26 +94,26 @@ Delete a User-level AD Object
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    id := "id_example" // string | The ID of the resource you want to delete.
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "5dcc1325-dab6-4c13-8388-3dc17fc482c8")
+	id := "id_example" // string | The ID of the resource you want to delete.
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "5dcc1325-dab6-4c13-8388-3dc17fc482c8")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserADObjectDAAS.ItemDelete(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UserADObjectDAAS.ItemDelete(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemDelete``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -168,30 +168,30 @@ Query User-level AD Objects
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    sid := "sid_example" // string | The SID is used to filter the query results. (optional)
-    siteId := int64(789) // int64 | The name is used to filter the query results. (optional)
-    id := int64(789) // int64 | The ID is used to filter the query results. (optional)
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "1d20c409-3436-4eee-b0e6-35218b74fef9")
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	sid := "sid_example" // string | The SID is used to filter the query results. (optional)
+	siteId := int64(789) // int64 | The name is used to filter the query results. (optional)
+	id := int64(789) // int64 | The ID is used to filter the query results. (optional)
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "1d20c409-3436-4eee-b0e6-35218b74fef9")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserADObjectDAAS.ItemQuery(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Sid(sid).SiteId(siteId).Id(id).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemQuery``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemQuery`: ItemQuery200Response
-    fmt.Fprintf(os.Stdout, "Response from `UserADObjectDAAS.ItemQuery`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserADObjectDAAS.ItemQuery(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).Sid(sid).SiteId(siteId).Id(id).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemQuery``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemQuery`: ItemQuery200Response
+	fmt.Fprintf(os.Stdout, "Response from `UserADObjectDAAS.ItemQuery`: %v\n", resp)
 }
 ```
 
@@ -244,28 +244,28 @@ Query User-level AD Objects by Identity
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    id := int64(789) // int64 | The ID of the resource you want to query.
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "8f8c71a8-5839-40ec-bff2-c1ed61b012f5")
+	id := int64(789) // int64 | The ID of the resource you want to query.
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "8f8c71a8-5839-40ec-bff2-c1ed61b012f5")
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserADObjectDAAS.ItemQueryById(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemQueryById``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `ItemQueryById`: UserModel
-    fmt.Fprintf(os.Stdout, "Response from `UserADObjectDAAS.ItemQueryById`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.UserADObjectDAAS.ItemQueryById(context.Background(), id).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemQueryById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `ItemQueryById`: UserModel
+	fmt.Fprintf(os.Stdout, "Response from `UserADObjectDAAS.ItemQueryById`: %v\n", resp)
 }
 ```
 
@@ -320,26 +320,26 @@ Update a User-level AD Object
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func main() {
-    accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
-    authorization := "authorization_example" // string | Citrix Cloud authorization token.
-    citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
-    citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "960f4f7f-73dd-421a-9baa-03f99c5df87e")
-    body := UserModel(987) // UserModel |  (optional)
+	accept := "accept_example" // string | Only \"application/json\" is supported. (default to "application/json")
+	authorization := "authorization_example" // string | Citrix Cloud authorization token.
+	citrixCustomerId := "citrixCustomerId_example" // string | Citrix Cloud customer ID.
+	citrixTransactionId := "citrixTransactionId_example" // string | Transaction ID that will be used to track this request. (optional) (default to "960f4f7f-73dd-421a-9baa-03f99c5df87e")
+	body := *openapiclient.NewUserModel("Sid_example", "Name_example", "Type_example", int64(123)) // UserModel |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserADObjectDAAS.ItemUpdate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemUpdate``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.UserADObjectDAAS.ItemUpdate(context.Background()).Accept(accept).Authorization(authorization).CitrixCustomerId(citrixCustomerId).CitrixTransactionId(citrixTransactionId).Body(body).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `UserADObjectDAAS.ItemUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
 }
 ```
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
  **authorization** | **string** | Citrix Cloud authorization token. | 
  **citrixCustomerId** | **string** | Citrix Cloud customer ID. | 
  **citrixTransactionId** | **string** | Transaction ID that will be used to track this request. | [default to &quot;960f4f7f-73dd-421a-9baa-03f99c5df87e&quot;]
- **body** | **UserModel** |  | 
+ **body** | [**UserModel**](UserModel.md) |  | 
 
 ### Return type
 

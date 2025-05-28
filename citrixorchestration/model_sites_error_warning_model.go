@@ -19,9 +19,9 @@ var _ MappedNullable = &SitesErrorWarningModel{}
 
 // SitesErrorWarningModel struct for SitesErrorWarningModel
 type SitesErrorWarningModel struct {
-	NumberOfErrors *int32 `json:"NumberOfErrors,omitempty"`
-	NumberOfWarnings *int32 `json:"NumberOfWarnings,omitempty"`
-	ErrorWarning []SiteErrorWarningModel `json:"ErrorWarning,omitempty"`
+	NumberOfErrors   *int32                  `json:"NumberOfErrors,omitempty"`
+	NumberOfWarnings *int32                  `json:"NumberOfWarnings,omitempty"`
+	ErrorWarning     []SiteErrorWarningModel `json:"ErrorWarning,omitempty"`
 }
 
 // NewSitesErrorWarningModel instantiates a new SitesErrorWarningModel object
@@ -139,7 +139,7 @@ func (o *SitesErrorWarningModel) SetErrorWarning(v []SiteErrorWarningModel) {
 }
 
 func (o SitesErrorWarningModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableSitesErrorWarningModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

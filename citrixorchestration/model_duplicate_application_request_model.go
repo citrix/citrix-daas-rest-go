@@ -80,6 +80,7 @@ func (o *DuplicateApplicationRequestModel) HasNewName() bool {
 func (o *DuplicateApplicationRequestModel) SetNewName(v string) {
 	o.NewName.Set(&v)
 }
+
 // SetNewNameNil sets the value for NewName to be an explicit nil
 func (o *DuplicateApplicationRequestModel) SetNewNameNil() {
 	o.NewName.Set(nil)
@@ -122,6 +123,7 @@ func (o *DuplicateApplicationRequestModel) HasNewFolder() bool {
 func (o *DuplicateApplicationRequestModel) SetNewFolder(v string) {
 	o.NewFolder.Set(&v)
 }
+
 // SetNewFolderNil sets the value for NewFolder to be an explicit nil
 func (o *DuplicateApplicationRequestModel) SetNewFolderNil() {
 	o.NewFolder.Set(nil)
@@ -164,6 +166,7 @@ func (o *DuplicateApplicationRequestModel) HasCreateDisabled() bool {
 func (o *DuplicateApplicationRequestModel) SetCreateDisabled(v bool) {
 	o.CreateDisabled.Set(&v)
 }
+
 // SetCreateDisabledNil sets the value for CreateDisabled to be an explicit nil
 func (o *DuplicateApplicationRequestModel) SetCreateDisabledNil() {
 	o.CreateDisabled.Set(nil)
@@ -175,7 +178,7 @@ func (o *DuplicateApplicationRequestModel) UnsetCreateDisabled() {
 }
 
 func (o DuplicateApplicationRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -231,5 +234,3 @@ func (v *NullableDuplicateApplicationRequestModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

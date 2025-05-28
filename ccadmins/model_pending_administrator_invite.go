@@ -19,12 +19,14 @@ var _ MappedNullable = &PendingAdministratorInvite{}
 
 // PendingAdministratorInvite struct for PendingAdministratorInvite
 type PendingAdministratorInvite struct {
-	Email string `json:"email"`
-	RequestorEmail NullableString `json:"requestorEmail,omitempty"`
-	FirstName NullableString `json:"firstName,omitempty"`
-	LastName NullableString `json:"lastName,omitempty"`
-	Access *AdministratorAccessModel `json:"access,omitempty"`
+	Email          string                    `json:"email"`
+	RequestorEmail NullableString            `json:"requestorEmail,omitempty"`
+	FirstName      NullableString            `json:"firstName,omitempty"`
+	LastName       NullableString            `json:"lastName,omitempty"`
+	Access         *AdministratorAccessModel `json:"access,omitempty"`
 }
+
+type _PendingAdministratorInvite PendingAdministratorInvite
 
 // NewPendingAdministratorInvite instantiates a new PendingAdministratorInvite object
 // This constructor will assign default values to properties that have it defined,
@@ -100,6 +102,7 @@ func (o *PendingAdministratorInvite) HasRequestorEmail() bool {
 func (o *PendingAdministratorInvite) SetRequestorEmail(v string) {
 	o.RequestorEmail.Set(&v)
 }
+
 // SetRequestorEmailNil sets the value for RequestorEmail to be an explicit nil
 func (o *PendingAdministratorInvite) SetRequestorEmailNil() {
 	o.RequestorEmail.Set(nil)
@@ -142,6 +145,7 @@ func (o *PendingAdministratorInvite) HasFirstName() bool {
 func (o *PendingAdministratorInvite) SetFirstName(v string) {
 	o.FirstName.Set(&v)
 }
+
 // SetFirstNameNil sets the value for FirstName to be an explicit nil
 func (o *PendingAdministratorInvite) SetFirstNameNil() {
 	o.FirstName.Set(nil)
@@ -184,6 +188,7 @@ func (o *PendingAdministratorInvite) HasLastName() bool {
 func (o *PendingAdministratorInvite) SetLastName(v string) {
 	o.LastName.Set(&v)
 }
+
 // SetLastNameNil sets the value for LastName to be an explicit nil
 func (o *PendingAdministratorInvite) SetLastNameNil() {
 	o.LastName.Set(nil)
@@ -227,7 +232,7 @@ func (o *PendingAdministratorInvite) SetAccess(v AdministratorAccessModel) {
 }
 
 func (o PendingAdministratorInvite) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -287,5 +292,3 @@ func (v *NullablePendingAdministratorInvite) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

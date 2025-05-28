@@ -20,7 +20,7 @@ type ProvisioningSchemeSearchFilterGroupType string
 
 // List of ProvisioningSchemeSearchFilterGroupType
 const (
-	PROVISIONINGSCHEMESEARCHFILTERGROUPTYPE_OR ProvisioningSchemeSearchFilterGroupType = "Or"
+	PROVISIONINGSCHEMESEARCHFILTERGROUPTYPE_OR  ProvisioningSchemeSearchFilterGroupType = "Or"
 	PROVISIONINGSCHEMESEARCHFILTERGROUPTYPE_AND ProvisioningSchemeSearchFilterGroupType = "And"
 )
 
@@ -36,7 +36,7 @@ func (v *ProvisioningSchemeSearchFilterGroupType) UnmarshalJSON(src []byte) erro
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ProvisioningSchemeSearchFilterGroupType(value)
 	return nil
 }
@@ -102,4 +102,3 @@ func (v *NullableProvisioningSchemeSearchFilterGroupType) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

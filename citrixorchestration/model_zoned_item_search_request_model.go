@@ -20,7 +20,7 @@ var _ MappedNullable = &ZonedItemSearchRequestModel{}
 // ZonedItemSearchRequestModel Request model for defining a basic zoned item search criteria.
 type ZonedItemSearchRequestModel struct {
 	// Id of the zone in which to search for the zoned item.
-	ZoneId NullableString `json:"ZoneId,omitempty"`
+	ZoneId   NullableString   `json:"ZoneId,omitempty"`
 	ItemType *ZonableItemType `json:"ItemType,omitempty"`
 	// Basic search string. Specify a string which will match if contained within name of the zoned item.
 	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
@@ -75,6 +75,7 @@ func (o *ZonedItemSearchRequestModel) HasZoneId() bool {
 func (o *ZonedItemSearchRequestModel) SetZoneId(v string) {
 	o.ZoneId.Set(&v)
 }
+
 // SetZoneIdNil sets the value for ZoneId to be an explicit nil
 func (o *ZonedItemSearchRequestModel) SetZoneIdNil() {
 	o.ZoneId.Set(nil)
@@ -149,6 +150,7 @@ func (o *ZonedItemSearchRequestModel) HasBasicSearchString() bool {
 func (o *ZonedItemSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *ZonedItemSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -160,7 +162,7 @@ func (o *ZonedItemSearchRequestModel) UnsetBasicSearchString() {
 }
 
 func (o ZonedItemSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -216,5 +218,3 @@ func (v *NullableZonedItemSearchRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

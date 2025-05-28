@@ -20,7 +20,7 @@ var _ MappedNullable = &MachineConfigurationResponseModel{}
 // MachineConfigurationResponseModel Machine Configuration response class.
 type MachineConfigurationResponseModel struct {
 	// The Id of a machine configuration.
-	Id *int32 `json:"Id,omitempty"`
+	Id                *int32                          `json:"Id,omitempty"`
 	ConfigurationSlot *ConfigurationSlotResponseModel `json:"ConfigurationSlot,omitempty"`
 	// The name of a machine configuration.
 	Name NullableString `json:"Name,omitempty"`
@@ -147,6 +147,7 @@ func (o *MachineConfigurationResponseModel) HasName() bool {
 func (o *MachineConfigurationResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MachineConfigurationResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -189,6 +190,7 @@ func (o *MachineConfigurationResponseModel) HasLeafName() bool {
 func (o *MachineConfigurationResponseModel) SetLeafName(v string) {
 	o.LeafName.Set(&v)
 }
+
 // SetLeafNameNil sets the value for LeafName to be an explicit nil
 func (o *MachineConfigurationResponseModel) SetLeafNameNil() {
 	o.LeafName.Set(nil)
@@ -231,6 +233,7 @@ func (o *MachineConfigurationResponseModel) HasPolicy() bool {
 func (o *MachineConfigurationResponseModel) SetPolicy(v string) {
 	o.Policy.Set(&v)
 }
+
 // SetPolicyNil sets the value for Policy to be an explicit nil
 func (o *MachineConfigurationResponseModel) SetPolicyNil() {
 	o.Policy.Set(nil)
@@ -273,6 +276,7 @@ func (o *MachineConfigurationResponseModel) HasDescription() bool {
 func (o *MachineConfigurationResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *MachineConfigurationResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -317,7 +321,7 @@ func (o *MachineConfigurationResponseModel) SetDeliveryGroups(v []RefResponseMod
 }
 
 func (o MachineConfigurationResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -385,5 +389,3 @@ func (v *NullableMachineConfigurationResponseModel) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

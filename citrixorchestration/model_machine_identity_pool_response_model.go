@@ -22,7 +22,7 @@ type MachineIdentityPoolResponseModel struct {
 	// Machine identity pool id.
 	Id *string `json:"Id,omitempty"`
 	// Machine identity pool name.
-	Name NullableString `json:"Name,omitempty"`
+	Name             NullableString           `json:"Name,omitempty"`
 	NamingSchemeType *AccountNamingSchemeType `json:"NamingSchemeType,omitempty"`
 	// Machine identity pool naming scheme.
 	NamingScheme NullableString `json:"NamingScheme,omitempty"`
@@ -31,7 +31,7 @@ type MachineIdentityPoolResponseModel struct {
 	// Machine identity pool custom active directory OU.
 	CustomActiveDirectoryOU NullableString `json:"CustomActiveDirectoryOU,omitempty"`
 	// Indicates whether use default OU
-	UseDefaultOU *bool `json:"UseDefaultOU,omitempty"`
+	UseDefaultOU    *bool                  `json:"UseDefaultOU,omitempty"`
 	DefaultOUDomain *ADDomainResponseModel `json:"DefaultOUDomain,omitempty"`
 	// The number of available accounts in the machine identity pool
 	AvailableAccountsCount *int32 `json:"AvailableAccountsCount,omitempty"`
@@ -142,6 +142,7 @@ func (o *MachineIdentityPoolResponseModel) HasName() bool {
 func (o *MachineIdentityPoolResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -216,6 +217,7 @@ func (o *MachineIdentityPoolResponseModel) HasNamingScheme() bool {
 func (o *MachineIdentityPoolResponseModel) SetNamingScheme(v string) {
 	o.NamingScheme.Set(&v)
 }
+
 // SetNamingSchemeNil sets the value for NamingScheme to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetNamingSchemeNil() {
 	o.NamingScheme.Set(nil)
@@ -290,6 +292,7 @@ func (o *MachineIdentityPoolResponseModel) HasCustomActiveDirectoryOU() bool {
 func (o *MachineIdentityPoolResponseModel) SetCustomActiveDirectoryOU(v string) {
 	o.CustomActiveDirectoryOU.Set(&v)
 }
+
 // SetCustomActiveDirectoryOUNil sets the value for CustomActiveDirectoryOU to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetCustomActiveDirectoryOUNil() {
 	o.CustomActiveDirectoryOU.Set(nil)
@@ -524,6 +527,7 @@ func (o *MachineIdentityPoolResponseModel) HasTenantId() bool {
 func (o *MachineIdentityPoolResponseModel) SetTenantId(v string) {
 	o.TenantId.Set(&v)
 }
+
 // SetTenantIdNil sets the value for TenantId to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetTenantIdNil() {
 	o.TenantId.Set(nil)
@@ -598,6 +602,7 @@ func (o *MachineIdentityPoolResponseModel) HasIdentityType() bool {
 func (o *MachineIdentityPoolResponseModel) SetIdentityType(v string) {
 	o.IdentityType.Set(&v)
 }
+
 // SetIdentityTypeNil sets the value for IdentityType to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetIdentityTypeNil() {
 	o.IdentityType.Set(nil)
@@ -640,6 +645,7 @@ func (o *MachineIdentityPoolResponseModel) HasIdentityContent() bool {
 func (o *MachineIdentityPoolResponseModel) SetIdentityContent(v string) {
 	o.IdentityContent.Set(&v)
 }
+
 // SetIdentityContentNil sets the value for IdentityContent to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetIdentityContentNil() {
 	o.IdentityContent.Set(nil)
@@ -682,6 +688,7 @@ func (o *MachineIdentityPoolResponseModel) HasAzureADSecurityGroupName() bool {
 func (o *MachineIdentityPoolResponseModel) SetAzureADSecurityGroupName(v string) {
 	o.AzureADSecurityGroupName.Set(&v)
 }
+
 // SetAzureADSecurityGroupNameNil sets the value for AzureADSecurityGroupName to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetAzureADSecurityGroupNameNil() {
 	o.AzureADSecurityGroupName.Set(nil)
@@ -724,6 +731,7 @@ func (o *MachineIdentityPoolResponseModel) HasAzureADAccessToken() bool {
 func (o *MachineIdentityPoolResponseModel) SetAzureADAccessToken(v string) {
 	o.AzureADAccessToken.Set(&v)
 }
+
 // SetAzureADAccessTokenNil sets the value for AzureADAccessToken to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetAzureADAccessTokenNil() {
 	o.AzureADAccessToken.Set(nil)
@@ -766,6 +774,7 @@ func (o *MachineIdentityPoolResponseModel) HasDeviceManagementType() bool {
 func (o *MachineIdentityPoolResponseModel) SetDeviceManagementType(v string) {
 	o.DeviceManagementType.Set(&v)
 }
+
 // SetDeviceManagementTypeNil sets the value for DeviceManagementType to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetDeviceManagementTypeNil() {
 	o.DeviceManagementType.Set(nil)
@@ -808,6 +817,7 @@ func (o *MachineIdentityPoolResponseModel) HasAzureADTenantId() bool {
 func (o *MachineIdentityPoolResponseModel) SetAzureADTenantId(v string) {
 	o.AzureADTenantId.Set(&v)
 }
+
 // SetAzureADTenantIdNil sets the value for AzureADTenantId to be an explicit nil
 func (o *MachineIdentityPoolResponseModel) SetAzureADTenantIdNil() {
 	o.AzureADTenantId.Set(nil)
@@ -852,7 +862,7 @@ func (o *MachineIdentityPoolResponseModel) SetServiceAccountUid(v []string) {
 }
 
 func (o MachineIdentityPoolResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -962,5 +972,3 @@ func (v *NullableMachineIdentityPoolResponseModel) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

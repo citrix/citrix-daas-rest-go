@@ -20,6 +20,7 @@ var _ MappedNullable = &AwsEdcDeployment{}
 // AwsEdcDeployment struct for AwsEdcDeployment
 type AwsEdcDeployment struct {
 	Deployment
+	// Performance size for bundle creation
 	ComputeType NullableAwsEdcWorkspaceCompute `json:"computeType,omitempty"`
 	// Size of operating system volume for bundle creation
 	RootVolumeSize NullableInt32 `json:"rootVolumeSize,omitempty"`
@@ -33,6 +34,7 @@ type AwsEdcDeployment struct {
 	ImageId NullableString `json:"imageId,omitempty"`
 	// Image Name
 	ImageName NullableString `json:"imageName,omitempty"`
+	// Running mode to apply to all workspaces
 	RunningMode NullableAwsEdcWorkspaceRunningMode `json:"runningMode,omitempty"`
 	// Configuration for individual workspace
 	Workspaces []AwsEdcDeploymentMachine `json:"workspaces,omitempty"`
@@ -41,6 +43,8 @@ type AwsEdcDeployment struct {
 	// The name of the directory associated with the deployment
 	DirectoryName NullableString `json:"directoryName,omitempty"`
 }
+
+type _AwsEdcDeployment AwsEdcDeployment
 
 // NewAwsEdcDeployment instantiates a new AwsEdcDeployment object
 // This constructor will assign default values to properties that have it defined,
@@ -92,6 +96,7 @@ func (o *AwsEdcDeployment) HasComputeType() bool {
 func (o *AwsEdcDeployment) SetComputeType(v AwsEdcWorkspaceCompute) {
 	o.ComputeType.Set(&v)
 }
+
 // SetComputeTypeNil sets the value for ComputeType to be an explicit nil
 func (o *AwsEdcDeployment) SetComputeTypeNil() {
 	o.ComputeType.Set(nil)
@@ -134,6 +139,7 @@ func (o *AwsEdcDeployment) HasRootVolumeSize() bool {
 func (o *AwsEdcDeployment) SetRootVolumeSize(v int32) {
 	o.RootVolumeSize.Set(&v)
 }
+
 // SetRootVolumeSizeNil sets the value for RootVolumeSize to be an explicit nil
 func (o *AwsEdcDeployment) SetRootVolumeSizeNil() {
 	o.RootVolumeSize.Set(nil)
@@ -176,6 +182,7 @@ func (o *AwsEdcDeployment) HasUserVolumeSize() bool {
 func (o *AwsEdcDeployment) SetUserVolumeSize(v int32) {
 	o.UserVolumeSize.Set(&v)
 }
+
 // SetUserVolumeSizeNil sets the value for UserVolumeSize to be an explicit nil
 func (o *AwsEdcDeployment) SetUserVolumeSizeNil() {
 	o.UserVolumeSize.Set(nil)
@@ -218,6 +225,7 @@ func (o *AwsEdcDeployment) HasVolumesEncrypted() bool {
 func (o *AwsEdcDeployment) SetVolumesEncrypted(v bool) {
 	o.VolumesEncrypted.Set(&v)
 }
+
 // SetVolumesEncryptedNil sets the value for VolumesEncrypted to be an explicit nil
 func (o *AwsEdcDeployment) SetVolumesEncryptedNil() {
 	o.VolumesEncrypted.Set(nil)
@@ -260,6 +268,7 @@ func (o *AwsEdcDeployment) HasVolumesEncryptionKey() bool {
 func (o *AwsEdcDeployment) SetVolumesEncryptionKey(v string) {
 	o.VolumesEncryptionKey.Set(&v)
 }
+
 // SetVolumesEncryptionKeyNil sets the value for VolumesEncryptionKey to be an explicit nil
 func (o *AwsEdcDeployment) SetVolumesEncryptionKeyNil() {
 	o.VolumesEncryptionKey.Set(nil)
@@ -302,6 +311,7 @@ func (o *AwsEdcDeployment) HasImageId() bool {
 func (o *AwsEdcDeployment) SetImageId(v string) {
 	o.ImageId.Set(&v)
 }
+
 // SetImageIdNil sets the value for ImageId to be an explicit nil
 func (o *AwsEdcDeployment) SetImageIdNil() {
 	o.ImageId.Set(nil)
@@ -344,6 +354,7 @@ func (o *AwsEdcDeployment) HasImageName() bool {
 func (o *AwsEdcDeployment) SetImageName(v string) {
 	o.ImageName.Set(&v)
 }
+
 // SetImageNameNil sets the value for ImageName to be an explicit nil
 func (o *AwsEdcDeployment) SetImageNameNil() {
 	o.ImageName.Set(nil)
@@ -386,6 +397,7 @@ func (o *AwsEdcDeployment) HasRunningMode() bool {
 func (o *AwsEdcDeployment) SetRunningMode(v AwsEdcWorkspaceRunningMode) {
 	o.RunningMode.Set(&v)
 }
+
 // SetRunningModeNil sets the value for RunningMode to be an explicit nil
 func (o *AwsEdcDeployment) SetRunningModeNil() {
 	o.RunningMode.Set(nil)
@@ -417,7 +429,7 @@ func (o *AwsEdcDeployment) GetWorkspacesOk() ([]AwsEdcDeploymentMachine, bool) {
 
 // HasWorkspaces returns a boolean if a field has been set.
 func (o *AwsEdcDeployment) HasWorkspaces() bool {
-	if o != nil && IsNil(o.Workspaces) {
+	if o != nil && !IsNil(o.Workspaces) {
 		return true
 	}
 
@@ -461,6 +473,7 @@ func (o *AwsEdcDeployment) HasUserDecoupledWorkspaces() bool {
 func (o *AwsEdcDeployment) SetUserDecoupledWorkspaces(v bool) {
 	o.UserDecoupledWorkspaces.Set(&v)
 }
+
 // SetUserDecoupledWorkspacesNil sets the value for UserDecoupledWorkspaces to be an explicit nil
 func (o *AwsEdcDeployment) SetUserDecoupledWorkspacesNil() {
 	o.UserDecoupledWorkspaces.Set(nil)
@@ -503,6 +516,7 @@ func (o *AwsEdcDeployment) HasDirectoryName() bool {
 func (o *AwsEdcDeployment) SetDirectoryName(v string) {
 	o.DirectoryName.Set(&v)
 }
+
 // SetDirectoryNameNil sets the value for DirectoryName to be an explicit nil
 func (o *AwsEdcDeployment) SetDirectoryNameNil() {
 	o.DirectoryName.Set(nil)
@@ -514,7 +528,7 @@ func (o *AwsEdcDeployment) UnsetDirectoryName() {
 }
 
 func (o AwsEdcDeployment) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -602,5 +616,3 @@ func (v *NullableAwsEdcDeployment) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

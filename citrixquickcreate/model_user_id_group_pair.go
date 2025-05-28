@@ -19,12 +19,12 @@ var _ MappedNullable = &UserIdGroupPair{}
 
 // UserIdGroupPair struct for UserIdGroupPair
 type UserIdGroupPair struct {
-	Description NullableString `json:"description,omitempty"`
-	GroupId NullableString `json:"groupId,omitempty"`
-	GroupName NullableString `json:"groupName,omitempty"`
-	PeeringStatus NullableString `json:"peeringStatus,omitempty"`
-	UserId NullableString `json:"userId,omitempty"`
-	VpcId NullableString `json:"vpcId,omitempty"`
+	Description            NullableString `json:"description,omitempty"`
+	GroupId                NullableString `json:"groupId,omitempty"`
+	GroupName              NullableString `json:"groupName,omitempty"`
+	PeeringStatus          NullableString `json:"peeringStatus,omitempty"`
+	UserId                 NullableString `json:"userId,omitempty"`
+	VpcId                  NullableString `json:"vpcId,omitempty"`
 	VpcPeeringConnectionId NullableString `json:"vpcPeeringConnectionId,omitempty"`
 }
 
@@ -77,6 +77,7 @@ func (o *UserIdGroupPair) HasDescription() bool {
 func (o *UserIdGroupPair) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *UserIdGroupPair) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -119,6 +120,7 @@ func (o *UserIdGroupPair) HasGroupId() bool {
 func (o *UserIdGroupPair) SetGroupId(v string) {
 	o.GroupId.Set(&v)
 }
+
 // SetGroupIdNil sets the value for GroupId to be an explicit nil
 func (o *UserIdGroupPair) SetGroupIdNil() {
 	o.GroupId.Set(nil)
@@ -161,6 +163,7 @@ func (o *UserIdGroupPair) HasGroupName() bool {
 func (o *UserIdGroupPair) SetGroupName(v string) {
 	o.GroupName.Set(&v)
 }
+
 // SetGroupNameNil sets the value for GroupName to be an explicit nil
 func (o *UserIdGroupPair) SetGroupNameNil() {
 	o.GroupName.Set(nil)
@@ -203,6 +206,7 @@ func (o *UserIdGroupPair) HasPeeringStatus() bool {
 func (o *UserIdGroupPair) SetPeeringStatus(v string) {
 	o.PeeringStatus.Set(&v)
 }
+
 // SetPeeringStatusNil sets the value for PeeringStatus to be an explicit nil
 func (o *UserIdGroupPair) SetPeeringStatusNil() {
 	o.PeeringStatus.Set(nil)
@@ -245,6 +249,7 @@ func (o *UserIdGroupPair) HasUserId() bool {
 func (o *UserIdGroupPair) SetUserId(v string) {
 	o.UserId.Set(&v)
 }
+
 // SetUserIdNil sets the value for UserId to be an explicit nil
 func (o *UserIdGroupPair) SetUserIdNil() {
 	o.UserId.Set(nil)
@@ -287,6 +292,7 @@ func (o *UserIdGroupPair) HasVpcId() bool {
 func (o *UserIdGroupPair) SetVpcId(v string) {
 	o.VpcId.Set(&v)
 }
+
 // SetVpcIdNil sets the value for VpcId to be an explicit nil
 func (o *UserIdGroupPair) SetVpcIdNil() {
 	o.VpcId.Set(nil)
@@ -329,6 +335,7 @@ func (o *UserIdGroupPair) HasVpcPeeringConnectionId() bool {
 func (o *UserIdGroupPair) SetVpcPeeringConnectionId(v string) {
 	o.VpcPeeringConnectionId.Set(&v)
 }
+
 // SetVpcPeeringConnectionIdNil sets the value for VpcPeeringConnectionId to be an explicit nil
 func (o *UserIdGroupPair) SetVpcPeeringConnectionIdNil() {
 	o.VpcPeeringConnectionId.Set(nil)
@@ -340,7 +347,7 @@ func (o *UserIdGroupPair) UnsetVpcPeeringConnectionId() {
 }
 
 func (o UserIdGroupPair) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -408,5 +415,3 @@ func (v *NullableUserIdGroupPair) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

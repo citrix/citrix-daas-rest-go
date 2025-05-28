@@ -107,6 +107,7 @@ func (o *SettingDefinitionEnvelope) HasContinuationToken() bool {
 func (o *SettingDefinitionEnvelope) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *SettingDefinitionEnvelope) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -118,7 +119,7 @@ func (o *SettingDefinitionEnvelope) UnsetContinuationToken() {
 }
 
 func (o SettingDefinitionEnvelope) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -171,5 +172,3 @@ func (v *NullableSettingDefinitionEnvelope) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,21 +19,20 @@ import (
 	"strings"
 )
 
-
 // ApplicationFoldersAPIsDAASService ApplicationFoldersAPIsDAAS service
 type ApplicationFoldersAPIsDAASService service
 
 type ApiApplicationFoldersCheckApplicationFolderPathExistsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	path string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	path                string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -87,24 +86,24 @@ ApplicationFoldersCheckApplicationFolderPathExists Check for the existence of an
 
 Check for the existence of an application folder by path.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param path Path of the application folder.
- @return ApiApplicationFoldersCheckApplicationFolderPathExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param path Path of the application folder.
+	@return ApiApplicationFoldersCheckApplicationFolderPathExistsRequest
 */
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFolderPathExists(ctx context.Context, path string) ApiApplicationFoldersCheckApplicationFolderPathExistsRequest {
 	return ApiApplicationFoldersCheckApplicationFolderPathExistsRequest{
 		ApiService: a,
-		ctx: ctx,
-		path: path,
+		ctx:        ctx,
+		path:       path,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFolderPathExistsExecute(r ApiApplicationFoldersCheckApplicationFolderPathExistsRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodHead
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodHead
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationFoldersAPIsDAASService.ApplicationFoldersCheckApplicationFolderPathExists")
@@ -202,8 +201,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -213,8 +212,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -224,8 +223,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -235,8 +234,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -246,8 +245,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -257,8 +256,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -268,8 +267,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -279,8 +278,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -289,17 +288,17 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCheckApplicationFo
 }
 
 type ApiApplicationFoldersCreateApplicationFolderRequest struct {
-	ctx context.Context
-	ApiService *ApplicationFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
+	ctx                                 context.Context
+	ApiService                          *ApplicationFoldersAPIsDAASService
+	citrixCustomerId                    *string
+	citrixInstanceId                    *string
 	createApplicationFolderRequestModel *CreateApplicationFolderRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                           *string
+	authorization                       *string
+	citrixTransactionId                 *string
+	accept                              *string
+	citrixLocale                        *string
+	async                               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -365,24 +364,25 @@ ApplicationFoldersCreateApplicationFolder Create an application folder
 
 Create an application folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApplicationFoldersCreateApplicationFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApplicationFoldersCreateApplicationFolderRequest
 */
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationFolder(ctx context.Context) ApiApplicationFoldersCreateApplicationFolderRequest {
 	return ApiApplicationFoldersCreateApplicationFolderRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationFolderResponseModel
+//
+//	@return ApplicationFolderResponseModel
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationFolderExecute(r ApiApplicationFoldersCreateApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationFolderResponseModel
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationFolderResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationFoldersAPIsDAASService.ApplicationFoldersCreateApplicationFolder")
@@ -487,8 +487,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -498,8 +498,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -509,8 +509,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -520,8 +520,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -531,8 +531,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -542,8 +542,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -553,8 +553,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -564,8 +564,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -575,8 +575,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -594,17 +594,17 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersCreateApplicationF
 }
 
 type ApiApplicationFoldersDeleteApplicationFolderRequest struct {
-	ctx context.Context
-	ApiService *ApplicationFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	pathOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -665,24 +665,24 @@ ApplicationFoldersDeleteApplicationFolder Delete an application folder.
 Delete an application folder.  Any applications within the application folder
 will also be deleted.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Name or ID of the application folder to delete.
- @return ApiApplicationFoldersDeleteApplicationFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Name or ID of the application folder to delete.
+	@return ApiApplicationFoldersDeleteApplicationFolderRequest
 */
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersDeleteApplicationFolderRequest {
 	return ApiApplicationFoldersDeleteApplicationFolderRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationFolderExecute(r ApiApplicationFoldersDeleteApplicationFolderRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationFoldersAPIsDAASService.ApplicationFoldersDeleteApplicationFolder")
@@ -783,8 +783,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -794,8 +794,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -805,8 +805,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -816,8 +816,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
@@ -827,8 +827,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -838,8 +838,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -849,8 +849,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -860,8 +860,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -870,16 +870,16 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersDeleteApplicationF
 }
 
 type ApiApplicationFoldersGetApplicationFolderRequest struct {
-	ctx context.Context
-	ApiService *ApplicationFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	pathOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
+	accept              *string
+	citrixLocale        *string
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -933,26 +933,27 @@ ApplicationFoldersGetApplicationFolder Get details about a single application fo
 
 Gets the details of a single application folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Path (URL-encoded) or ID of the application folder.
- @return ApiApplicationFoldersGetApplicationFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Path (URL-encoded) or ID of the application folder.
+	@return ApiApplicationFoldersGetApplicationFolderRequest
 */
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersGetApplicationFolderRequest {
 	return ApiApplicationFoldersGetApplicationFolderRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationFolderResponseModel
+//
+//	@return ApplicationFolderResponseModel
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFolderExecute(r ApiApplicationFoldersGetApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationFolderResponseModel
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationFolderResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationFoldersAPIsDAASService.ApplicationFoldersGetApplicationFolder")
@@ -1050,8 +1051,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1061,8 +1062,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1072,8 +1073,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1083,8 +1084,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1094,8 +1095,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1105,8 +1106,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1116,8 +1117,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1127,8 +1128,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1146,20 +1147,20 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 }
 
 type ApiApplicationFoldersGetApplicationFolderApplicationsRequest struct {
-	ctx context.Context
-	ApiService *ApplicationFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	pathOrId            string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	limit *int32
-	continuationToken *string
-	fields *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	limit               *int32
+	continuationToken   *string
+	fields              *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1237,26 +1238,27 @@ ApplicationFoldersGetApplicationFolderApplications Get the applications in an ap
 
 Get a list of all applications in an application folder.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Path (URL-encoded) or ID of the application folder.
- @return ApiApplicationFoldersGetApplicationFolderApplicationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Path (URL-encoded) or ID of the application folder.
+	@return ApiApplicationFoldersGetApplicationFolderApplicationsRequest
 */
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFolderApplications(ctx context.Context, pathOrId string) ApiApplicationFoldersGetApplicationFolderApplicationsRequest {
 	return ApiApplicationFoldersGetApplicationFolderApplicationsRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationResponseModelCollection
+//
+//	@return ApplicationResponseModelCollection
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFolderApplicationsExecute(r ApiApplicationFoldersGetApplicationFolderApplicationsRequest) (*ApplicationResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationFoldersAPIsDAASService.ApplicationFoldersGetApplicationFolderApplications")
@@ -1366,8 +1368,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1377,8 +1379,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1388,8 +1390,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1399,8 +1401,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1410,8 +1412,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1421,8 +1423,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1432,8 +1434,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1443,8 +1445,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1462,16 +1464,16 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 }
 
 type ApiApplicationFoldersGetApplicationFoldersRequest struct {
-	ctx context.Context
-	ApiService *ApplicationFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	userAgent *string
-	authorization *string
+	ctx                 context.Context
+	ApiService          *ApplicationFoldersAPIsDAASService
+	citrixCustomerId    *string
+	citrixInstanceId    *string
+	userAgent           *string
+	authorization       *string
 	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	accept              *string
+	citrixLocale        *string
+	async               *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1531,24 +1533,25 @@ ApplicationFoldersGetApplicationFolders Get application folders.
 
 Gets all application folders within the site.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApplicationFoldersGetApplicationFoldersRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApplicationFoldersGetApplicationFoldersRequest
 */
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFolders(ctx context.Context) ApiApplicationFoldersGetApplicationFoldersRequest {
 	return ApiApplicationFoldersGetApplicationFoldersRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationFolderResponseModelCollection
+//
+//	@return ApplicationFolderResponseModelCollection
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFoldersExecute(r ApiApplicationFoldersGetApplicationFoldersRequest) (*ApplicationFolderResponseModelCollection, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationFolderResponseModelCollection
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationFolderResponseModelCollection
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationFoldersAPIsDAASService.ApplicationFoldersGetApplicationFolders")
@@ -1648,8 +1651,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1659,8 +1662,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1670,8 +1673,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1681,8 +1684,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1692,8 +1695,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -1703,8 +1706,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -1714,8 +1717,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1733,18 +1736,18 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersGetApplicationFold
 }
 
 type ApiApplicationFoldersUpdateApplicationFolderRequest struct {
-	ctx context.Context
-	ApiService *ApplicationFoldersAPIsDAASService
-	citrixCustomerId *string
-	citrixInstanceId *string
-	pathOrId string
+	ctx                               context.Context
+	ApiService                        *ApplicationFoldersAPIsDAASService
+	citrixCustomerId                  *string
+	citrixInstanceId                  *string
+	pathOrId                          string
 	editApplicationFolderRequestModel *EditApplicationFolderRequestModel
-	userAgent *string
-	authorization *string
-	citrixTransactionId *string
-	accept *string
-	citrixLocale *string
-	async *bool
+	userAgent                         *string
+	authorization                     *string
+	citrixTransactionId               *string
+	accept                            *string
+	citrixLocale                      *string
+	async                             *bool
 }
 
 // Citrix Customer ID. Default is &#39;CitrixOnPremises&#39;
@@ -1810,26 +1813,27 @@ ApplicationFoldersUpdateApplicationFolder Update an application folder.
 
 Update an application folder's properties.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param pathOrId Path or ID of the application path to update.
- @return ApiApplicationFoldersUpdateApplicationFolderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param pathOrId Path or ID of the application path to update.
+	@return ApiApplicationFoldersUpdateApplicationFolderRequest
 */
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationFolder(ctx context.Context, pathOrId string) ApiApplicationFoldersUpdateApplicationFolderRequest {
 	return ApiApplicationFoldersUpdateApplicationFolderRequest{
 		ApiService: a,
-		ctx: ctx,
-		pathOrId: pathOrId,
+		ctx:        ctx,
+		pathOrId:   pathOrId,
 	}
 }
 
 // Execute executes the request
-//  @return ApplicationFolderResponseModel
+//
+//	@return ApplicationFolderResponseModel
 func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationFolderExecute(r ApiApplicationFoldersUpdateApplicationFolderRequest) (*ApplicationFolderResponseModel, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApplicationFolderResponseModel
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApplicationFolderResponseModel
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationFoldersAPIsDAASService.ApplicationFoldersUpdateApplicationFolder")
@@ -1935,8 +1939,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1946,8 +1950,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1957,8 +1961,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1968,8 +1972,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 406 {
@@ -1979,8 +1983,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
@@ -1990,8 +1994,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -2001,8 +2005,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 503 {
@@ -2012,8 +2016,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -2023,8 +2027,8 @@ func (a *ApplicationFoldersAPIsDAASService) ApplicationFoldersUpdateApplicationF
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

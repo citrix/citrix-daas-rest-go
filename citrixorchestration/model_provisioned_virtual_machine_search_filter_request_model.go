@@ -21,7 +21,7 @@ var _ MappedNullable = &ProvisionedVirtualMachineSearchFilterRequestModel{}
 type ProvisionedVirtualMachineSearchFilterRequestModel struct {
 	Property ProvisionedVirtualMachineSearchProperty `json:"Property"`
 	// Value to match.
-	Value NullableString `json:"Value,omitempty"`
+	Value    NullableString `json:"Value,omitempty"`
 	Operator SearchOperator `json:"Operator"`
 }
 
@@ -100,6 +100,7 @@ func (o *ProvisionedVirtualMachineSearchFilterRequestModel) HasValue() bool {
 func (o *ProvisionedVirtualMachineSearchFilterRequestModel) SetValue(v string) {
 	o.Value.Set(&v)
 }
+
 // SetValueNil sets the value for Value to be an explicit nil
 func (o *ProvisionedVirtualMachineSearchFilterRequestModel) SetValueNil() {
 	o.Value.Set(nil)
@@ -135,7 +136,7 @@ func (o *ProvisionedVirtualMachineSearchFilterRequestModel) SetOperator(v Search
 }
 
 func (o ProvisionedVirtualMachineSearchFilterRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -187,5 +188,3 @@ func (v *NullableProvisionedVirtualMachineSearchFilterRequestModel) UnmarshalJSO
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

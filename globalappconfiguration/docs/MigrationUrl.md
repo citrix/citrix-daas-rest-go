@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StoreFrontValidUntil** | Pointer to **string** |  | [optional] 
+**StoreFrontValidUntil** | Pointer to [**interface**](interface.md) |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStoreFrontValidUntil
 
-`func (o *MigrationUrl) GetStoreFrontValidUntil() string`
+`func (o *MigrationUrl) GetStoreFrontValidUntil() interface`
 
 GetStoreFrontValidUntil returns the StoreFrontValidUntil field if non-nil, zero value otherwise.
 
 ### GetStoreFrontValidUntilOk
 
-`func (o *MigrationUrl) GetStoreFrontValidUntilOk() (*string, bool)`
+`func (o *MigrationUrl) GetStoreFrontValidUntilOk() (*interface, bool)`
 
 GetStoreFrontValidUntilOk returns a tuple with the StoreFrontValidUntil field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStoreFrontValidUntil
 
-`func (o *MigrationUrl) SetStoreFrontValidUntil(v string)`
+`func (o *MigrationUrl) SetStoreFrontValidUntil(v interface)`
 
 SetStoreFrontValidUntil sets StoreFrontValidUntil field to given value.
 

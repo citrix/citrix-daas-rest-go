@@ -27,10 +27,10 @@ type CatalogSearchRequestModel struct {
 	BasicSearchString NullableString `json:"BasicSearchString,omitempty"`
 	// List of advanced search filters.
 	SearchFilters []CatalogSearchFilterRequestModel `json:"SearchFilters,omitempty"`
-	SortCriteria *CatalogSortCriteriaRequestModel `json:"SortCriteria,omitempty"`
+	SortCriteria  *CatalogSortCriteriaRequestModel  `json:"SortCriteria,omitempty"`
 	// List of advanced search filter groups.
-	SearchFilterGroups []CatalogSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
-	SearchFilterGroupsType *CatalogSearchFilterGroupsType `json:"SearchFilterGroupsType,omitempty"`
+	SearchFilterGroups     []CatalogSearchFilterGroupRequestModel `json:"SearchFilterGroups,omitempty"`
+	SearchFilterGroupsType *CatalogSearchFilterGroupsType         `json:"SearchFilterGroupsType,omitempty"`
 }
 
 // NewCatalogSearchRequestModel instantiates a new CatalogSearchRequestModel object
@@ -86,6 +86,7 @@ func (o *CatalogSearchRequestModel) HasAdminFolder() bool {
 func (o *CatalogSearchRequestModel) SetAdminFolder(v string) {
 	o.AdminFolder.Set(&v)
 }
+
 // SetAdminFolderNil sets the value for AdminFolder to be an explicit nil
 func (o *CatalogSearchRequestModel) SetAdminFolderNil() {
 	o.AdminFolder.Set(nil)
@@ -128,6 +129,7 @@ func (o *CatalogSearchRequestModel) HasIncludeSubFolders() bool {
 func (o *CatalogSearchRequestModel) SetIncludeSubFolders(v bool) {
 	o.IncludeSubFolders.Set(&v)
 }
+
 // SetIncludeSubFoldersNil sets the value for IncludeSubFolders to be an explicit nil
 func (o *CatalogSearchRequestModel) SetIncludeSubFoldersNil() {
 	o.IncludeSubFolders.Set(nil)
@@ -170,6 +172,7 @@ func (o *CatalogSearchRequestModel) HasBasicSearchString() bool {
 func (o *CatalogSearchRequestModel) SetBasicSearchString(v string) {
 	o.BasicSearchString.Set(&v)
 }
+
 // SetBasicSearchStringNil sets the value for BasicSearchString to be an explicit nil
 func (o *CatalogSearchRequestModel) SetBasicSearchStringNil() {
 	o.BasicSearchString.Set(nil)
@@ -311,7 +314,7 @@ func (o *CatalogSearchRequestModel) SetSearchFilterGroupsType(v CatalogSearchFil
 }
 
 func (o CatalogSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,5 +382,3 @@ func (v *NullableCatalogSearchRequestModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

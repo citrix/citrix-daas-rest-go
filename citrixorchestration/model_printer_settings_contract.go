@@ -19,29 +19,29 @@ var _ MappedNullable = &PrinterSettingsContract{}
 
 // PrinterSettingsContract This class must have the identical members as the PrinterSetting class in GpfxSettings.dll. The member names must be the same.
 type PrinterSettingsContract struct {
-	OverridePaperSize *bool `json:"OverridePaperSize,omitempty"`
-	PaperSize *PrinterPaperSize `json:"PaperSize,omitempty"`
-	Width *int32 `json:"Width,omitempty"`
-	Height *int32 `json:"Height,omitempty"`
-	OverrideCopyCount *bool `json:"OverrideCopyCount,omitempty"`
-	Collated *bool `json:"Collated,omitempty"`
-	CopyCount *int32 `json:"CopyCount,omitempty"`
-	OverrideScale *bool `json:"OverrideScale,omitempty"`
-	Scale *int32 `json:"Scale,omitempty"`
-	OverrideColor *bool `json:"OverrideColor,omitempty"`
-	Color *PrinterColorSetting `json:"Color,omitempty"`
-	OverridePrintQuality *bool `json:"OverridePrintQuality,omitempty"`
-	PrintQuality *PrintQualitySetting `json:"PrintQuality,omitempty"`
-	XResolution *int32 `json:"XResolution,omitempty"`
-	YResolution *int32 `json:"YResolution,omitempty"`
-	OverrideOrientation *bool `json:"OverrideOrientation,omitempty"`
-	Orientation *PrintOrientationSetting `json:"Orientation,omitempty"`
-	OverrideDuplex *bool `json:"OverrideDuplex,omitempty"`
-	Duplex *PrintDuplexSetting `json:"Duplex,omitempty"`
-	OverrideFormName *bool `json:"OverrideFormName,omitempty"`
-	FormName NullableString `json:"FormName,omitempty"`
-	OverrideTrueTypeOption *bool `json:"OverrideTrueTypeOption,omitempty"`
-	TrueTypeOption *PrintTrueTypeOption `json:"TrueTypeOption,omitempty"`
+	OverridePaperSize      *bool                    `json:"OverridePaperSize,omitempty"`
+	PaperSize              *PrinterPaperSize        `json:"PaperSize,omitempty"`
+	Width                  *int32                   `json:"Width,omitempty"`
+	Height                 *int32                   `json:"Height,omitempty"`
+	OverrideCopyCount      *bool                    `json:"OverrideCopyCount,omitempty"`
+	Collated               *bool                    `json:"Collated,omitempty"`
+	CopyCount              *int32                   `json:"CopyCount,omitempty"`
+	OverrideScale          *bool                    `json:"OverrideScale,omitempty"`
+	Scale                  *int32                   `json:"Scale,omitempty"`
+	OverrideColor          *bool                    `json:"OverrideColor,omitempty"`
+	Color                  *PrinterColorSetting     `json:"Color,omitempty"`
+	OverridePrintQuality   *bool                    `json:"OverridePrintQuality,omitempty"`
+	PrintQuality           *PrintQualitySetting     `json:"PrintQuality,omitempty"`
+	XResolution            *int32                   `json:"XResolution,omitempty"`
+	YResolution            *int32                   `json:"YResolution,omitempty"`
+	OverrideOrientation    *bool                    `json:"OverrideOrientation,omitempty"`
+	Orientation            *PrintOrientationSetting `json:"Orientation,omitempty"`
+	OverrideDuplex         *bool                    `json:"OverrideDuplex,omitempty"`
+	Duplex                 *PrintDuplexSetting      `json:"Duplex,omitempty"`
+	OverrideFormName       *bool                    `json:"OverrideFormName,omitempty"`
+	FormName               NullableString           `json:"FormName,omitempty"`
+	OverrideTrueTypeOption *bool                    `json:"OverrideTrueTypeOption,omitempty"`
+	TrueTypeOption         *PrintTrueTypeOption     `json:"TrueTypeOption,omitempty"`
 }
 
 // NewPrinterSettingsContract instantiates a new PrinterSettingsContract object
@@ -733,6 +733,7 @@ func (o *PrinterSettingsContract) HasFormName() bool {
 func (o *PrinterSettingsContract) SetFormName(v string) {
 	o.FormName.Set(&v)
 }
+
 // SetFormNameNil sets the value for FormName to be an explicit nil
 func (o *PrinterSettingsContract) SetFormNameNil() {
 	o.FormName.Set(nil)
@@ -808,7 +809,7 @@ func (o *PrinterSettingsContract) SetTrueTypeOption(v PrintTrueTypeOption) {
 }
 
 func (o PrinterSettingsContract) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -924,5 +925,3 @@ func (v *NullablePrinterSettingsContract) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

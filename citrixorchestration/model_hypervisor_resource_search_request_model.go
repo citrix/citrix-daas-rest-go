@@ -20,7 +20,7 @@ var _ MappedNullable = &HypervisorResourceSearchRequestModel{}
 // HypervisorResourceSearchRequestModel Request model for hypervisor resource search criteria.
 type HypervisorResourceSearchRequestModel struct {
 	// The path to retrieve contents from.
-	Path NullableString `json:"Path,omitempty"`
+	Path         NullableString                        `json:"Path,omitempty"`
 	ResourceType *HypervisorResourceSearchResourceType `json:"ResourceType,omitempty"`
 	// The type list of resources to get. Mutually exclusive with ResourceType. All supported types are the same as ResourceType
 	ResourceTypes []HypervisorResourceSearchResourceType `json:"ResourceTypes,omitempty"`
@@ -87,6 +87,7 @@ func (o *HypervisorResourceSearchRequestModel) HasPath() bool {
 func (o *HypervisorResourceSearchRequestModel) SetPath(v string) {
 	o.Path.Set(&v)
 }
+
 // SetPathNil sets the value for Path to be an explicit nil
 func (o *HypervisorResourceSearchRequestModel) SetPathNil() {
 	o.Path.Set(nil)
@@ -194,6 +195,7 @@ func (o *HypervisorResourceSearchRequestModel) HasTemplate() bool {
 func (o *HypervisorResourceSearchRequestModel) SetTemplate(v string) {
 	o.Template.Set(&v)
 }
+
 // SetTemplateNil sets the value for Template to be an explicit nil
 func (o *HypervisorResourceSearchRequestModel) SetTemplateNil() {
 	o.Template.Set(nil)
@@ -236,6 +238,7 @@ func (o *HypervisorResourceSearchRequestModel) HasForwardDirection() bool {
 func (o *HypervisorResourceSearchRequestModel) SetForwardDirection(v bool) {
 	o.ForwardDirection.Set(&v)
 }
+
 // SetForwardDirectionNil sets the value for ForwardDirection to be an explicit nil
 func (o *HypervisorResourceSearchRequestModel) SetForwardDirectionNil() {
 	o.ForwardDirection.Set(nil)
@@ -278,6 +281,7 @@ func (o *HypervisorResourceSearchRequestModel) HasNameContains() bool {
 func (o *HypervisorResourceSearchRequestModel) SetNameContains(v string) {
 	o.NameContains.Set(&v)
 }
+
 // SetNameContainsNil sets the value for NameContains to be an explicit nil
 func (o *HypervisorResourceSearchRequestModel) SetNameContainsNil() {
 	o.NameContains.Set(nil)
@@ -386,6 +390,7 @@ func (o *HypervisorResourceSearchRequestModel) HasId() bool {
 func (o *HypervisorResourceSearchRequestModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *HypervisorResourceSearchRequestModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -397,7 +402,7 @@ func (o *HypervisorResourceSearchRequestModel) UnsetId() {
 }
 
 func (o HypervisorResourceSearchRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -471,5 +476,3 @@ func (v *NullableHypervisorResourceSearchRequestModel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

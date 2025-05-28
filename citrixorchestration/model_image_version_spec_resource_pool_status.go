@@ -20,11 +20,11 @@ type ImageVersionSpecResourcePoolStatus string
 
 // List of ImageVersionSpecResourcePoolStatus
 const (
-	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_UNKNOWN ImageVersionSpecResourcePoolStatus = "Unknown"
+	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_UNKNOWN     ImageVersionSpecResourcePoolStatus = "Unknown"
 	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_IN_PROGRESS ImageVersionSpecResourcePoolStatus = "InProgress"
-	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_SUCCESS ImageVersionSpecResourcePoolStatus = "Success"
-	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_FAILED ImageVersionSpecResourcePoolStatus = "Failed"
-	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_DELETING ImageVersionSpecResourcePoolStatus = "Deleting"
+	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_SUCCESS     ImageVersionSpecResourcePoolStatus = "Success"
+	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_FAILED      ImageVersionSpecResourcePoolStatus = "Failed"
+	IMAGEVERSIONSPECRESOURCEPOOLSTATUS_DELETING    ImageVersionSpecResourcePoolStatus = "Deleting"
 )
 
 // All allowed values of ImageVersionSpecResourcePoolStatus enum
@@ -42,7 +42,7 @@ func (v *ImageVersionSpecResourcePoolStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = ImageVersionSpecResourcePoolStatus(value)
 	return nil
 }
@@ -108,4 +108,3 @@ func (v *NullableImageVersionSpecResourcePoolStatus) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

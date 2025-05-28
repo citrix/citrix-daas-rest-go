@@ -20,9 +20,9 @@ type AwsEdcDedicatedTenancyState string
 
 // List of AwsEdcDedicatedTenancyState
 const (
-	AWSEDCDEDICATEDTENANCYSTATE_DISABLED AwsEdcDedicatedTenancyState = "DISABLED"
-	AWSEDCDEDICATEDTENANCYSTATE_PENDING AwsEdcDedicatedTenancyState = "PENDING"
-	AWSEDCDEDICATEDTENANCYSTATE_FAILED AwsEdcDedicatedTenancyState = "FAILED"
+	AWSEDCDEDICATEDTENANCYSTATE_DISABLED  AwsEdcDedicatedTenancyState = "DISABLED"
+	AWSEDCDEDICATEDTENANCYSTATE_PENDING   AwsEdcDedicatedTenancyState = "PENDING"
+	AWSEDCDEDICATEDTENANCYSTATE_FAILED    AwsEdcDedicatedTenancyState = "FAILED"
 	AWSEDCDEDICATEDTENANCYSTATE_COMPLETED AwsEdcDedicatedTenancyState = "COMPLETED"
 )
 
@@ -112,4 +112,3 @@ func (v *NullableAwsEdcDedicatedTenancyState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

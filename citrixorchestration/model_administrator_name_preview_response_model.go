@@ -74,6 +74,7 @@ func (o *AdministratorNamePreviewResponseModel) HasName() bool {
 func (o *AdministratorNamePreviewResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *AdministratorNamePreviewResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -116,6 +117,7 @@ func (o *AdministratorNamePreviewResponseModel) HasError() bool {
 func (o *AdministratorNamePreviewResponseModel) SetError(v string) {
 	o.Error.Set(&v)
 }
+
 // SetErrorNil sets the value for Error to be an explicit nil
 func (o *AdministratorNamePreviewResponseModel) SetErrorNil() {
 	o.Error.Set(nil)
@@ -127,7 +129,7 @@ func (o *AdministratorNamePreviewResponseModel) UnsetError() {
 }
 
 func (o AdministratorNamePreviewResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,5 +182,3 @@ func (v *NullableAdministratorNamePreviewResponseModel) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

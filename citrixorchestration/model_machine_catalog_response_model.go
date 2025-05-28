@@ -17,7 +17,7 @@ import (
 // checks if the MachineCatalogResponseModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MachineCatalogResponseModel{}
 
-// MachineCatalogResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder,HypervisorVMTagging.               Response object for machine catalog.              
+// MachineCatalogResponseModel Default response field (Only return the fields specified there if supported in  API ): Name,FullName,Id,Uid,AllocationType,Description,IsPowerManaged,IsRemotePC,MachineType,MinimumFunctionalLevel,HasBeenPromoted,HasBeenPromotedFrom,PersistChanges,ProvisioningType,SessionSupport,SharingKind,Zone,AdminFolder,HypervisorVMTagging.               Response object for machine catalog.
 type MachineCatalogResponseModel struct {
 	// Simple administrative name of catalog within parent admin folder (if any). This property is not guaranteed unique across all catalogs.
 	Name NullableString `json:"Name,omitempty"`
@@ -27,7 +27,7 @@ type MachineCatalogResponseModel struct {
 	Id NullableString `json:"Id,omitempty"`
 	// `DEPRECATED.  Use <see cref='Id'/>.` DEPRECATED.  Use Id.
 	// Deprecated
-	Uid *int32 `json:"Uid,omitempty"`
+	Uid            *int32          `json:"Uid,omitempty"`
 	AllocationType *AllocationType `json:"AllocationType,omitempty"`
 	// The number of assigned machines (machines that have been assigned to a user/users or a client name/address).
 	AssignedCount NullableInt32 `json:"AssignedCount,omitempty"`
@@ -45,20 +45,20 @@ type MachineCatalogResponseModel struct {
 	IsRemotePC *bool `json:"IsRemotePC,omitempty"`
 	// List of jobs currently in progress that affect the machine catalog.
 	JobsInProgress []RefResponseModel `json:"JobsInProgress,omitempty"`
-	MachineType *MachineType `json:"MachineType,omitempty"`
+	MachineType    *MachineType       `json:"MachineType,omitempty"`
 	// The metadata of machine catalog.
-	Metadata []NameValueStringPairModel `json:"Metadata,omitempty"`
-	MinimumFunctionalLevel *FunctionalLevel `json:"MinimumFunctionalLevel,omitempty"`
+	Metadata               []NameValueStringPairModel `json:"Metadata,omitempty"`
+	MinimumFunctionalLevel *FunctionalLevel           `json:"MinimumFunctionalLevel,omitempty"`
 	// Whether the machine catalog was previously promoted from a lower MinimumFunctionalLevel.
-	HasBeenPromoted *bool `json:"HasBeenPromoted,omitempty"`
+	HasBeenPromoted     *bool            `json:"HasBeenPromoted,omitempty"`
 	HasBeenPromotedFrom *FunctionalLevel `json:"HasBeenPromotedFrom,omitempty"`
 	// Whether the machine catalog can roll back VM image.
 	CanRollbackVMImage *bool `json:"CanRollbackVMImage,omitempty"`
 	// Whether the machine catalog can recreate.
-	CanRecreateCatalog *bool `json:"CanRecreateCatalog,omitempty"`
-	PersistChanges *PersistChanges `json:"PersistChanges,omitempty"`
-	ProvisioningScheme *ProvisioningSchemeResponseModel `json:"ProvisioningScheme,omitempty"`
-	ProvisioningType *ProvisioningType `json:"ProvisioningType,omitempty"`
+	CanRecreateCatalog   *bool                              `json:"CanRecreateCatalog,omitempty"`
+	PersistChanges       *PersistChanges                    `json:"PersistChanges,omitempty"`
+	ProvisioningScheme   *ProvisioningSchemeResponseModel   `json:"ProvisioningScheme,omitempty"`
+	ProvisioningType     *ProvisioningType                  `json:"ProvisioningType,omitempty"`
 	ProvisioningProgress *ProvisioningProgressResponseModel `json:"ProvisioningProgress,omitempty"`
 	// IP address of the PVS server to be used. This only applies if the ProvisioningType is .
 	PvsAddress NullableString `json:"PvsAddress,omitempty"`
@@ -69,16 +69,16 @@ type MachineCatalogResponseModel struct {
 	// Administrative scopes which the machine catalog is part of.
 	Scopes []ScopeResponseModel `json:"Scopes,omitempty"`
 	// The tenant(s) that the machine catalog is assigned to.  If `null`, the machine catalog is not assigned to tenants, and may be used by any tenant, including future added tenants.
-	Tenants []RefResponseModel `json:"Tenants,omitempty"`
-	SessionSupport *SessionSupport `json:"SessionSupport,omitempty"`
-	SharingKind *SharingKind `json:"SharingKind,omitempty"`
+	Tenants        []RefResponseModel `json:"Tenants,omitempty"`
+	SessionSupport *SessionSupport    `json:"SessionSupport,omitempty"`
+	SharingKind    *SharingKind       `json:"SharingKind,omitempty"`
 	// The total number of machines in the catalog.
 	TotalCount *int32 `json:"TotalCount,omitempty"`
 	// Whether the machine catalog is currently in a \"Broken\" state.
 	IsBroken *bool `json:"IsBroken,omitempty"`
 	// Whether the machine catalog is associated with a master image.
-	IsMasterImageAssociated NullableBool `json:"IsMasterImageAssociated,omitempty"`
-	ImageUpdateStatus *ImageUpdateStatus `json:"ImageUpdateStatus,omitempty"`
+	IsMasterImageAssociated NullableBool       `json:"IsMasterImageAssociated,omitempty"`
+	ImageUpdateStatus       *ImageUpdateStatus `json:"ImageUpdateStatus,omitempty"`
 	// Gets the Errors of machines in this catalog
 	Errors []string `json:"Errors,omitempty"`
 	// List of warnings that are currently active on the machine catalog, if any.  If there are no warnings this will not be specified.
@@ -90,10 +90,10 @@ type MachineCatalogResponseModel struct {
 	// The number of available suspend-capable machines (those not in any delivery group).
 	AvailableCountOfSuspend NullableInt32 `json:"AvailableCountOfSuspend,omitempty"`
 	// The number of available suspend-capable machines (not in a delivery group), that are also assigned to users.
-	AvailableAssignedCountOfSuspend NullableInt32 `json:"AvailableAssignedCountOfSuspend,omitempty"`
-	UpgradeInfo *MachineCatalogUpgradeInfo `json:"UpgradeInfo,omitempty"`
-	Zone *RefResponseModel `json:"Zone,omitempty"`
-	AdminFolder *RefResponseModel `json:"AdminFolder,omitempty"`
+	AvailableAssignedCountOfSuspend NullableInt32              `json:"AvailableAssignedCountOfSuspend,omitempty"`
+	UpgradeInfo                     *MachineCatalogUpgradeInfo `json:"UpgradeInfo,omitempty"`
+	Zone                            *RefResponseModel          `json:"Zone,omitempty"`
+	AdminFolder                     *RefResponseModel          `json:"AdminFolder,omitempty"`
 	// Indicates that assigned VMs from this catalog will carry a hypervisor-level tag.
 	HypervisorVMTagging NullableBool `json:"HypervisorVMTagging,omitempty"`
 }
@@ -147,6 +147,7 @@ func (o *MachineCatalogResponseModel) HasName() bool {
 func (o *MachineCatalogResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *MachineCatalogResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -189,6 +190,7 @@ func (o *MachineCatalogResponseModel) HasFullName() bool {
 func (o *MachineCatalogResponseModel) SetFullName(v string) {
 	o.FullName.Set(&v)
 }
+
 // SetFullNameNil sets the value for FullName to be an explicit nil
 func (o *MachineCatalogResponseModel) SetFullNameNil() {
 	o.FullName.Set(nil)
@@ -231,6 +233,7 @@ func (o *MachineCatalogResponseModel) HasId() bool {
 func (o *MachineCatalogResponseModel) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *MachineCatalogResponseModel) SetIdNil() {
 	o.Id.Set(nil)
@@ -340,6 +343,7 @@ func (o *MachineCatalogResponseModel) HasAssignedCount() bool {
 func (o *MachineCatalogResponseModel) SetAssignedCount(v int32) {
 	o.AssignedCount.Set(&v)
 }
+
 // SetAssignedCountNil sets the value for AssignedCount to be an explicit nil
 func (o *MachineCatalogResponseModel) SetAssignedCountNil() {
 	o.AssignedCount.Set(nil)
@@ -382,6 +386,7 @@ func (o *MachineCatalogResponseModel) HasAvailableAssignedCount() bool {
 func (o *MachineCatalogResponseModel) SetAvailableAssignedCount(v int32) {
 	o.AvailableAssignedCount.Set(&v)
 }
+
 // SetAvailableAssignedCountNil sets the value for AvailableAssignedCount to be an explicit nil
 func (o *MachineCatalogResponseModel) SetAvailableAssignedCountNil() {
 	o.AvailableAssignedCount.Set(nil)
@@ -456,6 +461,7 @@ func (o *MachineCatalogResponseModel) HasAvailableUnassignedCount() bool {
 func (o *MachineCatalogResponseModel) SetAvailableUnassignedCount(v int32) {
 	o.AvailableUnassignedCount.Set(&v)
 }
+
 // SetAvailableUnassignedCountNil sets the value for AvailableUnassignedCount to be an explicit nil
 func (o *MachineCatalogResponseModel) SetAvailableUnassignedCountNil() {
 	o.AvailableUnassignedCount.Set(nil)
@@ -498,6 +504,7 @@ func (o *MachineCatalogResponseModel) HasDescription() bool {
 func (o *MachineCatalogResponseModel) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *MachineCatalogResponseModel) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -990,6 +997,7 @@ func (o *MachineCatalogResponseModel) HasPvsAddress() bool {
 func (o *MachineCatalogResponseModel) SetPvsAddress(v string) {
 	o.PvsAddress.Set(&v)
 }
+
 // SetPvsAddressNil sets the value for PvsAddress to be an explicit nil
 func (o *MachineCatalogResponseModel) SetPvsAddressNil() {
 	o.PvsAddress.Set(nil)
@@ -1032,6 +1040,7 @@ func (o *MachineCatalogResponseModel) HasPvsDomain() bool {
 func (o *MachineCatalogResponseModel) SetPvsDomain(v string) {
 	o.PvsDomain.Set(&v)
 }
+
 // SetPvsDomainNil sets the value for PvsDomain to be an explicit nil
 func (o *MachineCatalogResponseModel) SetPvsDomainNil() {
 	o.PvsDomain.Set(nil)
@@ -1301,6 +1310,7 @@ func (o *MachineCatalogResponseModel) HasIsMasterImageAssociated() bool {
 func (o *MachineCatalogResponseModel) SetIsMasterImageAssociated(v bool) {
 	o.IsMasterImageAssociated.Set(&v)
 }
+
 // SetIsMasterImageAssociatedNil sets the value for IsMasterImageAssociated to be an explicit nil
 func (o *MachineCatalogResponseModel) SetIsMasterImageAssociatedNil() {
 	o.IsMasterImageAssociated.Set(nil)
@@ -1505,6 +1515,7 @@ func (o *MachineCatalogResponseModel) HasAvailableCountOfSuspend() bool {
 func (o *MachineCatalogResponseModel) SetAvailableCountOfSuspend(v int32) {
 	o.AvailableCountOfSuspend.Set(&v)
 }
+
 // SetAvailableCountOfSuspendNil sets the value for AvailableCountOfSuspend to be an explicit nil
 func (o *MachineCatalogResponseModel) SetAvailableCountOfSuspendNil() {
 	o.AvailableCountOfSuspend.Set(nil)
@@ -1547,6 +1558,7 @@ func (o *MachineCatalogResponseModel) HasAvailableAssignedCountOfSuspend() bool 
 func (o *MachineCatalogResponseModel) SetAvailableAssignedCountOfSuspend(v int32) {
 	o.AvailableAssignedCountOfSuspend.Set(&v)
 }
+
 // SetAvailableAssignedCountOfSuspendNil sets the value for AvailableAssignedCountOfSuspend to be an explicit nil
 func (o *MachineCatalogResponseModel) SetAvailableAssignedCountOfSuspendNil() {
 	o.AvailableAssignedCountOfSuspend.Set(nil)
@@ -1685,6 +1697,7 @@ func (o *MachineCatalogResponseModel) HasHypervisorVMTagging() bool {
 func (o *MachineCatalogResponseModel) SetHypervisorVMTagging(v bool) {
 	o.HypervisorVMTagging.Set(&v)
 }
+
 // SetHypervisorVMTaggingNil sets the value for HypervisorVMTagging to be an explicit nil
 func (o *MachineCatalogResponseModel) SetHypervisorVMTaggingNil() {
 	o.HypervisorVMTagging.Set(nil)
@@ -1696,7 +1709,7 @@ func (o *MachineCatalogResponseModel) UnsetHypervisorVMTagging() {
 }
 
 func (o MachineCatalogResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1878,5 +1891,3 @@ func (v *NullableMachineCatalogResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

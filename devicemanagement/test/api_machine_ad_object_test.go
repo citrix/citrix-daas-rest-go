@@ -11,10 +11,11 @@ package devicemanagement
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/citrix/citrix-daas-rest-go/devicemanagement"
 )
 
 func Test_devicemanagement_MachineADObjectDAASService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_devicemanagement_MachineADObjectDAASService(t *testing.T) {
 
 	t.Run("Test MachineADObjectDAASService AdObjectCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.MachineADObjectDAAS.AdObjectCreate(context.Background()).Execute()
 
@@ -35,7 +36,7 @@ func Test_devicemanagement_MachineADObjectDAASService(t *testing.T) {
 
 	t.Run("Test MachineADObjectDAASService AdObjectDelete", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -48,7 +49,7 @@ func Test_devicemanagement_MachineADObjectDAASService(t *testing.T) {
 
 	t.Run("Test MachineADObjectDAASService AdObjectQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MachineADObjectDAAS.AdObjectQuery(context.Background()).Execute()
 
@@ -60,7 +61,7 @@ func Test_devicemanagement_MachineADObjectDAASService(t *testing.T) {
 
 	t.Run("Test MachineADObjectDAASService AdObjectQueryById", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int64
 
@@ -74,7 +75,7 @@ func Test_devicemanagement_MachineADObjectDAASService(t *testing.T) {
 
 	t.Run("Test MachineADObjectDAASService AdObjectUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.MachineADObjectDAAS.AdObjectUpdate(context.Background()).Execute()
 

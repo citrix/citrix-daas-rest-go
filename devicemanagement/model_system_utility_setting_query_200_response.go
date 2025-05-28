@@ -22,6 +22,8 @@ type SystemUtilitySettingQuery200Response struct {
 	Items []SystemOptimizationModel `json:"items"`
 }
 
+type _SystemUtilitySettingQuery200Response SystemUtilitySettingQuery200Response
+
 // NewSystemUtilitySettingQuery200Response instantiates a new SystemUtilitySettingQuery200Response object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -65,7 +67,7 @@ func (o *SystemUtilitySettingQuery200Response) SetItems(v []SystemOptimizationMo
 }
 
 func (o SystemUtilitySettingQuery200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -113,5 +115,3 @@ func (v *NullableSystemUtilitySettingQuery200Response) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

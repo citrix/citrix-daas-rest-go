@@ -19,8 +19,8 @@ var _ MappedNullable = &MaintenanceCycleVMOperationJobSortCriteriaRequestModel{}
 
 // MaintenanceCycleVMOperationJobSortCriteriaRequestModel Machine sort criteria.
 type MaintenanceCycleVMOperationJobSortCriteriaRequestModel struct {
-	Property MaintenanceCycleVMOperationJobSearchProperty `json:"Property"`
-	SortDirection ListSortDirection `json:"SortDirection"`
+	Property      MaintenanceCycleVMOperationJobSearchProperty `json:"Property"`
+	SortDirection ListSortDirection                            `json:"SortDirection"`
 }
 
 // NewMaintenanceCycleVMOperationJobSortCriteriaRequestModel instantiates a new MaintenanceCycleVMOperationJobSortCriteriaRequestModel object
@@ -91,7 +91,7 @@ func (o *MaintenanceCycleVMOperationJobSortCriteriaRequestModel) SetSortDirectio
 }
 
 func (o MaintenanceCycleVMOperationJobSortCriteriaRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -140,5 +140,3 @@ func (v *NullableMaintenanceCycleVMOperationJobSortCriteriaRequestModel) Unmarsh
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

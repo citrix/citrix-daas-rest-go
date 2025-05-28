@@ -84,6 +84,7 @@ func (o *IdentityBaseResponseModel) HasDomain() bool {
 func (o *IdentityBaseResponseModel) SetDomain(v string) {
 	o.Domain.Set(&v)
 }
+
 // SetDomainNil sets the value for Domain to be an explicit nil
 func (o *IdentityBaseResponseModel) SetDomainNil() {
 	o.Domain.Set(nil)
@@ -126,6 +127,7 @@ func (o *IdentityBaseResponseModel) HasForest() bool {
 func (o *IdentityBaseResponseModel) SetForest(v string) {
 	o.Forest.Set(&v)
 }
+
 // SetForestNil sets the value for Forest to be an explicit nil
 func (o *IdentityBaseResponseModel) SetForestNil() {
 	o.Forest.Set(nil)
@@ -168,6 +170,7 @@ func (o *IdentityBaseResponseModel) HasGuid() bool {
 func (o *IdentityBaseResponseModel) SetGuid(v string) {
 	o.Guid.Set(&v)
 }
+
 // SetGuidNil sets the value for Guid to be an explicit nil
 func (o *IdentityBaseResponseModel) SetGuidNil() {
 	o.Guid.Set(nil)
@@ -210,6 +213,7 @@ func (o *IdentityBaseResponseModel) HasDistinguishedName() bool {
 func (o *IdentityBaseResponseModel) SetDistinguishedName(v string) {
 	o.DistinguishedName.Set(&v)
 }
+
 // SetDistinguishedNameNil sets the value for DistinguishedName to be an explicit nil
 func (o *IdentityBaseResponseModel) SetDistinguishedNameNil() {
 	o.DistinguishedName.Set(nil)
@@ -252,6 +256,7 @@ func (o *IdentityBaseResponseModel) HasCanonicalName() bool {
 func (o *IdentityBaseResponseModel) SetCanonicalName(v string) {
 	o.CanonicalName.Set(&v)
 }
+
 // SetCanonicalNameNil sets the value for CanonicalName to be an explicit nil
 func (o *IdentityBaseResponseModel) SetCanonicalNameNil() {
 	o.CanonicalName.Set(nil)
@@ -326,6 +331,7 @@ func (o *IdentityBaseResponseModel) HasDirectoryServer() bool {
 func (o *IdentityBaseResponseModel) SetDirectoryServer(v string) {
 	o.DirectoryServer.Set(&v)
 }
+
 // SetDirectoryServerNil sets the value for DirectoryServer to be an explicit nil
 func (o *IdentityBaseResponseModel) SetDirectoryServerNil() {
 	o.DirectoryServer.Set(nil)
@@ -337,7 +343,7 @@ func (o *IdentityBaseResponseModel) UnsetDirectoryServer() {
 }
 
 func (o IdentityBaseResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -405,5 +411,3 @@ func (v *NullableIdentityBaseResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

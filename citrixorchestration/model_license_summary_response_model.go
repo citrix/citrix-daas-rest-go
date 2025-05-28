@@ -181,6 +181,7 @@ func (o *LicenseSummaryResponseModel) HasNormalLicenses() bool {
 func (o *LicenseSummaryResponseModel) SetNormalLicenses(v int32) {
 	o.NormalLicenses.Set(&v)
 }
+
 // SetNormalLicensesNil sets the value for NormalLicenses to be an explicit nil
 func (o *LicenseSummaryResponseModel) SetNormalLicensesNil() {
 	o.NormalLicenses.Set(nil)
@@ -223,6 +224,7 @@ func (o *LicenseSummaryResponseModel) HasOverdraftLicenses() bool {
 func (o *LicenseSummaryResponseModel) SetOverdraftLicenses(v int32) {
 	o.OverdraftLicenses.Set(&v)
 }
+
 // SetOverdraftLicensesNil sets the value for OverdraftLicenses to be an explicit nil
 func (o *LicenseSummaryResponseModel) SetOverdraftLicensesNil() {
 	o.OverdraftLicenses.Set(nil)
@@ -265,6 +267,7 @@ func (o *LicenseSummaryResponseModel) HasLicensesUsage() bool {
 func (o *LicenseSummaryResponseModel) SetLicensesUsage(v int32) {
 	o.LicensesUsage.Set(&v)
 }
+
 // SetLicensesUsageNil sets the value for LicensesUsage to be an explicit nil
 func (o *LicenseSummaryResponseModel) SetLicensesUsageNil() {
 	o.LicensesUsage.Set(nil)
@@ -307,6 +310,7 @@ func (o *LicenseSummaryResponseModel) HasCertAccepted() bool {
 func (o *LicenseSummaryResponseModel) SetCertAccepted(v bool) {
 	o.CertAccepted.Set(&v)
 }
+
 // SetCertAcceptedNil sets the value for CertAccepted to be an explicit nil
 func (o *LicenseSummaryResponseModel) SetCertAcceptedNil() {
 	o.CertAccepted.Set(nil)
@@ -318,7 +322,7 @@ func (o *LicenseSummaryResponseModel) UnsetCertAccepted() {
 }
 
 func (o LicenseSummaryResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -386,5 +390,3 @@ func (v *NullableLicenseSummaryResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

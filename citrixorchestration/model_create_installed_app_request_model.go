@@ -23,7 +23,7 @@ type CreateInstalledAppRequestModel struct {
 	CommandLineArguments NullableString `json:"CommandLineArguments,omitempty"`
 	// Specifies the name of the executable file to launch. The full path need not be provided if it's already in the path. Environment variables can also be used.
 	CommandLineExecutable string `json:"CommandLineExecutable"`
-	// Specifies which working directory the executable is launched from. Environment variables can be used. 
+	// Specifies which working directory the executable is launched from. Environment variables can be used.
 	WorkingDirectory NullableString `json:"WorkingDirectory,omitempty"`
 }
 
@@ -77,6 +77,7 @@ func (o *CreateInstalledAppRequestModel) HasCommandLineArguments() bool {
 func (o *CreateInstalledAppRequestModel) SetCommandLineArguments(v string) {
 	o.CommandLineArguments.Set(&v)
 }
+
 // SetCommandLineArgumentsNil sets the value for CommandLineArguments to be an explicit nil
 func (o *CreateInstalledAppRequestModel) SetCommandLineArgumentsNil() {
 	o.CommandLineArguments.Set(nil)
@@ -143,6 +144,7 @@ func (o *CreateInstalledAppRequestModel) HasWorkingDirectory() bool {
 func (o *CreateInstalledAppRequestModel) SetWorkingDirectory(v string) {
 	o.WorkingDirectory.Set(&v)
 }
+
 // SetWorkingDirectoryNil sets the value for WorkingDirectory to be an explicit nil
 func (o *CreateInstalledAppRequestModel) SetWorkingDirectoryNil() {
 	o.WorkingDirectory.Set(nil)
@@ -154,7 +156,7 @@ func (o *CreateInstalledAppRequestModel) UnsetWorkingDirectory() {
 }
 
 func (o CreateInstalledAppRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -208,5 +210,3 @@ func (v *NullableCreateInstalledAppRequestModel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

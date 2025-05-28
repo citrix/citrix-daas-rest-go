@@ -19,14 +19,14 @@ var _ MappedNullable = &ErrorWarningResponseModel{}
 
 // ErrorWarningResponseModel struct for ErrorWarningResponseModel
 type ErrorWarningResponseModel struct {
-	Machine *ErrorWarningModel `json:"Machine,omitempty"`
-	DeliveryGroup *ErrorWarningModel `json:"DeliveryGroup,omitempty"`
-	MachineCatalog *ErrorWarningModel `json:"MachineCatalog,omitempty"`
-	Hypervisor *ErrorWarningModel `json:"Hypervisor,omitempty"`
-	Image *ImagesErrorWarningModel `json:"Image,omitempty"`
-	Zone *ZonesErrorWarningModel `json:"Zone,omitempty"`
-	Site *SitesErrorWarningModel `json:"Site,omitempty"`
-	Licensing *LicenseErrorWarningModel `json:"Licensing,omitempty"`
+	Machine        *ErrorWarningModel        `json:"Machine,omitempty"`
+	DeliveryGroup  *ErrorWarningModel        `json:"DeliveryGroup,omitempty"`
+	MachineCatalog *ErrorWarningModel        `json:"MachineCatalog,omitempty"`
+	Hypervisor     *ErrorWarningModel        `json:"Hypervisor,omitempty"`
+	Image          *ImagesErrorWarningModel  `json:"Image,omitempty"`
+	Zone           *ZonesErrorWarningModel   `json:"Zone,omitempty"`
+	Site           *SitesErrorWarningModel   `json:"Site,omitempty"`
+	Licensing      *LicenseErrorWarningModel `json:"Licensing,omitempty"`
 }
 
 // NewErrorWarningResponseModel instantiates a new ErrorWarningResponseModel object
@@ -303,7 +303,7 @@ func (o *ErrorWarningResponseModel) SetLicensing(v LicenseErrorWarningModel) {
 }
 
 func (o ErrorWarningResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,5 +374,3 @@ func (v *NullableErrorWarningResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -72,6 +72,7 @@ func (o *EditBrokerHypervisorConnectionRequestModel) HasPreferredController() bo
 func (o *EditBrokerHypervisorConnectionRequestModel) SetPreferredController(v string) {
 	o.PreferredController.Set(&v)
 }
+
 // SetPreferredControllerNil sets the value for PreferredController to be an explicit nil
 func (o *EditBrokerHypervisorConnectionRequestModel) SetPreferredControllerNil() {
 	o.PreferredController.Set(nil)
@@ -83,7 +84,7 @@ func (o *EditBrokerHypervisorConnectionRequestModel) UnsetPreferredController() 
 }
 
 func (o EditBrokerHypervisorConnectionRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -133,5 +134,3 @@ func (v *NullableEditBrokerHypervisorConnectionRequestModel) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -177,6 +177,7 @@ func (o *VDAComponentsSelectionValidationRequestModel) HasUpgradeVersion() bool 
 func (o *VDAComponentsSelectionValidationRequestModel) SetUpgradeVersion(v string) {
 	o.UpgradeVersion.Set(&v)
 }
+
 // SetUpgradeVersionNil sets the value for UpgradeVersion to be an explicit nil
 func (o *VDAComponentsSelectionValidationRequestModel) SetUpgradeVersionNil() {
 	o.UpgradeVersion.Set(nil)
@@ -188,7 +189,7 @@ func (o *VDAComponentsSelectionValidationRequestModel) UnsetUpgradeVersion() {
 }
 
 func (o VDAComponentsSelectionValidationRequestModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -247,5 +248,3 @@ func (v *NullableVDAComponentsSelectionValidationRequestModel) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

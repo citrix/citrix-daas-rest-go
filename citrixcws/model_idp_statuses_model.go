@@ -19,27 +19,27 @@ var _ MappedNullable = &IdpStatusesModel{}
 
 // IdpStatusesModel struct for IdpStatusesModel
 type IdpStatusesModel struct {
-	AdditionalStatusInfo map[string]string `json:"additionalStatusInfo,omitempty"`
-	AuthDomainName NullableString `json:"authDomainName,omitempty"`
-	AvailableActions []string `json:"availableActions,omitempty"`
-	AzureAdConnection *AzureAdConnection `json:"azureAdConnection,omitempty"`
-	ClientId NullableString `json:"clientId,omitempty"`
-	ConnectorsCount NullableInt32 `json:"connectorsCount,omitempty"`
-	CustomerId NullableString `json:"customerId,omitempty"`
-	DevicesLastResetTime map[string]string `json:"devicesLastResetTime,omitempty"`
-	Domains []string `json:"domains,omitempty"`
-	Enabled *bool `json:"enabled,omitempty"`
-	ForestPerDomain map[string]string `json:"forestPerDomain,omitempty"`
-	IdentityProviderId NullableString `json:"identityProviderId,omitempty"`
-	IdpInstanceId NullableString `json:"idpInstanceId,omitempty"`
-	IdpNickname NullableString `json:"idpNickname,omitempty"`
-	IssuerFqdn NullableString `json:"issuerFqdn,omitempty"`
-	MultipleDevices *bool `json:"multipleDevices,omitempty"`
-	NotificationsEnabled *bool `json:"notificationsEnabled,omitempty"`
-	NotificationsTime *int32 `json:"notificationsTime,omitempty"`
-	Url NullableString `json:"url,omitempty"`
-	Items []IdpStatusModel `json:"items,omitempty"`
-	ContinuationToken NullableString `json:"continuationToken,omitempty"`
+	AdditionalStatusInfo map[string]string  `json:"additionalStatusInfo,omitempty"`
+	AuthDomainName       NullableString     `json:"authDomainName,omitempty"`
+	AvailableActions     []string           `json:"availableActions,omitempty"`
+	AzureAdConnection    *AzureAdConnection `json:"azureAdConnection,omitempty"`
+	ClientId             NullableString     `json:"clientId,omitempty"`
+	ConnectorsCount      NullableInt32      `json:"connectorsCount,omitempty"`
+	CustomerId           NullableString     `json:"customerId,omitempty" validate:"regexp=^[a-zA-Z0-9]{1,12}$"`
+	DevicesLastResetTime map[string]string  `json:"devicesLastResetTime,omitempty"`
+	Domains              []string           `json:"domains,omitempty"`
+	Enabled              *bool              `json:"enabled,omitempty"`
+	ForestPerDomain      map[string]string  `json:"forestPerDomain,omitempty"`
+	IdentityProviderId   NullableString     `json:"identityProviderId,omitempty"`
+	IdpInstanceId        NullableString     `json:"idpInstanceId,omitempty"`
+	IdpNickname          NullableString     `json:"idpNickname,omitempty"`
+	IssuerFqdn           NullableString     `json:"issuerFqdn,omitempty"`
+	MultipleDevices      *bool              `json:"multipleDevices,omitempty"`
+	NotificationsEnabled *bool              `json:"notificationsEnabled,omitempty"`
+	NotificationsTime    *int32             `json:"notificationsTime,omitempty"`
+	Url                  NullableString     `json:"url,omitempty"`
+	Items                []IdpStatusModel   `json:"items,omitempty"`
+	ContinuationToken    NullableString     `json:"continuationToken,omitempty"`
 }
 
 // NewIdpStatusesModel instantiates a new IdpStatusesModel object
@@ -80,7 +80,7 @@ func (o *IdpStatusesModel) GetAdditionalStatusInfoOk() (*map[string]string, bool
 
 // HasAdditionalStatusInfo returns a boolean if a field has been set.
 func (o *IdpStatusesModel) HasAdditionalStatusInfo() bool {
-	if o != nil && IsNil(o.AdditionalStatusInfo) {
+	if o != nil && !IsNil(o.AdditionalStatusInfo) {
 		return true
 	}
 
@@ -124,6 +124,7 @@ func (o *IdpStatusesModel) HasAuthDomainName() bool {
 func (o *IdpStatusesModel) SetAuthDomainName(v string) {
 	o.AuthDomainName.Set(&v)
 }
+
 // SetAuthDomainNameNil sets the value for AuthDomainName to be an explicit nil
 func (o *IdpStatusesModel) SetAuthDomainNameNil() {
 	o.AuthDomainName.Set(nil)
@@ -155,7 +156,7 @@ func (o *IdpStatusesModel) GetAvailableActionsOk() ([]string, bool) {
 
 // HasAvailableActions returns a boolean if a field has been set.
 func (o *IdpStatusesModel) HasAvailableActions() bool {
-	if o != nil && IsNil(o.AvailableActions) {
+	if o != nil && !IsNil(o.AvailableActions) {
 		return true
 	}
 
@@ -231,6 +232,7 @@ func (o *IdpStatusesModel) HasClientId() bool {
 func (o *IdpStatusesModel) SetClientId(v string) {
 	o.ClientId.Set(&v)
 }
+
 // SetClientIdNil sets the value for ClientId to be an explicit nil
 func (o *IdpStatusesModel) SetClientIdNil() {
 	o.ClientId.Set(nil)
@@ -273,6 +275,7 @@ func (o *IdpStatusesModel) HasConnectorsCount() bool {
 func (o *IdpStatusesModel) SetConnectorsCount(v int32) {
 	o.ConnectorsCount.Set(&v)
 }
+
 // SetConnectorsCountNil sets the value for ConnectorsCount to be an explicit nil
 func (o *IdpStatusesModel) SetConnectorsCountNil() {
 	o.ConnectorsCount.Set(nil)
@@ -315,6 +318,7 @@ func (o *IdpStatusesModel) HasCustomerId() bool {
 func (o *IdpStatusesModel) SetCustomerId(v string) {
 	o.CustomerId.Set(&v)
 }
+
 // SetCustomerIdNil sets the value for CustomerId to be an explicit nil
 func (o *IdpStatusesModel) SetCustomerIdNil() {
 	o.CustomerId.Set(nil)
@@ -346,7 +350,7 @@ func (o *IdpStatusesModel) GetDevicesLastResetTimeOk() (*map[string]string, bool
 
 // HasDevicesLastResetTime returns a boolean if a field has been set.
 func (o *IdpStatusesModel) HasDevicesLastResetTime() bool {
-	if o != nil && IsNil(o.DevicesLastResetTime) {
+	if o != nil && !IsNil(o.DevicesLastResetTime) {
 		return true
 	}
 
@@ -379,7 +383,7 @@ func (o *IdpStatusesModel) GetDomainsOk() ([]string, bool) {
 
 // HasDomains returns a boolean if a field has been set.
 func (o *IdpStatusesModel) HasDomains() bool {
-	if o != nil && IsNil(o.Domains) {
+	if o != nil && !IsNil(o.Domains) {
 		return true
 	}
 
@@ -444,7 +448,7 @@ func (o *IdpStatusesModel) GetForestPerDomainOk() (*map[string]string, bool) {
 
 // HasForestPerDomain returns a boolean if a field has been set.
 func (o *IdpStatusesModel) HasForestPerDomain() bool {
-	if o != nil && IsNil(o.ForestPerDomain) {
+	if o != nil && !IsNil(o.ForestPerDomain) {
 		return true
 	}
 
@@ -488,6 +492,7 @@ func (o *IdpStatusesModel) HasIdentityProviderId() bool {
 func (o *IdpStatusesModel) SetIdentityProviderId(v string) {
 	o.IdentityProviderId.Set(&v)
 }
+
 // SetIdentityProviderIdNil sets the value for IdentityProviderId to be an explicit nil
 func (o *IdpStatusesModel) SetIdentityProviderIdNil() {
 	o.IdentityProviderId.Set(nil)
@@ -530,6 +535,7 @@ func (o *IdpStatusesModel) HasIdpInstanceId() bool {
 func (o *IdpStatusesModel) SetIdpInstanceId(v string) {
 	o.IdpInstanceId.Set(&v)
 }
+
 // SetIdpInstanceIdNil sets the value for IdpInstanceId to be an explicit nil
 func (o *IdpStatusesModel) SetIdpInstanceIdNil() {
 	o.IdpInstanceId.Set(nil)
@@ -572,6 +578,7 @@ func (o *IdpStatusesModel) HasIdpNickname() bool {
 func (o *IdpStatusesModel) SetIdpNickname(v string) {
 	o.IdpNickname.Set(&v)
 }
+
 // SetIdpNicknameNil sets the value for IdpNickname to be an explicit nil
 func (o *IdpStatusesModel) SetIdpNicknameNil() {
 	o.IdpNickname.Set(nil)
@@ -614,6 +621,7 @@ func (o *IdpStatusesModel) HasIssuerFqdn() bool {
 func (o *IdpStatusesModel) SetIssuerFqdn(v string) {
 	o.IssuerFqdn.Set(&v)
 }
+
 // SetIssuerFqdnNil sets the value for IssuerFqdn to be an explicit nil
 func (o *IdpStatusesModel) SetIssuerFqdnNil() {
 	o.IssuerFqdn.Set(nil)
@@ -752,6 +760,7 @@ func (o *IdpStatusesModel) HasUrl() bool {
 func (o *IdpStatusesModel) SetUrl(v string) {
 	o.Url.Set(&v)
 }
+
 // SetUrlNil sets the value for Url to be an explicit nil
 func (o *IdpStatusesModel) SetUrlNil() {
 	o.Url.Set(nil)
@@ -783,7 +792,7 @@ func (o *IdpStatusesModel) GetItemsOk() ([]IdpStatusModel, bool) {
 
 // HasItems returns a boolean if a field has been set.
 func (o *IdpStatusesModel) HasItems() bool {
-	if o != nil && IsNil(o.Items) {
+	if o != nil && !IsNil(o.Items) {
 		return true
 	}
 
@@ -827,6 +836,7 @@ func (o *IdpStatusesModel) HasContinuationToken() bool {
 func (o *IdpStatusesModel) SetContinuationToken(v string) {
 	o.ContinuationToken.Set(&v)
 }
+
 // SetContinuationTokenNil sets the value for ContinuationToken to be an explicit nil
 func (o *IdpStatusesModel) SetContinuationTokenNil() {
 	o.ContinuationToken.Set(nil)
@@ -838,7 +848,7 @@ func (o *IdpStatusesModel) UnsetContinuationToken() {
 }
 
 func (o IdpStatusesModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -948,5 +958,3 @@ func (v *NullableIdpStatusesModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,19 +12,17 @@ package ccresourcelocations
 
 import (
 	"encoding/json"
-	"bytes"
-	"fmt"
 )
 
 // checks if the CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel{}
 
-// CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel 
+// CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel
 type CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel struct {
 	// Id used for API calls regarding resource location.
 	Id *string `json:"id,omitempty"`
 	// Resource Location Name
-	Name string `json:"name"`
+	Name string `json:"name" validate:"regexp=[^\\/\\\\\\\\#?%|\\\\[\\\\]{}<>$^&+]+"`
 	// Resource Location Connectivity
 	InternalOnly *bool `json:"internalOnly,omitempty"`
 	// Time zone.
@@ -206,7 +204,7 @@ func (o *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel) Set
 }
 
 func (o CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -229,43 +227,6 @@ func (o CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel) ToMa
 		toSerialize["readOnly"] = o.ReadOnly
 	}
 	return toSerialize, nil
-}
-
-func (o *CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel) UnmarshalJSON(data []byte) (err error) {
-	// This validates that all required properties are included in the JSON object
-	// by unmarshalling the object into a generic map with string keys and checking
-	// that every required field exists as a key in the generic map.
-	requiredProperties := []string{
-		"name",
-	}
-
-	allProperties := make(map[string]interface{})
-
-	err = json.Unmarshal(data, &allProperties)
-
-	if err != nil {
-		return err;
-	}
-
-	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
-			return fmt.Errorf("no value given for required property %v", requiredProperty)
-		}
-	}
-
-	varCitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel := _CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel{}
-
-	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varCitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel)
-
-	if err != nil {
-		return err
-	}
-
-	*o = CitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel(varCitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel)
-
-	return err
 }
 
 type NullableCitrixCloudServicesRegistryApiModelsLocationsResourceLocationModel struct {
@@ -303,5 +264,3 @@ func (v *NullableCitrixCloudServicesRegistryApiModelsLocationsResourceLocationMo
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

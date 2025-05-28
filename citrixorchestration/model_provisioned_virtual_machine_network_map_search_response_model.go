@@ -78,6 +78,7 @@ func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) HasDeviceId() b
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetDeviceId(v string) {
 	o.DeviceId.Set(&v)
 }
+
 // SetDeviceIdNil sets the value for DeviceId to be an explicit nil
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetDeviceIdNil() {
 	o.DeviceId.Set(nil)
@@ -120,6 +121,7 @@ func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) HasNetworkId() 
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetNetworkId(v string) {
 	o.NetworkId.Set(&v)
 }
+
 // SetNetworkIdNil sets the value for NetworkId to be an explicit nil
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetNetworkIdNil() {
 	o.NetworkId.Set(nil)
@@ -162,6 +164,7 @@ func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) HasNetworkPath(
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetNetworkPath(v string) {
 	o.NetworkPath.Set(&v)
 }
+
 // SetNetworkPathNil sets the value for NetworkPath to be an explicit nil
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetNetworkPathNil() {
 	o.NetworkPath.Set(nil)
@@ -204,6 +207,7 @@ func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) HasNetworkName(
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetNetworkName(v string) {
 	o.NetworkName.Set(&v)
 }
+
 // SetNetworkNameNil sets the value for NetworkName to be an explicit nil
 func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) SetNetworkNameNil() {
 	o.NetworkName.Set(nil)
@@ -215,7 +219,7 @@ func (o *ProvisionedVirtualMachineNetworkMapSearchResponseModel) UnsetNetworkNam
 }
 
 func (o ProvisionedVirtualMachineNetworkMapSearchResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,5 +278,3 @@ func (v *NullableProvisionedVirtualMachineNetworkMapSearchResponseModel) Unmarsh
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

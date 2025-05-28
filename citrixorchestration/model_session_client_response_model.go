@@ -88,6 +88,7 @@ func (o *SessionClientResponseModel) HasDeviceId() bool {
 func (o *SessionClientResponseModel) SetDeviceId(v string) {
 	o.DeviceId.Set(&v)
 }
+
 // SetDeviceIdNil sets the value for DeviceId to be an explicit nil
 func (o *SessionClientResponseModel) SetDeviceIdNil() {
 	o.DeviceId.Set(nil)
@@ -130,6 +131,7 @@ func (o *SessionClientResponseModel) HasHardwareId() bool {
 func (o *SessionClientResponseModel) SetHardwareId(v string) {
 	o.HardwareId.Set(&v)
 }
+
 // SetHardwareIdNil sets the value for HardwareId to be an explicit nil
 func (o *SessionClientResponseModel) SetHardwareIdNil() {
 	o.HardwareId.Set(nil)
@@ -172,6 +174,7 @@ func (o *SessionClientResponseModel) HasIPAddress() bool {
 func (o *SessionClientResponseModel) SetIPAddress(v string) {
 	o.IPAddress.Set(&v)
 }
+
 // SetIPAddressNil sets the value for IPAddress to be an explicit nil
 func (o *SessionClientResponseModel) SetIPAddressNil() {
 	o.IPAddress.Set(nil)
@@ -214,6 +217,7 @@ func (o *SessionClientResponseModel) HasName() bool {
 func (o *SessionClientResponseModel) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *SessionClientResponseModel) SetNameNil() {
 	o.Name.Set(nil)
@@ -256,6 +260,7 @@ func (o *SessionClientResponseModel) HasPlatform() bool {
 func (o *SessionClientResponseModel) SetPlatform(v string) {
 	o.Platform.Set(&v)
 }
+
 // SetPlatformNil sets the value for Platform to be an explicit nil
 func (o *SessionClientResponseModel) SetPlatformNil() {
 	o.Platform.Set(nil)
@@ -298,6 +303,7 @@ func (o *SessionClientResponseModel) HasProductId() bool {
 func (o *SessionClientResponseModel) SetProductId(v int32) {
 	o.ProductId.Set(&v)
 }
+
 // SetProductIdNil sets the value for ProductId to be an explicit nil
 func (o *SessionClientResponseModel) SetProductIdNil() {
 	o.ProductId.Set(nil)
@@ -340,6 +346,7 @@ func (o *SessionClientResponseModel) HasReceiverIPAddress() bool {
 func (o *SessionClientResponseModel) SetReceiverIPAddress(v string) {
 	o.ReceiverIPAddress.Set(&v)
 }
+
 // SetReceiverIPAddressNil sets the value for ReceiverIPAddress to be an explicit nil
 func (o *SessionClientResponseModel) SetReceiverIPAddressNil() {
 	o.ReceiverIPAddress.Set(nil)
@@ -382,6 +389,7 @@ func (o *SessionClientResponseModel) HasReceiverName() bool {
 func (o *SessionClientResponseModel) SetReceiverName(v string) {
 	o.ReceiverName.Set(&v)
 }
+
 // SetReceiverNameNil sets the value for ReceiverName to be an explicit nil
 func (o *SessionClientResponseModel) SetReceiverNameNil() {
 	o.ReceiverName.Set(nil)
@@ -424,6 +432,7 @@ func (o *SessionClientResponseModel) HasVersion() bool {
 func (o *SessionClientResponseModel) SetVersion(v string) {
 	o.Version.Set(&v)
 }
+
 // SetVersionNil sets the value for Version to be an explicit nil
 func (o *SessionClientResponseModel) SetVersionNil() {
 	o.Version.Set(nil)
@@ -435,7 +444,7 @@ func (o *SessionClientResponseModel) UnsetVersion() {
 }
 
 func (o SessionClientResponseModel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -509,5 +518,3 @@ func (v *NullableSessionClientResponseModel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

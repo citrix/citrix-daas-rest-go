@@ -20,27 +20,27 @@ type BackupRestorePlaybookActionState string
 
 // List of BackupRestorePlaybookActionState
 const (
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_UNKNOWN BackupRestorePlaybookActionState = "Unknown"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_READING BackupRestorePlaybookActionState = "Reading"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_READING_CLOUD BackupRestorePlaybookActionState = "ReadingCloud"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_EVALUATING BackupRestorePlaybookActionState = "Evaluating"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_PREREQ_EVALUATING BackupRestorePlaybookActionState = "PrereqEvaluating"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_UNKNOWN                  BackupRestorePlaybookActionState = "Unknown"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_READING                  BackupRestorePlaybookActionState = "Reading"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_READING_CLOUD            BackupRestorePlaybookActionState = "ReadingCloud"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_EVALUATING               BackupRestorePlaybookActionState = "Evaluating"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_PREREQ_EVALUATING        BackupRestorePlaybookActionState = "PrereqEvaluating"
 	BACKUPRESTOREPLAYBOOKACTIONSTATE_ADDING_UPDATING_DELETING BackupRestorePlaybookActionState = "AddingUpdatingDeleting"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_ADDING BackupRestorePlaybookActionState = "Adding"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_UPDATING BackupRestorePlaybookActionState = "Updating"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_DELETING BackupRestorePlaybookActionState = "Deleting"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_RE_READING BackupRestorePlaybookActionState = "ReReading"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_VERIFYING BackupRestorePlaybookActionState = "Verifying"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_VERIFIED BackupRestorePlaybookActionState = "Verified"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_VERIFY_FAILED BackupRestorePlaybookActionState = "VerifyFailed"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_COMPLETE BackupRestorePlaybookActionState = "Complete"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_WRITING BackupRestorePlaybookActionState = "Writing"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_FAILED BackupRestorePlaybookActionState = "Failed"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_SKIPPING BackupRestorePlaybookActionState = "Skipping"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_ADDING                   BackupRestorePlaybookActionState = "Adding"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_UPDATING                 BackupRestorePlaybookActionState = "Updating"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_DELETING                 BackupRestorePlaybookActionState = "Deleting"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_RE_READING               BackupRestorePlaybookActionState = "ReReading"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_VERIFYING                BackupRestorePlaybookActionState = "Verifying"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_VERIFIED                 BackupRestorePlaybookActionState = "Verified"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_VERIFY_FAILED            BackupRestorePlaybookActionState = "VerifyFailed"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_COMPLETE                 BackupRestorePlaybookActionState = "Complete"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_WRITING                  BackupRestorePlaybookActionState = "Writing"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_FAILED                   BackupRestorePlaybookActionState = "Failed"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_SKIPPING                 BackupRestorePlaybookActionState = "Skipping"
 	BACKUPRESTOREPLAYBOOKACTIONSTATE_SKIP_DUE_TO_MISSING_INFO BackupRestorePlaybookActionState = "SkipDueToMissingInfo"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_ADD_STARTED BackupRestorePlaybookActionState = "AddStarted"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_UPDATE_STARTED BackupRestorePlaybookActionState = "UpdateStarted"
-	BACKUPRESTOREPLAYBOOKACTIONSTATE_DELETE_STARTED BackupRestorePlaybookActionState = "DeleteStarted"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_ADD_STARTED              BackupRestorePlaybookActionState = "AddStarted"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_UPDATE_STARTED           BackupRestorePlaybookActionState = "UpdateStarted"
+	BACKUPRESTOREPLAYBOOKACTIONSTATE_DELETE_STARTED           BackupRestorePlaybookActionState = "DeleteStarted"
 )
 
 // All allowed values of BackupRestorePlaybookActionState enum
@@ -74,7 +74,7 @@ func (v *BackupRestorePlaybookActionState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = BackupRestorePlaybookActionState(value)
 	return nil
 }
@@ -140,4 +140,3 @@ func (v *NullableBackupRestorePlaybookActionState) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

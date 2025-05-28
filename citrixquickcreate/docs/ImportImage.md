@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountType** | [**AccountType**](AccountType.md) |  | 
+**AccountType** | [**AccountType**](AccountType.md) | The type of provider associated with the account | 
 **Name** | **string** | Image Name | 
 **Description** | Pointer to **NullableString** | Image Description | [optional] 
 **Notes** | Pointer to **NullableString** | Image Notes | [optional] 
-**SessionSupport** | Pointer to [**NullableSessionSupport**](SessionSupport.md) |  | [optional] 
+**SessionSupport** | Pointer to [**NullableSessionSupport**](SessionSupport.md) | Session Type | [optional] 
 
 ## Methods
 

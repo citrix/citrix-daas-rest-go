@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ResourceType** | Pointer to [**AwsAccountResourceType**](AwsAccountResourceType.md) |  | [optional] 
+**ResourceType** | Pointer to [**AwsAccountResourceType**](AwsAccountResourceType.md) | AWS Resource type to search | [optional] 
 **AwsRoleArn** | Pointer to **NullableString** | The ARN of the role to assume when searching for resources in an account that has not been added yet | [optional] 
 **AwsRegion** | Pointer to **NullableString** | The AWS region to use | [optional] 
 

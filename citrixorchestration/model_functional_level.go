@@ -21,18 +21,18 @@ type FunctionalLevel string
 // List of FunctionalLevel
 const (
 	FUNCTIONALLEVEL_UNKNOWN FunctionalLevel = "Unknown"
-	FUNCTIONALLEVEL_L5 FunctionalLevel = "L5"
-	FUNCTIONALLEVEL_LMIN FunctionalLevel = "LMIN"
-	FUNCTIONALLEVEL_L7 FunctionalLevel = "L7"
-	FUNCTIONALLEVEL_L7_6 FunctionalLevel = "L7_6"
-	FUNCTIONALLEVEL_L7_7 FunctionalLevel = "L7_7"
-	FUNCTIONALLEVEL_L7_8 FunctionalLevel = "L7_8"
-	FUNCTIONALLEVEL_L7_9 FunctionalLevel = "L7_9"
-	FUNCTIONALLEVEL_L7_20 FunctionalLevel = "L7_20"
-	FUNCTIONALLEVEL_L7_25 FunctionalLevel = "L7_25"
-	FUNCTIONALLEVEL_L7_30 FunctionalLevel = "L7_30"
-	FUNCTIONALLEVEL_L7_34 FunctionalLevel = "L7_34"
-	FUNCTIONALLEVEL_LMAX FunctionalLevel = "LMAX"
+	FUNCTIONALLEVEL_L5      FunctionalLevel = "L5"
+	FUNCTIONALLEVEL_LMIN    FunctionalLevel = "LMIN"
+	FUNCTIONALLEVEL_L7      FunctionalLevel = "L7"
+	FUNCTIONALLEVEL_L7_6    FunctionalLevel = "L7_6"
+	FUNCTIONALLEVEL_L7_7    FunctionalLevel = "L7_7"
+	FUNCTIONALLEVEL_L7_8    FunctionalLevel = "L7_8"
+	FUNCTIONALLEVEL_L7_9    FunctionalLevel = "L7_9"
+	FUNCTIONALLEVEL_L7_20   FunctionalLevel = "L7_20"
+	FUNCTIONALLEVEL_L7_25   FunctionalLevel = "L7_25"
+	FUNCTIONALLEVEL_L7_30   FunctionalLevel = "L7_30"
+	FUNCTIONALLEVEL_L7_34   FunctionalLevel = "L7_34"
+	FUNCTIONALLEVEL_LMAX    FunctionalLevel = "LMAX"
 )
 
 // All allowed values of FunctionalLevel enum
@@ -58,7 +58,7 @@ func (v *FunctionalLevel) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	
+
 	*v = FunctionalLevel(value)
 	return nil
 }
@@ -124,4 +124,3 @@ func (v *NullableFunctionalLevel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

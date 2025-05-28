@@ -19,6 +19,7 @@ var _ MappedNullable = &ResourceConnectionWarning{}
 
 // ResourceConnectionWarning struct for ResourceConnectionWarning
 type ResourceConnectionWarning struct {
+	// Type of resource connection warning
 	WarningType *ResourceConnectionWarningType `json:"warningType,omitempty"`
 	// Id of the warning
 	Id NullableString `json:"id,omitempty"`
@@ -115,6 +116,7 @@ func (o *ResourceConnectionWarning) HasId() bool {
 func (o *ResourceConnectionWarning) SetId(v string) {
 	o.Id.Set(&v)
 }
+
 // SetIdNil sets the value for Id to be an explicit nil
 func (o *ResourceConnectionWarning) SetIdNil() {
 	o.Id.Set(nil)
@@ -157,6 +159,7 @@ func (o *ResourceConnectionWarning) HasWarning() bool {
 func (o *ResourceConnectionWarning) SetWarning(v string) {
 	o.Warning.Set(&v)
 }
+
 // SetWarningNil sets the value for Warning to be an explicit nil
 func (o *ResourceConnectionWarning) SetWarningNil() {
 	o.Warning.Set(nil)
@@ -199,6 +202,7 @@ func (o *ResourceConnectionWarning) HasTaskId() bool {
 func (o *ResourceConnectionWarning) SetTaskId(v string) {
 	o.TaskId.Set(&v)
 }
+
 // SetTaskIdNil sets the value for TaskId to be an explicit nil
 func (o *ResourceConnectionWarning) SetTaskIdNil() {
 	o.TaskId.Set(nil)
@@ -305,6 +309,7 @@ func (o *ResourceConnectionWarning) HasTransactionId() bool {
 func (o *ResourceConnectionWarning) SetTransactionId(v string) {
 	o.TransactionId.Set(&v)
 }
+
 // SetTransactionIdNil sets the value for TransactionId to be an explicit nil
 func (o *ResourceConnectionWarning) SetTransactionIdNil() {
 	o.TransactionId.Set(nil)
@@ -316,7 +321,7 @@ func (o *ResourceConnectionWarning) UnsetTransactionId() {
 }
 
 func (o ResourceConnectionWarning) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -384,5 +389,3 @@ func (v *NullableResourceConnectionWarning) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
